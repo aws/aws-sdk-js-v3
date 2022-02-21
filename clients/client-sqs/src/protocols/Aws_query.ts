@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
@@ -9,10 +10,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -106,6 +105,7 @@ import {
   UnsupportedOperation,
   UntagQueueRequest,
 } from "../models/models_0";
+import { SQSServiceException as __BaseException } from "../models/SQSServiceException";
 
 export const serializeAws_queryAddPermissionCommand = async (
   input: AddPermissionCommandInput,
@@ -449,33 +449,22 @@ const deserializeAws_queryAddPermissionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OverLimit":
     case "com.amazonaws.sqs#OverLimit":
-      response = {
-        ...(await deserializeAws_queryOverLimitResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOverLimitResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryChangeMessageVisibilityCommand = async (
@@ -500,41 +489,25 @@ const deserializeAws_queryChangeMessageVisibilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MessageNotInflight":
     case "com.amazonaws.sqs#MessageNotInflight":
-      response = {
-        ...(await deserializeAws_queryMessageNotInflightResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMessageNotInflightResponse(parsedOutput, context);
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      response = {
-        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryChangeMessageVisibilityBatchCommand = async (
@@ -562,57 +535,31 @@ const deserializeAws_queryChangeMessageVisibilityBatchCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateQueueCommand = async (
@@ -640,41 +587,25 @@ const deserializeAws_queryCreateQueueCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "QueueDeletedRecently":
     case "com.amazonaws.sqs#QueueDeletedRecently":
-      response = {
-        ...(await deserializeAws_queryQueueDeletedRecentlyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryQueueDeletedRecentlyResponse(parsedOutput, context);
     case "QueueNameExists":
     case "com.amazonaws.sqs#QueueNameExists":
-      response = {
-        ...(await deserializeAws_queryQueueNameExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryQueueNameExistsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteMessageCommand = async (
@@ -699,41 +630,25 @@ const deserializeAws_queryDeleteMessageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidIdFormat":
     case "com.amazonaws.sqs#InvalidIdFormat":
-      response = {
-        ...(await deserializeAws_queryInvalidIdFormatResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidIdFormatResponse(parsedOutput, context);
     case "ReceiptHandleIsInvalid":
     case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      response = {
-        ...(await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReceiptHandleIsInvalidResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteMessageBatchCommand = async (
@@ -761,57 +676,31 @@ const deserializeAws_queryDeleteMessageBatchCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteQueueCommand = async (
@@ -836,25 +725,19 @@ const deserializeAws_queryDeleteQueueCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetQueueAttributesCommand = async (
@@ -882,33 +765,22 @@ const deserializeAws_queryGetQueueAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
-      response = {
-        ...(await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetQueueUrlCommand = async (
@@ -936,33 +808,22 @@ const deserializeAws_queryGetQueueUrlCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListDeadLetterSourceQueuesCommand = async (
@@ -990,33 +851,22 @@ const deserializeAws_queryListDeadLetterSourceQueuesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListQueuesCommand = async (
@@ -1044,25 +894,19 @@ const deserializeAws_queryListQueuesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListQueueTagsCommand = async (
@@ -1090,25 +934,19 @@ const deserializeAws_queryListQueueTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPurgeQueueCommand = async (
@@ -1133,41 +971,25 @@ const deserializeAws_queryPurgeQueueCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PurgeQueueInProgress":
     case "com.amazonaws.sqs#PurgeQueueInProgress":
-      response = {
-        ...(await deserializeAws_queryPurgeQueueInProgressResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPurgeQueueInProgressResponse(parsedOutput, context);
     case "QueueDoesNotExist":
     case "com.amazonaws.sqs#QueueDoesNotExist":
-      response = {
-        ...(await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryQueueDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryReceiveMessageCommand = async (
@@ -1195,33 +1017,22 @@ const deserializeAws_queryReceiveMessageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OverLimit":
     case "com.amazonaws.sqs#OverLimit":
-      response = {
-        ...(await deserializeAws_queryOverLimitResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOverLimitResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemovePermissionCommand = async (
@@ -1246,25 +1057,19 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySendMessageCommand = async (
@@ -1292,41 +1097,25 @@ const deserializeAws_querySendMessageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidMessageContents":
     case "com.amazonaws.sqs#InvalidMessageContents":
-      response = {
-        ...(await deserializeAws_queryInvalidMessageContentsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidMessageContentsResponse(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
-      response = {
-        ...(await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySendMessageBatchCommand = async (
@@ -1354,73 +1143,37 @@ const deserializeAws_querySendMessageBatchCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      response = {
-        ...(await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBatchEntryIdsNotDistinctResponse(parsedOutput, context);
     case "BatchRequestTooLong":
     case "com.amazonaws.sqs#BatchRequestTooLong":
-      response = {
-        ...(await deserializeAws_queryBatchRequestTooLongResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBatchRequestTooLongResponse(parsedOutput, context);
     case "EmptyBatchRequest":
     case "com.amazonaws.sqs#EmptyBatchRequest":
-      response = {
-        ...(await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEmptyBatchRequestResponse(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sqs#InvalidBatchEntryId":
-      response = {
-        ...(await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidBatchEntryIdResponse(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      response = {
-        ...(await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyEntriesInBatchRequestResponse(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
-      response = {
-        ...(await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnsupportedOperationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetQueueAttributesCommand = async (
@@ -1445,33 +1198,22 @@ const deserializeAws_querySetQueueAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAttributeName":
     case "com.amazonaws.sqs#InvalidAttributeName":
-      response = {
-        ...(await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidAttributeNameResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagQueueCommand = async (
@@ -1496,25 +1238,19 @@ const deserializeAws_queryTagQueueCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagQueueCommand = async (
@@ -1539,25 +1275,19 @@ const deserializeAws_queryUntagQueueCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryBatchEntryIdsNotDistinctResponse = async (
@@ -1566,13 +1296,11 @@ const deserializeAws_queryBatchEntryIdsNotDistinctResponse = async (
 ): Promise<BatchEntryIdsNotDistinct> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBatchEntryIdsNotDistinct(body.Error, context);
-  const contents: BatchEntryIdsNotDistinct = {
-    name: "BatchEntryIdsNotDistinct",
-    $fault: "client",
+  const exception = new BatchEntryIdsNotDistinct({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryBatchRequestTooLongResponse = async (
@@ -1581,13 +1309,11 @@ const deserializeAws_queryBatchRequestTooLongResponse = async (
 ): Promise<BatchRequestTooLong> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBatchRequestTooLong(body.Error, context);
-  const contents: BatchRequestTooLong = {
-    name: "BatchRequestTooLong",
-    $fault: "client",
+  const exception = new BatchRequestTooLong({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryEmptyBatchRequestResponse = async (
@@ -1596,13 +1322,11 @@ const deserializeAws_queryEmptyBatchRequestResponse = async (
 ): Promise<EmptyBatchRequest> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryEmptyBatchRequest(body.Error, context);
-  const contents: EmptyBatchRequest = {
-    name: "EmptyBatchRequest",
-    $fault: "client",
+  const exception = new EmptyBatchRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidAttributeNameResponse = async (
@@ -1611,13 +1335,11 @@ const deserializeAws_queryInvalidAttributeNameResponse = async (
 ): Promise<InvalidAttributeName> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidAttributeName(body.Error, context);
-  const contents: InvalidAttributeName = {
-    name: "InvalidAttributeName",
-    $fault: "client",
+  const exception = new InvalidAttributeName({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidBatchEntryIdResponse = async (
@@ -1626,13 +1348,11 @@ const deserializeAws_queryInvalidBatchEntryIdResponse = async (
 ): Promise<InvalidBatchEntryId> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidBatchEntryId(body.Error, context);
-  const contents: InvalidBatchEntryId = {
-    name: "InvalidBatchEntryId",
-    $fault: "client",
+  const exception = new InvalidBatchEntryId({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidIdFormatResponse = async (
@@ -1641,13 +1361,11 @@ const deserializeAws_queryInvalidIdFormatResponse = async (
 ): Promise<InvalidIdFormat> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidIdFormat(body.Error, context);
-  const contents: InvalidIdFormat = {
-    name: "InvalidIdFormat",
-    $fault: "client",
+  const exception = new InvalidIdFormat({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidMessageContentsResponse = async (
@@ -1656,13 +1374,11 @@ const deserializeAws_queryInvalidMessageContentsResponse = async (
 ): Promise<InvalidMessageContents> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidMessageContents(body.Error, context);
-  const contents: InvalidMessageContents = {
-    name: "InvalidMessageContents",
-    $fault: "client",
+  const exception = new InvalidMessageContents({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryMessageNotInflightResponse = async (
@@ -1671,13 +1387,11 @@ const deserializeAws_queryMessageNotInflightResponse = async (
 ): Promise<MessageNotInflight> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryMessageNotInflight(body.Error, context);
-  const contents: MessageNotInflight = {
-    name: "MessageNotInflight",
-    $fault: "client",
+  const exception = new MessageNotInflight({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryOverLimitResponse = async (
@@ -1686,13 +1400,11 @@ const deserializeAws_queryOverLimitResponse = async (
 ): Promise<OverLimit> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOverLimit(body.Error, context);
-  const contents: OverLimit = {
-    name: "OverLimit",
-    $fault: "client",
+  const exception = new OverLimit({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPurgeQueueInProgressResponse = async (
@@ -1701,13 +1413,11 @@ const deserializeAws_queryPurgeQueueInProgressResponse = async (
 ): Promise<PurgeQueueInProgress> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPurgeQueueInProgress(body.Error, context);
-  const contents: PurgeQueueInProgress = {
-    name: "PurgeQueueInProgress",
-    $fault: "client",
+  const exception = new PurgeQueueInProgress({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryQueueDeletedRecentlyResponse = async (
@@ -1716,13 +1426,11 @@ const deserializeAws_queryQueueDeletedRecentlyResponse = async (
 ): Promise<QueueDeletedRecently> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryQueueDeletedRecently(body.Error, context);
-  const contents: QueueDeletedRecently = {
-    name: "QueueDeletedRecently",
-    $fault: "client",
+  const exception = new QueueDeletedRecently({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryQueueDoesNotExistResponse = async (
@@ -1731,13 +1439,11 @@ const deserializeAws_queryQueueDoesNotExistResponse = async (
 ): Promise<QueueDoesNotExist> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryQueueDoesNotExist(body.Error, context);
-  const contents: QueueDoesNotExist = {
-    name: "QueueDoesNotExist",
-    $fault: "client",
+  const exception = new QueueDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryQueueNameExistsResponse = async (
@@ -1746,13 +1452,11 @@ const deserializeAws_queryQueueNameExistsResponse = async (
 ): Promise<QueueNameExists> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryQueueNameExists(body.Error, context);
-  const contents: QueueNameExists = {
-    name: "QueueNameExists",
-    $fault: "client",
+  const exception = new QueueNameExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReceiptHandleIsInvalidResponse = async (
@@ -1761,13 +1465,11 @@ const deserializeAws_queryReceiptHandleIsInvalidResponse = async (
 ): Promise<ReceiptHandleIsInvalid> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReceiptHandleIsInvalid(body.Error, context);
-  const contents: ReceiptHandleIsInvalid = {
-    name: "ReceiptHandleIsInvalid",
-    $fault: "client",
+  const exception = new ReceiptHandleIsInvalid({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTooManyEntriesInBatchRequestResponse = async (
@@ -1776,13 +1478,11 @@ const deserializeAws_queryTooManyEntriesInBatchRequestResponse = async (
 ): Promise<TooManyEntriesInBatchRequest> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyEntriesInBatchRequest(body.Error, context);
-  const contents: TooManyEntriesInBatchRequest = {
-    name: "TooManyEntriesInBatchRequest",
-    $fault: "client",
+  const exception = new TooManyEntriesInBatchRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUnsupportedOperationResponse = async (
@@ -1791,13 +1491,11 @@ const deserializeAws_queryUnsupportedOperationResponse = async (
 ): Promise<UnsupportedOperation> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUnsupportedOperation(body.Error, context);
-  const contents: UnsupportedOperation = {
-    name: "UnsupportedOperation",
-    $fault: "client",
+  const exception = new UnsupportedOperation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryActionNameList = (input: string[], context: __SerdeContext): any => {

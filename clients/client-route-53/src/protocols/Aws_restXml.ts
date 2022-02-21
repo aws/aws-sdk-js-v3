@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -14,10 +15,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { decodeHTML } from "entities";
@@ -322,6 +321,7 @@ import {
   VPCAssociationAuthorizationNotFound,
   VPCAssociationNotFound,
 } from "../models/models_0";
+import { Route53ServiceException as __BaseException } from "../models/Route53ServiceException";
 
 export const serializeAws_restXmlActivateKeySigningKeyCommand = async (
   input: ActivateKeySigningKeyCommandInput,
@@ -2619,73 +2619,37 @@ const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
     case "NoSuchKeySigningKey":
     case "com.amazonaws.route53#NoSuchKeySigningKey":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
@@ -2714,89 +2678,43 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
     case "com.amazonaws.route53#ConflictingDomainExists":
-      response = {
-        ...(await deserializeAws_restXmlConflictingDomainExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConflictingDomainExistsResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidVPCId":
     case "com.amazonaws.route53#InvalidVPCId":
-      response = {
-        ...(await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context);
     case "LimitsExceeded":
     case "com.amazonaws.route53#LimitsExceeded":
-      response = {
-        ...(await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.route53#NotAuthorizedException":
-      response = {
-        ...(await deserializeAws_restXmlNotAuthorizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNotAuthorizedExceptionResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     case "PublicZoneVPCAssociation":
     case "com.amazonaws.route53#PublicZoneVPCAssociation":
-      response = {
-        ...(await deserializeAws_restXmlPublicZoneVPCAssociationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPublicZoneVPCAssociationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlChangeResourceRecordSetsCommand = async (
@@ -2825,65 +2743,34 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidChangeBatch":
     case "com.amazonaws.route53#InvalidChangeBatch":
-      response = {
-        ...(await deserializeAws_restXmlInvalidChangeBatchResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidChangeBatchResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlChangeTagsForResourceCommand = async (
@@ -2908,65 +2795,34 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateHealthCheckCommand = async (
@@ -2999,49 +2855,28 @@ const deserializeAws_restXmlCreateHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckAlreadyExists":
     case "com.amazonaws.route53#HealthCheckAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlHealthCheckAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHealthCheckAlreadyExistsResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "TooManyHealthChecks":
     case "com.amazonaws.route53#TooManyHealthChecks":
-      response = {
-        ...(await deserializeAws_restXmlTooManyHealthChecksResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyHealthChecksResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateHostedZoneCommand = async (
@@ -3086,97 +2921,46 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
     case "com.amazonaws.route53#ConflictingDomainExists":
-      response = {
-        ...(await deserializeAws_restXmlConflictingDomainExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConflictingDomainExistsResponse(parsedOutput, context);
     case "DelegationSetNotAvailable":
     case "com.amazonaws.route53#DelegationSetNotAvailable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotAvailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotAvailableResponse(parsedOutput, context);
     case "DelegationSetNotReusable":
     case "com.amazonaws.route53#DelegationSetNotReusable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context);
     case "HostedZoneAlreadyExists":
     case "com.amazonaws.route53#HostedZoneAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlHostedZoneAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHostedZoneAlreadyExistsResponse(parsedOutput, context);
     case "InvalidDomainName":
     case "com.amazonaws.route53#InvalidDomainName":
-      response = {
-        ...(await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidVPCId":
     case "com.amazonaws.route53#InvalidVPCId":
-      response = {
-        ...(await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context);
     case "NoSuchDelegationSet":
     case "com.amazonaws.route53#NoSuchDelegationSet":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context);
     case "TooManyHostedZones":
     case "com.amazonaws.route53#TooManyHostedZones":
-      response = {
-        ...(await deserializeAws_restXmlTooManyHostedZonesResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyHostedZonesResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateKeySigningKeyCommand = async (
@@ -3213,105 +2997,49 @@ const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidArgument":
     case "com.amazonaws.route53#InvalidArgument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyName":
     case "com.amazonaws.route53#InvalidKeySigningKeyName":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyNameResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
     case "KeySigningKeyAlreadyExists":
     case "com.amazonaws.route53#KeySigningKeyAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlKeySigningKeyAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlKeySigningKeyAlreadyExistsResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "TooManyKeySigningKeys":
     case "com.amazonaws.route53#TooManyKeySigningKeys":
-      response = {
-        ...(await deserializeAws_restXmlTooManyKeySigningKeysResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyKeySigningKeysResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateQueryLoggingConfigCommand = async (
@@ -3344,73 +3072,37 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InsufficientCloudWatchLogsResourcePolicy":
     case "com.amazonaws.route53#InsufficientCloudWatchLogsResourcePolicy":
-      response = {
-        ...(await deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchCloudWatchLogsLogGroup":
     case "com.amazonaws.route53#NoSuchCloudWatchLogsLogGroup":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "QueryLoggingConfigAlreadyExists":
     case "com.amazonaws.route53#QueryLoggingConfigAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateReusableDelegationSetCommand = async (
@@ -3443,81 +3135,40 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetAlreadyCreated":
     case "com.amazonaws.route53#DelegationSetAlreadyCreated":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetAlreadyCreatedResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetAlreadyCreatedResponse(parsedOutput, context);
     case "DelegationSetAlreadyReusable":
     case "com.amazonaws.route53#DelegationSetAlreadyReusable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetAlreadyReusableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetAlreadyReusableResponse(parsedOutput, context);
     case "DelegationSetNotAvailable":
     case "com.amazonaws.route53#DelegationSetNotAvailable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotAvailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotAvailableResponse(parsedOutput, context);
     case "HostedZoneNotFound":
     case "com.amazonaws.route53#HostedZoneNotFound":
-      response = {
-        ...(await deserializeAws_restXmlHostedZoneNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHostedZoneNotFoundResponse(parsedOutput, context);
     case "InvalidArgument":
     case "com.amazonaws.route53#InvalidArgument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "LimitsExceeded":
     case "com.amazonaws.route53#LimitsExceeded":
-      response = {
-        ...(await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlLimitsExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateTrafficPolicyCommand = async (
@@ -3550,57 +3201,31 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidTrafficPolicyDocument":
     case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(parsedOutput, context);
     case "TooManyTrafficPolicies":
     case "com.amazonaws.route53#TooManyTrafficPolicies":
-      response = {
-        ...(await deserializeAws_restXmlTooManyTrafficPoliciesResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyTrafficPoliciesResponse(parsedOutput, context);
     case "TrafficPolicyAlreadyExists":
     case "com.amazonaws.route53#TrafficPolicyAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
@@ -3636,65 +3261,34 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     case "TooManyTrafficPolicyInstances":
     case "com.amazonaws.route53#TooManyTrafficPolicyInstances":
-      response = {
-        ...(await deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse(parsedOutput, context);
     case "TrafficPolicyInstanceAlreadyExists":
     case "com.amazonaws.route53#TrafficPolicyInstanceAlreadyExists":
-      response = {
-        ...(await deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
@@ -3727,65 +3321,34 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidTrafficPolicyDocument":
     case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     case "TooManyTrafficPolicyVersionsForCurrentPolicy":
     case "com.amazonaws.route53#TooManyTrafficPolicyVersionsForCurrentPolicy":
-      response = {
-        ...(await deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand = async (
@@ -3818,65 +3381,34 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidVPCId":
     case "com.amazonaws.route53#InvalidVPCId":
-      response = {
-        ...(await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "TooManyVPCAssociationAuthorizations":
     case "com.amazonaws.route53#TooManyVPCAssociationAuthorizations":
-      response = {
-        ...(await deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeactivateKeySigningKeyCommand = async (
@@ -3905,81 +3437,40 @@ const deserializeAws_restXmlDeactivateKeySigningKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
     case "KeySigningKeyInParentDSRecord":
     case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
-      response = {
-        ...(await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context);
     case "KeySigningKeyInUse":
     case "com.amazonaws.route53#KeySigningKeyInUse":
-      response = {
-        ...(await deserializeAws_restXmlKeySigningKeyInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlKeySigningKeyInUseResponse(parsedOutput, context);
     case "NoSuchKeySigningKey":
     case "com.amazonaws.route53#NoSuchKeySigningKey":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteHealthCheckCommand = async (
@@ -4004,49 +3495,28 @@ const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckInUse":
     case "com.amazonaws.route53#HealthCheckInUse":
-      response = {
-        ...(await deserializeAws_restXmlHealthCheckInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHealthCheckInUseResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteHostedZoneCommand = async (
@@ -4075,65 +3545,34 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotEmpty":
     case "com.amazonaws.route53#HostedZoneNotEmpty":
-      response = {
-        ...(await deserializeAws_restXmlHostedZoneNotEmptyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHostedZoneNotEmptyResponse(parsedOutput, context);
     case "InvalidDomainName":
     case "com.amazonaws.route53#InvalidDomainName":
-      response = {
-        ...(await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteKeySigningKeyCommand = async (
@@ -4162,73 +3601,37 @@ const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "InvalidSigningStatus":
     case "com.amazonaws.route53#InvalidSigningStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidSigningStatusResponse(parsedOutput, context);
     case "NoSuchKeySigningKey":
     case "com.amazonaws.route53#NoSuchKeySigningKey":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchKeySigningKeyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteQueryLoggingConfigCommand = async (
@@ -4253,49 +3656,28 @@ const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchQueryLoggingConfig":
     case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteReusableDelegationSetCommand = async (
@@ -4320,57 +3702,31 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetInUse":
     case "com.amazonaws.route53#DelegationSetInUse":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetInUseResponse(parsedOutput, context);
     case "DelegationSetNotReusable":
     case "com.amazonaws.route53#DelegationSetNotReusable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchDelegationSet":
     case "com.amazonaws.route53#NoSuchDelegationSet":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteTrafficPolicyCommand = async (
@@ -4395,57 +3751,31 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     case "TrafficPolicyInUse":
     case "com.amazonaws.route53#TrafficPolicyInUse":
-      response = {
-        ...(await deserializeAws_restXmlTrafficPolicyInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlTrafficPolicyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand = async (
@@ -4470,49 +3800,28 @@ const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = async (
@@ -4537,65 +3846,34 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidVPCId":
     case "com.amazonaws.route53#InvalidVPCId":
-      response = {
-        ...(await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "VPCAssociationAuthorizationNotFound":
     case "com.amazonaws.route53#VPCAssociationAuthorizationNotFound":
-      response = {
-        ...(await deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDisableHostedZoneDNSSECCommand = async (
@@ -4624,89 +3902,43 @@ const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "DNSSECNotFound":
     case "com.amazonaws.route53#DNSSECNotFound":
-      response = {
-        ...(await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context);
     case "InvalidArgument":
     case "com.amazonaws.route53#InvalidArgument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "KeySigningKeyInParentDSRecord":
     case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
-      response = {
-        ...(await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
@@ -4735,65 +3967,34 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidVPCId":
     case "com.amazonaws.route53#InvalidVPCId":
-      response = {
-        ...(await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidVPCIdResponse(parsedOutput, context);
     case "LastVPCAssociation":
     case "com.amazonaws.route53#LastVPCAssociation":
-      response = {
-        ...(await deserializeAws_restXmlLastVPCAssociationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlLastVPCAssociationResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "VPCAssociationNotFound":
     case "com.amazonaws.route53#VPCAssociationNotFound":
-      response = {
-        ...(await deserializeAws_restXmlVPCAssociationNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlVPCAssociationNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlEnableHostedZoneDNSSECCommand = async (
@@ -4822,97 +4023,46 @@ const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "DNSSECNotFound":
     case "com.amazonaws.route53#DNSSECNotFound":
-      response = {
-        ...(await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDNSSECNotFoundResponse(parsedOutput, context);
     case "HostedZonePartiallyDelegated":
     case "com.amazonaws.route53#HostedZonePartiallyDelegated":
-      response = {
-        ...(await deserializeAws_restXmlHostedZonePartiallyDelegatedResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHostedZonePartiallyDelegatedResponse(parsedOutput, context);
     case "InvalidArgument":
     case "com.amazonaws.route53#InvalidArgument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidKeySigningKeyStatus":
     case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKeySigningKeyStatusResponse(parsedOutput, context);
     case "InvalidKMSArn":
     case "com.amazonaws.route53#InvalidKMSArn":
-      response = {
-        ...(await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidKMSArnResponse(parsedOutput, context);
     case "KeySigningKeyWithActiveStatusNotFound":
     case "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound":
-      response = {
-        ...(await deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetAccountLimitCommand = async (
@@ -4945,33 +4095,22 @@ const deserializeAws_restXmlGetAccountLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetChangeCommand = async (
@@ -5000,41 +4139,25 @@ const deserializeAws_restXmlGetChangeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchChange":
     case "com.amazonaws.route53#NoSuchChange":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchChangeResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchChangeResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
@@ -5069,25 +4192,19 @@ const deserializeAws_restXmlGetCheckerIpRangesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetDNSSECCommand = async (
@@ -5126,49 +4243,28 @@ const deserializeAws_restXmlGetDNSSECCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
     case "com.amazonaws.route53#InvalidArgument":
-      response = {
-        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetGeoLocationCommand = async (
@@ -5197,41 +4293,25 @@ const deserializeAws_restXmlGetGeoLocationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchGeoLocation":
     case "com.amazonaws.route53#NoSuchGeoLocation":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchGeoLocationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchGeoLocationResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHealthCheckCommand = async (
@@ -5260,49 +4340,28 @@ const deserializeAws_restXmlGetHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
     case "com.amazonaws.route53#IncompatibleVersion":
-      response = {
-        ...(await deserializeAws_restXmlIncompatibleVersionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlIncompatibleVersionResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHealthCheckCountCommand = async (
@@ -5331,25 +4390,19 @@ const deserializeAws_restXmlGetHealthCheckCountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = async (
@@ -5387,41 +4440,25 @@ const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
@@ -5459,41 +4496,25 @@ const deserializeAws_restXmlGetHealthCheckStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHostedZoneCommand = async (
@@ -5533,41 +4554,25 @@ const deserializeAws_restXmlGetHostedZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHostedZoneCountCommand = async (
@@ -5596,33 +4601,22 @@ const deserializeAws_restXmlGetHostedZoneCountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetHostedZoneLimitCommand = async (
@@ -5655,49 +4649,28 @@ const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotPrivate":
     case "com.amazonaws.route53#HostedZoneNotPrivate":
-      response = {
-        ...(await deserializeAws_restXmlHostedZoneNotPrivateResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHostedZoneNotPrivateResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetQueryLoggingConfigCommand = async (
@@ -5726,41 +4699,25 @@ const deserializeAws_restXmlGetQueryLoggingConfigCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchQueryLoggingConfig":
     case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchQueryLoggingConfigResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetReusableDelegationSetCommand = async (
@@ -5789,49 +4746,28 @@ const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
     case "com.amazonaws.route53#DelegationSetNotReusable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchDelegationSet":
     case "com.amazonaws.route53#NoSuchDelegationSet":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetReusableDelegationSetLimitCommand = async (
@@ -5864,41 +4800,25 @@ const deserializeAws_restXmlGetReusableDelegationSetLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchDelegationSet":
     case "com.amazonaws.route53#NoSuchDelegationSet":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetTrafficPolicyCommand = async (
@@ -5927,41 +4847,25 @@ const deserializeAws_restXmlGetTrafficPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetTrafficPolicyInstanceCommand = async (
@@ -5993,41 +4897,25 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
@@ -6056,25 +4944,19 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListGeoLocationsCommand = async (
@@ -6132,33 +5014,22 @@ const deserializeAws_restXmlListGeoLocationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListHealthChecksCommand = async (
@@ -6209,41 +5080,25 @@ const deserializeAws_restXmlListHealthChecksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
     case "com.amazonaws.route53#IncompatibleVersion":
-      response = {
-        ...(await deserializeAws_restXmlIncompatibleVersionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlIncompatibleVersionResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListHostedZonesCommand = async (
@@ -6294,49 +5149,28 @@ const deserializeAws_restXmlListHostedZonesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
     case "com.amazonaws.route53#DelegationSetNotReusable":
-      response = {
-        ...(await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlDelegationSetNotReusableResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchDelegationSet":
     case "com.amazonaws.route53#NoSuchDelegationSet":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchDelegationSetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
@@ -6395,41 +5229,25 @@ const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDomainName":
     case "com.amazonaws.route53#InvalidDomainName":
-      response = {
-        ...(await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidDomainNameResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
@@ -6472,41 +5290,25 @@ const deserializeAws_restXmlListHostedZonesByVPCCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidPaginationToken":
     case "com.amazonaws.route53#InvalidPaginationToken":
-      response = {
-        ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
@@ -6545,49 +5347,28 @@ const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidPaginationToken":
     case "com.amazonaws.route53#InvalidPaginationToken":
-      response = {
-        ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
@@ -6642,41 +5423,25 @@ const deserializeAws_restXmlListResourceRecordSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
@@ -6727,33 +5492,22 @@ const deserializeAws_restXmlListReusableDelegationSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTagsForResourceCommand = async (
@@ -6782,65 +5536,34 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTagsForResourcesCommand = async (
@@ -6875,65 +5598,34 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
@@ -6983,33 +5675,22 @@ const deserializeAws_restXmlListTrafficPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
@@ -7067,41 +5748,25 @@ const deserializeAws_restXmlListTrafficPolicyInstancesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand = async (
@@ -7155,49 +5820,28 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError =
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = async (
@@ -7255,49 +5899,28 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
@@ -7344,41 +5967,25 @@ const deserializeAws_restXmlListTrafficPolicyVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = async (
@@ -7418,49 +6025,28 @@ const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "InvalidPaginationToken":
     case "com.amazonaws.route53#InvalidPaginationToken":
-      response = {
-        ...(await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidPaginationTokenResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlTestDNSAnswerCommand = async (
@@ -7515,41 +6101,25 @@ const deserializeAws_restXmlTestDNSAnswerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlUpdateHealthCheckCommand = async (
@@ -7578,49 +6148,28 @@ const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckVersionMismatch":
     case "com.amazonaws.route53#HealthCheckVersionMismatch":
-      response = {
-        ...(await deserializeAws_restXmlHealthCheckVersionMismatchResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlHealthCheckVersionMismatchResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHealthCheck":
     case "com.amazonaws.route53#NoSuchHealthCheck":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHealthCheckResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlUpdateHostedZoneCommentCommand = async (
@@ -7649,49 +6198,28 @@ const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchHostedZone":
     case "com.amazonaws.route53#NoSuchHostedZone":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchHostedZoneResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
@@ -7720,49 +6248,28 @@ const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
     case "com.amazonaws.route53#ConcurrentModification":
-      response = {
-        ...(await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConcurrentModificationResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
@@ -7794,418 +6301,361 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingTypes":
     case "com.amazonaws.route53#ConflictingTypes":
-      response = {
-        ...(await deserializeAws_restXmlConflictingTypesResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlConflictingTypesResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
-      response = {
-        ...(await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlInvalidInputResponse(parsedOutput, context);
     case "NoSuchTrafficPolicy":
     case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyResponse(parsedOutput, context);
     case "NoSuchTrafficPolicyInstance":
     case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      response = {
-        ...(await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
-      response = {
-        ...(await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restXmlPriorRequestNotCompleteResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restXmlConcurrentModificationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModification> => {
-  const contents: ConcurrentModification = {
-    name: "ConcurrentModification",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new ConcurrentModification({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlConflictingDomainExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictingDomainExists> => {
-  const contents: ConflictingDomainExists = {
-    name: "ConflictingDomainExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new ConflictingDomainExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlConflictingTypesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictingTypes> => {
-  const contents: ConflictingTypes = {
-    name: "ConflictingTypes",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new ConflictingTypes({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDelegationSetAlreadyCreatedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DelegationSetAlreadyCreated> => {
-  const contents: DelegationSetAlreadyCreated = {
-    name: "DelegationSetAlreadyCreated",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DelegationSetAlreadyCreated({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDelegationSetAlreadyReusableResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DelegationSetAlreadyReusable> => {
-  const contents: DelegationSetAlreadyReusable = {
-    name: "DelegationSetAlreadyReusable",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DelegationSetAlreadyReusable({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDelegationSetInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DelegationSetInUse> => {
-  const contents: DelegationSetInUse = {
-    name: "DelegationSetInUse",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DelegationSetInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDelegationSetNotAvailableResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DelegationSetNotAvailable> => {
-  const contents: DelegationSetNotAvailable = {
-    name: "DelegationSetNotAvailable",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DelegationSetNotAvailable({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDelegationSetNotReusableResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DelegationSetNotReusable> => {
-  const contents: DelegationSetNotReusable = {
-    name: "DelegationSetNotReusable",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DelegationSetNotReusable({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlDNSSECNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DNSSECNotFound> => {
-  const contents: DNSSECNotFound = {
-    name: "DNSSECNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new DNSSECNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHealthCheckAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HealthCheckAlreadyExists> => {
-  const contents: HealthCheckAlreadyExists = {
-    name: "HealthCheckAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HealthCheckAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHealthCheckInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HealthCheckInUse> => {
-  const contents: HealthCheckInUse = {
-    name: "HealthCheckInUse",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HealthCheckInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHealthCheckVersionMismatchResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HealthCheckVersionMismatch> => {
-  const contents: HealthCheckVersionMismatch = {
-    name: "HealthCheckVersionMismatch",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HealthCheckVersionMismatch({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHostedZoneAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HostedZoneAlreadyExists> => {
-  const contents: HostedZoneAlreadyExists = {
-    name: "HostedZoneAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HostedZoneAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHostedZoneNotEmptyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HostedZoneNotEmpty> => {
-  const contents: HostedZoneNotEmpty = {
-    name: "HostedZoneNotEmpty",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HostedZoneNotEmpty({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHostedZoneNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HostedZoneNotFound> => {
-  const contents: HostedZoneNotFound = {
-    name: "HostedZoneNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HostedZoneNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHostedZoneNotPrivateResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HostedZoneNotPrivate> => {
-  const contents: HostedZoneNotPrivate = {
-    name: "HostedZoneNotPrivate",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HostedZoneNotPrivate({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlHostedZonePartiallyDelegatedResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<HostedZonePartiallyDelegated> => {
-  const contents: HostedZonePartiallyDelegated = {
-    name: "HostedZonePartiallyDelegated",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new HostedZonePartiallyDelegated({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlIncompatibleVersionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IncompatibleVersion> => {
-  const contents: IncompatibleVersion = {
-    name: "IncompatibleVersion",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new IncompatibleVersion({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InsufficientCloudWatchLogsResourcePolicy> => {
-  const contents: InsufficientCloudWatchLogsResourcePolicy = {
-    name: "InsufficientCloudWatchLogsResourcePolicy",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InsufficientCloudWatchLogsResourcePolicy({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidArgumentResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgument> => {
-  const contents: InvalidArgument = {
-    name: "InvalidArgument",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidArgument({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidChangeBatchResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidChangeBatch> => {
-  const contents: InvalidChangeBatch = {
-    name: "InvalidChangeBatch",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-    messages: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
@@ -8219,721 +6669,683 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
       context
     );
   }
-  return contents;
+  const exception = new InvalidChangeBatch({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidDomainNameResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidDomainName> => {
-  const contents: InvalidDomainName = {
-    name: "InvalidDomainName",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidDomainName({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidInputResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInput> => {
-  const contents: InvalidInput = {
-    name: "InvalidInput",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidInput({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidKeySigningKeyNameResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKeySigningKeyName> => {
-  const contents: InvalidKeySigningKeyName = {
-    name: "InvalidKeySigningKeyName",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidKeySigningKeyName({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidKeySigningKeyStatusResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKeySigningKeyStatus> => {
-  const contents: InvalidKeySigningKeyStatus = {
-    name: "InvalidKeySigningKeyStatus",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidKeySigningKeyStatus({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidKMSArnResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidKMSArn> => {
-  const contents: InvalidKMSArn = {
-    name: "InvalidKMSArn",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidKMSArn({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidPaginationTokenResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationToken> => {
-  const contents: InvalidPaginationToken = {
-    name: "InvalidPaginationToken",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidPaginationToken({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidSigningStatusResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSigningStatus> => {
-  const contents: InvalidSigningStatus = {
-    name: "InvalidSigningStatus",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidSigningStatus({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTrafficPolicyDocument> => {
-  const contents: InvalidTrafficPolicyDocument = {
-    name: "InvalidTrafficPolicyDocument",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidTrafficPolicyDocument({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlInvalidVPCIdResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidVPCId> => {
-  const contents: InvalidVPCId = {
-    name: "InvalidVPCId",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new InvalidVPCId({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlKeySigningKeyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeySigningKeyAlreadyExists> => {
-  const contents: KeySigningKeyAlreadyExists = {
-    name: "KeySigningKeyAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new KeySigningKeyAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlKeySigningKeyInParentDSRecordResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeySigningKeyInParentDSRecord> => {
-  const contents: KeySigningKeyInParentDSRecord = {
-    name: "KeySigningKeyInParentDSRecord",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new KeySigningKeyInParentDSRecord({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlKeySigningKeyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeySigningKeyInUse> => {
-  const contents: KeySigningKeyInUse = {
-    name: "KeySigningKeyInUse",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new KeySigningKeyInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlKeySigningKeyWithActiveStatusNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<KeySigningKeyWithActiveStatusNotFound> => {
-  const contents: KeySigningKeyWithActiveStatusNotFound = {
-    name: "KeySigningKeyWithActiveStatusNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new KeySigningKeyWithActiveStatusNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlLastVPCAssociationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LastVPCAssociation> => {
-  const contents: LastVPCAssociation = {
-    name: "LastVPCAssociation",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new LastVPCAssociation({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlLimitsExceededResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitsExceeded> => {
-  const contents: LimitsExceeded = {
-    name: "LimitsExceeded",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new LimitsExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchChangeResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchChange> => {
-  const contents: NoSuchChange = {
-    name: "NoSuchChange",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchChange({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchCloudWatchLogsLogGroup> => {
-  const contents: NoSuchCloudWatchLogsLogGroup = {
-    name: "NoSuchCloudWatchLogsLogGroup",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchCloudWatchLogsLogGroup({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchDelegationSetResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchDelegationSet> => {
-  const contents: NoSuchDelegationSet = {
-    name: "NoSuchDelegationSet",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchDelegationSet({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchGeoLocationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchGeoLocation> => {
-  const contents: NoSuchGeoLocation = {
-    name: "NoSuchGeoLocation",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchGeoLocation({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchHealthCheckResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchHealthCheck> => {
-  const contents: NoSuchHealthCheck = {
-    name: "NoSuchHealthCheck",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchHealthCheck({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchHostedZoneResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchHostedZone> => {
-  const contents: NoSuchHostedZone = {
-    name: "NoSuchHostedZone",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchHostedZone({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchKeySigningKeyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchKeySigningKey> => {
-  const contents: NoSuchKeySigningKey = {
-    name: "NoSuchKeySigningKey",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchKeySigningKey({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchQueryLoggingConfigResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchQueryLoggingConfig> => {
-  const contents: NoSuchQueryLoggingConfig = {
-    name: "NoSuchQueryLoggingConfig",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchQueryLoggingConfig({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchTrafficPolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchTrafficPolicy> => {
-  const contents: NoSuchTrafficPolicy = {
-    name: "NoSuchTrafficPolicy",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchTrafficPolicy({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NoSuchTrafficPolicyInstance> => {
-  const contents: NoSuchTrafficPolicyInstance = {
-    name: "NoSuchTrafficPolicyInstance",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NoSuchTrafficPolicyInstance({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlNotAuthorizedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
-  const contents: NotAuthorizedException = {
-    name: "NotAuthorizedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new NotAuthorizedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlPriorRequestNotCompleteResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PriorRequestNotComplete> => {
-  const contents: PriorRequestNotComplete = {
-    name: "PriorRequestNotComplete",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new PriorRequestNotComplete({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlPublicZoneVPCAssociationResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PublicZoneVPCAssociation> => {
-  const contents: PublicZoneVPCAssociation = {
-    name: "PublicZoneVPCAssociation",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new PublicZoneVPCAssociation({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<QueryLoggingConfigAlreadyExists> => {
-  const contents: QueryLoggingConfigAlreadyExists = {
-    name: "QueryLoggingConfigAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new QueryLoggingConfigAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyHealthChecksResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyHealthChecks> => {
-  const contents: TooManyHealthChecks = {
-    name: "TooManyHealthChecks",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyHealthChecks({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyHostedZonesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyHostedZones> => {
-  const contents: TooManyHostedZones = {
-    name: "TooManyHostedZones",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyHostedZones({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyKeySigningKeysResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyKeySigningKeys> => {
-  const contents: TooManyKeySigningKeys = {
-    name: "TooManyKeySigningKeys",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyKeySigningKeys({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyTrafficPoliciesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTrafficPolicies> => {
-  const contents: TooManyTrafficPolicies = {
-    name: "TooManyTrafficPolicies",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyTrafficPolicies({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTrafficPolicyInstances> => {
-  const contents: TooManyTrafficPolicyInstances = {
-    name: "TooManyTrafficPolicyInstances",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyTrafficPolicyInstances({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyTrafficPolicyVersionsForCurrentPolicy> => {
-  const contents: TooManyTrafficPolicyVersionsForCurrentPolicy = {
-    name: "TooManyTrafficPolicyVersionsForCurrentPolicy",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyTrafficPolicyVersionsForCurrentPolicy({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyVPCAssociationAuthorizations> => {
-  const contents: TooManyVPCAssociationAuthorizations = {
-    name: "TooManyVPCAssociationAuthorizations",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TooManyVPCAssociationAuthorizations({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrafficPolicyAlreadyExists> => {
-  const contents: TrafficPolicyAlreadyExists = {
-    name: "TrafficPolicyAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TrafficPolicyAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrafficPolicyInstanceAlreadyExists> => {
-  const contents: TrafficPolicyInstanceAlreadyExists = {
-    name: "TrafficPolicyInstanceAlreadyExists",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TrafficPolicyInstanceAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TrafficPolicyInUse> => {
-  const contents: TrafficPolicyInUse = {
-    name: "TrafficPolicyInUse",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new TrafficPolicyInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<VPCAssociationAuthorizationNotFound> => {
-  const contents: VPCAssociationAuthorizationNotFound = {
-    name: "VPCAssociationAuthorizationNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new VPCAssociationAuthorizationNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const deserializeAws_restXmlVPCAssociationNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<VPCAssociationNotFound> => {
-  const contents: VPCAssociationNotFound = {
-    name: "VPCAssociationNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body.Error;
   if (data["message"] !== undefined) {
     contents.message = __expectString(data["message"]);
   }
-  return contents;
+  const exception = new VPCAssociationNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
 const serializeAws_restXmlAlarmIdentifier = (input: AlarmIdentifier, context: __SerdeContext): any => {

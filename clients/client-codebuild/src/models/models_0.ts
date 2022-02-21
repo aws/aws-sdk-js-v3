@@ -1,13 +1,25 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CodeBuildServiceException as __BaseException } from "./CodeBuildServiceException";
 
 /**
  * <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
  */
-export interface AccountLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "AccountLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class AccountLimitExceededException extends __BaseException {
+  readonly name: "AccountLimitExceededException" = "AccountLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountLimitExceededException, __BaseException>) {
+    super({
+      name: "AccountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountLimitExceededException.prototype);
+  }
 }
 
 export enum ArtifactNamespace {
@@ -96,10 +108,20 @@ export namespace BatchDeleteBuildsOutput {
 /**
  * <p>The input value that was provided is not valid.</p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+  }
 }
 
 export interface BatchGetBuildBatchesInput {
@@ -3930,10 +3952,20 @@ export namespace CreateProjectOutput {
  * <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
  *             settings already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
 }
 
 export interface CreateReportGroupInput {
@@ -4057,19 +4089,39 @@ export namespace CreateWebhookOutput {
 /**
  * <p>There was a problem with the underlying OAuth provider.</p>
  */
-export interface OAuthProviderException extends __SmithyException, $MetadataBearer {
-  name: "OAuthProviderException";
-  $fault: "client";
-  message?: string;
+export class OAuthProviderException extends __BaseException {
+  readonly name: "OAuthProviderException" = "OAuthProviderException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OAuthProviderException, __BaseException>) {
+    super({
+      name: "OAuthProviderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OAuthProviderException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon Web Services resource cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface DeleteBuildBatchInput {

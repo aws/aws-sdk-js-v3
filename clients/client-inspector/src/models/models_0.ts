@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { InspectorServiceException as __BaseException } from "./InspectorServiceException";
 
 export enum AccessDeniedErrorCode {
   ACCESS_DENIED_TO_ASSESSMENT_RUN = "ACCESS_DENIED_TO_ASSESSMENT_RUN",
@@ -14,14 +17,9 @@ export enum AccessDeniedErrorCode {
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
@@ -31,6 +29,20 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.errorCode = opts.errorCode;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 /**
@@ -133,18 +145,26 @@ export namespace AddAttributesToFindingsResponse {
 /**
  * <p>Internal server error.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   /**
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export enum InvalidInputErrorCode {
@@ -208,14 +228,9 @@ export enum InvalidInputErrorCode {
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *          input parameter.</p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
@@ -225,6 +240,20 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.errorCode = opts.errorCode;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export enum NoSuchEntityErrorCode {
@@ -242,14 +271,9 @@ export enum NoSuchEntityErrorCode {
  * <p>The request was rejected because it referenced an entity that does not exist. The
  *          error code describes the entity.</p>
  */
-export interface NoSuchEntityException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchEntityException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class NoSuchEntityException extends __BaseException {
+  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
@@ -259,23 +283,45 @@ export interface NoSuchEntityException extends __SmithyException, $MetadataBeare
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
+    super({
+      name: "NoSuchEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
+    this.errorCode = opts.errorCode;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 /**
  * <p>The serice is temporary unavailable.</p>
  */
-export interface ServiceTemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceTemporarilyUnavailableException";
-  $fault: "server";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class ServiceTemporarilyUnavailableException extends __BaseException {
+  readonly name: "ServiceTemporarilyUnavailableException" = "ServiceTemporarilyUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * <p>You can wait and then retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceTemporarilyUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceTemporarilyUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceTemporarilyUnavailableException.prototype);
+    this.canRetry = opts.canRetry;
+  }
 }
 
 /**
@@ -407,14 +453,9 @@ export namespace AgentPreview {
  * <p>You started an assessment run, but one of the instances is already participating in
  *          another assessment run.</p>
  */
-export interface AgentsAlreadyRunningAssessmentException extends __SmithyException, $MetadataBearer {
-  name: "AgentsAlreadyRunningAssessmentException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class AgentsAlreadyRunningAssessmentException extends __BaseException {
+  readonly name: "AgentsAlreadyRunningAssessmentException" = "AgentsAlreadyRunningAssessmentException";
+  readonly $fault: "client" = "client";
   /**
    * <p></p>
    */
@@ -429,6 +470,21 @@ export interface AgentsAlreadyRunningAssessmentException extends __SmithyExcepti
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AgentsAlreadyRunningAssessmentException, __BaseException>) {
+    super({
+      name: "AgentsAlreadyRunningAssessmentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AgentsAlreadyRunningAssessmentException.prototype);
+    this.agents = opts.agents;
+    this.agentsTruncated = opts.agentsTruncated;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export enum Severity {
@@ -839,14 +895,9 @@ export namespace AssessmentRunFilter {
  * <p>You cannot perform a specified action if an assessment run is currently in
  *          progress.</p>
  */
-export interface AssessmentRunInProgressException extends __SmithyException, $MetadataBearer {
-  name: "AssessmentRunInProgressException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class AssessmentRunInProgressException extends __BaseException {
+  readonly name: "AssessmentRunInProgressException" = "AssessmentRunInProgressException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ARNs of the assessment runs that are currently in progress.</p>
    */
@@ -862,6 +913,21 @@ export interface AssessmentRunInProgressException extends __SmithyException, $Me
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssessmentRunInProgressException, __BaseException>) {
+    super({
+      name: "AssessmentRunInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssessmentRunInProgressException.prototype);
+    this.assessmentRunArns = opts.assessmentRunArns;
+    this.assessmentRunArnsTruncated = opts.assessmentRunArnsTruncated;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 /**
@@ -1285,14 +1351,9 @@ export enum InvalidCrossAccountRoleErrorCode {
  * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
  *          instances during the assessment run.</p>
  */
-export interface InvalidCrossAccountRoleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCrossAccountRoleException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class InvalidCrossAccountRoleException extends __BaseException {
+  readonly name: "InvalidCrossAccountRoleException" = "InvalidCrossAccountRoleException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
@@ -1302,6 +1363,20 @@ export interface InvalidCrossAccountRoleException extends __SmithyException, $Me
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCrossAccountRoleException, __BaseException>) {
+    super({
+      name: "InvalidCrossAccountRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCrossAccountRoleException.prototype);
+    this.errorCode = opts.errorCode;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export enum LimitExceededErrorCode {
@@ -1316,14 +1391,9 @@ export enum LimitExceededErrorCode {
  * <p>The request was rejected because it attempted to create resources beyond the current
  *          AWS account limits. The error code describes the limit exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>Details of the exception error.</p>
-   */
-  message: string | undefined;
-
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Code that indicates the type of error that is generated.</p>
    */
@@ -1333,6 +1403,20 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>You can immediately retry your request.</p>
    */
   canRetry: boolean | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.errorCode = opts.errorCode;
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export interface CreateAssessmentTemplateRequest {
@@ -1434,10 +1518,20 @@ export namespace CreateExclusionsPreviewResponse {
  * <p>The request is rejected. The specified assessment template is currently generating an
  *          exclusions preview.</p>
  */
-export interface PreviewGenerationInProgressException extends __SmithyException, $MetadataBearer {
-  name: "PreviewGenerationInProgressException";
-  $fault: "client";
-  message: string | undefined;
+export class PreviewGenerationInProgressException extends __BaseException {
+  readonly name: "PreviewGenerationInProgressException" = "PreviewGenerationInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreviewGenerationInProgressException, __BaseException>) {
+    super({
+      name: "PreviewGenerationInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreviewGenerationInProgressException.prototype);
+  }
 }
 
 /**
@@ -2346,11 +2440,22 @@ export namespace GetAssessmentReportResponse {
  *          took place or will take place after generating reports in Amazon Inspector became
  *          available.</p>
  */
-export interface UnsupportedFeatureException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedFeatureException";
-  $fault: "client";
-  message: string | undefined;
+export class UnsupportedFeatureException extends __BaseException {
+  readonly name: "UnsupportedFeatureException" = "UnsupportedFeatureException";
+  readonly $fault: "client" = "client";
   canRetry: boolean | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedFeatureException, __BaseException>) {
+    super({
+      name: "UnsupportedFeatureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedFeatureException.prototype);
+    this.canRetry = opts.canRetry;
+  }
 }
 
 export interface GetExclusionsPreviewRequest {

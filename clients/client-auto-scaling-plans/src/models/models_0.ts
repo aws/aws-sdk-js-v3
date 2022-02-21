@@ -1,13 +1,28 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AutoScalingPlansServiceException as __BaseException } from "./AutoScalingPlansServiceException";
 
 /**
  * <p>Concurrent updates caused an exception, for example, if you request an update to a
  *          scaling plan that already has a pending update.</p>
  */
-export interface ConcurrentUpdateException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentUpdateException";
-  $fault: "server";
+export class ConcurrentUpdateException extends __BaseException {
+  readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentUpdateException, __BaseException>) {
+    super({
+      name: "ConcurrentUpdateException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentUpdateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -709,29 +724,65 @@ export namespace CreateScalingPlanResponse {
 /**
  * <p>The service encountered an internal error.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your account exceeded a limit. This exception is thrown when a per-account resource
  *          limit is exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteScalingPlanRequest {
@@ -770,10 +821,22 @@ export namespace DeleteScalingPlanResponse {
 /**
  * <p>The specified object could not be found.</p>
  */
-export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ObjectNotFoundException";
-  $fault: "client";
+export class ObjectNotFoundException extends __BaseException {
+  readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectNotFoundException, __BaseException>) {
+    super({
+      name: "ObjectNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeScalingPlanResourcesRequest {
@@ -1007,10 +1070,22 @@ export namespace DescribeScalingPlanResourcesResponse {
 /**
  * <p>The token provided is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeScalingPlansRequest {

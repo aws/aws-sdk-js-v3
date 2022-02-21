@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { Route53ServiceException as __BaseException } from "./Route53ServiceException";
 
 export type AccountLimitType =
   | "MAX_HEALTH_CHECKS_BY_OWNER"
@@ -144,62 +147,116 @@ export namespace ActivateKeySigningKeyResponse {
 /**
  * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
  */
-export interface ConcurrentModification extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModification";
-  $fault: "client";
+export class ConcurrentModification extends __BaseException {
+  readonly name: "ConcurrentModification" = "ConcurrentModification";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConcurrentModification, __BaseException>) {
+    super({
+      name: "ConcurrentModification",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModification.prototype);
+  }
 }
 
 /**
  * <p>The input is not valid.</p>
  */
-export interface InvalidInput extends __SmithyException, $MetadataBearer {
-  name: "InvalidInput";
-  $fault: "client";
+export class InvalidInput extends __BaseException {
+  readonly name: "InvalidInput" = "InvalidInput";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidInput, __BaseException>) {
+    super({
+      name: "InvalidInput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInput.prototype);
+  }
 }
 
 /**
  * <p>The key-signing key (KSK) status isn't valid or another KSK has the status <code>INTERNAL_FAILURE</code>.</p>
  */
-export interface InvalidKeySigningKeyStatus extends __SmithyException, $MetadataBearer {
-  name: "InvalidKeySigningKeyStatus";
-  $fault: "client";
-  message?: string;
+export class InvalidKeySigningKeyStatus extends __BaseException {
+  readonly name: "InvalidKeySigningKeyStatus" = "InvalidKeySigningKeyStatus";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKeySigningKeyStatus, __BaseException>) {
+    super({
+      name: "InvalidKeySigningKeyStatus",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKeySigningKeyStatus.prototype);
+  }
 }
 
 /**
  * <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.</p>
  */
-export interface InvalidKMSArn extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSArn";
-  $fault: "client";
-  message?: string;
+export class InvalidKMSArn extends __BaseException {
+  readonly name: "InvalidKMSArn" = "InvalidKMSArn";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKMSArn, __BaseException>) {
+    super({
+      name: "InvalidKMSArn",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKMSArn.prototype);
+  }
 }
 
 /**
  * <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable <code>DNSSEC</code>
  * 			or disable <code>DNSSEC</code>.</p>
  */
-export interface InvalidSigningStatus extends __SmithyException, $MetadataBearer {
-  name: "InvalidSigningStatus";
-  $fault: "client";
-  message?: string;
+export class InvalidSigningStatus extends __BaseException {
+  readonly name: "InvalidSigningStatus" = "InvalidSigningStatus";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSigningStatus, __BaseException>) {
+    super({
+      name: "InvalidSigningStatus",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSigningStatus.prototype);
+  }
 }
 
 /**
  * <p>The specified key-signing key (KSK) doesn't exist.</p>
  */
-export interface NoSuchKeySigningKey extends __SmithyException, $MetadataBearer {
-  name: "NoSuchKeySigningKey";
-  $fault: "client";
-  message?: string;
+export class NoSuchKeySigningKey extends __BaseException {
+  readonly name: "NoSuchKeySigningKey" = "NoSuchKeySigningKey";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchKeySigningKey, __BaseException>) {
+    super({
+      name: "NoSuchKeySigningKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchKeySigningKey.prototype);
+  }
 }
 
 export type CloudWatchRegion =
@@ -785,22 +842,39 @@ export namespace AssociateVPCWithHostedZoneResponse {
  *             </li>
  *          </ul>
  */
-export interface ConflictingDomainExists extends __SmithyException, $MetadataBearer {
-  name: "ConflictingDomainExists";
-  $fault: "client";
-  message?: string;
+export class ConflictingDomainExists extends __BaseException {
+  readonly name: "ConflictingDomainExists" = "ConflictingDomainExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictingDomainExists, __BaseException>) {
+    super({
+      name: "ConflictingDomainExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictingDomainExists.prototype);
+  }
 }
 
 /**
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
  */
-export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCId";
-  $fault: "client";
+export class InvalidVPCId extends __BaseException {
+  readonly name: "InvalidVPCId" = "InvalidVPCId";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidVPCId, __BaseException>) {
+    super({
+      name: "InvalidVPCId",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCId.prototype);
+  }
 }
 
 /**
@@ -812,37 +886,58 @@ export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html">GetHostedZoneLimit</a>.
  * 			To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
-export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
-  name: "LimitsExceeded";
-  $fault: "client";
+export class LimitsExceeded extends __BaseException {
+  readonly name: "LimitsExceeded" = "LimitsExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitsExceeded, __BaseException>) {
+    super({
+      name: "LimitsExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitsExceeded.prototype);
+  }
 }
 
 /**
  * <p>No hosted zone exists with the ID that you specified.</p>
  */
-export interface NoSuchHostedZone extends __SmithyException, $MetadataBearer {
-  name: "NoSuchHostedZone";
-  $fault: "client";
+export class NoSuchHostedZone extends __BaseException {
+  readonly name: "NoSuchHostedZone" = "NoSuchHostedZone";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchHostedZone, __BaseException>) {
+    super({
+      name: "NoSuchHostedZone",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchHostedZone.prototype);
+  }
 }
 
 /**
  * <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+  }
 }
 
 /**
@@ -852,23 +947,40 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
  * 			recommend that you wait, in intervals of increasing duration, before you try the request
  * 			again.</p>
  */
-export interface PriorRequestNotComplete extends __SmithyException, $MetadataBearer {
-  name: "PriorRequestNotComplete";
-  $fault: "client";
-  message?: string;
+export class PriorRequestNotComplete extends __BaseException {
+  readonly name: "PriorRequestNotComplete" = "PriorRequestNotComplete";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PriorRequestNotComplete, __BaseException>) {
+    super({
+      name: "PriorRequestNotComplete",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PriorRequestNotComplete.prototype);
+  }
 }
 
 /**
  * <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a
  * 			VPC with a public hosted zone.</p>
  */
-export interface PublicZoneVPCAssociation extends __SmithyException, $MetadataBearer {
-  name: "PublicZoneVPCAssociation";
-  $fault: "client";
+export class PublicZoneVPCAssociation extends __BaseException {
+  readonly name: "PublicZoneVPCAssociation" = "PublicZoneVPCAssociation";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PublicZoneVPCAssociation, __BaseException>) {
+    super({
+      name: "PublicZoneVPCAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicZoneVPCAssociation.prototype);
+  }
 }
 
 export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
@@ -1645,27 +1757,45 @@ export namespace ChangeResourceRecordSetsResponse {
  * <p>This exception contains a list of messages that might contain one or more error messages. Each error message indicates
  * 			one error in the change batch.</p>
  */
-export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
-  name: "InvalidChangeBatch";
-  $fault: "client";
+export class InvalidChangeBatch extends __BaseException {
+  readonly name: "InvalidChangeBatch" = "InvalidChangeBatch";
+  readonly $fault: "client" = "client";
   /**
    * <p></p>
    */
   messages?: string[];
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidChangeBatch, __BaseException>) {
+    super({
+      name: "InvalidChangeBatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidChangeBatch.prototype);
+    this.messages = opts.messages;
+  }
 }
 
 /**
  * <p>No health check exists with the specified ID.</p>
  */
-export interface NoSuchHealthCheck extends __SmithyException, $MetadataBearer {
-  name: "NoSuchHealthCheck";
-  $fault: "client";
+export class NoSuchHealthCheck extends __BaseException {
+  readonly name: "NoSuchHealthCheck" = "NoSuchHealthCheck";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchHealthCheck, __BaseException>) {
+    super({
+      name: "NoSuchHealthCheck",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchHealthCheck.prototype);
+  }
 }
 
 /**
@@ -1787,10 +1917,20 @@ export namespace ChangeTagsForResourceResponse {
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
@@ -2410,13 +2550,20 @@ export namespace CreateHealthCheckResponse {
  *             </li>
  *          </ul>
  */
-export interface HealthCheckAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "HealthCheckAlreadyExists";
-  $fault: "client";
+export class HealthCheckAlreadyExists extends __BaseException {
+  readonly name: "HealthCheckAlreadyExists" = "HealthCheckAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HealthCheckAlreadyExists, __BaseException>) {
+    super({
+      name: "HealthCheckAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthCheckAlreadyExists.prototype);
+  }
 }
 
 /**
@@ -2430,10 +2577,20 @@ export interface HealthCheckAlreadyExists extends __SmithyException, $MetadataBe
  * 		       <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit,
  * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
-export interface TooManyHealthChecks extends __SmithyException, $MetadataBearer {
-  name: "TooManyHealthChecks";
-  $fault: "client";
-  message?: string;
+export class TooManyHealthChecks extends __BaseException {
+  readonly name: "TooManyHealthChecks" = "TooManyHealthChecks";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHealthChecks, __BaseException>) {
+    super({
+      name: "TooManyHealthChecks",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHealthChecks.prototype);
+  }
 }
 
 /**
@@ -2653,62 +2810,97 @@ export namespace CreateHostedZoneResponse {
  * 			limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
  * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
  */
-export interface DelegationSetNotAvailable extends __SmithyException, $MetadataBearer {
-  name: "DelegationSetNotAvailable";
-  $fault: "client";
+export class DelegationSetNotAvailable extends __BaseException {
+  readonly name: "DelegationSetNotAvailable" = "DelegationSetNotAvailable";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DelegationSetNotAvailable, __BaseException>) {
+    super({
+      name: "DelegationSetNotAvailable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegationSetNotAvailable.prototype);
+  }
 }
 
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
-export interface DelegationSetNotReusable extends __SmithyException, $MetadataBearer {
-  name: "DelegationSetNotReusable";
-  $fault: "client";
+export class DelegationSetNotReusable extends __BaseException {
+  readonly name: "DelegationSetNotReusable" = "DelegationSetNotReusable";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DelegationSetNotReusable, __BaseException>) {
+    super({
+      name: "DelegationSetNotReusable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegationSetNotReusable.prototype);
+  }
 }
 
 /**
  * <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created
  * 			with the specified <code>CallerReference</code>.</p>
  */
-export interface HostedZoneAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "HostedZoneAlreadyExists";
-  $fault: "client";
+export class HostedZoneAlreadyExists extends __BaseException {
+  readonly name: "HostedZoneAlreadyExists" = "HostedZoneAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HostedZoneAlreadyExists, __BaseException>) {
+    super({
+      name: "HostedZoneAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HostedZoneAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>The specified domain name is not valid.</p>
  */
-export interface InvalidDomainName extends __SmithyException, $MetadataBearer {
-  name: "InvalidDomainName";
-  $fault: "client";
+export class InvalidDomainName extends __BaseException {
+  readonly name: "InvalidDomainName" = "InvalidDomainName";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidDomainName, __BaseException>) {
+    super({
+      name: "InvalidDomainName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDomainName.prototype);
+  }
 }
 
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
-export interface NoSuchDelegationSet extends __SmithyException, $MetadataBearer {
-  name: "NoSuchDelegationSet";
-  $fault: "client";
+export class NoSuchDelegationSet extends __BaseException {
+  readonly name: "NoSuchDelegationSet" = "NoSuchDelegationSet";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchDelegationSet, __BaseException>) {
+    super({
+      name: "NoSuchDelegationSet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchDelegationSet.prototype);
+  }
 }
 
 /**
@@ -2722,13 +2914,20 @@ export interface NoSuchDelegationSet extends __SmithyException, $MetadataBearer 
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html">GetReusableDelegationSetLimit</a>.</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
-export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
-  name: "TooManyHostedZones";
-  $fault: "client";
+export class TooManyHostedZones extends __BaseException {
+  readonly name: "TooManyHostedZones" = "TooManyHostedZones";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyHostedZones, __BaseException>) {
+    super({
+      name: "TooManyHostedZones",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHostedZones.prototype);
+  }
 }
 
 export interface CreateKeySigningKeyRequest {
@@ -3020,40 +3219,77 @@ export namespace CreateKeySigningKeyResponse {
 /**
  * <p>Parameter name is not valid.</p>
  */
-export interface InvalidArgument extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgument";
-  $fault: "client";
+export class InvalidArgument extends __BaseException {
+  readonly name: "InvalidArgument" = "InvalidArgument";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidArgument, __BaseException>) {
+    super({
+      name: "InvalidArgument",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgument.prototype);
+  }
 }
 
 /**
  * <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
  */
-export interface InvalidKeySigningKeyName extends __SmithyException, $MetadataBearer {
-  name: "InvalidKeySigningKeyName";
-  $fault: "client";
-  message?: string;
+export class InvalidKeySigningKeyName extends __BaseException {
+  readonly name: "InvalidKeySigningKeyName" = "InvalidKeySigningKeyName";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKeySigningKeyName, __BaseException>) {
+    super({
+      name: "InvalidKeySigningKeyName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKeySigningKeyName.prototype);
+  }
 }
 
 /**
  * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
  */
-export interface KeySigningKeyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "KeySigningKeyAlreadyExists";
-  $fault: "client";
-  message?: string;
+export class KeySigningKeyAlreadyExists extends __BaseException {
+  readonly name: "KeySigningKeyAlreadyExists" = "KeySigningKeyAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeySigningKeyAlreadyExists, __BaseException>) {
+    super({
+      name: "KeySigningKeyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeySigningKeyAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least one KSK, and then try again.</p>
  */
-export interface TooManyKeySigningKeys extends __SmithyException, $MetadataBearer {
-  name: "TooManyKeySigningKeys";
-  $fault: "client";
-  message?: string;
+export class TooManyKeySigningKeys extends __BaseException {
+  readonly name: "TooManyKeySigningKeys" = "TooManyKeySigningKeys";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyKeySigningKeys, __BaseException>) {
+    super({
+      name: "TooManyKeySigningKeys",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyKeySigningKeys.prototype);
+  }
 }
 
 export interface CreateQueryLoggingConfigRequest {
@@ -3157,29 +3393,59 @@ export namespace CreateQueryLoggingConfigResponse {
  *             </li>
  *          </ul>
  */
-export interface InsufficientCloudWatchLogsResourcePolicy extends __SmithyException, $MetadataBearer {
-  name: "InsufficientCloudWatchLogsResourcePolicy";
-  $fault: "client";
-  message?: string;
+export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
+  readonly name: "InsufficientCloudWatchLogsResourcePolicy" = "InsufficientCloudWatchLogsResourcePolicy";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCloudWatchLogsResourcePolicy, __BaseException>) {
+    super({
+      name: "InsufficientCloudWatchLogsResourcePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCloudWatchLogsResourcePolicy.prototype);
+  }
 }
 
 /**
  * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
  */
-export interface NoSuchCloudWatchLogsLogGroup extends __SmithyException, $MetadataBearer {
-  name: "NoSuchCloudWatchLogsLogGroup";
-  $fault: "client";
-  message?: string;
+export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
+  readonly name: "NoSuchCloudWatchLogsLogGroup" = "NoSuchCloudWatchLogsLogGroup";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchCloudWatchLogsLogGroup, __BaseException>) {
+    super({
+      name: "NoSuchCloudWatchLogsLogGroup",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchCloudWatchLogsLogGroup.prototype);
+  }
 }
 
 /**
  * <p>You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists
  * 			for this hosted zone.</p>
  */
-export interface QueryLoggingConfigAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "QueryLoggingConfigAlreadyExists";
-  $fault: "client";
-  message?: string;
+export class QueryLoggingConfigAlreadyExists extends __BaseException {
+  readonly name: "QueryLoggingConfigAlreadyExists" = "QueryLoggingConfigAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryLoggingConfigAlreadyExists, __BaseException>) {
+    super({
+      name: "QueryLoggingConfigAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryLoggingConfigAlreadyExists.prototype);
+  }
 }
 
 export interface CreateReusableDelegationSetRequest {
@@ -3232,37 +3498,58 @@ export namespace CreateReusableDelegationSetResponse {
 /**
  * <p>A delegation set with the same owner and caller reference combination has already been created.</p>
  */
-export interface DelegationSetAlreadyCreated extends __SmithyException, $MetadataBearer {
-  name: "DelegationSetAlreadyCreated";
-  $fault: "client";
+export class DelegationSetAlreadyCreated extends __BaseException {
+  readonly name: "DelegationSetAlreadyCreated" = "DelegationSetAlreadyCreated";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DelegationSetAlreadyCreated, __BaseException>) {
+    super({
+      name: "DelegationSetAlreadyCreated",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegationSetAlreadyCreated.prototype);
+  }
 }
 
 /**
  * <p>The specified delegation set has already been marked as reusable.</p>
  */
-export interface DelegationSetAlreadyReusable extends __SmithyException, $MetadataBearer {
-  name: "DelegationSetAlreadyReusable";
-  $fault: "client";
+export class DelegationSetAlreadyReusable extends __BaseException {
+  readonly name: "DelegationSetAlreadyReusable" = "DelegationSetAlreadyReusable";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DelegationSetAlreadyReusable, __BaseException>) {
+    super({
+      name: "DelegationSetAlreadyReusable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegationSetAlreadyReusable.prototype);
+  }
 }
 
 /**
  * <p>The specified HostedZone can't be found.</p>
  */
-export interface HostedZoneNotFound extends __SmithyException, $MetadataBearer {
-  name: "HostedZoneNotFound";
-  $fault: "client";
+export class HostedZoneNotFound extends __BaseException {
+  readonly name: "HostedZoneNotFound" = "HostedZoneNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HostedZoneNotFound, __BaseException>) {
+    super({
+      name: "HostedZoneNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HostedZoneNotFound.prototype);
+  }
 }
 
 /**
@@ -3370,13 +3657,20 @@ export namespace CreateTrafficPolicyResponse {
 /**
  * <p>The format of the traffic policy document that you specified in the <code>Document</code> element is not valid.</p>
  */
-export interface InvalidTrafficPolicyDocument extends __SmithyException, $MetadataBearer {
-  name: "InvalidTrafficPolicyDocument";
-  $fault: "client";
+export class InvalidTrafficPolicyDocument extends __BaseException {
+  readonly name: "InvalidTrafficPolicyDocument" = "InvalidTrafficPolicyDocument";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTrafficPolicyDocument, __BaseException>) {
+    super({
+      name: "InvalidTrafficPolicyDocument",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTrafficPolicyDocument.prototype);
+  }
 }
 
 /**
@@ -3388,25 +3682,39 @@ export interface InvalidTrafficPolicyDocument extends __SmithyException, $Metada
  * 		</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
-export interface TooManyTrafficPolicies extends __SmithyException, $MetadataBearer {
-  name: "TooManyTrafficPolicies";
-  $fault: "client";
+export class TooManyTrafficPolicies extends __BaseException {
+  readonly name: "TooManyTrafficPolicies" = "TooManyTrafficPolicies";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTrafficPolicies, __BaseException>) {
+    super({
+      name: "TooManyTrafficPolicies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrafficPolicies.prototype);
+  }
 }
 
 /**
  * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  */
-export interface TrafficPolicyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "TrafficPolicyAlreadyExists";
-  $fault: "client";
+export class TrafficPolicyAlreadyExists extends __BaseException {
+  readonly name: "TrafficPolicyAlreadyExists" = "TrafficPolicyAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TrafficPolicyAlreadyExists, __BaseException>) {
+    super({
+      name: "TrafficPolicyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrafficPolicyAlreadyExists.prototype);
+  }
 }
 
 /**
@@ -3553,13 +3861,20 @@ export namespace CreateTrafficPolicyInstanceResponse {
 /**
  * <p>No traffic policy exists with the specified ID.</p>
  */
-export interface NoSuchTrafficPolicy extends __SmithyException, $MetadataBearer {
-  name: "NoSuchTrafficPolicy";
-  $fault: "client";
+export class NoSuchTrafficPolicy extends __BaseException {
+  readonly name: "NoSuchTrafficPolicy" = "NoSuchTrafficPolicy";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchTrafficPolicy, __BaseException>) {
+    super({
+      name: "NoSuchTrafficPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchTrafficPolicy.prototype);
+  }
 }
 
 /**
@@ -3572,25 +3887,39 @@ export interface NoSuchTrafficPolicy extends __SmithyException, $MetadataBearer 
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support Center.</p>
  */
-export interface TooManyTrafficPolicyInstances extends __SmithyException, $MetadataBearer {
-  name: "TooManyTrafficPolicyInstances";
-  $fault: "client";
+export class TooManyTrafficPolicyInstances extends __BaseException {
+  readonly name: "TooManyTrafficPolicyInstances" = "TooManyTrafficPolicyInstances";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTrafficPolicyInstances, __BaseException>) {
+    super({
+      name: "TooManyTrafficPolicyInstances",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrafficPolicyInstances.prototype);
+  }
 }
 
 /**
  * <p>There is already a traffic policy instance with the specified ID.</p>
  */
-export interface TrafficPolicyInstanceAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "TrafficPolicyInstanceAlreadyExists";
-  $fault: "client";
+export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
+  readonly name: "TrafficPolicyInstanceAlreadyExists" = "TrafficPolicyInstanceAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TrafficPolicyInstanceAlreadyExists, __BaseException>) {
+    super({
+      name: "TrafficPolicyInstanceAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrafficPolicyInstanceAlreadyExists.prototype);
+  }
 }
 
 /**
@@ -3657,13 +3986,20 @@ export namespace CreateTrafficPolicyVersionResponse {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>
  * 			to create a new traffic policy using the traffic policy document.</p>
  */
-export interface TooManyTrafficPolicyVersionsForCurrentPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyTrafficPolicyVersionsForCurrentPolicy";
-  $fault: "client";
+export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseException {
+  readonly name: "TooManyTrafficPolicyVersionsForCurrentPolicy" = "TooManyTrafficPolicyVersionsForCurrentPolicy";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTrafficPolicyVersionsForCurrentPolicy, __BaseException>) {
+    super({
+      name: "TooManyTrafficPolicyVersionsForCurrentPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrafficPolicyVersionsForCurrentPolicy.prototype);
+  }
 }
 
 /**
@@ -3722,13 +4058,20 @@ export namespace CreateVPCAssociationAuthorizationResponse {
  * 			to remove an existing authorization. To get a list of existing authorizations, submit a
  * 			<code>ListVPCAssociationAuthorizations</code> request.</p>
  */
-export interface TooManyVPCAssociationAuthorizations extends __SmithyException, $MetadataBearer {
-  name: "TooManyVPCAssociationAuthorizations";
-  $fault: "client";
+export class TooManyVPCAssociationAuthorizations extends __BaseException {
+  readonly name: "TooManyVPCAssociationAuthorizations" = "TooManyVPCAssociationAuthorizations";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyVPCAssociationAuthorizations, __BaseException>) {
+    super({
+      name: "TooManyVPCAssociationAuthorizations",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyVPCAssociationAuthorizations.prototype);
+  }
 }
 
 export interface DeactivateKeySigningKeyRequest {
@@ -3772,20 +4115,40 @@ export namespace DeactivateKeySigningKeyResponse {
 /**
  * <p>The key-signing key (KSK) is specified in a parent DS record.</p>
  */
-export interface KeySigningKeyInParentDSRecord extends __SmithyException, $MetadataBearer {
-  name: "KeySigningKeyInParentDSRecord";
-  $fault: "client";
-  message?: string;
+export class KeySigningKeyInParentDSRecord extends __BaseException {
+  readonly name: "KeySigningKeyInParentDSRecord" = "KeySigningKeyInParentDSRecord";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeySigningKeyInParentDSRecord, __BaseException>) {
+    super({
+      name: "KeySigningKeyInParentDSRecord",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeySigningKeyInParentDSRecord.prototype);
+  }
 }
 
 /**
  * <p>The key-signing key (KSK) that you specified can't be deactivated because it's the only KSK for a
  * 		currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable another KSK.</p>
  */
-export interface KeySigningKeyInUse extends __SmithyException, $MetadataBearer {
-  name: "KeySigningKeyInUse";
-  $fault: "client";
-  message?: string;
+export class KeySigningKeyInUse extends __BaseException {
+  readonly name: "KeySigningKeyInUse" = "KeySigningKeyInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeySigningKeyInUse, __BaseException>) {
+    super({
+      name: "KeySigningKeyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeySigningKeyInUse.prototype);
+  }
 }
 
 /**
@@ -3826,13 +4189,20 @@ export namespace DeleteHealthCheckResponse {
  *
  * <p>This error code is not in use.</p>
  */
-export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {
-  name: "HealthCheckInUse";
-  $fault: "client";
+export class HealthCheckInUse extends __BaseException {
+  readonly name: "HealthCheckInUse" = "HealthCheckInUse";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HealthCheckInUse, __BaseException>) {
+    super({
+      name: "HealthCheckInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthCheckInUse.prototype);
+  }
 }
 
 /**
@@ -3876,13 +4246,20 @@ export namespace DeleteHostedZoneResponse {
 /**
  * <p>The hosted zone contains resource records that are not SOA or NS records.</p>
  */
-export interface HostedZoneNotEmpty extends __SmithyException, $MetadataBearer {
-  name: "HostedZoneNotEmpty";
-  $fault: "client";
+export class HostedZoneNotEmpty extends __BaseException {
+  readonly name: "HostedZoneNotEmpty" = "HostedZoneNotEmpty";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HostedZoneNotEmpty, __BaseException>) {
+    super({
+      name: "HostedZoneNotEmpty",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HostedZoneNotEmpty.prototype);
+  }
 }
 
 export interface DeleteKeySigningKeyRequest {
@@ -3953,23 +4330,40 @@ export namespace DeleteQueryLoggingConfigResponse {
 /**
  * <p>There is no DNS query logging configuration with the specified ID.</p>
  */
-export interface NoSuchQueryLoggingConfig extends __SmithyException, $MetadataBearer {
-  name: "NoSuchQueryLoggingConfig";
-  $fault: "client";
-  message?: string;
+export class NoSuchQueryLoggingConfig extends __BaseException {
+  readonly name: "NoSuchQueryLoggingConfig" = "NoSuchQueryLoggingConfig";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchQueryLoggingConfig, __BaseException>) {
+    super({
+      name: "NoSuchQueryLoggingConfig",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchQueryLoggingConfig.prototype);
+  }
 }
 
 /**
  * <p>The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set
  * 			can be deleted.</p>
  */
-export interface DelegationSetInUse extends __SmithyException, $MetadataBearer {
-  name: "DelegationSetInUse";
-  $fault: "client";
+export class DelegationSetInUse extends __BaseException {
+  readonly name: "DelegationSetInUse" = "DelegationSetInUse";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DelegationSetInUse, __BaseException>) {
+    super({
+      name: "DelegationSetInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DelegationSetInUse.prototype);
+  }
 }
 
 /**
@@ -4046,13 +4440,20 @@ export namespace DeleteTrafficPolicyResponse {
 /**
  * <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
  */
-export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "TrafficPolicyInUse";
-  $fault: "client";
+export class TrafficPolicyInUse extends __BaseException {
+  readonly name: "TrafficPolicyInUse" = "TrafficPolicyInUse";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TrafficPolicyInUse, __BaseException>) {
+    super({
+      name: "TrafficPolicyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrafficPolicyInUse.prototype);
+  }
 }
 
 /**
@@ -4095,13 +4496,20 @@ export namespace DeleteTrafficPolicyInstanceResponse {
 /**
  * <p>No traffic policy instance exists with the specified ID.</p>
  */
-export interface NoSuchTrafficPolicyInstance extends __SmithyException, $MetadataBearer {
-  name: "NoSuchTrafficPolicyInstance";
-  $fault: "client";
+export class NoSuchTrafficPolicyInstance extends __BaseException {
+  readonly name: "NoSuchTrafficPolicyInstance" = "NoSuchTrafficPolicyInstance";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchTrafficPolicyInstance, __BaseException>) {
+    super({
+      name: "NoSuchTrafficPolicyInstance",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchTrafficPolicyInstance.prototype);
+  }
 }
 
 /**
@@ -4148,13 +4556,20 @@ export namespace DeleteVPCAssociationAuthorizationResponse {
 /**
  * <p>The VPC that you specified is not authorized to be associated with the hosted zone.</p>
  */
-export interface VPCAssociationAuthorizationNotFound extends __SmithyException, $MetadataBearer {
-  name: "VPCAssociationAuthorizationNotFound";
-  $fault: "client";
+export class VPCAssociationAuthorizationNotFound extends __BaseException {
+  readonly name: "VPCAssociationAuthorizationNotFound" = "VPCAssociationAuthorizationNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<VPCAssociationAuthorizationNotFound, __BaseException>) {
+    super({
+      name: "VPCAssociationAuthorizationNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VPCAssociationAuthorizationNotFound.prototype);
+  }
 }
 
 export interface DisableHostedZoneDNSSECRequest {
@@ -4193,10 +4608,20 @@ export namespace DisableHostedZoneDNSSECResponse {
 /**
  * <p>The hosted zone doesn't have any DNSSEC resources.</p>
  */
-export interface DNSSECNotFound extends __SmithyException, $MetadataBearer {
-  name: "DNSSECNotFound";
-  $fault: "client";
-  message?: string;
+export class DNSSECNotFound extends __BaseException {
+  readonly name: "DNSSECNotFound" = "DNSSECNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DNSSECNotFound, __BaseException>) {
+    super({
+      name: "DNSSECNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DNSSECNotFound.prototype);
+  }
 }
 
 /**
@@ -4254,25 +4679,39 @@ export namespace DisassociateVPCFromHostedZoneResponse {
  * <p>The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with
  * 			the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.</p>
  */
-export interface LastVPCAssociation extends __SmithyException, $MetadataBearer {
-  name: "LastVPCAssociation";
-  $fault: "client";
+export class LastVPCAssociation extends __BaseException {
+  readonly name: "LastVPCAssociation" = "LastVPCAssociation";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LastVPCAssociation, __BaseException>) {
+    super({
+      name: "LastVPCAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LastVPCAssociation.prototype);
+  }
 }
 
 /**
  * <p>The specified VPC and hosted zone are not currently associated.</p>
  */
-export interface VPCAssociationNotFound extends __SmithyException, $MetadataBearer {
-  name: "VPCAssociationNotFound";
-  $fault: "client";
+export class VPCAssociationNotFound extends __BaseException {
+  readonly name: "VPCAssociationNotFound" = "VPCAssociationNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The specified VPC or hosted zone weren't found.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<VPCAssociationNotFound, __BaseException>) {
+    super({
+      name: "VPCAssociationNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VPCAssociationNotFound.prototype);
+  }
 }
 
 export interface EnableHostedZoneDNSSECRequest {
@@ -4311,19 +4750,39 @@ export namespace EnableHostedZoneDNSSECResponse {
 /**
  * <p>The hosted zone nameservers don't match the parent nameservers. The hosted zone and parent must have the same nameservers.</p>
  */
-export interface HostedZonePartiallyDelegated extends __SmithyException, $MetadataBearer {
-  name: "HostedZonePartiallyDelegated";
-  $fault: "client";
-  message?: string;
+export class HostedZonePartiallyDelegated extends __BaseException {
+  readonly name: "HostedZonePartiallyDelegated" = "HostedZonePartiallyDelegated";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HostedZonePartiallyDelegated, __BaseException>) {
+    super({
+      name: "HostedZonePartiallyDelegated",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HostedZonePartiallyDelegated.prototype);
+  }
 }
 
 /**
  * <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
  */
-export interface KeySigningKeyWithActiveStatusNotFound extends __SmithyException, $MetadataBearer {
-  name: "KeySigningKeyWithActiveStatusNotFound";
-  $fault: "client";
-  message?: string;
+export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
+  readonly name: "KeySigningKeyWithActiveStatusNotFound" = "KeySigningKeyWithActiveStatusNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeySigningKeyWithActiveStatusNotFound, __BaseException>) {
+    super({
+      name: "KeySigningKeyWithActiveStatusNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeySigningKeyWithActiveStatusNotFound.prototype);
+  }
 }
 
 /**
@@ -4443,10 +4902,20 @@ export namespace GetChangeResponse {
 /**
  * <p>A change with the specified change ID does not exist.</p>
  */
-export interface NoSuchChange extends __SmithyException, $MetadataBearer {
-  name: "NoSuchChange";
-  $fault: "client";
-  message?: string;
+export class NoSuchChange extends __BaseException {
+  readonly name: "NoSuchChange" = "NoSuchChange";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchChange, __BaseException>) {
+    super({
+      name: "NoSuchChange",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchChange.prototype);
+  }
 }
 
 /**
@@ -4699,13 +5168,20 @@ export namespace GetGeoLocationResponse {
  * <p>Amazon Route 53 doesn't support the specified geographic location. For a list of supported geolocation codes, see the
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data type.</p>
  */
-export interface NoSuchGeoLocation extends __SmithyException, $MetadataBearer {
-  name: "NoSuchGeoLocation";
-  $fault: "client";
+export class NoSuchGeoLocation extends __BaseException {
+  readonly name: "NoSuchGeoLocation" = "NoSuchGeoLocation";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchGeoLocation, __BaseException>) {
+    super({
+      name: "NoSuchGeoLocation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchGeoLocation.prototype);
+  }
 }
 
 /**
@@ -4751,10 +5227,20 @@ export namespace GetHealthCheckResponse {
 /**
  * <p>The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.</p>
  */
-export interface IncompatibleVersion extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleVersion";
-  $fault: "client";
-  message?: string;
+export class IncompatibleVersion extends __BaseException {
+  readonly name: "IncompatibleVersion" = "IncompatibleVersion";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleVersion, __BaseException>) {
+    super({
+      name: "IncompatibleVersion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleVersion.prototype);
+  }
 }
 
 /**
@@ -5119,13 +5605,20 @@ export namespace GetHostedZoneLimitResponse {
 /**
  * <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
  */
-export interface HostedZoneNotPrivate extends __SmithyException, $MetadataBearer {
-  name: "HostedZoneNotPrivate";
-  $fault: "client";
+export class HostedZoneNotPrivate extends __BaseException {
+  readonly name: "HostedZoneNotPrivate" = "HostedZoneNotPrivate";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HostedZoneNotPrivate, __BaseException>) {
+    super({
+      name: "HostedZoneNotPrivate",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HostedZoneNotPrivate.prototype);
+  }
 }
 
 export interface GetQueryLoggingConfigRequest {
@@ -5739,10 +6232,20 @@ export namespace ListHostedZonesByNameResponse {
 /**
  * <p>The value that you specified to get the second or subsequent page of results is invalid.</p>
  */
-export interface InvalidPaginationToken extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationToken";
-  $fault: "client";
-  message?: string;
+export class InvalidPaginationToken extends __BaseException {
+  readonly name: "InvalidPaginationToken" = "InvalidPaginationToken";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPaginationToken, __BaseException>) {
+    super({
+      name: "InvalidPaginationToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationToken.prototype);
+  }
 }
 
 /**
@@ -6957,10 +7460,20 @@ export namespace TestDNSAnswerResponse {
  * <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code>
  * 			in the health check.</p>
  */
-export interface HealthCheckVersionMismatch extends __SmithyException, $MetadataBearer {
-  name: "HealthCheckVersionMismatch";
-  $fault: "client";
-  message?: string;
+export class HealthCheckVersionMismatch extends __BaseException {
+  readonly name: "HealthCheckVersionMismatch" = "HealthCheckVersionMismatch";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HealthCheckVersionMismatch, __BaseException>) {
+    super({
+      name: "HealthCheckVersionMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthCheckVersionMismatch.prototype);
+  }
 }
 
 export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainName" | "Regions" | "ResourcePath";
@@ -7415,13 +7928,20 @@ export namespace UpdateTrafficPolicyCommentResponse {
  * 			than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or
  * 			<code>CreateTrafficPolicyVersion</code>request. </p>
  */
-export interface ConflictingTypes extends __SmithyException, $MetadataBearer {
-  name: "ConflictingTypes";
-  $fault: "client";
+export class ConflictingTypes extends __BaseException {
+  readonly name: "ConflictingTypes" = "ConflictingTypes";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConflictingTypes, __BaseException>) {
+    super({
+      name: "ConflictingTypes",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictingTypes.prototype);
+  }
 }
 
 /**

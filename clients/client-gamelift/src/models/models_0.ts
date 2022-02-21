@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GameLiftServiceException as __BaseException } from "./GameLiftServiceException";
 
 export type AcceptanceType = "ACCEPT" | "REJECT";
 
@@ -50,39 +52,87 @@ export namespace AcceptMatchOutput {
  *             request. Clients can retry such requests immediately or after a waiting
  *             period.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more parameter values in the request are invalid. Correct the invalid
  *             parameter values before retrying.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A service resource associated with the request could not be found. Clients should
  *             not retry such requests.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested operation is not supported in the Region specified.</p>
  */
-export interface UnsupportedRegionException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedRegionException";
-  $fault: "client";
+export class UnsupportedRegionException extends __BaseException {
+  readonly name: "UnsupportedRegionException" = "UnsupportedRegionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedRegionException, __BaseException>) {
+    super({
+      name: "UnsupportedRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedRegionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RoutingStrategyType {
@@ -612,10 +662,22 @@ export namespace ClaimGameServerOutput {
  *             resource associated with the request. Resolve the conflict before retrying this
  *             request.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -625,19 +687,43 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
  *
  *         </p>
  */
-export interface OutOfCapacityException extends __SmithyException, $MetadataBearer {
-  name: "OutOfCapacityException";
-  $fault: "client";
+export class OutOfCapacityException extends __BaseException {
+  readonly name: "OutOfCapacityException" = "OutOfCapacityException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OutOfCapacityException, __BaseException>) {
+    super({
+      name: "OutOfCapacityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OutOfCapacityException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The client failed authentication. Clients should not retry such requests.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ComparisonOperatorType {
@@ -762,10 +848,22 @@ export namespace CreateAliasOutput {
  * <p>The requested operation would cause the resource to exceed the allowed service
  *             limit. Resolve the issue before retrying.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -774,10 +872,22 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
  *             or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *         </p>
  */
-export interface TaggingFailedException extends __SmithyException, $MetadataBearer {
-  name: "TaggingFailedException";
-  $fault: "client";
+export class TaggingFailedException extends __BaseException {
+  readonly name: "TaggingFailedException" = "TaggingFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaggingFailedException, __BaseException>) {
+    super({
+      name: "TaggingFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaggingFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1767,10 +1877,22 @@ export namespace CreateFleetLocationsOutput {
  *             associated with the request and/or the fleet. Resolve the conflict before
  *             retrying.</p>
  */
-export interface InvalidFleetStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFleetStatusException";
-  $fault: "client";
+export class InvalidFleetStatusException extends __BaseException {
+  readonly name: "InvalidFleetStatusException" = "InvalidFleetStatusException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFleetStatusException, __BaseException>) {
+    super({
+      name: "InvalidFleetStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFleetStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2661,20 +2783,44 @@ export namespace CreateGameSessionOutput {
  *                 <code>CreateGameSession</code> request. Clients can retry such requests immediately
  *             or after a waiting period.</p>
  */
-export interface FleetCapacityExceededException extends __SmithyException, $MetadataBearer {
-  name: "FleetCapacityExceededException";
-  $fault: "client";
+export class FleetCapacityExceededException extends __BaseException {
+  readonly name: "FleetCapacityExceededException" = "FleetCapacityExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FleetCapacityExceededException, __BaseException>) {
+    super({
+      name: "FleetCapacityExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FleetCapacityExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A game session with this custom ID string already exists in this fleet. Resolve
  *             this conflict before retrying this request.</p>
  */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2684,10 +2830,22 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
  *             should only be retried if the routing strategy for the specified alias is modified.
  *         </p>
  */
-export interface TerminalRoutingStrategyException extends __SmithyException, $MetadataBearer {
-  name: "TerminalRoutingStrategyException";
-  $fault: "client";
+export class TerminalRoutingStrategyException extends __BaseException {
+  readonly name: "TerminalRoutingStrategyException" = "TerminalRoutingStrategyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TerminalRoutingStrategyException, __BaseException>) {
+    super({
+      name: "TerminalRoutingStrategyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TerminalRoutingStrategyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3658,10 +3816,22 @@ export namespace CreatePlayerSessionOutput {
  * <p>The game instance is currently full and cannot allow the requested player(s) to
  *             join. Clients can retry such requests immediately or after a waiting period.</p>
  */
-export interface GameSessionFullException extends __SmithyException, $MetadataBearer {
-  name: "GameSessionFullException";
-  $fault: "client";
+export class GameSessionFullException extends __BaseException {
+  readonly name: "GameSessionFullException" = "GameSessionFullException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GameSessionFullException, __BaseException>) {
+    super({
+      name: "GameSessionFullException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GameSessionFullException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3669,10 +3839,22 @@ export interface GameSessionFullException extends __SmithyException, $MetadataBe
  *             associated with the request and/or the game instance. Resolve the conflict before
  *             retrying.</p>
  */
-export interface InvalidGameSessionStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidGameSessionStatusException";
-  $fault: "client";
+export class InvalidGameSessionStatusException extends __BaseException {
+  readonly name: "InvalidGameSessionStatusException" = "InvalidGameSessionStatusException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGameSessionStatusException, __BaseException>) {
+    super({
+      name: "InvalidGameSessionStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGameSessionStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

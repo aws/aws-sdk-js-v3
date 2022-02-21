@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ECRServiceException as __BaseException } from "./ECRServiceException";
 
 export interface BatchCheckLayerAvailabilityRequest {
   /**
@@ -128,38 +131,59 @@ export namespace BatchCheckLayerAvailabilityResponse {
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>The specified repository could not be found. Check the spelling of the specified
  *             repository and ensure that you are performing operations on the correct registry.</p>
  */
-export interface RepositoryNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNotFoundException";
-  $fault: "client";
+export class RepositoryNotFoundException extends __BaseException {
+  readonly name: "RepositoryNotFoundException" = "RepositoryNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNotFoundException, __BaseException>) {
+    super({
+      name: "RepositoryNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>These errors are usually caused by a server-side issue.</p>
  */
-export interface ServerException extends __SmithyException, $MetadataBearer {
-  name: "ServerException";
-  $fault: "server";
+export class ServerException extends __BaseException {
+  readonly name: "ServerException" = "ServerException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
+    super({
+      name: "ServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerException.prototype);
+  }
 }
 
 /**
@@ -524,10 +548,20 @@ export namespace BatchGetRepositoryScanningConfigurationResponse {
 /**
  * <p>There was an exception validating this request.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 export interface CompleteLayerUploadRequest {
@@ -597,76 +631,123 @@ export namespace CompleteLayerUploadResponse {
 /**
  * <p>The specified layer upload does not contain any layer parts.</p>
  */
-export interface EmptyUploadException extends __SmithyException, $MetadataBearer {
-  name: "EmptyUploadException";
-  $fault: "client";
+export class EmptyUploadException extends __BaseException {
+  readonly name: "EmptyUploadException" = "EmptyUploadException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EmptyUploadException, __BaseException>) {
+    super({
+      name: "EmptyUploadException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EmptyUploadException.prototype);
+  }
 }
 
 /**
  * <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
  *             not match the digest specified.</p>
  */
-export interface InvalidLayerException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLayerException";
-  $fault: "client";
+export class InvalidLayerException extends __BaseException {
+  readonly name: "InvalidLayerException" = "InvalidLayerException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidLayerException, __BaseException>) {
+    super({
+      name: "InvalidLayerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLayerException.prototype);
+  }
 }
 
 /**
  * <p>The operation failed due to a KMS exception.</p>
  */
-export interface KmsException extends __SmithyException, $MetadataBearer {
-  name: "KmsException";
-  $fault: "client";
-  message?: string;
+export class KmsException extends __BaseException {
+  readonly name: "KmsException" = "KmsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code returned by KMS.</p>
    */
   kmsError?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsException, __BaseException>) {
+    super({
+      name: "KmsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsException.prototype);
+    this.kmsError = opts.kmsError;
+  }
 }
 
 /**
  * <p>The image layer already exists in the associated repository.</p>
  */
-export interface LayerAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "LayerAlreadyExistsException";
-  $fault: "client";
+export class LayerAlreadyExistsException extends __BaseException {
+  readonly name: "LayerAlreadyExistsException" = "LayerAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LayerAlreadyExistsException, __BaseException>) {
+    super({
+      name: "LayerAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LayerAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>Layer parts must be at least 5 MiB in size.</p>
  */
-export interface LayerPartTooSmallException extends __SmithyException, $MetadataBearer {
-  name: "LayerPartTooSmallException";
-  $fault: "client";
+export class LayerPartTooSmallException extends __BaseException {
+  readonly name: "LayerPartTooSmallException" = "LayerPartTooSmallException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LayerPartTooSmallException, __BaseException>) {
+    super({
+      name: "LayerPartTooSmallException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LayerPartTooSmallException.prototype);
+  }
 }
 
 /**
  * <p>The upload could not be found, or the specified upload ID is not valid for this
  *             repository.</p>
  */
-export interface UploadNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "UploadNotFoundException";
-  $fault: "client";
+export class UploadNotFoundException extends __BaseException {
+  readonly name: "UploadNotFoundException" = "UploadNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UploadNotFoundException, __BaseException>) {
+    super({
+      name: "UploadNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UploadNotFoundException.prototype);
+  }
 }
 
 export interface CreatePullThroughCacheRuleRequest {
@@ -734,32 +815,59 @@ export namespace CreatePullThroughCacheRuleResponse {
  *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
  *             the Amazon Elastic Container Registry User Guide.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>A pull through cache rule with these settings already exists for the private
  *             registry.</p>
  */
-export interface PullThroughCacheRuleAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "PullThroughCacheRuleAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class PullThroughCacheRuleAlreadyExistsException extends __BaseException {
+  readonly name: "PullThroughCacheRuleAlreadyExistsException" = "PullThroughCacheRuleAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PullThroughCacheRuleAlreadyExistsException, __BaseException>) {
+    super({
+      name: "PullThroughCacheRuleAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullThroughCacheRuleAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified upstream registry isn't supported.</p>
  */
-export interface UnsupportedUpstreamRegistryException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedUpstreamRegistryException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedUpstreamRegistryException extends __BaseException {
+  readonly name: "UnsupportedUpstreamRegistryException" = "UnsupportedUpstreamRegistryException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedUpstreamRegistryException, __BaseException>) {
+    super({
+      name: "UnsupportedUpstreamRegistryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedUpstreamRegistryException.prototype);
+  }
 }
 
 export enum EncryptionType {
@@ -1001,32 +1109,59 @@ export namespace CreateRepositoryResponse {
  * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
  *             a maximum length of 256 characters.</p>
  */
-export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidTagParameterException extends __BaseException {
+  readonly name: "InvalidTagParameterException" = "InvalidTagParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
+    super({
+      name: "InvalidTagParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
+  }
 }
 
 /**
  * <p>The specified repository already exists in the specified registry.</p>
  */
-export interface RepositoryAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryAlreadyExistsException";
-  $fault: "client";
+export class RepositoryAlreadyExistsException extends __BaseException {
+  readonly name: "RepositoryAlreadyExistsException" = "RepositoryAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryAlreadyExistsException, __BaseException>) {
+    super({
+      name: "RepositoryAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -1086,10 +1221,20 @@ export namespace DeleteLifecyclePolicyResponse {
  * <p>The lifecycle policy could not be found, and no policy is set to the
  *             repository.</p>
  */
-export interface LifecyclePolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LifecyclePolicyNotFoundException";
-  $fault: "client";
-  message?: string;
+export class LifecyclePolicyNotFoundException extends __BaseException {
+  readonly name: "LifecyclePolicyNotFoundException" = "LifecyclePolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LifecyclePolicyNotFoundException, __BaseException>) {
+    super({
+      name: "LifecyclePolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LifecyclePolicyNotFoundException.prototype);
+  }
 }
 
 export interface DeletePullThroughCacheRuleRequest {
@@ -1150,10 +1295,20 @@ export namespace DeletePullThroughCacheRuleResponse {
  * <p>The pull through cache rule was not found. Specify a valid pull through cache rule and
  *             try again.</p>
  */
-export interface PullThroughCacheRuleNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PullThroughCacheRuleNotFoundException";
-  $fault: "client";
-  message?: string;
+export class PullThroughCacheRuleNotFoundException extends __BaseException {
+  readonly name: "PullThroughCacheRuleNotFoundException" = "PullThroughCacheRuleNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PullThroughCacheRuleNotFoundException, __BaseException>) {
+    super({
+      name: "PullThroughCacheRuleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullThroughCacheRuleNotFoundException.prototype);
+  }
 }
 
 export interface DeleteRegistryPolicyRequest {}
@@ -1191,10 +1346,20 @@ export namespace DeleteRegistryPolicyResponse {
 /**
  * <p>The registry doesn't have an associated registry policy.</p>
  */
-export interface RegistryPolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RegistryPolicyNotFoundException";
-  $fault: "client";
-  message?: string;
+export class RegistryPolicyNotFoundException extends __BaseException {
+  readonly name: "RegistryPolicyNotFoundException" = "RegistryPolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RegistryPolicyNotFoundException, __BaseException>) {
+    super({
+      name: "RegistryPolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegistryPolicyNotFoundException.prototype);
+  }
 }
 
 export interface DeleteRepositoryRequest {
@@ -1244,13 +1409,20 @@ export namespace DeleteRepositoryResponse {
  * <p>The specified repository contains images. To delete a repository that contains images,
  *             you must force the deletion with the <code>force</code> parameter.</p>
  */
-export interface RepositoryNotEmptyException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNotEmptyException";
-  $fault: "client";
+export class RepositoryNotEmptyException extends __BaseException {
+  readonly name: "RepositoryNotEmptyException" = "RepositoryNotEmptyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNotEmptyException, __BaseException>) {
+    super({
+      name: "RepositoryNotEmptyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNotEmptyException.prototype);
+  }
 }
 
 export interface DeleteRepositoryPolicyRequest {
@@ -1306,13 +1478,20 @@ export namespace DeleteRepositoryPolicyResponse {
  * <p>The specified repository and registry combination does not have an associated
  *             repository policy.</p>
  */
-export interface RepositoryPolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryPolicyNotFoundException";
-  $fault: "client";
+export class RepositoryPolicyNotFoundException extends __BaseException {
+  readonly name: "RepositoryPolicyNotFoundException" = "RepositoryPolicyNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryPolicyNotFoundException, __BaseException>) {
+    super({
+      name: "RepositoryPolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryPolicyNotFoundException.prototype);
+  }
 }
 
 export interface DescribeImageReplicationStatusRequest {
@@ -1410,10 +1589,20 @@ export namespace DescribeImageReplicationStatusResponse {
 /**
  * <p>The image requested does not exist in the specified repository.</p>
  */
-export interface ImageNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ImageNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ImageNotFoundException extends __BaseException {
+  readonly name: "ImageNotFoundException" = "ImageNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageNotFoundException, __BaseException>) {
+    super({
+      name: "ImageNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageNotFoundException.prototype);
+  }
 }
 
 export enum TagStatus {
@@ -2350,10 +2539,20 @@ export namespace DescribeImageScanFindingsResponse {
  * <p>The specified image scan could not be found. Ensure that image scanning is enabled on
  *             the repository and try again.</p>
  */
-export interface ScanNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ScanNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ScanNotFoundException extends __BaseException {
+  readonly name: "ScanNotFoundException" = "ScanNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScanNotFoundException, __BaseException>) {
+    super({
+      name: "ScanNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScanNotFoundException.prototype);
+  }
 }
 
 export interface DescribePullThroughCacheRulesRequest {
@@ -2802,26 +3001,40 @@ export namespace GetDownloadUrlForLayerResponse {
  * <p>The specified layer is not available because it is not associated with an image.
  *             Unassociated image layers may be cleaned up at any time.</p>
  */
-export interface LayerInaccessibleException extends __SmithyException, $MetadataBearer {
-  name: "LayerInaccessibleException";
-  $fault: "client";
+export class LayerInaccessibleException extends __BaseException {
+  readonly name: "LayerInaccessibleException" = "LayerInaccessibleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LayerInaccessibleException, __BaseException>) {
+    super({
+      name: "LayerInaccessibleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LayerInaccessibleException.prototype);
+  }
 }
 
 /**
  * <p>The specified layers could not be found, or the specified layer is not valid for this
  *             repository.</p>
  */
-export interface LayersNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LayersNotFoundException";
-  $fault: "client";
+export class LayersNotFoundException extends __BaseException {
+  readonly name: "LayersNotFoundException" = "LayersNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LayersNotFoundException, __BaseException>) {
+    super({
+      name: "LayersNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LayersNotFoundException.prototype);
+  }
 }
 
 export interface GetLifecyclePolicyRequest {
@@ -3096,10 +3309,20 @@ export namespace GetLifecyclePolicyPreviewResponse {
 /**
  * <p>There is no dry run for this repository.</p>
  */
-export interface LifecyclePolicyPreviewNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LifecyclePolicyPreviewNotFoundException";
-  $fault: "client";
-  message?: string;
+export class LifecyclePolicyPreviewNotFoundException extends __BaseException {
+  readonly name: "LifecyclePolicyPreviewNotFoundException" = "LifecyclePolicyPreviewNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LifecyclePolicyPreviewNotFoundException, __BaseException>) {
+    super({
+      name: "LifecyclePolicyPreviewNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LifecyclePolicyPreviewNotFoundException.prototype);
+  }
 }
 
 export interface GetRegistryPolicyRequest {}
@@ -3448,33 +3671,60 @@ export namespace ListTagsForResourceResponse {
  * <p>The specified image has already been pushed, and there were no changes to the manifest
  *             or image tag after the last push.</p>
  */
-export interface ImageAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ImageAlreadyExistsException";
-  $fault: "client";
+export class ImageAlreadyExistsException extends __BaseException {
+  readonly name: "ImageAlreadyExistsException" = "ImageAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ImageAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ImageAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified image digest does not match the digest that Amazon ECR calculated for the
  *             image.</p>
  */
-export interface ImageDigestDoesNotMatchException extends __SmithyException, $MetadataBearer {
-  name: "ImageDigestDoesNotMatchException";
-  $fault: "client";
-  message?: string;
+export class ImageDigestDoesNotMatchException extends __BaseException {
+  readonly name: "ImageDigestDoesNotMatchException" = "ImageDigestDoesNotMatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageDigestDoesNotMatchException, __BaseException>) {
+    super({
+      name: "ImageDigestDoesNotMatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageDigestDoesNotMatchException.prototype);
+  }
 }
 
 /**
  * <p>The specified image is tagged with a tag that already exists. The repository is
  *             configured for tag immutability.</p>
  */
-export interface ImageTagAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ImageTagAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ImageTagAlreadyExistsException extends __BaseException {
+  readonly name: "ImageTagAlreadyExistsException" = "ImageTagAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageTagAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ImageTagAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageTagAlreadyExistsException.prototype);
+  }
 }
 
 export interface PutImageRequest {
@@ -3541,10 +3791,20 @@ export namespace PutImageResponse {
 /**
  * <p>The manifest list is referencing an image that does not exist.</p>
  */
-export interface ReferencedImagesNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ReferencedImagesNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ReferencedImagesNotFoundException extends __BaseException {
+  readonly name: "ReferencedImagesNotFoundException" = "ReferencedImagesNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReferencedImagesNotFoundException, __BaseException>) {
+    super({
+      name: "ReferencedImagesNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReferencedImagesNotFoundException.prototype);
+  }
 }
 
 export interface PutImageScanningConfigurationRequest {
@@ -3952,20 +4212,40 @@ export namespace StartImageScanResponse {
 /**
  * <p>The image is of a type that cannot be scanned.</p>
  */
-export interface UnsupportedImageTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedImageTypeException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedImageTypeException extends __BaseException {
+  readonly name: "UnsupportedImageTypeException" = "UnsupportedImageTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedImageTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedImageTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedImageTypeException.prototype);
+  }
 }
 
 /**
  * <p>The previous lifecycle policy preview request has not completed. Wait and try
  *             again.</p>
  */
-export interface LifecyclePolicyPreviewInProgressException extends __SmithyException, $MetadataBearer {
-  name: "LifecyclePolicyPreviewInProgressException";
-  $fault: "client";
-  message?: string;
+export class LifecyclePolicyPreviewInProgressException extends __BaseException {
+  readonly name: "LifecyclePolicyPreviewInProgressException" = "LifecyclePolicyPreviewInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LifecyclePolicyPreviewInProgressException, __BaseException>) {
+    super({
+      name: "LifecyclePolicyPreviewInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LifecyclePolicyPreviewInProgressException.prototype);
+  }
 }
 
 export interface StartLifecyclePolicyPreviewRequest {
@@ -4099,9 +4379,9 @@ export namespace UntagResourceResponse {
  * <p>The layer part size is not valid, or the first byte specified is not consecutive to
  *             the last byte of a previous layer part upload.</p>
  */
-export interface InvalidLayerPartException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLayerPartException";
-  $fault: "client";
+export class InvalidLayerPartException extends __BaseException {
+  readonly name: "InvalidLayerPartException" = "InvalidLayerPartException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The registry ID associated with the exception.</p>
    */
@@ -4124,9 +4404,20 @@ export interface InvalidLayerPartException extends __SmithyException, $MetadataB
   lastValidByteReceived?: number;
 
   /**
-   * <p>The error message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidLayerPartException, __BaseException>) {
+    super({
+      name: "InvalidLayerPartException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLayerPartException.prototype);
+    this.registryId = opts.registryId;
+    this.repositoryName = opts.repositoryName;
+    this.uploadId = opts.uploadId;
+    this.lastValidByteReceived = opts.lastValidByteReceived;
+  }
 }
 
 export interface UploadLayerPartRequest {

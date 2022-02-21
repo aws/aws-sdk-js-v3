@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DeviceFarmServiceException as __BaseException } from "./DeviceFarmServiceException";
 
 /**
  * <p>Represents information about free trial device minutes for an AWS
@@ -97,13 +99,20 @@ export namespace AccountSettings {
 /**
  * <p>An invalid argument was specified.</p>
  */
-export interface ArgumentException extends __SmithyException, $MetadataBearer {
-  name: "ArgumentException";
-  $fault: "client";
+export class ArgumentException extends __BaseException {
+  readonly name: "ArgumentException" = "ArgumentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ArgumentException, __BaseException>) {
+    super({
+      name: "ArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ArgumentException.prototype);
+  }
 }
 
 export enum ArtifactType {
@@ -279,10 +288,20 @@ export enum BillingMethod {
 /**
  * <p>The requested object could not be deleted.</p>
  */
-export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
-  name: "CannotDeleteException";
-  $fault: "client";
-  message?: string;
+export class CannotDeleteException extends __BaseException {
+  readonly name: "CannotDeleteException" = "CannotDeleteException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotDeleteException, __BaseException>) {
+    super({
+      name: "CannotDeleteException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDeleteException.prototype);
+  }
 }
 
 /**
@@ -652,37 +671,58 @@ export namespace CreateDevicePoolResult {
 /**
  * <p>A limit was exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The specified entity was not found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
  * <p>There was a problem with the service account.</p>
  */
-export interface ServiceAccountException extends __SmithyException, $MetadataBearer {
-  name: "ServiceAccountException";
-  $fault: "client";
+export class ServiceAccountException extends __BaseException {
+  readonly name: "ServiceAccountException" = "ServiceAccountException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceAccountException, __BaseException>) {
+    super({
+      name: "ServiceAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceAccountException.prototype);
+  }
 }
 
 export interface CreateInstanceProfileRequest {
@@ -1056,11 +1096,22 @@ export namespace CreateProjectResult {
 /**
  * <p>The operation was not successful. Try again.</p>
  */
-export interface TagOperationException extends __SmithyException, $MetadataBearer {
-  name: "TagOperationException";
-  $fault: "client";
-  message?: string;
+export class TagOperationException extends __BaseException {
+  readonly name: "TagOperationException" = "TagOperationException";
+  readonly $fault: "client" = "client";
   resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagOperationException, __BaseException>) {
+    super({
+      name: "TagOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagOperationException.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 /**
@@ -1827,10 +1878,20 @@ export namespace CreateTestGridProjectResult {
  * <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
  *          error. </p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
-  message?: string;
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+  }
 }
 
 export interface CreateTestGridUrlRequest {
@@ -2685,10 +2746,20 @@ export namespace DeleteVPCEConfigurationResult {
  * <p>There was an error with the update request, or you do not have sufficient permissions
  *             to update this VPC endpoint configuration.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
-  message?: string;
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+  }
 }
 
 /**
@@ -3908,13 +3979,20 @@ export namespace GetOfferingStatusResult {
  * <p>Exception gets thrown when a user is not eligible to perform the specified
  *             transaction.</p>
  */
-export interface NotEligibleException extends __SmithyException, $MetadataBearer {
-  name: "NotEligibleException";
-  $fault: "client";
+export class NotEligibleException extends __BaseException {
+  readonly name: "NotEligibleException" = "NotEligibleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The HTTP response code of a Not Eligible exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotEligibleException, __BaseException>) {
+    super({
+      name: "NotEligibleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotEligibleException.prototype);
+  }
 }
 
 /**
@@ -7176,13 +7254,20 @@ export namespace RenewOfferingResult {
 /**
  * <p>An entity with the same name already exists.</p>
  */
-export interface IdempotencyException extends __SmithyException, $MetadataBearer {
-  name: "IdempotencyException";
-  $fault: "client";
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+  }
 }
 
 /**
@@ -7570,11 +7655,22 @@ export namespace StopRunResult {
  * <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag
  *             policy. Correct your request and then retry it.</p>
  */
-export interface TagPolicyException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyException";
-  $fault: "client";
-  message?: string;
+export class TagPolicyException extends __BaseException {
+  readonly name: "TagPolicyException" = "TagPolicyException";
+  readonly $fault: "client" = "client";
   resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
+    super({
+      name: "TagPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyException.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 export interface TagResourceRequest {
@@ -7618,11 +7714,22 @@ export namespace TagResourceResponse {
  * <p>The list of tags on the repository is over the limit. The maximum number of tags that
  *             can be applied to a repository is 50. </p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 export interface UntagResourceRequest {

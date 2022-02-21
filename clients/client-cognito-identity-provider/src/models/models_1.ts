@@ -1,6 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
 import {
   AccountRecoverySettingType,
   AdminCreateUserConfigType,
@@ -886,10 +887,20 @@ export namespace UpdateUserPoolDomainResponse {
 /**
  * <p>This exception is thrown when there is a code mismatch and the service fails to configure the software token TOTP multi-factor authentication (MFA).</p>
  */
-export interface EnableSoftwareTokenMFAException extends __SmithyException, $MetadataBearer {
-  name: "EnableSoftwareTokenMFAException";
-  $fault: "client";
-  message?: string;
+export class EnableSoftwareTokenMFAException extends __BaseException {
+  readonly name: "EnableSoftwareTokenMFAException" = "EnableSoftwareTokenMFAException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EnableSoftwareTokenMFAException, __BaseException>) {
+    super({
+      name: "EnableSoftwareTokenMFAException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EnableSoftwareTokenMFAException.prototype);
+  }
 }
 
 export interface VerifySoftwareTokenRequest {

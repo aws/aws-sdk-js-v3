@@ -1,16 +1,31 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MacieServiceException as __BaseException } from "./MacieServiceException";
 
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * Resource type that caused the exception
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export interface AssociateMemberAccountRequest {
@@ -33,53 +48,90 @@ export namespace AssociateMemberAccountRequest {
 /**
  * <p>Internal server error.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   /**
    * Error code for the exception
    */
   errorCode?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+    this.errorCode = opts.errorCode;
+  }
 }
 
 /**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter. </p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   /**
    * Error code for the exception
    */
   errorCode?: string;
 
-  message?: string;
   /**
    * Field that has invalid input
    */
   fieldName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.errorCode = opts.errorCode;
+    this.fieldName = opts.fieldName;
+  }
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current
  *       AWS account limits. The error code describes the limit exceeded. </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * Error code for the exception
    */
   errorCode?: string;
 
-  message?: string;
   /**
    * Resource type that caused the exception
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.errorCode = opts.errorCode;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export enum S3ContinuousClassificationType {

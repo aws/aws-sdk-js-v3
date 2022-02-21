@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAcceleratorServiceException";
 
 export enum IpAddressType {
   IPV4 = "IPV4",
@@ -139,28 +142,64 @@ export namespace AcceleratorAttributes {
 /**
  * <p>The accelerator that you specified could not be disabled.</p>
  */
-export interface AcceleratorNotDisabledException extends __SmithyException, $MetadataBearer {
-  name: "AcceleratorNotDisabledException";
-  $fault: "client";
+export class AcceleratorNotDisabledException extends __BaseException {
+  readonly name: "AcceleratorNotDisabledException" = "AcceleratorNotDisabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AcceleratorNotDisabledException, __BaseException>) {
+    super({
+      name: "AcceleratorNotDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AcceleratorNotDisabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The accelerator that you specified doesn't exist.</p>
  */
-export interface AcceleratorNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AcceleratorNotFoundException";
-  $fault: "client";
+export class AcceleratorNotFoundException extends __BaseException {
+  readonly name: "AcceleratorNotFoundException" = "AcceleratorNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AcceleratorNotFoundException, __BaseException>) {
+    super({
+      name: "AcceleratorNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AcceleratorNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You don't have access permission.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -249,55 +288,127 @@ export namespace AddCustomRoutingEndpointsResponse {
 /**
  * <p>You can't use both of those options.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The endpoint that you specified doesn't exist.</p>
  */
-export interface EndpointAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EndpointAlreadyExistsException";
-  $fault: "client";
+export class EndpointAlreadyExistsException extends __BaseException {
+  readonly name: "EndpointAlreadyExistsException" = "EndpointAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EndpointAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
-export interface EndpointGroupNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EndpointGroupNotFoundException";
-  $fault: "client";
+export class EndpointGroupNotFoundException extends __BaseException {
+  readonly name: "EndpointGroupNotFoundException" = "EndpointGroupNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointGroupNotFoundException, __BaseException>) {
+    super({
+      name: "EndpointGroupNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointGroupNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
-export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceErrorException";
-  $fault: "server";
+export class InternalServiceErrorException extends __BaseException {
+  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An argument that you specified is invalid.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AdvertiseByoipCidrRequest {
@@ -477,20 +588,44 @@ export namespace AdvertiseByoipCidrResponse {
 /**
  * <p>The CIDR that you specified was not found or is incorrect.</p>
  */
-export interface ByoipCidrNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ByoipCidrNotFoundException";
-  $fault: "client";
+export class ByoipCidrNotFoundException extends __BaseException {
+  readonly name: "ByoipCidrNotFoundException" = "ByoipCidrNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ByoipCidrNotFoundException, __BaseException>) {
+    super({
+      name: "ByoipCidrNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ByoipCidrNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
  * 		incorrect for this action.</p>
  */
-export interface IncorrectCidrStateException extends __SmithyException, $MetadataBearer {
-  name: "IncorrectCidrStateException";
-  $fault: "client";
+export class IncorrectCidrStateException extends __BaseException {
+  readonly name: "IncorrectCidrStateException" = "IncorrectCidrStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectCidrStateException, __BaseException>) {
+    super({
+      name: "IncorrectCidrStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectCidrStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AllowCustomRoutingTrafficRequest {
@@ -544,20 +679,44 @@ export namespace AllowCustomRoutingTrafficRequest {
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
  */
-export interface AssociatedEndpointGroupFoundException extends __SmithyException, $MetadataBearer {
-  name: "AssociatedEndpointGroupFoundException";
-  $fault: "client";
+export class AssociatedEndpointGroupFoundException extends __BaseException {
+  readonly name: "AssociatedEndpointGroupFoundException" = "AssociatedEndpointGroupFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssociatedEndpointGroupFoundException, __BaseException>) {
+    super({
+      name: "AssociatedEndpointGroupFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssociatedEndpointGroupFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
  */
-export interface AssociatedListenerFoundException extends __SmithyException, $MetadataBearer {
-  name: "AssociatedListenerFoundException";
-  $fault: "client";
+export class AssociatedListenerFoundException extends __BaseException {
+  readonly name: "AssociatedListenerFoundException" = "AssociatedListenerFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssociatedListenerFoundException, __BaseException>) {
+    super({
+      name: "AssociatedListenerFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssociatedListenerFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -983,28 +1142,64 @@ export namespace CreateCustomRoutingEndpointGroupResponse {
 /**
  * <p>The endpoint group that you specified already exists.</p>
  */
-export interface EndpointGroupAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EndpointGroupAlreadyExistsException";
-  $fault: "client";
+export class EndpointGroupAlreadyExistsException extends __BaseException {
+  readonly name: "EndpointGroupAlreadyExistsException" = "EndpointGroupAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointGroupAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EndpointGroupAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointGroupAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
-export interface InvalidPortRangeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPortRangeException";
-  $fault: "client";
+export class InvalidPortRangeException extends __BaseException {
+  readonly name: "InvalidPortRangeException" = "InvalidPortRangeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPortRangeException, __BaseException>) {
+    super({
+      name: "InvalidPortRangeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPortRangeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The listener that you specified doesn't exist.</p>
  */
-export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ListenerNotFoundException";
-  $fault: "client";
+export class ListenerNotFoundException extends __BaseException {
+  readonly name: "ListenerNotFoundException" = "ListenerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ListenerNotFoundException, __BaseException>) {
+    super({
+      name: "ListenerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ListenerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2078,19 +2273,43 @@ export namespace DestinationPortMapping {
 /**
  * <p>The endpoint that you specified doesn't exist.</p>
  */
-export interface EndpointNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EndpointNotFoundException";
-  $fault: "client";
+export class EndpointNotFoundException extends __BaseException {
+  readonly name: "EndpointNotFoundException" = "EndpointNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointNotFoundException, __BaseException>) {
+    super({
+      name: "EndpointNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There isn't another item to return.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAcceleratorsRequest {

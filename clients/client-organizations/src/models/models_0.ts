@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { OrganizationsServiceException as __BaseException } from "./OrganizationsServiceException";
 
 export interface AcceptHandshakeRequest {
   /**
@@ -86,10 +88,22 @@ export enum HandshakeState {
  *                 <i>IAM User Guide.</i>
  *          </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum AccessDeniedForDependencyExceptionReason {
@@ -102,41 +116,90 @@ export enum AccessDeniedForDependencyExceptionReason {
  *                 <code>organizations.amazonaws.com</code> permission so that AWS Organizations can create the
  *             required service-linked role. You don't have that permission.</p>
  */
-export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedForDependencyException";
-  $fault: "client";
+export class AccessDeniedForDependencyException extends __BaseException {
+  readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Reason?: AccessDeniedForDependencyExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedForDependencyException, __BaseException>) {
+    super({
+      name: "AccessDeniedForDependencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedForDependencyException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
  * <p>Your account isn't a member of an organization. To make this request, you must use the
  *             credentials of an account that belongs to an organization.</p>
  */
-export interface AWSOrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
-  name: "AWSOrganizationsNotInUseException";
-  $fault: "client";
+export class AWSOrganizationsNotInUseException extends __BaseException {
+  readonly name: "AWSOrganizationsNotInUseException" = "AWSOrganizationsNotInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AWSOrganizationsNotInUseException, __BaseException>) {
+    super({
+      name: "AWSOrganizationsNotInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AWSOrganizationsNotInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified handshake is already in the requested state. For example, you can't
  *             accept a handshake that was already accepted.</p>
  */
-export interface HandshakeAlreadyInStateException extends __SmithyException, $MetadataBearer {
-  name: "HandshakeAlreadyInStateException";
-  $fault: "client";
+export class HandshakeAlreadyInStateException extends __BaseException {
+  readonly name: "HandshakeAlreadyInStateException" = "HandshakeAlreadyInStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HandshakeAlreadyInStateException, __BaseException>) {
+    super({
+      name: "HandshakeAlreadyInStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HandshakeAlreadyInStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum HandshakeConstraintViolationExceptionReason {
@@ -211,20 +274,45 @@ export enum HandshakeConstraintViolationExceptionReason {
  *             </li>
  *          </ul>
  */
-export interface HandshakeConstraintViolationException extends __SmithyException, $MetadataBearer {
-  name: "HandshakeConstraintViolationException";
-  $fault: "client";
+export class HandshakeConstraintViolationException extends __BaseException {
+  readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Reason?: HandshakeConstraintViolationExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HandshakeConstraintViolationException, __BaseException>) {
+    super({
+      name: "HandshakeConstraintViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HandshakeConstraintViolationException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
  * <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  */
-export interface HandshakeNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "HandshakeNotFoundException";
-  $fault: "client";
+export class HandshakeNotFoundException extends __BaseException {
+  readonly name: "HandshakeNotFoundException" = "HandshakeNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HandshakeNotFoundException, __BaseException>) {
+    super({
+      name: "HandshakeNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HandshakeNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -232,10 +320,22 @@ export interface HandshakeNotFoundException extends __SmithyException, $Metadata
  *             you can't cancel a handshake that was already accepted or accept a handshake that was
  *             already declined.</p>
  */
-export interface InvalidHandshakeTransitionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidHandshakeTransitionException";
-  $fault: "client";
+export class InvalidHandshakeTransitionException extends __BaseException {
+  readonly name: "InvalidHandshakeTransitionException" = "InvalidHandshakeTransitionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidHandshakeTransitionException, __BaseException>) {
+    super({
+      name: "InvalidHandshakeTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidHandshakeTransitionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum InvalidInputExceptionReason {
@@ -369,21 +469,46 @@ export enum InvalidInputExceptionReason {
  *             </li>
  *          </ul>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Reason?: InvalidInputExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
  * <p>AWS Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
  */
-export interface ServiceException extends __SmithyException, $MetadataBearer {
-  name: "ServiceException";
-  $fault: "server";
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -393,11 +518,24 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
  *                 <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export enum AccountJoinedMethod {
@@ -475,10 +613,22 @@ export namespace Account {
  * <p>The specified account is already a delegated administrator for this AWS
  *             service.</p>
  */
-export interface AccountAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
-  name: "AccountAlreadyRegisteredException";
-  $fault: "client";
+export class AccountAlreadyRegisteredException extends __BaseException {
+  readonly name: "AccountAlreadyRegisteredException" = "AccountAlreadyRegisteredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountAlreadyRegisteredException, __BaseException>) {
+    super({
+      name: "AccountAlreadyRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountAlreadyRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -486,19 +636,43 @@ export interface AccountAlreadyRegisteredException extends __SmithyException, $M
  *             the account whose credentials you used to make this request isn't a member of an
  *             organization.</p>
  */
-export interface AccountNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AccountNotFoundException";
-  $fault: "client";
+export class AccountNotFoundException extends __BaseException {
+  readonly name: "AccountNotFoundException" = "AccountNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountNotFoundException, __BaseException>) {
+    super({
+      name: "AccountNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified account is not a delegated administrator for this AWS service. </p>
  */
-export interface AccountNotRegisteredException extends __SmithyException, $MetadataBearer {
-  name: "AccountNotRegisteredException";
-  $fault: "client";
+export class AccountNotRegisteredException extends __BaseException {
+  readonly name: "AccountNotRegisteredException" = "AccountNotRegisteredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountNotRegisteredException, __BaseException>) {
+    super({
+      name: "AccountNotRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountNotRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -508,20 +682,44 @@ export interface AccountNotRegisteredException extends __SmithyException, $Metad
  *                 Address Verification</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface AccountOwnerNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "AccountOwnerNotVerifiedException";
-  $fault: "client";
+export class AccountOwnerNotVerifiedException extends __BaseException {
+  readonly name: "AccountOwnerNotVerifiedException" = "AccountOwnerNotVerifiedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountOwnerNotVerifiedException, __BaseException>) {
+    super({
+      name: "AccountOwnerNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountOwnerNotVerifiedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This account is already a member of an organization. An account can belong to only one
  *             organization at a time.</p>
  */
-export interface AlreadyInOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyInOrganizationException";
-  $fault: "client";
+export class AlreadyInOrganizationException extends __BaseException {
+  readonly name: "AlreadyInOrganizationException" = "AlreadyInOrganizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyInOrganizationException, __BaseException>) {
+    super({
+      name: "AlreadyInOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyInOrganizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AttachPolicyRequest {
@@ -771,39 +969,88 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *          </ul>
  */
-export interface ConstraintViolationException extends __SmithyException, $MetadataBearer {
-  name: "ConstraintViolationException";
-  $fault: "client";
+export class ConstraintViolationException extends __BaseException {
+  readonly name: "ConstraintViolationException" = "ConstraintViolationException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Reason?: ConstraintViolationExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConstraintViolationException, __BaseException>) {
+    super({
+      name: "ConstraintViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConstraintViolationException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
  * <p>The selected policy is already attached to the specified target.</p>
  */
-export interface DuplicatePolicyAttachmentException extends __SmithyException, $MetadataBearer {
-  name: "DuplicatePolicyAttachmentException";
-  $fault: "client";
+export class DuplicatePolicyAttachmentException extends __BaseException {
+  readonly name: "DuplicatePolicyAttachmentException" = "DuplicatePolicyAttachmentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicatePolicyAttachmentException, __BaseException>) {
+    super({
+      name: "DuplicatePolicyAttachmentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicatePolicyAttachmentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Changes to the effective policy are in progress, and its contents can't be returned.
  *             Try the operation again later. </p>
  */
-export interface PolicyChangesInProgressException extends __SmithyException, $MetadataBearer {
-  name: "PolicyChangesInProgressException";
-  $fault: "client";
+export class PolicyChangesInProgressException extends __BaseException {
+  readonly name: "PolicyChangesInProgressException" = "PolicyChangesInProgressException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyChangesInProgressException, __BaseException>) {
+    super({
+      name: "PolicyChangesInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyChangesInProgressException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  */
-export interface PolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotFoundException";
-  $fault: "client";
+export class PolicyNotFoundException extends __BaseException {
+  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
+    super({
+      name: "PolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -813,29 +1060,65 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
  *                 in Your Organization</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface PolicyTypeNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "PolicyTypeNotEnabledException";
-  $fault: "client";
+export class PolicyTypeNotEnabledException extends __BaseException {
+  readonly name: "PolicyTypeNotEnabledException" = "PolicyTypeNotEnabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyTypeNotEnabledException, __BaseException>) {
+    super({
+      name: "PolicyTypeNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyTypeNotEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>We can't find a root, OU, account, or policy with the <code>TargetId</code> that you
  *             specified.</p>
  */
-export interface TargetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TargetNotFoundException";
-  $fault: "client";
+export class TargetNotFoundException extends __BaseException {
+  readonly name: "TargetNotFoundException" = "TargetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetNotFoundException, __BaseException>) {
+    super({
+      name: "TargetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This action isn't available in the current AWS Region.</p>
  */
-export interface UnsupportedAPIEndpointException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedAPIEndpointException";
-  $fault: "client";
+export class UnsupportedAPIEndpointException extends __BaseException {
+  readonly name: "UnsupportedAPIEndpointException" = "UnsupportedAPIEndpointException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedAPIEndpointException, __BaseException>) {
+    super({
+      name: "UnsupportedAPIEndpointException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedAPIEndpointException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CancelHandshakeRequest {
@@ -1158,10 +1441,22 @@ export namespace CreateAccountResponse {
  *             continue to receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
  *                 Support</a>.</p>
  */
-export interface FinalizingOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "FinalizingOrganizationException";
-  $fault: "client";
+export class FinalizingOrganizationException extends __BaseException {
+  readonly name: "FinalizingOrganizationException" = "FinalizingOrganizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FinalizingOrganizationException, __BaseException>) {
+    super({
+      name: "FinalizingOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FinalizingOrganizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateGovCloudAccountRequest {
@@ -1542,19 +1837,43 @@ export namespace CreateOrganizationalUnitResponse {
 /**
  * <p>An OU with the same name already exists.</p>
  */
-export interface DuplicateOrganizationalUnitException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateOrganizationalUnitException";
-  $fault: "client";
+export class DuplicateOrganizationalUnitException extends __BaseException {
+  readonly name: "DuplicateOrganizationalUnitException" = "DuplicateOrganizationalUnitException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateOrganizationalUnitException, __BaseException>) {
+    super({
+      name: "DuplicateOrganizationalUnitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateOrganizationalUnitException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  */
-export interface ParentNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ParentNotFoundException";
-  $fault: "client";
+export class ParentNotFoundException extends __BaseException {
+  readonly name: "ParentNotFoundException" = "ParentNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParentNotFoundException, __BaseException>) {
+    super({
+      name: "ParentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreatePolicyRequest {
@@ -1726,10 +2045,22 @@ export namespace CreatePolicyResponse {
 /**
  * <p>A policy with the same name already exists.</p>
  */
-export interface DuplicatePolicyException extends __SmithyException, $MetadataBearer {
-  name: "DuplicatePolicyException";
-  $fault: "client";
+export class DuplicatePolicyException extends __BaseException {
+  readonly name: "DuplicatePolicyException" = "DuplicatePolicyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicatePolicyException, __BaseException>) {
+    super({
+      name: "DuplicatePolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicatePolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1739,10 +2070,22 @@ export interface DuplicatePolicyException extends __SmithyException, $MetadataBe
  *                 Syntax</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
-  name: "MalformedPolicyDocumentException";
-  $fault: "client";
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1752,10 +2095,22 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
  *                 AWS Organizations Policies</a>in the <i>AWS Organizations User Guide.</i>
  *          </p>
  */
-export interface PolicyTypeNotAvailableForOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "PolicyTypeNotAvailableForOrganizationException";
-  $fault: "client";
+export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
+  readonly name: "PolicyTypeNotAvailableForOrganizationException" = "PolicyTypeNotAvailableForOrganizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyTypeNotAvailableForOrganizationException, __BaseException>) {
+    super({
+      name: "PolicyTypeNotAvailableForOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyTypeNotAvailableForOrganizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeclineHandshakeRequest {
@@ -1781,10 +2136,22 @@ export namespace DeclineHandshakeRequest {
  * <p>The organization isn't empty. To delete an organization, you must first remove all
  *             accounts except the management account, delete all OUs, and delete all policies.</p>
  */
-export interface OrganizationNotEmptyException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationNotEmptyException";
-  $fault: "client";
+export class OrganizationNotEmptyException extends __BaseException {
+  readonly name: "OrganizationNotEmptyException" = "OrganizationNotEmptyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationNotEmptyException, __BaseException>) {
+    super({
+      name: "OrganizationNotEmptyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationNotEmptyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteOrganizationalUnitRequest {
@@ -1812,20 +2179,44 @@ export namespace DeleteOrganizationalUnitRequest {
  * <p>The specified OU is not empty. Move all accounts to another root or to other OUs,
  *             remove all child OUs, and try the operation again.</p>
  */
-export interface OrganizationalUnitNotEmptyException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationalUnitNotEmptyException";
-  $fault: "client";
+export class OrganizationalUnitNotEmptyException extends __BaseException {
+  readonly name: "OrganizationalUnitNotEmptyException" = "OrganizationalUnitNotEmptyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationalUnitNotEmptyException, __BaseException>) {
+    super({
+      name: "OrganizationalUnitNotEmptyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationalUnitNotEmptyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you
  *             specified.</p>
  */
-export interface OrganizationalUnitNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationalUnitNotFoundException";
-  $fault: "client";
+export class OrganizationalUnitNotFoundException extends __BaseException {
+  readonly name: "OrganizationalUnitNotFoundException" = "OrganizationalUnitNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationalUnitNotFoundException, __BaseException>) {
+    super({
+      name: "OrganizationalUnitNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationalUnitNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeletePolicyRequest {
@@ -1852,10 +2243,22 @@ export namespace DeletePolicyRequest {
  * <p>The policy is attached to one or more entities. You must detach it from all roots,
  *             OUs, and accounts before performing this operation.</p>
  */
-export interface PolicyInUseException extends __SmithyException, $MetadataBearer {
-  name: "PolicyInUseException";
-  $fault: "client";
+export class PolicyInUseException extends __BaseException {
+  readonly name: "PolicyInUseException" = "PolicyInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyInUseException, __BaseException>) {
+    super({
+      name: "PolicyInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeregisterDelegatedAdministratorRequest {
@@ -1925,10 +2328,22 @@ export namespace DescribeAccountResponse {
  * <p>We can't find an create account request with the <code>CreateAccountRequestId</code>
  *             that you specified.</p>
  */
-export interface CreateAccountStatusNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CreateAccountStatusNotFoundException";
-  $fault: "client";
+export class CreateAccountStatusNotFoundException extends __BaseException {
+  readonly name: "CreateAccountStatusNotFoundException" = "CreateAccountStatusNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateAccountStatusNotFoundException, __BaseException>) {
+    super({
+      name: "CreateAccountStatusNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateAccountStatusNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeCreateAccountStatusRequest {
@@ -2075,10 +2490,22 @@ export namespace DescribeEffectivePolicyResponse {
  *             this type. Contact the administrator of your organization about attaching a policy of
  *             this type to the account. </p>
  */
-export interface EffectivePolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EffectivePolicyNotFoundException";
-  $fault: "client";
+export class EffectivePolicyNotFoundException extends __BaseException {
+  readonly name: "EffectivePolicyNotFoundException" = "EffectivePolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EffectivePolicyNotFoundException, __BaseException>) {
+    super({
+      name: "EffectivePolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EffectivePolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeHandshakeRequest {
@@ -2249,10 +2676,22 @@ export namespace DetachPolicyRequest {
 /**
  * <p>The policy isn't attached to the specified target in the specified root.</p>
  */
-export interface PolicyNotAttachedException extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotAttachedException";
-  $fault: "client";
+export class PolicyNotAttachedException extends __BaseException {
+  readonly name: "PolicyNotAttachedException" = "PolicyNotAttachedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotAttachedException, __BaseException>) {
+    super({
+      name: "PolicyNotAttachedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotAttachedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DisableAWSServiceAccessRequest {
@@ -2390,10 +2829,22 @@ export namespace DisablePolicyTypeResponse {
 /**
  * <p>We can't find a root with the <code>RootId</code> that you specified.</p>
  */
-export interface RootNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RootNotFoundException";
-  $fault: "client";
+export class RootNotFoundException extends __BaseException {
+  readonly name: "RootNotFoundException" = "RootNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RootNotFoundException, __BaseException>) {
+    super({
+      name: "RootNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RootNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface EnableAllFeaturesRequest {}
@@ -2492,10 +2943,22 @@ export namespace EnablePolicyTypeResponse {
 /**
  * <p>The specified policy type is already enabled in the specified root.</p>
  */
-export interface PolicyTypeAlreadyEnabledException extends __SmithyException, $MetadataBearer {
-  name: "PolicyTypeAlreadyEnabledException";
-  $fault: "client";
+export class PolicyTypeAlreadyEnabledException extends __BaseException {
+  readonly name: "PolicyTypeAlreadyEnabledException" = "PolicyTypeAlreadyEnabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyTypeAlreadyEnabledException, __BaseException>) {
+    super({
+      name: "PolicyTypeAlreadyEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyTypeAlreadyEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2505,10 +2968,22 @@ export interface PolicyTypeAlreadyEnabledException extends __SmithyException, $M
  *             account, ensure that existing handshakes that might be considered duplicates are
  *             canceled or declined.</p>
  */
-export interface DuplicateHandshakeException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateHandshakeException";
-  $fault: "client";
+export class DuplicateHandshakeException extends __BaseException {
+  readonly name: "DuplicateHandshakeException" = "DuplicateHandshakeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateHandshakeException, __BaseException>) {
+    super({
+      name: "DuplicateHandshakeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateHandshakeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface InviteAccountToOrganizationRequest {
@@ -2582,10 +3057,22 @@ export namespace InviteAccountToOrganizationRequest {
  *             account to become a member account in another organization, you must first delete the
  *             current organization of the management account.</p>
  */
-export interface MasterCannotLeaveOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "MasterCannotLeaveOrganizationException";
-  $fault: "client";
+export class MasterCannotLeaveOrganizationException extends __BaseException {
+  readonly name: "MasterCannotLeaveOrganizationException" = "MasterCannotLeaveOrganizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MasterCannotLeaveOrganizationException, __BaseException>) {
+    super({
+      name: "MasterCannotLeaveOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MasterCannotLeaveOrganizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAccountsRequest {
@@ -3401,10 +3888,22 @@ export namespace ListOrganizationalUnitsForParentResponse {
  * <p>We can't find an organizational unit (OU) or AWS account with the
  *                 <code>ChildId</code> that you specified.</p>
  */
-export interface ChildNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ChildNotFoundException";
-  $fault: "client";
+export class ChildNotFoundException extends __BaseException {
+  readonly name: "ChildNotFoundException" = "ChildNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ChildNotFoundException, __BaseException>) {
+    super({
+      name: "ChildNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ChildNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListParentsRequest {
@@ -3984,19 +4483,43 @@ export namespace ListTargetsForPolicyResponse {
  * <p>We can't find the destination container (a root or OU) with the <code>ParentId</code>
  *             that you specified.</p>
  */
-export interface DestinationParentNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "DestinationParentNotFoundException";
-  $fault: "client";
+export class DestinationParentNotFoundException extends __BaseException {
+  readonly name: "DestinationParentNotFoundException" = "DestinationParentNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DestinationParentNotFoundException, __BaseException>) {
+    super({
+      name: "DestinationParentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DestinationParentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>That account is already present in the specified destination.</p>
  */
-export interface DuplicateAccountException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateAccountException";
-  $fault: "client";
+export class DuplicateAccountException extends __BaseException {
+  readonly name: "DuplicateAccountException" = "DuplicateAccountException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateAccountException, __BaseException>) {
+    super({
+      name: "DuplicateAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateAccountException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface MoveAccountRequest {
@@ -4063,10 +4586,22 @@ export namespace MoveAccountRequest {
  * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *             specified.</p>
  */
-export interface SourceParentNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SourceParentNotFoundException";
-  $fault: "client";
+export class SourceParentNotFoundException extends __BaseException {
+  readonly name: "SourceParentNotFoundException" = "SourceParentNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceParentNotFoundException, __BaseException>) {
+    super({
+      name: "SourceParentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceParentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RegisterDelegatedAdministratorRequest {

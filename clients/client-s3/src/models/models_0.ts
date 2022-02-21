@@ -1,6 +1,8 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { S3ServiceException as __BaseException } from "./S3ServiceException";
 
 /**
  * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will
@@ -92,9 +94,20 @@ export namespace AbortMultipartUploadRequest {
 /**
  * <p>The specified multipart upload does not exist.</p>
  */
-export interface NoSuchUpload extends __SmithyException, $MetadataBearer {
-  name: "NoSuchUpload";
-  $fault: "client";
+export class NoSuchUpload extends __BaseException {
+  readonly name: "NoSuchUpload" = "NoSuchUpload";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchUpload, __BaseException>) {
+    super({
+      name: "NoSuchUpload",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchUpload.prototype);
+  }
 }
 
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
@@ -874,18 +887,40 @@ export namespace CopyObjectRequest {
  * <p>The source object of the COPY action is not in the active tier and is only stored in
  *          Amazon S3 Glacier.</p>
  */
-export interface ObjectNotInActiveTierError extends __SmithyException, $MetadataBearer {
-  name: "ObjectNotInActiveTierError";
-  $fault: "client";
+export class ObjectNotInActiveTierError extends __BaseException {
+  readonly name: "ObjectNotInActiveTierError" = "ObjectNotInActiveTierError";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectNotInActiveTierError, __BaseException>) {
+    super({
+      name: "ObjectNotInActiveTierError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectNotInActiveTierError.prototype);
+  }
 }
 
 /**
  * <p>The requested bucket name is not available. The bucket namespace is shared by all users
  *          of the system. Select a different name and try again.</p>
  */
-export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "BucketAlreadyExists";
-  $fault: "client";
+export class BucketAlreadyExists extends __BaseException {
+  readonly name: "BucketAlreadyExists" = "BucketAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BucketAlreadyExists, __BaseException>) {
+    super({
+      name: "BucketAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BucketAlreadyExists.prototype);
+  }
 }
 
 /**
@@ -894,9 +929,20 @@ export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer 
  *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
  *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
  */
-export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
-  name: "BucketAlreadyOwnedByYou";
-  $fault: "client";
+export class BucketAlreadyOwnedByYou extends __BaseException {
+  readonly name: "BucketAlreadyOwnedByYou" = "BucketAlreadyOwnedByYou";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BucketAlreadyOwnedByYou, __BaseException>) {
+    super({
+      name: "BucketAlreadyOwnedByYou",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BucketAlreadyOwnedByYou.prototype);
+  }
 }
 
 export interface CreateBucketOutput {
@@ -7604,19 +7650,43 @@ export namespace GetObjectRequest {
 /**
  * <p>Object is archived and inaccessible until restored.</p>
  */
-export interface InvalidObjectState extends __SmithyException, $MetadataBearer {
-  name: "InvalidObjectState";
-  $fault: "client";
+export class InvalidObjectState extends __BaseException {
+  readonly name: "InvalidObjectState" = "InvalidObjectState";
+  readonly $fault: "client" = "client";
   StorageClass?: StorageClass | string;
   AccessTier?: IntelligentTieringAccessTier | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidObjectState, __BaseException>) {
+    super({
+      name: "InvalidObjectState",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidObjectState.prototype);
+    this.StorageClass = opts.StorageClass;
+    this.AccessTier = opts.AccessTier;
+  }
 }
 
 /**
  * <p>The specified key does not exist.</p>
  */
-export interface NoSuchKey extends __SmithyException, $MetadataBearer {
-  name: "NoSuchKey";
-  $fault: "client";
+export class NoSuchKey extends __BaseException {
+  readonly name: "NoSuchKey" = "NoSuchKey";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchKey, __BaseException>) {
+    super({
+      name: "NoSuchKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchKey.prototype);
+  }
 }
 
 export interface GetObjectAclOutput {
@@ -8243,9 +8313,20 @@ export namespace HeadBucketRequest {
 /**
  * <p>The specified content does not exist.</p>
  */
-export interface NotFound extends __SmithyException, $MetadataBearer {
-  name: "NotFound";
-  $fault: "client";
+export class NotFound extends __BaseException {
+  readonly name: "NotFound" = "NotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFound, __BaseException>) {
+    super({
+      name: "NotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFound.prototype);
+  }
 }
 
 export type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
@@ -9404,9 +9485,20 @@ export namespace ListObjectsRequest {
 /**
  * <p>The specified bucket does not exist.</p>
  */
-export interface NoSuchBucket extends __SmithyException, $MetadataBearer {
-  name: "NoSuchBucket";
-  $fault: "client";
+export class NoSuchBucket extends __BaseException {
+  readonly name: "NoSuchBucket" = "NoSuchBucket";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchBucket, __BaseException>) {
+    super({
+      name: "NoSuchBucket",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchBucket.prototype);
+  }
 }
 
 export interface ListObjectsV2Output {
@@ -11660,9 +11752,20 @@ export namespace PutPublicAccessBlockRequest {
 /**
  * <p>This action is not allowed against this storage tier.</p>
  */
-export interface ObjectAlreadyInActiveTierError extends __SmithyException, $MetadataBearer {
-  name: "ObjectAlreadyInActiveTierError";
-  $fault: "client";
+export class ObjectAlreadyInActiveTierError extends __BaseException {
+  readonly name: "ObjectAlreadyInActiveTierError" = "ObjectAlreadyInActiveTierError";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectAlreadyInActiveTierError, __BaseException>) {
+    super({
+      name: "ObjectAlreadyInActiveTierError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectAlreadyInActiveTierError.prototype);
+  }
 }
 
 export interface RestoreObjectOutput {

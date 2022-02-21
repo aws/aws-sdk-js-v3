@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -9,10 +10,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "../commands/AcceptHandshakeCommand";
@@ -293,6 +292,7 @@ import {
   UpdatePolicyRequest,
   UpdatePolicyResponse,
 } from "../models/models_0";
+import { OrganizationsServiceException as __BaseException } from "../models/OrganizationsServiceException";
 
 export const serializeAws_json1_1AcceptHandshakeCommand = async (
   input: AcceptHandshakeCommandInput,
@@ -979,113 +979,52 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccessDeniedForDependencyException":
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AttachPolicyCommand = async (
@@ -1110,129 +1049,58 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyAttachmentException":
     case "com.amazonaws.organizations#DuplicatePolicyAttachmentException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "PolicyTypeNotEnabledException":
     case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelHandshakeCommand = async (
@@ -1260,89 +1128,43 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateAccountCommand = async (
@@ -1370,97 +1192,46 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateGovCloudAccountCommand = async (
@@ -1488,97 +1259,46 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateOrganizationCommand = async (
@@ -1606,89 +1326,43 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccessDeniedForDependencyException":
     case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse(parsedOutput, context);
     case "AlreadyInOrganizationException":
     case "com.amazonaws.organizations#AlreadyInOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1AlreadyInOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AlreadyInOrganizationExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateOrganizationalUnitCommand = async (
@@ -1716,97 +1390,46 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "DuplicateOrganizationalUnitException":
     case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePolicyCommand = async (
@@ -1834,113 +1457,52 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyException":
     case "com.amazonaws.organizations#DuplicatePolicyException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PolicyTypeNotAvailableForOrganizationException":
     case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeclineHandshakeCommand = async (
@@ -1968,89 +1530,43 @@ const deserializeAws_json1_1DeclineHandshakeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidHandshakeTransitionException":
     case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteOrganizationCommand = async (
@@ -2075,81 +1591,40 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OrganizationNotEmptyException":
     case "com.amazonaws.organizations#OrganizationNotEmptyException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotEmptyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotEmptyExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteOrganizationalUnitCommand = async (
@@ -2174,89 +1649,43 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OrganizationalUnitNotEmptyException":
     case "com.amazonaws.organizations#OrganizationalUnitNotEmptyException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeletePolicyCommand = async (
@@ -2281,97 +1710,46 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyInUseException":
     case "com.amazonaws.organizations#PolicyInUseException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyInUseExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeregisterDelegatedAdministratorCommand = async (
@@ -2396,105 +1774,49 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeAccountCommand = async (
@@ -2522,73 +1844,37 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeCreateAccountStatusCommand = async (
@@ -2616,81 +1902,40 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "CreateAccountStatusNotFoundException":
     case "com.amazonaws.organizations#CreateAccountStatusNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeEffectivePolicyCommand = async (
@@ -2718,97 +1963,46 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "EffectivePolicyNotFoundException":
     case "com.amazonaws.organizations#EffectivePolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeHandshakeCommand = async (
@@ -2836,73 +2030,37 @@ const deserializeAws_json1_1DescribeHandshakeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeOrganizationCommand = async (
@@ -2930,65 +2088,34 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeOrganizationalUnitCommand = async (
@@ -3016,73 +2143,37 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribePolicyCommand = async (
@@ -3110,81 +2201,40 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetachPolicyCommand = async (
@@ -3209,121 +2259,55 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachedException":
     case "com.amazonaws.organizations#PolicyNotAttachedException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotAttachedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotAttachedExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableAWSServiceAccessCommand = async (
@@ -3348,89 +2332,43 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisablePolicyTypeCommand = async (
@@ -3458,113 +2396,52 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
     case "PolicyTypeNotEnabledException":
     case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse(parsedOutput, context);
     case "RootNotFoundException":
     case "com.amazonaws.organizations#RootNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableAllFeaturesCommand = async (
@@ -3592,81 +2469,40 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableAWSServiceAccessCommand = async (
@@ -3691,89 +2527,43 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnablePolicyTypeCommand = async (
@@ -3801,121 +2591,55 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
     case "PolicyTypeAlreadyEnabledException":
     case "com.amazonaws.organizations#PolicyTypeAlreadyEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse(parsedOutput, context);
     case "PolicyTypeNotAvailableForOrganizationException":
     case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse(parsedOutput, context);
     case "RootNotFoundException":
     case "com.amazonaws.organizations#RootNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RootNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1InviteAccountToOrganizationCommand = async (
@@ -3943,113 +2667,52 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountOwnerNotVerifiedException":
     case "com.amazonaws.organizations#AccountOwnerNotVerifiedException":
-      response = {
-        ...(await deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "DuplicateHandshakeException":
     case "com.amazonaws.organizations#DuplicateHandshakeException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateHandshakeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateHandshakeExceptionResponse(parsedOutput, context);
     case "FinalizingOrganizationException":
     case "com.amazonaws.organizations#FinalizingOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1FinalizingOrganizationExceptionResponse(parsedOutput, context);
     case "HandshakeConstraintViolationException":
     case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1LeaveOrganizationCommand = async (
@@ -4074,97 +2737,46 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "MasterCannotLeaveOrganizationException":
     case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAccountsCommand = async (
@@ -4192,65 +2804,34 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAccountsForParentCommand = async (
@@ -4278,73 +2859,37 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = async (
@@ -4372,81 +2917,40 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListChildrenCommand = async (
@@ -4474,73 +2978,37 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListCreateAccountStatusCommand = async (
@@ -4568,73 +3036,37 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
@@ -4662,81 +3094,40 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = async (
@@ -4764,97 +3155,46 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotRegisteredExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListHandshakesForAccountCommand = async (
@@ -4882,65 +3222,34 @@ const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListHandshakesForOrganizationCommand = async (
@@ -4968,73 +3277,37 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListOrganizationalUnitsForParentCommand = async (
@@ -5062,73 +3335,37 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ParentNotFoundException":
     case "com.amazonaws.organizations#ParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ParentNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListParentsCommand = async (
@@ -5156,73 +3393,37 @@ const deserializeAws_json1_1ListParentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ChildNotFoundException":
     case "com.amazonaws.organizations#ChildNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ChildNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ChildNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListPoliciesCommand = async (
@@ -5250,73 +3451,37 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListPoliciesForTargetCommand = async (
@@ -5344,81 +3509,40 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRootsCommand = async (
@@ -5446,65 +3570,34 @@ const deserializeAws_json1_1ListRootsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -5532,73 +3625,37 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTargetsForPolicyCommand = async (
@@ -5626,81 +3683,40 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1MoveAccountCommand = async (
@@ -5725,105 +3741,49 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "DestinationParentNotFoundException":
     case "com.amazonaws.organizations#DestinationParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1DestinationParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DestinationParentNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicateAccountException":
     case "com.amazonaws.organizations#DuplicateAccountException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateAccountExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "SourceParentNotFoundException":
     case "com.amazonaws.organizations#SourceParentNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1SourceParentNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1SourceParentNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RegisterDelegatedAdministratorCommand = async (
@@ -5848,105 +3808,49 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountAlreadyRegisteredException":
     case "com.amazonaws.organizations#AccountAlreadyRegisteredException":
-      response = {
-        ...(await deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RemoveAccountFromOrganizationCommand = async (
@@ -5971,97 +3875,46 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AccountNotFoundException":
     case "com.amazonaws.organizations#AccountNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "MasterCannotLeaveOrganizationException":
     case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
-      response = {
-        ...(await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -6086,89 +3939,43 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -6193,89 +4000,43 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.organizations#TargetNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TargetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateOrganizationalUnitCommand = async (
@@ -6303,89 +4064,43 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "DuplicateOrganizationalUnitException":
     case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdatePolicyCommand = async (
@@ -6413,121 +4128,55 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AWSOrganizationsNotInUseException":
     case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.organizations#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyException":
     case "com.amazonaws.organizations#DuplicatePolicyException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicatePolicyExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.organizations#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PolicyChangesInProgressException":
     case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyChangesInProgressExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.organizations#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.organizations#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnsupportedAPIEndpointException":
     case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
@@ -6536,13 +4185,11 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
+  const exception = new AccessDeniedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
@@ -6551,13 +4198,11 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
 ): Promise<AccessDeniedForDependencyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccessDeniedForDependencyException(body, context);
-  const contents: AccessDeniedForDependencyException = {
-    name: "AccessDeniedForDependencyException",
-    $fault: "client",
+  const exception = new AccessDeniedForDependencyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
@@ -6566,13 +4211,11 @@ const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
 ): Promise<AccountAlreadyRegisteredException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccountAlreadyRegisteredException(body, context);
-  const contents: AccountAlreadyRegisteredException = {
-    name: "AccountAlreadyRegisteredException",
-    $fault: "client",
+  const exception = new AccountAlreadyRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
@@ -6581,13 +4224,11 @@ const deserializeAws_json1_1AccountNotFoundExceptionResponse = async (
 ): Promise<AccountNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccountNotFoundException(body, context);
-  const contents: AccountNotFoundException = {
-    name: "AccountNotFoundException",
-    $fault: "client",
+  const exception = new AccountNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
@@ -6596,13 +4237,11 @@ const deserializeAws_json1_1AccountNotRegisteredExceptionResponse = async (
 ): Promise<AccountNotRegisteredException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccountNotRegisteredException(body, context);
-  const contents: AccountNotRegisteredException = {
-    name: "AccountNotRegisteredException",
-    $fault: "client",
+  const exception = new AccountNotRegisteredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
@@ -6611,13 +4250,11 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedExceptionResponse = async (
 ): Promise<AccountOwnerNotVerifiedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AccountOwnerNotVerifiedException(body, context);
-  const contents: AccountOwnerNotVerifiedException = {
-    name: "AccountOwnerNotVerifiedException",
-    $fault: "client",
+  const exception = new AccountOwnerNotVerifiedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
@@ -6626,13 +4263,11 @@ const deserializeAws_json1_1AlreadyInOrganizationExceptionResponse = async (
 ): Promise<AlreadyInOrganizationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AlreadyInOrganizationException(body, context);
-  const contents: AlreadyInOrganizationException = {
-    name: "AlreadyInOrganizationException",
-    $fault: "client",
+  const exception = new AlreadyInOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
@@ -6641,13 +4276,11 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse = async (
 ): Promise<AWSOrganizationsNotInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AWSOrganizationsNotInUseException(body, context);
-  const contents: AWSOrganizationsNotInUseException = {
-    name: "AWSOrganizationsNotInUseException",
-    $fault: "client",
+  const exception = new AWSOrganizationsNotInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
@@ -6656,13 +4289,11 @@ const deserializeAws_json1_1ChildNotFoundExceptionResponse = async (
 ): Promise<ChildNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ChildNotFoundException(body, context);
-  const contents: ChildNotFoundException = {
-    name: "ChildNotFoundException",
-    $fault: "client",
+  const exception = new ChildNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
@@ -6671,13 +4302,11 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
@@ -6686,13 +4315,11 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConstraintViolationException(body, context);
-  const contents: ConstraintViolationException = {
-    name: "ConstraintViolationException",
-    $fault: "client",
+  const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async (
@@ -6701,13 +4328,11 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundExceptionResponse = async
 ): Promise<CreateAccountStatusNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CreateAccountStatusNotFoundException(body, context);
-  const contents: CreateAccountStatusNotFoundException = {
-    name: "CreateAccountStatusNotFoundException",
-    $fault: "client",
+  const exception = new CreateAccountStatusNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
@@ -6716,13 +4341,11 @@ const deserializeAws_json1_1DestinationParentNotFoundExceptionResponse = async (
 ): Promise<DestinationParentNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DestinationParentNotFoundException(body, context);
-  const contents: DestinationParentNotFoundException = {
-    name: "DestinationParentNotFoundException",
-    $fault: "client",
+  const exception = new DestinationParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
@@ -6731,13 +4354,11 @@ const deserializeAws_json1_1DuplicateAccountExceptionResponse = async (
 ): Promise<DuplicateAccountException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateAccountException(body, context);
-  const contents: DuplicateAccountException = {
-    name: "DuplicateAccountException",
-    $fault: "client",
+  const exception = new DuplicateAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
@@ -6746,13 +4367,11 @@ const deserializeAws_json1_1DuplicateHandshakeExceptionResponse = async (
 ): Promise<DuplicateHandshakeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateHandshakeException(body, context);
-  const contents: DuplicateHandshakeException = {
-    name: "DuplicateHandshakeException",
-    $fault: "client",
+  const exception = new DuplicateHandshakeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async (
@@ -6761,13 +4380,11 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitExceptionResponse = async
 ): Promise<DuplicateOrganizationalUnitException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateOrganizationalUnitException(body, context);
-  const contents: DuplicateOrganizationalUnitException = {
-    name: "DuplicateOrganizationalUnitException",
-    $fault: "client",
+  const exception = new DuplicateOrganizationalUnitException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
@@ -6776,13 +4393,11 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentExceptionResponse = async (
 ): Promise<DuplicatePolicyAttachmentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicatePolicyAttachmentException(body, context);
-  const contents: DuplicatePolicyAttachmentException = {
-    name: "DuplicatePolicyAttachmentException",
-    $fault: "client",
+  const exception = new DuplicatePolicyAttachmentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
@@ -6791,13 +4406,11 @@ const deserializeAws_json1_1DuplicatePolicyExceptionResponse = async (
 ): Promise<DuplicatePolicyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicatePolicyException(body, context);
-  const contents: DuplicatePolicyException = {
-    name: "DuplicatePolicyException",
-    $fault: "client",
+  const exception = new DuplicatePolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
@@ -6806,13 +4419,11 @@ const deserializeAws_json1_1EffectivePolicyNotFoundExceptionResponse = async (
 ): Promise<EffectivePolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EffectivePolicyNotFoundException(body, context);
-  const contents: EffectivePolicyNotFoundException = {
-    name: "EffectivePolicyNotFoundException",
-    $fault: "client",
+  const exception = new EffectivePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
@@ -6821,13 +4432,11 @@ const deserializeAws_json1_1FinalizingOrganizationExceptionResponse = async (
 ): Promise<FinalizingOrganizationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1FinalizingOrganizationException(body, context);
-  const contents: FinalizingOrganizationException = {
-    name: "FinalizingOrganizationException",
-    $fault: "client",
+  const exception = new FinalizingOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
@@ -6836,13 +4445,11 @@ const deserializeAws_json1_1HandshakeAlreadyInStateExceptionResponse = async (
 ): Promise<HandshakeAlreadyInStateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1HandshakeAlreadyInStateException(body, context);
-  const contents: HandshakeAlreadyInStateException = {
-    name: "HandshakeAlreadyInStateException",
-    $fault: "client",
+  const exception = new HandshakeAlreadyInStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = async (
@@ -6851,13 +4458,11 @@ const deserializeAws_json1_1HandshakeConstraintViolationExceptionResponse = asyn
 ): Promise<HandshakeConstraintViolationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1HandshakeConstraintViolationException(body, context);
-  const contents: HandshakeConstraintViolationException = {
-    name: "HandshakeConstraintViolationException",
-    $fault: "client",
+  const exception = new HandshakeConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
@@ -6866,13 +4471,11 @@ const deserializeAws_json1_1HandshakeNotFoundExceptionResponse = async (
 ): Promise<HandshakeNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1HandshakeNotFoundException(body, context);
-  const contents: HandshakeNotFoundException = {
-    name: "HandshakeNotFoundException",
-    $fault: "client",
+  const exception = new HandshakeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async (
@@ -6881,13 +4484,11 @@ const deserializeAws_json1_1InvalidHandshakeTransitionExceptionResponse = async 
 ): Promise<InvalidHandshakeTransitionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidHandshakeTransitionException(body, context);
-  const contents: InvalidHandshakeTransitionException = {
-    name: "InvalidHandshakeTransitionException",
-    $fault: "client",
+  const exception = new InvalidHandshakeTransitionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidInputExceptionResponse = async (
@@ -6896,13 +4497,11 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
+  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
@@ -6911,13 +4510,11 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
-  const contents: MalformedPolicyDocumentException = {
-    name: "MalformedPolicyDocumentException",
-    $fault: "client",
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = async (
@@ -6926,13 +4523,11 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationExceptionResponse = asy
 ): Promise<MasterCannotLeaveOrganizationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MasterCannotLeaveOrganizationException(body, context);
-  const contents: MasterCannotLeaveOrganizationException = {
-    name: "MasterCannotLeaveOrganizationException",
-    $fault: "client",
+  const exception = new MasterCannotLeaveOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async (
@@ -6941,13 +4536,11 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyExceptionResponse = async 
 ): Promise<OrganizationalUnitNotEmptyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationalUnitNotEmptyException(body, context);
-  const contents: OrganizationalUnitNotEmptyException = {
-    name: "OrganizationalUnitNotEmptyException",
-    $fault: "client",
+  const exception = new OrganizationalUnitNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async (
@@ -6956,13 +4549,11 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundExceptionResponse = async 
 ): Promise<OrganizationalUnitNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationalUnitNotFoundException(body, context);
-  const contents: OrganizationalUnitNotFoundException = {
-    name: "OrganizationalUnitNotFoundException",
-    $fault: "client",
+  const exception = new OrganizationalUnitNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
@@ -6971,13 +4562,11 @@ const deserializeAws_json1_1OrganizationNotEmptyExceptionResponse = async (
 ): Promise<OrganizationNotEmptyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationNotEmptyException(body, context);
-  const contents: OrganizationNotEmptyException = {
-    name: "OrganizationNotEmptyException",
-    $fault: "client",
+  const exception = new OrganizationNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
@@ -6986,13 +4575,11 @@ const deserializeAws_json1_1ParentNotFoundExceptionResponse = async (
 ): Promise<ParentNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ParentNotFoundException(body, context);
-  const contents: ParentNotFoundException = {
-    name: "ParentNotFoundException",
-    $fault: "client",
+  const exception = new ParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
@@ -7001,13 +4588,11 @@ const deserializeAws_json1_1PolicyChangesInProgressExceptionResponse = async (
 ): Promise<PolicyChangesInProgressException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyChangesInProgressException(body, context);
-  const contents: PolicyChangesInProgressException = {
-    name: "PolicyChangesInProgressException",
-    $fault: "client",
+  const exception = new PolicyChangesInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
@@ -7016,13 +4601,11 @@ const deserializeAws_json1_1PolicyInUseExceptionResponse = async (
 ): Promise<PolicyInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyInUseException(body, context);
-  const contents: PolicyInUseException = {
-    name: "PolicyInUseException",
-    $fault: "client",
+  const exception = new PolicyInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
@@ -7031,13 +4614,11 @@ const deserializeAws_json1_1PolicyNotAttachedExceptionResponse = async (
 ): Promise<PolicyNotAttachedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyNotAttachedException(body, context);
-  const contents: PolicyNotAttachedException = {
-    name: "PolicyNotAttachedException",
-    $fault: "client",
+  const exception = new PolicyNotAttachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
@@ -7046,13 +4627,11 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyNotFoundException(body, context);
-  const contents: PolicyNotFoundException = {
-    name: "PolicyNotFoundException",
-    $fault: "client",
+  const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
@@ -7061,13 +4640,11 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledExceptionResponse = async (
 ): Promise<PolicyTypeAlreadyEnabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyTypeAlreadyEnabledException(body, context);
-  const contents: PolicyTypeAlreadyEnabledException = {
-    name: "PolicyTypeAlreadyEnabledException",
-    $fault: "client",
+  const exception = new PolicyTypeAlreadyEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionResponse = async (
@@ -7076,13 +4653,11 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationExceptionRespon
 ): Promise<PolicyTypeNotAvailableForOrganizationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException(body, context);
-  const contents: PolicyTypeNotAvailableForOrganizationException = {
-    name: "PolicyTypeNotAvailableForOrganizationException",
-    $fault: "client",
+  const exception = new PolicyTypeNotAvailableForOrganizationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
@@ -7091,13 +4666,11 @@ const deserializeAws_json1_1PolicyTypeNotEnabledExceptionResponse = async (
 ): Promise<PolicyTypeNotEnabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PolicyTypeNotEnabledException(body, context);
-  const contents: PolicyTypeNotEnabledException = {
-    name: "PolicyTypeNotEnabledException",
-    $fault: "client",
+  const exception = new PolicyTypeNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
@@ -7106,13 +4679,11 @@ const deserializeAws_json1_1RootNotFoundExceptionResponse = async (
 ): Promise<RootNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RootNotFoundException(body, context);
-  const contents: RootNotFoundException = {
-    name: "RootNotFoundException",
-    $fault: "client",
+  const exception = new RootNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceExceptionResponse = async (
@@ -7121,13 +4692,11 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
 ): Promise<ServiceException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceException(body, context);
-  const contents: ServiceException = {
-    name: "ServiceException",
-    $fault: "server",
+  const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
@@ -7136,13 +4705,11 @@ const deserializeAws_json1_1SourceParentNotFoundExceptionResponse = async (
 ): Promise<SourceParentNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SourceParentNotFoundException(body, context);
-  const contents: SourceParentNotFoundException = {
-    name: "SourceParentNotFoundException",
-    $fault: "client",
+  const exception = new SourceParentNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
@@ -7151,13 +4718,11 @@ const deserializeAws_json1_1TargetNotFoundExceptionResponse = async (
 ): Promise<TargetNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TargetNotFoundException(body, context);
-  const contents: TargetNotFoundException = {
-    name: "TargetNotFoundException",
-    $fault: "client",
+  const exception = new TargetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
@@ -7166,13 +4731,11 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
-  const contents: TooManyRequestsException = {
-    name: "TooManyRequestsException",
-    $fault: "client",
+  const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
@@ -7181,13 +4744,11 @@ const deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse = async (
 ): Promise<UnsupportedAPIEndpointException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedAPIEndpointException(body, context);
-  const contents: UnsupportedAPIEndpointException = {
-    name: "UnsupportedAPIEndpointException",
-    $fault: "client",
+  const exception = new UnsupportedAPIEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AcceptHandshakeRequest = (input: AcceptHandshakeRequest, context: __SerdeContext): any => {

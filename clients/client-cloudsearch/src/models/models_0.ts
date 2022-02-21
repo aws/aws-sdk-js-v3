@@ -1,11 +1,14 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudSearchServiceException as __BaseException } from "./CloudSearchServiceException";
 
 /**
  * <p>An error occurred while processing the request.</p>
  */
-export interface BaseException extends __SmithyException, $MetadataBearer {
-  name: "BaseException";
-  $fault: "client";
+export class BaseException extends __BaseException {
+  readonly name: "BaseException" = "BaseException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -15,6 +18,19 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
+    super({
+      name: "BaseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BaseException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -59,9 +75,9 @@ export namespace BuildSuggestersResponse {
  * <p>An internal error occurred while processing the request. If this problem persists,
  *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -71,14 +87,27 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because it attempted to reference a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -88,14 +117,27 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because it has invalid parameters.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -105,6 +147,19 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -257,9 +312,9 @@ export namespace CreateDomainResponse {
 /**
  * <p>The request was rejected because a resource limit has already been met.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -269,14 +324,27 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because it attempted to create a resource that already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -286,6 +354,19 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
@@ -512,9 +593,9 @@ export namespace DefineAnalysisSchemeResponse {
 /**
  * <p>The request was rejected because it specified an invalid type definition.</p>
  */
-export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTypeException";
-  $fault: "client";
+export class InvalidTypeException extends __BaseException {
+  readonly name: "InvalidTypeException" = "InvalidTypeException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -524,6 +605,19 @@ export interface InvalidTypeException extends __SmithyException, $MetadataBearer
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTypeException, __BaseException>) {
+    super({
+      name: "InvalidTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTypeException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1758,9 +1852,9 @@ export namespace DescribeAvailabilityOptionsResponse {
 /**
  * <p>The request was rejected because it attempted an operation which is not enabled.</p>
  */
-export interface DisabledOperationException extends __SmithyException, $MetadataBearer {
-  name: "DisabledOperationException";
-  $fault: "client";
+export class DisabledOperationException extends __BaseException {
+  readonly name: "DisabledOperationException" = "DisabledOperationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A machine-parsable string error or warning code.</p>
    */
@@ -1770,6 +1864,19 @@ export interface DisabledOperationException extends __SmithyException, $Metadata
    * <p>A human-readable string error or warning message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
+    super({
+      name: "DisabledOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisabledOperationException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**

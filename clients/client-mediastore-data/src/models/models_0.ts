@@ -1,13 +1,28 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreDataServiceException";
 
 /**
  * <p>The specified container was not found for the specified account.</p>
  */
-export interface ContainerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ContainerNotFoundException";
-  $fault: "client";
+export class ContainerNotFoundException extends __BaseException {
+  readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContainerNotFoundException, __BaseException>) {
+    super({
+      name: "ContainerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContainerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteObjectRequest {
@@ -41,19 +56,43 @@ export namespace DeleteObjectResponse {
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
-export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ObjectNotFoundException";
-  $fault: "client";
+export class ObjectNotFoundException extends __BaseException {
+  readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectNotFoundException, __BaseException>) {
+    super({
+      name: "ObjectNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeObjectRequest {
@@ -207,10 +246,22 @@ export namespace GetObjectResponse {
 /**
  * <p>The requested content range is not valid.</p>
  */
-export interface RequestedRangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
-  name: "RequestedRangeNotSatisfiableException";
-  $fault: "client";
+export class RequestedRangeNotSatisfiableException extends __BaseException {
+  readonly name: "RequestedRangeNotSatisfiableException" = "RequestedRangeNotSatisfiableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestedRangeNotSatisfiableException, __BaseException>) {
+    super({
+      name: "RequestedRangeNotSatisfiableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestedRangeNotSatisfiableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ItemType {

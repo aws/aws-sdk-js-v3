@@ -1,6 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { IAMServiceException as __BaseException } from "./IAMServiceException";
 import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, StatusType, Tag } from "./models_0";
 
 export interface UntagPolicyRequest {
@@ -716,20 +717,40 @@ export namespace UpdateUserRequest {
  * <p>The request was rejected because the public key certificate and the private key do not
  *       match.</p>
  */
-export interface KeyPairMismatchException extends __SmithyException, $MetadataBearer {
-  name: "KeyPairMismatchException";
-  $fault: "client";
-  message?: string;
+export class KeyPairMismatchException extends __BaseException {
+  readonly name: "KeyPairMismatchException" = "KeyPairMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeyPairMismatchException, __BaseException>) {
+    super({
+      name: "KeyPairMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeyPairMismatchException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the certificate was malformed or expired. The error
  *       message describes the specific error.</p>
  */
-export interface MalformedCertificateException extends __SmithyException, $MetadataBearer {
-  name: "MalformedCertificateException";
-  $fault: "client";
-  message?: string;
+export class MalformedCertificateException extends __BaseException {
+  readonly name: "MalformedCertificateException" = "MalformedCertificateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedCertificateException, __BaseException>) {
+    super({
+      name: "MalformedCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedCertificateException.prototype);
+  }
 }
 
 export interface UploadServerCertificateRequest {
@@ -876,19 +897,39 @@ export namespace UploadServerCertificateResponse {
  * <p>The request was rejected because the same certificate is associated with an IAM user in
  *       the account.</p>
  */
-export interface DuplicateCertificateException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateCertificateException";
-  $fault: "client";
-  message?: string;
+export class DuplicateCertificateException extends __BaseException {
+  readonly name: "DuplicateCertificateException" = "DuplicateCertificateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateCertificateException, __BaseException>) {
+    super({
+      name: "DuplicateCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateCertificateException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the certificate is invalid.</p>
  */
-export interface InvalidCertificateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCertificateException";
-  $fault: "client";
-  message?: string;
+export class InvalidCertificateException extends __BaseException {
+  readonly name: "InvalidCertificateException" = "InvalidCertificateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCertificateException, __BaseException>) {
+    super({
+      name: "InvalidCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCertificateException.prototype);
+  }
 }
 
 export interface UploadSigningCertificateRequest {
@@ -954,19 +995,39 @@ export namespace UploadSigningCertificateResponse {
  * <p>The request was rejected because the SSH public key is already associated with the
  *       specified IAM user.</p>
  */
-export interface DuplicateSSHPublicKeyException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateSSHPublicKeyException";
-  $fault: "client";
-  message?: string;
+export class DuplicateSSHPublicKeyException extends __BaseException {
+  readonly name: "DuplicateSSHPublicKeyException" = "DuplicateSSHPublicKeyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateSSHPublicKeyException, __BaseException>) {
+    super({
+      name: "DuplicateSSHPublicKeyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateSSHPublicKeyException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
  */
-export interface InvalidPublicKeyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPublicKeyException";
-  $fault: "client";
-  message?: string;
+export class InvalidPublicKeyException extends __BaseException {
+  readonly name: "InvalidPublicKeyException" = "InvalidPublicKeyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPublicKeyException, __BaseException>) {
+    super({
+      name: "InvalidPublicKeyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPublicKeyException.prototype);
+  }
 }
 
 export interface UploadSSHPublicKeyRequest {

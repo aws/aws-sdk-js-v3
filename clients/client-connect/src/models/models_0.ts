@@ -1,13 +1,27 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 
 /**
  * <p>You do not have sufficient permissions to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -157,76 +171,160 @@ export namespace AssociateApprovedOriginRequest {
 /**
  * <p>Request processing failed because of an error or failure with the service.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more of the specified parameters are not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the parameters.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A resource already has that name.</p>
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the resource.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The service quota has been exceeded.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The throttling limit has been exceeded.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -301,13 +399,25 @@ export namespace AssociateBotRequest {
 /**
  * <p>The allowed limit for the resource has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the limit.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum VocabularyLanguageCode {
@@ -867,10 +977,22 @@ export namespace CreateAgentStatusResponse {
 /**
  * <p>A resource with the specified name already exists.</p>
  */
-export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateResourceException";
-  $fault: "client";
+export class DuplicateResourceException extends __BaseException {
+  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
+    super({
+      name: "DuplicateResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ContactFlowType {
@@ -970,13 +1092,25 @@ export namespace ProblemDetail {
 /**
  * <p>The contact flow is not valid.</p>
  */
-export interface InvalidContactFlowException extends __SmithyException, $MetadataBearer {
-  name: "InvalidContactFlowException";
-  $fault: "client";
+export class InvalidContactFlowException extends __BaseException {
+  readonly name: "InvalidContactFlowException" = "InvalidContactFlowException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The problems with the contact flow. Please fix before trying again.</p>
    */
   problems?: ProblemDetail[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidContactFlowException, __BaseException>) {
+    super({
+      name: "InvalidContactFlowException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidContactFlowException.prototype);
+    this.problems = opts.problems;
+  }
 }
 
 export interface CreateContactFlowModuleRequest {
@@ -1045,19 +1179,43 @@ export namespace CreateContactFlowModuleResponse {
 /**
  * <p>An entity with the same name already exists.</p>
  */
-export interface IdempotencyException extends __SmithyException, $MetadataBearer {
-  name: "IdempotencyException";
-  $fault: "client";
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The problems with the module. Please fix before trying again.</p>
  */
-export interface InvalidContactFlowModuleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidContactFlowModuleException";
-  $fault: "client";
+export class InvalidContactFlowModuleException extends __BaseException {
+  readonly name: "InvalidContactFlowModuleException" = "InvalidContactFlowModuleException";
+  readonly $fault: "client" = "client";
   Problems?: ProblemDetail[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidContactFlowModuleException, __BaseException>) {
+    super({
+      name: "InvalidContactFlowModuleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidContactFlowModuleException.prototype);
+    this.Problems = opts.Problems;
+  }
 }
 
 export enum HoursOfOperationDays {
@@ -2277,9 +2435,9 @@ export enum ResourceType {
 /**
  * <p>That resource is already in use. Please try another.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
@@ -2290,6 +2448,20 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>The identifier for the resource.</p>
    */
   ResourceId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceId = opts.ResourceId;
+  }
 }
 
 export interface DeleteUseCaseRequest {
@@ -2606,10 +2778,22 @@ export namespace DescribeContactResponse {
 /**
  * <p>The contact flow has not been published.</p>
  */
-export interface ContactFlowNotPublishedException extends __SmithyException, $MetadataBearer {
-  name: "ContactFlowNotPublishedException";
-  $fault: "client";
+export class ContactFlowNotPublishedException extends __BaseException {
+  readonly name: "ContactFlowNotPublishedException" = "ContactFlowNotPublishedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContactFlowNotPublishedException, __BaseException>) {
+    super({
+      name: "ContactFlowNotPublishedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContactFlowNotPublishedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeContactFlowRequest {
@@ -4596,10 +4780,22 @@ export namespace GetFederationTokenResponse {
 /**
  * <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
  */
-export interface UserNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "UserNotFoundException";
-  $fault: "client";
+export class UserNotFoundException extends __BaseException {
+  readonly name: "UserNotFoundException" = "UserNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserNotFoundException, __BaseException>) {
+    super({
+      name: "UserNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum HistoricalMetricName {
@@ -7813,11 +8009,23 @@ export namespace StartContactStreamingResponse {
 /**
  * <p>Outbound calls to the destination number are not allowed.</p>
  */
-export interface DestinationNotAllowedException extends __SmithyException, $MetadataBearer {
-  name: "DestinationNotAllowedException";
-  $fault: "client";
+export class DestinationNotAllowedException extends __BaseException {
+  readonly name: "DestinationNotAllowedException" = "DestinationNotAllowedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the outbound calls.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DestinationNotAllowedException, __BaseException>) {
+    super({
+      name: "DestinationNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DestinationNotAllowedException.prototype);
+    this.Message = opts.Message;
+  }
 }

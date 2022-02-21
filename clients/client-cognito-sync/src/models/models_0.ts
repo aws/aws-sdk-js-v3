@@ -1,15 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CognitoSyncServiceException as __BaseException } from "./CognitoSyncServiceException";
 
 /**
  * An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
  */
-export interface AlreadyStreamedException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyStreamedException";
-  $fault: "client";
+export class AlreadyStreamedException extends __BaseException {
+  readonly name: "AlreadyStreamedException" = "AlreadyStreamedException";
+  readonly $fault: "client" = "client";
   /**
-   * The message associated with the AlreadyStreamedException exception.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<AlreadyStreamedException, __BaseException>) {
+    super({
+      name: "AlreadyStreamedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyStreamedException.prototype);
+  }
 }
 
 /**
@@ -57,69 +67,100 @@ export namespace BulkPublishResponse {
 /**
  * An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
  */
-export interface DuplicateRequestException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateRequestException";
-  $fault: "client";
+export class DuplicateRequestException extends __BaseException {
+  readonly name: "DuplicateRequestException" = "DuplicateRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * The message associated with the DuplicateRequestException exception.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<DuplicateRequestException, __BaseException>) {
+    super({
+      name: "DuplicateRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateRequestException.prototype);
+  }
 }
 
 /**
  * Indicates an internal service
  *       error.
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
   /**
-   * Message returned by
-   *       InternalErrorException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+  }
 }
 
 /**
  * Thrown when a request parameter does not comply
  *       with the associated constraints.
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * Message returned by
-   *       InvalidParameterException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * Thrown when a user is not authorized to access the
  *       requested resource.
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * The message returned by a
-   *       NotAuthorizedException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+  }
 }
 
 /**
  * Thrown if the resource doesn't
  *       exist.
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * Message returned by a
-   *       ResourceNotFoundException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -246,28 +287,40 @@ export namespace DeleteDatasetResponse {
  * Thrown if an update can't be applied because
  *       the resource was changed by another call and this would result in a conflict.
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * The message returned by a
-   *       ResourceConflictException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+  }
 }
 
 /**
  * Thrown if the request is
  *       throttled.
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
-   * Message returned by a
-   *       TooManyRequestsException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
 }
 
 /**
@@ -1037,14 +1090,20 @@ export namespace ListRecordsResponse {
   });
 }
 
-export interface InvalidConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationException";
-  $fault: "client";
+export class InvalidConfigurationException extends __BaseException {
+  readonly name: "InvalidConfigurationException" = "InvalidConfigurationException";
+  readonly $fault: "client" = "client";
   /**
-   * Message returned by
-   *       InvalidConfigurationException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationException.prototype);
+  }
 }
 
 export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
@@ -1130,13 +1189,20 @@ export namespace SetCognitoEventsRequest {
 /**
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a ConcurrentModicationException.</p>
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
@@ -1300,39 +1366,59 @@ export namespace UnsubscribeFromDatasetResponse {
 /**
  * <p>The AWS Lambda function returned invalid output or an exception.</p>
  */
-export interface InvalidLambdaFunctionOutputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLambdaFunctionOutputException";
-  $fault: "client";
+export class InvalidLambdaFunctionOutputException extends __BaseException {
+  readonly name: "InvalidLambdaFunctionOutputException" = "InvalidLambdaFunctionOutputException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message returned when an InvalidLambdaFunctionOutputException occurs</p>
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<InvalidLambdaFunctionOutputException, __BaseException>) {
+    super({
+      name: "InvalidLambdaFunctionOutputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLambdaFunctionOutputException.prototype);
+  }
 }
 
 /**
  * <p>AWS Lambda throttled your account, please contact AWS Support</p>
  */
-export interface LambdaThrottledException extends __SmithyException, $MetadataBearer {
-  name: "LambdaThrottledException";
-  $fault: "client";
+export class LambdaThrottledException extends __BaseException {
+  readonly name: "LambdaThrottledException" = "LambdaThrottledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message returned when an LambdaThrottledException is thrown</p>
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<LambdaThrottledException, __BaseException>) {
+    super({
+      name: "LambdaThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LambdaThrottledException.prototype);
+  }
 }
 
 /**
  * Thrown when the limit on the number of objects or
  *       operations has been exceeded.
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * Message returned by
-   *       LimitExceededException.
+   * @internal
    */
-  message: string | undefined;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 export type Operation = "remove" | "replace";

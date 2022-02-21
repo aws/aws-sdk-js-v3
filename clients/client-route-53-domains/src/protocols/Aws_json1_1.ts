@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -10,10 +11,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -184,6 +183,7 @@ import {
   ViewBillingRequest,
   ViewBillingResponse,
 } from "../models/models_0";
+import { Route53DomainsServiceException as __BaseException } from "../models/Route53DomainsServiceException";
 
 export const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommand = async (
   input: AcceptDomainTransferFromAnotherAwsAccountCommandInput,
@@ -600,57 +600,31 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandErro
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand = async (
@@ -678,49 +652,28 @@ const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
@@ -748,41 +701,25 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CheckDomainTransferabilityCommand = async (
@@ -810,41 +747,25 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDomainCommand = async (
@@ -872,57 +793,31 @@ const deserializeAws_json1_1DeleteDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTagsForDomainCommand = async (
@@ -950,49 +845,28 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableDomainAutoRenewCommand = async (
@@ -1020,41 +894,25 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableDomainTransferLockCommand = async (
@@ -1082,65 +940,34 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableDomainAutoRenewCommand = async (
@@ -1168,49 +995,28 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableDomainTransferLockCommand = async (
@@ -1238,65 +1044,34 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetContactReachabilityStatusCommand = async (
@@ -1324,49 +1099,28 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetDomainDetailCommand = async (
@@ -1394,41 +1148,25 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetDomainSuggestionsCommand = async (
@@ -1456,41 +1194,25 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetOperationDetailCommand = async (
@@ -1518,33 +1240,22 @@ const deserializeAws_json1_1GetOperationDetailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDomainsCommand = async (
@@ -1572,33 +1283,22 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListOperationsCommand = async (
@@ -1626,33 +1326,22 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListPricesCommand = async (
@@ -1680,41 +1369,25 @@ const deserializeAws_json1_1ListPricesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForDomainCommand = async (
@@ -1742,49 +1415,28 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RegisterDomainCommand = async (
@@ -1812,73 +1464,37 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context);
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand = async (
@@ -1906,49 +1522,28 @@ const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandErro
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RenewDomainCommand = async (
@@ -1976,65 +1571,34 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ResendContactReachabilityEmailCommand = async (
@@ -2062,49 +1626,28 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
@@ -2132,41 +1675,25 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TransferDomainCommand = async (
@@ -2194,73 +1721,37 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains#DomainLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context);
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = async (
@@ -2288,57 +1779,31 @@ const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateDomainContactCommand = async (
@@ -2366,65 +1831,34 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
@@ -2452,65 +1886,34 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateDomainNameserversCommand = async (
@@ -2538,65 +1941,34 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains#TLDRulesViolation":
-      response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateTagsForDomainCommand = async (
@@ -2624,49 +1996,28 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ViewBillingCommand = async (
@@ -2694,33 +2045,22 @@ const deserializeAws_json1_1ViewBillingCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1DomainLimitExceededResponse = async (
@@ -2729,13 +2069,11 @@ const deserializeAws_json1_1DomainLimitExceededResponse = async (
 ): Promise<DomainLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DomainLimitExceeded(body, context);
-  const contents: DomainLimitExceeded = {
-    name: "DomainLimitExceeded",
-    $fault: "client",
+  const exception = new DomainLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateRequestResponse = async (
@@ -2744,13 +2082,11 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
 ): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateRequest(body, context);
-  const contents: DuplicateRequest = {
-    name: "DuplicateRequest",
-    $fault: "client",
+  const exception = new DuplicateRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidInputResponse = async (
@@ -2759,13 +2095,11 @@ const deserializeAws_json1_1InvalidInputResponse = async (
 ): Promise<InvalidInput> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
-  const contents: InvalidInput = {
-    name: "InvalidInput",
-    $fault: "client",
+  const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationLimitExceededResponse = async (
@@ -2774,13 +2108,11 @@ const deserializeAws_json1_1OperationLimitExceededResponse = async (
 ): Promise<OperationLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationLimitExceeded(body, context);
-  const contents: OperationLimitExceeded = {
-    name: "OperationLimitExceeded",
-    $fault: "client",
+  const exception = new OperationLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TLDRulesViolationResponse = async (
@@ -2789,13 +2121,11 @@ const deserializeAws_json1_1TLDRulesViolationResponse = async (
 ): Promise<TLDRulesViolation> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TLDRulesViolation(body, context);
-  const contents: TLDRulesViolation = {
-    name: "TLDRulesViolation",
-    $fault: "client",
+  const exception = new TLDRulesViolation({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedTLDResponse = async (
@@ -2804,13 +2134,11 @@ const deserializeAws_json1_1UnsupportedTLDResponse = async (
 ): Promise<UnsupportedTLD> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedTLD(body, context);
-  const contents: UnsupportedTLD = {
-    name: "UnsupportedTLD",
-    $fault: "client",
+  const exception = new UnsupportedTLD({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest = (

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ApplicationAutoScalingServiceException as __BaseException } from "./ApplicationAutoScalingServiceException";
 
 export enum AdjustmentType {
   ChangeInCapacity = "ChangeInCapacity",
@@ -34,10 +37,22 @@ export namespace Alarm {
  * <p>Concurrent updates caused an exception, for example, if you request an update to an
  *          Application Auto Scaling resource that already has a pending update.</p>
  */
-export interface ConcurrentUpdateException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentUpdateException";
-  $fault: "server";
+export class ConcurrentUpdateException extends __BaseException {
+  readonly name: "ConcurrentUpdateException" = "ConcurrentUpdateException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentUpdateException, __BaseException>) {
+    super({
+      name: "ConcurrentUpdateException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentUpdateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ScalableDimension {
@@ -273,10 +288,22 @@ export namespace DeleteScalingPolicyResponse {
 /**
  * <p>The service encountered an internal error.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -286,20 +313,44 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
  *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
  *          found.</p>
  */
-export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ObjectNotFoundException";
-  $fault: "client";
+export class ObjectNotFoundException extends __BaseException {
+  readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectNotFoundException, __BaseException>) {
+    super({
+      name: "ObjectNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An exception was thrown for a validation issue. Review the available parameters for the
  *          API request.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteScheduledActionRequest {
@@ -1135,10 +1186,22 @@ export namespace DescribeScalableTargetsResponse {
 /**
  * <p>The next token supplied was invalid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeScalingActivitiesRequest {
@@ -2547,10 +2610,22 @@ export namespace DescribeScalingPoliciesResponse {
  *          for example, if the role ARN specified for a scalable target does not have permission to
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
  */
-export interface FailedResourceAccessException extends __SmithyException, $MetadataBearer {
-  name: "FailedResourceAccessException";
-  $fault: "client";
+export class FailedResourceAccessException extends __BaseException {
+  readonly name: "FailedResourceAccessException" = "FailedResourceAccessException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FailedResourceAccessException, __BaseException>) {
+    super({
+      name: "FailedResourceAccessException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FailedResourceAccessException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeScheduledActionsRequest {
@@ -3049,10 +3124,22 @@ export namespace DescribeScheduledActionsResponse {
 /**
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutScalingPolicyRequest {

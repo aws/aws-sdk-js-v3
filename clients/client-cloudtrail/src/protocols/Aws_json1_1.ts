@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
@@ -67,6 +66,7 @@ import {
   UpdateEventDataStoreCommandOutput,
 } from "../commands/UpdateEventDataStoreCommand";
 import { UpdateTrailCommandInput, UpdateTrailCommandOutput } from "../commands/UpdateTrailCommand";
+import { CloudTrailServiceException as __BaseException } from "../models/CloudTrailServiceException";
 import {
   AddTagsRequest,
   AddTagsResponse,
@@ -605,121 +605,55 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "TagsLimitExceededException":
     case "com.amazonaws.cloudtrail#TagsLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelQueryCommand = async (
@@ -747,97 +681,46 @@ const deserializeAws_json1_1CancelQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InactiveQueryException":
     case "com.amazonaws.cloudtrail#InactiveQueryException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveQueryExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveQueryExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateEventDataStoreCommand = async (
@@ -865,124 +748,58 @@ const deserializeAws_json1_1CreateEventDataStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "EventDataStoreAlreadyExistsException":
     case "com.amazonaws.cloudtrail#EventDataStoreAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EventDataStoreMaxLimitExceededException":
     case "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTrailCommand = async (
@@ -1010,260 +827,109 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
     case "CloudTrailInvalidClientTokenIdException":
     case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context);
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientS3BucketPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientSnsTopicPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(parsedOutput, context);
     case "InvalidCloudWatchLogsLogGroupArnException":
     case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(parsedOutput, context);
     case "InvalidCloudWatchLogsRoleArnException":
     case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidS3BucketNameException":
     case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
     case "InvalidS3PrefixException":
     case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context);
     case "InvalidSnsTopicNameException":
     case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "KmsKeyDisabledException":
     case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(parsedOutput, context);
     case "KmsKeyNotFoundException":
     case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
     case "MaximumNumberOfTrailsExceededException":
     case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
     case "TrailAlreadyExistsException":
     case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(parsedOutput, context);
     case "TrailNotProvidedException":
     case "com.amazonaws.cloudtrail#TrailNotProvidedException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotProvidedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotProvidedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteEventDataStoreCommand = async (
@@ -1291,92 +957,46 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "EventDataStoreTerminationProtectedException":
     case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTrailCommand = async (
@@ -1404,92 +1024,46 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeQueryCommand = async (
@@ -1517,81 +1091,40 @@ const deserializeAws_json1_1DescribeQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTrailsCommand = async (
@@ -1619,49 +1152,28 @@ const deserializeAws_json1_1DescribeTrailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetEventDataStoreCommand = async (
@@ -1689,65 +1201,34 @@ const deserializeAws_json1_1GetEventDataStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetEventSelectorsCommand = async (
@@ -1775,57 +1256,31 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetInsightSelectorsCommand = async (
@@ -1853,65 +1308,34 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1InsightNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsightNotEnabledExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetQueryResultsCommand = async (
@@ -1939,97 +1363,46 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "QueryIdNotFoundException":
     case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1QueryIdNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetTrailCommand = async (
@@ -2057,57 +1430,31 @@ const deserializeAws_json1_1GetTrailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetTrailStatusCommand = async (
@@ -2135,57 +1482,31 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEventDataStoresCommand = async (
@@ -2213,57 +1534,31 @@ const deserializeAws_json1_1ListEventDataStoresCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListPublicKeysCommand = async (
@@ -2291,57 +1586,31 @@ const deserializeAws_json1_1ListPublicKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTimeRangeException":
     case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.cloudtrail#InvalidTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListQueriesCommand = async (
@@ -2369,105 +1638,49 @@ const deserializeAws_json1_1ListQueriesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidDateRangeException":
     case "com.amazonaws.cloudtrail#InvalidDateRangeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidDateRangeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidDateRangeExceptionResponse(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidQueryStatusException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatusException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidQueryStatusExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidQueryStatusExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsCommand = async (
@@ -2495,97 +1708,46 @@ const deserializeAws_json1_1ListTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.cloudtrail#InvalidTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTrailsCommand = async (
@@ -2613,41 +1775,25 @@ const deserializeAws_json1_1ListTrailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1LookupEventsCommand = async (
@@ -2675,81 +1821,40 @@ const deserializeAws_json1_1LookupEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventCategoryException":
     case "com.amazonaws.cloudtrail#InvalidEventCategoryException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidEventCategoryExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidEventCategoryExceptionResponse(parsedOutput, context);
     case "InvalidLookupAttributesException":
     case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidLookupAttributesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidLookupAttributesExceptionResponse(parsedOutput, context);
     case "InvalidMaxResultsException":
     case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidTimeRangeException":
     case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutEventSelectorsCommand = async (
@@ -2777,92 +1882,46 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidEventSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutInsightSelectorsCommand = async (
@@ -2890,113 +1949,52 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientS3BucketPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidInsightSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RemoveTagsCommand = async (
@@ -3024,105 +2022,49 @@ const deserializeAws_json1_1RemoveTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RestoreEventDataStoreCommand = async (
@@ -3150,124 +2092,58 @@ const deserializeAws_json1_1RestoreEventDataStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreMaxLimitExceededException":
     case "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidEventDataStoreStatusException":
     case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartLoggingCommand = async (
@@ -3295,84 +2171,43 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartQueryCommand = async (
@@ -3400,89 +2235,43 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidQueryStatementException":
     case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidQueryStatementExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidQueryStatementExceptionResponse(parsedOutput, context);
     case "MaxConcurrentQueriesException":
     case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
-      response = {
-        ...(await deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopLoggingCommand = async (
@@ -3510,84 +2299,43 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateEventDataStoreCommand = async (
@@ -3615,116 +2363,55 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse(parsedOutput, context);
     case "EventDataStoreNotFoundException":
     case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InactiveEventDataStoreException":
     case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      response = {
-        ...(await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateTrailCommand = async (
@@ -3752,252 +2439,106 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
     case "CloudTrailInvalidClientTokenIdException":
     case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
-      response = {
-        ...(await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse(parsedOutput, context);
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientS3BucketPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse(parsedOutput, context);
     case "InsufficientSnsTopicPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse(parsedOutput, context);
     case "InvalidCloudWatchLogsLogGroupArnException":
     case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse(parsedOutput, context);
     case "InvalidCloudWatchLogsRoleArnException":
     case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse(parsedOutput, context);
     case "InvalidEventSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
     case "InvalidHomeRegionException":
     case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidHomeRegionExceptionResponse(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidS3BucketNameException":
     case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidS3BucketNameExceptionResponse(parsedOutput, context);
     case "InvalidS3PrefixException":
     case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidS3PrefixExceptionResponse(parsedOutput, context);
     case "InvalidSnsTopicNameException":
     case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "KmsKeyDisabledException":
     case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyDisabledExceptionResponse(parsedOutput, context);
     case "KmsKeyNotFoundException":
     case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyNotFoundExceptionResponse(parsedOutput, context);
     case "NotOrganizationMasterAccountException":
     case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      response = {
-        ...(await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      response = {
-        ...(await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OrganizationsNotInUseExceptionResponse(parsedOutput, context);
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
     case "TrailNotFoundException":
     case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotFoundExceptionResponse(parsedOutput, context);
     case "TrailNotProvidedException":
     case "com.amazonaws.cloudtrail#TrailNotProvidedException":
-      response = {
-        ...(await deserializeAws_json1_1TrailNotProvidedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TrailNotProvidedExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async (
@@ -4006,13 +2547,11 @@ const deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse = async 
 ): Promise<CloudTrailAccessNotEnabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudTrailAccessNotEnabledException(body, context);
-  const contents: CloudTrailAccessNotEnabledException = {
-    name: "CloudTrailAccessNotEnabledException",
-    $fault: "client",
+  const exception = new CloudTrailAccessNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
@@ -4021,13 +2560,11 @@ const deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse = async (
 ): Promise<CloudTrailARNInvalidException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudTrailARNInvalidException(body, context);
-  const contents: CloudTrailARNInvalidException = {
-    name: "CloudTrailARNInvalidException",
-    $fault: "client",
+  const exception = new CloudTrailARNInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse = async (
@@ -4036,13 +2573,11 @@ const deserializeAws_json1_1CloudTrailInvalidClientTokenIdExceptionResponse = as
 ): Promise<CloudTrailInvalidClientTokenIdException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudTrailInvalidClientTokenIdException(body, context);
-  const contents: CloudTrailInvalidClientTokenIdException = {
-    name: "CloudTrailInvalidClientTokenIdException",
-    $fault: "client",
+  const exception = new CloudTrailInvalidClientTokenIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse = async (
@@ -4051,13 +2586,11 @@ const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableExceptionResponse =
 ): Promise<CloudWatchLogsDeliveryUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableException(body, context);
-  const contents: CloudWatchLogsDeliveryUnavailableException = {
-    name: "CloudWatchLogsDeliveryUnavailableException",
-    $fault: "client",
+  const exception = new CloudWatchLogsDeliveryUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConflictExceptionResponse = async (
@@ -4066,13 +2599,11 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
 ): Promise<ConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
-  const contents: ConflictException = {
-    name: "ConflictException",
-    $fault: "client",
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EventDataStoreAlreadyExistsExceptionResponse = async (
@@ -4081,13 +2612,11 @@ const deserializeAws_json1_1EventDataStoreAlreadyExistsExceptionResponse = async
 ): Promise<EventDataStoreAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreAlreadyExistsException(body, context);
-  const contents: EventDataStoreAlreadyExistsException = {
-    name: "EventDataStoreAlreadyExistsException",
-    $fault: "client",
+  const exception = new EventDataStoreAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse = async (
@@ -4096,13 +2625,11 @@ const deserializeAws_json1_1EventDataStoreARNInvalidExceptionResponse = async (
 ): Promise<EventDataStoreARNInvalidException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreARNInvalidException(body, context);
-  const contents: EventDataStoreARNInvalidException = {
-    name: "EventDataStoreARNInvalidException",
-    $fault: "client",
+  const exception = new EventDataStoreARNInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse = async (
@@ -4111,13 +2638,11 @@ const deserializeAws_json1_1EventDataStoreMaxLimitExceededExceptionResponse = as
 ): Promise<EventDataStoreMaxLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreMaxLimitExceededException(body, context);
-  const contents: EventDataStoreMaxLimitExceededException = {
-    name: "EventDataStoreMaxLimitExceededException",
-    $fault: "client",
+  const exception = new EventDataStoreMaxLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse = async (
@@ -4126,13 +2651,11 @@ const deserializeAws_json1_1EventDataStoreNotFoundExceptionResponse = async (
 ): Promise<EventDataStoreNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreNotFoundException(body, context);
-  const contents: EventDataStoreNotFoundException = {
-    name: "EventDataStoreNotFoundException",
-    $fault: "client",
+  const exception = new EventDataStoreNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse = async (
@@ -4141,13 +2664,11 @@ const deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse 
 ): Promise<EventDataStoreTerminationProtectedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EventDataStoreTerminationProtectedException(body, context);
-  const contents: EventDataStoreTerminationProtectedException = {
-    name: "EventDataStoreTerminationProtectedException",
-    $fault: "client",
+  const exception = new EventDataStoreTerminationProtectedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InactiveEventDataStoreExceptionResponse = async (
@@ -4156,13 +2677,11 @@ const deserializeAws_json1_1InactiveEventDataStoreExceptionResponse = async (
 ): Promise<InactiveEventDataStoreException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InactiveEventDataStoreException(body, context);
-  const contents: InactiveEventDataStoreException = {
-    name: "InactiveEventDataStoreException",
-    $fault: "client",
+  const exception = new InactiveEventDataStoreException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InactiveQueryExceptionResponse = async (
@@ -4171,13 +2690,11 @@ const deserializeAws_json1_1InactiveQueryExceptionResponse = async (
 ): Promise<InactiveQueryException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InactiveQueryException(body, context);
-  const contents: InactiveQueryException = {
-    name: "InactiveQueryException",
-    $fault: "client",
+  const exception = new InactiveQueryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InsightNotEnabledExceptionResponse = async (
@@ -4186,13 +2703,11 @@ const deserializeAws_json1_1InsightNotEnabledExceptionResponse = async (
 ): Promise<InsightNotEnabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsightNotEnabledException(body, context);
-  const contents: InsightNotEnabledException = {
-    name: "InsightNotEnabledException",
-    $fault: "client",
+  const exception = new InsightNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse = async (
@@ -4201,13 +2716,11 @@ const deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExcepti
 ): Promise<InsufficientDependencyServiceAccessPermissionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionException(body, context);
-  const contents: InsufficientDependencyServiceAccessPermissionException = {
-    name: "InsufficientDependencyServiceAccessPermissionException",
-    $fault: "client",
+  const exception = new InsufficientDependencyServiceAccessPermissionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse = async (
@@ -4216,13 +2729,11 @@ const deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse = asyn
 ): Promise<InsufficientEncryptionPolicyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsufficientEncryptionPolicyException(body, context);
-  const contents: InsufficientEncryptionPolicyException = {
-    name: "InsufficientEncryptionPolicyException",
-    $fault: "client",
+  const exception = new InsufficientEncryptionPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse = async (
@@ -4231,13 +2742,11 @@ const deserializeAws_json1_1InsufficientS3BucketPolicyExceptionResponse = async 
 ): Promise<InsufficientS3BucketPolicyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsufficientS3BucketPolicyException(body, context);
-  const contents: InsufficientS3BucketPolicyException = {
-    name: "InsufficientS3BucketPolicyException",
-    $fault: "client",
+  const exception = new InsufficientS3BucketPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse = async (
@@ -4246,13 +2755,11 @@ const deserializeAws_json1_1InsufficientSnsTopicPolicyExceptionResponse = async 
 ): Promise<InsufficientSnsTopicPolicyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InsufficientSnsTopicPolicyException(body, context);
-  const contents: InsufficientSnsTopicPolicyException = {
-    name: "InsufficientSnsTopicPolicyException",
-    $fault: "client",
+  const exception = new InsufficientSnsTopicPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse = async (
@@ -4261,13 +2768,11 @@ const deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnExceptionResponse = 
 ): Promise<InvalidCloudWatchLogsLogGroupArnException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnException(body, context);
-  const contents: InvalidCloudWatchLogsLogGroupArnException = {
-    name: "InvalidCloudWatchLogsLogGroupArnException",
-    $fault: "client",
+  const exception = new InvalidCloudWatchLogsLogGroupArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse = async (
@@ -4276,13 +2781,11 @@ const deserializeAws_json1_1InvalidCloudWatchLogsRoleArnExceptionResponse = asyn
 ): Promise<InvalidCloudWatchLogsRoleArnException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidCloudWatchLogsRoleArnException(body, context);
-  const contents: InvalidCloudWatchLogsRoleArnException = {
-    name: "InvalidCloudWatchLogsRoleArnException",
-    $fault: "client",
+  const exception = new InvalidCloudWatchLogsRoleArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidDateRangeExceptionResponse = async (
@@ -4291,13 +2794,11 @@ const deserializeAws_json1_1InvalidDateRangeExceptionResponse = async (
 ): Promise<InvalidDateRangeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidDateRangeException(body, context);
-  const contents: InvalidDateRangeException = {
-    name: "InvalidDateRangeException",
-    $fault: "client",
+  const exception = new InvalidDateRangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidEventCategoryExceptionResponse = async (
@@ -4306,13 +2807,11 @@ const deserializeAws_json1_1InvalidEventCategoryExceptionResponse = async (
 ): Promise<InvalidEventCategoryException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEventCategoryException(body, context);
-  const contents: InvalidEventCategoryException = {
-    name: "InvalidEventCategoryException",
-    $fault: "client",
+  const exception = new InvalidEventCategoryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse = async (
@@ -4321,13 +2820,11 @@ const deserializeAws_json1_1InvalidEventDataStoreStatusExceptionResponse = async
 ): Promise<InvalidEventDataStoreStatusException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEventDataStoreStatusException(body, context);
-  const contents: InvalidEventDataStoreStatusException = {
-    name: "InvalidEventDataStoreStatusException",
-    $fault: "client",
+  const exception = new InvalidEventDataStoreStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidEventSelectorsExceptionResponse = async (
@@ -4336,13 +2833,11 @@ const deserializeAws_json1_1InvalidEventSelectorsExceptionResponse = async (
 ): Promise<InvalidEventSelectorsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEventSelectorsException(body, context);
-  const contents: InvalidEventSelectorsException = {
-    name: "InvalidEventSelectorsException",
-    $fault: "client",
+  const exception = new InvalidEventSelectorsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidHomeRegionExceptionResponse = async (
@@ -4351,13 +2846,11 @@ const deserializeAws_json1_1InvalidHomeRegionExceptionResponse = async (
 ): Promise<InvalidHomeRegionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidHomeRegionException(body, context);
-  const contents: InvalidHomeRegionException = {
-    name: "InvalidHomeRegionException",
-    $fault: "client",
+  const exception = new InvalidHomeRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse = async (
@@ -4366,13 +2859,11 @@ const deserializeAws_json1_1InvalidInsightSelectorsExceptionResponse = async (
 ): Promise<InvalidInsightSelectorsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInsightSelectorsException(body, context);
-  const contents: InvalidInsightSelectorsException = {
-    name: "InvalidInsightSelectorsException",
-    $fault: "client",
+  const exception = new InvalidInsightSelectorsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse = async (
@@ -4381,13 +2872,11 @@ const deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse = async (
 ): Promise<InvalidKmsKeyIdException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidKmsKeyIdException(body, context);
-  const contents: InvalidKmsKeyIdException = {
-    name: "InvalidKmsKeyIdException",
-    $fault: "client",
+  const exception = new InvalidKmsKeyIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidLookupAttributesExceptionResponse = async (
@@ -4396,13 +2885,11 @@ const deserializeAws_json1_1InvalidLookupAttributesExceptionResponse = async (
 ): Promise<InvalidLookupAttributesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLookupAttributesException(body, context);
-  const contents: InvalidLookupAttributesException = {
-    name: "InvalidLookupAttributesException",
-    $fault: "client",
+  const exception = new InvalidLookupAttributesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidMaxResultsExceptionResponse = async (
@@ -4411,13 +2898,11 @@ const deserializeAws_json1_1InvalidMaxResultsExceptionResponse = async (
 ): Promise<InvalidMaxResultsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidMaxResultsException(body, context);
-  const contents: InvalidMaxResultsException = {
-    name: "InvalidMaxResultsException",
-    $fault: "client",
+  const exception = new InvalidMaxResultsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
@@ -4426,13 +2911,11 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
+  const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async (
@@ -4441,13 +2924,11 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(body, context);
-  const contents: InvalidParameterCombinationException = {
-    name: "InvalidParameterCombinationException",
-    $fault: "client",
+  const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -4456,13 +2937,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidQueryStatementExceptionResponse = async (
@@ -4471,13 +2950,11 @@ const deserializeAws_json1_1InvalidQueryStatementExceptionResponse = async (
 ): Promise<InvalidQueryStatementException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidQueryStatementException(body, context);
-  const contents: InvalidQueryStatementException = {
-    name: "InvalidQueryStatementException",
-    $fault: "client",
+  const exception = new InvalidQueryStatementException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidQueryStatusExceptionResponse = async (
@@ -4486,13 +2963,11 @@ const deserializeAws_json1_1InvalidQueryStatusExceptionResponse = async (
 ): Promise<InvalidQueryStatusException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidQueryStatusException(body, context);
-  const contents: InvalidQueryStatusException = {
-    name: "InvalidQueryStatusException",
-    $fault: "client",
+  const exception = new InvalidQueryStatusException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidS3BucketNameExceptionResponse = async (
@@ -4501,13 +2976,11 @@ const deserializeAws_json1_1InvalidS3BucketNameExceptionResponse = async (
 ): Promise<InvalidS3BucketNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidS3BucketNameException(body, context);
-  const contents: InvalidS3BucketNameException = {
-    name: "InvalidS3BucketNameException",
-    $fault: "client",
+  const exception = new InvalidS3BucketNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidS3PrefixExceptionResponse = async (
@@ -4516,13 +2989,11 @@ const deserializeAws_json1_1InvalidS3PrefixExceptionResponse = async (
 ): Promise<InvalidS3PrefixException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidS3PrefixException(body, context);
-  const contents: InvalidS3PrefixException = {
-    name: "InvalidS3PrefixException",
-    $fault: "client",
+  const exception = new InvalidS3PrefixException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse = async (
@@ -4531,13 +3002,11 @@ const deserializeAws_json1_1InvalidSnsTopicNameExceptionResponse = async (
 ): Promise<InvalidSnsTopicNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSnsTopicNameException(body, context);
-  const contents: InvalidSnsTopicNameException = {
-    name: "InvalidSnsTopicNameException",
-    $fault: "client",
+  const exception = new InvalidSnsTopicNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
@@ -4546,13 +3015,11 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
 ): Promise<InvalidTagParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagParameterException(body, context);
-  const contents: InvalidTagParameterException = {
-    name: "InvalidTagParameterException",
-    $fault: "client",
+  const exception = new InvalidTagParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
@@ -4561,13 +3028,11 @@ const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
 ): Promise<InvalidTimeRangeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTimeRangeException(body, context);
-  const contents: InvalidTimeRangeException = {
-    name: "InvalidTimeRangeException",
-    $fault: "client",
+  const exception = new InvalidTimeRangeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
@@ -4576,13 +3041,11 @@ const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
 ): Promise<InvalidTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTokenException(body, context);
-  const contents: InvalidTokenException = {
-    name: "InvalidTokenException",
-    $fault: "client",
+  const exception = new InvalidTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTrailNameExceptionResponse = async (
@@ -4591,13 +3054,11 @@ const deserializeAws_json1_1InvalidTrailNameExceptionResponse = async (
 ): Promise<InvalidTrailNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTrailNameException(body, context);
-  const contents: InvalidTrailNameException = {
-    name: "InvalidTrailNameException",
-    $fault: "client",
+  const exception = new InvalidTrailNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KmsExceptionResponse = async (
@@ -4606,13 +3067,11 @@ const deserializeAws_json1_1KmsExceptionResponse = async (
 ): Promise<KmsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsException(body, context);
-  const contents: KmsException = {
-    name: "KmsException",
-    $fault: "client",
+  const exception = new KmsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KmsKeyDisabledExceptionResponse = async (
@@ -4621,13 +3080,11 @@ const deserializeAws_json1_1KmsKeyDisabledExceptionResponse = async (
 ): Promise<KmsKeyDisabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsKeyDisabledException(body, context);
-  const contents: KmsKeyDisabledException = {
-    name: "KmsKeyDisabledException",
-    $fault: "client",
+  const exception = new KmsKeyDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KmsKeyNotFoundExceptionResponse = async (
@@ -4636,13 +3093,11 @@ const deserializeAws_json1_1KmsKeyNotFoundExceptionResponse = async (
 ): Promise<KmsKeyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsKeyNotFoundException(body, context);
-  const contents: KmsKeyNotFoundException = {
-    name: "KmsKeyNotFoundException",
-    $fault: "client",
+  const exception = new KmsKeyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse = async (
@@ -4651,13 +3106,11 @@ const deserializeAws_json1_1MaxConcurrentQueriesExceptionResponse = async (
 ): Promise<MaxConcurrentQueriesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MaxConcurrentQueriesException(body, context);
-  const contents: MaxConcurrentQueriesException = {
-    name: "MaxConcurrentQueriesException",
-    $fault: "client",
+  const exception = new MaxConcurrentQueriesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse = async (
@@ -4666,13 +3119,11 @@ const deserializeAws_json1_1MaximumNumberOfTrailsExceededExceptionResponse = asy
 ): Promise<MaximumNumberOfTrailsExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MaximumNumberOfTrailsExceededException(body, context);
-  const contents: MaximumNumberOfTrailsExceededException = {
-    name: "MaximumNumberOfTrailsExceededException",
-    $fault: "client",
+  const exception = new MaximumNumberOfTrailsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse = async (
@@ -4681,13 +3132,11 @@ const deserializeAws_json1_1NotOrganizationMasterAccountExceptionResponse = asyn
 ): Promise<NotOrganizationMasterAccountException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NotOrganizationMasterAccountException(body, context);
-  const contents: NotOrganizationMasterAccountException = {
-    name: "NotOrganizationMasterAccountException",
-    $fault: "client",
+  const exception = new NotOrganizationMasterAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
@@ -4696,13 +3145,11 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
+  const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = async (
@@ -4711,13 +3158,11 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeExceptionResponse = 
 ): Promise<OrganizationNotInAllFeaturesModeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationNotInAllFeaturesModeException(body, context);
-  const contents: OrganizationNotInAllFeaturesModeException = {
-    name: "OrganizationNotInAllFeaturesModeException",
-    $fault: "client",
+  const exception = new OrganizationNotInAllFeaturesModeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OrganizationsNotInUseExceptionResponse = async (
@@ -4726,13 +3171,11 @@ const deserializeAws_json1_1OrganizationsNotInUseExceptionResponse = async (
 ): Promise<OrganizationsNotInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OrganizationsNotInUseException(body, context);
-  const contents: OrganizationsNotInUseException = {
-    name: "OrganizationsNotInUseException",
-    $fault: "client",
+  const exception = new OrganizationsNotInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1QueryIdNotFoundExceptionResponse = async (
@@ -4741,13 +3184,11 @@ const deserializeAws_json1_1QueryIdNotFoundExceptionResponse = async (
 ): Promise<QueryIdNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1QueryIdNotFoundException(body, context);
-  const contents: QueryIdNotFoundException = {
-    name: "QueryIdNotFoundException",
-    $fault: "client",
+  const exception = new QueryIdNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -4756,13 +3197,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse = async (
@@ -4771,13 +3210,11 @@ const deserializeAws_json1_1ResourceTypeNotSupportedExceptionResponse = async (
 ): Promise<ResourceTypeNotSupportedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceTypeNotSupportedException(body, context);
-  const contents: ResourceTypeNotSupportedException = {
-    name: "ResourceTypeNotSupportedException",
-    $fault: "client",
+  const exception = new ResourceTypeNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse = async (
@@ -4786,13 +3223,11 @@ const deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse = async (
 ): Promise<S3BucketDoesNotExistException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1S3BucketDoesNotExistException(body, context);
-  const contents: S3BucketDoesNotExistException = {
-    name: "S3BucketDoesNotExistException",
-    $fault: "client",
+  const exception = new S3BucketDoesNotExistException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TagsLimitExceededExceptionResponse = async (
@@ -4801,13 +3236,11 @@ const deserializeAws_json1_1TagsLimitExceededExceptionResponse = async (
 ): Promise<TagsLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagsLimitExceededException(body, context);
-  const contents: TagsLimitExceededException = {
-    name: "TagsLimitExceededException",
-    $fault: "client",
+  const exception = new TagsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TrailAlreadyExistsExceptionResponse = async (
@@ -4816,13 +3249,11 @@ const deserializeAws_json1_1TrailAlreadyExistsExceptionResponse = async (
 ): Promise<TrailAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TrailAlreadyExistsException(body, context);
-  const contents: TrailAlreadyExistsException = {
-    name: "TrailAlreadyExistsException",
-    $fault: "client",
+  const exception = new TrailAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TrailNotFoundExceptionResponse = async (
@@ -4831,13 +3262,11 @@ const deserializeAws_json1_1TrailNotFoundExceptionResponse = async (
 ): Promise<TrailNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TrailNotFoundException(body, context);
-  const contents: TrailNotFoundException = {
-    name: "TrailNotFoundException",
-    $fault: "client",
+  const exception = new TrailNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TrailNotProvidedExceptionResponse = async (
@@ -4846,13 +3275,11 @@ const deserializeAws_json1_1TrailNotProvidedExceptionResponse = async (
 ): Promise<TrailNotProvidedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TrailNotProvidedException(body, context);
-  const contents: TrailNotProvidedException = {
-    name: "TrailNotProvidedException",
-    $fault: "client",
+  const exception = new TrailNotProvidedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
@@ -4861,13 +3288,11 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
-  const contents: UnsupportedOperationException = {
-    name: "UnsupportedOperationException",
-    $fault: "client",
+  const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AddTagsRequest = (input: AddTagsRequest, context: __SerdeContext): any => {

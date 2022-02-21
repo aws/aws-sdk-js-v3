@@ -1,22 +1,45 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DAXServiceException as __BaseException } from "./DAXServiceException";
 
 /**
  * <p>You already have a DAX cluster with the given identifier.</p>
  */
-export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterAlreadyExistsFault" = "ClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
  *             account.</p>
  */
-export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "ClusterQuotaForCustomerExceededFault" = "ClusterQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "ClusterQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 export enum ClusterEndpointEncryptionType {
@@ -593,94 +616,194 @@ export namespace CreateClusterResponse {
  * <p>There are not enough system resources to create the cluster you requested (or to
  *             resize an already-existing cluster). </p>
  */
-export interface InsufficientClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientClusterCapacityFault" = "InsufficientClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>The requested DAX cluster is not in the <i>available</i>
  *             state.</p>
  */
-export interface InvalidClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterStateFault extends __BaseException {
+  readonly name: "InvalidClusterStateFault" = "InvalidClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterStateFault.prototype);
+  }
 }
 
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+  }
 }
 
 /**
  * <p>One or more parameters in a parameter group are in an invalid state.</p>
  */
-export interface InvalidParameterGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterGroupStateFault extends __BaseException {
+  readonly name: "InvalidParameterGroupStateFault" = "InvalidParameterGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidParameterGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The value for a parameter is invalid.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
  * <p>The VPC network is in an invalid state.</p>
  */
-export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidVPCNetworkStateFault extends __BaseException {
+  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
+    super({
+      name: "InvalidVPCNetworkStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of nodes for a DAX
  *             cluster.</p>
  */
-export interface NodeQuotaForClusterExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForClusterExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForClusterExceededFault" = "NodeQuotaForClusterExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForClusterExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForClusterExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForClusterExceededFault.prototype);
+  }
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of nodes for your AWS
  *             account.</p>
  */
-export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForCustomerExceededFault" = "NodeQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The specified parameter group does not exist.</p>
  */
-export interface ParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "ParameterGroupNotFoundFault" = "ParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified service linked role (SLR) was not found.</p>
  */
-export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  readonly name: "ServiceLinkedRoleNotFoundFault" = "ServiceLinkedRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "ServiceLinkedRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLinkedRoleNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -688,28 +811,59 @@ export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $Meta
  *             encrypted clusters in a 30 day period. Contact AWS customer support to discuss options
  *             for continuing to create encrypted clusters.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
  * <p>The requested subnet group name does not refer to an existing subnet
  *             group.</p>
  */
-export interface SubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupNotFoundFault extends __BaseException {
+  readonly name: "SubnetGroupNotFoundFault" = "SubnetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "SubnetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  */
-export interface TagQuotaPerResourceExceeded extends __SmithyException, $MetadataBearer {
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
+export class TagQuotaPerResourceExceeded extends __BaseException {
+  readonly name: "TagQuotaPerResourceExceeded" = "TagQuotaPerResourceExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagQuotaPerResourceExceeded, __BaseException>) {
+    super({
+      name: "TagQuotaPerResourceExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagQuotaPerResourceExceeded.prototype);
+  }
 }
 
 export interface CreateParameterGroupRequest {
@@ -779,19 +933,39 @@ export namespace CreateParameterGroupResponse {
 /**
  * <p>The specified parameter group already exists.</p>
  */
-export interface ParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ParameterGroupAlreadyExistsFault" = "ParameterGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ParameterGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of parameter groups.</p>
  */
-export interface ParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupQuotaExceededFault extends __BaseException {
+  readonly name: "ParameterGroupQuotaExceededFault" = "ParameterGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ParameterGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupQuotaExceededFault.prototype);
+  }
 }
 
 export interface CreateSubnetGroupRequest {
@@ -912,48 +1086,98 @@ export namespace CreateSubnetGroupResponse {
 /**
  * <p>An invalid subnet identifier was specified.</p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p>The specified subnet group already exists.</p>
  */
-export interface SubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "SubnetGroupAlreadyExistsFault" = "SubnetGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SubnetGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
-export interface SubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupQuotaExceededFault extends __BaseException {
+  readonly name: "SubnetGroupQuotaExceededFault" = "SubnetGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SubnetGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
-export interface SubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SubnetQuotaExceededFault extends __BaseException {
+  readonly name: "SubnetQuotaExceededFault" = "SubnetQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SubnetQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
  */
-export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterNotFoundFault extends __BaseException {
+  readonly name: "ClusterNotFoundFault" = "ClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterNotFoundFault.prototype);
+  }
 }
 
 export interface DecreaseReplicationFactorRequest {
@@ -1007,10 +1231,20 @@ export namespace DecreaseReplicationFactorResponse {
 /**
  * <p>None of the nodes in the cluster have the given node ID.</p>
  */
-export interface NodeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "NodeNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class NodeNotFoundFault extends __BaseException {
+  readonly name: "NodeNotFoundFault" = "NodeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeNotFoundFault, __BaseException>) {
+    super({
+      name: "NodeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeNotFoundFault.prototype);
+  }
 }
 
 export interface DeleteClusterRequest {
@@ -1114,10 +1348,20 @@ export namespace DeleteSubnetGroupResponse {
 /**
  * <p>The specified subnet group is currently in use.</p>
  */
-export interface SubnetGroupInUseFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupInUseFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupInUseFault extends __BaseException {
+  readonly name: "SubnetGroupInUseFault" = "SubnetGroupInUseFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupInUseFault, __BaseException>) {
+    super({
+      name: "SubnetGroupInUseFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupInUseFault.prototype);
+  }
 }
 
 export interface DescribeClustersRequest {
@@ -1651,10 +1895,20 @@ export namespace IncreaseReplicationFactorResponse {
 /**
  * <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
  */
-export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
+export class InvalidARNFault extends __BaseException {
+  readonly name: "InvalidARNFault" = "InvalidARNFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidARNFault, __BaseException>) {
+    super({
+      name: "InvalidARNFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidARNFault.prototype);
+  }
 }
 
 export interface ListTagsRequest {
@@ -1779,10 +2033,20 @@ export namespace TagResourceResponse {
 /**
  * <p>The tag does not exist.</p>
  */
-export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class TagNotFoundFault extends __BaseException {
+  readonly name: "TagNotFoundFault" = "TagNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagNotFoundFault, __BaseException>) {
+    super({
+      name: "TagNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagNotFoundFault.prototype);
+  }
 }
 
 export interface UntagResourceRequest {
@@ -1958,10 +2222,20 @@ export namespace UpdateParameterGroupResponse {
 /**
  * <p>The requested subnet is being used by another subnet group.</p>
  */
-export interface SubnetInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
+export class SubnetInUse extends __BaseException {
+  readonly name: "SubnetInUse" = "SubnetInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetInUse, __BaseException>) {
+    super({
+      name: "SubnetInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetInUse.prototype);
+  }
 }
 
 export interface UpdateSubnetGroupRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MTurkServiceException as __BaseException } from "./MTurkServiceException";
 
 export interface AcceptQualificationRequestRequest {
   /**
@@ -38,21 +41,47 @@ export namespace AcceptQualificationRequestResponse {
 /**
  * <p>Your request is invalid.</p>
  */
-export interface RequestError extends __SmithyException, $MetadataBearer {
-  name: "RequestError";
-  $fault: "client";
+export class RequestError extends __BaseException {
+  readonly name: "RequestError" = "RequestError";
+  readonly $fault: "client" = "client";
   Message?: string;
   TurkErrorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestError, __BaseException>) {
+    super({
+      name: "RequestError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestError.prototype);
+    this.Message = opts.Message;
+    this.TurkErrorCode = opts.TurkErrorCode;
+  }
 }
 
 /**
  * <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
  */
-export interface ServiceFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceFault";
-  $fault: "server";
+export class ServiceFault extends __BaseException {
+  readonly name: "ServiceFault" = "ServiceFault";
+  readonly $fault: "server" = "server";
   Message?: string;
   TurkErrorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFault, __BaseException>) {
+    super({
+      name: "ServiceFault",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFault.prototype);
+    this.Message = opts.Message;
+    this.TurkErrorCode = opts.TurkErrorCode;
+  }
 }
 
 export interface ApproveAssignmentRequest {

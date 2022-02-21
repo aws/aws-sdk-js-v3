@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
   AbortConfig,
   AggregationType,
@@ -1119,13 +1121,20 @@ export namespace RegisterCACertificateResponse {
 /**
  * <p>The registration code is invalid.</p>
  */
-export interface RegistrationCodeValidationException extends __SmithyException, $MetadataBearer {
-  name: "RegistrationCodeValidationException";
-  $fault: "client";
+export class RegistrationCodeValidationException extends __BaseException {
+  readonly name: "RegistrationCodeValidationException" = "RegistrationCodeValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RegistrationCodeValidationException, __BaseException>) {
+    super({
+      name: "RegistrationCodeValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegistrationCodeValidationException.prototype);
+  }
 }
 
 /**
@@ -1133,13 +1142,20 @@ export interface RegistrationCodeValidationException extends __SmithyException, 
  *          attempting to register. This is happens when you have registered more than one CA
  *          certificate that has the same subject field and public key.</p>
  */
-export interface CertificateConflictException extends __SmithyException, $MetadataBearer {
-  name: "CertificateConflictException";
-  $fault: "client";
+export class CertificateConflictException extends __BaseException {
+  readonly name: "CertificateConflictException" = "CertificateConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CertificateConflictException, __BaseException>) {
+    super({
+      name: "CertificateConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateConflictException.prototype);
+  }
 }
 
 /**
@@ -1290,13 +1306,20 @@ export namespace RegisterThingResponse {
 /**
  * <p>The resource registration failed.</p>
  */
-export interface ResourceRegistrationFailureException extends __SmithyException, $MetadataBearer {
-  name: "ResourceRegistrationFailureException";
-  $fault: "client";
+export class ResourceRegistrationFailureException extends __BaseException {
+  readonly name: "ResourceRegistrationFailureException" = "ResourceRegistrationFailureException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceRegistrationFailureException, __BaseException>) {
+    super({
+      name: "ResourceRegistrationFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceRegistrationFailureException.prototype);
+  }
 }
 
 /**
@@ -1829,10 +1852,20 @@ export namespace StartAuditMitigationActionsTaskResponse {
  *             This exception occurs if you attempt to start a task with the same task-id as an existing task but with a different clientRequestToken.
  *         </p>
  */
-export interface TaskAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TaskAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class TaskAlreadyExistsException extends __BaseException {
+  readonly name: "TaskAlreadyExistsException" = "TaskAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TaskAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskAlreadyExistsException.prototype);
+  }
 }
 
 export interface StartDetectMitigationActionsTaskRequest {
@@ -2119,13 +2152,20 @@ export namespace TestAuthorizationResponse {
 /**
  * <p>The response is invalid.</p>
  */
-export interface InvalidResponseException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResponseException";
-  $fault: "client";
+export class InvalidResponseException extends __BaseException {
+  readonly name: "InvalidResponseException" = "InvalidResponseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidResponseException, __BaseException>) {
+    super({
+      name: "InvalidResponseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResponseException.prototype);
+  }
 }
 
 /**
@@ -2331,13 +2371,20 @@ export namespace TransferCertificateResponse {
  * <p>You can't transfer the certificate because authorization policies are still
  *          attached.</p>
  */
-export interface TransferConflictException extends __SmithyException, $MetadataBearer {
-  name: "TransferConflictException";
-  $fault: "client";
+export class TransferConflictException extends __BaseException {
+  readonly name: "TransferConflictException" = "TransferConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TransferConflictException, __BaseException>) {
+    super({
+      name: "TransferConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransferConflictException.prototype);
+  }
 }
 
 export interface UntagResourceRequest {

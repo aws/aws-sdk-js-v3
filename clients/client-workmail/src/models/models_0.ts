@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { WorkMailServiceException as __BaseException } from "./WorkMailServiceException";
 
 export enum AccessControlRuleEffect {
   ALLOW = "ALLOW",
@@ -120,49 +122,109 @@ export namespace AssociateDelegateToResourceResponse {
  * <p>The identifier supplied for the user, group, or resource does not exist in your
  *          organization.</p>
  */
-export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EntityNotFoundException";
-  $fault: "client";
+export class EntityNotFoundException extends __BaseException {
+  readonly name: "EntityNotFoundException" = "EntityNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotFoundException, __BaseException>) {
+    super({
+      name: "EntityNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You are performing an operation on a user, group, or resource that isn't in the
  *          expected state, such as trying to delete an active user.</p>
  */
-export interface EntityStateException extends __SmithyException, $MetadataBearer {
-  name: "EntityStateException";
-  $fault: "client";
+export class EntityStateException extends __BaseException {
+  readonly name: "EntityStateException" = "EntityStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityStateException, __BaseException>) {
+    super({
+      name: "EntityStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more of the input parameters don't match the service's restrictions.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>
  */
-export interface OrganizationNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationNotFoundException";
-  $fault: "client";
+export class OrganizationNotFoundException extends __BaseException {
+  readonly name: "OrganizationNotFoundException" = "OrganizationNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationNotFoundException, __BaseException>) {
+    super({
+      name: "OrganizationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  */
-export interface OrganizationStateException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationStateException";
-  $fault: "client";
+export class OrganizationStateException extends __BaseException {
+  readonly name: "OrganizationStateException" = "OrganizationStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationStateException, __BaseException>) {
+    super({
+      name: "OrganizationStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateMemberToGroupRequest {
@@ -205,28 +267,64 @@ export namespace AssociateMemberToGroupResponse {
 /**
  * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
  */
-export interface DirectoryServiceAuthenticationFailedException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryServiceAuthenticationFailedException";
-  $fault: "client";
+export class DirectoryServiceAuthenticationFailedException extends __BaseException {
+  readonly name: "DirectoryServiceAuthenticationFailedException" = "DirectoryServiceAuthenticationFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryServiceAuthenticationFailedException, __BaseException>) {
+    super({
+      name: "DirectoryServiceAuthenticationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryServiceAuthenticationFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  */
-export interface DirectoryUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryUnavailableException";
-  $fault: "client";
+export class DirectoryUnavailableException extends __BaseException {
+  readonly name: "DirectoryUnavailableException" = "DirectoryUnavailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryUnavailableException, __BaseException>) {
+    super({
+      name: "DirectoryUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You can't perform a write operation against a read-only directory.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -338,38 +436,86 @@ export namespace CreateAliasResponse {
  * <p>The email address that you're trying to assign is already created for a different
  *          user, group, or resource.</p>
  */
-export interface EmailAddressInUseException extends __SmithyException, $MetadataBearer {
-  name: "EmailAddressInUseException";
-  $fault: "client";
+export class EmailAddressInUseException extends __BaseException {
+  readonly name: "EmailAddressInUseException" = "EmailAddressInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EmailAddressInUseException, __BaseException>) {
+    super({
+      name: "EmailAddressInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EmailAddressInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request exceeds the limit of the resource.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The domain specified is not found in your organization.</p>
  */
-export interface MailDomainNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "MailDomainNotFoundException";
-  $fault: "client";
+export class MailDomainNotFoundException extends __BaseException {
+  readonly name: "MailDomainNotFoundException" = "MailDomainNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MailDomainNotFoundException, __BaseException>) {
+    super({
+      name: "MailDomainNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailDomainNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>After a domain has been added to the organization, it must be verified. The domain is
  *          not yet verified.</p>
  */
-export interface MailDomainStateException extends __SmithyException, $MetadataBearer {
-  name: "MailDomainStateException";
-  $fault: "client";
+export class MailDomainStateException extends __BaseException {
+  readonly name: "MailDomainStateException" = "MailDomainStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MailDomainStateException, __BaseException>) {
+    super({
+      name: "MailDomainStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailDomainStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateGroupRequest {
@@ -412,19 +558,43 @@ export namespace CreateGroupResponse {
 /**
  * <p>The user, group, or resource name isn't unique in Amazon WorkMail.</p>
  */
-export interface NameAvailabilityException extends __SmithyException, $MetadataBearer {
-  name: "NameAvailabilityException";
-  $fault: "client";
+export class NameAvailabilityException extends __BaseException {
+  readonly name: "NameAvailabilityException" = "NameAvailabilityException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NameAvailabilityException, __BaseException>) {
+    super({
+      name: "NameAvailabilityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameAvailabilityException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This user, group, or resource name is not allowed in Amazon WorkMail.</p>
  */
-export interface ReservedNameException extends __SmithyException, $MetadataBearer {
-  name: "ReservedNameException";
-  $fault: "client";
+export class ReservedNameException extends __BaseException {
+  readonly name: "ReservedNameException" = "ReservedNameException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNameException, __BaseException>) {
+    super({
+      name: "ReservedNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum MobileDeviceAccessRuleEffect {
@@ -610,10 +780,22 @@ export namespace CreateOrganizationResponse {
 /**
  * <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
  */
-export interface DirectoryInUseException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryInUseException";
-  $fault: "client";
+export class DirectoryInUseException extends __BaseException {
+  readonly name: "DirectoryInUseException" = "DirectoryInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryInUseException, __BaseException>) {
+    super({
+      name: "DirectoryInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ResourceType {
@@ -717,10 +899,22 @@ export namespace CreateUserResponse {
  * <p>The supplied password doesn't match the minimum security constraints, such as length
  *          or use of special characters.</p>
  */
-export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPasswordException";
-  $fault: "client";
+export class InvalidPasswordException extends __BaseException {
+  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
+    super({
+      name: "InvalidPasswordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum MemberType {
@@ -1217,19 +1411,43 @@ export namespace DeregisterMailDomainResponse {
  * <p>You SES configuration has customizations that Amazon WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
  *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
  */
-export interface InvalidCustomSesConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCustomSesConfigurationException";
-  $fault: "client";
+export class InvalidCustomSesConfigurationException extends __BaseException {
+  readonly name: "InvalidCustomSesConfigurationException" = "InvalidCustomSesConfigurationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCustomSesConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidCustomSesConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCustomSesConfigurationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
  */
-export interface MailDomainInUseException extends __SmithyException, $MetadataBearer {
-  name: "MailDomainInUseException";
-  $fault: "client";
+export class MailDomainInUseException extends __BaseException {
+  readonly name: "MailDomainInUseException" = "MailDomainInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MailDomainInUseException, __BaseException>) {
+    super({
+      name: "MailDomainInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailDomainInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeEmailMonitoringConfigurationRequest {
@@ -1272,10 +1490,22 @@ export namespace DescribeEmailMonitoringConfigurationResponse {
 /**
  * <p>The resource cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeGroupRequest {
@@ -1833,10 +2063,22 @@ export enum DnsRecordVerificationStatus {
  * <p>The user, group, or resource that you're trying to register is already
  *          registered.</p>
  */
-export interface EntityAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
-  name: "EntityAlreadyRegisteredException";
-  $fault: "client";
+export class EntityAlreadyRegisteredException extends __BaseException {
+  readonly name: "EntityAlreadyRegisteredException" = "EntityAlreadyRegisteredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyRegisteredException, __BaseException>) {
+    super({
+      name: "EntityAlreadyRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RetentionAction {
@@ -2298,10 +2540,22 @@ export namespace Group {
  *          auto-respond to requests or have at least one delegate associated that can do so on its
  *          behalf.</p>
  */
-export interface InvalidConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationException";
-  $fault: "client";
+export class InvalidConfigurationException extends __BaseException {
+  readonly name: "InvalidConfigurationException" = "InvalidConfigurationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3967,10 +4221,22 @@ export namespace TagResourceResponse {
 /**
  * <p>The resource can have up to 50 user-applied tags.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UntagResourceRequest {

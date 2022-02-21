@@ -1,6 +1,8 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
+import { MediaLiveServiceException as __BaseException } from "./MediaLiveServiceException";
 import {
   ArchiveGroupSettings,
   AudioDescription,
@@ -2649,105 +2651,201 @@ export namespace AcceptInputDeviceTransferResponse {
 /**
  * Placeholder documentation for BadGatewayException
  */
-export interface BadGatewayException extends __SmithyException, $MetadataBearer {
-  name: "BadGatewayException";
-  $fault: "server";
+export class BadGatewayException extends __BaseException {
+  readonly name: "BadGatewayException" = "BadGatewayException";
+  readonly $fault: "server" = "server";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
+    super({
+      name: "BadGatewayException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadGatewayException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for BadRequestException
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for ConflictException
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for ForbiddenException
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for GatewayTimeoutException
  */
-export interface GatewayTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "GatewayTimeoutException";
-  $fault: "server";
+export class GatewayTimeoutException extends __BaseException {
+  readonly name: "GatewayTimeoutException" = "GatewayTimeoutException";
+  readonly $fault: "server" = "server";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GatewayTimeoutException, __BaseException>) {
+    super({
+      name: "GatewayTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GatewayTimeoutException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for InternalServerErrorException
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for NotFoundException
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for TooManyRequestsException
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * Placeholder documentation for __string
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Placeholder documentation for UnprocessableEntityException
  */
-export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
-  name: "UnprocessableEntityException";
-  $fault: "client";
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
   /**
    * The error message.
    */
@@ -2757,6 +2855,19 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
    * A collection of validation error responses.
    */
   ValidationErrors?: ValidationError[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+    this.Message = opts.Message;
+    this.ValidationErrors = opts.ValidationErrors;
+  }
 }
 
 export enum AvailBlankingState {

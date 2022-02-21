@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
   AgentStatusState,
   ContactFlowModuleState,
@@ -21,13 +23,25 @@ import {
 /**
  * <p>The contact is not permitted.</p>
  */
-export interface OutboundContactNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OutboundContactNotPermittedException";
-  $fault: "client";
+export class OutboundContactNotPermittedException extends __BaseException {
+  readonly name: "OutboundContactNotPermittedException" = "OutboundContactNotPermittedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message about the contact.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OutboundContactNotPermittedException, __BaseException>) {
+    super({
+      name: "OutboundContactNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OutboundContactNotPermittedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -271,13 +285,25 @@ export namespace StartTaskContactResponse {
 /**
  * <p>The contact with the specified ID is not active or does not exist.</p>
  */
-export interface ContactNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ContactNotFoundException";
-  $fault: "client";
+export class ContactNotFoundException extends __BaseException {
+  readonly name: "ContactNotFoundException" = "ContactNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContactNotFoundException, __BaseException>) {
+    super({
+      name: "ContactNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContactNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StopContactRequest {

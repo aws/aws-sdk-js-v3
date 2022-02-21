@@ -1,12 +1,14 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectLong as __expectLong, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { SendCommandCommandInput, SendCommandCommandOutput } from "../commands/SendCommandCommand";
@@ -38,6 +40,7 @@ import {
   TimingInformation,
   ValueHolder,
 } from "../models/models_0";
+import { QLDBSessionServiceException as __BaseException } from "../models/QLDBSessionServiceException";
 
 export const serializeAws_json1_0SendCommandCommand = async (
   input: SendCommandCommandInput,
@@ -77,73 +80,37 @@ const deserializeAws_json1_0SendCommandCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.qldbsession#BadRequestException":
-      response = {
-        ...(await deserializeAws_json1_0BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BadRequestExceptionResponse(parsedOutput, context);
     case "CapacityExceededException":
     case "com.amazonaws.qldbsession#CapacityExceededException":
-      response = {
-        ...(await deserializeAws_json1_0CapacityExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0CapacityExceededExceptionResponse(parsedOutput, context);
     case "InvalidSessionException":
     case "com.amazonaws.qldbsession#InvalidSessionException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidSessionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidSessionExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.qldbsession#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "OccConflictException":
     case "com.amazonaws.qldbsession#OccConflictException":
-      response = {
-        ...(await deserializeAws_json1_0OccConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OccConflictExceptionResponse(parsedOutput, context);
     case "RateExceededException":
     case "com.amazonaws.qldbsession#RateExceededException":
-      response = {
-        ...(await deserializeAws_json1_0RateExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RateExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_0BadRequestExceptionResponse = async (
@@ -152,13 +119,11 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
 ): Promise<BadRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0BadRequestException(body, context);
-  const contents: BadRequestException = {
-    name: "BadRequestException",
-    $fault: "client",
+  const exception = new BadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0CapacityExceededExceptionResponse = async (
@@ -167,13 +132,11 @@ const deserializeAws_json1_0CapacityExceededExceptionResponse = async (
 ): Promise<CapacityExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0CapacityExceededException(body, context);
-  const contents: CapacityExceededException = {
-    name: "CapacityExceededException",
-    $fault: "server",
+  const exception = new CapacityExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
@@ -182,13 +145,11 @@ const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
 ): Promise<InvalidSessionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidSessionException(body, context);
-  const contents: InvalidSessionException = {
-    name: "InvalidSessionException",
-    $fault: "client",
+  const exception = new InvalidSessionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
@@ -197,13 +158,11 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0OccConflictExceptionResponse = async (
@@ -212,13 +171,11 @@ const deserializeAws_json1_0OccConflictExceptionResponse = async (
 ): Promise<OccConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0OccConflictException(body, context);
-  const contents: OccConflictException = {
-    name: "OccConflictException",
-    $fault: "client",
+  const exception = new OccConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0RateExceededExceptionResponse = async (
@@ -227,13 +184,11 @@ const deserializeAws_json1_0RateExceededExceptionResponse = async (
 ): Promise<RateExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0RateExceededException(body, context);
-  const contents: RateExceededException = {
-    name: "RateExceededException",
-    $fault: "client",
+  const exception = new RateExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_0AbortTransactionRequest = (input: AbortTransactionRequest, context: __SerdeContext): any => {

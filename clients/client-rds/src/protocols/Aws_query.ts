@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -14,10 +15,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -952,6 +951,7 @@ import {
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
+import { RDSServiceException as __BaseException } from "../models/RDSServiceException";
 
 export const serializeAws_queryAddRoleToDBClusterCommand = async (
   input: AddRoleToDBClusterCommandInput,
@@ -3231,57 +3231,31 @@ const deserializeAws_queryAddRoleToDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterRoleAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterRoleAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterRoleQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterRoleQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddRoleToDBInstanceCommand = async (
@@ -3306,57 +3280,31 @@ const deserializeAws_queryAddRoleToDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceRoleAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceRoleAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBInstanceRoleQuotaExceededFault":
     case "com.amazonaws.rds#DBInstanceRoleQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddSourceIdentifierToSubscriptionCommand = async (
@@ -3387,41 +3335,25 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
     case "com.amazonaws.rds#SourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddTagsToResourceCommand = async (
@@ -3446,65 +3378,34 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryApplyPendingMaintenanceActionCommand = async (
@@ -3532,49 +3433,28 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.rds#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand = async (
@@ -3605,57 +3485,31 @@ const deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "com.amazonaws.rds#AuthorizationAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
     case "AuthorizationQuotaExceededFault":
     case "com.amazonaws.rds#AuthorizationQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationQuotaExceededFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSecurityGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryBacktrackDBClusterCommand = async (
@@ -3683,41 +3537,25 @@ const deserializeAws_queryBacktrackDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCancelExportTaskCommand = async (
@@ -3745,41 +3583,25 @@ const deserializeAws_queryCancelExportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExportTaskNotFoundFault":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     case "InvalidExportTaskStateFault":
     case "com.amazonaws.rds#InvalidExportTaskStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidExportTaskStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidExportTaskStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopyDBClusterParameterGroupCommand = async (
@@ -3807,49 +3629,28 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBParameterGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopyDBClusterSnapshotCommand = async (
@@ -3877,73 +3678,37 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopyDBParameterGroupCommand = async (
@@ -3971,49 +3736,28 @@ const deserializeAws_queryCopyDBParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBParameterGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopyDBSnapshotCommand = async (
@@ -4041,73 +3785,37 @@ const deserializeAws_queryCopyDBSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopyOptionGroupCommand = async (
@@ -4135,49 +3843,28 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
     case "com.amazonaws.rds#OptionGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCustomAvailabilityZoneCommand = async (
@@ -4205,49 +3892,28 @@ const deserializeAws_queryCreateCustomAvailabilityZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneAlreadyExistsFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse(parsedOutput, context);
     case "CustomAvailabilityZoneQuotaExceededFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCustomDBEngineVersionCommand = async (
@@ -4275,49 +3941,28 @@ const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomDBEngineVersionAlreadyExistsFault":
     case "com.amazonaws.rds#CustomDBEngineVersionAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse(parsedOutput, context);
     case "CustomDBEngineVersionQuotaExceededFault":
     case "com.amazonaws.rds#CustomDBEngineVersionQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBClusterCommand = async (
@@ -4345,169 +3990,73 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBClusterEndpointCommand = async (
@@ -4535,73 +4084,37 @@ const deserializeAws_queryCreateDBClusterEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterEndpointAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterEndpointQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterEndpointQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBClusterParameterGroupCommand = async (
@@ -4629,41 +4142,25 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBClusterSnapshotCommand = async (
@@ -4691,65 +4188,34 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBInstanceCommand = async (
@@ -4777,177 +4243,76 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InstanceQuotaExceededFault":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBInstanceReadReplicaCommand = async (
@@ -4975,177 +4340,76 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotAllowedFault":
     case "com.amazonaws.rds#DBSubnetGroupNotAllowedFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InstanceQuotaExceededFault":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetGroupFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetGroupFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBParameterGroupCommand = async (
@@ -5173,41 +4437,25 @@ const deserializeAws_queryCreateDBParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBProxyCommand = async (
@@ -5235,49 +4483,28 @@ const deserializeAws_queryCreateDBProxyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBProxyQuotaExceededFault":
     case "com.amazonaws.rds#DBProxyQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBProxyEndpointCommand = async (
@@ -5305,65 +4532,34 @@ const deserializeAws_queryCreateDBProxyEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyEndpointAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBProxyEndpointQuotaExceededFault":
     case "com.amazonaws.rds#DBProxyEndpointQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBSecurityGroupCommand = async (
@@ -5391,49 +4587,28 @@ const deserializeAws_queryCreateDBSecurityGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBSecurityGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotSupportedFault":
     case "com.amazonaws.rds#DBSecurityGroupNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse(parsedOutput, context);
     case "DBSecurityGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBSecurityGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBSnapshotCommand = async (
@@ -5461,57 +4636,31 @@ const deserializeAws_queryCreateDBSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateDBSubnetGroupCommand = async (
@@ -5539,65 +4688,34 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupAlreadyExistsFault":
     case "com.amazonaws.rds#DBSubnetGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupQuotaExceededFault":
     case "com.amazonaws.rds#DBSubnetGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
     case "com.amazonaws.rds#DBSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateEventSubscriptionCommand = async (
@@ -5625,81 +4743,40 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
     case "SNSInvalidTopicFault":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
-      response = {
-        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
-      response = {
-        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
     case "SNSTopicArnNotFoundFault":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
     case "SourceNotFoundFault":
     case "com.amazonaws.rds#SourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
     case "SubscriptionAlreadyExistFault":
     case "com.amazonaws.rds#SubscriptionAlreadyExistFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionAlreadyExistFaultResponse(parsedOutput, context);
     case "SubscriptionCategoryNotFoundFault":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateGlobalClusterCommand = async (
@@ -5727,57 +4804,31 @@ const deserializeAws_queryCreateGlobalClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "GlobalClusterAlreadyExistsFault":
     case "com.amazonaws.rds#GlobalClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "GlobalClusterQuotaExceededFault":
     case "com.amazonaws.rds#GlobalClusterQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateOptionGroupCommand = async (
@@ -5805,41 +4856,25 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
     case "com.amazonaws.rds#OptionGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCustomAvailabilityZoneCommand = async (
@@ -5867,41 +4902,25 @@ const deserializeAws_queryDeleteCustomAvailabilityZoneCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCustomDBEngineVersionCommand = async (
@@ -5929,41 +4948,25 @@ const deserializeAws_queryDeleteCustomDBEngineVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomDBEngineVersionNotFoundFault":
     case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCustomDBEngineVersionStateFault":
     case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBClusterCommand = async (
@@ -5991,65 +4994,34 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBClusterEndpointCommand = async (
@@ -6077,49 +5049,28 @@ const deserializeAws_queryDeleteDBClusterEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBClusterEndpointStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBClusterParameterGroupCommand = async (
@@ -6144,41 +5095,25 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBClusterSnapshotCommand = async (
@@ -6206,41 +5141,25 @@ const deserializeAws_queryDeleteDBClusterSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBInstanceCommand = async (
@@ -6268,73 +5187,37 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupQuotaExceededFault":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand = async (
@@ -6365,41 +5248,25 @@ const deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceAutomatedBackupStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceAutomatedBackupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBParameterGroupCommand = async (
@@ -6424,41 +5291,25 @@ const deserializeAws_queryDeleteDBParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBProxyCommand = async (
@@ -6486,41 +5337,25 @@ const deserializeAws_queryDeleteDBProxyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBProxyEndpointCommand = async (
@@ -6548,41 +5383,25 @@ const deserializeAws_queryDeleteDBProxyEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyEndpointNotFoundFault":
     case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBSecurityGroupCommand = async (
@@ -6607,41 +5426,25 @@ const deserializeAws_queryDeleteDBSecurityGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSecurityGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBSnapshotCommand = async (
@@ -6669,41 +5472,25 @@ const deserializeAws_queryDeleteDBSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteDBSubnetGroupCommand = async (
@@ -6728,49 +5515,28 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteEventSubscriptionCommand = async (
@@ -6798,41 +5564,25 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventSubscriptionStateFault":
     case "com.amazonaws.rds#InvalidEventSubscriptionStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidEventSubscriptionStateFaultResponse(parsedOutput, context);
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteGlobalClusterCommand = async (
@@ -6860,41 +5610,25 @@ const deserializeAws_queryDeleteGlobalClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteInstallationMediaCommand = async (
@@ -6922,33 +5656,22 @@ const deserializeAws_queryDeleteInstallationMediaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
     case "com.amazonaws.rds#InstallationMediaNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteOptionGroupCommand = async (
@@ -6973,41 +5696,25 @@ const deserializeAws_queryDeleteOptionGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
     case "com.amazonaws.rds#InvalidOptionGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidOptionGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidOptionGroupStateFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeregisterDBProxyTargetsCommand = async (
@@ -7035,57 +5742,31 @@ const deserializeAws_queryDeregisterDBProxyTargetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeAccountAttributesCommand = async (
@@ -7113,25 +5794,19 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCertificatesCommand = async (
@@ -7159,33 +5834,22 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundFault":
     case "com.amazonaws.rds#CertificateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCustomAvailabilityZonesCommand = async (
@@ -7213,33 +5877,22 @@ const deserializeAws_queryDescribeCustomAvailabilityZonesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterBacktracksCommand = async (
@@ -7267,41 +5920,25 @@ const deserializeAws_queryDescribeDBClusterBacktracksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterBacktrackNotFoundFault":
     case "com.amazonaws.rds#DBClusterBacktrackNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterEndpointsCommand = async (
@@ -7329,33 +5966,22 @@ const deserializeAws_queryDescribeDBClusterEndpointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterParameterGroupsCommand = async (
@@ -7383,33 +6009,22 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterParametersCommand = async (
@@ -7437,33 +6052,22 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClustersCommand = async (
@@ -7491,33 +6095,22 @@ const deserializeAws_queryDescribeDBClustersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand = async (
@@ -7548,33 +6141,22 @@ const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBClusterSnapshotsCommand = async (
@@ -7602,33 +6184,22 @@ const deserializeAws_queryDescribeDBClusterSnapshotsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBEngineVersionsCommand = async (
@@ -7656,25 +6227,19 @@ const deserializeAws_queryDescribeDBEngineVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand = async (
@@ -7705,33 +6270,22 @@ const deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBInstancesCommand = async (
@@ -7759,33 +6313,22 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBLogFilesCommand = async (
@@ -7813,33 +6356,22 @@ const deserializeAws_queryDescribeDBLogFilesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBParameterGroupsCommand = async (
@@ -7867,33 +6399,22 @@ const deserializeAws_queryDescribeDBParameterGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBParametersCommand = async (
@@ -7921,33 +6442,22 @@ const deserializeAws_queryDescribeDBParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBProxiesCommand = async (
@@ -7975,33 +6485,22 @@ const deserializeAws_queryDescribeDBProxiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBProxyEndpointsCommand = async (
@@ -8029,41 +6528,25 @@ const deserializeAws_queryDescribeDBProxyEndpointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyEndpointNotFoundFault":
     case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBProxyTargetGroupsCommand = async (
@@ -8091,49 +6574,28 @@ const deserializeAws_queryDescribeDBProxyTargetGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBProxyTargetsCommand = async (
@@ -8161,57 +6623,31 @@ const deserializeAws_queryDescribeDBProxyTargetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBSecurityGroupsCommand = async (
@@ -8239,33 +6675,22 @@ const deserializeAws_queryDescribeDBSecurityGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBSnapshotAttributesCommand = async (
@@ -8293,33 +6718,22 @@ const deserializeAws_queryDescribeDBSnapshotAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBSnapshotsCommand = async (
@@ -8347,33 +6761,22 @@ const deserializeAws_queryDescribeDBSnapshotsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeDBSubnetGroupsCommand = async (
@@ -8401,33 +6804,22 @@ const deserializeAws_queryDescribeDBSubnetGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEngineDefaultClusterParametersCommand = async (
@@ -8458,25 +6850,19 @@ const deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async (
@@ -8507,25 +6893,19 @@ const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEventCategoriesCommand = async (
@@ -8553,25 +6933,19 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEventsCommand = async (
@@ -8599,25 +6973,19 @@ const deserializeAws_queryDescribeEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEventSubscriptionsCommand = async (
@@ -8645,33 +7013,22 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeExportTasksCommand = async (
@@ -8699,33 +7056,22 @@ const deserializeAws_queryDescribeExportTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExportTaskNotFoundFault":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExportTaskNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeGlobalClustersCommand = async (
@@ -8753,33 +7099,22 @@ const deserializeAws_queryDescribeGlobalClustersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeInstallationMediaCommand = async (
@@ -8807,33 +7142,22 @@ const deserializeAws_queryDescribeInstallationMediaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstallationMediaNotFoundFault":
     case "com.amazonaws.rds#InstallationMediaNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstallationMediaNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeOptionGroupOptionsCommand = async (
@@ -8861,25 +7185,19 @@ const deserializeAws_queryDescribeOptionGroupOptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeOptionGroupsCommand = async (
@@ -8907,33 +7225,22 @@ const deserializeAws_queryDescribeOptionGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand = async (
@@ -8964,25 +7271,19 @@ const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribePendingMaintenanceActionsCommand = async (
@@ -9013,33 +7314,22 @@ const deserializeAws_queryDescribePendingMaintenanceActionsCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.rds#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeReservedDBInstancesCommand = async (
@@ -9067,33 +7357,22 @@ const deserializeAws_queryDescribeReservedDBInstancesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstanceNotFoundFault":
     case "com.amazonaws.rds#ReservedDBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedDBInstanceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand = async (
@@ -9124,33 +7403,22 @@ const deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstancesOfferingNotFoundFault":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeSourceRegionsCommand = async (
@@ -9178,25 +7446,19 @@ const deserializeAws_queryDescribeSourceRegionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeValidDBInstanceModificationsCommand = async (
@@ -9227,41 +7489,25 @@ const deserializeAws_queryDescribeValidDBInstanceModificationsCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDownloadDBLogFilePortionCommand = async (
@@ -9289,41 +7535,25 @@ const deserializeAws_queryDownloadDBLogFilePortionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBLogFileNotFoundFault":
     case "com.amazonaws.rds#DBLogFileNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBLogFileNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBLogFileNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryFailoverDBClusterCommand = async (
@@ -9351,49 +7581,28 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryFailoverGlobalClusterCommand = async (
@@ -9421,57 +7630,31 @@ const deserializeAws_queryFailoverGlobalClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryImportInstallationMediaCommand = async (
@@ -9499,41 +7682,25 @@ const deserializeAws_queryImportInstallationMediaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomAvailabilityZoneNotFoundFault":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse(parsedOutput, context);
     case "InstallationMediaAlreadyExistsFault":
     case "com.amazonaws.rds#InstallationMediaAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListTagsForResourceCommand = async (
@@ -9561,65 +7728,34 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCertificatesCommand = async (
@@ -9647,33 +7783,22 @@ const deserializeAws_queryModifyCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundFault":
     case "com.amazonaws.rds#CertificateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCurrentDBClusterCapacityCommand = async (
@@ -9701,49 +7826,28 @@ const deserializeAws_queryModifyCurrentDBClusterCapacityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterCapacityFault":
     case "com.amazonaws.rds#InvalidDBClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCustomDBEngineVersionCommand = async (
@@ -9771,41 +7875,25 @@ const deserializeAws_queryModifyCustomDBEngineVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomDBEngineVersionNotFoundFault":
     case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCustomDBEngineVersionStateFault":
     case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBClusterCommand = async (
@@ -9833,121 +7921,55 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSecurityGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBClusterEndpointCommand = async (
@@ -9975,65 +7997,34 @@ const deserializeAws_queryModifyDBClusterEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterEndpointNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBClusterEndpointStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBClusterParameterGroupCommand = async (
@@ -10061,41 +8052,25 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBClusterSnapshotAttributeCommand = async (
@@ -10126,49 +8101,28 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "SharedSnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBInstanceCommand = async (
@@ -10196,177 +8150,76 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
     case "CertificateNotFoundFault":
     case "com.amazonaws.rds#CertificateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBUpgradeDependencyFailureFault":
     case "com.amazonaws.rds#DBUpgradeDependencyFailureFault":
-      response = {
-        ...(await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBUpgradeDependencyFailureFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSecurityGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBParameterGroupCommand = async (
@@ -10394,41 +8247,25 @@ const deserializeAws_queryModifyDBParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBProxyCommand = async (
@@ -10456,49 +8293,28 @@ const deserializeAws_queryModifyDBProxyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBProxyEndpointCommand = async (
@@ -10526,57 +8342,31 @@ const deserializeAws_queryModifyDBProxyEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyEndpointAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBProxyEndpointNotFoundFault":
     case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyEndpointNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBProxyTargetGroupCommand = async (
@@ -10604,49 +8394,28 @@ const deserializeAws_queryModifyDBProxyTargetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBSnapshotCommand = async (
@@ -10674,33 +8443,22 @@ const deserializeAws_queryModifyDBSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBSnapshotAttributeCommand = async (
@@ -10728,49 +8486,28 @@ const deserializeAws_queryModifyDBSnapshotAttributeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "SharedSnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySharedSnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyDBSubnetGroupCommand = async (
@@ -10798,65 +8535,34 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
     case "com.amazonaws.rds#DBSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "SubnetAlreadyInUse":
     case "com.amazonaws.rds#SubnetAlreadyInUse":
-      response = {
-        ...(await deserializeAws_querySubnetAlreadyInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetAlreadyInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyEventSubscriptionCommand = async (
@@ -10884,73 +8590,37 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse(parsedOutput, context);
     case "SNSInvalidTopicFault":
     case "com.amazonaws.rds#SNSInvalidTopicFault":
-      response = {
-        ...(await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSInvalidTopicFaultResponse(parsedOutput, context);
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.rds#SNSNoAuthorizationFault":
-      response = {
-        ...(await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSNoAuthorizationFaultResponse(parsedOutput, context);
     case "SNSTopicArnNotFoundFault":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySNSTopicArnNotFoundFaultResponse(parsedOutput, context);
     case "SubscriptionCategoryNotFoundFault":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionCategoryNotFoundFaultResponse(parsedOutput, context);
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyGlobalClusterCommand = async (
@@ -10978,57 +8648,31 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyOptionGroupCommand = async (
@@ -11056,41 +8700,25 @@ const deserializeAws_queryModifyOptionGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOptionGroupStateFault":
     case "com.amazonaws.rds#InvalidOptionGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidOptionGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidOptionGroupStateFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPromoteReadReplicaCommand = async (
@@ -11118,41 +8746,25 @@ const deserializeAws_queryPromoteReadReplicaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPromoteReadReplicaDBClusterCommand = async (
@@ -11180,41 +8792,25 @@ const deserializeAws_queryPromoteReadReplicaDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand = async (
@@ -11245,49 +8841,28 @@ const deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReservedDBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#ReservedDBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "ReservedDBInstanceQuotaExceededFault":
     case "com.amazonaws.rds#ReservedDBInstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "ReservedDBInstancesOfferingNotFoundFault":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRebootDBClusterCommand = async (
@@ -11315,49 +8890,28 @@ const deserializeAws_queryRebootDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRebootDBInstanceCommand = async (
@@ -11385,41 +8939,25 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRegisterDBProxyTargetsCommand = async (
@@ -11447,97 +8985,46 @@ const deserializeAws_queryRegisterDBProxyTargetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetAlreadyRegisteredFault":
     case "com.amazonaws.rds#DBProxyTargetAlreadyRegisteredFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientAvailableIPsInSubnetFault":
     case "com.amazonaws.rds#InsufficientAvailableIPsInSubnetFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientAvailableIPsInSubnetFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientAvailableIPsInSubnetFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBProxyStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveFromGlobalClusterCommand = async (
@@ -11565,49 +9052,28 @@ const deserializeAws_queryRemoveFromGlobalClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "GlobalClusterNotFoundFault":
     case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalClusterStateFault":
     case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveRoleFromDBClusterCommand = async (
@@ -11632,49 +9098,28 @@ const deserializeAws_queryRemoveRoleFromDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterRoleNotFoundFault":
     case "com.amazonaws.rds#DBClusterRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterRoleNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveRoleFromDBInstanceCommand = async (
@@ -11699,49 +9144,28 @@ const deserializeAws_queryRemoveRoleFromDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceRoleNotFoundFault":
     case "com.amazonaws.rds#DBInstanceRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceRoleNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand = async (
@@ -11772,41 +9196,25 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
     case "com.amazonaws.rds#SourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySourceNotFoundFaultResponse(parsedOutput, context);
     case "SubscriptionNotFoundFault":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubscriptionNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
@@ -11831,65 +9239,34 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyNotFoundFaultResponse(parsedOutput, context);
     case "DBProxyTargetGroupNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryResetDBClusterParameterGroupCommand = async (
@@ -11917,41 +9294,25 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryResetDBParameterGroupCommand = async (
@@ -11979,41 +9340,25 @@ const deserializeAws_queryResetDBParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBParameterGroupStateFault":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBParameterGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBClusterFromS3Command = async (
@@ -12041,137 +9386,61 @@ const deserializeAws_queryRestoreDBClusterFromS3CommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBSubnetGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
     case "com.amazonaws.rds#InvalidS3BucketFault":
-      response = {
-        ...(await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBClusterFromSnapshotCommand = async (
@@ -12199,161 +9468,70 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.rds#InvalidRestoreFault":
-      response = {
-        ...(await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBClusterToPointInTimeCommand = async (
@@ -12381,169 +9559,73 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBClusterCapacityFaultResponse(parsedOutput, context);
     case "InsufficientStorageClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.rds#InvalidRestoreFault":
-      response = {
-        ...(await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand = async (
@@ -12574,185 +9656,79 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InstanceQuotaExceededFault":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.rds#InvalidRestoreFault":
-      response = {
-        ...(await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBInstanceFromS3Command = async (
@@ -12780,161 +9756,70 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InstanceQuotaExceededFault":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
     case "com.amazonaws.rds#InvalidS3BucketFault":
-      response = {
-        ...(await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRestoreDBInstanceToPointInTimeCommand = async (
@@ -12965,201 +9850,85 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExistsFault":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
     case "DBInstanceAutomatedBackupNotFoundFault":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBParameterGroupNotFoundFault":
     case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.rds#DomainNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDomainNotFoundFaultResponse(parsedOutput, context);
     case "InstanceQuotaExceededFault":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.rds#InvalidRestoreFault":
-      response = {
-        ...(await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidRestoreFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
     case "PointInTimeRestoreNotEnabledFault":
     case "com.amazonaws.rds#PointInTimeRestoreNotEnabledFault":
-      response = {
-        ...(await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      response = {
-        ...(await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageQuotaExceededFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRevokeDBSecurityGroupIngressCommand = async (
@@ -13187,49 +9956,28 @@ const deserializeAws_queryRevokeDBSecurityGroupIngressCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "DBSecurityGroupNotFoundFault":
     case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBSecurityGroupStateFault":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartActivityStreamCommand = async (
@@ -13257,73 +10005,37 @@ const deserializeAws_queryStartActivityStreamCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.rds#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartDBClusterCommand = async (
@@ -13351,49 +10063,28 @@ const deserializeAws_queryStartDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartDBInstanceCommand = async (
@@ -13421,113 +10112,52 @@ const deserializeAws_queryStartDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse(parsedOutput, context);
     case "DBSubnetGroupNotFoundFault":
     case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientDBInstanceCapacityFault":
     case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.rds#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand = async (
@@ -13558,65 +10188,34 @@ const deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceAutomatedBackupQuotaExceededFault":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     case "StorageTypeNotSupportedFault":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      response = {
-        ...(await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryStorageTypeNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartExportTaskCommand = async (
@@ -13644,97 +10243,46 @@ const deserializeAws_queryStartExportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotNotFoundFault":
     case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "ExportTaskAlreadyExistsFault":
     case "com.amazonaws.rds#ExportTaskAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryExportTaskAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExportTaskAlreadyExistsFaultResponse(parsedOutput, context);
     case "IamRoleMissingPermissionsFault":
     case "com.amazonaws.rds#IamRoleMissingPermissionsFault":
-      response = {
-        ...(await deserializeAws_queryIamRoleMissingPermissionsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryIamRoleMissingPermissionsFaultResponse(parsedOutput, context);
     case "IamRoleNotFoundFault":
     case "com.amazonaws.rds#IamRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryIamRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryIamRoleNotFoundFaultResponse(parsedOutput, context);
     case "InvalidExportOnlyFault":
     case "com.amazonaws.rds#InvalidExportOnlyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidExportOnlyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidExportOnlyFaultResponse(parsedOutput, context);
     case "InvalidExportSourceStateFault":
     case "com.amazonaws.rds#InvalidExportSourceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidExportSourceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidExportSourceStateFaultResponse(parsedOutput, context);
     case "InvalidS3BucketFault":
     case "com.amazonaws.rds#InvalidS3BucketFault":
-      response = {
-        ...(await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidS3BucketFaultResponse(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      response = {
-        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStopActivityStreamCommand = async (
@@ -13762,65 +10310,34 @@ const deserializeAws_queryStopActivityStreamCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.rds#ResourceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryResourceNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStopDBClusterCommand = async (
@@ -13848,49 +10365,28 @@ const deserializeAws_queryStopDBClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStopDBInstanceCommand = async (
@@ -13918,65 +10414,34 @@ const deserializeAws_queryStopDBInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "DBSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand = async (
@@ -14007,41 +10472,25 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
     case "InvalidDBInstanceStateFault":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
@@ -14050,13 +10499,11 @@ const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
 ): Promise<AuthorizationAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAuthorizationAlreadyExistsFault(body.Error, context);
-  const contents: AuthorizationAlreadyExistsFault = {
-    name: "AuthorizationAlreadyExistsFault",
-    $fault: "client",
+  const exception = new AuthorizationAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
@@ -14065,13 +10512,11 @@ const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
 ): Promise<AuthorizationNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAuthorizationNotFoundFault(body.Error, context);
-  const contents: AuthorizationNotFoundFault = {
-    name: "AuthorizationNotFoundFault",
-    $fault: "client",
+  const exception = new AuthorizationNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryAuthorizationQuotaExceededFaultResponse = async (
@@ -14080,13 +10525,11 @@ const deserializeAws_queryAuthorizationQuotaExceededFaultResponse = async (
 ): Promise<AuthorizationQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAuthorizationQuotaExceededFault(body.Error, context);
-  const contents: AuthorizationQuotaExceededFault = {
-    name: "AuthorizationQuotaExceededFault",
-    $fault: "client",
+  const exception = new AuthorizationQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryBackupPolicyNotFoundFaultResponse = async (
@@ -14095,13 +10538,11 @@ const deserializeAws_queryBackupPolicyNotFoundFaultResponse = async (
 ): Promise<BackupPolicyNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBackupPolicyNotFoundFault(body.Error, context);
-  const contents: BackupPolicyNotFoundFault = {
-    name: "BackupPolicyNotFoundFault",
-    $fault: "client",
+  const exception = new BackupPolicyNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCertificateNotFoundFaultResponse = async (
@@ -14110,13 +10551,11 @@ const deserializeAws_queryCertificateNotFoundFaultResponse = async (
 ): Promise<CertificateNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCertificateNotFoundFault(body.Error, context);
-  const contents: CertificateNotFoundFault = {
-    name: "CertificateNotFoundFault",
-    $fault: "client",
+  const exception = new CertificateNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse = async (
@@ -14125,13 +10564,11 @@ const deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFaultResponse = asy
 ): Promise<CustomAvailabilityZoneAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomAvailabilityZoneAlreadyExistsFault(body.Error, context);
-  const contents: CustomAvailabilityZoneAlreadyExistsFault = {
-    name: "CustomAvailabilityZoneAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CustomAvailabilityZoneAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse = async (
@@ -14140,13 +10577,11 @@ const deserializeAws_queryCustomAvailabilityZoneNotFoundFaultResponse = async (
 ): Promise<CustomAvailabilityZoneNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomAvailabilityZoneNotFoundFault(body.Error, context);
-  const contents: CustomAvailabilityZoneNotFoundFault = {
-    name: "CustomAvailabilityZoneNotFoundFault",
-    $fault: "client",
+  const exception = new CustomAvailabilityZoneNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse = async (
@@ -14155,13 +10590,11 @@ const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse = asy
 ): Promise<CustomAvailabilityZoneQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomAvailabilityZoneQuotaExceededFault(body.Error, context);
-  const contents: CustomAvailabilityZoneQuotaExceededFault = {
-    name: "CustomAvailabilityZoneQuotaExceededFault",
-    $fault: "client",
+  const exception = new CustomAvailabilityZoneQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse = async (
@@ -14170,13 +10603,11 @@ const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse = asyn
 ): Promise<CustomDBEngineVersionAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomDBEngineVersionAlreadyExistsFault(body.Error, context);
-  const contents: CustomDBEngineVersionAlreadyExistsFault = {
-    name: "CustomDBEngineVersionAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CustomDBEngineVersionAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse = async (
@@ -14185,13 +10616,11 @@ const deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse = async (
 ): Promise<CustomDBEngineVersionNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomDBEngineVersionNotFoundFault(body.Error, context);
-  const contents: CustomDBEngineVersionNotFoundFault = {
-    name: "CustomDBEngineVersionNotFoundFault",
-    $fault: "client",
+  const exception = new CustomDBEngineVersionNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse = async (
@@ -14200,13 +10629,11 @@ const deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse = asyn
 ): Promise<CustomDBEngineVersionQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCustomDBEngineVersionQuotaExceededFault(body.Error, context);
-  const contents: CustomDBEngineVersionQuotaExceededFault = {
-    name: "CustomDBEngineVersionQuotaExceededFault",
-    $fault: "client",
+  const exception = new CustomDBEngineVersionQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterAlreadyExistsFaultResponse = async (
@@ -14215,13 +10642,11 @@ const deserializeAws_queryDBClusterAlreadyExistsFaultResponse = async (
 ): Promise<DBClusterAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterAlreadyExistsFault(body.Error, context);
-  const contents: DBClusterAlreadyExistsFault = {
-    name: "DBClusterAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBClusterAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse = async (
@@ -14230,13 +10655,11 @@ const deserializeAws_queryDBClusterBacktrackNotFoundFaultResponse = async (
 ): Promise<DBClusterBacktrackNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterBacktrackNotFoundFault(body.Error, context);
-  const contents: DBClusterBacktrackNotFoundFault = {
-    name: "DBClusterBacktrackNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterBacktrackNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse = async (
@@ -14245,13 +10668,11 @@ const deserializeAws_queryDBClusterEndpointAlreadyExistsFaultResponse = async (
 ): Promise<DBClusterEndpointAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterEndpointAlreadyExistsFault(body.Error, context);
-  const contents: DBClusterEndpointAlreadyExistsFault = {
-    name: "DBClusterEndpointAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBClusterEndpointAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterEndpointNotFoundFaultResponse = async (
@@ -14260,13 +10681,11 @@ const deserializeAws_queryDBClusterEndpointNotFoundFaultResponse = async (
 ): Promise<DBClusterEndpointNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterEndpointNotFoundFault(body.Error, context);
-  const contents: DBClusterEndpointNotFoundFault = {
-    name: "DBClusterEndpointNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterEndpointNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse = async (
@@ -14275,13 +10694,11 @@ const deserializeAws_queryDBClusterEndpointQuotaExceededFaultResponse = async (
 ): Promise<DBClusterEndpointQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterEndpointQuotaExceededFault(body.Error, context);
-  const contents: DBClusterEndpointQuotaExceededFault = {
-    name: "DBClusterEndpointQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBClusterEndpointQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterNotFoundFaultResponse = async (
@@ -14290,13 +10707,11 @@ const deserializeAws_queryDBClusterNotFoundFaultResponse = async (
 ): Promise<DBClusterNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterNotFoundFault(body.Error, context);
-  const contents: DBClusterNotFoundFault = {
-    name: "DBClusterNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse = async (
@@ -14305,13 +10720,11 @@ const deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse = async (
 ): Promise<DBClusterParameterGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterParameterGroupNotFoundFault(body.Error, context);
-  const contents: DBClusterParameterGroupNotFoundFault = {
-    name: "DBClusterParameterGroupNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterQuotaExceededFaultResponse = async (
@@ -14320,13 +10733,11 @@ const deserializeAws_queryDBClusterQuotaExceededFaultResponse = async (
 ): Promise<DBClusterQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterQuotaExceededFault(body.Error, context);
-  const contents: DBClusterQuotaExceededFault = {
-    name: "DBClusterQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBClusterQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse = async (
@@ -14335,13 +10746,11 @@ const deserializeAws_queryDBClusterRoleAlreadyExistsFaultResponse = async (
 ): Promise<DBClusterRoleAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterRoleAlreadyExistsFault(body.Error, context);
-  const contents: DBClusterRoleAlreadyExistsFault = {
-    name: "DBClusterRoleAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBClusterRoleAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterRoleNotFoundFaultResponse = async (
@@ -14350,13 +10759,11 @@ const deserializeAws_queryDBClusterRoleNotFoundFaultResponse = async (
 ): Promise<DBClusterRoleNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterRoleNotFoundFault(body.Error, context);
-  const contents: DBClusterRoleNotFoundFault = {
-    name: "DBClusterRoleNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse = async (
@@ -14365,13 +10772,11 @@ const deserializeAws_queryDBClusterRoleQuotaExceededFaultResponse = async (
 ): Promise<DBClusterRoleQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterRoleQuotaExceededFault(body.Error, context);
-  const contents: DBClusterRoleQuotaExceededFault = {
-    name: "DBClusterRoleQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBClusterRoleQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse = async (
@@ -14380,13 +10785,11 @@ const deserializeAws_queryDBClusterSnapshotAlreadyExistsFaultResponse = async (
 ): Promise<DBClusterSnapshotAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterSnapshotAlreadyExistsFault(body.Error, context);
-  const contents: DBClusterSnapshotAlreadyExistsFault = {
-    name: "DBClusterSnapshotAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBClusterSnapshotAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse = async (
@@ -14395,13 +10798,11 @@ const deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse = async (
 ): Promise<DBClusterSnapshotNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBClusterSnapshotNotFoundFault(body.Error, context);
-  const contents: DBClusterSnapshotNotFoundFault = {
-    name: "DBClusterSnapshotNotFoundFault",
-    $fault: "client",
+  const exception = new DBClusterSnapshotNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceAlreadyExistsFaultResponse = async (
@@ -14410,13 +10811,11 @@ const deserializeAws_queryDBInstanceAlreadyExistsFaultResponse = async (
 ): Promise<DBInstanceAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceAlreadyExistsFault(body.Error, context);
-  const contents: DBInstanceAlreadyExistsFault = {
-    name: "DBInstanceAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBInstanceAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse = async (
@@ -14425,13 +10824,11 @@ const deserializeAws_queryDBInstanceAutomatedBackupNotFoundFaultResponse = async
 ): Promise<DBInstanceAutomatedBackupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceAutomatedBackupNotFoundFault(body.Error, context);
-  const contents: DBInstanceAutomatedBackupNotFoundFault = {
-    name: "DBInstanceAutomatedBackupNotFoundFault",
-    $fault: "client",
+  const exception = new DBInstanceAutomatedBackupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse = async (
@@ -14440,13 +10837,11 @@ const deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFaultResponse = 
 ): Promise<DBInstanceAutomatedBackupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceAutomatedBackupQuotaExceededFault(body.Error, context);
-  const contents: DBInstanceAutomatedBackupQuotaExceededFault = {
-    name: "DBInstanceAutomatedBackupQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBInstanceAutomatedBackupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceNotFoundFaultResponse = async (
@@ -14455,13 +10850,11 @@ const deserializeAws_queryDBInstanceNotFoundFaultResponse = async (
 ): Promise<DBInstanceNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceNotFoundFault(body.Error, context);
-  const contents: DBInstanceNotFoundFault = {
-    name: "DBInstanceNotFoundFault",
-    $fault: "client",
+  const exception = new DBInstanceNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse = async (
@@ -14470,13 +10863,11 @@ const deserializeAws_queryDBInstanceRoleAlreadyExistsFaultResponse = async (
 ): Promise<DBInstanceRoleAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceRoleAlreadyExistsFault(body.Error, context);
-  const contents: DBInstanceRoleAlreadyExistsFault = {
-    name: "DBInstanceRoleAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBInstanceRoleAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceRoleNotFoundFaultResponse = async (
@@ -14485,13 +10876,11 @@ const deserializeAws_queryDBInstanceRoleNotFoundFaultResponse = async (
 ): Promise<DBInstanceRoleNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceRoleNotFoundFault(body.Error, context);
-  const contents: DBInstanceRoleNotFoundFault = {
-    name: "DBInstanceRoleNotFoundFault",
-    $fault: "client",
+  const exception = new DBInstanceRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse = async (
@@ -14500,13 +10889,11 @@ const deserializeAws_queryDBInstanceRoleQuotaExceededFaultResponse = async (
 ): Promise<DBInstanceRoleQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBInstanceRoleQuotaExceededFault(body.Error, context);
-  const contents: DBInstanceRoleQuotaExceededFault = {
-    name: "DBInstanceRoleQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBInstanceRoleQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBLogFileNotFoundFaultResponse = async (
@@ -14515,13 +10902,11 @@ const deserializeAws_queryDBLogFileNotFoundFaultResponse = async (
 ): Promise<DBLogFileNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBLogFileNotFoundFault(body.Error, context);
-  const contents: DBLogFileNotFoundFault = {
-    name: "DBLogFileNotFoundFault",
-    $fault: "client",
+  const exception = new DBLogFileNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse = async (
@@ -14530,13 +10915,11 @@ const deserializeAws_queryDBParameterGroupAlreadyExistsFaultResponse = async (
 ): Promise<DBParameterGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBParameterGroupAlreadyExistsFault(body.Error, context);
-  const contents: DBParameterGroupAlreadyExistsFault = {
-    name: "DBParameterGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBParameterGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBParameterGroupNotFoundFaultResponse = async (
@@ -14545,13 +10928,11 @@ const deserializeAws_queryDBParameterGroupNotFoundFaultResponse = async (
 ): Promise<DBParameterGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBParameterGroupNotFoundFault(body.Error, context);
-  const contents: DBParameterGroupNotFoundFault = {
-    name: "DBParameterGroupNotFoundFault",
-    $fault: "client",
+  const exception = new DBParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse = async (
@@ -14560,13 +10941,11 @@ const deserializeAws_queryDBParameterGroupQuotaExceededFaultResponse = async (
 ): Promise<DBParameterGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBParameterGroupQuotaExceededFault(body.Error, context);
-  const contents: DBParameterGroupQuotaExceededFault = {
-    name: "DBParameterGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBParameterGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyAlreadyExistsFaultResponse = async (
@@ -14575,13 +10954,11 @@ const deserializeAws_queryDBProxyAlreadyExistsFaultResponse = async (
 ): Promise<DBProxyAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyAlreadyExistsFault(body.Error, context);
-  const contents: DBProxyAlreadyExistsFault = {
-    name: "DBProxyAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBProxyAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse = async (
@@ -14590,13 +10967,11 @@ const deserializeAws_queryDBProxyEndpointAlreadyExistsFaultResponse = async (
 ): Promise<DBProxyEndpointAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyEndpointAlreadyExistsFault(body.Error, context);
-  const contents: DBProxyEndpointAlreadyExistsFault = {
-    name: "DBProxyEndpointAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBProxyEndpointAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyEndpointNotFoundFaultResponse = async (
@@ -14605,13 +10980,11 @@ const deserializeAws_queryDBProxyEndpointNotFoundFaultResponse = async (
 ): Promise<DBProxyEndpointNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyEndpointNotFoundFault(body.Error, context);
-  const contents: DBProxyEndpointNotFoundFault = {
-    name: "DBProxyEndpointNotFoundFault",
-    $fault: "client",
+  const exception = new DBProxyEndpointNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse = async (
@@ -14620,13 +10993,11 @@ const deserializeAws_queryDBProxyEndpointQuotaExceededFaultResponse = async (
 ): Promise<DBProxyEndpointQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyEndpointQuotaExceededFault(body.Error, context);
-  const contents: DBProxyEndpointQuotaExceededFault = {
-    name: "DBProxyEndpointQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBProxyEndpointQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyNotFoundFaultResponse = async (
@@ -14635,13 +11006,11 @@ const deserializeAws_queryDBProxyNotFoundFaultResponse = async (
 ): Promise<DBProxyNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyNotFoundFault(body.Error, context);
-  const contents: DBProxyNotFoundFault = {
-    name: "DBProxyNotFoundFault",
-    $fault: "client",
+  const exception = new DBProxyNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyQuotaExceededFaultResponse = async (
@@ -14650,13 +11019,11 @@ const deserializeAws_queryDBProxyQuotaExceededFaultResponse = async (
 ): Promise<DBProxyQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyQuotaExceededFault(body.Error, context);
-  const contents: DBProxyQuotaExceededFault = {
-    name: "DBProxyQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBProxyQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse = async (
@@ -14665,13 +11032,11 @@ const deserializeAws_queryDBProxyTargetAlreadyRegisteredFaultResponse = async (
 ): Promise<DBProxyTargetAlreadyRegisteredFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyTargetAlreadyRegisteredFault(body.Error, context);
-  const contents: DBProxyTargetAlreadyRegisteredFault = {
-    name: "DBProxyTargetAlreadyRegisteredFault",
-    $fault: "client",
+  const exception = new DBProxyTargetAlreadyRegisteredFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse = async (
@@ -14680,13 +11045,11 @@ const deserializeAws_queryDBProxyTargetGroupNotFoundFaultResponse = async (
 ): Promise<DBProxyTargetGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyTargetGroupNotFoundFault(body.Error, context);
-  const contents: DBProxyTargetGroupNotFoundFault = {
-    name: "DBProxyTargetGroupNotFoundFault",
-    $fault: "client",
+  const exception = new DBProxyTargetGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBProxyTargetNotFoundFaultResponse = async (
@@ -14695,13 +11058,11 @@ const deserializeAws_queryDBProxyTargetNotFoundFaultResponse = async (
 ): Promise<DBProxyTargetNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBProxyTargetNotFoundFault(body.Error, context);
-  const contents: DBProxyTargetNotFoundFault = {
-    name: "DBProxyTargetNotFoundFault",
-    $fault: "client",
+  const exception = new DBProxyTargetNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse = async (
@@ -14710,13 +11071,11 @@ const deserializeAws_queryDBSecurityGroupAlreadyExistsFaultResponse = async (
 ): Promise<DBSecurityGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSecurityGroupAlreadyExistsFault(body.Error, context);
-  const contents: DBSecurityGroupAlreadyExistsFault = {
-    name: "DBSecurityGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBSecurityGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSecurityGroupNotFoundFaultResponse = async (
@@ -14725,13 +11084,11 @@ const deserializeAws_queryDBSecurityGroupNotFoundFaultResponse = async (
 ): Promise<DBSecurityGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSecurityGroupNotFoundFault(body.Error, context);
-  const contents: DBSecurityGroupNotFoundFault = {
-    name: "DBSecurityGroupNotFoundFault",
-    $fault: "client",
+  const exception = new DBSecurityGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse = async (
@@ -14740,13 +11097,11 @@ const deserializeAws_queryDBSecurityGroupNotSupportedFaultResponse = async (
 ): Promise<DBSecurityGroupNotSupportedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSecurityGroupNotSupportedFault(body.Error, context);
-  const contents: DBSecurityGroupNotSupportedFault = {
-    name: "DBSecurityGroupNotSupportedFault",
-    $fault: "client",
+  const exception = new DBSecurityGroupNotSupportedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse = async (
@@ -14755,13 +11110,11 @@ const deserializeAws_queryDBSecurityGroupQuotaExceededFaultResponse = async (
 ): Promise<DBSecurityGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSecurityGroupQuotaExceededFault(body.Error, context);
-  const contents: DBSecurityGroupQuotaExceededFault = {
-    name: "DBSecurityGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBSecurityGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse = async (
@@ -14770,13 +11123,11 @@ const deserializeAws_queryDBSnapshotAlreadyExistsFaultResponse = async (
 ): Promise<DBSnapshotAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSnapshotAlreadyExistsFault(body.Error, context);
-  const contents: DBSnapshotAlreadyExistsFault = {
-    name: "DBSnapshotAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBSnapshotAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSnapshotNotFoundFaultResponse = async (
@@ -14785,13 +11136,11 @@ const deserializeAws_queryDBSnapshotNotFoundFaultResponse = async (
 ): Promise<DBSnapshotNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSnapshotNotFoundFault(body.Error, context);
-  const contents: DBSnapshotNotFoundFault = {
-    name: "DBSnapshotNotFoundFault",
-    $fault: "client",
+  const exception = new DBSnapshotNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse = async (
@@ -14800,13 +11149,11 @@ const deserializeAws_queryDBSubnetGroupAlreadyExistsFaultResponse = async (
 ): Promise<DBSubnetGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetGroupAlreadyExistsFault(body.Error, context);
-  const contents: DBSubnetGroupAlreadyExistsFault = {
-    name: "DBSubnetGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DBSubnetGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse = async (
@@ -14815,13 +11162,11 @@ const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZsResponse = async (
 ): Promise<DBSubnetGroupDoesNotCoverEnoughAZs> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs(body.Error, context);
-  const contents: DBSubnetGroupDoesNotCoverEnoughAZs = {
-    name: "DBSubnetGroupDoesNotCoverEnoughAZs",
-    $fault: "client",
+  const exception = new DBSubnetGroupDoesNotCoverEnoughAZs({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse = async (
@@ -14830,13 +11175,11 @@ const deserializeAws_queryDBSubnetGroupNotAllowedFaultResponse = async (
 ): Promise<DBSubnetGroupNotAllowedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetGroupNotAllowedFault(body.Error, context);
-  const contents: DBSubnetGroupNotAllowedFault = {
-    name: "DBSubnetGroupNotAllowedFault",
-    $fault: "client",
+  const exception = new DBSubnetGroupNotAllowedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetGroupNotFoundFaultResponse = async (
@@ -14845,13 +11188,11 @@ const deserializeAws_queryDBSubnetGroupNotFoundFaultResponse = async (
 ): Promise<DBSubnetGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetGroupNotFoundFault(body.Error, context);
-  const contents: DBSubnetGroupNotFoundFault = {
-    name: "DBSubnetGroupNotFoundFault",
-    $fault: "client",
+  const exception = new DBSubnetGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse = async (
@@ -14860,13 +11201,11 @@ const deserializeAws_queryDBSubnetGroupQuotaExceededFaultResponse = async (
 ): Promise<DBSubnetGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetGroupQuotaExceededFault(body.Error, context);
-  const contents: DBSubnetGroupQuotaExceededFault = {
-    name: "DBSubnetGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBSubnetGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBSubnetQuotaExceededFaultResponse = async (
@@ -14875,13 +11214,11 @@ const deserializeAws_queryDBSubnetQuotaExceededFaultResponse = async (
 ): Promise<DBSubnetQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBSubnetQuotaExceededFault(body.Error, context);
-  const contents: DBSubnetQuotaExceededFault = {
-    name: "DBSubnetQuotaExceededFault",
-    $fault: "client",
+  const exception = new DBSubnetQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDBUpgradeDependencyFailureFaultResponse = async (
@@ -14890,13 +11227,11 @@ const deserializeAws_queryDBUpgradeDependencyFailureFaultResponse = async (
 ): Promise<DBUpgradeDependencyFailureFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDBUpgradeDependencyFailureFault(body.Error, context);
-  const contents: DBUpgradeDependencyFailureFault = {
-    name: "DBUpgradeDependencyFailureFault",
-    $fault: "client",
+  const exception = new DBUpgradeDependencyFailureFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDomainNotFoundFaultResponse = async (
@@ -14905,13 +11240,11 @@ const deserializeAws_queryDomainNotFoundFaultResponse = async (
 ): Promise<DomainNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDomainNotFoundFault(body.Error, context);
-  const contents: DomainNotFoundFault = {
-    name: "DomainNotFoundFault",
-    $fault: "client",
+  const exception = new DomainNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
@@ -14920,13 +11253,11 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFaultResponse = async (
 ): Promise<EventSubscriptionQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryEventSubscriptionQuotaExceededFault(body.Error, context);
-  const contents: EventSubscriptionQuotaExceededFault = {
-    name: "EventSubscriptionQuotaExceededFault",
-    $fault: "client",
+  const exception = new EventSubscriptionQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryExportTaskAlreadyExistsFaultResponse = async (
@@ -14935,13 +11266,11 @@ const deserializeAws_queryExportTaskAlreadyExistsFaultResponse = async (
 ): Promise<ExportTaskAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryExportTaskAlreadyExistsFault(body.Error, context);
-  const contents: ExportTaskAlreadyExistsFault = {
-    name: "ExportTaskAlreadyExistsFault",
-    $fault: "client",
+  const exception = new ExportTaskAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryExportTaskNotFoundFaultResponse = async (
@@ -14950,13 +11279,11 @@ const deserializeAws_queryExportTaskNotFoundFaultResponse = async (
 ): Promise<ExportTaskNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryExportTaskNotFoundFault(body.Error, context);
-  const contents: ExportTaskNotFoundFault = {
-    name: "ExportTaskNotFoundFault",
-    $fault: "client",
+  const exception = new ExportTaskNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse = async (
@@ -14965,13 +11292,11 @@ const deserializeAws_queryGlobalClusterAlreadyExistsFaultResponse = async (
 ): Promise<GlobalClusterAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryGlobalClusterAlreadyExistsFault(body.Error, context);
-  const contents: GlobalClusterAlreadyExistsFault = {
-    name: "GlobalClusterAlreadyExistsFault",
-    $fault: "client",
+  const exception = new GlobalClusterAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryGlobalClusterNotFoundFaultResponse = async (
@@ -14980,13 +11305,11 @@ const deserializeAws_queryGlobalClusterNotFoundFaultResponse = async (
 ): Promise<GlobalClusterNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryGlobalClusterNotFoundFault(body.Error, context);
-  const contents: GlobalClusterNotFoundFault = {
-    name: "GlobalClusterNotFoundFault",
-    $fault: "client",
+  const exception = new GlobalClusterNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryGlobalClusterQuotaExceededFaultResponse = async (
@@ -14995,13 +11318,11 @@ const deserializeAws_queryGlobalClusterQuotaExceededFaultResponse = async (
 ): Promise<GlobalClusterQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryGlobalClusterQuotaExceededFault(body.Error, context);
-  const contents: GlobalClusterQuotaExceededFault = {
-    name: "GlobalClusterQuotaExceededFault",
-    $fault: "client",
+  const exception = new GlobalClusterQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryIamRoleMissingPermissionsFaultResponse = async (
@@ -15010,13 +11331,11 @@ const deserializeAws_queryIamRoleMissingPermissionsFaultResponse = async (
 ): Promise<IamRoleMissingPermissionsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIamRoleMissingPermissionsFault(body.Error, context);
-  const contents: IamRoleMissingPermissionsFault = {
-    name: "IamRoleMissingPermissionsFault",
-    $fault: "client",
+  const exception = new IamRoleMissingPermissionsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryIamRoleNotFoundFaultResponse = async (
@@ -15025,13 +11344,11 @@ const deserializeAws_queryIamRoleNotFoundFaultResponse = async (
 ): Promise<IamRoleNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIamRoleNotFoundFault(body.Error, context);
-  const contents: IamRoleNotFoundFault = {
-    name: "IamRoleNotFoundFault",
-    $fault: "client",
+  const exception = new IamRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse = async (
@@ -15040,13 +11357,11 @@ const deserializeAws_queryInstallationMediaAlreadyExistsFaultResponse = async (
 ): Promise<InstallationMediaAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInstallationMediaAlreadyExistsFault(body.Error, context);
-  const contents: InstallationMediaAlreadyExistsFault = {
-    name: "InstallationMediaAlreadyExistsFault",
-    $fault: "client",
+  const exception = new InstallationMediaAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInstallationMediaNotFoundFaultResponse = async (
@@ -15055,13 +11370,11 @@ const deserializeAws_queryInstallationMediaNotFoundFaultResponse = async (
 ): Promise<InstallationMediaNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInstallationMediaNotFoundFault(body.Error, context);
-  const contents: InstallationMediaNotFoundFault = {
-    name: "InstallationMediaNotFoundFault",
-    $fault: "client",
+  const exception = new InstallationMediaNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
@@ -15070,13 +11383,11 @@ const deserializeAws_queryInstanceQuotaExceededFaultResponse = async (
 ): Promise<InstanceQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInstanceQuotaExceededFault(body.Error, context);
-  const contents: InstanceQuotaExceededFault = {
-    name: "InstanceQuotaExceededFault",
-    $fault: "client",
+  const exception = new InstanceQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInsufficientAvailableIPsInSubnetFaultResponse = async (
@@ -15085,13 +11396,11 @@ const deserializeAws_queryInsufficientAvailableIPsInSubnetFaultResponse = async 
 ): Promise<InsufficientAvailableIPsInSubnetFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientAvailableIPsInSubnetFault(body.Error, context);
-  const contents: InsufficientAvailableIPsInSubnetFault = {
-    name: "InsufficientAvailableIPsInSubnetFault",
-    $fault: "client",
+  const exception = new InsufficientAvailableIPsInSubnetFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInsufficientDBClusterCapacityFaultResponse = async (
@@ -15100,13 +11409,11 @@ const deserializeAws_queryInsufficientDBClusterCapacityFaultResponse = async (
 ): Promise<InsufficientDBClusterCapacityFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientDBClusterCapacityFault(body.Error, context);
-  const contents: InsufficientDBClusterCapacityFault = {
-    name: "InsufficientDBClusterCapacityFault",
-    $fault: "client",
+  const exception = new InsufficientDBClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse = async (
@@ -15115,13 +11422,11 @@ const deserializeAws_queryInsufficientDBInstanceCapacityFaultResponse = async (
 ): Promise<InsufficientDBInstanceCapacityFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientDBInstanceCapacityFault(body.Error, context);
-  const contents: InsufficientDBInstanceCapacityFault = {
-    name: "InsufficientDBInstanceCapacityFault",
-    $fault: "client",
+  const exception = new InsufficientDBInstanceCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = async (
@@ -15130,13 +11435,11 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
 ): Promise<InsufficientStorageClusterCapacityFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientStorageClusterCapacityFault(body.Error, context);
-  const contents: InsufficientStorageClusterCapacityFault = {
-    name: "InsufficientStorageClusterCapacityFault",
-    $fault: "client",
+  const exception = new InsufficientStorageClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse = async (
@@ -15145,13 +11448,11 @@ const deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse = async
 ): Promise<InvalidCustomDBEngineVersionStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidCustomDBEngineVersionStateFault(body.Error, context);
-  const contents: InvalidCustomDBEngineVersionStateFault = {
-    name: "InvalidCustomDBEngineVersionStateFault",
-    $fault: "client",
+  const exception = new InvalidCustomDBEngineVersionStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBClusterCapacityFaultResponse = async (
@@ -15160,13 +11461,11 @@ const deserializeAws_queryInvalidDBClusterCapacityFaultResponse = async (
 ): Promise<InvalidDBClusterCapacityFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBClusterCapacityFault(body.Error, context);
-  const contents: InvalidDBClusterCapacityFault = {
-    name: "InvalidDBClusterCapacityFault",
-    $fault: "client",
+  const exception = new InvalidDBClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse = async (
@@ -15175,13 +11474,11 @@ const deserializeAws_queryInvalidDBClusterEndpointStateFaultResponse = async (
 ): Promise<InvalidDBClusterEndpointStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBClusterEndpointStateFault(body.Error, context);
-  const contents: InvalidDBClusterEndpointStateFault = {
-    name: "InvalidDBClusterEndpointStateFault",
-    $fault: "client",
+  const exception = new InvalidDBClusterEndpointStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse = async (
@@ -15190,13 +11487,11 @@ const deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse = async (
 ): Promise<InvalidDBClusterSnapshotStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBClusterSnapshotStateFault(body.Error, context);
-  const contents: InvalidDBClusterSnapshotStateFault = {
-    name: "InvalidDBClusterSnapshotStateFault",
-    $fault: "client",
+  const exception = new InvalidDBClusterSnapshotStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBClusterStateFaultResponse = async (
@@ -15205,13 +11500,11 @@ const deserializeAws_queryInvalidDBClusterStateFaultResponse = async (
 ): Promise<InvalidDBClusterStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBClusterStateFault(body.Error, context);
-  const contents: InvalidDBClusterStateFault = {
-    name: "InvalidDBClusterStateFault",
-    $fault: "client",
+  const exception = new InvalidDBClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse = async (
@@ -15220,13 +11513,11 @@ const deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFaultResponse = a
 ): Promise<InvalidDBInstanceAutomatedBackupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBInstanceAutomatedBackupStateFault(body.Error, context);
-  const contents: InvalidDBInstanceAutomatedBackupStateFault = {
-    name: "InvalidDBInstanceAutomatedBackupStateFault",
-    $fault: "client",
+  const exception = new InvalidDBInstanceAutomatedBackupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBInstanceStateFaultResponse = async (
@@ -15235,13 +11526,11 @@ const deserializeAws_queryInvalidDBInstanceStateFaultResponse = async (
 ): Promise<InvalidDBInstanceStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBInstanceStateFault(body.Error, context);
-  const contents: InvalidDBInstanceStateFault = {
-    name: "InvalidDBInstanceStateFault",
-    $fault: "client",
+  const exception = new InvalidDBInstanceStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBParameterGroupStateFaultResponse = async (
@@ -15250,13 +11539,11 @@ const deserializeAws_queryInvalidDBParameterGroupStateFaultResponse = async (
 ): Promise<InvalidDBParameterGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBParameterGroupStateFault(body.Error, context);
-  const contents: InvalidDBParameterGroupStateFault = {
-    name: "InvalidDBParameterGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidDBParameterGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse = async (
@@ -15265,13 +11552,11 @@ const deserializeAws_queryInvalidDBProxyEndpointStateFaultResponse = async (
 ): Promise<InvalidDBProxyEndpointStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBProxyEndpointStateFault(body.Error, context);
-  const contents: InvalidDBProxyEndpointStateFault = {
-    name: "InvalidDBProxyEndpointStateFault",
-    $fault: "client",
+  const exception = new InvalidDBProxyEndpointStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBProxyStateFaultResponse = async (
@@ -15280,13 +11565,11 @@ const deserializeAws_queryInvalidDBProxyStateFaultResponse = async (
 ): Promise<InvalidDBProxyStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBProxyStateFault(body.Error, context);
-  const contents: InvalidDBProxyStateFault = {
-    name: "InvalidDBProxyStateFault",
-    $fault: "client",
+  const exception = new InvalidDBProxyStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse = async (
@@ -15295,13 +11578,11 @@ const deserializeAws_queryInvalidDBSecurityGroupStateFaultResponse = async (
 ): Promise<InvalidDBSecurityGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBSecurityGroupStateFault(body.Error, context);
-  const contents: InvalidDBSecurityGroupStateFault = {
-    name: "InvalidDBSecurityGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidDBSecurityGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBSnapshotStateFaultResponse = async (
@@ -15310,13 +11591,11 @@ const deserializeAws_queryInvalidDBSnapshotStateFaultResponse = async (
 ): Promise<InvalidDBSnapshotStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBSnapshotStateFault(body.Error, context);
-  const contents: InvalidDBSnapshotStateFault = {
-    name: "InvalidDBSnapshotStateFault",
-    $fault: "client",
+  const exception = new InvalidDBSnapshotStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBSubnetGroupFaultResponse = async (
@@ -15325,13 +11604,11 @@ const deserializeAws_queryInvalidDBSubnetGroupFaultResponse = async (
 ): Promise<InvalidDBSubnetGroupFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBSubnetGroupFault(body.Error, context);
-  const contents: InvalidDBSubnetGroupFault = {
-    name: "InvalidDBSubnetGroupFault",
-    $fault: "client",
+  const exception = new InvalidDBSubnetGroupFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse = async (
@@ -15340,13 +11617,11 @@ const deserializeAws_queryInvalidDBSubnetGroupStateFaultResponse = async (
 ): Promise<InvalidDBSubnetGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBSubnetGroupStateFault(body.Error, context);
-  const contents: InvalidDBSubnetGroupStateFault = {
-    name: "InvalidDBSubnetGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidDBSubnetGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidDBSubnetStateFaultResponse = async (
@@ -15355,13 +11630,11 @@ const deserializeAws_queryInvalidDBSubnetStateFaultResponse = async (
 ): Promise<InvalidDBSubnetStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidDBSubnetStateFault(body.Error, context);
-  const contents: InvalidDBSubnetStateFault = {
-    name: "InvalidDBSubnetStateFault",
-    $fault: "client",
+  const exception = new InvalidDBSubnetStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidEventSubscriptionStateFaultResponse = async (
@@ -15370,13 +11643,11 @@ const deserializeAws_queryInvalidEventSubscriptionStateFaultResponse = async (
 ): Promise<InvalidEventSubscriptionStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidEventSubscriptionStateFault(body.Error, context);
-  const contents: InvalidEventSubscriptionStateFault = {
-    name: "InvalidEventSubscriptionStateFault",
-    $fault: "client",
+  const exception = new InvalidEventSubscriptionStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidExportOnlyFaultResponse = async (
@@ -15385,13 +11656,11 @@ const deserializeAws_queryInvalidExportOnlyFaultResponse = async (
 ): Promise<InvalidExportOnlyFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidExportOnlyFault(body.Error, context);
-  const contents: InvalidExportOnlyFault = {
-    name: "InvalidExportOnlyFault",
-    $fault: "client",
+  const exception = new InvalidExportOnlyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidExportSourceStateFaultResponse = async (
@@ -15400,13 +11669,11 @@ const deserializeAws_queryInvalidExportSourceStateFaultResponse = async (
 ): Promise<InvalidExportSourceStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidExportSourceStateFault(body.Error, context);
-  const contents: InvalidExportSourceStateFault = {
-    name: "InvalidExportSourceStateFault",
-    $fault: "client",
+  const exception = new InvalidExportSourceStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidExportTaskStateFaultResponse = async (
@@ -15415,13 +11682,11 @@ const deserializeAws_queryInvalidExportTaskStateFaultResponse = async (
 ): Promise<InvalidExportTaskStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidExportTaskStateFault(body.Error, context);
-  const contents: InvalidExportTaskStateFault = {
-    name: "InvalidExportTaskStateFault",
-    $fault: "client",
+  const exception = new InvalidExportTaskStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidGlobalClusterStateFaultResponse = async (
@@ -15430,13 +11695,11 @@ const deserializeAws_queryInvalidGlobalClusterStateFaultResponse = async (
 ): Promise<InvalidGlobalClusterStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidGlobalClusterStateFault(body.Error, context);
-  const contents: InvalidGlobalClusterStateFault = {
-    name: "InvalidGlobalClusterStateFault",
-    $fault: "client",
+  const exception = new InvalidGlobalClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidOptionGroupStateFaultResponse = async (
@@ -15445,13 +11708,11 @@ const deserializeAws_queryInvalidOptionGroupStateFaultResponse = async (
 ): Promise<InvalidOptionGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidOptionGroupStateFault(body.Error, context);
-  const contents: InvalidOptionGroupStateFault = {
-    name: "InvalidOptionGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidOptionGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidRestoreFaultResponse = async (
@@ -15460,13 +11721,11 @@ const deserializeAws_queryInvalidRestoreFaultResponse = async (
 ): Promise<InvalidRestoreFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidRestoreFault(body.Error, context);
-  const contents: InvalidRestoreFault = {
-    name: "InvalidRestoreFault",
-    $fault: "client",
+  const exception = new InvalidRestoreFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidS3BucketFaultResponse = async (
@@ -15475,13 +11734,11 @@ const deserializeAws_queryInvalidS3BucketFaultResponse = async (
 ): Promise<InvalidS3BucketFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidS3BucketFault(body.Error, context);
-  const contents: InvalidS3BucketFault = {
-    name: "InvalidS3BucketFault",
-    $fault: "client",
+  const exception = new InvalidS3BucketFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSubnetResponse = async (
@@ -15490,13 +11747,11 @@ const deserializeAws_queryInvalidSubnetResponse = async (
 ): Promise<InvalidSubnet> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSubnet(body.Error, context);
-  const contents: InvalidSubnet = {
-    name: "InvalidSubnet",
-    $fault: "client",
+  const exception = new InvalidSubnet({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
@@ -15505,13 +11760,11 @@ const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
 ): Promise<InvalidVPCNetworkStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidVPCNetworkStateFault(body.Error, context);
-  const contents: InvalidVPCNetworkStateFault = {
-    name: "InvalidVPCNetworkStateFault",
-    $fault: "client",
+  const exception = new InvalidVPCNetworkStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryKMSKeyNotAccessibleFaultResponse = async (
@@ -15520,13 +11773,11 @@ const deserializeAws_queryKMSKeyNotAccessibleFaultResponse = async (
 ): Promise<KMSKeyNotAccessibleFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryKMSKeyNotAccessibleFault(body.Error, context);
-  const contents: KMSKeyNotAccessibleFault = {
-    name: "KMSKeyNotAccessibleFault",
-    $fault: "client",
+  const exception = new KMSKeyNotAccessibleFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryOptionGroupAlreadyExistsFaultResponse = async (
@@ -15535,13 +11786,11 @@ const deserializeAws_queryOptionGroupAlreadyExistsFaultResponse = async (
 ): Promise<OptionGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOptionGroupAlreadyExistsFault(body.Error, context);
-  const contents: OptionGroupAlreadyExistsFault = {
-    name: "OptionGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new OptionGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryOptionGroupNotFoundFaultResponse = async (
@@ -15550,13 +11799,11 @@ const deserializeAws_queryOptionGroupNotFoundFaultResponse = async (
 ): Promise<OptionGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOptionGroupNotFoundFault(body.Error, context);
-  const contents: OptionGroupNotFoundFault = {
-    name: "OptionGroupNotFoundFault",
-    $fault: "client",
+  const exception = new OptionGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryOptionGroupQuotaExceededFaultResponse = async (
@@ -15565,13 +11812,11 @@ const deserializeAws_queryOptionGroupQuotaExceededFaultResponse = async (
 ): Promise<OptionGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOptionGroupQuotaExceededFault(body.Error, context);
-  const contents: OptionGroupQuotaExceededFault = {
-    name: "OptionGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new OptionGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse = async (
@@ -15580,13 +11825,11 @@ const deserializeAws_queryPointInTimeRestoreNotEnabledFaultResponse = async (
 ): Promise<PointInTimeRestoreNotEnabledFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPointInTimeRestoreNotEnabledFault(body.Error, context);
-  const contents: PointInTimeRestoreNotEnabledFault = {
-    name: "PointInTimeRestoreNotEnabledFault",
-    $fault: "client",
+  const exception = new PointInTimeRestoreNotEnabledFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse = async (
@@ -15595,13 +11838,11 @@ const deserializeAws_queryProvisionedIopsNotAvailableInAZFaultResponse = async (
 ): Promise<ProvisionedIopsNotAvailableInAZFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryProvisionedIopsNotAvailableInAZFault(body.Error, context);
-  const contents: ProvisionedIopsNotAvailableInAZFault = {
-    name: "ProvisionedIopsNotAvailableInAZFault",
-    $fault: "client",
+  const exception = new ProvisionedIopsNotAvailableInAZFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse = async (
@@ -15610,13 +11851,11 @@ const deserializeAws_queryReservedDBInstanceAlreadyExistsFaultResponse = async (
 ): Promise<ReservedDBInstanceAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedDBInstanceAlreadyExistsFault(body.Error, context);
-  const contents: ReservedDBInstanceAlreadyExistsFault = {
-    name: "ReservedDBInstanceAlreadyExistsFault",
-    $fault: "client",
+  const exception = new ReservedDBInstanceAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedDBInstanceNotFoundFaultResponse = async (
@@ -15625,13 +11864,11 @@ const deserializeAws_queryReservedDBInstanceNotFoundFaultResponse = async (
 ): Promise<ReservedDBInstanceNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedDBInstanceNotFoundFault(body.Error, context);
-  const contents: ReservedDBInstanceNotFoundFault = {
-    name: "ReservedDBInstanceNotFoundFault",
-    $fault: "client",
+  const exception = new ReservedDBInstanceNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse = async (
@@ -15640,13 +11877,11 @@ const deserializeAws_queryReservedDBInstanceQuotaExceededFaultResponse = async (
 ): Promise<ReservedDBInstanceQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedDBInstanceQuotaExceededFault(body.Error, context);
-  const contents: ReservedDBInstanceQuotaExceededFault = {
-    name: "ReservedDBInstanceQuotaExceededFault",
-    $fault: "client",
+  const exception = new ReservedDBInstanceQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse = async (
@@ -15655,13 +11890,11 @@ const deserializeAws_queryReservedDBInstancesOfferingNotFoundFaultResponse = asy
 ): Promise<ReservedDBInstancesOfferingNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedDBInstancesOfferingNotFoundFault(body.Error, context);
-  const contents: ReservedDBInstancesOfferingNotFoundFault = {
-    name: "ReservedDBInstancesOfferingNotFoundFault",
-    $fault: "client",
+  const exception = new ReservedDBInstancesOfferingNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryResourceNotFoundFaultResponse = async (
@@ -15670,13 +11903,11 @@ const deserializeAws_queryResourceNotFoundFaultResponse = async (
 ): Promise<ResourceNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryResourceNotFoundFault(body.Error, context);
-  const contents: ResourceNotFoundFault = {
-    name: "ResourceNotFoundFault",
-    $fault: "client",
+  const exception = new ResourceNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySharedSnapshotQuotaExceededFaultResponse = async (
@@ -15685,13 +11916,11 @@ const deserializeAws_querySharedSnapshotQuotaExceededFaultResponse = async (
 ): Promise<SharedSnapshotQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySharedSnapshotQuotaExceededFault(body.Error, context);
-  const contents: SharedSnapshotQuotaExceededFault = {
-    name: "SharedSnapshotQuotaExceededFault",
-    $fault: "client",
+  const exception = new SharedSnapshotQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
@@ -15700,13 +11929,11 @@ const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
 ): Promise<SnapshotQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySnapshotQuotaExceededFault(body.Error, context);
-  const contents: SnapshotQuotaExceededFault = {
-    name: "SnapshotQuotaExceededFault",
-    $fault: "client",
+  const exception = new SnapshotQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySNSInvalidTopicFaultResponse = async (
@@ -15715,13 +11942,11 @@ const deserializeAws_querySNSInvalidTopicFaultResponse = async (
 ): Promise<SNSInvalidTopicFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySNSInvalidTopicFault(body.Error, context);
-  const contents: SNSInvalidTopicFault = {
-    name: "SNSInvalidTopicFault",
-    $fault: "client",
+  const exception = new SNSInvalidTopicFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
@@ -15730,13 +11955,11 @@ const deserializeAws_querySNSNoAuthorizationFaultResponse = async (
 ): Promise<SNSNoAuthorizationFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySNSNoAuthorizationFault(body.Error, context);
-  const contents: SNSNoAuthorizationFault = {
-    name: "SNSNoAuthorizationFault",
-    $fault: "client",
+  const exception = new SNSNoAuthorizationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
@@ -15745,13 +11968,11 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
 ): Promise<SNSTopicArnNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySNSTopicArnNotFoundFault(body.Error, context);
-  const contents: SNSTopicArnNotFoundFault = {
-    name: "SNSTopicArnNotFoundFault",
-    $fault: "client",
+  const exception = new SNSTopicArnNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySourceNotFoundFaultResponse = async (
@@ -15760,13 +11981,11 @@ const deserializeAws_querySourceNotFoundFaultResponse = async (
 ): Promise<SourceNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySourceNotFoundFault(body.Error, context);
-  const contents: SourceNotFoundFault = {
-    name: "SourceNotFoundFault",
-    $fault: "client",
+  const exception = new SourceNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryStorageQuotaExceededFaultResponse = async (
@@ -15775,13 +11994,11 @@ const deserializeAws_queryStorageQuotaExceededFaultResponse = async (
 ): Promise<StorageQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryStorageQuotaExceededFault(body.Error, context);
-  const contents: StorageQuotaExceededFault = {
-    name: "StorageQuotaExceededFault",
-    $fault: "client",
+  const exception = new StorageQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryStorageTypeNotSupportedFaultResponse = async (
@@ -15790,13 +12007,11 @@ const deserializeAws_queryStorageTypeNotSupportedFaultResponse = async (
 ): Promise<StorageTypeNotSupportedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryStorageTypeNotSupportedFault(body.Error, context);
-  const contents: StorageTypeNotSupportedFault = {
-    name: "StorageTypeNotSupportedFault",
-    $fault: "client",
+  const exception = new StorageTypeNotSupportedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubnetAlreadyInUseResponse = async (
@@ -15805,13 +12020,11 @@ const deserializeAws_querySubnetAlreadyInUseResponse = async (
 ): Promise<SubnetAlreadyInUse> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubnetAlreadyInUse(body.Error, context);
-  const contents: SubnetAlreadyInUse = {
-    name: "SubnetAlreadyInUse",
-    $fault: "client",
+  const exception = new SubnetAlreadyInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubscriptionAlreadyExistFaultResponse = async (
@@ -15820,13 +12033,11 @@ const deserializeAws_querySubscriptionAlreadyExistFaultResponse = async (
 ): Promise<SubscriptionAlreadyExistFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubscriptionAlreadyExistFault(body.Error, context);
-  const contents: SubscriptionAlreadyExistFault = {
-    name: "SubscriptionAlreadyExistFault",
-    $fault: "client",
+  const exception = new SubscriptionAlreadyExistFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubscriptionCategoryNotFoundFaultResponse = async (
@@ -15835,13 +12046,11 @@ const deserializeAws_querySubscriptionCategoryNotFoundFaultResponse = async (
 ): Promise<SubscriptionCategoryNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubscriptionCategoryNotFoundFault(body.Error, context);
-  const contents: SubscriptionCategoryNotFoundFault = {
-    name: "SubscriptionCategoryNotFoundFault",
-    $fault: "client",
+  const exception = new SubscriptionCategoryNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubscriptionNotFoundFaultResponse = async (
@@ -15850,13 +12059,11 @@ const deserializeAws_querySubscriptionNotFoundFaultResponse = async (
 ): Promise<SubscriptionNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubscriptionNotFoundFault(body.Error, context);
-  const contents: SubscriptionNotFoundFault = {
-    name: "SubscriptionNotFoundFault",
-    $fault: "client",
+  const exception = new SubscriptionNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryAddRoleToDBClusterMessage = (

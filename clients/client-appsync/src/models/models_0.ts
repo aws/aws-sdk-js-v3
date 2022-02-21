@@ -1,12 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AppSyncServiceException as __BaseException } from "./AppSyncServiceException";
 
 /**
  * <p>You don't have access to perform this operation on this resource.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AuthenticationType {
@@ -519,29 +532,59 @@ export namespace ApiKey {
 /**
  * <p>The API key exceeded a limit. Try your request again.</p>
  */
-export interface ApiKeyLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ApiKeyLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class ApiKeyLimitExceededException extends __BaseException {
+  readonly name: "ApiKeyLimitExceededException" = "ApiKeyLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApiKeyLimitExceededException, __BaseException>) {
+    super({
+      name: "ApiKeyLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApiKeyLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  */
-export interface ApiKeyValidityOutOfBoundsException extends __SmithyException, $MetadataBearer {
-  name: "ApiKeyValidityOutOfBoundsException";
-  $fault: "client";
-  message?: string;
+export class ApiKeyValidityOutOfBoundsException extends __BaseException {
+  readonly name: "ApiKeyValidityOutOfBoundsException" = "ApiKeyValidityOutOfBoundsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApiKeyValidityOutOfBoundsException, __BaseException>) {
+    super({
+      name: "ApiKeyValidityOutOfBoundsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApiKeyValidityOutOfBoundsException.prototype);
+  }
 }
 
 /**
  * <p>The GraphQL API exceeded a limit. Try your request again.</p>
  */
-export interface ApiLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ApiLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class ApiLimitExceededException extends __BaseException {
+  readonly name: "ApiLimitExceededException" = "ApiLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApiLimitExceededException, __BaseException>) {
+    super({
+      name: "ApiLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApiLimitExceededException.prototype);
+  }
 }
 
 export interface AssociateApiRequest {
@@ -585,29 +628,59 @@ export namespace AssociateApiResponse {
  * <p>The request is not well formed. For example, a value is invalid or a required field is
  *          missing. Check the field values, and then try again.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 /**
  * <p>An internal AppSync error occurred. Try your request again.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
  * <p>The resource specified in the request was not found. Check the resource, and then try
  *          again.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 export enum AuthorizationType {
@@ -673,10 +746,20 @@ export namespace AuthorizationConfig {
  * <p>Another modification is in progress at this time and it must complete before you can
  *          make your change.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
@@ -832,10 +915,20 @@ export namespace CreateApiCacheResponse {
 /**
  * <p>You aren't authorized to perform this operation.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
-  message?: string;
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
 }
 
 export interface CreateApiKeyRequest {
@@ -885,10 +978,20 @@ export namespace CreateApiKeyResponse {
 /**
  * <p>The request exceeded a limit. Try your request again.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
@@ -2832,10 +2935,20 @@ export namespace GetIntrospectionSchemaResponse {
 /**
  * <p>The GraphQL schema is not valid.</p>
  */
-export interface GraphQLSchemaException extends __SmithyException, $MetadataBearer {
-  name: "GraphQLSchemaException";
-  $fault: "client";
-  message?: string;
+export class GraphQLSchemaException extends __BaseException {
+  readonly name: "GraphQLSchemaException" = "GraphQLSchemaException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GraphQLSchemaException, __BaseException>) {
+    super({
+      name: "GraphQLSchemaException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GraphQLSchemaException.prototype);
+  }
 }
 
 export interface GetResolverRequest {

@@ -1,16 +1,26 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { CloudSearchDomainServiceException as __BaseException } from "./CloudSearchDomainServiceException";
 
 /**
  * <p>Information about any problems encountered while processing a search request.</p>
  */
-export interface SearchException extends __SmithyException, $MetadataBearer {
-  name: "SearchException";
-  $fault: "client";
+export class SearchException extends __BaseException {
+  readonly name: "SearchException" = "SearchException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error returned by the search service.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SearchException, __BaseException>) {
+    super({
+      name: "SearchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SearchException.prototype);
+  }
 }
 
 export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
@@ -674,18 +684,26 @@ export namespace SuggestResponse {
 /**
  * <p>Information about any problems encountered while processing an upload request.</p>
  */
-export interface DocumentServiceException extends __SmithyException, $MetadataBearer {
-  name: "DocumentServiceException";
-  $fault: "client";
+export class DocumentServiceException extends __BaseException {
+  readonly name: "DocumentServiceException" = "DocumentServiceException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
    */
   status?: string;
 
   /**
-   * <p>The description of the errors returned by the document service.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DocumentServiceException, __BaseException>) {
+    super({
+      name: "DocumentServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DocumentServiceException.prototype);
+    this.status = opts.status;
+  }
 }
 
 export type ContentType = "application/json" | "application/xml";

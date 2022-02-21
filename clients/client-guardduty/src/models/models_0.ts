@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GuardDutyServiceException as __BaseException } from "./GuardDutyServiceException";
 
 export interface AcceptInvitationRequest {
   /**
@@ -40,9 +43,9 @@ export namespace AcceptInvitationResponse {
 /**
  * <p>A bad request exception object.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message.</p>
    */
@@ -52,14 +55,27 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * <p>The error type.</p>
    */
   Type?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>An internal server error exception object.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error message.</p>
    */
@@ -69,6 +85,19 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The error type.</p>
    */
   Type?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+  }
 }
 
 /**

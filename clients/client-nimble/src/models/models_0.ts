@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { NimbleServiceException as __BaseException } from "./NimbleServiceException";
 
 export interface AcceptEulasRequest {
   /**
@@ -88,9 +90,9 @@ export namespace AcceptEulasResponse {
  * <p>You are not authorized to perform this operation. Check your IAM policies, and ensure
  *             that you are using the correct access keys.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A more specific error code.</p>
    */
@@ -102,17 +104,26 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
  * <p>Another operation is in progress. </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A more specific error code.</p>
    */
@@ -124,18 +135,27 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
  * <p>An internal error has occurred. Please retry your request.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
-  $retryable: {};
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
   /**
    * <p>A more specific error code.</p>
    */
@@ -147,17 +167,26 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A more specific error code.</p>
    */
@@ -169,9 +198,18 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
@@ -179,9 +217,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *             increases for some quotas, and other quotas cannot be increased.</p>
  *         <p>Please use AWS Service Quotas to request an increase. </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A more specific error code.</p>
    */
@@ -193,18 +231,27 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
  * <p>The request throughput limit was exceeded.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  $retryable: {};
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
   /**
    * <p>A more specific error code.</p>
    */
@@ -216,17 +263,26 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A more specific error code.</p>
    */
@@ -238,9 +294,18 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   context?: { [key: string]: string };
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.context = opts.context;
+  }
 }
 
 /**

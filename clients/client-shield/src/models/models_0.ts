@@ -1,21 +1,44 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ShieldServiceException as __BaseException } from "./ShieldServiceException";
 
 /**
  * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
  */
-export interface AccessDeniedForDependencyException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedForDependencyException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedForDependencyException extends __BaseException {
+  readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedForDependencyException, __BaseException>) {
+    super({
+      name: "AccessDeniedForDependencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedForDependencyException.prototype);
+  }
 }
 
 /**
@@ -143,19 +166,39 @@ export namespace AssociateDRTLogBucketResponse {
 /**
  * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
-  message?: string;
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+  }
 }
 
 /**
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
-  message?: string;
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+  }
 }
 
 /**
@@ -190,10 +233,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Additional information about the exception.</p>
    */
@@ -203,15 +245,28 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>Fields that caused the exception.</p>
    */
   fields?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
+  }
 }
 
 /**
  * <p>Exception that indicates that the operation would exceed a limit.</p>
  */
-export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitsExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitsExceededException extends __BaseException {
+  readonly name: "LimitsExceededException" = "LimitsExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The type of limit that would be exceeded.</p>
    */
@@ -221,38 +276,84 @@ export interface LimitsExceededException extends __SmithyException, $MetadataBea
    * <p>The threshold that would be exceeded.</p>
    */
   Limit?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitsExceededException, __BaseException>) {
+    super({
+      name: "LimitsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitsExceededException.prototype);
+    this.Type = opts.Type;
+    this.Limit = opts.Limit;
+  }
 }
 
 /**
  * <p>The ARN of the role that you specifed does not exist.</p>
  */
-export interface NoAssociatedRoleException extends __SmithyException, $MetadataBearer {
-  name: "NoAssociatedRoleException";
-  $fault: "client";
-  message?: string;
+export class NoAssociatedRoleException extends __BaseException {
+  readonly name: "NoAssociatedRoleException" = "NoAssociatedRoleException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoAssociatedRoleException, __BaseException>) {
+    super({
+      name: "NoAssociatedRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAssociatedRoleException.prototype);
+  }
 }
 
 /**
  * <p>Exception that indicates that the resource state has been modified by another
  *          client. Retrieve the resource and then retry your request.</p>
  */
-export interface OptimisticLockException extends __SmithyException, $MetadataBearer {
-  name: "OptimisticLockException";
-  $fault: "client";
-  message?: string;
+export class OptimisticLockException extends __BaseException {
+  readonly name: "OptimisticLockException" = "OptimisticLockException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OptimisticLockException, __BaseException>) {
+    super({
+      name: "OptimisticLockException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OptimisticLockException.prototype);
+  }
 }
 
 /**
  * <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Type of resource.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export interface AssociateDRTRoleRequest {
@@ -318,10 +419,20 @@ export namespace AssociateHealthCheckResponse {
 /**
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  */
-export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceException";
-  $fault: "client";
-  message?: string;
+export class InvalidResourceException extends __BaseException {
+  readonly name: "InvalidResourceException" = "InvalidResourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceException, __BaseException>) {
+    super({
+      name: "InvalidResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceException.prototype);
+  }
 }
 
 /**
@@ -955,14 +1066,26 @@ export namespace CreateProtectionResponse {
 /**
  * <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The type of resource that already exists.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export enum ProtectionGroupAggregation {
@@ -1152,10 +1275,20 @@ export namespace DeleteSubscriptionResponse {
 /**
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  */
-export interface LockedSubscriptionException extends __SmithyException, $MetadataBearer {
-  name: "LockedSubscriptionException";
-  $fault: "client";
-  message?: string;
+export class LockedSubscriptionException extends __BaseException {
+  readonly name: "LockedSubscriptionException" = "LockedSubscriptionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LockedSubscriptionException, __BaseException>) {
+    super({
+      name: "LockedSubscriptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LockedSubscriptionException.prototype);
+  }
 }
 
 export interface DescribeAttackRequest {
@@ -1992,10 +2125,20 @@ export namespace ListAttacksResponse {
 /**
  * <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
  */
-export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidPaginationTokenException extends __BaseException {
+  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
+    super({
+      name: "InvalidPaginationTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
+  }
 }
 
 export interface ListProtectionGroupsRequest {

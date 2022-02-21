@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { QueryProtocolServiceException as __BaseException } from "./QueryProtocolServiceException";
 
 export interface EmptyInputAndEmptyOutputInput {}
 
@@ -98,17 +101,42 @@ export namespace ComplexNestedErrorData {
 /**
  * This error is thrown when a request is invalid.
  */
-export interface ComplexError extends __SmithyException, $MetadataBearer {
-  name: "ComplexError";
-  $fault: "client";
+export class ComplexError extends __BaseException {
+  readonly name: "ComplexError" = "ComplexError";
+  readonly $fault: "client" = "client";
   TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
+    super({
+      name: "ComplexError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ComplexError.prototype);
+    this.TopLevel = opts.TopLevel;
+    this.Nested = opts.Nested;
+  }
 }
 
-export interface CustomCodeError extends __SmithyException, $MetadataBearer {
-  name: "CustomCodeError";
-  $fault: "client";
+export class CustomCodeError extends __BaseException {
+  readonly name: "CustomCodeError" = "CustomCodeError";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomCodeError, __BaseException>) {
+    super({
+      name: "CustomCodeError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomCodeError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GreetingWithErrorsOutput {
@@ -127,10 +155,22 @@ export namespace GreetingWithErrorsOutput {
 /**
  * This error is thrown when an invalid greeting value is provided.
  */
-export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
-  name: "InvalidGreeting";
-  $fault: "client";
+export class InvalidGreeting extends __BaseException {
+  readonly name: "InvalidGreeting" = "InvalidGreeting";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
+    super({
+      name: "InvalidGreeting",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGreeting.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface IgnoresWrappingXmlNameOutput {

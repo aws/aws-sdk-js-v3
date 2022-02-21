@@ -1,6 +1,8 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
 /**
  * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -142,29 +144,48 @@ export namespace AddLayerVersionPermissionResponse {
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
   /**
-   * <p>The exception message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface PolicyLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "PolicyLengthExceededException";
-  $fault: "client";
+export class PolicyLengthExceededException extends __BaseException {
+  readonly name: "PolicyLengthExceededException" = "PolicyLengthExceededException";
+  readonly $fault: "client" = "client";
   Type?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyLengthExceededException, __BaseException>) {
+    super({
+      name: "PolicyLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyLengthExceededException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
@@ -172,55 +193,97 @@ export interface PolicyLengthExceededException extends __SmithyException, $Metad
  *         <code>GetFunction</code> or the <code>GetAlias</code> API to retrieve the latest RevisionId for your
  *       resource.</p>
  */
-export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
+export class PreconditionFailedException extends __BaseException {
+  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
   /**
-   * <p>The exception message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
+    super({
+      name: "PreconditionFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The resource already exists, or another operation is in progress.</p>
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
   /**
-   * <p>The exception message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The resource specified in the request does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Lambda service encountered an internal error.</p>
  */
-export interface ServiceException extends __SmithyException, $MetadataBearer {
-  name: "ServiceException";
-  $fault: "server";
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export enum ThrottleReason {
@@ -234,17 +297,30 @@ export enum ThrottleReason {
 /**
  * <p>The request throughput limit was exceeded.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   retryAfterSeconds?: string;
 
   Type?: string;
-  message?: string;
   Reason?: ThrottleReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+    this.Type = opts.Type;
+    this.Reason = opts.Reason;
+  }
 }
 
 export interface AddPermissionRequest {
@@ -1148,37 +1224,74 @@ export namespace EventSourceMappingConfiguration {
 /**
  * <p>The specified code signing configuration does not exist.</p>
  */
-export interface CodeSigningConfigNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CodeSigningConfigNotFoundException";
-  $fault: "client";
+export class CodeSigningConfigNotFoundException extends __BaseException {
+  readonly name: "CodeSigningConfigNotFoundException" = "CodeSigningConfigNotFoundException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeSigningConfigNotFoundException, __BaseException>) {
+    super({
+      name: "CodeSigningConfigNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeSigningConfigNotFoundException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
  */
-export interface CodeStorageExceededException extends __SmithyException, $MetadataBearer {
-  name: "CodeStorageExceededException";
-  $fault: "client";
+export class CodeStorageExceededException extends __BaseException {
+  readonly name: "CodeStorageExceededException" = "CodeStorageExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeStorageExceededException, __BaseException>) {
+    super({
+      name: "CodeStorageExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeStorageExceededException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy
  *       is set to ENFORCE. Lambda blocks the deployment. </p>
  */
-export interface CodeVerificationFailedException extends __SmithyException, $MetadataBearer {
-  name: "CodeVerificationFailedException";
-  $fault: "client";
+export class CodeVerificationFailedException extends __BaseException {
+  readonly name: "CodeVerificationFailedException" = "CodeVerificationFailedException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CodeVerificationFailedException, __BaseException>) {
+    super({
+      name: "CodeVerificationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeVerificationFailedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1972,11 +2085,24 @@ export namespace FunctionConfiguration {
  * <p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check
  *       fails, even if code signing policy is set to WARN.</p>
  */
-export interface InvalidCodeSignatureException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCodeSignatureException";
-  $fault: "client";
+export class InvalidCodeSignatureException extends __BaseException {
+  readonly name: "InvalidCodeSignatureException" = "InvalidCodeSignatureException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCodeSignatureException, __BaseException>) {
+    super({
+      name: "InvalidCodeSignatureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCodeSignatureException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteAliasRequest {
@@ -2066,11 +2192,24 @@ export namespace DeleteEventSourceMappingRequest {
  * <p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource
  *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFunctionRequest {
@@ -3117,152 +3256,328 @@ export namespace GetProvisionedConcurrencyConfigResponse {
 /**
  * <p>The specified configuration does not exist.</p>
  */
-export interface ProvisionedConcurrencyConfigNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ProvisionedConcurrencyConfigNotFoundException";
-  $fault: "client";
+export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
+  readonly name: "ProvisionedConcurrencyConfigNotFoundException" = "ProvisionedConcurrencyConfigNotFoundException";
+  readonly $fault: "client" = "client";
   Type?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProvisionedConcurrencyConfigNotFoundException, __BaseException>) {
+    super({
+      name: "ProvisionedConcurrencyConfigNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProvisionedConcurrencyConfigNotFoundException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
-export interface EC2AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "EC2AccessDeniedException";
-  $fault: "server";
+export class EC2AccessDeniedException extends __BaseException {
+  readonly name: "EC2AccessDeniedException" = "EC2AccessDeniedException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EC2AccessDeniedException, __BaseException>) {
+    super({
+      name: "EC2AccessDeniedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EC2AccessDeniedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
  *       for the Lambda function.</p>
  */
-export interface EC2ThrottledException extends __SmithyException, $MetadataBearer {
-  name: "EC2ThrottledException";
-  $fault: "server";
+export class EC2ThrottledException extends __BaseException {
+  readonly name: "EC2ThrottledException" = "EC2ThrottledException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EC2ThrottledException, __BaseException>) {
+    super({
+      name: "EC2ThrottledException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EC2ThrottledException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  */
-export interface EC2UnexpectedException extends __SmithyException, $MetadataBearer {
-  name: "EC2UnexpectedException";
-  $fault: "server";
+export class EC2UnexpectedException extends __BaseException {
+  readonly name: "EC2UnexpectedException" = "EC2UnexpectedException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
   EC2ErrorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EC2UnexpectedException, __BaseException>) {
+    super({
+      name: "EC2UnexpectedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EC2UnexpectedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+    this.EC2ErrorCode = opts.EC2ErrorCode;
+  }
 }
 
 /**
  * <p>An error occurred when reading from or writing to a connected file system.</p>
  */
-export interface EFSIOException extends __SmithyException, $MetadataBearer {
-  name: "EFSIOException";
-  $fault: "client";
+export class EFSIOException extends __BaseException {
+  readonly name: "EFSIOException" = "EFSIOException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EFSIOException, __BaseException>) {
+    super({
+      name: "EFSIOException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EFSIOException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The function couldn't make a network connection to the configured file system.</p>
  */
-export interface EFSMountConnectivityException extends __SmithyException, $MetadataBearer {
-  name: "EFSMountConnectivityException";
-  $fault: "client";
+export class EFSMountConnectivityException extends __BaseException {
+  readonly name: "EFSMountConnectivityException" = "EFSMountConnectivityException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EFSMountConnectivityException, __BaseException>) {
+    super({
+      name: "EFSMountConnectivityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EFSMountConnectivityException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>
  */
-export interface EFSMountFailureException extends __SmithyException, $MetadataBearer {
-  name: "EFSMountFailureException";
-  $fault: "client";
+export class EFSMountFailureException extends __BaseException {
+  readonly name: "EFSMountFailureException" = "EFSMountFailureException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EFSMountFailureException, __BaseException>) {
+    super({
+      name: "EFSMountFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EFSMountFailureException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The function was able to make a network connection to the configured file system, but the mount operation
  *       timed out.</p>
  */
-export interface EFSMountTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "EFSMountTimeoutException";
-  $fault: "client";
+export class EFSMountTimeoutException extends __BaseException {
+  readonly name: "EFSMountTimeoutException" = "EFSMountTimeoutException";
+  readonly $fault: "client" = "client";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EFSMountTimeoutException, __BaseException>) {
+    super({
+      name: "EFSMountTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EFSMountTimeoutException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
  *       function configuration, because the limit for network interfaces has been reached.</p>
  */
-export interface ENILimitReachedException extends __SmithyException, $MetadataBearer {
-  name: "ENILimitReachedException";
-  $fault: "server";
+export class ENILimitReachedException extends __BaseException {
+  readonly name: "ENILimitReachedException" = "ENILimitReachedException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ENILimitReachedException, __BaseException>) {
+    super({
+      name: "ENILimitReachedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ENILimitReachedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request body could not be parsed as JSON.</p>
  */
-export interface InvalidRequestContentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestContentException";
-  $fault: "client";
+export class InvalidRequestContentException extends __BaseException {
+  readonly name: "InvalidRequestContentException" = "InvalidRequestContentException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
   /**
-   * <p>The exception message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRequestContentException, __BaseException>) {
+    super({
+      name: "InvalidRequestContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestContentException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The runtime or runtime version specified is not supported.</p>
  */
-export interface InvalidRuntimeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRuntimeException";
-  $fault: "server";
+export class InvalidRuntimeException extends __BaseException {
+  readonly name: "InvalidRuntimeException" = "InvalidRuntimeException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRuntimeException, __BaseException>) {
+    super({
+      name: "InvalidRuntimeException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRuntimeException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSecurityGroupIDException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSecurityGroupIDException";
-  $fault: "server";
+export class InvalidSecurityGroupIDException extends __BaseException {
+  readonly name: "InvalidSecurityGroupIDException" = "InvalidSecurityGroupIDException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecurityGroupIDException, __BaseException>) {
+    super({
+      name: "InvalidSecurityGroupIDException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecurityGroupIDException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
  */
-export interface InvalidSubnetIDException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnetIDException";
-  $fault: "server";
+export class InvalidSubnetIDException extends __BaseException {
+  readonly name: "InvalidSubnetIDException" = "InvalidSubnetIDException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnetIDException, __BaseException>) {
+    super({
+      name: "InvalidSubnetIDException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnetIDException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda could not unzip the deployment package.</p>
  */
-export interface InvalidZipFileException extends __SmithyException, $MetadataBearer {
-  name: "InvalidZipFileException";
-  $fault: "server";
+export class InvalidZipFileException extends __BaseException {
+  readonly name: "InvalidZipFileException" = "InvalidZipFileException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidZipFileException, __BaseException>) {
+    super({
+      name: "InvalidZipFileException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidZipFileException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export enum InvocationType {
@@ -3404,94 +3719,189 @@ export namespace InvocationResponse {
  * <p>Lambda was unable to decrypt the environment variables because KMS access was denied. Check the Lambda
  *       function's KMS permissions.</p>
  */
-export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "KMSAccessDeniedException";
-  $fault: "server";
+export class KMSAccessDeniedException extends __BaseException {
+  readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
+    super({
+      name: "KMSAccessDeniedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
  *       function's KMS key settings.</p>
  */
-export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
-  name: "KMSDisabledException";
-  $fault: "server";
+export class KMSDisabledException extends __BaseException {
+  readonly name: "KMSDisabledException" = "KMSDisabledException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
+    super({
+      name: "KMSDisabledException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSDisabledException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for
  *       Decrypt. Check the function's KMS key settings.</p>
  */
-export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidStateException";
-  $fault: "server";
+export class KMSInvalidStateException extends __BaseException {
+  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
+    super({
+      name: "KMSInvalidStateException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
  *       KMS key settings. </p>
  */
-export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "KMSNotFoundException";
-  $fault: "server";
+export class KMSNotFoundException extends __BaseException {
+  readonly name: "KMSNotFoundException" = "KMSNotFoundException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
+    super({
+      name: "KMSNotFoundException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
  */
-export interface RequestTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "RequestTooLargeException";
-  $fault: "client";
+export class RequestTooLargeException extends __BaseException {
+  readonly name: "RequestTooLargeException" = "RequestTooLargeException";
+  readonly $fault: "client" = "client";
   Type?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestTooLargeException, __BaseException>) {
+    super({
+      name: "RequestTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTooLargeException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
  *       reestablish and try again.</p>
  */
-export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotReadyException";
-  $fault: "server";
+export class ResourceNotReadyException extends __BaseException {
+  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The exception type.</p>
    */
   Type?: string;
 
   /**
-   * <p>The exception message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
+    super({
+      name: "ResourceNotReadyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 /**
  * <p>Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
  *       has no available IP addresses.</p>
  */
-export interface SubnetIPAddressLimitReachedException extends __SmithyException, $MetadataBearer {
-  name: "SubnetIPAddressLimitReachedException";
-  $fault: "server";
+export class SubnetIPAddressLimitReachedException extends __BaseException {
+  readonly name: "SubnetIPAddressLimitReachedException" = "SubnetIPAddressLimitReachedException";
+  readonly $fault: "server" = "server";
   Type?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetIPAddressLimitReachedException, __BaseException>) {
+    super({
+      name: "SubnetIPAddressLimitReachedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetIPAddressLimitReachedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
-export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedMediaTypeException";
-  $fault: "client";
+export class UnsupportedMediaTypeException extends __BaseException {
+  readonly name: "UnsupportedMediaTypeException" = "UnsupportedMediaTypeException";
+  readonly $fault: "client" = "client";
   Type?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedMediaTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedMediaTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedMediaTypeException.prototype);
+    this.Type = opts.Type;
+  }
 }
 
 export interface InvokeAsyncRequest {

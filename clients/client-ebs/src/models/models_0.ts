@@ -1,6 +1,8 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { EBSServiceException as __BaseException } from "./EBSServiceException";
 
 export enum AccessDeniedExceptionReason {
   DEPENDENCY_ACCESS_DENIED = "DEPENDENCY_ACCESS_DENIED",
@@ -10,14 +12,27 @@ export enum AccessDeniedExceptionReason {
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason: AccessDeniedExceptionReason | string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
@@ -153,10 +168,22 @@ export namespace CompleteSnapshotResponse {
 /**
  * <p>An internal error has occurred.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RequestThrottledExceptionReason {
@@ -168,14 +195,27 @@ export enum RequestThrottledExceptionReason {
  * <p>The number of API requests has exceed the maximum allowed API request throttling
  *             limit.</p>
  */
-export interface RequestThrottledException extends __SmithyException, $MetadataBearer {
-  name: "RequestThrottledException";
-  $fault: "client";
+export class RequestThrottledException extends __BaseException {
+  readonly name: "RequestThrottledException" = "RequestThrottledException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: RequestThrottledExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestThrottledException, __BaseException>) {
+    super({
+      name: "RequestThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestThrottledException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export enum ResourceNotFoundExceptionReason {
@@ -186,14 +226,27 @@ export enum ResourceNotFoundExceptionReason {
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: ResourceNotFoundExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export enum ServiceQuotaExceededExceptionReason {
@@ -203,14 +256,27 @@ export enum ServiceQuotaExceededExceptionReason {
 /**
  * <p>Your current service quotas do not allow you to perform this action.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: ServiceQuotaExceededExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export enum ValidationExceptionReason {
@@ -230,14 +296,27 @@ export enum ValidationExceptionReason {
 /**
  * <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the validation exception.</p>
    */
   Reason?: ValidationExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
@@ -245,20 +324,44 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
  *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
  *                 User Guide</i>.</p>
  */
-export interface ConcurrentLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentLimitExceededException";
-  $fault: "client";
+export class ConcurrentLimitExceededException extends __BaseException {
+  readonly name: "ConcurrentLimitExceededException" = "ConcurrentLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentLimitExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request uses the same client token as a previous, but non-identical
  *             request.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "server";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetSnapshotBlockRequest {

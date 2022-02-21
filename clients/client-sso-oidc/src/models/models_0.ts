@@ -1,23 +1,52 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SSOOIDCServiceException as __BaseException } from "./SSOOIDCServiceException";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  */
-export interface AuthorizationPendingException extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationPendingException";
-  $fault: "client";
+export class AuthorizationPendingException extends __BaseException {
+  readonly name: "AuthorizationPendingException" = "AuthorizationPendingException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationPendingException, __BaseException>) {
+    super({
+      name: "AuthorizationPendingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationPendingException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 export interface CreateTokenRequest {
@@ -116,21 +145,47 @@ export namespace CreateTokenResponse {
 /**
  * <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  */
-export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredTokenException";
-  $fault: "client";
+export class ExpiredTokenException extends __BaseException {
+  readonly name: "ExpiredTokenException" = "ExpiredTokenException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredTokenException, __BaseException>) {
+    super({
+      name: "ExpiredTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredTokenException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that an error from the service occurred while trying to process a request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
@@ -138,83 +193,187 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
  *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
  *       an expired <code>clientSecret</code>.</p>
  */
-export interface InvalidClientException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientException";
-  $fault: "client";
+export class InvalidClientException extends __BaseException {
+  readonly name: "InvalidClientException" = "InvalidClientException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClientException, __BaseException>) {
+    super({
+      name: "InvalidClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  */
-export interface InvalidGrantException extends __SmithyException, $MetadataBearer {
-  name: "InvalidGrantException";
-  $fault: "client";
+export class InvalidGrantException extends __BaseException {
+  readonly name: "InvalidGrantException" = "InvalidGrantException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGrantException, __BaseException>) {
+    super({
+      name: "InvalidGrantException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGrantException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that something is wrong with the input to the request. For example, a required
  *       parameter might be missing or out of range.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that the scope provided in the request is invalid.</p>
  */
-export interface InvalidScopeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidScopeException";
-  $fault: "client";
+export class InvalidScopeException extends __BaseException {
+  readonly name: "InvalidScopeException" = "InvalidScopeException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidScopeException, __BaseException>) {
+    super({
+      name: "InvalidScopeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidScopeException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
  */
-export interface SlowDownException extends __SmithyException, $MetadataBearer {
-  name: "SlowDownException";
-  $fault: "client";
+export class SlowDownException extends __BaseException {
+  readonly name: "SlowDownException" = "SlowDownException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SlowDownException, __BaseException>) {
+    super({
+      name: "SlowDownException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SlowDownException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that the client is not currently authorized to make the request. This can happen
  *       when a <code>clientId</code> is not issued for a public client.</p>
  */
-export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedClientException";
-  $fault: "client";
+export class UnauthorizedClientException extends __BaseException {
+  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
+    super({
+      name: "UnauthorizedClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that the grant type in the request is not supported by the service.</p>
  */
-export interface UnsupportedGrantTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedGrantTypeException";
-  $fault: "client";
+export class UnsupportedGrantTypeException extends __BaseException {
+  readonly name: "UnsupportedGrantTypeException" = "UnsupportedGrantTypeException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedGrantTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedGrantTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedGrantTypeException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 /**
  * <p>Indicates that the client information sent in the request during registration is invalid.</p>
  */
-export interface InvalidClientMetadataException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientMetadataException";
-  $fault: "client";
+export class InvalidClientMetadataException extends __BaseException {
+  readonly name: "InvalidClientMetadataException" = "InvalidClientMetadataException";
+  readonly $fault: "client" = "client";
   error?: string;
   error_description?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClientMetadataException, __BaseException>) {
+    super({
+      name: "InvalidClientMetadataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientMetadataException.prototype);
+    this.error = opts.error;
+    this.error_description = opts.error_description;
+  }
 }
 
 export interface RegisterClientRequest {

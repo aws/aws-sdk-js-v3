@@ -1,5 +1,10 @@
-import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SchemasServiceException as __BaseException } from "./SchemasServiceException";
 
 export enum DiscovererState {
   STARTED = "STARTED",
@@ -205,9 +210,9 @@ export namespace SearchSchemaSummary {
   });
 }
 
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -217,6 +222,19 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export enum CodeGenerationStatus {
@@ -225,9 +243,9 @@ export enum CodeGenerationStatus {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
 }
 
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -237,6 +255,19 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateDiscovererRequest {
@@ -316,9 +347,9 @@ export namespace CreateDiscovererResponse {
   });
 }
 
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -328,11 +359,24 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error code.</p>
    */
@@ -342,11 +386,24 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error code.</p>
    */
@@ -356,11 +413,24 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -370,6 +440,19 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateRegistryRequest {
@@ -537,9 +620,9 @@ export namespace DeleteDiscovererRequest {
   });
 }
 
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -549,6 +632,19 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteRegistryRequest {
@@ -692,9 +788,9 @@ export namespace DescribeCodeBindingResponse {
   });
 }
 
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -704,6 +800,19 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeDiscovererRequest {
@@ -1060,9 +1169,9 @@ export namespace GetResourcePolicyResponse {
   });
 }
 
-export interface GoneException extends __SmithyException, $MetadataBearer {
-  name: "GoneException";
-  $fault: "client";
+export class GoneException extends __BaseException {
+  readonly name: "GoneException" = "GoneException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -1072,6 +1181,19 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
+    super({
+      name: "GoneException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GoneException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListDiscoverersRequest {
@@ -1298,9 +1420,9 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
-export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
+export class PreconditionFailedException extends __BaseException {
+  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code.</p>
    */
@@ -1310,6 +1432,19 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
    * <p>The message string of the error output.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
+    super({
+      name: "PreconditionFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutCodeBindingRequest {

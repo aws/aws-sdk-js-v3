@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { WAFV2ServiceException as __BaseException } from "./WAFV2ServiceException";
 
 export enum ActionValue {
   ALLOW = "ALLOW",
@@ -1652,19 +1655,43 @@ export namespace AssociateWebACLResponse {
  * <p>Your request is valid, but WAF couldn’t perform the operation because of a system
  *          problem. Retry your request. </p>
  */
-export interface WAFInternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "WAFInternalErrorException";
-  $fault: "server";
+export class WAFInternalErrorException extends __BaseException {
+  readonly name: "WAFInternalErrorException" = "WAFInternalErrorException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFInternalErrorException, __BaseException>) {
+    super({
+      name: "WAFInternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFInternalErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The operation isn't valid. </p>
  */
-export interface WAFInvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "WAFInvalidOperationException";
-  $fault: "client";
+export class WAFInvalidOperationException extends __BaseException {
+  readonly name: "WAFInvalidOperationException" = "WAFInvalidOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFInvalidOperationException, __BaseException>) {
+    super({
+      name: "WAFInvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFInvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ParameterExceptionField {
@@ -1749,10 +1776,9 @@ export enum ParameterExceptionField {
  *             </li>
  *          </ul>
  */
-export interface WAFInvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "WAFInvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class WAFInvalidParameterException extends __BaseException {
+  readonly name: "WAFInvalidParameterException" = "WAFInvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The settings where the invalid parameter was found. </p>
    */
@@ -1767,24 +1793,63 @@ export interface WAFInvalidParameterException extends __SmithyException, $Metada
    * <p>Additional information about the exception.</p>
    */
   Reason?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFInvalidParameterException, __BaseException>) {
+    super({
+      name: "WAFInvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFInvalidParameterException.prototype);
+    this.Field = opts.Field;
+    this.Parameter = opts.Parameter;
+    this.Reason = opts.Reason;
+  }
 }
 
 /**
  * <p>WAF couldn’t perform the operation because your resource doesn’t exist. </p>
  */
-export interface WAFNonexistentItemException extends __SmithyException, $MetadataBearer {
-  name: "WAFNonexistentItemException";
-  $fault: "client";
+export class WAFNonexistentItemException extends __BaseException {
+  readonly name: "WAFNonexistentItemException" = "WAFNonexistentItemException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFNonexistentItemException, __BaseException>) {
+    super({
+      name: "WAFNonexistentItemException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFNonexistentItemException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
  */
-export interface WAFUnavailableEntityException extends __SmithyException, $MetadataBearer {
-  name: "WAFUnavailableEntityException";
-  $fault: "client";
+export class WAFUnavailableEntityException extends __BaseException {
+  readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFUnavailableEntityException, __BaseException>) {
+    super({
+      name: "WAFUnavailableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFUnavailableEntityException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2129,20 +2194,44 @@ export namespace CheckCapacityResponse {
  *          expired. You can retrieve the available versions for the managed rule group by calling
  *             <a>ListAvailableManagedRuleGroupVersions</a>.</p>
  */
-export interface WAFExpiredManagedRuleGroupVersionException extends __SmithyException, $MetadataBearer {
-  name: "WAFExpiredManagedRuleGroupVersionException";
-  $fault: "client";
+export class WAFExpiredManagedRuleGroupVersionException extends __BaseException {
+  readonly name: "WAFExpiredManagedRuleGroupVersionException" = "WAFExpiredManagedRuleGroupVersionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFExpiredManagedRuleGroupVersionException, __BaseException>) {
+    super({
+      name: "WAFExpiredManagedRuleGroupVersionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFExpiredManagedRuleGroupVersionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  */
-export interface WAFInvalidResourceException extends __SmithyException, $MetadataBearer {
-  name: "WAFInvalidResourceException";
-  $fault: "client";
+export class WAFInvalidResourceException extends __BaseException {
+  readonly name: "WAFInvalidResourceException" = "WAFInvalidResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFInvalidResourceException, __BaseException>) {
+    super({
+      name: "WAFInvalidResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFInvalidResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2151,20 +2240,44 @@ export interface WAFInvalidResourceException extends __SmithyException, $Metadat
  *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
  *             <i>WAF Developer Guide</i>.</p>
  */
-export interface WAFLimitsExceededException extends __SmithyException, $MetadataBearer {
-  name: "WAFLimitsExceededException";
-  $fault: "client";
+export class WAFLimitsExceededException extends __BaseException {
+  readonly name: "WAFLimitsExceededException" = "WAFLimitsExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFLimitsExceededException, __BaseException>) {
+    super({
+      name: "WAFLimitsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFLimitsExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You tried to use a managed rule group that's available by subscription, but you aren't
  *          subscribed to it yet. </p>
  */
-export interface WAFSubscriptionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "WAFSubscriptionNotFoundException";
-  $fault: "client";
+export class WAFSubscriptionNotFoundException extends __BaseException {
+  readonly name: "WAFSubscriptionNotFoundException" = "WAFSubscriptionNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFSubscriptionNotFoundException, __BaseException>) {
+    super({
+      name: "WAFSubscriptionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFSubscriptionNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum IPAddressVersion {
@@ -2334,10 +2447,22 @@ export namespace CreateIPSetResponse {
  * <p>WAF couldn’t perform the operation because the resource that you tried to save is
  *          a duplicate of an existing one.</p>
  */
-export interface WAFDuplicateItemException extends __SmithyException, $MetadataBearer {
-  name: "WAFDuplicateItemException";
-  $fault: "client";
+export class WAFDuplicateItemException extends __BaseException {
+  readonly name: "WAFDuplicateItemException" = "WAFDuplicateItemException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFDuplicateItemException, __BaseException>) {
+    super({
+      name: "WAFDuplicateItemException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFDuplicateItemException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2345,29 +2470,65 @@ export interface WAFDuplicateItemException extends __SmithyException, $MetadataB
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
  *          need to make to the new copy, and retry your operation. </p>
  */
-export interface WAFOptimisticLockException extends __SmithyException, $MetadataBearer {
-  name: "WAFOptimisticLockException";
-  $fault: "client";
+export class WAFOptimisticLockException extends __BaseException {
+  readonly name: "WAFOptimisticLockException" = "WAFOptimisticLockException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFOptimisticLockException, __BaseException>) {
+    super({
+      name: "WAFOptimisticLockException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFOptimisticLockException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An error occurred during the tagging operation. Retry your request.</p>
  */
-export interface WAFTagOperationException extends __SmithyException, $MetadataBearer {
-  name: "WAFTagOperationException";
-  $fault: "client";
+export class WAFTagOperationException extends __BaseException {
+  readonly name: "WAFTagOperationException" = "WAFTagOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFTagOperationException, __BaseException>) {
+    super({
+      name: "WAFTagOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFTagOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
  *          your request.</p>
  */
-export interface WAFTagOperationInternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "WAFTagOperationInternalErrorException";
-  $fault: "server";
+export class WAFTagOperationInternalErrorException extends __BaseException {
+  readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFTagOperationInternalErrorException, __BaseException>) {
+    super({
+      name: "WAFTagOperationInternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFTagOperationInternalErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2754,10 +2915,22 @@ export namespace DeleteIPSetResponse {
  * <p>WAF couldn’t perform the operation because your resource is being used by another
  *          resource or it’s associated with another resource. </p>
  */
-export interface WAFAssociatedItemException extends __SmithyException, $MetadataBearer {
-  name: "WAFAssociatedItemException";
-  $fault: "client";
+export class WAFAssociatedItemException extends __BaseException {
+  readonly name: "WAFAssociatedItemException" = "WAFAssociatedItemException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFAssociatedItemException, __BaseException>) {
+    super({
+      name: "WAFAssociatedItemException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFAssociatedItemException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteLoggingConfigurationRequest {
@@ -5324,10 +5497,22 @@ export namespace PutLoggingConfigurationResponse {
  *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
  *                in the <i>WAF Developer Guide</i>.</p>
  */
-export interface WAFLogDestinationPermissionIssueException extends __SmithyException, $MetadataBearer {
-  name: "WAFLogDestinationPermissionIssueException";
-  $fault: "client";
+export class WAFLogDestinationPermissionIssueException extends __BaseException {
+  readonly name: "WAFLogDestinationPermissionIssueException" = "WAFLogDestinationPermissionIssueException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFLogDestinationPermissionIssueException, __BaseException>) {
+    super({
+      name: "WAFLogDestinationPermissionIssueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFLogDestinationPermissionIssueException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5340,10 +5525,20 @@ export interface WAFLogDestinationPermissionIssueException extends __SmithyExcep
  *          again. If you receive this same exception again, you will have to wait additional time
  *          until the role is unlocked.</p>
  */
-export interface WAFServiceLinkedRoleErrorException extends __SmithyException, $MetadataBearer {
-  name: "WAFServiceLinkedRoleErrorException";
-  $fault: "client";
-  message?: string;
+export class WAFServiceLinkedRoleErrorException extends __BaseException {
+  readonly name: "WAFServiceLinkedRoleErrorException" = "WAFServiceLinkedRoleErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFServiceLinkedRoleErrorException, __BaseException>) {
+    super({
+      name: "WAFServiceLinkedRoleErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFServiceLinkedRoleErrorException.prototype);
+  }
 }
 
 /**
@@ -5526,10 +5721,22 @@ export namespace PutPermissionPolicyResponse {
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
  */
-export interface WAFInvalidPermissionPolicyException extends __SmithyException, $MetadataBearer {
-  name: "WAFInvalidPermissionPolicyException";
-  $fault: "client";
+export class WAFInvalidPermissionPolicyException extends __BaseException {
+  readonly name: "WAFInvalidPermissionPolicyException" = "WAFInvalidPermissionPolicyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFInvalidPermissionPolicyException, __BaseException>) {
+    super({
+      name: "WAFInvalidPermissionPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFInvalidPermissionPolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface TagResourceRequest {

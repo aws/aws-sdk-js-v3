@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
 /**
  * <p>The container for abort incomplete multipart upload</p>
@@ -843,17 +846,39 @@ export namespace CreateAccessPointForObjectLambdaResult {
  *          all users of the Outposts in this Region. Select a different name and try
  *          again.</p>
  */
-export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "BucketAlreadyExists";
-  $fault: "client";
+export class BucketAlreadyExists extends __BaseException {
+  readonly name: "BucketAlreadyExists" = "BucketAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BucketAlreadyExists, __BaseException>) {
+    super({
+      name: "BucketAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BucketAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>The Outposts bucket you tried to create already exists, and you own it. </p>
  */
-export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
-  name: "BucketAlreadyOwnedByYou";
-  $fault: "client";
+export class BucketAlreadyOwnedByYou extends __BaseException {
+  readonly name: "BucketAlreadyOwnedByYou" = "BucketAlreadyOwnedByYou";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BucketAlreadyOwnedByYou, __BaseException>) {
+    super({
+      name: "BucketAlreadyOwnedByYou",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BucketAlreadyOwnedByYou.prototype);
+  }
 }
 
 export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
@@ -1012,10 +1037,22 @@ export namespace CreateBucketResult {
 /**
  * <p></p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2199,28 +2236,64 @@ export namespace CreateJobResult {
 /**
  * <p></p>
  */
-export interface IdempotencyException extends __SmithyException, $MetadataBearer {
-  name: "IdempotencyException";
-  $fault: "client";
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateMultiRegionAccessPointRequest {
@@ -2483,10 +2556,22 @@ export namespace DeleteJobTaggingResult {
 /**
  * <p></p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteMultiRegionAccessPointRequest {
@@ -4046,10 +4131,22 @@ export namespace GetPublicAccessBlockRequest {
  *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
  *          set.</p>
  */
-export interface NoSuchPublicAccessBlockConfiguration extends __SmithyException, $MetadataBearer {
-  name: "NoSuchPublicAccessBlockConfiguration";
-  $fault: "client";
+export class NoSuchPublicAccessBlockConfiguration extends __BaseException {
+  readonly name: "NoSuchPublicAccessBlockConfiguration" = "NoSuchPublicAccessBlockConfiguration";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchPublicAccessBlockConfiguration, __BaseException>) {
+    super({
+      name: "NoSuchPublicAccessBlockConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchPublicAccessBlockConfiguration.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetStorageLensConfigurationRequest {
@@ -4593,19 +4690,43 @@ export namespace ListAccessPointsForObjectLambdaResult {
 /**
  * <p></p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListJobsRequest {
@@ -5220,10 +5341,22 @@ export namespace PutJobTaggingResult {
 /**
  * <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutMultiRegionAccessPointPolicyRequest {
@@ -5417,10 +5550,22 @@ export namespace UpdateJobPriorityResult {
 /**
  * <p></p>
  */
-export interface JobStatusException extends __SmithyException, $MetadataBearer {
-  name: "JobStatusException";
-  $fault: "client";
+export class JobStatusException extends __BaseException {
+  readonly name: "JobStatusException" = "JobStatusException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<JobStatusException, __BaseException>) {
+    super({
+      name: "JobStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, JobStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RequestedJobStatus {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SNSServiceException as __BaseException } from "./SNSServiceException";
 
 export interface AddPermissionInput {
   /**
@@ -37,38 +40,78 @@ export namespace AddPermissionInput {
 /**
  * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
-export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationErrorException";
-  $fault: "client";
-  message?: string;
+export class AuthorizationErrorException extends __BaseException {
+  readonly name: "AuthorizationErrorException" = "AuthorizationErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationErrorException, __BaseException>) {
+    super({
+      name: "AuthorizationErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationErrorException.prototype);
+  }
 }
 
 /**
  * <p>Indicates an internal service error.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
-  message?: string;
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the requested resource does not exist.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
@@ -124,13 +167,20 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
 /**
  * <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
  */
-export interface ThrottledException extends __SmithyException, $MetadataBearer {
-  name: "ThrottledException";
-  $fault: "client";
+export class ThrottledException extends __BaseException {
+  readonly name: "ThrottledException" = "ThrottledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Throttled request.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
+    super({
+      name: "ThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottledException.prototype);
+  }
 }
 
 /**
@@ -189,20 +239,40 @@ export namespace ConfirmSubscriptionResponse {
  *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
  *             Center.</p>
  */
-export interface FilterPolicyLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "FilterPolicyLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class FilterPolicyLimitExceededException extends __BaseException {
+  readonly name: "FilterPolicyLimitExceededException" = "FilterPolicyLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FilterPolicyLimitExceededException, __BaseException>) {
+    super({
+      name: "FilterPolicyLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FilterPolicyLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  */
-export interface SubscriptionLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class SubscriptionLimitExceededException extends __BaseException {
+  readonly name: "SubscriptionLimitExceededException" = "SubscriptionLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionLimitExceededException, __BaseException>) {
+    super({
+      name: "SubscriptionLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -369,30 +439,60 @@ export namespace CreateSMSSandboxPhoneNumberResult {
  * <p>Indicates that the specified phone number opted out of receiving SMS messages from
  *             your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
  */
-export interface OptedOutException extends __SmithyException, $MetadataBearer {
-  name: "OptedOutException";
-  $fault: "client";
-  message?: string;
+export class OptedOutException extends __BaseException {
+  readonly name: "OptedOutException" = "OptedOutException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OptedOutException, __BaseException>) {
+    super({
+      name: "OptedOutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OptedOutException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface UserErrorException extends __SmithyException, $MetadataBearer {
-  name: "UserErrorException";
-  $fault: "client";
-  message?: string;
+export class UserErrorException extends __BaseException {
+  readonly name: "UserErrorException" = "UserErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserErrorException, __BaseException>) {
+    super({
+      name: "UserErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserErrorException.prototype);
+  }
 }
 
 /**
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
  */
-export interface ConcurrentAccessException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentAccessException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentAccessException extends __BaseException {
+  readonly name: "ConcurrentAccessException" = "ConcurrentAccessException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentAccessException, __BaseException>) {
+    super({
+      name: "ConcurrentAccessException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentAccessException.prototype);
+  }
 }
 
 /**
@@ -549,48 +649,98 @@ export namespace CreateTopicResponse {
  * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
  *             request using Signature Version 4.</p>
  */
-export interface InvalidSecurityException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSecurityException";
-  $fault: "client";
-  message?: string;
+export class InvalidSecurityException extends __BaseException {
+  readonly name: "InvalidSecurityException" = "InvalidSecurityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecurityException, __BaseException>) {
+    super({
+      name: "InvalidSecurityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecurityException.prototype);
+  }
 }
 
 /**
  * <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
  *             short while and then retry the operation.</p>
  */
-export interface StaleTagException extends __SmithyException, $MetadataBearer {
-  name: "StaleTagException";
-  $fault: "client";
-  message?: string;
+export class StaleTagException extends __BaseException {
+  readonly name: "StaleTagException" = "StaleTagException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StaleTagException, __BaseException>) {
+    super({
+      name: "StaleTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StaleTagException.prototype);
+  }
 }
 
 /**
  * <p>Can't add more than 50 tags to a topic.</p>
  */
-export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TagLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class TagLimitExceededException extends __BaseException {
+  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
+    super({
+      name: "TagLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The request doesn't comply with the IAM tag policy. Correct your request and then
  *             retry it.</p>
  */
-export interface TagPolicyException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyException";
-  $fault: "client";
-  message?: string;
+export class TagPolicyException extends __BaseException {
+  readonly name: "TagPolicyException" = "TagPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
+    super({
+      name: "TagPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
-export interface TopicLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TopicLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class TopicLimitExceededException extends __BaseException {
+  readonly name: "TopicLimitExceededException" = "TopicLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TopicLimitExceededException, __BaseException>) {
+    super({
+      name: "TopicLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TopicLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -662,10 +812,20 @@ export namespace DeleteSMSSandboxPhoneNumberResult {
  * <p>Can’t perform the action on the specified resource. Make sure that the resource
  *             exists.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface DeleteTopicInput {
@@ -1307,10 +1467,22 @@ export namespace ListOriginationNumbersResult {
 /**
  * <p>Indicates that a parameter in the request is invalid.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1773,45 +1945,79 @@ export namespace OptInPhoneNumberResponse {
 /**
  * <p>Exception error indicating endpoint disabled.</p>
  */
-export interface EndpointDisabledException extends __SmithyException, $MetadataBearer {
-  name: "EndpointDisabledException";
-  $fault: "client";
+export class EndpointDisabledException extends __BaseException {
+  readonly name: "EndpointDisabledException" = "EndpointDisabledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Message for endpoint disabled.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EndpointDisabledException, __BaseException>) {
+    super({
+      name: "EndpointDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointDisabledException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated constraints.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The parameter of an entry in a request doesn't abide by the specification. </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
-export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "KMSAccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class KMSAccessDeniedException extends __BaseException {
+  readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
+    super({
+      name: "KMSAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
-  name: "KMSDisabledException";
-  $fault: "client";
-  message?: string;
+export class KMSDisabledException extends __BaseException {
+  readonly name: "KMSDisabledException" = "KMSDisabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
+    super({
+      name: "KMSDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSDisabledException.prototype);
+  }
 }
 
 /**
@@ -1820,29 +2026,59 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
  *                 Customer Master Key</a> in the <i>Key Management Service Developer
  *                 Guide</i>.</p>
  */
-export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidStateException";
-  $fault: "client";
-  message?: string;
+export class KMSInvalidStateException extends __BaseException {
+  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
+    super({
+      name: "KMSInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "KMSNotFoundException";
-  $fault: "client";
-  message?: string;
+export class KMSNotFoundException extends __BaseException {
+  readonly name: "KMSNotFoundException" = "KMSNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
+    super({
+      name: "KMSNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
-export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
-  name: "KMSOptInRequired";
-  $fault: "client";
-  message?: string;
+export class KMSOptInRequired extends __BaseException {
+  readonly name: "KMSOptInRequired" = "KMSOptInRequired";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSOptInRequired, __BaseException>) {
+    super({
+      name: "KMSOptInRequired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSOptInRequired.prototype);
+  }
 }
 
 /**
@@ -1851,22 +2087,39 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
  *             the <i>Key Management Service Developer Guide.</i>
  *          </p>
  */
-export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "KMSThrottlingException";
-  $fault: "client";
-  message?: string;
+export class KMSThrottlingException extends __BaseException {
+  readonly name: "KMSThrottlingException" = "KMSThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSThrottlingException, __BaseException>) {
+    super({
+      name: "KMSThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSThrottlingException.prototype);
+  }
 }
 
 /**
  * <p>Exception error indicating platform application disabled.</p>
  */
-export interface PlatformApplicationDisabledException extends __SmithyException, $MetadataBearer {
-  name: "PlatformApplicationDisabledException";
-  $fault: "client";
+export class PlatformApplicationDisabledException extends __BaseException {
+  readonly name: "PlatformApplicationDisabledException" = "PlatformApplicationDisabledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Message for platform application disabled.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PlatformApplicationDisabledException, __BaseException>) {
+    super({
+      name: "PlatformApplicationDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformApplicationDisabledException.prototype);
+  }
 }
 
 /**
@@ -2109,37 +2362,77 @@ export namespace PublishResponse {
 /**
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
-export interface BatchEntryIdsNotDistinctException extends __SmithyException, $MetadataBearer {
-  name: "BatchEntryIdsNotDistinctException";
-  $fault: "client";
-  message?: string;
+export class BatchEntryIdsNotDistinctException extends __BaseException {
+  readonly name: "BatchEntryIdsNotDistinctException" = "BatchEntryIdsNotDistinctException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchEntryIdsNotDistinctException, __BaseException>) {
+    super({
+      name: "BatchEntryIdsNotDistinctException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchEntryIdsNotDistinctException.prototype);
+  }
 }
 
 /**
  * <p>The length of all the batch messages put together is more than the limit.</p>
  */
-export interface BatchRequestTooLongException extends __SmithyException, $MetadataBearer {
-  name: "BatchRequestTooLongException";
-  $fault: "client";
-  message?: string;
+export class BatchRequestTooLongException extends __BaseException {
+  readonly name: "BatchRequestTooLongException" = "BatchRequestTooLongException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchRequestTooLongException, __BaseException>) {
+    super({
+      name: "BatchRequestTooLongException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchRequestTooLongException.prototype);
+  }
 }
 
 /**
  * <p>The batch request doesn't contain any entries.</p>
  */
-export interface EmptyBatchRequestException extends __SmithyException, $MetadataBearer {
-  name: "EmptyBatchRequestException";
-  $fault: "client";
-  message?: string;
+export class EmptyBatchRequestException extends __BaseException {
+  readonly name: "EmptyBatchRequestException" = "EmptyBatchRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EmptyBatchRequestException, __BaseException>) {
+    super({
+      name: "EmptyBatchRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EmptyBatchRequestException.prototype);
+  }
 }
 
 /**
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
  */
-export interface InvalidBatchEntryIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidBatchEntryIdException";
-  $fault: "client";
-  message?: string;
+export class InvalidBatchEntryIdException extends __BaseException {
+  readonly name: "InvalidBatchEntryIdException" = "InvalidBatchEntryIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidBatchEntryIdException, __BaseException>) {
+    super({
+      name: "InvalidBatchEntryIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBatchEntryIdException.prototype);
+  }
 }
 
 /**
@@ -2364,10 +2657,20 @@ export namespace PublishBatchResponse {
 /**
  * <p>The batch request contains more entries than permissible.</p>
  */
-export interface TooManyEntriesInBatchRequestException extends __SmithyException, $MetadataBearer {
-  name: "TooManyEntriesInBatchRequestException";
-  $fault: "client";
-  message?: string;
+export class TooManyEntriesInBatchRequestException extends __BaseException {
+  readonly name: "TooManyEntriesInBatchRequestException" = "TooManyEntriesInBatchRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyEntriesInBatchRequestException, __BaseException>) {
+    super({
+      name: "TooManyEntriesInBatchRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyEntriesInBatchRequestException.prototype);
+  }
 }
 
 /**
@@ -3126,14 +3429,27 @@ export namespace UntagResourceResponse {
 /**
  * <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
  */
-export interface VerificationException extends __SmithyException, $MetadataBearer {
-  name: "VerificationException";
-  $fault: "client";
+export class VerificationException extends __BaseException {
+  readonly name: "VerificationException" = "VerificationException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>The status of the verification error.</p>
    */
   Status: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VerificationException, __BaseException>) {
+    super({
+      name: "VerificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VerificationException.prototype);
+    this.Message = opts.Message;
+    this.Status = opts.Status;
+  }
 }
 
 export interface VerifySMSSandboxPhoneNumberInput {

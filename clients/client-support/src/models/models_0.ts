@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SupportServiceException as __BaseException } from "./SupportServiceException";
 
 /**
  * <p>An attachment to a case communication. The attachment consists of the file name and
@@ -86,66 +89,98 @@ export namespace AddAttachmentsToSetResponse {
  * <p>The limit for the number of attachment sets created in a short period of time has been
  *             exceeded.</p>
  */
-export interface AttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "AttachmentLimitExceeded";
-  $fault: "client";
+export class AttachmentLimitExceeded extends __BaseException {
+  readonly name: "AttachmentLimitExceeded" = "AttachmentLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The limit for the number of attachment sets created in a short period of time has been
-   *             exceeded.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AttachmentLimitExceeded, __BaseException>) {
+    super({
+      name: "AttachmentLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
  *             is created.</p>
  */
-export interface AttachmentSetExpired extends __SmithyException, $MetadataBearer {
-  name: "AttachmentSetExpired";
-  $fault: "client";
+export class AttachmentSetExpired extends __BaseException {
+  readonly name: "AttachmentSetExpired" = "AttachmentSetExpired";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The expiration time of the attachment set has passed. The set expires one hour after
-   *             it is created.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AttachmentSetExpired, __BaseException>) {
+    super({
+      name: "AttachmentSetExpired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentSetExpired.prototype);
+  }
 }
 
 /**
  * <p>An attachment set with the specified ID could not be found.</p>
  */
-export interface AttachmentSetIdNotFound extends __SmithyException, $MetadataBearer {
-  name: "AttachmentSetIdNotFound";
-  $fault: "client";
+export class AttachmentSetIdNotFound extends __BaseException {
+  readonly name: "AttachmentSetIdNotFound" = "AttachmentSetIdNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p>An attachment set with the specified ID could not be found.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AttachmentSetIdNotFound, __BaseException>) {
+    super({
+      name: "AttachmentSetIdNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentSetIdNotFound.prototype);
+  }
 }
 
 /**
  * <p>A limit for the size of an attachment set has been exceeded. The limits are three
  *             attachments and 5 MB per attachment.</p>
  */
-export interface AttachmentSetSizeLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "AttachmentSetSizeLimitExceeded";
-  $fault: "client";
+export class AttachmentSetSizeLimitExceeded extends __BaseException {
+  readonly name: "AttachmentSetSizeLimitExceeded" = "AttachmentSetSizeLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A limit for the size of an attachment set has been exceeded. The limits are three
-   *             attachments and 5 MB per attachment.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AttachmentSetSizeLimitExceeded, __BaseException>) {
+    super({
+      name: "AttachmentSetSizeLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentSetSizeLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p>An internal server error occurred.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   /**
-   * <p>An internal server error occurred.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+  }
 }
 
 export interface AddCommunicationToCaseRequest {
@@ -207,13 +242,20 @@ export namespace AddCommunicationToCaseResponse {
 /**
  * <p>The requested <code>caseId</code> couldn't be located.</p>
  */
-export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
-  name: "CaseIdNotFound";
-  $fault: "client";
+export class CaseIdNotFound extends __BaseException {
+  readonly name: "CaseIdNotFound" = "CaseIdNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The requested <code>CaseId</code> could not be located.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CaseIdNotFound, __BaseException>) {
+    super({
+      name: "CaseIdNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaseIdNotFound.prototype);
+  }
 }
 
 /**
@@ -244,26 +286,39 @@ export namespace AttachmentDetails {
 /**
  * <p>An attachment with the specified ID could not be found.</p>
  */
-export interface AttachmentIdNotFound extends __SmithyException, $MetadataBearer {
-  name: "AttachmentIdNotFound";
-  $fault: "client";
+export class AttachmentIdNotFound extends __BaseException {
+  readonly name: "AttachmentIdNotFound" = "AttachmentIdNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p>An attachment with the specified ID could not be found.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AttachmentIdNotFound, __BaseException>) {
+    super({
+      name: "AttachmentIdNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentIdNotFound.prototype);
+  }
 }
 
 /**
  * <p>The case creation limit for the account has been exceeded.</p>
  */
-export interface CaseCreationLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "CaseCreationLimitExceeded";
-  $fault: "client";
+export class CaseCreationLimitExceeded extends __BaseException {
+  readonly name: "CaseCreationLimitExceeded" = "CaseCreationLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>An error message that indicates that you have exceeded the number of cases you can
-   *             have open.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CaseCreationLimitExceeded, __BaseException>) {
+    super({
+      name: "CaseCreationLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaseCreationLimitExceeded.prototype);
+  }
 }
 
 export interface CreateCaseRequest {
@@ -367,14 +422,20 @@ export namespace CreateCaseResponse {
  * <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
  *             period of time has been exceeded.</p>
  */
-export interface DescribeAttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "DescribeAttachmentLimitExceeded";
-  $fault: "client";
+export class DescribeAttachmentLimitExceeded extends __BaseException {
+  readonly name: "DescribeAttachmentLimitExceeded" = "DescribeAttachmentLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
-   *             period of time has been exceeded.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DescribeAttachmentLimitExceeded, __BaseException>) {
+    super({
+      name: "DescribeAttachmentLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DescribeAttachmentLimitExceeded.prototype);
+  }
 }
 
 export interface DescribeAttachmentRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SnowballServiceException as __BaseException } from "./SnowballServiceException";
 
 /**
  * <p>The address that you want the Snow device(s) associated with a specific job to be
@@ -125,34 +128,71 @@ export namespace CancelClusterResult {
  * <p>The action can't be performed because the job's current state doesn't allow that action
  *       to be performed.</p>
  */
-export interface InvalidJobStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidJobStateException";
-  $fault: "client";
+export class InvalidJobStateException extends __BaseException {
+  readonly name: "InvalidJobStateException" = "InvalidJobStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidJobStateException, __BaseException>) {
+    super({
+      name: "InvalidJobStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidJobStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource can't be found. Check the information you provided in your last
  *       request, and try again.</p>
  */
-export interface InvalidResourceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceException";
-  $fault: "client";
+export class InvalidResourceException extends __BaseException {
+  readonly name: "InvalidResourceException" = "InvalidResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The provided resource value is invalid.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceException, __BaseException>) {
+    super({
+      name: "InvalidResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The provided Key Management Service key lacks the permissions to perform the specified
  *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  */
-export interface KMSRequestFailedException extends __SmithyException, $MetadataBearer {
-  name: "KMSRequestFailedException";
-  $fault: "client";
+export class KMSRequestFailedException extends __BaseException {
+  readonly name: "KMSRequestFailedException" = "KMSRequestFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSRequestFailedException, __BaseException>) {
+    super({
+      name: "KMSRequestFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSRequestFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CancelJobRequest {
@@ -221,10 +261,22 @@ export namespace CreateAddressResult {
  * <p>The address provided was invalid. Check the address with your region's carrier, and try
  *       again.</p>
  */
-export interface InvalidAddressException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAddressException";
-  $fault: "client";
+export class InvalidAddressException extends __BaseException {
+  readonly name: "InvalidAddressException" = "InvalidAddressException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAddressException, __BaseException>) {
+    super({
+      name: "InvalidAddressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAddressException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -232,10 +284,22 @@ export interface InvalidAddressException extends __SmithyException, $MetadataBea
  *       occurred. Check the address with your region's carrier and try again. If the issue persists,
  *       contact Amazon Web Services Support.</p>
  */
-export interface UnsupportedAddressException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedAddressException";
-  $fault: "client";
+export class UnsupportedAddressException extends __BaseException {
+  readonly name: "UnsupportedAddressException" = "UnsupportedAddressException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedAddressException, __BaseException>) {
+    super({
+      name: "UnsupportedAddressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedAddressException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum JobType {
@@ -816,19 +880,43 @@ export namespace CreateClusterResult {
  * <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
  *       action.</p>
  */
-export interface Ec2RequestFailedException extends __SmithyException, $MetadataBearer {
-  name: "Ec2RequestFailedException";
-  $fault: "client";
+export class Ec2RequestFailedException extends __BaseException {
+  readonly name: "Ec2RequestFailedException" = "Ec2RequestFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Ec2RequestFailedException, __BaseException>) {
+    super({
+      name: "Ec2RequestFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Ec2RequestFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
  */
-export interface InvalidInputCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputCombinationException";
-  $fault: "client";
+export class InvalidInputCombinationException extends __BaseException {
+  readonly name: "InvalidInputCombinationException" = "InvalidInputCombinationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputCombinationException, __BaseException>) {
+    super({
+      name: "InvalidInputCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputCombinationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -836,10 +924,22 @@ export interface InvalidInputCombinationException extends __SmithyException, $Me
  *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
  *       create jobs until your cluster has exactly five nodes.</p>
  */
-export interface ClusterLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ClusterLimitExceededException";
-  $fault: "client";
+export class ClusterLimitExceededException extends __BaseException {
+  readonly name: "ClusterLimitExceededException" = "ClusterLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterLimitExceededException, __BaseException>) {
+    super({
+      name: "ClusterLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1151,15 +1251,28 @@ export namespace CreateLongTermPricingResult {
  * <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
  *       when other requests are not completed.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>
    */
   ConflictResource?: string;
 
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.ConflictResource = opts.ConflictResource;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateReturnShippingLabelRequest {
@@ -1214,10 +1327,22 @@ export namespace CreateReturnShippingLabelResult {
  *       return shipping label already exists. In this case, use
  *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
  */
-export interface ReturnShippingLabelAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ReturnShippingLabelAlreadyExistsException";
-  $fault: "client";
+export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
+  readonly name: "ReturnShippingLabelAlreadyExistsException" = "ReturnShippingLabelAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReturnShippingLabelAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ReturnShippingLabelAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReturnShippingLabelAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeAddressRequest {
@@ -1304,10 +1429,22 @@ export namespace DescribeAddressesResult {
  *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
  *       again.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeClusterRequest {

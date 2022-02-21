@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
 
 /**
  * <p>A tag that can be added to an ElastiCache cluster or replication group.
@@ -57,82 +60,172 @@ export namespace AddTagsToResourceMessage {
 /**
  * <p>The requested cluster ID does not refer to an existing cluster.</p>
  */
-export interface CacheClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CacheClusterNotFoundFault extends __BaseException {
+  readonly name: "CacheClusterNotFoundFault" = "CacheClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "CacheClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheClusterNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
  */
-export interface CacheParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CacheParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "CacheParameterGroupNotFoundFault" = "CacheParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "CacheParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested cache security group name does not refer to an existing cache security group.</p>
  */
-export interface CacheSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CacheSecurityGroupNotFoundFault extends __BaseException {
+  readonly name: "CacheSecurityGroupNotFoundFault" = "CacheSecurityGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSecurityGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "CacheSecurityGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSecurityGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  */
-export interface CacheSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CacheSubnetGroupNotFoundFault extends __BaseException {
+  readonly name: "CacheSubnetGroupNotFoundFault" = "CacheSubnetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSubnetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "CacheSubnetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSubnetGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
-export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
+export class InvalidARNFault extends __BaseException {
+  readonly name: "InvalidARNFault" = "InvalidARNFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidARNFault, __BaseException>) {
+    super({
+      name: "InvalidARNFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidARNFault.prototype);
+  }
 }
 
 /**
  * <p>The requested replication group is not in the <code>available</code> state.</p>
  */
-export interface InvalidReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidReplicationGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidReplicationGroupStateFault extends __BaseException {
+  readonly name: "InvalidReplicationGroupStateFault" = "InvalidReplicationGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidReplicationGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidReplicationGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReplicationGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The specified replication group does not exist.</p>
  */
-export interface ReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReplicationGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReplicationGroupNotFoundFault extends __BaseException {
+  readonly name: "ReplicationGroupNotFoundFault" = "ReplicationGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ReplicationGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested reserved cache node was not found.</p>
  */
-export interface ReservedCacheNodeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedCacheNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedCacheNodeNotFoundFault extends __BaseException {
+  readonly name: "ReservedCacheNodeNotFoundFault" = "ReservedCacheNodeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedCacheNodeNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedCacheNodeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedCacheNodeNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested snapshot name does not refer to an existing snapshot.</p>
  */
-export interface SnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotNotFoundFault extends __BaseException {
+  readonly name: "SnapshotNotFoundFault" = "SnapshotNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotNotFoundFault, __BaseException>) {
+    super({
+      name: "SnapshotNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -158,28 +251,58 @@ export namespace TagListMessage {
 /**
  * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  */
-export interface TagQuotaPerResourceExceeded extends __SmithyException, $MetadataBearer {
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
+export class TagQuotaPerResourceExceeded extends __BaseException {
+  readonly name: "TagQuotaPerResourceExceeded" = "TagQuotaPerResourceExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagQuotaPerResourceExceeded, __BaseException>) {
+    super({
+      name: "TagQuotaPerResourceExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagQuotaPerResourceExceeded.prototype);
+  }
 }
 
 /**
  * <p>The user group was not found or does not exist</p>
  */
-export interface UserGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UserGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class UserGroupNotFoundFault extends __BaseException {
+  readonly name: "UserGroupNotFoundFault" = "UserGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "UserGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The user does not exist or could not be found.</p>
  */
-export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UserNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class UserNotFoundFault extends __BaseException {
+  readonly name: "UserNotFoundFault" = "UserNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserNotFoundFault, __BaseException>) {
+    super({
+      name: "UserNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -215,10 +338,20 @@ export namespace AllowedNodeTypeModificationsMessage {
 /**
  * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
  */
-export interface AuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationAlreadyExistsFault extends __BaseException {
+  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "AuthorizationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -373,34 +506,58 @@ export namespace AuthorizeCacheSecurityGroupIngressResult {
 /**
  * <p>The current state of the cache security group does not allow deletion.</p>
  */
-export interface InvalidCacheSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidCacheSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidCacheSecurityGroupStateFault extends __BaseException {
+  readonly name: "InvalidCacheSecurityGroupStateFault" = "InvalidCacheSecurityGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCacheSecurityGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidCacheSecurityGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCacheSecurityGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Two or more parameters that must not be used together were used together.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+  }
 }
 
 /**
  * <p>The value for a parameter is invalid.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A parameter value is invalid.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 export interface BatchApplyUpdateActionMessage {
@@ -432,10 +589,20 @@ export namespace BatchApplyUpdateActionMessage {
 /**
  * <p>The service update doesn't exist</p>
  */
-export interface ServiceUpdateNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceUpdateNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ServiceUpdateNotFoundFault extends __BaseException {
+  readonly name: "ServiceUpdateNotFoundFault" = "ServiceUpdateNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUpdateNotFoundFault, __BaseException>) {
+    super({
+      name: "ServiceUpdateNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUpdateNotFoundFault.prototype);
+  }
 }
 
 export enum UpdateActionStatus {
@@ -1243,10 +1410,20 @@ export namespace CompleteMigrationResponse {
 /**
  * <p>The designated replication group is not available for data migration.</p>
  */
-export interface ReplicationGroupNotUnderMigrationFault extends __SmithyException, $MetadataBearer {
-  name: "ReplicationGroupNotUnderMigrationFault";
-  $fault: "client";
-  message?: string;
+export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
+  readonly name: "ReplicationGroupNotUnderMigrationFault" = "ReplicationGroupNotUnderMigrationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationGroupNotUnderMigrationFault, __BaseException>) {
+    super({
+      name: "ReplicationGroupNotUnderMigrationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationGroupNotUnderMigrationFault.prototype);
+  }
 }
 
 /**
@@ -1910,46 +2087,96 @@ export namespace CopySnapshotResult {
 /**
  * <p>The current state of the snapshot does not allow the requested operation to occur.</p>
  */
-export interface InvalidSnapshotStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnapshotStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidSnapshotStateFault extends __BaseException {
+  readonly name: "InvalidSnapshotStateFault" = "InvalidSnapshotStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnapshotStateFault, __BaseException>) {
+    super({
+      name: "InvalidSnapshotStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnapshotStateFault.prototype);
+  }
 }
 
 /**
  * <p>You already have a snapshot with the given name.</p>
  */
-export interface SnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotAlreadyExistsFault extends __BaseException {
+  readonly name: "SnapshotAlreadyExistsFault" = "SnapshotAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SnapshotAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
  */
-export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotQuotaExceededFault extends __BaseException {
+  readonly name: "SnapshotQuotaExceededFault" = "SnapshotQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SnapshotQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>You already have a cluster with the given identifier.</p>
  */
-export interface CacheClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CacheClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CacheClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "CacheClusterAlreadyExistsFault" = "CacheClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CacheClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
  */
-export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "ClusterQuotaForCustomerExceededFault" = "ClusterQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "ClusterQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 export enum AZMode {
@@ -3517,55 +3744,115 @@ export namespace CreateCacheClusterResult {
  * <p>The requested cache node type is not available in the specified Availability Zone.
  *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  */
-export interface InsufficientCacheClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientCacheClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientCacheClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientCacheClusterCapacityFault" = "InsufficientCacheClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCacheClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientCacheClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCacheClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>The VPC network is in an invalid state.</p>
  */
-export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidVPCNetworkStateFault extends __BaseException {
+  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
+    super({
+      name: "InvalidVPCNetworkStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
  */
-export interface NodeQuotaForClusterExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForClusterExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForClusterExceededFault" = "NodeQuotaForClusterExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForClusterExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForClusterExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForClusterExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
  */
-export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForCustomerExceededFault" = "NodeQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 /**
  * <p>A cache parameter group with the requested name already exists.</p>
  */
-export interface CacheParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CacheParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "CacheParameterGroupAlreadyExistsFault" = "CacheParameterGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheParameterGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CacheParameterGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheParameterGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
  */
-export interface CacheParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CacheParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CacheParameterGroupQuotaExceededFault extends __BaseException {
+  readonly name: "CacheParameterGroupQuotaExceededFault" = "CacheParameterGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheParameterGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CacheParameterGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheParameterGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3682,28 +3969,58 @@ export namespace CreateCacheParameterGroupResult {
 /**
  * <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
  */
-export interface InvalidCacheParameterGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidCacheParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidCacheParameterGroupStateFault extends __BaseException {
+  readonly name: "InvalidCacheParameterGroupStateFault" = "InvalidCacheParameterGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCacheParameterGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidCacheParameterGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCacheParameterGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>A cache security group with the specified name already exists.</p>
  */
-export interface CacheSecurityGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "CacheSecurityGroupAlreadyExistsFault" = "CacheSecurityGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSecurityGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CacheSecurityGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSecurityGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
  */
-export interface CacheSecurityGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
+  readonly name: "CacheSecurityGroupQuotaExceededFault" = "CacheSecurityGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSecurityGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CacheSecurityGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSecurityGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3774,28 +4091,58 @@ export namespace CreateCacheSecurityGroupResult {
 /**
  * <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
  */
-export interface CacheSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "CacheSubnetGroupAlreadyExistsFault" = "CacheSubnetGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSubnetGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CacheSubnetGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSubnetGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
  */
-export interface CacheSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
+  readonly name: "CacheSubnetGroupQuotaExceededFault" = "CacheSubnetGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSubnetGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CacheSubnetGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSubnetGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
  */
-export interface CacheSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CacheSubnetQuotaExceededFault extends __BaseException {
+  readonly name: "CacheSubnetQuotaExceededFault" = "CacheSubnetQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSubnetQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CacheSubnetQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSubnetQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3985,20 +4332,40 @@ export namespace CreateCacheSubnetGroupResult {
 /**
  * <p>An invalid subnet identifier was specified.</p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
  *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
  */
-export interface SubnetNotAllowedFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotAllowedFault";
-  $fault: "client";
-  message?: string;
+export class SubnetNotAllowedFault extends __BaseException {
+  readonly name: "SubnetNotAllowedFault" = "SubnetNotAllowedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetNotAllowedFault, __BaseException>) {
+    super({
+      name: "SubnetNotAllowedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetNotAllowedFault.prototype);
+  }
 }
 
 export interface CreateGlobalReplicationGroupMessage {
@@ -4223,19 +4590,39 @@ export namespace CreateGlobalReplicationGroupResult {
 /**
  * <p>The Global datastore name already exists.</p>
  */
-export interface GlobalReplicationGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "GlobalReplicationGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "GlobalReplicationGroupAlreadyExistsFault" = "GlobalReplicationGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "GlobalReplicationGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalReplicationGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The specified service linked role (SLR) was not found.</p>
  */
-export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  readonly name: "ServiceLinkedRoleNotFoundFault" = "ServiceLinkedRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "ServiceLinkedRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLinkedRoleNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -4899,56 +5286,116 @@ export namespace CreateReplicationGroupResult {
 /**
  * <p>The Global datastore does not exist</p>
  */
-export interface GlobalReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "GlobalReplicationGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class GlobalReplicationGroupNotFoundFault extends __BaseException {
+  readonly name: "GlobalReplicationGroupNotFoundFault" = "GlobalReplicationGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalReplicationGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "GlobalReplicationGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalReplicationGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested cluster is not in the <code>available</code> state.</p>
  */
-export interface InvalidCacheClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidCacheClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidCacheClusterStateFault extends __BaseException {
+  readonly name: "InvalidCacheClusterStateFault" = "InvalidCacheClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCacheClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidCacheClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCacheClusterStateFault.prototype);
+  }
 }
 
 /**
  * <p>The Global datastore is not available or in primary-only state.</p>
  */
-export interface InvalidGlobalReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidGlobalReplicationGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
+  readonly name: "InvalidGlobalReplicationGroupStateFault" = "InvalidGlobalReplicationGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGlobalReplicationGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidGlobalReplicationGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGlobalReplicationGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The user group is not in an active state.</p>
  */
-export interface InvalidUserGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidUserGroupStateFault extends __BaseException {
+  readonly name: "InvalidUserGroupStateFault" = "InvalidUserGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUserGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidUserGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum allowed number
  *             of node groups (shards) in a single replication group. The default maximum is 90</p>
  */
-export interface NodeGroupsPerReplicationGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseException {
+  readonly name: "NodeGroupsPerReplicationGroupQuotaExceededFault" = "NodeGroupsPerReplicationGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeGroupsPerReplicationGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "NodeGroupsPerReplicationGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeGroupsPerReplicationGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The specified replication group already exists.</p>
  */
-export interface ReplicationGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ReplicationGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ReplicationGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ReplicationGroupAlreadyExistsFault" = "ReplicationGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ReplicationGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -5019,10 +5466,20 @@ export namespace CreateSnapshotResult {
  *          </ul>
  *         <p>Neither of these are supported by ElastiCache.</p>
  */
-export interface SnapshotFeatureNotSupportedFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotFeatureNotSupportedFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotFeatureNotSupportedFault extends __BaseException {
+  readonly name: "SnapshotFeatureNotSupportedFault" = "SnapshotFeatureNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotFeatureNotSupportedFault, __BaseException>) {
+    super({
+      name: "SnapshotFeatureNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotFeatureNotSupportedFault.prototype);
+  }
 }
 
 export interface CreateUserMessage {
@@ -5074,10 +5531,20 @@ export namespace CreateUserMessage {
 /**
  * <p>A user with this username already exists.</p>
  */
-export interface DuplicateUserNameFault extends __SmithyException, $MetadataBearer {
-  name: "DuplicateUserNameFault";
-  $fault: "client";
-  message?: string;
+export class DuplicateUserNameFault extends __BaseException {
+  readonly name: "DuplicateUserNameFault" = "DuplicateUserNameFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateUserNameFault, __BaseException>) {
+    super({
+      name: "DuplicateUserNameFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateUserNameFault.prototype);
+  }
 }
 
 export enum AuthenticationType {
@@ -5168,19 +5635,39 @@ export namespace User {
 /**
  * <p>A user with this ID already exists.</p>
  */
-export interface UserAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "UserAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class UserAlreadyExistsFault extends __BaseException {
+  readonly name: "UserAlreadyExistsFault" = "UserAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "UserAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The quota of users has been exceeded.</p>
  */
-export interface UserQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "UserQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class UserQuotaExceededFault extends __BaseException {
+  readonly name: "UserQuotaExceededFault" = "UserQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserQuotaExceededFault, __BaseException>) {
+    super({
+      name: "UserQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserQuotaExceededFault.prototype);
+  }
 }
 
 export interface CreateUserGroupMessage {
@@ -5217,10 +5704,20 @@ export namespace CreateUserGroupMessage {
 /**
  * <p>You must add default user to a user group.</p>
  */
-export interface DefaultUserRequired extends __SmithyException, $MetadataBearer {
-  name: "DefaultUserRequired";
-  $fault: "client";
-  message?: string;
+export class DefaultUserRequired extends __BaseException {
+  readonly name: "DefaultUserRequired" = "DefaultUserRequired";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DefaultUserRequired, __BaseException>) {
+    super({
+      name: "DefaultUserRequired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DefaultUserRequired.prototype);
+  }
 }
 
 /**
@@ -5301,19 +5798,39 @@ export namespace UserGroup {
 /**
  * <p>The user group with this ID already exists.</p>
  */
-export interface UserGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "UserGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class UserGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "UserGroupAlreadyExistsFault" = "UserGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "UserGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The number of users exceeds the user group limit.</p>
  */
-export interface UserGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "UserGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class UserGroupQuotaExceededFault extends __BaseException {
+  readonly name: "UserGroupQuotaExceededFault" = "UserGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "UserGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserGroupQuotaExceededFault.prototype);
+  }
 }
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
@@ -5521,10 +6038,20 @@ export namespace DecreaseReplicaCountResult {
 /**
  * <p>The operation was not performed because no changes were required.</p>
  */
-export interface NoOperationFault extends __SmithyException, $MetadataBearer {
-  name: "NoOperationFault";
-  $fault: "client";
-  message?: string;
+export class NoOperationFault extends __BaseException {
+  readonly name: "NoOperationFault" = "NoOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoOperationFault, __BaseException>) {
+    super({
+      name: "NoOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoOperationFault.prototype);
+  }
 }
 
 /**
@@ -5615,10 +6142,20 @@ export namespace DeleteCacheSecurityGroupMessage {
 /**
  * <p>The requested cache subnet group is currently in use.</p>
  */
-export interface CacheSubnetGroupInUse extends __SmithyException, $MetadataBearer {
-  name: "CacheSubnetGroupInUse";
-  $fault: "client";
-  message?: string;
+export class CacheSubnetGroupInUse extends __BaseException {
+  readonly name: "CacheSubnetGroupInUse" = "CacheSubnetGroupInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CacheSubnetGroupInUse, __BaseException>) {
+    super({
+      name: "CacheSubnetGroupInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CacheSubnetGroupInUse.prototype);
+  }
 }
 
 /**
@@ -5774,10 +6311,20 @@ export namespace DeleteSnapshotResult {
 /**
  * <p>The default user assigned to the user group.</p>
  */
-export interface DefaultUserAssociatedToUserGroupFault extends __SmithyException, $MetadataBearer {
-  name: "DefaultUserAssociatedToUserGroupFault";
-  $fault: "client";
-  message?: string;
+export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
+  readonly name: "DefaultUserAssociatedToUserGroupFault" = "DefaultUserAssociatedToUserGroupFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DefaultUserAssociatedToUserGroupFault, __BaseException>) {
+    super({
+      name: "DefaultUserAssociatedToUserGroupFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DefaultUserAssociatedToUserGroupFault.prototype);
+  }
 }
 
 export interface DeleteUserMessage {
@@ -5799,10 +6346,20 @@ export namespace DeleteUserMessage {
 /**
  * <p>The user is not in active state.</p>
  */
-export interface InvalidUserStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidUserStateFault extends __BaseException {
+  readonly name: "InvalidUserStateFault" = "InvalidUserStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUserStateFault, __BaseException>) {
+    super({
+      name: "InvalidUserStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserStateFault.prototype);
+  }
 }
 
 export interface DeleteUserGroupMessage {
@@ -8204,10 +8761,20 @@ export namespace ReservedCacheNodesOfferingMessage {
 /**
  * <p>The requested cache node offering does not exist.</p>
  */
-export interface ReservedCacheNodesOfferingNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedCacheNodesOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
+  readonly name: "ReservedCacheNodesOfferingNotFoundFault" = "ReservedCacheNodesOfferingNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedCacheNodesOfferingNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedCacheNodesOfferingNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedCacheNodesOfferingNotFoundFault.prototype);
+  }
 }
 
 export enum ServiceUpdateStatus {
@@ -9214,10 +9781,20 @@ export namespace IncreaseReplicaCountResult {
 /**
  * <p>The KMS key supplied is not valid.</p>
  */
-export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSKeyFault";
-  $fault: "client";
-  message?: string;
+export class InvalidKMSKeyFault extends __BaseException {
+  readonly name: "InvalidKMSKeyFault" = "InvalidKMSKeyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKMSKeyFault, __BaseException>) {
+    super({
+      name: "InvalidKMSKeyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKMSKeyFault.prototype);
+  }
 }
 
 /**
@@ -9806,10 +10383,20 @@ export namespace ModifyCacheSubnetGroupResult {
 /**
  * <p>The requested subnet is being used by another cache subnet group.</p>
  */
-export interface SubnetInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
+export class SubnetInUse extends __BaseException {
+  readonly name: "SubnetInUse" = "SubnetInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetInUse, __BaseException>) {
+    super({
+      name: "SubnetInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetInUse.prototype);
+  }
 }
 
 export interface ModifyGlobalReplicationGroupMessage {
@@ -10360,19 +10947,39 @@ export namespace PurchaseReservedCacheNodesOfferingResult {
 /**
  * <p>You already have a reservation with the given identifier.</p>
  */
-export interface ReservedCacheNodeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedCacheNodeAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
+  readonly name: "ReservedCacheNodeAlreadyExistsFault" = "ReservedCacheNodeAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedCacheNodeAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ReservedCacheNodeAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedCacheNodeAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
  */
-export interface ReservedCacheNodeQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedCacheNodeQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
+  readonly name: "ReservedCacheNodeQuotaExceededFault" = "ReservedCacheNodeQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedCacheNodeQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ReservedCacheNodeQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedCacheNodeQuotaExceededFault.prototype);
+  }
 }
 
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
@@ -10491,10 +11098,20 @@ export namespace RemoveTagsFromResourceMessage {
 /**
  * <p>The requested tag was not found on this resource.</p>
  */
-export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class TagNotFoundFault extends __BaseException {
+  readonly name: "TagNotFoundFault" = "TagNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagNotFoundFault, __BaseException>) {
+    super({
+      name: "TagNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -10538,10 +11155,20 @@ export namespace ResetCacheParameterGroupMessage {
 /**
  * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
  */
-export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationNotFoundFault extends __BaseException {
+  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
+    super({
+      name: "AuthorizationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -10611,10 +11238,20 @@ export namespace RevokeCacheSecurityGroupIngressResult {
 /**
  * <p>The targeted replication group is not available. </p>
  */
-export interface ReplicationGroupAlreadyUnderMigrationFault extends __SmithyException, $MetadataBearer {
-  name: "ReplicationGroupAlreadyUnderMigrationFault";
-  $fault: "client";
-  message?: string;
+export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException {
+  readonly name: "ReplicationGroupAlreadyUnderMigrationFault" = "ReplicationGroupAlreadyUnderMigrationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationGroupAlreadyUnderMigrationFault, __BaseException>) {
+    super({
+      name: "ReplicationGroupAlreadyUnderMigrationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationGroupAlreadyUnderMigrationFault.prototype);
+  }
 }
 
 /**
@@ -10681,20 +11318,40 @@ export namespace StartMigrationResponse {
 /**
  * <p>The customer has exceeded the allowed rate of API calls.</p>
  */
-export interface APICallRateForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "APICallRateForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class APICallRateForCustomerExceededFault extends __BaseException {
+  readonly name: "APICallRateForCustomerExceededFault" = "APICallRateForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<APICallRateForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "APICallRateForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, APICallRateForCustomerExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
  *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
  */
-export interface NodeGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "NodeGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class NodeGroupNotFoundFault extends __BaseException {
+  readonly name: "NodeGroupNotFoundFault" = "NodeGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "NodeGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeGroupNotFoundFault.prototype);
+  }
 }
 
 export interface TestFailoverMessage {
@@ -10724,10 +11381,20 @@ export namespace TestFailoverMessage {
 /**
  * <p>The <code>TestFailover</code> action is not available.</p>
  */
-export interface TestFailoverNotAvailableFault extends __SmithyException, $MetadataBearer {
-  name: "TestFailoverNotAvailableFault";
-  $fault: "client";
-  message?: string;
+export class TestFailoverNotAvailableFault extends __BaseException {
+  readonly name: "TestFailoverNotAvailableFault" = "TestFailoverNotAvailableFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TestFailoverNotAvailableFault, __BaseException>) {
+    super({
+      name: "TestFailoverNotAvailableFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TestFailoverNotAvailableFault.prototype);
+  }
 }
 
 export interface TestFailoverResult {

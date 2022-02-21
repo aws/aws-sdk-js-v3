@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CodeStarServiceException as __BaseException } from "./CodeStarServiceException";
 
 export interface AssociateTeamMemberRequest {
   /**
@@ -62,64 +64,134 @@ export namespace AssociateTeamMemberResult {
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "server";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
  * <p>The service role is not valid.</p>
  */
-export interface InvalidServiceRoleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidServiceRoleException";
-  $fault: "client";
-  message?: string;
+export class InvalidServiceRoleException extends __BaseException {
+  readonly name: "InvalidServiceRoleException" = "InvalidServiceRoleException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidServiceRoleException, __BaseException>) {
+    super({
+      name: "InvalidServiceRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidServiceRoleException.prototype);
+  }
 }
 
 /**
  * <p>A resource limit has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>Project configuration information is required but not specified.</p>
  */
-export interface ProjectConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "ProjectConfigurationException";
-  $fault: "client";
-  message?: string;
+export class ProjectConfigurationException extends __BaseException {
+  readonly name: "ProjectConfigurationException" = "ProjectConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProjectConfigurationException, __BaseException>) {
+    super({
+      name: "ProjectConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProjectConfigurationException.prototype);
+  }
 }
 
 /**
  * <p>The specified AWS CodeStar project was not found.</p>
  */
-export interface ProjectNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ProjectNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ProjectNotFoundException extends __BaseException {
+  readonly name: "ProjectNotFoundException" = "ProjectNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProjectNotFoundException, __BaseException>) {
+    super({
+      name: "ProjectNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProjectNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The team member is already associated with a role in this project.</p>
  */
-export interface TeamMemberAlreadyAssociatedException extends __SmithyException, $MetadataBearer {
-  name: "TeamMemberAlreadyAssociatedException";
-  $fault: "client";
-  message?: string;
+export class TeamMemberAlreadyAssociatedException extends __BaseException {
+  readonly name: "TeamMemberAlreadyAssociatedException" = "TeamMemberAlreadyAssociatedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TeamMemberAlreadyAssociatedException, __BaseException>) {
+    super({
+      name: "TeamMemberAlreadyAssociatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TeamMemberAlreadyAssociatedException.prototype);
+  }
 }
 
 /**
  * <p>The specified input is either not valid, or it could not be validated.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -444,20 +516,40 @@ export namespace CreateProjectResult {
  * <p>An AWS CodeStar project with the same ID already exists in this region for the AWS account.
  *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
  */
-export interface ProjectAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ProjectAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ProjectAlreadyExistsException extends __BaseException {
+  readonly name: "ProjectAlreadyExistsException" = "ProjectAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProjectAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ProjectAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProjectAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The project creation request was valid, but a nonspecific exception or error occurred
  *       during project creation. The project could not be created in AWS CodeStar.</p>
  */
-export interface ProjectCreationFailedException extends __SmithyException, $MetadataBearer {
-  name: "ProjectCreationFailedException";
-  $fault: "client";
-  message?: string;
+export class ProjectCreationFailedException extends __BaseException {
+  readonly name: "ProjectCreationFailedException" = "ProjectCreationFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProjectCreationFailedException, __BaseException>) {
+    super({
+      name: "ProjectCreationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProjectCreationFailedException.prototype);
+  }
 }
 
 export interface CreateUserProfileRequest {
@@ -545,10 +637,20 @@ export namespace CreateUserProfileResult {
  * <p>A user profile with that name already exists in this region for the AWS account. AWS
  *       CodeStar user profile names must be unique within a region for the AWS account. </p>
  */
-export interface UserProfileAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "UserProfileAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class UserProfileAlreadyExistsException extends __BaseException {
+  readonly name: "UserProfileAlreadyExistsException" = "UserProfileAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserProfileAlreadyExistsException, __BaseException>) {
+    super({
+      name: "UserProfileAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserProfileAlreadyExistsException.prototype);
+  }
 }
 
 export interface DeleteProjectRequest {
@@ -811,10 +913,20 @@ export namespace DescribeUserProfileResult {
 /**
  * <p>The user profile was not found.</p>
  */
-export interface UserProfileNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "UserProfileNotFoundException";
-  $fault: "client";
-  message?: string;
+export class UserProfileNotFoundException extends __BaseException {
+  readonly name: "UserProfileNotFoundException" = "UserProfileNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserProfileNotFoundException, __BaseException>) {
+    super({
+      name: "UserProfileNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserProfileNotFoundException.prototype);
+  }
 }
 
 export interface DisassociateTeamMemberRequest {
@@ -853,10 +965,20 @@ export namespace DisassociateTeamMemberResult {
 /**
  * <p>The next token is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 export interface ListProjectsRequest {
@@ -1326,10 +1448,20 @@ export namespace UpdateProjectResult {
 /**
  * <p>The specified team member was not found.</p>
  */
-export interface TeamMemberNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TeamMemberNotFoundException";
-  $fault: "client";
-  message?: string;
+export class TeamMemberNotFoundException extends __BaseException {
+  readonly name: "TeamMemberNotFoundException" = "TeamMemberNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TeamMemberNotFoundException, __BaseException>) {
+    super({
+      name: "TeamMemberNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TeamMemberNotFoundException.prototype);
+  }
 }
 
 export interface UpdateTeamMemberRequest {

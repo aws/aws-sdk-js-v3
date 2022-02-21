@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MarketplaceMeteringServiceException as __BaseException } from "./MarketplaceMeteringServiceException";
 
 /**
  * <p>Metadata assigned to an allocation. Each tag is made up of a <code>key</code> and a
@@ -238,78 +241,158 @@ export namespace BatchMeterUsageResult {
 /**
  * <p>The API is disabled in the Region.</p>
  */
-export interface DisabledApiException extends __SmithyException, $MetadataBearer {
-  name: "DisabledApiException";
-  $fault: "client";
-  message?: string;
+export class DisabledApiException extends __BaseException {
+  readonly name: "DisabledApiException" = "DisabledApiException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DisabledApiException, __BaseException>) {
+    super({
+      name: "DisabledApiException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisabledApiException.prototype);
+  }
 }
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *             message with details on the AWS forums.</p>
  */
-export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceErrorException";
-  $fault: "server";
-  message?: string;
+export class InternalServiceErrorException extends __BaseException {
+  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
+  }
 }
 
 /**
  * <p>You have metered usage for a <code>CustomerIdentifier</code> that does not
  *             exist.</p>
  */
-export interface InvalidCustomerIdentifierException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCustomerIdentifierException";
-  $fault: "client";
-  message?: string;
+export class InvalidCustomerIdentifierException extends __BaseException {
+  readonly name: "InvalidCustomerIdentifierException" = "InvalidCustomerIdentifierException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCustomerIdentifierException, __BaseException>) {
+    super({
+      name: "InvalidCustomerIdentifierException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCustomerIdentifierException.prototype);
+  }
 }
 
 /**
  * <p>The product code passed does not match the product code used for publishing the
  *             product.</p>
  */
-export interface InvalidProductCodeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidProductCodeException";
-  $fault: "client";
-  message?: string;
+export class InvalidProductCodeException extends __BaseException {
+  readonly name: "InvalidProductCodeException" = "InvalidProductCodeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidProductCodeException, __BaseException>) {
+    super({
+      name: "InvalidProductCodeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidProductCodeException.prototype);
+  }
 }
 
 /**
  * <p>The tag is invalid, or the number of tags is greater than 5.</p>
  */
-export interface InvalidTagException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagException";
-  $fault: "client";
-  message?: string;
+export class InvalidTagException extends __BaseException {
+  readonly name: "InvalidTagException" = "InvalidTagException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
+    super({
+      name: "InvalidTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagException.prototype);
+  }
 }
 
 /**
  * <p>The usage allocation objects are invalid, or the number of allocations is greater than
  *             500 for a single usage record.</p>
  */
-export interface InvalidUsageAllocationsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidUsageAllocationsException";
-  $fault: "client";
-  message?: string;
+export class InvalidUsageAllocationsException extends __BaseException {
+  readonly name: "InvalidUsageAllocationsException" = "InvalidUsageAllocationsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUsageAllocationsException, __BaseException>) {
+    super({
+      name: "InvalidUsageAllocationsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUsageAllocationsException.prototype);
+  }
 }
 
 /**
  * <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
  *             with products.</p>
  */
-export interface InvalidUsageDimensionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidUsageDimensionException";
-  $fault: "client";
-  message?: string;
+export class InvalidUsageDimensionException extends __BaseException {
+  readonly name: "InvalidUsageDimensionException" = "InvalidUsageDimensionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUsageDimensionException, __BaseException>) {
+    super({
+      name: "InvalidUsageDimensionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUsageDimensionException.prototype);
+  }
 }
 
 /**
  * <p>The calls to the API are throttled.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -319,20 +402,40 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  */
-export interface TimestampOutOfBoundsException extends __SmithyException, $MetadataBearer {
-  name: "TimestampOutOfBoundsException";
-  $fault: "client";
-  message?: string;
+export class TimestampOutOfBoundsException extends __BaseException {
+  readonly name: "TimestampOutOfBoundsException" = "TimestampOutOfBoundsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TimestampOutOfBoundsException, __BaseException>) {
+    super({
+      name: "TimestampOutOfBoundsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TimestampOutOfBoundsException.prototype);
+  }
 }
 
 /**
  * <p>Exception thrown when the customer does not have a valid subscription for the
  *             product.</p>
  */
-export interface CustomerNotEntitledException extends __SmithyException, $MetadataBearer {
-  name: "CustomerNotEntitledException";
-  $fault: "client";
-  message?: string;
+export class CustomerNotEntitledException extends __BaseException {
+  readonly name: "CustomerNotEntitledException" = "CustomerNotEntitledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomerNotEntitledException, __BaseException>) {
+    super({
+      name: "CustomerNotEntitledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomerNotEntitledException.prototype);
+  }
 }
 
 /**
@@ -340,10 +443,20 @@ export interface CustomerNotEntitledException extends __SmithyException, $Metada
  *             pod for the given {<code>usageDimension</code>, <code>timestamp</code>} with a different
  *                 <code>usageQuantity</code>.</p>
  */
-export interface DuplicateRequestException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateRequestException";
-  $fault: "client";
-  message?: string;
+export class DuplicateRequestException extends __BaseException {
+  readonly name: "DuplicateRequestException" = "DuplicateRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateRequestException, __BaseException>) {
+    super({
+      name: "DuplicateRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateRequestException.prototype);
+  }
 }
 
 /**
@@ -351,10 +464,20 @@ export interface DuplicateRequestException extends __SmithyException, $MetadataB
  *             task, or EKS pod. The Region of the Metering Service endpoint and the AWS Region of the
  *             resource must match.</p>
  */
-export interface InvalidEndpointRegionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEndpointRegionException";
-  $fault: "client";
-  message?: string;
+export class InvalidEndpointRegionException extends __BaseException {
+  readonly name: "InvalidEndpointRegionException" = "InvalidEndpointRegionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEndpointRegionException, __BaseException>) {
+    super({
+      name: "InvalidEndpointRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEndpointRegionException.prototype);
+  }
 }
 
 export interface MeterUsageRequest {
@@ -428,10 +551,20 @@ export namespace MeterUsageResult {
 /**
  * <p>Public Key version is invalid.</p>
  */
-export interface InvalidPublicKeyVersionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPublicKeyVersionException";
-  $fault: "client";
-  message?: string;
+export class InvalidPublicKeyVersionException extends __BaseException {
+  readonly name: "InvalidPublicKeyVersionException" = "InvalidPublicKeyVersionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPublicKeyVersionException, __BaseException>) {
+    super({
+      name: "InvalidPublicKeyVersionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPublicKeyVersionException.prototype);
+  }
 }
 
 /**
@@ -440,20 +573,40 @@ export interface InvalidPublicKeyVersionException extends __SmithyException, $Me
  *             launched in. This prevents a container from hardcoding a Region (e.g.
  *             withRegion(“us-east-1”) when calling <code>RegisterUsage</code>.</p>
  */
-export interface InvalidRegionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRegionException";
-  $fault: "client";
-  message?: string;
+export class InvalidRegionException extends __BaseException {
+  readonly name: "InvalidRegionException" = "InvalidRegionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRegionException, __BaseException>) {
+    super({
+      name: "InvalidRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRegionException.prototype);
+  }
 }
 
 /**
  * <p>AWS Marketplace does not support metering usage from the underlying platform.
  *             Currently, Amazon ECS, Amazon EKS, and AWS Fargate are supported.</p>
  */
-export interface PlatformNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "PlatformNotSupportedException";
-  $fault: "client";
-  message?: string;
+export class PlatformNotSupportedException extends __BaseException {
+  readonly name: "PlatformNotSupportedException" = "PlatformNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PlatformNotSupportedException, __BaseException>) {
+    super({
+      name: "PlatformNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformNotSupportedException.prototype);
+  }
 }
 
 export interface RegisterUsageRequest {
@@ -512,19 +665,39 @@ export namespace RegisterUsageResult {
  *             registration website should redeem this token as soon as it is submitted by the buyer's
  *             browser.</p>
  */
-export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredTokenException";
-  $fault: "client";
-  message?: string;
+export class ExpiredTokenException extends __BaseException {
+  readonly name: "ExpiredTokenException" = "ExpiredTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredTokenException, __BaseException>) {
+    super({
+      name: "ExpiredTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredTokenException.prototype);
+  }
 }
 
 /**
  * <p>Registration token is invalid.</p>
  */
-export interface InvalidTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidTokenException extends __BaseException {
+  readonly name: "InvalidTokenException" = "InvalidTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
+    super({
+      name: "InvalidTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTokenException.prototype);
+  }
 }
 
 /**

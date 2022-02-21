@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceException";
 
 export interface AbortDocumentVersionUploadRequest {
   /**
@@ -31,11 +33,24 @@ export namespace AbortDocumentVersionUploadRequest {
 /**
  * <p>The resource does not exist.</p>
  */
-export interface EntityNotExistsException extends __SmithyException, $MetadataBearer {
-  name: "EntityNotExistsException";
-  $fault: "client";
+export class EntityNotExistsException extends __BaseException {
+  readonly name: "EntityNotExistsException" = "EntityNotExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   EntityIds?: string[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotExistsException, __BaseException>) {
+    super({
+      name: "EntityNotExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotExistsException.prototype);
+    this.Message = opts.Message;
+    this.EntityIds = opts.EntityIds;
+  }
 }
 
 /**
@@ -43,47 +58,108 @@ export interface EntityNotExistsException extends __SmithyException, $MetadataBe
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
  */
-export interface FailedDependencyException extends __SmithyException, $MetadataBearer {
-  name: "FailedDependencyException";
-  $fault: "client";
+export class FailedDependencyException extends __BaseException {
+  readonly name: "FailedDependencyException" = "FailedDependencyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FailedDependencyException, __BaseException>) {
+    super({
+      name: "FailedDependencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FailedDependencyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified document version is not in the INITIALIZED state.</p>
  */
-export interface ProhibitedStateException extends __SmithyException, $MetadataBearer {
-  name: "ProhibitedStateException";
-  $fault: "client";
+export class ProhibitedStateException extends __BaseException {
+  readonly name: "ProhibitedStateException" = "ProhibitedStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProhibitedStateException, __BaseException>) {
+    super({
+      name: "ProhibitedStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProhibitedStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more of the dependencies is unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The operation is not permitted.</p>
  */
-export interface UnauthorizedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedOperationException";
-  $fault: "client";
+export class UnauthorizedOperationException extends __BaseException {
+  readonly name: "UnauthorizedOperationException" = "UnauthorizedOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedOperationException, __BaseException>) {
+    super({
+      name: "UnauthorizedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedOperationException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
  * <p>The caller does not have access to perform the action on the resource.</p>
  */
-export interface UnauthorizedResourceAccessException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedResourceAccessException";
-  $fault: "client";
+export class UnauthorizedResourceAccessException extends __BaseException {
+  readonly name: "UnauthorizedResourceAccessException" = "UnauthorizedResourceAccessException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedResourceAccessException, __BaseException>) {
+    super({
+      name: "UnauthorizedResourceAccessException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedResourceAccessException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ActivateUserRequest {
@@ -900,19 +976,43 @@ export namespace CreateCommentResponse {
  * <p>This exception is thrown when the document is locked for comments and user tries to
  *             create or delete a comment on that document.</p>
  */
-export interface DocumentLockedForCommentsException extends __SmithyException, $MetadataBearer {
-  name: "DocumentLockedForCommentsException";
-  $fault: "client";
+export class DocumentLockedForCommentsException extends __BaseException {
+  readonly name: "DocumentLockedForCommentsException" = "DocumentLockedForCommentsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DocumentLockedForCommentsException, __BaseException>) {
+    super({
+      name: "DocumentLockedForCommentsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DocumentLockedForCommentsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested operation is not allowed on the specified comment object.</p>
  */
-export interface InvalidCommentOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCommentOperationException";
-  $fault: "client";
+export class InvalidCommentOperationException extends __BaseException {
+  readonly name: "InvalidCommentOperationException" = "InvalidCommentOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCommentOperationException, __BaseException>) {
+    super({
+      name: "InvalidCommentOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCommentOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateCustomMetadataRequest {
@@ -963,19 +1063,43 @@ export namespace CreateCustomMetadataResponse {
  * <p>The limit has been reached on the number of custom properties for the specified
  *             resource.</p>
  */
-export interface CustomMetadataLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CustomMetadataLimitExceededException";
-  $fault: "client";
+export class CustomMetadataLimitExceededException extends __BaseException {
+  readonly name: "CustomMetadataLimitExceededException" = "CustomMetadataLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomMetadataLimitExceededException, __BaseException>) {
+    super({
+      name: "CustomMetadataLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomMetadataLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
  */
-export interface ConflictingOperationException extends __SmithyException, $MetadataBearer {
-  name: "ConflictingOperationException";
-  $fault: "client";
+export class ConflictingOperationException extends __BaseException {
+  readonly name: "ConflictingOperationException" = "ConflictingOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictingOperationException, __BaseException>) {
+    super({
+      name: "ConflictingOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictingOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateFolderRequest {
@@ -1101,19 +1225,43 @@ export namespace CreateFolderResponse {
 /**
  * <p>The resource already exists.</p>
  */
-export interface EntityAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EntityAlreadyExistsException";
-  $fault: "client";
+export class EntityAlreadyExistsException extends __BaseException {
+  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EntityAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateLabelsRequest {
@@ -1158,10 +1306,22 @@ export namespace CreateLabelsResponse {
  * <p>The limit has been reached on the number of labels for the specified
  *             resource.</p>
  */
-export interface TooManyLabelsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyLabelsException";
-  $fault: "client";
+export class TooManyLabelsException extends __BaseException {
+  readonly name: "TooManyLabelsException" = "TooManyLabelsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyLabelsException, __BaseException>) {
+    super({
+      name: "TooManyLabelsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyLabelsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum SubscriptionProtocolType {
@@ -1254,10 +1414,22 @@ export namespace CreateNotificationSubscriptionResponse {
  * <p>You've reached the limit on the number of subscriptions for the WorkDocs
  *             instance.</p>
  */
-export interface TooManySubscriptionsException extends __SmithyException, $MetadataBearer {
-  name: "TooManySubscriptionsException";
-  $fault: "client";
+export class TooManySubscriptionsException extends __BaseException {
+  readonly name: "TooManySubscriptionsException" = "TooManySubscriptionsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManySubscriptionsException, __BaseException>) {
+    super({
+      name: "TooManySubscriptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManySubscriptionsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateUserRequest {
@@ -1441,10 +1613,22 @@ export namespace DeleteCustomMetadataResponse {
 /**
  * <p>The resource hierarchy is changing.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteDocumentRequest {
@@ -1695,10 +1879,22 @@ export namespace DescribeActivitiesResponse {
 /**
  * <p>The pagination marker or limit fields are not valid.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeCommentsRequest {
@@ -2471,10 +2667,22 @@ export namespace DescribeUsersResponse {
 /**
  * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
  */
-export interface RequestedEntityTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "RequestedEntityTooLargeException";
-  $fault: "client";
+export class RequestedEntityTooLargeException extends __BaseException {
+  readonly name: "RequestedEntityTooLargeException" = "RequestedEntityTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestedEntityTooLargeException, __BaseException>) {
+    super({
+      name: "RequestedEntityTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestedEntityTooLargeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetCurrentUserRequest {
@@ -2562,10 +2770,22 @@ export namespace GetDocumentResponse {
 /**
  * <p>The password is invalid.</p>
  */
-export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPasswordException";
-  $fault: "client";
+export class InvalidPasswordException extends __BaseException {
+  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
+    super({
+      name: "InvalidPasswordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetDocumentPathRequest {
@@ -2900,10 +3120,22 @@ export namespace GetResourcesResponse {
  * <p>This exception is thrown when a valid checkout ID is not presented on document
  *             version upload calls for a document that has been checked out from Web client.</p>
  */
-export interface DraftUploadOutOfSyncException extends __SmithyException, $MetadataBearer {
-  name: "DraftUploadOutOfSyncException";
-  $fault: "client";
+export class DraftUploadOutOfSyncException extends __BaseException {
+  readonly name: "DraftUploadOutOfSyncException" = "DraftUploadOutOfSyncException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DraftUploadOutOfSyncException, __BaseException>) {
+    super({
+      name: "DraftUploadOutOfSyncException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DraftUploadOutOfSyncException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface InitiateDocumentVersionUploadRequest {
@@ -3009,28 +3241,64 @@ export namespace InitiateDocumentVersionUploadResponse {
 /**
  * <p>The resource is already checked out.</p>
  */
-export interface ResourceAlreadyCheckedOutException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyCheckedOutException";
-  $fault: "client";
+export class ResourceAlreadyCheckedOutException extends __BaseException {
+  readonly name: "ResourceAlreadyCheckedOutException" = "ResourceAlreadyCheckedOutException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyCheckedOutException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyCheckedOutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyCheckedOutException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The storage limit has been exceeded.</p>
  */
-export interface StorageLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "StorageLimitExceededException";
-  $fault: "client";
+export class StorageLimitExceededException extends __BaseException {
+  readonly name: "StorageLimitExceededException" = "StorageLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageLimitExceededException, __BaseException>) {
+    super({
+      name: "StorageLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The storage limit will be exceeded.</p>
  */
-export interface StorageLimitWillExceedException extends __SmithyException, $MetadataBearer {
-  name: "StorageLimitWillExceedException";
-  $fault: "client";
+export class StorageLimitWillExceedException extends __BaseException {
+  readonly name: "StorageLimitWillExceedException" = "StorageLimitWillExceedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageLimitWillExceedException, __BaseException>) {
+    super({
+      name: "StorageLimitWillExceedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageLimitWillExceedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RemoveAllResourcePermissionsRequest {
@@ -3128,10 +3396,22 @@ export namespace UpdateDocumentRequest {
 /**
  * <p>The operation is invalid.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum DocumentVersionStatus {
@@ -3211,20 +3491,45 @@ export namespace UpdateFolderRequest {
 /**
  * <p>The last user in the organization is being deactivated.</p>
  */
-export interface DeactivatingLastSystemUserException extends __SmithyException, $MetadataBearer {
-  name: "DeactivatingLastSystemUserException";
-  $fault: "client";
+export class DeactivatingLastSystemUserException extends __BaseException {
+  readonly name: "DeactivatingLastSystemUserException" = "DeactivatingLastSystemUserException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeactivatingLastSystemUserException, __BaseException>) {
+    super({
+      name: "DeactivatingLastSystemUserException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeactivatingLastSystemUserException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
  * <p>The user is undergoing transfer of ownership.</p>
  */
-export interface IllegalUserStateException extends __SmithyException, $MetadataBearer {
-  name: "IllegalUserStateException";
-  $fault: "client";
+export class IllegalUserStateException extends __BaseException {
+  readonly name: "IllegalUserStateException" = "IllegalUserStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalUserStateException, __BaseException>) {
+    super({
+      name: "IllegalUserStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalUserStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum BooleanEnumType {

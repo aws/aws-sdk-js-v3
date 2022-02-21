@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AppStreamServiceException as __BaseException } from "./AppStreamServiceException";
 
 export enum AccessEndpointType {
   STREAMING = "STREAMING",
@@ -373,61 +375,121 @@ export namespace AssociateApplicationFleetResult {
 /**
  * <p>An API error occurred. Wait a few minutes and try again.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested limit exceeds the permitted limit for an account.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The attempted operation is not permitted.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateApplicationToEntitlementRequest {
@@ -470,13 +532,25 @@ export namespace AssociateApplicationToEntitlementResult {
 /**
  * <p>The entitlement can't be found.</p>
  */
-export interface EntitlementNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EntitlementNotFoundException";
-  $fault: "client";
+export class EntitlementNotFoundException extends __BaseException {
+  readonly name: "EntitlementNotFoundException" = "EntitlementNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntitlementNotFoundException, __BaseException>) {
+    super({
+      name: "EntitlementNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntitlementNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateFleetRequest {
@@ -514,25 +588,49 @@ export namespace AssociateFleetResult {
 /**
  * <p>The image can't be updated because it's not compatible for updates.</p>
  */
-export interface IncompatibleImageException extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleImageException";
-  $fault: "client";
+export class IncompatibleImageException extends __BaseException {
+  readonly name: "IncompatibleImageException" = "IncompatibleImageException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleImageException, __BaseException>) {
+    super({
+      name: "IncompatibleImageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleImageException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
-export interface InvalidAccountStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAccountStatusException";
-  $fault: "client";
+export class InvalidAccountStatusException extends __BaseException {
+  readonly name: "InvalidAccountStatusException" = "InvalidAccountStatusException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAccountStatusException, __BaseException>) {
+    super({
+      name: "InvalidAccountStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAccountStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum AuthenticationType {
@@ -795,25 +893,49 @@ export namespace CopyImageResponse {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
-export interface ResourceNotAvailableException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotAvailableException";
-  $fault: "client";
+export class ResourceNotAvailableException extends __BaseException {
+  readonly name: "ResourceNotAvailableException" = "ResourceNotAvailableException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotAvailableException, __BaseException>) {
+    super({
+      name: "ResourceNotAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotAvailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAppBlockRequest {
@@ -1069,13 +1191,25 @@ export namespace CreateDirectoryConfigResult {
 /**
  * <p>The specified role is invalid.</p>
  */
-export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRoleException";
-  $fault: "client";
+export class InvalidRoleException extends __BaseException {
+  readonly name: "InvalidRoleException" = "InvalidRoleException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
+    super({
+      name: "InvalidRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRoleException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1241,13 +1375,25 @@ export namespace CreateEntitlementResult {
 /**
  * <p>The entitlement already exists.</p>
  */
-export interface EntitlementAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EntitlementAlreadyExistsException";
-  $fault: "client";
+export class EntitlementAlreadyExistsException extends __BaseException {
+  readonly name: "EntitlementAlreadyExistsException" = "EntitlementAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntitlementAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EntitlementAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntitlementAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1917,13 +2063,25 @@ export namespace CreateFleetResult {
 /**
  * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  */
-export interface RequestLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "RequestLimitExceededException";
-  $fault: "client";
+export class RequestLimitExceededException extends __BaseException {
+  readonly name: "RequestLimitExceededException" = "RequestLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestLimitExceededException, __BaseException>) {
+    super({
+      name: "RequestLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateImageBuilderRequest {
@@ -3171,13 +3329,25 @@ export namespace DeleteAppBlockResult {
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message in the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteApplicationRequest {

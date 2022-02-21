@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 /**
  * <p>Describes a quota for an Amazon Web Services account.</p>
@@ -196,37 +198,77 @@ export namespace AddRoleToDBClusterMessage {
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
  *         </p>
  */
-export interface DBClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterNotFoundFault extends __BaseException {
+  readonly name: "DBClusterNotFoundFault" = "DBClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterRoleAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterRoleAlreadyExistsFault extends __BaseException {
+  readonly name: "DBClusterRoleAlreadyExistsFault" = "DBClusterRoleAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterRoleAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBClusterRoleAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterRoleAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterRoleQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterRoleQuotaExceededFault extends __BaseException {
+  readonly name: "DBClusterRoleQuotaExceededFault" = "DBClusterRoleQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterRoleQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBClusterRoleQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterRoleQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The requested operation can't be performed while the cluster is in this state.</p>
  */
-export interface InvalidDBClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBClusterStateFault extends __BaseException {
+  readonly name: "InvalidDBClusterStateFault" = "InvalidDBClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBClusterStateFault.prototype);
+  }
 }
 
 export interface AddRoleToDBInstanceMessage {
@@ -263,37 +305,77 @@ export namespace AddRoleToDBInstanceMessage {
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
  *         </p>
  */
-export interface DBInstanceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceNotFoundFault extends __BaseException {
+  readonly name: "DBInstanceNotFoundFault" = "DBInstanceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceNotFoundFault, __BaseException>) {
+    super({
+      name: "DBInstanceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
  */
-export interface DBInstanceRoleAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceRoleAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceRoleAlreadyExistsFault extends __BaseException {
+  readonly name: "DBInstanceRoleAlreadyExistsFault" = "DBInstanceRoleAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceRoleAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBInstanceRoleAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceRoleAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
  */
-export interface DBInstanceRoleQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceRoleQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceRoleQuotaExceededFault extends __BaseException {
+  readonly name: "DBInstanceRoleQuotaExceededFault" = "DBInstanceRoleQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceRoleQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBInstanceRoleQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceRoleQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The DB instance isn't in a valid state.</p>
  */
-export interface InvalidDBInstanceStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBInstanceStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBInstanceStateFault extends __BaseException {
+  readonly name: "InvalidDBInstanceStateFault" = "InvalidDBInstanceStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBInstanceStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBInstanceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBInstanceStateFault.prototype);
+  }
 }
 
 /**
@@ -430,19 +512,39 @@ export namespace AddSourceIdentifierToSubscriptionResult {
 /**
  * <p>The requested source could not be found.</p>
  */
-export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SourceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SourceNotFoundFault extends __BaseException {
+  readonly name: "SourceNotFoundFault" = "SourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceNotFoundFault, __BaseException>) {
+    super({
+      name: "SourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The subscription name does not exist.</p>
  */
-export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionNotFoundFault" = "SubscriptionNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -499,19 +601,39 @@ export namespace AddTagsToResourceMessage {
 /**
  * <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyNotFoundFault extends __BaseException {
+  readonly name: "DBProxyNotFoundFault" = "DBProxyNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyNotFoundFault, __BaseException>) {
+    super({
+      name: "DBProxyNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyTargetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyTargetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyTargetGroupNotFoundFault extends __BaseException {
+  readonly name: "DBProxyTargetGroupNotFoundFault" = "DBProxyTargetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyTargetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBProxyTargetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyTargetGroupNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -519,10 +641,20 @@ export interface DBProxyTargetGroupNotFoundFault extends __SmithyException, $Met
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.
  *         </p>
  */
-export interface DBSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBSnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBSnapshotNotFoundFault extends __BaseException {
+  readonly name: "DBSnapshotNotFoundFault" = "DBSnapshotNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSnapshotNotFoundFault, __BaseException>) {
+    super({
+      name: "DBSnapshotNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSnapshotNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -678,29 +810,59 @@ export namespace ApplyPendingMaintenanceActionResult {
 /**
  * <p>The specified resource ID was not found.</p>
  */
-export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundFault extends __BaseException {
+  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
+    super({
+      name: "ResourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
  *             the specified DB security group.</p>
  */
-export interface AuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationAlreadyExistsFault extends __BaseException {
+  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "AuthorizationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The DB security group authorization quota has been reached.</p>
  */
-export interface AuthorizationQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationQuotaExceededFault extends __BaseException {
+  readonly name: "AuthorizationQuotaExceededFault" = "AuthorizationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "AuthorizationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -919,19 +1081,39 @@ export namespace AuthorizeDBSecurityGroupIngressResult {
  *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.
  *         </p>
  */
-export interface DBSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBSecurityGroupNotFoundFault extends __BaseException {
+  readonly name: "DBSecurityGroupNotFoundFault" = "DBSecurityGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSecurityGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBSecurityGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSecurityGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The state of the DB security group doesn't allow deletion.</p>
  */
-export interface InvalidDBSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBSecurityGroupStateFault extends __BaseException {
+  readonly name: "InvalidDBSecurityGroupStateFault" = "InvalidDBSecurityGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSecurityGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBSecurityGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSecurityGroupStateFault.prototype);
+  }
 }
 
 /**
@@ -1206,19 +1388,39 @@ export namespace ExportTask {
 /**
  * <p>The export task doesn't exist.</p>
  */
-export interface ExportTaskNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ExportTaskNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ExportTaskNotFoundFault extends __BaseException {
+  readonly name: "ExportTaskNotFoundFault" = "ExportTaskNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExportTaskNotFoundFault, __BaseException>) {
+    super({
+      name: "ExportTaskNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExportTaskNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>You can't cancel an export task that has completed.</p>
  */
-export interface InvalidExportTaskStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidExportTaskStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidExportTaskStateFault extends __BaseException {
+  readonly name: "InvalidExportTaskStateFault" = "InvalidExportTaskStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExportTaskStateFault, __BaseException>) {
+    super({
+      name: "InvalidExportTaskStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExportTaskStateFault.prototype);
+  }
 }
 
 export interface CopyDBClusterParameterGroupMessage {
@@ -1341,10 +1543,20 @@ export namespace CopyDBClusterParameterGroupResult {
 /**
  * <p>A DB parameter group with the same name exists.</p>
  */
-export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBParameterGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "DBParameterGroupAlreadyExistsFault" = "DBParameterGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBParameterGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBParameterGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBParameterGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -1353,20 +1565,40 @@ export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $
  *         existing DB parameter group.
  *         </p>
  */
-export interface DBParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "DBParameterGroupNotFoundFault" = "DBParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
  */
-export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBParameterGroupQuotaExceededFault extends __BaseException {
+  readonly name: "DBParameterGroupQuotaExceededFault" = "DBParameterGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBParameterGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBParameterGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBParameterGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -1674,10 +1906,20 @@ export namespace CopyDBClusterSnapshotResult {
 /**
  * <p>The user already has a DB cluster snapshot with the given identifier.</p>
  */
-export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterSnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
+  readonly name: "DBClusterSnapshotAlreadyExistsFault" = "DBClusterSnapshotAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterSnapshotAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBClusterSnapshotAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterSnapshotAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -1685,38 +1927,78 @@ export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, 
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.
  *         </p>
  */
-export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterSnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterSnapshotNotFoundFault extends __BaseException {
+  readonly name: "DBClusterSnapshotNotFoundFault" = "DBClusterSnapshotNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterSnapshotNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterSnapshotNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterSnapshotNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The supplied value isn't a valid DB cluster snapshot state.</p>
  */
-export interface InvalidDBClusterSnapshotStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBClusterSnapshotStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBClusterSnapshotStateFault extends __BaseException {
+  readonly name: "InvalidDBClusterSnapshotStateFault" = "InvalidDBClusterSnapshotStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBClusterSnapshotStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBClusterSnapshotStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBClusterSnapshotStateFault.prototype);
+  }
 }
 
 /**
  * <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  */
-export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
-  message?: string;
+export class KMSKeyNotAccessibleFault extends __BaseException {
+  readonly name: "KMSKeyNotAccessibleFault" = "KMSKeyNotAccessibleFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSKeyNotAccessibleFault, __BaseException>) {
+    super({
+      name: "KMSKeyNotAccessibleFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSKeyNotAccessibleFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of DB
  *             snapshots.</p>
  */
-export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotQuotaExceededFault extends __BaseException {
+  readonly name: "SnapshotQuotaExceededFault" = "SnapshotQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SnapshotQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -2337,10 +2619,20 @@ export namespace CopyDBSnapshotResult {
  *             <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom
  *             Availability Zone identifier.</p>
  */
-export interface CustomAvailabilityZoneNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CustomAvailabilityZoneNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CustomAvailabilityZoneNotFoundFault extends __BaseException {
+  readonly name: "CustomAvailabilityZoneNotFoundFault" = "CustomAvailabilityZoneNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneNotFoundFault, __BaseException>) {
+    super({
+      name: "CustomAvailabilityZoneNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomAvailabilityZoneNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -2348,19 +2640,39 @@ export interface CustomAvailabilityZoneNotFoundFault extends __SmithyException, 
  *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.
  *         </p>
  */
-export interface DBSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBSnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBSnapshotAlreadyExistsFault extends __BaseException {
+  readonly name: "DBSnapshotAlreadyExistsFault" = "DBSnapshotAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSnapshotAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBSnapshotAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSnapshotAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The state of the DB snapshot doesn't allow deletion.</p>
  */
-export interface InvalidDBSnapshotStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBSnapshotStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBSnapshotStateFault extends __BaseException {
+  readonly name: "InvalidDBSnapshotStateFault" = "InvalidDBSnapshotStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSnapshotStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBSnapshotStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSnapshotStateFault.prototype);
+  }
 }
 
 /**
@@ -2692,28 +3004,58 @@ export namespace CopyOptionGroupResult {
 /**
  * <p>The option group you are trying to create already exists.</p>
  */
-export interface OptionGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "OptionGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class OptionGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "OptionGroupAlreadyExistsFault" = "OptionGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OptionGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "OptionGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OptionGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The specified option group could not be found.</p>
  */
-export interface OptionGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "OptionGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class OptionGroupNotFoundFault extends __BaseException {
+  readonly name: "OptionGroupNotFoundFault" = "OptionGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OptionGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "OptionGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OptionGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
  */
-export interface OptionGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "OptionGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class OptionGroupQuotaExceededFault extends __BaseException {
+  readonly name: "OptionGroupQuotaExceededFault" = "OptionGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OptionGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "OptionGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OptionGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -2871,19 +3213,39 @@ export namespace CreateCustomAvailabilityZoneResult {
  *             <code>CustomAvailabilityZoneName</code> is already used by an existing custom
  *             Availability Zone.</p>
  */
-export interface CustomAvailabilityZoneAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CustomAvailabilityZoneAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CustomAvailabilityZoneAlreadyExistsFault extends __BaseException {
+  readonly name: "CustomAvailabilityZoneAlreadyExistsFault" = "CustomAvailabilityZoneAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CustomAvailabilityZoneAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomAvailabilityZoneAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the maximum number of custom Availability Zones.</p>
  */
-export interface CustomAvailabilityZoneQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CustomAvailabilityZoneQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CustomAvailabilityZoneQuotaExceededFault extends __BaseException {
+  readonly name: "CustomAvailabilityZoneQuotaExceededFault" = "CustomAvailabilityZoneQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomAvailabilityZoneQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CustomAvailabilityZoneQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomAvailabilityZoneQuotaExceededFault.prototype);
+  }
 }
 
 export interface CreateCustomDBEngineVersionMessage {
@@ -2983,19 +3345,39 @@ export namespace CreateCustomDBEngineVersionMessage {
 /**
  * <p>A CEV with the specified name already exists.</p>
  */
-export interface CustomDBEngineVersionAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "CustomDBEngineVersionAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class CustomDBEngineVersionAlreadyExistsFault extends __BaseException {
+  readonly name: "CustomDBEngineVersionAlreadyExistsFault" = "CustomDBEngineVersionAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "CustomDBEngineVersionAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomDBEngineVersionAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded your CEV quota.</p>
  */
-export interface CustomDBEngineVersionQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "CustomDBEngineVersionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class CustomDBEngineVersionQuotaExceededFault extends __BaseException {
+  readonly name: "CustomDBEngineVersionQuotaExceededFault" = "CustomDBEngineVersionQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionQuotaExceededFault, __BaseException>) {
+    super({
+      name: "CustomDBEngineVersionQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomDBEngineVersionQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -4761,10 +5143,20 @@ export namespace CreateDBClusterResult {
 /**
  * <p>The user already has a DB cluster with the given identifier.</p>
  */
-export interface DBClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "DBClusterAlreadyExistsFault" = "DBClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -4772,29 +5164,59 @@ export interface DBClusterAlreadyExistsFault extends __SmithyException, $Metadat
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
  *             cluster parameter group. </p>
  */
-export interface DBClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "DBClusterParameterGroupNotFoundFault" = "DBClusterParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The user attempted to create a new DB cluster and the user has already reached the
  *             maximum allowed DB cluster quota.</p>
  */
-export interface DBClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterQuotaExceededFault extends __BaseException {
+  readonly name: "DBClusterQuotaExceededFault" = "DBClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
-export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
-  message?: string;
+export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  readonly name: "DBSubnetGroupDoesNotCoverEnoughAZs" = "DBSubnetGroupDoesNotCoverEnoughAZs";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
+    super({
+      name: "DBSubnetGroupDoesNotCoverEnoughAZs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetGroupDoesNotCoverEnoughAZs.prototype);
+  }
 }
 
 /**
@@ -4802,10 +5224,20 @@ export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $
  *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.
  *         </p>
  */
-export interface DBSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBSubnetGroupNotFoundFault extends __BaseException {
+  readonly name: "DBSubnetGroupNotFoundFault" = "DBSubnetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBSubnetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetGroupNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -4813,19 +5245,39 @@ export interface DBSubnetGroupNotFoundFault extends __SmithyException, $Metadata
  *             <code>Domain</code> doesn't refer to an existing Active Directory domain.
  *         </p>
  */
-export interface DomainNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DomainNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DomainNotFoundFault extends __BaseException {
+  readonly name: "DomainNotFoundFault" = "DomainNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DomainNotFoundFault, __BaseException>) {
+    super({
+      name: "DomainNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
  */
-export interface GlobalClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "GlobalClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class GlobalClusterNotFoundFault extends __BaseException {
+  readonly name: "GlobalClusterNotFoundFault" = "GlobalClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "GlobalClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -4833,57 +5285,117 @@ export interface GlobalClusterNotFoundFault extends __SmithyException, $Metadata
  *             resolve this error by updating your subnet group to use different Availability Zones
  *             that have more storage available.</p>
  */
-export interface InsufficientStorageClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientStorageClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientStorageClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientStorageClusterCapacityFault" = "InsufficientStorageClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientStorageClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientStorageClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientStorageClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>The DB subnet group cannot be deleted because it's in use.</p>
  */
-export interface InvalidDBSubnetGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBSubnetGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBSubnetGroupStateFault extends __BaseException {
+  readonly name: "InvalidDBSubnetGroupStateFault" = "InvalidDBSubnetGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBSubnetGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSubnetGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
  */
-export interface InvalidGlobalClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidGlobalClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidGlobalClusterStateFault extends __BaseException {
+  readonly name: "InvalidGlobalClusterStateFault" = "InvalidGlobalClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGlobalClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidGlobalClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGlobalClusterStateFault.prototype);
+  }
 }
 
 /**
  * <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p>The DB subnet group doesn't cover all Availability Zones after it's
  *             created because of users' change.</p>
  */
-export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidVPCNetworkStateFault extends __BaseException {
+  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
+    super({
+      name: "InvalidVPCNetworkStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed amount of storage
  *             available across all DB instances.</p>
  */
-export interface StorageQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class StorageQuotaExceededFault extends __BaseException {
+  readonly name: "StorageQuotaExceededFault" = "StorageQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageQuotaExceededFault, __BaseException>) {
+    super({
+      name: "StorageQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageQuotaExceededFault.prototype);
+  }
 }
 
 export interface CreateDBClusterEndpointMessage {
@@ -5027,19 +5539,39 @@ export namespace DBClusterEndpoint {
 /**
  * <p>The specified custom endpoint can't be created because it already exists.</p>
  */
-export interface DBClusterEndpointAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterEndpointAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
+  readonly name: "DBClusterEndpointAlreadyExistsFault" = "DBClusterEndpointAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterEndpointAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBClusterEndpointAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterEndpointAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The cluster already has the maximum number of custom endpoints.</p>
  */
-export interface DBClusterEndpointQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterEndpointQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterEndpointQuotaExceededFault extends __BaseException {
+  readonly name: "DBClusterEndpointQuotaExceededFault" = "DBClusterEndpointQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterEndpointQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBClusterEndpointQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterEndpointQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -5239,16 +5771,36 @@ export namespace CreateDBClusterSnapshotResult {
  *         <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
  *             behalf.</p>
  */
-export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationNotFoundFault extends __BaseException {
+  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
+    super({
+      name: "AuthorizationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
+  }
 }
 
-export interface BackupPolicyNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "BackupPolicyNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class BackupPolicyNotFoundFault extends __BaseException {
+  readonly name: "BackupPolicyNotFoundFault" = "BackupPolicyNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupPolicyNotFoundFault, __BaseException>) {
+    super({
+      name: "BackupPolicyNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupPolicyNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -7439,49 +7991,99 @@ export namespace CreateDBInstanceResult {
 /**
  * <p>The user already has a DB instance with the given identifier.</p>
  */
-export interface DBInstanceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceAlreadyExistsFault extends __BaseException {
+  readonly name: "DBInstanceAlreadyExistsFault" = "DBInstanceAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBInstanceAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of DB
  *             instances.</p>
  */
-export interface InstanceQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "InstanceQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class InstanceQuotaExceededFault extends __BaseException {
+  readonly name: "InstanceQuotaExceededFault" = "InstanceQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstanceQuotaExceededFault, __BaseException>) {
+    super({
+      name: "InstanceQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstanceQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The specified DB instance class isn't available in the specified Availability
  *             Zone.</p>
  */
-export interface InsufficientDBInstanceCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientDBInstanceCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientDBInstanceCapacityFault extends __BaseException {
+  readonly name: "InsufficientDBInstanceCapacityFault" = "InsufficientDBInstanceCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientDBInstanceCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientDBInstanceCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  */
-export interface ProvisionedIopsNotAvailableInAZFault extends __SmithyException, $MetadataBearer {
-  name: "ProvisionedIopsNotAvailableInAZFault";
-  $fault: "client";
-  message?: string;
+export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
+  readonly name: "ProvisionedIopsNotAvailableInAZFault" = "ProvisionedIopsNotAvailableInAZFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProvisionedIopsNotAvailableInAZFault, __BaseException>) {
+    super({
+      name: "ProvisionedIopsNotAvailableInAZFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProvisionedIopsNotAvailableInAZFault.prototype);
+  }
 }
 
 /**
  * <p>Storage of the <code>StorageType</code> specified can't be associated
  *             with the DB instance. </p>
  */
-export interface StorageTypeNotSupportedFault extends __SmithyException, $MetadataBearer {
-  name: "StorageTypeNotSupportedFault";
-  $fault: "client";
-  message?: string;
+export class StorageTypeNotSupportedFault extends __BaseException {
+  readonly name: "StorageTypeNotSupportedFault" = "StorageTypeNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageTypeNotSupportedFault, __BaseException>) {
+    super({
+      name: "StorageTypeNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageTypeNotSupportedFault.prototype);
+  }
 }
 
 export interface CreateDBInstanceReadReplicaMessage {
@@ -7981,20 +8583,40 @@ export namespace CreateDBInstanceReadReplicaResult {
  * <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie
  *             in the same region as the source instance.</p>
  */
-export interface DBSubnetGroupNotAllowedFault extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetGroupNotAllowedFault";
-  $fault: "client";
-  message?: string;
+export class DBSubnetGroupNotAllowedFault extends __BaseException {
+  readonly name: "DBSubnetGroupNotAllowedFault" = "DBSubnetGroupNotAllowedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetGroupNotAllowedFault, __BaseException>) {
+    super({
+      name: "DBSubnetGroupNotAllowedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetGroupNotAllowedFault.prototype);
+  }
 }
 
 /**
  * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
  *             cross-region read replica of the same source instance.</p>
  */
-export interface InvalidDBSubnetGroupFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBSubnetGroupFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBSubnetGroupFault extends __BaseException {
+  readonly name: "InvalidDBSubnetGroupFault" = "InvalidDBSubnetGroupFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSubnetGroupFault, __BaseException>) {
+    super({
+      name: "InvalidDBSubnetGroupFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSubnetGroupFault.prototype);
+  }
 }
 
 /**
@@ -8446,19 +9068,39 @@ export namespace CreateDBProxyResponse {
 /**
  * <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyAlreadyExistsFault extends __BaseException {
+  readonly name: "DBProxyAlreadyExistsFault" = "DBProxyAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBProxyAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyQuotaExceededFault extends __BaseException {
+  readonly name: "DBProxyQuotaExceededFault" = "DBProxyQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBProxyQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyQuotaExceededFault.prototype);
+  }
 }
 
 export enum DBProxyEndpointTargetRole {
@@ -8623,28 +9265,58 @@ export namespace CreateDBProxyEndpointResponse {
 /**
  * <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyEndpointAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyEndpointAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyEndpointAlreadyExistsFault extends __BaseException {
+  readonly name: "DBProxyEndpointAlreadyExistsFault" = "DBProxyEndpointAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyEndpointAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBProxyEndpointAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyEndpointAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The DB proxy already has the maximum number of endpoints.</p>
  */
-export interface DBProxyEndpointQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyEndpointQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyEndpointQuotaExceededFault extends __BaseException {
+  readonly name: "DBProxyEndpointQuotaExceededFault" = "DBProxyEndpointQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyEndpointQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBProxyEndpointQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyEndpointQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The requested operation can't be performed while the proxy is in this state.</p>
  */
-export interface InvalidDBProxyStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBProxyStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBProxyStateFault extends __BaseException {
+  readonly name: "InvalidDBProxyStateFault" = "InvalidDBProxyStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBProxyStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBProxyStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBProxyStateFault.prototype);
+  }
 }
 
 /**
@@ -8719,29 +9391,59 @@ export namespace CreateDBSecurityGroupResult {
  *         <code>DBSecurityGroupName</code> already exists.
  *         </p>
  */
-export interface DBSecurityGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBSecurityGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "DBSecurityGroupAlreadyExistsFault" = "DBSecurityGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSecurityGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBSecurityGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSecurityGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>A DB security group isn't allowed for this action.</p>
  */
-export interface DBSecurityGroupNotSupportedFault extends __SmithyException, $MetadataBearer {
-  name: "DBSecurityGroupNotSupportedFault";
-  $fault: "client";
-  message?: string;
+export class DBSecurityGroupNotSupportedFault extends __BaseException {
+  readonly name: "DBSecurityGroupNotSupportedFault" = "DBSecurityGroupNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSecurityGroupNotSupportedFault, __BaseException>) {
+    super({
+      name: "DBSecurityGroupNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSecurityGroupNotSupportedFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of DB security
  *             groups.</p>
  */
-export interface DBSecurityGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBSecurityGroupQuotaExceededFault extends __BaseException {
+  readonly name: "DBSecurityGroupQuotaExceededFault" = "DBSecurityGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSecurityGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBSecurityGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSecurityGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -8891,30 +9593,60 @@ export namespace CreateDBSubnetGroupResult {
  *             <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.
  *         </p>
  */
-export interface DBSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "DBSubnetGroupAlreadyExistsFault" = "DBSubnetGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DBSubnetGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of DB subnet
  *             groups.</p>
  */
-export interface DBSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBSubnetGroupQuotaExceededFault extends __BaseException {
+  readonly name: "DBSubnetGroupQuotaExceededFault" = "DBSubnetGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBSubnetGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of subnets in a
  *             DB subnet groups.</p>
  */
-export interface DBSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBSubnetQuotaExceededFault extends __BaseException {
+  readonly name: "DBSubnetQuotaExceededFault" = "DBSubnetQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBSubnetQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBSubnetQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBSubnetQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -9031,55 +9763,115 @@ export namespace CreateEventSubscriptionResult {
 /**
  * <p>You have reached the maximum number of event subscriptions.</p>
  */
-export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "EventSubscriptionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class EventSubscriptionQuotaExceededFault extends __BaseException {
+  readonly name: "EventSubscriptionQuotaExceededFault" = "EventSubscriptionQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventSubscriptionQuotaExceededFault, __BaseException>) {
+    super({
+      name: "EventSubscriptionQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventSubscriptionQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>SNS has responded that there is a problem with the SNS topic specified.</p>
  */
-export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  message?: string;
+export class SNSInvalidTopicFault extends __BaseException {
+  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
+    super({
+      name: "SNSInvalidTopicFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
+  }
 }
 
 /**
  * <p>You do not have permission to publish to the SNS topic ARN.</p>
  */
-export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  message?: string;
+export class SNSNoAuthorizationFault extends __BaseException {
+  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
+    super({
+      name: "SNSNoAuthorizationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
+  }
 }
 
 /**
  * <p>The SNS topic ARN does not exist.</p>
  */
-export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SNSTopicArnNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SNSTopicArnNotFoundFault extends __BaseException {
+  readonly name: "SNSTopicArnNotFoundFault" = "SNSTopicArnNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSTopicArnNotFoundFault, __BaseException>) {
+    super({
+      name: "SNSTopicArnNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSTopicArnNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The supplied subscription name already exists.</p>
  */
-export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionAlreadyExistFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionAlreadyExistFault extends __BaseException {
+  readonly name: "SubscriptionAlreadyExistFault" = "SubscriptionAlreadyExistFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionAlreadyExistFault, __BaseException>) {
+    super({
+      name: "SubscriptionAlreadyExistFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionAlreadyExistFault.prototype);
+  }
 }
 
 /**
  * <p>The supplied category does not exist.</p>
  */
-export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionCategoryNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionCategoryNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionCategoryNotFoundFault" = "SubscriptionCategoryNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionCategoryNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionCategoryNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionCategoryNotFoundFault.prototype);
+  }
 }
 
 export interface CreateGlobalClusterMessage {
@@ -9349,19 +10141,39 @@ export namespace CreateGlobalClusterResult {
 /**
  * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
  */
-export interface GlobalClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "GlobalClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class GlobalClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "GlobalClusterAlreadyExistsFault" = "GlobalClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "GlobalClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The number of global database clusters for this account is already at the maximum allowed.</p>
  */
-export interface GlobalClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "GlobalClusterQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class GlobalClusterQuotaExceededFault extends __BaseException {
+  readonly name: "GlobalClusterQuotaExceededFault" = "GlobalClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "GlobalClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalClusterQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -9534,10 +10346,20 @@ export namespace DeleteCustomAvailabilityZoneResult {
 /**
  * <p>The specified CEV was not found.</p>
  */
-export interface CustomDBEngineVersionNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CustomDBEngineVersionNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CustomDBEngineVersionNotFoundFault extends __BaseException {
+  readonly name: "CustomDBEngineVersionNotFoundFault" = "CustomDBEngineVersionNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomDBEngineVersionNotFoundFault, __BaseException>) {
+    super({
+      name: "CustomDBEngineVersionNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomDBEngineVersionNotFoundFault.prototype);
+  }
 }
 
 export interface DeleteCustomDBEngineVersionMessage {
@@ -9566,10 +10388,20 @@ export namespace DeleteCustomDBEngineVersionMessage {
 /**
  * <p>You can't delete the CEV.</p>
  */
-export interface InvalidCustomDBEngineVersionStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidCustomDBEngineVersionStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidCustomDBEngineVersionStateFault extends __BaseException {
+  readonly name: "InvalidCustomDBEngineVersionStateFault" = "InvalidCustomDBEngineVersionStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCustomDBEngineVersionStateFault, __BaseException>) {
+    super({
+      name: "InvalidCustomDBEngineVersionStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCustomDBEngineVersionStateFault.prototype);
+  }
 }
 
 /**
@@ -9673,10 +10505,20 @@ export namespace DeleteDBClusterResult {
 /**
  * <p>The specified custom endpoint doesn't exist.</p>
  */
-export interface DBClusterEndpointNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterEndpointNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterEndpointNotFoundFault extends __BaseException {
+  readonly name: "DBClusterEndpointNotFoundFault" = "DBClusterEndpointNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterEndpointNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterEndpointNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterEndpointNotFoundFault.prototype);
+  }
 }
 
 export interface DeleteDBClusterEndpointMessage {
@@ -9698,10 +10540,20 @@ export namespace DeleteDBClusterEndpointMessage {
 /**
  * <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
  */
-export interface InvalidDBClusterEndpointStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBClusterEndpointStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBClusterEndpointStateFault extends __BaseException {
+  readonly name: "InvalidDBClusterEndpointStateFault" = "InvalidDBClusterEndpointStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBClusterEndpointStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBClusterEndpointStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBClusterEndpointStateFault.prototype);
+  }
 }
 
 /**
@@ -9740,10 +10592,20 @@ export namespace DeleteDBClusterParameterGroupMessage {
  *             to delete the parameter group, you can't delete it when the parameter group is in
  *             this state.</p>
  */
-export interface InvalidDBParameterGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBParameterGroupStateFault extends __BaseException {
+  readonly name: "InvalidDBParameterGroupStateFault" = "InvalidDBParameterGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBParameterGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBParameterGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBParameterGroupStateFault.prototype);
+  }
 }
 
 /**
@@ -9791,10 +10653,20 @@ export namespace DeleteDBClusterSnapshotResult {
  *             from retaining any additional automated backups. The retained automated backups
  *             quota is the same as your DB Instance quota.</p>
  */
-export interface DBInstanceAutomatedBackupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceAutomatedBackupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceAutomatedBackupQuotaExceededFault extends __BaseException {
+  readonly name: "DBInstanceAutomatedBackupQuotaExceededFault" = "DBInstanceAutomatedBackupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceAutomatedBackupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBInstanceAutomatedBackupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceAutomatedBackupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -9897,10 +10769,20 @@ export namespace DeleteDBInstanceResult {
 /**
  * <p>No automated backup for this DB instance was found.</p>
  */
-export interface DBInstanceAutomatedBackupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceAutomatedBackupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceAutomatedBackupNotFoundFault extends __BaseException {
+  readonly name: "DBInstanceAutomatedBackupNotFoundFault" = "DBInstanceAutomatedBackupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceAutomatedBackupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBInstanceAutomatedBackupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceAutomatedBackupNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -10151,10 +11033,20 @@ export namespace DeleteDBInstanceAutomatedBackupResult {
  * <p>The automated backup is in an invalid state.
  *     	    For example, this automated backup is associated with an active instance. </p>
  */
-export interface InvalidDBInstanceAutomatedBackupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBInstanceAutomatedBackupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBInstanceAutomatedBackupStateFault extends __BaseException {
+  readonly name: "InvalidDBInstanceAutomatedBackupStateFault" = "InvalidDBInstanceAutomatedBackupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBInstanceAutomatedBackupStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBInstanceAutomatedBackupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBInstanceAutomatedBackupStateFault.prototype);
+  }
 }
 
 /**
@@ -10223,10 +11115,20 @@ export namespace DeleteDBProxyResponse {
 /**
  * <p>The DB proxy endpoint doesn't exist.</p>
  */
-export interface DBProxyEndpointNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyEndpointNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyEndpointNotFoundFault extends __BaseException {
+  readonly name: "DBProxyEndpointNotFoundFault" = "DBProxyEndpointNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyEndpointNotFoundFault, __BaseException>) {
+    super({
+      name: "DBProxyEndpointNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyEndpointNotFoundFault.prototype);
+  }
 }
 
 export interface DeleteDBProxyEndpointRequest {
@@ -10264,10 +11166,20 @@ export namespace DeleteDBProxyEndpointResponse {
 /**
  * <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
  */
-export interface InvalidDBProxyEndpointStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBProxyEndpointStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBProxyEndpointStateFault extends __BaseException {
+  readonly name: "InvalidDBProxyEndpointStateFault" = "InvalidDBProxyEndpointStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBProxyEndpointStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBProxyEndpointStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBProxyEndpointStateFault.prototype);
+  }
 }
 
 /**
@@ -10377,10 +11289,20 @@ export namespace DeleteDBSubnetGroupMessage {
  *             The DB subnet isn't in the <i>available</i> state.
  *         </p>
  */
-export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBSubnetStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBSubnetStateFault extends __BaseException {
+  readonly name: "InvalidDBSubnetStateFault" = "InvalidDBSubnetStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBSubnetStateFault, __BaseException>) {
+    super({
+      name: "InvalidDBSubnetStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBSubnetStateFault.prototype);
+  }
 }
 
 /**
@@ -10421,10 +11343,20 @@ export namespace DeleteEventSubscriptionResult {
 /**
  * <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
  */
-export interface InvalidEventSubscriptionStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidEventSubscriptionStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidEventSubscriptionStateFault extends __BaseException {
+  readonly name: "InvalidEventSubscriptionStateFault" = "InvalidEventSubscriptionStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventSubscriptionStateFault, __BaseException>) {
+    super({
+      name: "InvalidEventSubscriptionStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventSubscriptionStateFault.prototype);
+  }
 }
 
 export interface DeleteGlobalClusterMessage {
@@ -10557,10 +11489,20 @@ export namespace InstallationMedia {
  * <p>
  *             <code>InstallationMediaID</code> doesn't refer to an existing installation medium.</p>
  */
-export interface InstallationMediaNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "InstallationMediaNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class InstallationMediaNotFoundFault extends __BaseException {
+  readonly name: "InstallationMediaNotFoundFault" = "InstallationMediaNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstallationMediaNotFoundFault, __BaseException>) {
+    super({
+      name: "InstallationMediaNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstallationMediaNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -10590,19 +11532,39 @@ export namespace DeleteOptionGroupMessage {
  *             The option group isn't in the <i>available</i> state.
  *         </p>
  */
-export interface InvalidOptionGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidOptionGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidOptionGroupStateFault extends __BaseException {
+  readonly name: "InvalidOptionGroupStateFault" = "InvalidOptionGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOptionGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidOptionGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOptionGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
-export interface DBProxyTargetNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyTargetNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyTargetNotFoundFault extends __BaseException {
+  readonly name: "DBProxyTargetNotFoundFault" = "DBProxyTargetNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyTargetNotFoundFault, __BaseException>) {
+    super({
+      name: "DBProxyTargetNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyTargetNotFoundFault.prototype);
+  }
 }
 
 export interface DeregisterDBProxyTargetsRequest {
@@ -10752,10 +11714,20 @@ export namespace CertificateMessage {
  *         existing certificate.
  *         </p>
  */
-export interface CertificateNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "CertificateNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class CertificateNotFoundFault extends __BaseException {
+  readonly name: "CertificateNotFoundFault" = "CertificateNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateNotFoundFault, __BaseException>) {
+    super({
+      name: "CertificateNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -10965,10 +11937,20 @@ export namespace DBClusterBacktrackMessage {
  * <p>
  *             <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack. </p>
  */
-export interface DBClusterBacktrackNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterBacktrackNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterBacktrackNotFoundFault extends __BaseException {
+  readonly name: "DBClusterBacktrackNotFoundFault" = "DBClusterBacktrackNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterBacktrackNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterBacktrackNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterBacktrackNotFoundFault.prototype);
+  }
 }
 
 /**

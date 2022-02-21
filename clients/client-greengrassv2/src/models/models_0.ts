@@ -1,12 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2ServiceException";
 
 /**
  * <p>You don't have permission to perform the action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message: string | undefined;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 /**
@@ -122,14 +135,26 @@ export namespace AssociateServiceRoleToAccountResponse {
 /**
  * <p>IoT Greengrass can't process your request right now. Try again later.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The amount of time to wait before you retry the request.</p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -167,10 +192,9 @@ export enum ValidationExceptionReason {
  * <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The reason for the validation exception.</p>
    */
@@ -180,6 +204,20 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The list of fields that failed to validate.</p>
    */
   fields?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
+  }
 }
 
 export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
@@ -223,10 +261,9 @@ export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
 /**
  * <p>The requested resource can't be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ID of the resource that isn't found.</p>
    */
@@ -236,16 +273,29 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The type of the resource that isn't found.</p>
    */
   resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
  *       amount of times that you can retrieve device or deployment status per second.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    */
@@ -260,6 +310,21 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The amount of time to wait before you retry the request.</p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.quotaCode = opts.quotaCode;
+    this.serviceCode = opts.serviceCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -387,10 +452,9 @@ export namespace CancelDeploymentResponse {
  * <p>Your request has conflicting operations. This can occur if you're trying to perform more
  *       than one operation on the same resource at the same time.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message: string | undefined;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ID of the resource that conflicts with the request.</p>
    */
@@ -400,6 +464,20 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource that conflicts with the request.</p>
    */
   resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export enum CloudComponentState {
@@ -1315,20 +1393,29 @@ export namespace CreateComponentVersionResponse {
  *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
  *       token.</p>
  */
-export interface RequestAlreadyInProgressException extends __SmithyException, $MetadataBearer {
-  name: "RequestAlreadyInProgressException";
-  $fault: "client";
-  message: string | undefined;
+export class RequestAlreadyInProgressException extends __BaseException {
+  readonly name: "RequestAlreadyInProgressException" = "RequestAlreadyInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestAlreadyInProgressException, __BaseException>) {
+    super({
+      name: "RequestAlreadyInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestAlreadyInProgressException.prototype);
+  }
 }
 
 /**
  * <p>Your request exceeds a service quota. For example, you might have the maximum number of
  *       components that you can create.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message: string | undefined;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ID of the resource that exceeds the service quota.</p>
    */
@@ -1348,6 +1435,22 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    */
   serviceCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.quotaCode = opts.quotaCode;
+    this.serviceCode = opts.serviceCode;
+  }
 }
 
 export enum DeploymentComponentUpdatePolicyAction {

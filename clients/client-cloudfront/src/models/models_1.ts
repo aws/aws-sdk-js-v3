@@ -1,6 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 import {
   Aliases,
   AliasICPRecordal,
@@ -90,10 +91,22 @@ export namespace DeleteOriginRequestPolicyRequest {
  * <p>Cannot delete the origin request policy because it is attached to one or more cache
  * 			behaviors.</p>
  */
-export interface OriginRequestPolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "OriginRequestPolicyInUse";
-  $fault: "client";
+export class OriginRequestPolicyInUse extends __BaseException {
+  readonly name: "OriginRequestPolicyInUse" = "OriginRequestPolicyInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OriginRequestPolicyInUse, __BaseException>) {
+    super({
+      name: "OriginRequestPolicyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OriginRequestPolicyInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeletePublicKeyRequest {
@@ -121,10 +134,22 @@ export namespace DeletePublicKeyRequest {
 /**
  * <p>The specified public key is in use. </p>
  */
-export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
-  name: "PublicKeyInUse";
-  $fault: "client";
+export class PublicKeyInUse extends __BaseException {
+  readonly name: "PublicKeyInUse" = "PublicKeyInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicKeyInUse, __BaseException>) {
+    super({
+      name: "PublicKeyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicKeyInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteRealtimeLogConfigRequest {
@@ -152,10 +177,22 @@ export namespace DeleteRealtimeLogConfigRequest {
  * <p>Cannot delete the real-time log configuration because it is attached to one or more cache
  * 			behaviors.</p>
  */
-export interface RealtimeLogConfigInUse extends __SmithyException, $MetadataBearer {
-  name: "RealtimeLogConfigInUse";
-  $fault: "client";
+export class RealtimeLogConfigInUse extends __BaseException {
+  readonly name: "RealtimeLogConfigInUse" = "RealtimeLogConfigInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RealtimeLogConfigInUse, __BaseException>) {
+    super({
+      name: "RealtimeLogConfigInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RealtimeLogConfigInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteResponseHeadersPolicyRequest {
@@ -188,10 +225,22 @@ export namespace DeleteResponseHeadersPolicyRequest {
  * <p>Cannot delete the response headers policy because it is attached to one or more cache
  * 			behaviors in a CloudFront distribution. </p>
  */
-export interface ResponseHeadersPolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "ResponseHeadersPolicyInUse";
-  $fault: "client";
+export class ResponseHeadersPolicyInUse extends __BaseException {
+  readonly name: "ResponseHeadersPolicyInUse" = "ResponseHeadersPolicyInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResponseHeadersPolicyInUse, __BaseException>) {
+    super({
+      name: "ResponseHeadersPolicyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResponseHeadersPolicyInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -222,20 +271,44 @@ export namespace DeleteStreamingDistributionRequest {
 /**
  * <p>The specified streaming distribution does not exist.</p>
  */
-export interface NoSuchStreamingDistribution extends __SmithyException, $MetadataBearer {
-  name: "NoSuchStreamingDistribution";
-  $fault: "client";
+export class NoSuchStreamingDistribution extends __BaseException {
+  readonly name: "NoSuchStreamingDistribution" = "NoSuchStreamingDistribution";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchStreamingDistribution, __BaseException>) {
+    super({
+      name: "NoSuchStreamingDistribution",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchStreamingDistribution.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
  */
-export interface StreamingDistributionNotDisabled extends __SmithyException, $MetadataBearer {
-  name: "StreamingDistributionNotDisabled";
-  $fault: "client";
+export class StreamingDistributionNotDisabled extends __BaseException {
+  readonly name: "StreamingDistributionNotDisabled" = "StreamingDistributionNotDisabled";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamingDistributionNotDisabled, __BaseException>) {
+    super({
+      name: "StreamingDistributionNotDisabled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamingDistributionNotDisabled.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeFunctionRequest {
@@ -786,10 +859,22 @@ export namespace GetInvalidationResult {
 /**
  * <p>The specified invalidation does not exist.</p>
  */
-export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
-  name: "NoSuchInvalidation";
-  $fault: "client";
+export class NoSuchInvalidation extends __BaseException {
+  readonly name: "NoSuchInvalidation" = "NoSuchInvalidation";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchInvalidation, __BaseException>) {
+    super({
+      name: "NoSuchInvalidation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchInvalidation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetKeyGroupRequest {
@@ -3427,10 +3512,22 @@ export namespace TagResourceRequest {
 /**
  * <p>The CloudFront function failed.</p>
  */
-export interface TestFunctionFailed extends __SmithyException, $MetadataBearer {
-  name: "TestFunctionFailed";
-  $fault: "server";
+export class TestFunctionFailed extends __BaseException {
+  readonly name: "TestFunctionFailed" = "TestFunctionFailed";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TestFunctionFailed, __BaseException>) {
+    super({
+      name: "TestFunctionFailed",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TestFunctionFailed.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface TestFunctionRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AutoScalingServiceException as __BaseException } from "./AutoScalingServiceException";
 
 /**
  * <p>Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when
@@ -77,10 +80,20 @@ export enum AcceleratorType {
  * <p>The request failed because an active instance refresh for the specified Auto Scaling group was
  *             not found. </p>
  */
-export interface ActiveInstanceRefreshNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ActiveInstanceRefreshNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ActiveInstanceRefreshNotFoundFault extends __BaseException {
+  readonly name: "ActiveInstanceRefreshNotFoundFault" = "ActiveInstanceRefreshNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveInstanceRefreshNotFoundFault, __BaseException>) {
+    super({
+      name: "ActiveInstanceRefreshNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveInstanceRefreshNotFoundFault.prototype);
+  }
 }
 
 export enum ScalingActivityStatusCode {
@@ -262,13 +275,20 @@ export namespace Alarm {
 /**
  * <p>You already have an Auto Scaling group or launch configuration with this name.</p>
  */
-export interface AlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsFault";
-  $fault: "client";
+export class AlreadyExistsFault extends __BaseException {
+  readonly name: "AlreadyExistsFault" = "AlreadyExistsFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AlreadyExistsFault, __BaseException>) {
+    super({
+      name: "AlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsFault.prototype);
+  }
 }
 
 export interface AttachInstancesQuery {
@@ -296,22 +316,39 @@ export namespace AttachInstancesQuery {
  * <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
  *             instance, or load balancer).</p>
  */
-export interface ResourceContentionFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceContentionFault";
-  $fault: "server";
+export class ResourceContentionFault extends __BaseException {
+  readonly name: "ResourceContentionFault" = "ResourceContentionFault";
+  readonly $fault: "server" = "server";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceContentionFault, __BaseException>) {
+    super({
+      name: "ResourceContentionFault",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceContentionFault.prototype);
+  }
 }
 
 /**
  * <p>The service-linked role is not yet ready for use.</p>
  */
-export interface ServiceLinkedRoleFailure extends __SmithyException, $MetadataBearer {
-  name: "ServiceLinkedRoleFailure";
-  $fault: "server";
-  message?: string;
+export class ServiceLinkedRoleFailure extends __BaseException {
+  readonly name: "ServiceLinkedRoleFailure" = "ServiceLinkedRoleFailure";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleFailure, __BaseException>) {
+    super({
+      name: "ServiceLinkedRoleFailure",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLinkedRoleFailure.prototype);
+  }
 }
 
 export interface AttachLoadBalancersResultType {}
@@ -563,13 +600,20 @@ export namespace BatchPutScheduledUpdateGroupActionType {
  *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
  *             Reference</i>.</p>
  */
-export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededFault";
-  $fault: "client";
+export class LimitExceededFault extends __BaseException {
+  readonly name: "LimitExceededFault" = "LimitExceededFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
+    super({
+      name: "LimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededFault.prototype);
+  }
 }
 
 export interface CancelInstanceRefreshAnswer {
@@ -2153,13 +2197,20 @@ export namespace CreateOrUpdateTagsType {
 /**
  * <p>The operation can't be performed because the resource is in use.</p>
  */
-export interface ResourceInUseFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseFault";
-  $fault: "client";
+export class ResourceInUseFault extends __BaseException {
+  readonly name: "ResourceInUseFault" = "ResourceInUseFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceInUseFault, __BaseException>) {
+    super({
+      name: "ResourceInUseFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseFault.prototype);
+  }
 }
 
 export interface DeleteAutoScalingGroupType {
@@ -2189,13 +2240,20 @@ export namespace DeleteAutoScalingGroupType {
  * <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
  */
-export interface ScalingActivityInProgressFault extends __SmithyException, $MetadataBearer {
-  name: "ScalingActivityInProgressFault";
-  $fault: "client";
+export class ScalingActivityInProgressFault extends __BaseException {
+  readonly name: "ScalingActivityInProgressFault" = "ScalingActivityInProgressFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ScalingActivityInProgressFault, __BaseException>) {
+    super({
+      name: "ScalingActivityInProgressFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScalingActivityInProgressFault.prototype);
+  }
 }
 
 export interface LaunchConfigurationNameType {
@@ -3078,13 +3136,20 @@ export namespace AutoScalingGroupsType {
 /**
  * <p>The <code>NextToken</code> value is not valid.</p>
  */
-export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextToken";
-  $fault: "client";
+export class InvalidNextToken extends __BaseException {
+  readonly name: "InvalidNextToken" = "InvalidNextToken";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidNextToken, __BaseException>) {
+    super({
+      name: "InvalidNextToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextToken.prototype);
+  }
 }
 
 /**
@@ -7151,10 +7216,20 @@ export namespace SetInstanceProtectionQuery {
  * <p>The request failed because an active instance refresh operation already exists for the
  *             specified Auto Scaling group.</p>
  */
-export interface InstanceRefreshInProgressFault extends __SmithyException, $MetadataBearer {
-  name: "InstanceRefreshInProgressFault";
-  $fault: "client";
-  message?: string;
+export class InstanceRefreshInProgressFault extends __BaseException {
+  readonly name: "InstanceRefreshInProgressFault" = "InstanceRefreshInProgressFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstanceRefreshInProgressFault, __BaseException>) {
+    super({
+      name: "InstanceRefreshInProgressFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstanceRefreshInProgressFault.prototype);
+  }
 }
 
 export interface StartInstanceRefreshAnswer {

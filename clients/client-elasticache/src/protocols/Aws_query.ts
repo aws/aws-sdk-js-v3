@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -13,10 +14,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -218,6 +217,7 @@ import {
 } from "../commands/RevokeCacheSecurityGroupIngressCommand";
 import { StartMigrationCommandInput, StartMigrationCommandOutput } from "../commands/StartMigrationCommand";
 import { TestFailoverCommandInput, TestFailoverCommandOutput } from "../commands/TestFailoverCommand";
+import { ElastiCacheServiceException as __BaseException } from "../models/ElastiCacheServiceException";
 import {
   AddTagsToResourceMessage,
   AllowedNodeTypeModificationsMessage,
@@ -1535,121 +1535,55 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ReservedCacheNodeNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async (
@@ -1680,65 +1614,34 @@ const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationAlreadyExistsFault":
     case "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationAlreadyExistsFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheSecurityGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryBatchApplyUpdateActionCommand = async (
@@ -1766,41 +1669,25 @@ const deserializeAws_queryBatchApplyUpdateActionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryBatchStopUpdateActionCommand = async (
@@ -1828,41 +1715,25 @@ const deserializeAws_queryBatchStopUpdateActionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCompleteMigrationCommand = async (
@@ -1890,49 +1761,28 @@ const deserializeAws_queryCompleteMigrationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotUnderMigrationFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCopySnapshotCommand = async (
@@ -1960,81 +1810,40 @@ const deserializeAws_queryCopySnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidSnapshotStateFault":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCacheClusterCommand = async (
@@ -2062,137 +1871,61 @@ const deserializeAws_queryCreateCacheClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterAlreadyExistsFault":
     case "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterAlreadyExistsFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "ClusterQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCacheParameterGroupCommand = async (
@@ -2220,73 +1953,37 @@ const deserializeAws_queryCreateCacheParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "CacheParameterGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidCacheParameterGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCacheSecurityGroupCommand = async (
@@ -2314,65 +2011,34 @@ const deserializeAws_queryCreateCacheSecurityGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSecurityGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateCacheSubnetGroupCommand = async (
@@ -2400,73 +2066,37 @@ const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "CacheSubnetQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.elasticache#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "SubnetNotAllowedFault":
     case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      response = {
-        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateGlobalReplicationGroupCommand = async (
@@ -2494,65 +2124,34 @@ const deserializeAws_queryCreateGlobalReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateReplicationGroupCommand = async (
@@ -2580,177 +2179,76 @@ const deserializeAws_queryCreateReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "ClusterQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidUserGroupStateFault":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateSnapshotCommand = async (
@@ -2778,105 +2276,49 @@ const deserializeAws_queryCreateSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateUserCommand = async (
@@ -2904,81 +2346,40 @@ const deserializeAws_queryCreateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateUserNameFault":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     case "UserAlreadyExistsFault":
     case "com.amazonaws.elasticache#UserAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryUserAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserAlreadyExistsFaultResponse(parsedOutput, context);
     case "UserQuotaExceededFault":
     case "com.amazonaws.elasticache#UserQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryUserQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateUserGroupCommand = async (
@@ -3006,89 +2407,43 @@ const deserializeAws_queryCreateUserGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
-      response = {
-        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context);
     case "DuplicateUserNameFault":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     case "UserGroupAlreadyExistsFault":
     case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupAlreadyExistsFaultResponse(parsedOutput, context);
     case "UserGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
@@ -3119,57 +2474,31 @@ const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDecreaseReplicaCountCommand = async (
@@ -3197,121 +2526,55 @@ const deserializeAws_queryDecreaseReplicaCountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
-      response = {
-        ...(await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCacheClusterCommand = async (
@@ -3339,81 +2602,40 @@ const deserializeAws_queryDeleteCacheClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCacheParameterGroupCommand = async (
@@ -3438,57 +2660,31 @@ const deserializeAws_queryDeleteCacheParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheParameterGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCacheSecurityGroupCommand = async (
@@ -3513,57 +2709,31 @@ const deserializeAws_queryDeleteCacheSecurityGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheSecurityGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteCacheSubnetGroupCommand = async (
@@ -3588,41 +2758,25 @@ const deserializeAws_queryDeleteCacheSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupInUse":
     case "com.amazonaws.elasticache#CacheSubnetGroupInUse":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupInUseResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteGlobalReplicationGroupCommand = async (
@@ -3650,49 +2804,28 @@ const deserializeAws_queryDeleteGlobalReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteReplicationGroupCommand = async (
@@ -3720,81 +2853,40 @@ const deserializeAws_queryDeleteReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotAlreadyExistsFault":
     case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotAlreadyExistsFaultResponse(parsedOutput, context);
     case "SnapshotFeatureNotSupportedFault":
     case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      response = {
-        ...(await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotFeatureNotSupportedFaultResponse(parsedOutput, context);
     case "SnapshotQuotaExceededFault":
     case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotQuotaExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteSnapshotCommand = async (
@@ -3822,57 +2914,31 @@ const deserializeAws_queryDeleteSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidSnapshotStateFault":
     case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSnapshotStateFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteUserCommand = async (
@@ -3900,65 +2966,34 @@ const deserializeAws_queryDeleteUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUserAssociatedToUserGroupFault":
     case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
-      response = {
-        ...(await deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidUserStateFault":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteUserGroupCommand = async (
@@ -3986,57 +3021,31 @@ const deserializeAws_queryDeleteUserGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidUserGroupStateFault":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheClustersCommand = async (
@@ -4064,49 +3073,28 @@ const deserializeAws_queryDescribeCacheClustersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheEngineVersionsCommand = async (
@@ -4134,25 +3122,19 @@ const deserializeAws_queryDescribeCacheEngineVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheParameterGroupsCommand = async (
@@ -4180,49 +3162,28 @@ const deserializeAws_queryDescribeCacheParameterGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheParametersCommand = async (
@@ -4250,49 +3211,28 @@ const deserializeAws_queryDescribeCacheParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheSecurityGroupsCommand = async (
@@ -4320,49 +3260,28 @@ const deserializeAws_queryDescribeCacheSecurityGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeCacheSubnetGroupsCommand = async (
@@ -4390,33 +3309,22 @@ const deserializeAws_queryDescribeCacheSubnetGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async (
@@ -4447,41 +3355,25 @@ const deserializeAws_queryDescribeEngineDefaultParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeEventsCommand = async (
@@ -4509,41 +3401,25 @@ const deserializeAws_queryDescribeEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeGlobalReplicationGroupsCommand = async (
@@ -4574,49 +3450,28 @@ const deserializeAws_queryDescribeGlobalReplicationGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeReplicationGroupsCommand = async (
@@ -4644,49 +3499,28 @@ const deserializeAws_queryDescribeReplicationGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeReservedCacheNodesCommand = async (
@@ -4714,49 +3548,28 @@ const deserializeAws_queryDescribeReservedCacheNodesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReservedCacheNodeNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand = async (
@@ -4787,49 +3600,28 @@ const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReservedCacheNodesOfferingNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeServiceUpdatesCommand = async (
@@ -4857,49 +3649,28 @@ const deserializeAws_queryDescribeServiceUpdatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUpdateNotFoundFault":
     case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceUpdateNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeSnapshotsCommand = async (
@@ -4927,57 +3698,31 @@ const deserializeAws_queryDescribeSnapshotsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeUpdateActionsCommand = async (
@@ -5005,41 +3750,25 @@ const deserializeAws_queryDescribeUpdateActionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeUserGroupsCommand = async (
@@ -5067,49 +3796,28 @@ const deserializeAws_queryDescribeUserGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeUsersCommand = async (
@@ -5137,49 +3845,28 @@ const deserializeAws_queryDescribeUsersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDisassociateGlobalReplicationGroupCommand = async (
@@ -5210,57 +3897,31 @@ const deserializeAws_queryDisassociateGlobalReplicationGroupCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryFailoverGlobalReplicationGroupCommand = async (
@@ -5291,57 +3952,31 @@ const deserializeAws_queryFailoverGlobalReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
@@ -5372,49 +4007,28 @@ const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryIncreaseReplicaCountCommand = async (
@@ -5442,121 +4056,55 @@ const deserializeAws_queryIncreaseReplicaCountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.elasticache#NoOperationFault":
-      response = {
-        ...(await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoOperationFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAllowedNodeTypeModificationsCommand = async (
@@ -5587,57 +4135,31 @@ const deserializeAws_queryListAllowedNodeTypeModificationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListTagsForResourceCommand = async (
@@ -5665,113 +4187,52 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ReservedCacheNodeNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCacheClusterCommand = async (
@@ -5799,113 +4260,52 @@ const deserializeAws_queryModifyCacheClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidCacheSecurityGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCacheParameterGroupCommand = async (
@@ -5933,65 +4333,34 @@ const deserializeAws_queryModifyCacheParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheParameterGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyCacheSubnetGroupCommand = async (
@@ -6019,65 +4388,34 @@ const deserializeAws_queryModifyCacheSubnetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetQuotaExceededFault":
     case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetQuotaExceededFaultResponse(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.elasticache#InvalidSubnet":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetResponse(parsedOutput, context);
     case "SubnetInUse":
     case "com.amazonaws.elasticache#SubnetInUse":
-      response = {
-        ...(await deserializeAws_querySubnetInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetInUseResponse(parsedOutput, context);
     case "SubnetNotAllowedFault":
     case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      response = {
-        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyGlobalReplicationGroupCommand = async (
@@ -6105,49 +4443,28 @@ const deserializeAws_queryModifyGlobalReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyReplicationGroupCommand = async (
@@ -6175,153 +4492,67 @@ const deserializeAws_queryModifyReplicationGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidCacheSecurityGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidUserGroupStateFault":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeQuotaForClusterExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForClusterExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand = async (
@@ -6352,105 +4583,49 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError =
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientCacheClusterCapacityFault":
     case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      response = {
-        ...(await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidVPCNetworkStateFaultResponse(parsedOutput, context);
     case "NodeGroupsPerReplicationGroupQuotaExceededFault":
     case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse(parsedOutput, context);
     case "NodeQuotaForCustomerExceededFault":
     case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyUserCommand = async (
@@ -6478,65 +4653,34 @@ const deserializeAws_queryModifyUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidUserStateFault":
     case "com.amazonaws.elasticache#InvalidUserStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyUserGroupCommand = async (
@@ -6564,89 +4708,43 @@ const deserializeAws_queryModifyUserGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUserRequired":
     case "com.amazonaws.elasticache#DefaultUserRequired":
-      response = {
-        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context);
     case "DuplicateUserNameFault":
     case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      response = {
-        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidUserGroupStateFault":
     case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context);
     case "ServiceLinkedRoleNotFoundFault":
     case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
@@ -6677,73 +4775,37 @@ const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ReservedCacheNodeAlreadyExistsFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse(parsedOutput, context);
     case "ReservedCacheNodeQuotaExceededFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse(parsedOutput, context);
     case "ReservedCacheNodesOfferingNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse(parsedOutput, context);
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      response = {
-        ...(await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagQuotaPerResourceExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand = async (
@@ -6774,49 +4836,28 @@ const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRebootCacheClusterCommand = async (
@@ -6844,41 +4885,25 @@ const deserializeAws_queryRebootCacheClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
@@ -6906,121 +4931,55 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheClusterNotFoundFault":
     case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheClusterNotFoundFaultResponse(parsedOutput, context);
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "CacheSubnetGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.elasticache#InvalidARNFault":
-      response = {
-        ...(await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidARNFaultResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "ReservedCacheNodeNotFoundFault":
     case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReservedCacheNodeNotFoundFaultResponse(parsedOutput, context);
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      response = {
-        ...(await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySnapshotNotFoundFaultResponse(parsedOutput, context);
     case "TagNotFoundFault":
     case "com.amazonaws.elasticache#TagNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryTagNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTagNotFoundFaultResponse(parsedOutput, context);
     case "UserGroupNotFoundFault":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.elasticache#UserNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryResetCacheParameterGroupCommand = async (
@@ -7048,65 +5007,34 @@ const deserializeAws_queryResetCacheParameterGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CacheParameterGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheParameterGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheParameterGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse(parsedOutput, context);
     case "InvalidGlobalReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
@@ -7137,65 +5065,34 @@ const deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
     case "com.amazonaws.elasticache#AuthorizationNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAuthorizationNotFoundFaultResponse(parsedOutput, context);
     case "CacheSecurityGroupNotFoundFault":
     case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse(parsedOutput, context);
     case "InvalidCacheSecurityGroupStateFault":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryStartMigrationCommand = async (
@@ -7223,57 +5120,31 @@ const deserializeAws_queryStartMigrationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "ReplicationGroupAlreadyUnderMigrationFault":
     case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTestFailoverCommand = async (
@@ -7301,97 +5172,46 @@ const deserializeAws_queryTestFailoverCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "APICallRateForCustomerExceededFault":
     case "com.amazonaws.elasticache#APICallRateForCustomerExceededFault":
-      response = {
-        ...(await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAPICallRateForCustomerExceededFaultResponse(parsedOutput, context);
     case "InvalidCacheClusterStateFault":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCacheClusterStateFaultResponse(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      response = {
-        ...(await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidKMSKeyFaultResponse(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidReplicationGroupStateFault":
     case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      response = {
-        ...(await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidReplicationGroupStateFaultResponse(parsedOutput, context);
     case "NodeGroupNotFoundFault":
     case "com.amazonaws.elasticache#NodeGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryNodeGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNodeGroupNotFoundFaultResponse(parsedOutput, context);
     case "ReplicationGroupNotFoundFault":
     case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      response = {
-        ...(await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReplicationGroupNotFoundFaultResponse(parsedOutput, context);
     case "TestFailoverNotAvailableFault":
     case "com.amazonaws.elasticache#TestFailoverNotAvailableFault":
-      response = {
-        ...(await deserializeAws_queryTestFailoverNotAvailableFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTestFailoverNotAvailableFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryAPICallRateForCustomerExceededFaultResponse = async (
@@ -7400,13 +5220,11 @@ const deserializeAws_queryAPICallRateForCustomerExceededFaultResponse = async (
 ): Promise<APICallRateForCustomerExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAPICallRateForCustomerExceededFault(body.Error, context);
-  const contents: APICallRateForCustomerExceededFault = {
-    name: "APICallRateForCustomerExceededFault",
-    $fault: "client",
+  const exception = new APICallRateForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
@@ -7415,13 +5233,11 @@ const deserializeAws_queryAuthorizationAlreadyExistsFaultResponse = async (
 ): Promise<AuthorizationAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAuthorizationAlreadyExistsFault(body.Error, context);
-  const contents: AuthorizationAlreadyExistsFault = {
-    name: "AuthorizationAlreadyExistsFault",
-    $fault: "client",
+  const exception = new AuthorizationAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
@@ -7430,13 +5246,11 @@ const deserializeAws_queryAuthorizationNotFoundFaultResponse = async (
 ): Promise<AuthorizationNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAuthorizationNotFoundFault(body.Error, context);
-  const contents: AuthorizationNotFoundFault = {
-    name: "AuthorizationNotFoundFault",
-    $fault: "client",
+  const exception = new AuthorizationNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheClusterAlreadyExistsFaultResponse = async (
@@ -7445,13 +5259,11 @@ const deserializeAws_queryCacheClusterAlreadyExistsFaultResponse = async (
 ): Promise<CacheClusterAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheClusterAlreadyExistsFault(body.Error, context);
-  const contents: CacheClusterAlreadyExistsFault = {
-    name: "CacheClusterAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CacheClusterAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheClusterNotFoundFaultResponse = async (
@@ -7460,13 +5272,11 @@ const deserializeAws_queryCacheClusterNotFoundFaultResponse = async (
 ): Promise<CacheClusterNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheClusterNotFoundFault(body.Error, context);
-  const contents: CacheClusterNotFoundFault = {
-    name: "CacheClusterNotFoundFault",
-    $fault: "client",
+  const exception = new CacheClusterNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse = async (
@@ -7475,13 +5285,11 @@ const deserializeAws_queryCacheParameterGroupAlreadyExistsFaultResponse = async 
 ): Promise<CacheParameterGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheParameterGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheParameterGroupAlreadyExistsFault = {
-    name: "CacheParameterGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CacheParameterGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheParameterGroupNotFoundFaultResponse = async (
@@ -7490,13 +5298,11 @@ const deserializeAws_queryCacheParameterGroupNotFoundFaultResponse = async (
 ): Promise<CacheParameterGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheParameterGroupNotFoundFault(body.Error, context);
-  const contents: CacheParameterGroupNotFoundFault = {
-    name: "CacheParameterGroupNotFoundFault",
-    $fault: "client",
+  const exception = new CacheParameterGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse = async (
@@ -7505,13 +5311,11 @@ const deserializeAws_queryCacheParameterGroupQuotaExceededFaultResponse = async 
 ): Promise<CacheParameterGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheParameterGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheParameterGroupQuotaExceededFault = {
-    name: "CacheParameterGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new CacheParameterGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse = async (
@@ -7520,13 +5324,11 @@ const deserializeAws_queryCacheSecurityGroupAlreadyExistsFaultResponse = async (
 ): Promise<CacheSecurityGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSecurityGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheSecurityGroupAlreadyExistsFault = {
-    name: "CacheSecurityGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CacheSecurityGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse = async (
@@ -7535,13 +5337,11 @@ const deserializeAws_queryCacheSecurityGroupNotFoundFaultResponse = async (
 ): Promise<CacheSecurityGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSecurityGroupNotFoundFault(body.Error, context);
-  const contents: CacheSecurityGroupNotFoundFault = {
-    name: "CacheSecurityGroupNotFoundFault",
-    $fault: "client",
+  const exception = new CacheSecurityGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse = async (
@@ -7550,13 +5350,11 @@ const deserializeAws_queryCacheSecurityGroupQuotaExceededFaultResponse = async (
 ): Promise<CacheSecurityGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSecurityGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheSecurityGroupQuotaExceededFault = {
-    name: "CacheSecurityGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new CacheSecurityGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse = async (
@@ -7565,13 +5363,11 @@ const deserializeAws_queryCacheSubnetGroupAlreadyExistsFaultResponse = async (
 ): Promise<CacheSubnetGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSubnetGroupAlreadyExistsFault(body.Error, context);
-  const contents: CacheSubnetGroupAlreadyExistsFault = {
-    name: "CacheSubnetGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new CacheSubnetGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSubnetGroupInUseResponse = async (
@@ -7580,13 +5376,11 @@ const deserializeAws_queryCacheSubnetGroupInUseResponse = async (
 ): Promise<CacheSubnetGroupInUse> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSubnetGroupInUse(body.Error, context);
-  const contents: CacheSubnetGroupInUse = {
-    name: "CacheSubnetGroupInUse",
-    $fault: "client",
+  const exception = new CacheSubnetGroupInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse = async (
@@ -7595,13 +5389,11 @@ const deserializeAws_queryCacheSubnetGroupNotFoundFaultResponse = async (
 ): Promise<CacheSubnetGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSubnetGroupNotFoundFault(body.Error, context);
-  const contents: CacheSubnetGroupNotFoundFault = {
-    name: "CacheSubnetGroupNotFoundFault",
-    $fault: "client",
+  const exception = new CacheSubnetGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse = async (
@@ -7610,13 +5402,11 @@ const deserializeAws_queryCacheSubnetGroupQuotaExceededFaultResponse = async (
 ): Promise<CacheSubnetGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSubnetGroupQuotaExceededFault(body.Error, context);
-  const contents: CacheSubnetGroupQuotaExceededFault = {
-    name: "CacheSubnetGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new CacheSubnetGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCacheSubnetQuotaExceededFaultResponse = async (
@@ -7625,13 +5415,11 @@ const deserializeAws_queryCacheSubnetQuotaExceededFaultResponse = async (
 ): Promise<CacheSubnetQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCacheSubnetQuotaExceededFault(body.Error, context);
-  const contents: CacheSubnetQuotaExceededFault = {
-    name: "CacheSubnetQuotaExceededFault",
-    $fault: "client",
+  const exception = new CacheSubnetQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse = async (
@@ -7640,13 +5428,11 @@ const deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse = async (
 ): Promise<ClusterQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryClusterQuotaForCustomerExceededFault(body.Error, context);
-  const contents: ClusterQuotaForCustomerExceededFault = {
-    name: "ClusterQuotaForCustomerExceededFault",
-    $fault: "client",
+  const exception = new ClusterQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse = async (
@@ -7655,13 +5441,11 @@ const deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse = async 
 ): Promise<DefaultUserAssociatedToUserGroupFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDefaultUserAssociatedToUserGroupFault(body.Error, context);
-  const contents: DefaultUserAssociatedToUserGroupFault = {
-    name: "DefaultUserAssociatedToUserGroupFault",
-    $fault: "client",
+  const exception = new DefaultUserAssociatedToUserGroupFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDefaultUserRequiredResponse = async (
@@ -7670,13 +5454,11 @@ const deserializeAws_queryDefaultUserRequiredResponse = async (
 ): Promise<DefaultUserRequired> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDefaultUserRequired(body.Error, context);
-  const contents: DefaultUserRequired = {
-    name: "DefaultUserRequired",
-    $fault: "client",
+  const exception = new DefaultUserRequired({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateUserNameFaultResponse = async (
@@ -7685,13 +5467,11 @@ const deserializeAws_queryDuplicateUserNameFaultResponse = async (
 ): Promise<DuplicateUserNameFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateUserNameFault(body.Error, context);
-  const contents: DuplicateUserNameFault = {
-    name: "DuplicateUserNameFault",
-    $fault: "client",
+  const exception = new DuplicateUserNameFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse = async (
@@ -7700,13 +5480,11 @@ const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse = asy
 ): Promise<GlobalReplicationGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryGlobalReplicationGroupAlreadyExistsFault(body.Error, context);
-  const contents: GlobalReplicationGroupAlreadyExistsFault = {
-    name: "GlobalReplicationGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new GlobalReplicationGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse = async (
@@ -7715,13 +5493,11 @@ const deserializeAws_queryGlobalReplicationGroupNotFoundFaultResponse = async (
 ): Promise<GlobalReplicationGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryGlobalReplicationGroupNotFoundFault(body.Error, context);
-  const contents: GlobalReplicationGroupNotFoundFault = {
-    name: "GlobalReplicationGroupNotFoundFault",
-    $fault: "client",
+  const exception = new GlobalReplicationGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse = async (
@@ -7730,13 +5506,11 @@ const deserializeAws_queryInsufficientCacheClusterCapacityFaultResponse = async 
 ): Promise<InsufficientCacheClusterCapacityFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInsufficientCacheClusterCapacityFault(body.Error, context);
-  const contents: InsufficientCacheClusterCapacityFault = {
-    name: "InsufficientCacheClusterCapacityFault",
-    $fault: "client",
+  const exception = new InsufficientCacheClusterCapacityFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidARNFaultResponse = async (
@@ -7745,13 +5519,11 @@ const deserializeAws_queryInvalidARNFaultResponse = async (
 ): Promise<InvalidARNFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidARNFault(body.Error, context);
-  const contents: InvalidARNFault = {
-    name: "InvalidARNFault",
-    $fault: "client",
+  const exception = new InvalidARNFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidCacheClusterStateFaultResponse = async (
@@ -7760,13 +5532,11 @@ const deserializeAws_queryInvalidCacheClusterStateFaultResponse = async (
 ): Promise<InvalidCacheClusterStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidCacheClusterStateFault(body.Error, context);
-  const contents: InvalidCacheClusterStateFault = {
-    name: "InvalidCacheClusterStateFault",
-    $fault: "client",
+  const exception = new InvalidCacheClusterStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse = async (
@@ -7775,13 +5545,11 @@ const deserializeAws_queryInvalidCacheParameterGroupStateFaultResponse = async (
 ): Promise<InvalidCacheParameterGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidCacheParameterGroupStateFault(body.Error, context);
-  const contents: InvalidCacheParameterGroupStateFault = {
-    name: "InvalidCacheParameterGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidCacheParameterGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse = async (
@@ -7790,13 +5558,11 @@ const deserializeAws_queryInvalidCacheSecurityGroupStateFaultResponse = async (
 ): Promise<InvalidCacheSecurityGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidCacheSecurityGroupStateFault(body.Error, context);
-  const contents: InvalidCacheSecurityGroupStateFault = {
-    name: "InvalidCacheSecurityGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidCacheSecurityGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse = async (
@@ -7805,13 +5571,11 @@ const deserializeAws_queryInvalidGlobalReplicationGroupStateFaultResponse = asyn
 ): Promise<InvalidGlobalReplicationGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidGlobalReplicationGroupStateFault(body.Error, context);
-  const contents: InvalidGlobalReplicationGroupStateFault = {
-    name: "InvalidGlobalReplicationGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidGlobalReplicationGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidKMSKeyFaultResponse = async (
@@ -7820,13 +5584,11 @@ const deserializeAws_queryInvalidKMSKeyFaultResponse = async (
 ): Promise<InvalidKMSKeyFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidKMSKeyFault(body.Error, context);
-  const contents: InvalidKMSKeyFault = {
-    name: "InvalidKMSKeyFault",
-    $fault: "client",
+  const exception = new InvalidKMSKeyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
@@ -7835,13 +5597,11 @@ const deserializeAws_queryInvalidParameterCombinationExceptionResponse = async (
 ): Promise<InvalidParameterCombinationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidParameterCombinationException(body.Error, context);
-  const contents: InvalidParameterCombinationException = {
-    name: "InvalidParameterCombinationException",
-    $fault: "client",
+  const exception = new InvalidParameterCombinationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
@@ -7850,13 +5610,11 @@ const deserializeAws_queryInvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidParameterValueException(body.Error, context);
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
+  const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidReplicationGroupStateFaultResponse = async (
@@ -7865,13 +5623,11 @@ const deserializeAws_queryInvalidReplicationGroupStateFaultResponse = async (
 ): Promise<InvalidReplicationGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidReplicationGroupStateFault(body.Error, context);
-  const contents: InvalidReplicationGroupStateFault = {
-    name: "InvalidReplicationGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidReplicationGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSnapshotStateFaultResponse = async (
@@ -7880,13 +5636,11 @@ const deserializeAws_queryInvalidSnapshotStateFaultResponse = async (
 ): Promise<InvalidSnapshotStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSnapshotStateFault(body.Error, context);
-  const contents: InvalidSnapshotStateFault = {
-    name: "InvalidSnapshotStateFault",
-    $fault: "client",
+  const exception = new InvalidSnapshotStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSubnetResponse = async (
@@ -7895,13 +5649,11 @@ const deserializeAws_queryInvalidSubnetResponse = async (
 ): Promise<InvalidSubnet> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSubnet(body.Error, context);
-  const contents: InvalidSubnet = {
-    name: "InvalidSubnet",
-    $fault: "client",
+  const exception = new InvalidSubnet({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidUserGroupStateFaultResponse = async (
@@ -7910,13 +5662,11 @@ const deserializeAws_queryInvalidUserGroupStateFaultResponse = async (
 ): Promise<InvalidUserGroupStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidUserGroupStateFault(body.Error, context);
-  const contents: InvalidUserGroupStateFault = {
-    name: "InvalidUserGroupStateFault",
-    $fault: "client",
+  const exception = new InvalidUserGroupStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidUserStateFaultResponse = async (
@@ -7925,13 +5675,11 @@ const deserializeAws_queryInvalidUserStateFaultResponse = async (
 ): Promise<InvalidUserStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidUserStateFault(body.Error, context);
-  const contents: InvalidUserStateFault = {
-    name: "InvalidUserStateFault",
-    $fault: "client",
+  const exception = new InvalidUserStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
@@ -7940,13 +5688,11 @@ const deserializeAws_queryInvalidVPCNetworkStateFaultResponse = async (
 ): Promise<InvalidVPCNetworkStateFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidVPCNetworkStateFault(body.Error, context);
-  const contents: InvalidVPCNetworkStateFault = {
-    name: "InvalidVPCNetworkStateFault",
-    $fault: "client",
+  const exception = new InvalidVPCNetworkStateFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNodeGroupNotFoundFaultResponse = async (
@@ -7955,13 +5701,11 @@ const deserializeAws_queryNodeGroupNotFoundFaultResponse = async (
 ): Promise<NodeGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNodeGroupNotFoundFault(body.Error, context);
-  const contents: NodeGroupNotFoundFault = {
-    name: "NodeGroupNotFoundFault",
-    $fault: "client",
+  const exception = new NodeGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultResponse = async (
@@ -7970,13 +5714,11 @@ const deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFaultRespons
 ): Promise<NodeGroupsPerReplicationGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNodeGroupsPerReplicationGroupQuotaExceededFault(body.Error, context);
-  const contents: NodeGroupsPerReplicationGroupQuotaExceededFault = {
-    name: "NodeGroupsPerReplicationGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new NodeGroupsPerReplicationGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNodeQuotaForClusterExceededFaultResponse = async (
@@ -7985,13 +5727,11 @@ const deserializeAws_queryNodeQuotaForClusterExceededFaultResponse = async (
 ): Promise<NodeQuotaForClusterExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNodeQuotaForClusterExceededFault(body.Error, context);
-  const contents: NodeQuotaForClusterExceededFault = {
-    name: "NodeQuotaForClusterExceededFault",
-    $fault: "client",
+  const exception = new NodeQuotaForClusterExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse = async (
@@ -8000,13 +5740,11 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFaultResponse = async (
 ): Promise<NodeQuotaForCustomerExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNodeQuotaForCustomerExceededFault(body.Error, context);
-  const contents: NodeQuotaForCustomerExceededFault = {
-    name: "NodeQuotaForCustomerExceededFault",
-    $fault: "client",
+  const exception = new NodeQuotaForCustomerExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNoOperationFaultResponse = async (
@@ -8015,13 +5753,11 @@ const deserializeAws_queryNoOperationFaultResponse = async (
 ): Promise<NoOperationFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNoOperationFault(body.Error, context);
-  const contents: NoOperationFault = {
-    name: "NoOperationFault",
-    $fault: "client",
+  const exception = new NoOperationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse = async (
@@ -8030,13 +5766,11 @@ const deserializeAws_queryReplicationGroupAlreadyExistsFaultResponse = async (
 ): Promise<ReplicationGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReplicationGroupAlreadyExistsFault(body.Error, context);
-  const contents: ReplicationGroupAlreadyExistsFault = {
-    name: "ReplicationGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new ReplicationGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse = async (
@@ -8045,13 +5779,11 @@ const deserializeAws_queryReplicationGroupAlreadyUnderMigrationFaultResponse = a
 ): Promise<ReplicationGroupAlreadyUnderMigrationFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReplicationGroupAlreadyUnderMigrationFault(body.Error, context);
-  const contents: ReplicationGroupAlreadyUnderMigrationFault = {
-    name: "ReplicationGroupAlreadyUnderMigrationFault",
-    $fault: "client",
+  const exception = new ReplicationGroupAlreadyUnderMigrationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReplicationGroupNotFoundFaultResponse = async (
@@ -8060,13 +5792,11 @@ const deserializeAws_queryReplicationGroupNotFoundFaultResponse = async (
 ): Promise<ReplicationGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReplicationGroupNotFoundFault(body.Error, context);
-  const contents: ReplicationGroupNotFoundFault = {
-    name: "ReplicationGroupNotFoundFault",
-    $fault: "client",
+  const exception = new ReplicationGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse = async (
@@ -8075,13 +5805,11 @@ const deserializeAws_queryReplicationGroupNotUnderMigrationFaultResponse = async
 ): Promise<ReplicationGroupNotUnderMigrationFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReplicationGroupNotUnderMigrationFault(body.Error, context);
-  const contents: ReplicationGroupNotUnderMigrationFault = {
-    name: "ReplicationGroupNotUnderMigrationFault",
-    $fault: "client",
+  const exception = new ReplicationGroupNotUnderMigrationFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse = async (
@@ -8090,13 +5818,11 @@ const deserializeAws_queryReservedCacheNodeAlreadyExistsFaultResponse = async (
 ): Promise<ReservedCacheNodeAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedCacheNodeAlreadyExistsFault(body.Error, context);
-  const contents: ReservedCacheNodeAlreadyExistsFault = {
-    name: "ReservedCacheNodeAlreadyExistsFault",
-    $fault: "client",
+  const exception = new ReservedCacheNodeAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedCacheNodeNotFoundFaultResponse = async (
@@ -8105,13 +5831,11 @@ const deserializeAws_queryReservedCacheNodeNotFoundFaultResponse = async (
 ): Promise<ReservedCacheNodeNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedCacheNodeNotFoundFault(body.Error, context);
-  const contents: ReservedCacheNodeNotFoundFault = {
-    name: "ReservedCacheNodeNotFoundFault",
-    $fault: "client",
+  const exception = new ReservedCacheNodeNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse = async (
@@ -8120,13 +5844,11 @@ const deserializeAws_queryReservedCacheNodeQuotaExceededFaultResponse = async (
 ): Promise<ReservedCacheNodeQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedCacheNodeQuotaExceededFault(body.Error, context);
-  const contents: ReservedCacheNodeQuotaExceededFault = {
-    name: "ReservedCacheNodeQuotaExceededFault",
-    $fault: "client",
+  const exception = new ReservedCacheNodeQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse = async (
@@ -8135,13 +5857,11 @@ const deserializeAws_queryReservedCacheNodesOfferingNotFoundFaultResponse = asyn
 ): Promise<ReservedCacheNodesOfferingNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReservedCacheNodesOfferingNotFoundFault(body.Error, context);
-  const contents: ReservedCacheNodesOfferingNotFoundFault = {
-    name: "ReservedCacheNodesOfferingNotFoundFault",
-    $fault: "client",
+  const exception = new ReservedCacheNodesOfferingNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse = async (
@@ -8150,13 +5870,11 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFaultResponse = async (
 ): Promise<ServiceLinkedRoleNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryServiceLinkedRoleNotFoundFault(body.Error, context);
-  const contents: ServiceLinkedRoleNotFoundFault = {
-    name: "ServiceLinkedRoleNotFoundFault",
-    $fault: "client",
+  const exception = new ServiceLinkedRoleNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryServiceUpdateNotFoundFaultResponse = async (
@@ -8165,13 +5883,11 @@ const deserializeAws_queryServiceUpdateNotFoundFaultResponse = async (
 ): Promise<ServiceUpdateNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryServiceUpdateNotFoundFault(body.Error, context);
-  const contents: ServiceUpdateNotFoundFault = {
-    name: "ServiceUpdateNotFoundFault",
-    $fault: "client",
+  const exception = new ServiceUpdateNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySnapshotAlreadyExistsFaultResponse = async (
@@ -8180,13 +5896,11 @@ const deserializeAws_querySnapshotAlreadyExistsFaultResponse = async (
 ): Promise<SnapshotAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySnapshotAlreadyExistsFault(body.Error, context);
-  const contents: SnapshotAlreadyExistsFault = {
-    name: "SnapshotAlreadyExistsFault",
-    $fault: "client",
+  const exception = new SnapshotAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySnapshotFeatureNotSupportedFaultResponse = async (
@@ -8195,13 +5909,11 @@ const deserializeAws_querySnapshotFeatureNotSupportedFaultResponse = async (
 ): Promise<SnapshotFeatureNotSupportedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySnapshotFeatureNotSupportedFault(body.Error, context);
-  const contents: SnapshotFeatureNotSupportedFault = {
-    name: "SnapshotFeatureNotSupportedFault",
-    $fault: "client",
+  const exception = new SnapshotFeatureNotSupportedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySnapshotNotFoundFaultResponse = async (
@@ -8210,13 +5922,11 @@ const deserializeAws_querySnapshotNotFoundFaultResponse = async (
 ): Promise<SnapshotNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySnapshotNotFoundFault(body.Error, context);
-  const contents: SnapshotNotFoundFault = {
-    name: "SnapshotNotFoundFault",
-    $fault: "client",
+  const exception = new SnapshotNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
@@ -8225,13 +5935,11 @@ const deserializeAws_querySnapshotQuotaExceededFaultResponse = async (
 ): Promise<SnapshotQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySnapshotQuotaExceededFault(body.Error, context);
-  const contents: SnapshotQuotaExceededFault = {
-    name: "SnapshotQuotaExceededFault",
-    $fault: "client",
+  const exception = new SnapshotQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubnetInUseResponse = async (
@@ -8240,13 +5948,11 @@ const deserializeAws_querySubnetInUseResponse = async (
 ): Promise<SubnetInUse> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubnetInUse(body.Error, context);
-  const contents: SubnetInUse = {
-    name: "SubnetInUse",
-    $fault: "client",
+  const exception = new SubnetInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubnetNotAllowedFaultResponse = async (
@@ -8255,13 +5961,11 @@ const deserializeAws_querySubnetNotAllowedFaultResponse = async (
 ): Promise<SubnetNotAllowedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubnetNotAllowedFault(body.Error, context);
-  const contents: SubnetNotAllowedFault = {
-    name: "SubnetNotAllowedFault",
-    $fault: "client",
+  const exception = new SubnetNotAllowedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTagNotFoundFaultResponse = async (
@@ -8270,13 +5974,11 @@ const deserializeAws_queryTagNotFoundFaultResponse = async (
 ): Promise<TagNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTagNotFoundFault(body.Error, context);
-  const contents: TagNotFoundFault = {
-    name: "TagNotFoundFault",
-    $fault: "client",
+  const exception = new TagNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTagQuotaPerResourceExceededResponse = async (
@@ -8285,13 +5987,11 @@ const deserializeAws_queryTagQuotaPerResourceExceededResponse = async (
 ): Promise<TagQuotaPerResourceExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTagQuotaPerResourceExceeded(body.Error, context);
-  const contents: TagQuotaPerResourceExceeded = {
-    name: "TagQuotaPerResourceExceeded",
-    $fault: "client",
+  const exception = new TagQuotaPerResourceExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTestFailoverNotAvailableFaultResponse = async (
@@ -8300,13 +6000,11 @@ const deserializeAws_queryTestFailoverNotAvailableFaultResponse = async (
 ): Promise<TestFailoverNotAvailableFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTestFailoverNotAvailableFault(body.Error, context);
-  const contents: TestFailoverNotAvailableFault = {
-    name: "TestFailoverNotAvailableFault",
-    $fault: "client",
+  const exception = new TestFailoverNotAvailableFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserAlreadyExistsFaultResponse = async (
@@ -8315,13 +6013,11 @@ const deserializeAws_queryUserAlreadyExistsFaultResponse = async (
 ): Promise<UserAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserAlreadyExistsFault(body.Error, context);
-  const contents: UserAlreadyExistsFault = {
-    name: "UserAlreadyExistsFault",
-    $fault: "client",
+  const exception = new UserAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserGroupAlreadyExistsFaultResponse = async (
@@ -8330,13 +6026,11 @@ const deserializeAws_queryUserGroupAlreadyExistsFaultResponse = async (
 ): Promise<UserGroupAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserGroupAlreadyExistsFault(body.Error, context);
-  const contents: UserGroupAlreadyExistsFault = {
-    name: "UserGroupAlreadyExistsFault",
-    $fault: "client",
+  const exception = new UserGroupAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserGroupNotFoundFaultResponse = async (
@@ -8345,13 +6039,11 @@ const deserializeAws_queryUserGroupNotFoundFaultResponse = async (
 ): Promise<UserGroupNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserGroupNotFoundFault(body.Error, context);
-  const contents: UserGroupNotFoundFault = {
-    name: "UserGroupNotFoundFault",
-    $fault: "client",
+  const exception = new UserGroupNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserGroupQuotaExceededFaultResponse = async (
@@ -8360,13 +6052,11 @@ const deserializeAws_queryUserGroupQuotaExceededFaultResponse = async (
 ): Promise<UserGroupQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserGroupQuotaExceededFault(body.Error, context);
-  const contents: UserGroupQuotaExceededFault = {
-    name: "UserGroupQuotaExceededFault",
-    $fault: "client",
+  const exception = new UserGroupQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserNotFoundFaultResponse = async (
@@ -8375,13 +6065,11 @@ const deserializeAws_queryUserNotFoundFaultResponse = async (
 ): Promise<UserNotFoundFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserNotFoundFault(body.Error, context);
-  const contents: UserNotFoundFault = {
-    name: "UserNotFoundFault",
-    $fault: "client",
+  const exception = new UserNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUserQuotaExceededFaultResponse = async (
@@ -8390,13 +6078,11 @@ const deserializeAws_queryUserQuotaExceededFaultResponse = async (
 ): Promise<UserQuotaExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUserQuotaExceededFault(body.Error, context);
-  const contents: UserQuotaExceededFault = {
-    name: "UserQuotaExceededFault",
-    $fault: "client",
+  const exception = new UserQuotaExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {

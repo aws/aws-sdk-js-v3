@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ChimeSDKIdentityServiceException as __BaseException } from "./ChimeSDKIdentityServiceException";
 
 export enum AllowMessages {
   ALL = "ALL",
@@ -511,22 +513,48 @@ export enum ErrorCode {
 /**
  * <p>The input parameters don't match the service's restrictions.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -609,61 +637,139 @@ export namespace CreateAppInstanceResponse {
 /**
  * <p>The client is permanently forbidden from making the request.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request exceeds the resource limit.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The service encountered an unexpected error.</p>
  */
-export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
-  name: "ServiceFailureException";
-  $fault: "server";
+export class ServiceFailureException extends __BaseException {
+  readonly name: "ServiceFailureException" = "ServiceFailureException";
+  readonly $fault: "server" = "server";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The service is currently unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The client exceeded its request rate limit.</p>
  */
-export interface ThrottledClientException extends __SmithyException, $MetadataBearer {
-  name: "ThrottledClientException";
-  $fault: "client";
+export class ThrottledClientException extends __BaseException {
+  readonly name: "ThrottledClientException" = "ThrottledClientException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottledClientException, __BaseException>) {
+    super({
+      name: "ThrottledClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottledClientException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The client is not currently authorized to make the request.</p>
  */
-export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedClientException";
-  $fault: "client";
+export class UnauthorizedClientException extends __BaseException {
+  readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
+  readonly $fault: "client" = "client";
   Code?: ErrorCode | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedClientException, __BaseException>) {
+    super({
+      name: "UnauthorizedClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedClientException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAppInstanceAdminRequest {

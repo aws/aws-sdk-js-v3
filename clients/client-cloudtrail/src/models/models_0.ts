@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudTrailServiceException as __BaseException } from "./CloudTrailServiceException";
 
 /**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail trail.</p>
@@ -72,13 +75,25 @@ export namespace AddTagsResponse {
  *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
  */
-export interface CloudTrailARNInvalidException extends __SmithyException, $MetadataBearer {
-  name: "CloudTrailARNInvalidException";
-  $fault: "client";
+export class CloudTrailARNInvalidException extends __BaseException {
+  readonly name: "CloudTrailARNInvalidException" = "CloudTrailARNInvalidException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudTrailARNInvalidException, __BaseException>) {
+    super({
+      name: "CloudTrailARNInvalidException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudTrailARNInvalidException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -86,50 +101,98 @@ export interface CloudTrailARNInvalidException extends __SmithyException, $Metad
  *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
  *          If this exception occurs, wait a few minutes, and then try the operation again.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified event data store was not found.</p>
  */
-export interface EventDataStoreNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EventDataStoreNotFoundException";
-  $fault: "client";
+export class EventDataStoreNotFoundException extends __BaseException {
+  readonly name: "EventDataStoreNotFoundException" = "EventDataStoreNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreNotFoundException, __BaseException>) {
+    super({
+      name: "EventDataStoreNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The event data store against which you ran your query is inactive.</p>
  */
-export interface InactiveEventDataStoreException extends __SmithyException, $MetadataBearer {
-  name: "InactiveEventDataStoreException";
-  $fault: "client";
+export class InactiveEventDataStoreException extends __BaseException {
+  readonly name: "InactiveEventDataStoreException" = "InactiveEventDataStoreException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InactiveEventDataStoreException, __BaseException>) {
+    super({
+      name: "InactiveEventDataStoreException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InactiveEventDataStoreException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified tag key or values are not valid.
  *          It can also occur if there are duplicate tags or too many tags on the resource.</p>
  */
-export interface InvalidTagParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagParameterException";
-  $fault: "client";
+export class InvalidTagParameterException extends __BaseException {
+  readonly name: "InvalidTagParameterException" = "InvalidTagParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagParameterException, __BaseException>) {
+    super({
+      name: "InvalidTagParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -153,13 +216,25 @@ export interface InvalidTagParameterException extends __SmithyException, $Metada
  *             </li>
  *          </ul>
  */
-export interface InvalidTrailNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTrailNameException";
-  $fault: "client";
+export class InvalidTrailNameException extends __BaseException {
+  readonly name: "InvalidTrailNameException" = "InvalidTrailNameException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTrailNameException, __BaseException>) {
+    super({
+      name: "InvalidTrailNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTrailNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -167,73 +242,145 @@ export interface InvalidTrailNameException extends __SmithyException, $MetadataB
  *          organization in Organizations. For more information, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
-export interface NotOrganizationMasterAccountException extends __SmithyException, $MetadataBearer {
-  name: "NotOrganizationMasterAccountException";
-  $fault: "client";
+export class NotOrganizationMasterAccountException extends __BaseException {
+  readonly name: "NotOrganizationMasterAccountException" = "NotOrganizationMasterAccountException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotOrganizationMasterAccountException, __BaseException>) {
+    super({
+      name: "NotOrganizationMasterAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotOrganizationMasterAccountException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified resource is not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
-export interface ResourceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceTypeNotSupportedException";
-  $fault: "client";
+export class ResourceTypeNotSupportedException extends __BaseException {
+  readonly name: "ResourceTypeNotSupportedException" = "ResourceTypeNotSupportedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "ResourceTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceTypeNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.</p>
  */
-export interface TagsLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TagsLimitExceededException";
-  $fault: "client";
+export class TagsLimitExceededException extends __BaseException {
+  readonly name: "TagsLimitExceededException" = "TagsLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagsLimitExceededException, __BaseException>) {
+    super({
+      name: "TagsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagsLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -631,50 +778,98 @@ export namespace CancelQueryResponse {
 /**
  * <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
  */
-export interface EventDataStoreARNInvalidException extends __SmithyException, $MetadataBearer {
-  name: "EventDataStoreARNInvalidException";
-  $fault: "client";
+export class EventDataStoreARNInvalidException extends __BaseException {
+  readonly name: "EventDataStoreARNInvalidException" = "EventDataStoreARNInvalidException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreARNInvalidException, __BaseException>) {
+    super({
+      name: "EventDataStoreARNInvalidException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreARNInvalidException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, or
  *          <code>CANCELLED</code> state.</p>
  */
-export interface InactiveQueryException extends __SmithyException, $MetadataBearer {
-  name: "InactiveQueryException";
-  $fault: "client";
+export class InactiveQueryException extends __BaseException {
+  readonly name: "InactiveQueryException" = "InactiveQueryException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InactiveQueryException, __BaseException>) {
+    super({
+      name: "InactiveQueryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InactiveQueryException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request includes a parameter that is not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The query ID does not exist or does not map to a query.</p>
  */
-export interface QueryIdNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "QueryIdNotFoundException";
-  $fault: "client";
+export class QueryIdNotFoundException extends __BaseException {
+  readonly name: "QueryIdNotFoundException" = "QueryIdNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryIdNotFoundException, __BaseException>) {
+    super({
+      name: "QueryIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -682,13 +877,25 @@ export interface QueryIdNotFoundException extends __SmithyException, $MetadataBe
  *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a>
  *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  */
-export interface CloudTrailAccessNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "CloudTrailAccessNotEnabledException";
-  $fault: "client";
+export class CloudTrailAccessNotEnabledException extends __BaseException {
+  readonly name: "CloudTrailAccessNotEnabledException" = "CloudTrailAccessNotEnabledException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudTrailAccessNotEnabledException, __BaseException>) {
+    super({
+      name: "CloudTrailAccessNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudTrailAccessNotEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateEventDataStoreRequest {
@@ -818,25 +1025,49 @@ export namespace CreateEventDataStoreResponse {
 /**
  * <p>An event data store with that name already exists.</p>
  */
-export interface EventDataStoreAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EventDataStoreAlreadyExistsException";
-  $fault: "client";
+export class EventDataStoreAlreadyExistsException extends __BaseException {
+  readonly name: "EventDataStoreAlreadyExistsException" = "EventDataStoreAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EventDataStoreAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your account has used the maximum number of event data stores.</p>
  */
-export interface EventDataStoreMaxLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "EventDataStoreMaxLimitExceededException";
-  $fault: "client";
+export class EventDataStoreMaxLimitExceededException extends __BaseException {
+  readonly name: "EventDataStoreMaxLimitExceededException" = "EventDataStoreMaxLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreMaxLimitExceededException, __BaseException>) {
+    super({
+      name: "EventDataStoreMaxLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreMaxLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -844,13 +1075,26 @@ export interface EventDataStoreMaxLimitExceededException extends __SmithyExcepti
  *          creating an organization trail in a required service. For more information, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
-export interface InsufficientDependencyServiceAccessPermissionException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientDependencyServiceAccessPermissionException";
-  $fault: "client";
+export class InsufficientDependencyServiceAccessPermissionException extends __BaseException {
+  readonly name: "InsufficientDependencyServiceAccessPermissionException" =
+    "InsufficientDependencyServiceAccessPermissionException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientDependencyServiceAccessPermissionException, __BaseException>) {
+    super({
+      name: "InsufficientDependencyServiceAccessPermissionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDependencyServiceAccessPermissionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -858,26 +1102,50 @@ export interface InsufficientDependencyServiceAccessPermissionException extends 
  *          creating an organization trail. For more information, see
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
-export interface OrganizationNotInAllFeaturesModeException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationNotInAllFeaturesModeException";
-  $fault: "client";
+export class OrganizationNotInAllFeaturesModeException extends __BaseException {
+  readonly name: "OrganizationNotInAllFeaturesModeException" = "OrganizationNotInAllFeaturesModeException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationNotInAllFeaturesModeException, __BaseException>) {
+    super({
+      name: "OrganizationNotInAllFeaturesModeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationNotInAllFeaturesModeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization.
  *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
  */
-export interface OrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationsNotInUseException";
-  $fault: "client";
+export class OrganizationsNotInUseException extends __BaseException {
+  readonly name: "OrganizationsNotInUseException" = "OrganizationsNotInUseException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationsNotInUseException, __BaseException>) {
+    super({
+      name: "OrganizationsNotInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationsNotInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -885,25 +1153,49 @@ export interface OrganizationsNotInUseException extends __SmithyException, $Meta
  *          This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that
  *          is in a suspended Amazon Web Services account.</p>
  */
-export interface CloudTrailInvalidClientTokenIdException extends __SmithyException, $MetadataBearer {
-  name: "CloudTrailInvalidClientTokenIdException";
-  $fault: "client";
+export class CloudTrailInvalidClientTokenIdException extends __BaseException {
+  readonly name: "CloudTrailInvalidClientTokenIdException" = "CloudTrailInvalidClientTokenIdException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudTrailInvalidClientTokenIdException, __BaseException>) {
+    super({
+      name: "CloudTrailInvalidClientTokenIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudTrailInvalidClientTokenIdException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
-export interface CloudWatchLogsDeliveryUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "CloudWatchLogsDeliveryUnavailableException";
-  $fault: "client";
+export class CloudWatchLogsDeliveryUnavailableException extends __BaseException {
+  readonly name: "CloudWatchLogsDeliveryUnavailableException" = "CloudWatchLogsDeliveryUnavailableException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudWatchLogsDeliveryUnavailableException, __BaseException>) {
+    super({
+      name: "CloudWatchLogsDeliveryUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudWatchLogsDeliveryUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1125,133 +1417,265 @@ export namespace CreateTrailResponse {
 /**
  * <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
  */
-export interface InsufficientEncryptionPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientEncryptionPolicyException";
-  $fault: "client";
+export class InsufficientEncryptionPolicyException extends __BaseException {
+  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientEncryptionPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
-export interface InsufficientS3BucketPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientS3BucketPolicyException";
-  $fault: "client";
+export class InsufficientS3BucketPolicyException extends __BaseException {
+  readonly name: "InsufficientS3BucketPolicyException" = "InsufficientS3BucketPolicyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientS3BucketPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientS3BucketPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientS3BucketPolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the policy on the Amazon SNS topic is not sufficient.</p>
  */
-export interface InsufficientSnsTopicPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientSnsTopicPolicyException";
-  $fault: "client";
+export class InsufficientSnsTopicPolicyException extends __BaseException {
+  readonly name: "InsufficientSnsTopicPolicyException" = "InsufficientSnsTopicPolicyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientSnsTopicPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientSnsTopicPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientSnsTopicPolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the provided CloudWatch Logs log group is not valid.</p>
  */
-export interface InvalidCloudWatchLogsLogGroupArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCloudWatchLogsLogGroupArnException";
-  $fault: "client";
+export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
+  readonly name: "InvalidCloudWatchLogsLogGroupArnException" = "InvalidCloudWatchLogsLogGroupArnException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCloudWatchLogsLogGroupArnException, __BaseException>) {
+    super({
+      name: "InvalidCloudWatchLogsLogGroupArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCloudWatchLogsLogGroupArnException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the provided role is not valid.</p>
  */
-export interface InvalidCloudWatchLogsRoleArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCloudWatchLogsRoleArnException";
-  $fault: "client";
+export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
+  readonly name: "InvalidCloudWatchLogsRoleArnException" = "InvalidCloudWatchLogsRoleArnException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCloudWatchLogsRoleArnException, __BaseException>) {
+    super({
+      name: "InvalidCloudWatchLogsRoleArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCloudWatchLogsRoleArnException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the KMS key ARN is not valid.</p>
  */
-export interface InvalidKmsKeyIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidKmsKeyIdException";
-  $fault: "client";
+export class InvalidKmsKeyIdException extends __BaseException {
+  readonly name: "InvalidKmsKeyIdException" = "InvalidKmsKeyIdException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKmsKeyIdException, __BaseException>) {
+    super({
+      name: "InvalidKmsKeyIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKmsKeyIdException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the combination of parameters provided is not valid.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  */
-export interface InvalidS3BucketNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3BucketNameException";
-  $fault: "client";
+export class InvalidS3BucketNameException extends __BaseException {
+  readonly name: "InvalidS3BucketNameException" = "InvalidS3BucketNameException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3BucketNameException, __BaseException>) {
+    super({
+      name: "InvalidS3BucketNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3BucketNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  */
-export interface InvalidS3PrefixException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3PrefixException";
-  $fault: "client";
+export class InvalidS3PrefixException extends __BaseException {
+  readonly name: "InvalidS3PrefixException" = "InvalidS3PrefixException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3PrefixException, __BaseException>) {
+    super({
+      name: "InvalidS3PrefixException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3PrefixException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  */
-export interface InvalidSnsTopicNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnsTopicNameException";
-  $fault: "client";
+export class InvalidSnsTopicNameException extends __BaseException {
+  readonly name: "InvalidSnsTopicNameException" = "InvalidSnsTopicNameException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnsTopicNameException, __BaseException>) {
+    super({
+      name: "InvalidSnsTopicNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnsTopicNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.</p>
  */
-export interface KmsException extends __SmithyException, $MetadataBearer {
-  name: "KmsException";
-  $fault: "client";
+export class KmsException extends __BaseException {
+  readonly name: "KmsException" = "KmsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsException, __BaseException>) {
+    super({
+      name: "KmsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1259,13 +1683,25 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
  *
  * <p>This exception is no longer in use.</p>
  */
-export interface KmsKeyDisabledException extends __SmithyException, $MetadataBearer {
-  name: "KmsKeyDisabledException";
-  $fault: "client";
+export class KmsKeyDisabledException extends __BaseException {
+  readonly name: "KmsKeyDisabledException" = "KmsKeyDisabledException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyDisabledException, __BaseException>) {
+    super({
+      name: "KmsKeyDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyDisabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1273,61 +1709,121 @@ export interface KmsKeyDisabledException extends __SmithyException, $MetadataBea
  *          KMS key are not in the same region, or when the KMS key associated with the Amazon SNS
  *          topic either does not exist or is not in the same region.</p>
  */
-export interface KmsKeyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "KmsKeyNotFoundException";
-  $fault: "client";
+export class KmsKeyNotFoundException extends __BaseException {
+  readonly name: "KmsKeyNotFoundException" = "KmsKeyNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyNotFoundException, __BaseException>) {
+    super({
+      name: "KmsKeyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
-export interface MaximumNumberOfTrailsExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumNumberOfTrailsExceededException";
-  $fault: "client";
+export class MaximumNumberOfTrailsExceededException extends __BaseException {
+  readonly name: "MaximumNumberOfTrailsExceededException" = "MaximumNumberOfTrailsExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaximumNumberOfTrailsExceededException, __BaseException>) {
+    super({
+      name: "MaximumNumberOfTrailsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumNumberOfTrailsExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  */
-export interface S3BucketDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "S3BucketDoesNotExistException";
-  $fault: "client";
+export class S3BucketDoesNotExistException extends __BaseException {
+  readonly name: "S3BucketDoesNotExistException" = "S3BucketDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3BucketDoesNotExistException, __BaseException>) {
+    super({
+      name: "S3BucketDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3BucketDoesNotExistException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
-export interface TrailAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TrailAlreadyExistsException";
-  $fault: "client";
+export class TrailAlreadyExistsException extends __BaseException {
+  readonly name: "TrailAlreadyExistsException" = "TrailAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrailAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TrailAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrailAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is no longer in use.</p>
  */
-export interface TrailNotProvidedException extends __SmithyException, $MetadataBearer {
-  name: "TrailNotProvidedException";
-  $fault: "client";
+export class TrailNotProvidedException extends __BaseException {
+  readonly name: "TrailNotProvidedException" = "TrailNotProvidedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrailNotProvidedException, __BaseException>) {
+    super({
+      name: "TrailNotProvidedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrailNotProvidedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteEventDataStoreRequest {
@@ -1360,13 +1856,25 @@ export namespace DeleteEventDataStoreResponse {
 /**
  * <p>The event data store cannot be deleted because termination protection is enabled for it.</p>
  */
-export interface EventDataStoreTerminationProtectedException extends __SmithyException, $MetadataBearer {
-  name: "EventDataStoreTerminationProtectedException";
-  $fault: "client";
+export class EventDataStoreTerminationProtectedException extends __BaseException {
+  readonly name: "EventDataStoreTerminationProtectedException" = "EventDataStoreTerminationProtectedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreTerminationProtectedException, __BaseException>) {
+    super({
+      name: "EventDataStoreTerminationProtectedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreTerminationProtectedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1408,25 +1916,49 @@ export namespace DeleteTrailResponse {
 /**
  * <p>This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.</p>
  */
-export interface InvalidHomeRegionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidHomeRegionException";
-  $fault: "client";
+export class InvalidHomeRegionException extends __BaseException {
+  readonly name: "InvalidHomeRegionException" = "InvalidHomeRegionException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidHomeRegionException, __BaseException>) {
+    super({
+      name: "InvalidHomeRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidHomeRegionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
-export interface TrailNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TrailNotFoundException";
-  $fault: "client";
+export class TrailNotFoundException extends __BaseException {
+  readonly name: "TrailNotFoundException" = "TrailNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrailNotFoundException, __BaseException>) {
+    super({
+      name: "TrailNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrailNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeQueryRequest {
@@ -2174,13 +2706,25 @@ export namespace GetInsightSelectorsResponse {
 /**
  * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.</p>
  */
-export interface InsightNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "InsightNotEnabledException";
-  $fault: "client";
+export class InsightNotEnabledException extends __BaseException {
+  readonly name: "InsightNotEnabledException" = "InsightNotEnabledException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsightNotEnabledException, __BaseException>) {
+    super({
+      name: "InsightNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsightNotEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetQueryResultsRequest {
@@ -2278,25 +2822,49 @@ export namespace GetQueryResultsResponse {
 /**
  * <p>This exception is thrown if the limit specified is not valid.</p>
  */
-export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxResultsException";
-  $fault: "client";
+export class InvalidMaxResultsException extends __BaseException {
+  readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMaxResultsException, __BaseException>) {
+    super({
+      name: "InvalidMaxResultsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxResultsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetTrailRequest {
@@ -2583,25 +3151,49 @@ export namespace ListEventDataStoresResponse {
 /**
  * <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.</p>
  */
-export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTimeRangeException";
-  $fault: "client";
+export class InvalidTimeRangeException extends __BaseException {
+  readonly name: "InvalidTimeRangeException" = "InvalidTimeRangeException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTimeRangeException, __BaseException>) {
+    super({
+      name: "InvalidTimeRangeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTimeRangeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Reserved for future use.</p>
  */
-export interface InvalidTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTokenException";
-  $fault: "client";
+export class InvalidTokenException extends __BaseException {
+  readonly name: "InvalidTokenException" = "InvalidTokenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
+    super({
+      name: "InvalidTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2701,25 +3293,49 @@ export namespace ListPublicKeysResponse {
  *          about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
  *             or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
  */
-export interface InvalidDateRangeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDateRangeException";
-  $fault: "client";
+export class InvalidDateRangeException extends __BaseException {
+  readonly name: "InvalidDateRangeException" = "InvalidDateRangeException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDateRangeException, __BaseException>) {
+    super({
+      name: "InvalidDateRangeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDateRangeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The query status is not valid for the operation.</p>
  */
-export interface InvalidQueryStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidQueryStatusException";
-  $fault: "client";
+export class InvalidQueryStatusException extends __BaseException {
+  readonly name: "InvalidQueryStatusException" = "InvalidQueryStatusException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryStatusException, __BaseException>) {
+    super({
+      name: "InvalidQueryStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListQueriesRequest {
@@ -2968,25 +3584,49 @@ export namespace ListTrailsResponse {
 /**
  * <p>Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.</p>
  */
-export interface InvalidEventCategoryException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEventCategoryException";
-  $fault: "client";
+export class InvalidEventCategoryException extends __BaseException {
+  readonly name: "InvalidEventCategoryException" = "InvalidEventCategoryException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventCategoryException, __BaseException>) {
+    super({
+      name: "InvalidEventCategoryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventCategoryException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Occurs when a lookup attribute is specified that is not valid.</p>
  */
-export interface InvalidLookupAttributesException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLookupAttributesException";
-  $fault: "client";
+export class InvalidLookupAttributesException extends __BaseException {
+  readonly name: "InvalidLookupAttributesException" = "InvalidLookupAttributesException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLookupAttributesException, __BaseException>) {
+    super({
+      name: "InvalidLookupAttributesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLookupAttributesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum EventCategory {
@@ -3213,13 +3853,25 @@ export namespace LookupEventsResponse {
  *             </li>
  *          </ul>
  */
-export interface InvalidEventSelectorsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEventSelectorsException";
-  $fault: "client";
+export class InvalidEventSelectorsException extends __BaseException {
+  readonly name: "InvalidEventSelectorsException" = "InvalidEventSelectorsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventSelectorsException, __BaseException>) {
+    super({
+      name: "InvalidEventSelectorsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventSelectorsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutEventSelectorsRequest {
@@ -3314,13 +3966,25 @@ export namespace PutEventSelectorsResponse {
  * <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request
  *          is not valid, or the specified insight type in the <code>InsightSelectors</code> statement is not a valid insight type.</p>
  */
-export interface InvalidInsightSelectorsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInsightSelectorsException";
-  $fault: "client";
+export class InvalidInsightSelectorsException extends __BaseException {
+  readonly name: "InvalidInsightSelectorsException" = "InvalidInsightSelectorsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInsightSelectorsException, __BaseException>) {
+    super({
+      name: "InvalidInsightSelectorsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInsightSelectorsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutInsightSelectorsRequest {
@@ -3410,13 +4074,25 @@ export namespace RemoveTagsResponse {
 /**
  * <p>The event data store is not in a status that supports the operation.</p>
  */
-export interface InvalidEventDataStoreStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEventDataStoreStatusException";
-  $fault: "client";
+export class InvalidEventDataStoreStatusException extends __BaseException {
+  readonly name: "InvalidEventDataStoreStatusException" = "InvalidEventDataStoreStatusException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreStatusException, __BaseException>) {
+    super({
+      name: "InvalidEventDataStoreStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventDataStoreStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RestoreEventDataStoreRequest {
@@ -3540,26 +4216,50 @@ export namespace StartLoggingResponse {
  *          about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
  *             or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
  */
-export interface InvalidQueryStatementException extends __SmithyException, $MetadataBearer {
-  name: "InvalidQueryStatementException";
-  $fault: "client";
+export class InvalidQueryStatementException extends __BaseException {
+  readonly name: "InvalidQueryStatementException" = "InvalidQueryStatementException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryStatementException, __BaseException>) {
+    super({
+      name: "InvalidQueryStatementException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryStatementException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You are already running the maximum number of concurrent queries. Wait a minute for some queries to finish, and then
  *          run the query again.</p>
  */
-export interface MaxConcurrentQueriesException extends __SmithyException, $MetadataBearer {
-  name: "MaxConcurrentQueriesException";
-  $fault: "client";
+export class MaxConcurrentQueriesException extends __BaseException {
+  readonly name: "MaxConcurrentQueriesException" = "MaxConcurrentQueriesException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxConcurrentQueriesException, __BaseException>) {
+    super({
+      name: "MaxConcurrentQueriesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxConcurrentQueriesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartQueryRequest {

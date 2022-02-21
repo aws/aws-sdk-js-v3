@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2ServiceException";
 
 export enum BackupState {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
@@ -146,57 +149,129 @@ export namespace BackupRetentionPolicy {
  * <p>The request was rejected because the requester does not have permission to perform the
  *       requested operation.</p>
  */
-export interface CloudHsmAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmAccessDeniedException";
-  $fault: "client";
+export class CloudHsmAccessDeniedException extends __BaseException {
+  readonly name: "CloudHsmAccessDeniedException" = "CloudHsmAccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmAccessDeniedException, __BaseException>) {
+    super({
+      name: "CloudHsmAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmAccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
  *       be retried.</p>
  */
-export interface CloudHsmInternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmInternalFailureException";
-  $fault: "server";
+export class CloudHsmInternalFailureException extends __BaseException {
+  readonly name: "CloudHsmInternalFailureException" = "CloudHsmInternalFailureException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmInternalFailureException, __BaseException>) {
+    super({
+      name: "CloudHsmInternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmInternalFailureException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because it is not a valid request.</p>
  */
-export interface CloudHsmInvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmInvalidRequestException";
-  $fault: "client";
+export class CloudHsmInvalidRequestException extends __BaseException {
+  readonly name: "CloudHsmInvalidRequestException" = "CloudHsmInvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmInvalidRequestException, __BaseException>) {
+    super({
+      name: "CloudHsmInvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmInvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because it refers to a resource that cannot be
  *       found.</p>
  */
-export interface CloudHsmResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmResourceNotFoundException";
-  $fault: "client";
+export class CloudHsmResourceNotFoundException extends __BaseException {
+  readonly name: "CloudHsmResourceNotFoundException" = "CloudHsmResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmResourceNotFoundException, __BaseException>) {
+    super({
+      name: "CloudHsmResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because an error occurred.</p>
  */
-export interface CloudHsmServiceException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmServiceException";
-  $fault: "client";
+export class CloudHsmServiceException extends __BaseException {
+  readonly name: "CloudHsmServiceException" = "CloudHsmServiceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmServiceException, __BaseException>) {
+    super({
+      name: "CloudHsmServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  */
-export interface CloudHsmTagException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmTagException";
-  $fault: "client";
+export class CloudHsmTagException extends __BaseException {
+  readonly name: "CloudHsmTagException" = "CloudHsmTagException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmTagException, __BaseException>) {
+    super({
+      name: "CloudHsmTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmTagException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CopyBackupToRegionRequest {

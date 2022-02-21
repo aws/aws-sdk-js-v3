@@ -1,4 +1,5 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   ActivityStreamMode,
@@ -31,6 +32,7 @@ import {
   Tag,
   UserAuthConfig,
 } from "./models_0";
+import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
 export enum TargetRole {
   READ_ONLY = "READ_ONLY",
@@ -2632,10 +2634,20 @@ export namespace ReservedDBInstanceMessage {
 /**
  * <p>The specified reserved DB Instance not found.</p>
  */
-export interface ReservedDBInstanceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedDBInstanceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedDBInstanceNotFoundFault extends __BaseException {
+  readonly name: "ReservedDBInstanceNotFoundFault" = "ReservedDBInstanceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedDBInstanceNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedDBInstanceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedDBInstanceNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -2817,10 +2829,20 @@ export namespace ReservedDBInstancesOfferingMessage {
 /**
  * <p>Specified offering does not exist.</p>
  */
-export interface ReservedDBInstancesOfferingNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedDBInstancesOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedDBInstancesOfferingNotFoundFault extends __BaseException {
+  readonly name: "ReservedDBInstancesOfferingNotFoundFault" = "ReservedDBInstancesOfferingNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedDBInstancesOfferingNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedDBInstancesOfferingNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedDBInstancesOfferingNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -3120,10 +3142,20 @@ export namespace DescribeValidDBInstanceModificationsResult {
  * <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
  */
-export interface DBLogFileNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBLogFileNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBLogFileNotFoundFault extends __BaseException {
+  readonly name: "DBLogFileNotFoundFault" = "DBLogFileNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBLogFileNotFoundFault, __BaseException>) {
+    super({
+      name: "DBLogFileNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBLogFileNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -3424,10 +3456,20 @@ export namespace ImportInstallationMediaMessage {
 /**
  * <p>The specified installation medium has already been imported.</p>
  */
-export interface InstallationMediaAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "InstallationMediaAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class InstallationMediaAlreadyExistsFault extends __BaseException {
+  readonly name: "InstallationMediaAlreadyExistsFault" = "InstallationMediaAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstallationMediaAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "InstallationMediaAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstallationMediaAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -3561,10 +3603,20 @@ export namespace DBClusterCapacityInfo {
  *             capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
  *             <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
  */
-export interface InvalidDBClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDBClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDBClusterCapacityFault extends __BaseException {
+  readonly name: "InvalidDBClusterCapacityFault" = "InvalidDBClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDBClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InvalidDBClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDBClusterCapacityFault.prototype);
+  }
 }
 
 export interface ModifyCurrentDBClusterCapacityMessage {
@@ -4321,20 +4373,40 @@ export namespace ModifyDBClusterSnapshotAttributeResult {
 /**
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  */
-export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SharedSnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SharedSnapshotQuotaExceededFault extends __BaseException {
+  readonly name: "SharedSnapshotQuotaExceededFault" = "SharedSnapshotQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SharedSnapshotQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SharedSnapshotQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SharedSnapshotQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The DB upgrade failed because a resource the DB depends on can't be
  *             modified.</p>
  */
-export interface DBUpgradeDependencyFailureFault extends __SmithyException, $MetadataBearer {
-  name: "DBUpgradeDependencyFailureFault";
-  $fault: "client";
-  message?: string;
+export class DBUpgradeDependencyFailureFault extends __BaseException {
+  readonly name: "DBUpgradeDependencyFailureFault" = "DBUpgradeDependencyFailureFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBUpgradeDependencyFailureFault, __BaseException>) {
+    super({
+      name: "DBUpgradeDependencyFailureFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBUpgradeDependencyFailureFault.prototype);
+  }
 }
 
 /**
@@ -5628,10 +5700,20 @@ export namespace ModifyDBSubnetGroupResult {
 /**
  * <p>The DB subnet is already in use in the Availability Zone.</p>
  */
-export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  message?: string;
+export class SubnetAlreadyInUse extends __BaseException {
+  readonly name: "SubnetAlreadyInUse" = "SubnetAlreadyInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetAlreadyInUse, __BaseException>) {
+    super({
+      name: "SubnetAlreadyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetAlreadyInUse.prototype);
+  }
 }
 
 /**
@@ -6117,19 +6199,39 @@ export namespace PurchaseReservedDBInstancesOfferingResult {
 /**
  * <p>User already has a reservation with the given identifier.</p>
  */
-export interface ReservedDBInstanceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedDBInstanceAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ReservedDBInstanceAlreadyExistsFault extends __BaseException {
+  readonly name: "ReservedDBInstanceAlreadyExistsFault" = "ReservedDBInstanceAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedDBInstanceAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ReservedDBInstanceAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedDBInstanceAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>Request would exceed the user's DB Instance quota.</p>
  */
-export interface ReservedDBInstanceQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedDBInstanceQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ReservedDBInstanceQuotaExceededFault extends __BaseException {
+  readonly name: "ReservedDBInstanceQuotaExceededFault" = "ReservedDBInstanceQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedDBInstanceQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ReservedDBInstanceQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedDBInstanceQuotaExceededFault.prototype);
+  }
 }
 
 export interface RebootDBClusterMessage {
@@ -6250,10 +6352,20 @@ export namespace RebootDBInstanceResult {
 /**
  * <p>The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.</p>
  */
-export interface DBProxyTargetAlreadyRegisteredFault extends __SmithyException, $MetadataBearer {
-  name: "DBProxyTargetAlreadyRegisteredFault";
-  $fault: "client";
-  message?: string;
+export class DBProxyTargetAlreadyRegisteredFault extends __BaseException {
+  readonly name: "DBProxyTargetAlreadyRegisteredFault" = "DBProxyTargetAlreadyRegisteredFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBProxyTargetAlreadyRegisteredFault, __BaseException>) {
+    super({
+      name: "DBProxyTargetAlreadyRegisteredFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBProxyTargetAlreadyRegisteredFault.prototype);
+  }
 }
 
 /**
@@ -6261,10 +6373,20 @@ export interface DBProxyTargetAlreadyRegisteredFault extends __SmithyException, 
  *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
  *            from the subnets.</p>
  */
-export interface InsufficientAvailableIPsInSubnetFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientAvailableIPsInSubnetFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientAvailableIPsInSubnetFault extends __BaseException {
+  readonly name: "InsufficientAvailableIPsInSubnetFault" = "InsufficientAvailableIPsInSubnetFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientAvailableIPsInSubnetFault, __BaseException>) {
+    super({
+      name: "InsufficientAvailableIPsInSubnetFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientAvailableIPsInSubnetFault.prototype);
+  }
 }
 
 export interface RegisterDBProxyTargetsRequest {
@@ -6358,10 +6480,20 @@ export namespace RemoveFromGlobalClusterResult {
 /**
  * <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>
  */
-export interface DBClusterRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBClusterRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBClusterRoleNotFoundFault extends __BaseException {
+  readonly name: "DBClusterRoleNotFoundFault" = "DBClusterRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterRoleNotFoundFault.prototype);
+  }
 }
 
 export interface RemoveRoleFromDBClusterMessage {
@@ -6396,10 +6528,20 @@ export namespace RemoveRoleFromDBClusterMessage {
  * <p>The specified <code>RoleArn</code> value doesn't match the specified feature for
  *             the DB instance.</p>
  */
-export interface DBInstanceRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "DBInstanceRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class DBInstanceRoleNotFoundFault extends __BaseException {
+  readonly name: "DBInstanceRoleNotFoundFault" = "DBInstanceRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBInstanceRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "DBInstanceRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBInstanceRoleNotFoundFault.prototype);
+  }
 }
 
 export interface RemoveRoleFromDBInstanceMessage {
@@ -6601,10 +6743,20 @@ export namespace ResetDBParameterGroupMessage {
  * <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't
  *             authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
  */
-export interface InvalidS3BucketFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3BucketFault";
-  $fault: "client";
-  message?: string;
+export class InvalidS3BucketFault extends __BaseException {
+  readonly name: "InvalidS3BucketFault" = "InvalidS3BucketFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3BucketFault, __BaseException>) {
+    super({
+      name: "InvalidS3BucketFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3BucketFault.prototype);
+  }
 }
 
 export interface RestoreDBClusterFromS3Message {
@@ -6971,19 +7123,39 @@ export namespace RestoreDBClusterFromS3Result {
 /**
  * <p>The DB cluster doesn't have enough capacity for the current operation.</p>
  */
-export interface InsufficientDBClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientDBClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientDBClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientDBClusterCapacityFault" = "InsufficientDBClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientDBClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientDBClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDBClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
  */
-export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidRestoreFault";
-  $fault: "client";
-  message?: string;
+export class InvalidRestoreFault extends __BaseException {
+  readonly name: "InvalidRestoreFault" = "InvalidRestoreFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRestoreFault, __BaseException>) {
+    super({
+      name: "InvalidRestoreFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRestoreFault.prototype);
+  }
 }
 
 /**
@@ -8658,10 +8830,20 @@ export namespace RestoreDBInstanceFromS3Result {
  *         <code>BackupRetentionPeriod</code> equal to 0.
  *         </p>
  */
-export interface PointInTimeRestoreNotEnabledFault extends __SmithyException, $MetadataBearer {
-  name: "PointInTimeRestoreNotEnabledFault";
-  $fault: "client";
-  message?: string;
+export class PointInTimeRestoreNotEnabledFault extends __BaseException {
+  readonly name: "PointInTimeRestoreNotEnabledFault" = "PointInTimeRestoreNotEnabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PointInTimeRestoreNotEnabledFault, __BaseException>) {
+    super({
+      name: "PointInTimeRestoreNotEnabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PointInTimeRestoreNotEnabledFault.prototype);
+  }
 }
 
 /**
@@ -9437,46 +9619,96 @@ export namespace StartDBInstanceAutomatedBackupsReplicationResult {
 /**
  * <p>You can't start an export task that's already running.</p>
  */
-export interface ExportTaskAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ExportTaskAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ExportTaskAlreadyExistsFault extends __BaseException {
+  readonly name: "ExportTaskAlreadyExistsFault" = "ExportTaskAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExportTaskAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ExportTaskAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExportTaskAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
  */
-export interface IamRoleMissingPermissionsFault extends __SmithyException, $MetadataBearer {
-  name: "IamRoleMissingPermissionsFault";
-  $fault: "client";
-  message?: string;
+export class IamRoleMissingPermissionsFault extends __BaseException {
+  readonly name: "IamRoleMissingPermissionsFault" = "IamRoleMissingPermissionsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IamRoleMissingPermissionsFault, __BaseException>) {
+    super({
+      name: "IamRoleMissingPermissionsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IamRoleMissingPermissionsFault.prototype);
+  }
 }
 
 /**
  * <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
  */
-export interface IamRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "IamRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class IamRoleNotFoundFault extends __BaseException {
+  readonly name: "IamRoleNotFoundFault" = "IamRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IamRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "IamRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IamRoleNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
  */
-export interface InvalidExportOnlyFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidExportOnlyFault";
-  $fault: "client";
-  message?: string;
+export class InvalidExportOnlyFault extends __BaseException {
+  readonly name: "InvalidExportOnlyFault" = "InvalidExportOnlyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExportOnlyFault, __BaseException>) {
+    super({
+      name: "InvalidExportOnlyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExportOnlyFault.prototype);
+  }
 }
 
 /**
  * <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
  */
-export interface InvalidExportSourceStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidExportSourceStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidExportSourceStateFault extends __BaseException {
+  readonly name: "InvalidExportSourceStateFault" = "InvalidExportSourceStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExportSourceStateFault, __BaseException>) {
+    super({
+      name: "InvalidExportSourceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExportSourceStateFault.prototype);
+  }
 }
 
 export interface StartExportTaskMessage {

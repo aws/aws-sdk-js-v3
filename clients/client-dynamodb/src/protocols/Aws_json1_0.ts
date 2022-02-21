@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -14,10 +15,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -122,6 +121,7 @@ import {
   UpdateTableReplicaAutoScalingCommandOutput,
 } from "../commands/UpdateTableReplicaAutoScalingCommand";
 import { UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput } from "../commands/UpdateTimeToLiveCommand";
+import { DynamoDBServiceException as __BaseException } from "../models/DynamoDBServiceException";
 import {
   ArchivalSummary,
   AttributeDefinition,
@@ -1021,41 +1021,25 @@ const deserializeAws_json1_0BatchExecuteStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0BatchGetItemCommand = async (
@@ -1083,65 +1067,34 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0BatchWriteItemCommand = async (
@@ -1169,73 +1122,37 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CreateBackupCommand = async (
@@ -1263,81 +1180,40 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BackupInUseException":
     case "com.amazonaws.dynamodb#BackupInUseException":
-      response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context);
     case "ContinuousBackupsUnavailableException":
     case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "TableInUseException":
     case "com.amazonaws.dynamodb#TableInUseException":
-      response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CreateGlobalTableCommand = async (
@@ -1365,65 +1241,34 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalTableAlreadyExistsException":
     case "com.amazonaws.dynamodb#GlobalTableAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CreateTableCommand = async (
@@ -1451,57 +1296,31 @@ const deserializeAws_json1_0CreateTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteBackupCommand = async (
@@ -1529,65 +1348,34 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BackupInUseException":
     case "com.amazonaws.dynamodb#BackupInUseException":
-      response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context);
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb#BackupNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteItemCommand = async (
@@ -1615,89 +1403,43 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteTableCommand = async (
@@ -1725,65 +1467,34 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeBackupCommand = async (
@@ -1811,49 +1522,28 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb#BackupNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeContinuousBackupsCommand = async (
@@ -1881,49 +1571,28 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeContributorInsightsCommand = async (
@@ -1951,41 +1620,25 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeEndpointsCommand = async (
@@ -2013,25 +1666,19 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeExportCommand = async (
@@ -2059,49 +1706,28 @@ const deserializeAws_json1_0DescribeExportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExportNotFoundException":
     case "com.amazonaws.dynamodb#ExportNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ExportNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExportNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeGlobalTableCommand = async (
@@ -2129,49 +1755,28 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
@@ -2199,49 +1804,28 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand = async (
@@ -2269,49 +1853,28 @@ const deserializeAws_json1_0DescribeKinesisStreamingDestinationCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeLimitsCommand = async (
@@ -2339,41 +1902,25 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeTableCommand = async (
@@ -2401,49 +1948,28 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async (
@@ -2471,41 +1997,25 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeTimeToLiveCommand = async (
@@ -2533,49 +2043,28 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DisableKinesisStreamingDestinationCommand = async (
@@ -2603,65 +2092,34 @@ const deserializeAws_json1_0DisableKinesisStreamingDestinationCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0EnableKinesisStreamingDestinationCommand = async (
@@ -2689,65 +2147,34 @@ const deserializeAws_json1_0EnableKinesisStreamingDestinationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ExecuteStatementCommand = async (
@@ -2775,89 +2202,43 @@ const deserializeAws_json1_0ExecuteStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context);
     case "DuplicateItemException":
     case "com.amazonaws.dynamodb#DuplicateItemException":
-      response = {
-        ...(await deserializeAws_json1_0DuplicateItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0DuplicateItemExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ExecuteTransactionCommand = async (
@@ -2885,81 +2266,40 @@ const deserializeAws_json1_0ExecuteTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.dynamodb#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionInProgressException":
     case "com.amazonaws.dynamodb#TransactionInProgressException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ExportTableToPointInTimeCommand = async (
@@ -2987,73 +2327,37 @@ const deserializeAws_json1_0ExportTableToPointInTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExportConflictException":
     case "com.amazonaws.dynamodb#ExportConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ExportConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExportConflictExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidExportTimeException":
     case "com.amazonaws.dynamodb#InvalidExportTimeException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidExportTimeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidExportTimeExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "PointInTimeRecoveryUnavailableException":
     case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetItemCommand = async (
@@ -3081,65 +2385,34 @@ const deserializeAws_json1_0GetItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListBackupsCommand = async (
@@ -3167,41 +2440,25 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListContributorInsightsCommand = async (
@@ -3229,41 +2486,25 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListExportsCommand = async (
@@ -3291,41 +2532,25 @@ const deserializeAws_json1_0ListExportsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListGlobalTablesCommand = async (
@@ -3353,41 +2578,25 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListTablesCommand = async (
@@ -3415,41 +2624,25 @@ const deserializeAws_json1_0ListTablesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListTagsOfResourceCommand = async (
@@ -3477,49 +2670,28 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0PutItemCommand = async (
@@ -3547,89 +2719,43 @@ const deserializeAws_json1_0PutItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0QueryCommand = async (
@@ -3657,65 +2783,34 @@ const deserializeAws_json1_0QueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RestoreTableFromBackupCommand = async (
@@ -3743,81 +2838,40 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BackupInUseException":
     case "com.amazonaws.dynamodb#BackupInUseException":
-      response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context);
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb#BackupNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "TableAlreadyExistsException":
     case "com.amazonaws.dynamodb#TableAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context);
     case "TableInUseException":
     case "com.amazonaws.dynamodb#TableInUseException":
-      response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RestoreTableToPointInTimeCommand = async (
@@ -3845,89 +2899,43 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "InvalidRestoreTimeException":
     case "com.amazonaws.dynamodb#InvalidRestoreTimeException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRestoreTimeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRestoreTimeExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "PointInTimeRecoveryUnavailableException":
     case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context);
     case "TableAlreadyExistsException":
     case "com.amazonaws.dynamodb#TableAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context);
     case "TableInUseException":
     case "com.amazonaws.dynamodb#TableInUseException":
-      response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ScanCommand = async (
@@ -3955,65 +2963,34 @@ const deserializeAws_json1_0ScanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TagResourceCommand = async (
@@ -4038,65 +3015,34 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TransactGetItemsCommand = async (
@@ -4124,73 +3070,37 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.dynamodb#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TransactWriteItemsCommand = async (
@@ -4218,89 +3128,43 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.dynamodb#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionInProgressException":
     case "com.amazonaws.dynamodb#TransactionInProgressException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UntagResourceCommand = async (
@@ -4325,65 +3189,34 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateContinuousBackupsCommand = async (
@@ -4411,57 +3244,31 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ContinuousBackupsUnavailableException":
     case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateContributorInsightsCommand = async (
@@ -4489,41 +3296,25 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateGlobalTableCommand = async (
@@ -4551,73 +3342,37 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ReplicaAlreadyExistsException":
     case "com.amazonaws.dynamodb#ReplicaAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ReplicaNotFoundException":
     case "com.amazonaws.dynamodb#ReplicaNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context);
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb#TableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
@@ -4645,81 +3400,40 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context);
     case "IndexNotFoundException":
     case "com.amazonaws.dynamodb#IndexNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0IndexNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0IndexNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ReplicaNotFoundException":
     case "com.amazonaws.dynamodb#ReplicaNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateItemCommand = async (
@@ -4747,89 +3461,43 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb#TransactionConflictException":
-      response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateTableCommand = async (
@@ -4857,65 +3525,34 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
@@ -4943,57 +3580,31 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateTimeToLiveCommand = async (
@@ -5021,65 +3632,34 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.dynamodb#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_0BackupInUseExceptionResponse = async (
@@ -5088,13 +3668,11 @@ const deserializeAws_json1_0BackupInUseExceptionResponse = async (
 ): Promise<BackupInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0BackupInUseException(body, context);
-  const contents: BackupInUseException = {
-    name: "BackupInUseException",
-    $fault: "client",
+  const exception = new BackupInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
@@ -5103,13 +3681,11 @@ const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
 ): Promise<BackupNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0BackupNotFoundException(body, context);
-  const contents: BackupNotFoundException = {
-    name: "BackupNotFoundException",
-    $fault: "client",
+  const exception = new BackupNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
@@ -5118,13 +3694,11 @@ const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
 ): Promise<ConditionalCheckFailedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ConditionalCheckFailedException(body, context);
-  const contents: ConditionalCheckFailedException = {
-    name: "ConditionalCheckFailedException",
-    $fault: "client",
+  const exception = new ConditionalCheckFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = async (
@@ -5133,13 +3707,11 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
 ): Promise<ContinuousBackupsUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ContinuousBackupsUnavailableException(body, context);
-  const contents: ContinuousBackupsUnavailableException = {
-    name: "ContinuousBackupsUnavailableException",
-    $fault: "client",
+  const exception = new ContinuousBackupsUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0DuplicateItemExceptionResponse = async (
@@ -5148,13 +3720,11 @@ const deserializeAws_json1_0DuplicateItemExceptionResponse = async (
 ): Promise<DuplicateItemException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0DuplicateItemException(body, context);
-  const contents: DuplicateItemException = {
-    name: "DuplicateItemException",
-    $fault: "client",
+  const exception = new DuplicateItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ExportConflictExceptionResponse = async (
@@ -5163,13 +3733,11 @@ const deserializeAws_json1_0ExportConflictExceptionResponse = async (
 ): Promise<ExportConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ExportConflictException(body, context);
-  const contents: ExportConflictException = {
-    name: "ExportConflictException",
-    $fault: "client",
+  const exception = new ExportConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ExportNotFoundExceptionResponse = async (
@@ -5178,13 +3746,11 @@ const deserializeAws_json1_0ExportNotFoundExceptionResponse = async (
 ): Promise<ExportNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ExportNotFoundException(body, context);
-  const contents: ExportNotFoundException = {
-    name: "ExportNotFoundException",
-    $fault: "client",
+  const exception = new ExportNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
@@ -5193,13 +3759,11 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
 ): Promise<GlobalTableAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0GlobalTableAlreadyExistsException(body, context);
-  const contents: GlobalTableAlreadyExistsException = {
-    name: "GlobalTableAlreadyExistsException",
-    $fault: "client",
+  const exception = new GlobalTableAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
@@ -5208,13 +3772,11 @@ const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
 ): Promise<GlobalTableNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0GlobalTableNotFoundException(body, context);
-  const contents: GlobalTableNotFoundException = {
-    name: "GlobalTableNotFoundException",
-    $fault: "client",
+  const exception = new GlobalTableNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async (
@@ -5223,13 +3785,11 @@ const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0IdempotentParameterMismatchException(body, context);
-  const contents: IdempotentParameterMismatchException = {
-    name: "IdempotentParameterMismatchException",
-    $fault: "client",
+  const exception = new IdempotentParameterMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
@@ -5238,13 +3798,11 @@ const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
 ): Promise<IndexNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0IndexNotFoundException(body, context);
-  const contents: IndexNotFoundException = {
-    name: "IndexNotFoundException",
-    $fault: "client",
+  const exception = new IndexNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InternalServerErrorResponse = async (
@@ -5253,13 +3811,11 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InternalServerError(body, context);
-  const contents: InternalServerError = {
-    name: "InternalServerError",
-    $fault: "server",
+  const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
@@ -5268,13 +3824,11 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
 ): Promise<InvalidEndpointException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidEndpointException(body, context);
-  const contents: InvalidEndpointException = {
-    name: "InvalidEndpointException",
-    $fault: "client",
+  const exception = new InvalidEndpointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidExportTimeExceptionResponse = async (
@@ -5283,13 +3837,11 @@ const deserializeAws_json1_0InvalidExportTimeExceptionResponse = async (
 ): Promise<InvalidExportTimeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidExportTimeException(body, context);
-  const contents: InvalidExportTimeException = {
-    name: "InvalidExportTimeException",
-    $fault: "client",
+  const exception = new InvalidExportTimeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
@@ -5298,13 +3850,11 @@ const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
 ): Promise<InvalidRestoreTimeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidRestoreTimeException(body, context);
-  const contents: InvalidRestoreTimeException = {
-    name: "InvalidRestoreTimeException",
-    $fault: "client",
+  const exception = new InvalidRestoreTimeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = async (
@@ -5313,13 +3863,11 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = a
 ): Promise<ItemCollectionSizeLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ItemCollectionSizeLimitExceededException(body, context);
-  const contents: ItemCollectionSizeLimitExceededException = {
-    name: "ItemCollectionSizeLimitExceededException",
-    $fault: "client",
+  const exception = new ItemCollectionSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0LimitExceededExceptionResponse = async (
@@ -5328,13 +3876,11 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = async (
@@ -5343,13 +3889,11 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = as
 ): Promise<PointInTimeRecoveryUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0PointInTimeRecoveryUnavailableException(body, context);
-  const contents: PointInTimeRecoveryUnavailableException = {
-    name: "PointInTimeRecoveryUnavailableException",
-    $fault: "client",
+  const exception = new PointInTimeRecoveryUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = async (
@@ -5358,13 +3902,11 @@ const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = asy
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ProvisionedThroughputExceededException(body, context);
-  const contents: ProvisionedThroughputExceededException = {
-    name: "ProvisionedThroughputExceededException",
-    $fault: "client",
+  const exception = new ProvisionedThroughputExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
@@ -5373,13 +3915,11 @@ const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
 ): Promise<ReplicaAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ReplicaAlreadyExistsException(body, context);
-  const contents: ReplicaAlreadyExistsException = {
-    name: "ReplicaAlreadyExistsException",
-    $fault: "client",
+  const exception = new ReplicaAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
@@ -5388,13 +3928,11 @@ const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
 ): Promise<ReplicaNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ReplicaNotFoundException(body, context);
-  const contents: ReplicaNotFoundException = {
-    name: "ReplicaNotFoundException",
-    $fault: "client",
+  const exception = new ReplicaNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0RequestLimitExceededResponse = async (
@@ -5403,13 +3941,11 @@ const deserializeAws_json1_0RequestLimitExceededResponse = async (
 ): Promise<RequestLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0RequestLimitExceeded(body, context);
-  const contents: RequestLimitExceeded = {
-    name: "RequestLimitExceeded",
-    $fault: "client",
+  const exception = new RequestLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
@@ -5418,13 +3954,11 @@ const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
@@ -5433,13 +3967,11 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
@@ -5448,13 +3980,11 @@ const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
 ): Promise<TableAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableAlreadyExistsException(body, context);
-  const contents: TableAlreadyExistsException = {
-    name: "TableAlreadyExistsException",
-    $fault: "client",
+  const exception = new TableAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TableInUseExceptionResponse = async (
@@ -5463,13 +3993,11 @@ const deserializeAws_json1_0TableInUseExceptionResponse = async (
 ): Promise<TableInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableInUseException(body, context);
-  const contents: TableInUseException = {
-    name: "TableInUseException",
-    $fault: "client",
+  const exception = new TableInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
@@ -5478,13 +4006,11 @@ const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
 ): Promise<TableNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TableNotFoundException(body, context);
-  const contents: TableNotFoundException = {
-    name: "TableNotFoundException",
-    $fault: "client",
+  const exception = new TableNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
@@ -5493,13 +4019,11 @@ const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
 ): Promise<TransactionCanceledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionCanceledException(body, context);
-  const contents: TransactionCanceledException = {
-    name: "TransactionCanceledException",
-    $fault: "client",
+  const exception = new TransactionCanceledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
@@ -5508,13 +4032,11 @@ const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
 ): Promise<TransactionConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionConflictException(body, context);
-  const contents: TransactionConflictException = {
-    name: "TransactionConflictException",
-    $fault: "client",
+  const exception = new TransactionConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
@@ -5523,13 +4045,11 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
 ): Promise<TransactionInProgressException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TransactionInProgressException(body, context);
-  const contents: TransactionInProgressException = {
-    name: "TransactionInProgressException",
-    $fault: "client",
+  const exception = new TransactionInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_0AttributeDefinition = (input: AttributeDefinition, context: __SerdeContext): any => {

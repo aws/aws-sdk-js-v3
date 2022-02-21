@@ -1,18 +1,37 @@
-import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
 
 /**
  * <p>You are not authorized to perform the action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
@@ -1303,101 +1322,199 @@ export namespace CompareFacesResponse {
  *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
-export interface ImageTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "ImageTooLargeException";
-  $fault: "client";
+export class ImageTooLargeException extends __BaseException {
+  readonly name: "ImageTooLargeException" = "ImageTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ImageTooLargeException, __BaseException>) {
+    super({
+      name: "ImageTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ImageTooLargeException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>The provided image format is not supported. </p>
  */
-export interface InvalidImageFormatException extends __SmithyException, $MetadataBearer {
-  name: "InvalidImageFormatException";
-  $fault: "client";
+export class InvalidImageFormatException extends __BaseException {
+  readonly name: "InvalidImageFormatException" = "InvalidImageFormatException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidImageFormatException, __BaseException>) {
+    super({
+      name: "InvalidImageFormatException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidImageFormatException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>Input parameter violated a constraint. Validate your parameter before calling the API
  *       operation again.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  */
-export interface InvalidS3ObjectException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3ObjectException";
-  $fault: "client";
+export class InvalidS3ObjectException extends __BaseException {
+  readonly name: "InvalidS3ObjectException" = "InvalidS3ObjectException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3ObjectException, __BaseException>) {
+    super({
+      name: "InvalidS3ObjectException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3ObjectException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>The number of requests exceeded your throughput limit. If you want to increase this
  *       limit, contact Amazon Rekognition.</p>
  */
-export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
-  name: "ProvisionedThroughputExceededException";
-  $fault: "client";
+export class ProvisionedThroughputExceededException extends __BaseException {
+  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
+    super({
+      name: "ProvisionedThroughputExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "server";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "server" = "server";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export enum ContentClassifier {
@@ -1523,15 +1640,29 @@ export namespace CreateCollectionResponse {
 /**
  * <p>A resource with the specified ID already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
@@ -1541,15 +1672,29 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
  *          <p>The size of the collection exceeds the allowed limit. For more information, see
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
@@ -1652,29 +1797,57 @@ export namespace CreateDatasetResponse {
  *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
  *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
  * <p>The resource specified in the request cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export interface CreateProjectRequest {
@@ -1713,15 +1886,29 @@ export namespace CreateProjectResponse {
 /**
  * <p>The specified resource is already being used.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
@@ -2829,15 +3016,29 @@ export namespace DescribeProjectsResponse {
 /**
  * <p>Pagination token in the request is not valid.</p>
  */
-export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationTokenException";
-  $fault: "client";
+export class InvalidPaginationTokenException extends __BaseException {
+  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
+    super({
+      name: "InvalidPaginationTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export interface DescribeProjectVersionsRequest {
@@ -3299,15 +3500,29 @@ export namespace DetectCustomLabelsResponse {
  *          this exception occurs when you call <code>DetectCustomLabels</code> with a
  *          model version that isn't deployed. </p>
  */
-export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotReadyException";
-  $fault: "client";
+export class ResourceNotReadyException extends __BaseException {
+  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
+    super({
+      name: "ResourceNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export interface DetectFacesRequest {
@@ -3705,9 +3920,9 @@ export namespace DetectModerationLabelsResponse {
 /**
  * <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
  */
-export interface HumanLoopQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "HumanLoopQuotaExceededException";
-  $fault: "client";
+export class HumanLoopQuotaExceededException extends __BaseException {
+  readonly name: "HumanLoopQuotaExceededException" = "HumanLoopQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The resource type.</p>
    */
@@ -3729,6 +3944,23 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HumanLoopQuotaExceededException, __BaseException>) {
+    super({
+      name: "HumanLoopQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HumanLoopQuotaExceededException.prototype);
+    this.ResourceType = opts.ResourceType;
+    this.QuotaCode = opts.QuotaCode;
+    this.ServiceCode = opts.ServiceCode;
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 /**
@@ -5310,15 +5542,29 @@ export namespace GetTextDetectionResponse {
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
  *         parameters is different from the previous call to the operation.</p>
  */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export interface IndexFacesRequest {
@@ -6195,15 +6441,29 @@ export namespace StartCelebrityRecognitionResponse {
  * <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
  *         The maximum duration is 6 hours. </p>
  */
-export interface VideoTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "VideoTooLargeException";
-  $fault: "client";
+export class VideoTooLargeException extends __BaseException {
+  readonly name: "VideoTooLargeException" = "VideoTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VideoTooLargeException, __BaseException>) {
+    super({
+      name: "VideoTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VideoTooLargeException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.Logref = opts.Logref;
+  }
 }
 
 export interface StartContentModerationRequest {

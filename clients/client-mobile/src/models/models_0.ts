@@ -1,19 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MobileServiceException as __BaseException } from "./MobileServiceException";
 
 /**
  * <p>
  *             Account Action is required in order to continue the request.
  *         </p>
  */
-export interface AccountActionRequiredException extends __SmithyException, $MetadataBearer {
-  name: "AccountActionRequiredException";
-  $fault: "client";
+export class AccountActionRequiredException extends __BaseException {
+  readonly name: "AccountActionRequiredException" = "AccountActionRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AccountActionRequiredException, __BaseException>) {
+    super({
+      name: "AccountActionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountActionRequiredException.prototype);
+  }
 }
 
 /**
@@ -22,15 +30,20 @@ export interface AccountActionRequiredException extends __SmithyException, $Meta
  *             state prevents the operation from being performed.
  *         </p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 /**
@@ -238,15 +251,20 @@ export namespace CreateProjectResult {
  *             servicing the request.
  *         </p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
@@ -257,9 +275,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
  *             your request.
  *         </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *             The Exception Error Message.
@@ -268,11 +286,17 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -280,15 +304,20 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
  *             No entity can be found with the specified identifier.
  *         </p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
@@ -297,9 +326,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
  *             time delay.
  *         </p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * <p>
    *             The Exception Error Message.
@@ -308,11 +337,17 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -321,9 +356,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
  *             request should be retried after some time delay.
  *         </p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *             The Exception Error Message.
@@ -332,11 +367,17 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   retryAfterSeconds?: string;
 
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -344,15 +385,20 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
  *             Credentials of the caller are insufficient to authorize the request.
  *         </p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>
-   *             The Exception Error Message.
-   *         </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
 }
 
 /**

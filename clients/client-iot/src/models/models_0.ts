@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { IoTServiceException as __BaseException } from "./IoTServiceException";
 
 export enum AbortAction {
   CANCEL = "CANCEL",
@@ -95,86 +97,135 @@ export namespace AcceptCertificateTransferRequest {
 /**
  * <p>An unexpected error has occurred.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
  * <p>The request is not valid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
  * <p>You can't revert the certificate transfer because the transfer is already
  *          complete.</p>
  */
-export interface TransferAlreadyCompletedException extends __SmithyException, $MetadataBearer {
-  name: "TransferAlreadyCompletedException";
-  $fault: "client";
+export class TransferAlreadyCompletedException extends __BaseException {
+  readonly name: "TransferAlreadyCompletedException" = "TransferAlreadyCompletedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TransferAlreadyCompletedException, __BaseException>) {
+    super({
+      name: "TransferAlreadyCompletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransferAlreadyCompletedException.prototype);
+  }
 }
 
 /**
  * <p>You are not authorized to perform this operation.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
 }
 
 /**
@@ -2209,13 +2260,20 @@ export namespace AssociateTargetsWithJobResponse {
 /**
  * <p>A limit has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 export interface AttachPolicyRequest {
@@ -2301,13 +2359,20 @@ export namespace AttachSecurityProfileResponse {
  *             <code>expectedVersion</code> parameter does not match the latest version in the
  *          system.</p>
  */
-export interface VersionConflictException extends __SmithyException, $MetadataBearer {
-  name: "VersionConflictException";
-  $fault: "client";
+export class VersionConflictException extends __BaseException {
+  readonly name: "VersionConflictException" = "VersionConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<VersionConflictException, __BaseException>) {
+    super({
+      name: "VersionConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionConflictException.prototype);
+  }
 }
 
 /**
@@ -3474,13 +3539,20 @@ export namespace CancelJobExecutionRequest {
  *          job execution which is "IN_PROGRESS" without setting the <code>force</code>
  *          parameter.</p>
  */
-export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateTransitionException";
-  $fault: "client";
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+  }
 }
 
 export interface ClearDefaultAuthorizerRequest {}
@@ -3536,25 +3608,39 @@ export namespace ConfirmTopicRuleDestinationResponse {
  * <p>A conflicting resource update exception. This exception is thrown when two pending
  *          updates cause a conflict.</p>
  */
-export interface ConflictingResourceUpdateException extends __SmithyException, $MetadataBearer {
-  name: "ConflictingResourceUpdateException";
-  $fault: "client";
+export class ConflictingResourceUpdateException extends __BaseException {
+  readonly name: "ConflictingResourceUpdateException" = "ConflictingResourceUpdateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConflictingResourceUpdateException, __BaseException>) {
+    super({
+      name: "ConflictingResourceUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictingResourceUpdateException.prototype);
+  }
 }
 
 /**
  * <p>An unexpected error has occurred.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
 }
 
 export interface CreateAuditSuppressionRequest {
@@ -3624,14 +3710,9 @@ export namespace CreateAuditSuppressionResponse {
 /**
  * <p>The resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ID of the resource that caused the exception.</p>
    */
@@ -3641,6 +3722,20 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>The ARN of the resource that caused the exception.</p>
    */
   resourceArn?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceArn = opts.resourceArn;
+  }
 }
 
 /**
@@ -4030,13 +4125,20 @@ export namespace CreateDimensionResponse {
 /**
  * <p>The certificate is invalid.</p>
  */
-export interface CertificateValidationException extends __SmithyException, $MetadataBearer {
-  name: "CertificateValidationException";
-  $fault: "client";
+export class CertificateValidationException extends __BaseException {
+  readonly name: "CertificateValidationException" = "CertificateValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CertificateValidationException, __BaseException>) {
+    super({
+      name: "CertificateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateValidationException.prototype);
+  }
 }
 
 export enum ServiceType {
@@ -4241,13 +4343,20 @@ export namespace CreateDynamicThingGroupResponse {
 /**
  * <p>The query is invalid.</p>
  */
-export interface InvalidQueryException extends __SmithyException, $MetadataBearer {
-  name: "InvalidQueryException";
-  $fault: "client";
+export class InvalidQueryException extends __BaseException {
+  readonly name: "InvalidQueryException" = "InvalidQueryException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidQueryException, __BaseException>) {
+    super({
+      name: "InvalidQueryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryException.prototype);
+  }
 }
 
 export enum FleetMetricUnit {
@@ -4366,22 +4475,39 @@ export namespace CreateFleetMetricResponse {
 /**
  * <p>The index is not ready.</p>
  */
-export interface IndexNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "IndexNotReadyException";
-  $fault: "client";
+export class IndexNotReadyException extends __BaseException {
+  readonly name: "IndexNotReadyException" = "IndexNotReadyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<IndexNotReadyException, __BaseException>) {
+    super({
+      name: "IndexNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IndexNotReadyException.prototype);
+  }
 }
 
 /**
  * <p>The aggregation is invalid.</p>
  */
-export interface InvalidAggregationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAggregationException";
-  $fault: "client";
-  message?: string;
+export class InvalidAggregationException extends __BaseException {
+  readonly name: "InvalidAggregationException" = "InvalidAggregationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAggregationException, __BaseException>) {
+    super({
+      name: "InvalidAggregationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAggregationException.prototype);
+  }
 }
 
 export enum RetryableFailureType {
@@ -4712,10 +4838,20 @@ export namespace CreateJobResponse {
 /**
  * <p>A resource with the same name already exists.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 export interface CreateJobTemplateRequest {
@@ -5847,13 +5983,20 @@ export namespace CreatePolicyResponse {
 /**
  * <p>The policy documentation is not valid.</p>
  */
-export interface MalformedPolicyException extends __SmithyException, $MetadataBearer {
-  name: "MalformedPolicyException";
-  $fault: "client";
+export class MalformedPolicyException extends __BaseException {
+  readonly name: "MalformedPolicyException" = "MalformedPolicyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MalformedPolicyException, __BaseException>) {
+    super({
+      name: "MalformedPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyException.prototype);
+  }
 }
 
 /**
@@ -5925,13 +6068,20 @@ export namespace CreatePolicyVersionResponse {
 /**
  * <p>The number of policy versions exceeds the limit.</p>
  */
-export interface VersionsLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "VersionsLimitExceededException";
-  $fault: "client";
+export class VersionsLimitExceededException extends __BaseException {
+  readonly name: "VersionsLimitExceededException" = "VersionsLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<VersionsLimitExceededException, __BaseException>) {
+    super({
+      name: "VersionsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionsLimitExceededException.prototype);
+  }
 }
 
 export interface CreateProvisioningClaimRequest {
@@ -6756,13 +6906,20 @@ export namespace CreateTopicRuleRequest {
 /**
  * <p>The Rule-SQL expression can't be parsed correctly.</p>
  */
-export interface SqlParseException extends __SmithyException, $MetadataBearer {
-  name: "SqlParseException";
-  $fault: "client";
+export class SqlParseException extends __BaseException {
+  readonly name: "SqlParseException" = "SqlParseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SqlParseException, __BaseException>) {
+    super({
+      name: "SqlParseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SqlParseException.prototype);
+  }
 }
 
 /**
@@ -7110,13 +7267,20 @@ export namespace DeleteAuthorizerResponse {
  * <p>You can't delete the resource because it is attached to one or more
  *          resources.</p>
  */
-export interface DeleteConflictException extends __SmithyException, $MetadataBearer {
-  name: "DeleteConflictException";
-  $fault: "client";
+export class DeleteConflictException extends __BaseException {
+  readonly name: "DeleteConflictException" = "DeleteConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DeleteConflictException, __BaseException>) {
+    super({
+      name: "DeleteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeleteConflictException.prototype);
+  }
 }
 
 export interface DeleteBillingGroupRequest {
@@ -7157,13 +7321,20 @@ export namespace DeleteBillingGroupResponse {
 /**
  * <p>The certificate operation is not allowed.</p>
  */
-export interface CertificateStateException extends __SmithyException, $MetadataBearer {
-  name: "CertificateStateException";
-  $fault: "client";
+export class CertificateStateException extends __BaseException {
+  readonly name: "CertificateStateException" = "CertificateStateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CertificateStateException, __BaseException>) {
+    super({
+      name: "CertificateStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateStateException.prototype);
+  }
 }
 
 /**

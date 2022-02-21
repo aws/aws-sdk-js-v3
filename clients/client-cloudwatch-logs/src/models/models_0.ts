@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchLogsServiceException";
 
 export interface AssociateKmsKeyRequest {
   /**
@@ -25,37 +28,77 @@ export namespace AssociateKmsKeyRequest {
 /**
  * <p>A parameter is specified incorrectly.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>Multiple requests to update the same resource were in conflict.</p>
  */
-export interface OperationAbortedException extends __SmithyException, $MetadataBearer {
-  name: "OperationAbortedException";
-  $fault: "client";
-  message?: string;
+export class OperationAbortedException extends __BaseException {
+  readonly name: "OperationAbortedException" = "OperationAbortedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationAbortedException, __BaseException>) {
+    super({
+      name: "OperationAbortedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationAbortedException.prototype);
+  }
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The service cannot complete the request.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 export interface CancelExportTaskRequest {
@@ -77,10 +120,20 @@ export namespace CancelExportTaskRequest {
 /**
  * <p>The operation is not valid on the specified resource.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
-  message?: string;
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+  }
 }
 
 export interface CreateExportTaskRequest {
@@ -154,19 +207,39 @@ export namespace CreateExportTaskResponse {
 /**
  * <p>You have reached the maximum number of resources that can be created.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
 }
 
 export interface CreateLogGroupRequest {
@@ -225,11 +298,22 @@ export namespace CreateLogStreamRequest {
 /**
  * <p>The event was already logged.</p>
  */
-export interface DataAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
-  name: "DataAlreadyAcceptedException";
-  $fault: "client";
+export class DataAlreadyAcceptedException extends __BaseException {
+  readonly name: "DataAlreadyAcceptedException" = "DataAlreadyAcceptedException";
+  readonly $fault: "client" = "client";
   expectedSequenceToken?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataAlreadyAcceptedException, __BaseException>) {
+    super({
+      name: "DataAlreadyAcceptedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataAlreadyAcceptedException.prototype);
+    this.expectedSequenceToken = opts.expectedSequenceToken;
+  }
 }
 
 export interface DeleteDestinationRequest {
@@ -2025,11 +2109,22 @@ export namespace InputLogEvent {
  *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
  *     message. </p>
  */
-export interface InvalidSequenceTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSequenceTokenException";
-  $fault: "client";
+export class InvalidSequenceTokenException extends __BaseException {
+  readonly name: "InvalidSequenceTokenException" = "InvalidSequenceTokenException";
+  readonly $fault: "client" = "client";
   expectedSequenceToken?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSequenceTokenException, __BaseException>) {
+    super({
+      name: "InvalidSequenceTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSequenceTokenException.prototype);
+    this.expectedSequenceToken = opts.expectedSequenceToken;
+  }
 }
 
 export interface ListTagsLogGroupRequest {
@@ -2232,10 +2327,20 @@ export namespace PutLogEventsResponse {
 /**
  * <p>The most likely cause is an invalid Amazon Web Services access key ID or secret key.</p>
  */
-export interface UnrecognizedClientException extends __SmithyException, $MetadataBearer {
-  name: "UnrecognizedClientException";
-  $fault: "client";
-  message?: string;
+export class UnrecognizedClientException extends __BaseException {
+  readonly name: "UnrecognizedClientException" = "UnrecognizedClientException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnrecognizedClientException, __BaseException>) {
+    super({
+      name: "UnrecognizedClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnrecognizedClientException.prototype);
+  }
 }
 
 export interface PutMetricFilterRequest {
@@ -2550,15 +2655,26 @@ export namespace QueryCompileError {
  *          <p>For more information about valid query syntax, see
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  */
-export interface MalformedQueryException extends __SmithyException, $MetadataBearer {
-  name: "MalformedQueryException";
-  $fault: "client";
+export class MalformedQueryException extends __BaseException {
+  readonly name: "MalformedQueryException" = "MalformedQueryException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Reserved.</p>
    */
   queryCompileError?: QueryCompileError;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedQueryException, __BaseException>) {
+    super({
+      name: "MalformedQueryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedQueryException.prototype);
+    this.queryCompileError = opts.queryCompileError;
+  }
 }
 
 export interface StartQueryRequest {

@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -10,10 +11,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "../commands/CancelKeyDeletionCommand";
@@ -112,6 +111,7 @@ import {
   UpdatePrimaryRegionCommandOutput,
 } from "../commands/UpdatePrimaryRegionCommand";
 import { VerifyCommandInput, VerifyCommandOutput } from "../commands/VerifyCommand";
+import { KMSServiceException as __BaseException } from "../models/KMSServiceException";
 import {
   AliasListEntry,
   AlreadyExistsException,
@@ -889,65 +889,34 @@ const deserializeAws_json1_1CancelKeyDeletionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConnectCustomKeyStoreCommand = async (
@@ -975,65 +944,34 @@ const deserializeAws_json1_1ConnectCustomKeyStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateAliasCommand = async (
@@ -1058,81 +996,40 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.kms#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidAliasNameException":
     case "com.amazonaws.kms#InvalidAliasNameException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidAliasNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidAliasNameExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateCustomKeyStoreCommand = async (
@@ -1160,81 +1057,40 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInUseException":
     case "com.amazonaws.kms#CloudHsmClusterInUseException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotFoundException":
     case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNameInUseException":
     case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context);
     case "IncorrectTrustAnchorException":
     case "com.amazonaws.kms#IncorrectTrustAnchorException":
-      response = {
-        ...(await deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateGrantCommand = async (
@@ -1262,89 +1118,43 @@ const deserializeAws_json1_1CreateGrantCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateKeyCommand = async (
@@ -1372,105 +1182,49 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      response = {
-        ...(await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DecryptCommand = async (
@@ -1498,105 +1252,49 @@ const deserializeAws_json1_1DecryptCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
-      response = {
-        ...(await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAliasCommand = async (
@@ -1621,57 +1319,31 @@ const deserializeAws_json1_1DeleteAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteCustomKeyStoreCommand = async (
@@ -1699,57 +1371,31 @@ const deserializeAws_json1_1DeleteCustomKeyStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreHasCMKsException":
     case "com.amazonaws.kms#CustomKeyStoreHasCMKsException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteImportedKeyMaterialCommand = async (
@@ -1774,73 +1420,37 @@ const deserializeAws_json1_1DeleteImportedKeyMaterialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeCustomKeyStoresCommand = async (
@@ -1868,49 +1478,28 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeKeyCommand = async (
@@ -1938,57 +1527,31 @@ const deserializeAws_json1_1DescribeKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableKeyCommand = async (
@@ -2013,65 +1576,34 @@ const deserializeAws_json1_1DisableKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableKeyRotationCommand = async (
@@ -2096,81 +1628,40 @@ const deserializeAws_json1_1DisableKeyRotationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisconnectCustomKeyStoreCommand = async (
@@ -2198,49 +1689,28 @@ const deserializeAws_json1_1DisconnectCustomKeyStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableKeyCommand = async (
@@ -2265,73 +1735,37 @@ const deserializeAws_json1_1EnableKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EnableKeyRotationCommand = async (
@@ -2356,81 +1790,40 @@ const deserializeAws_json1_1EnableKeyRotationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EncryptCommand = async (
@@ -2458,89 +1851,43 @@ const deserializeAws_json1_1EncryptCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateDataKeyCommand = async (
@@ -2568,89 +1915,43 @@ const deserializeAws_json1_1GenerateDataKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateDataKeyPairCommand = async (
@@ -2678,97 +1979,46 @@ const deserializeAws_json1_1GenerateDataKeyPairCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand = async (
@@ -2796,97 +2046,46 @@ const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand = async (
@@ -2914,89 +2113,43 @@ const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateRandomCommand = async (
@@ -3024,57 +2177,31 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetKeyPolicyCommand = async (
@@ -3102,65 +2229,34 @@ const deserializeAws_json1_1GetKeyPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetKeyRotationStatusCommand = async (
@@ -3188,73 +2284,37 @@ const deserializeAws_json1_1GetKeyRotationStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetParametersForImportCommand = async (
@@ -3282,73 +2342,37 @@ const deserializeAws_json1_1GetParametersForImportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetPublicKeyCommand = async (
@@ -3376,105 +2400,49 @@ const deserializeAws_json1_1GetPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ImportKeyMaterialCommand = async (
@@ -3502,105 +2470,49 @@ const deserializeAws_json1_1ImportKeyMaterialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "ExpiredImportTokenException":
     case "com.amazonaws.kms#ExpiredImportTokenException":
-      response = {
-        ...(await deserializeAws_json1_1ExpiredImportTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ExpiredImportTokenExceptionResponse(parsedOutput, context);
     case "IncorrectKeyMaterialException":
     case "com.amazonaws.kms#IncorrectKeyMaterialException":
-      response = {
-        ...(await deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
     case "InvalidImportTokenException":
     case "com.amazonaws.kms#InvalidImportTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidImportTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidImportTokenExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAliasesCommand = async (
@@ -3628,65 +2540,34 @@ const deserializeAws_json1_1ListAliasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListGrantsCommand = async (
@@ -3714,81 +2595,40 @@ const deserializeAws_json1_1ListGrantsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListKeyPoliciesCommand = async (
@@ -3816,65 +2656,34 @@ const deserializeAws_json1_1ListKeyPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListKeysCommand = async (
@@ -3902,49 +2711,28 @@ const deserializeAws_json1_1ListKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListResourceTagsCommand = async (
@@ -3972,57 +2760,31 @@ const deserializeAws_json1_1ListResourceTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRetirableGrantsCommand = async (
@@ -4050,65 +2812,34 @@ const deserializeAws_json1_1ListRetirableGrantsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidMarkerException":
     case "com.amazonaws.kms#InvalidMarkerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutKeyPolicyCommand = async (
@@ -4133,89 +2864,43 @@ const deserializeAws_json1_1PutKeyPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ReEncryptCommand = async (
@@ -4243,105 +2928,49 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "IncorrectKeyException":
     case "com.amazonaws.kms#IncorrectKeyException":
-      response = {
-        ...(await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1IncorrectKeyExceptionResponse(parsedOutput, context);
     case "InvalidCiphertextException":
     case "com.amazonaws.kms#InvalidCiphertextException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCiphertextExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ReplicateKeyCommand = async (
@@ -4369,105 +2998,49 @@ const deserializeAws_json1_1ReplicateKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.kms#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.kms#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      response = {
-        ...(await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RetireGrantCommand = async (
@@ -4492,81 +3065,40 @@ const deserializeAws_json1_1RetireGrantCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RevokeGrantCommand = async (
@@ -4591,73 +3123,37 @@ const deserializeAws_json1_1RevokeGrantCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "InvalidGrantIdException":
     case "com.amazonaws.kms#InvalidGrantIdException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantIdExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ScheduleKeyDeletionCommand = async (
@@ -4685,65 +3181,34 @@ const deserializeAws_json1_1ScheduleKeyDeletionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SignCommand = async (
@@ -4771,89 +3236,43 @@ const deserializeAws_json1_1SignCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -4878,73 +3297,37 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      response = {
-        ...(await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -4969,65 +3352,34 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "TagException":
     case "com.amazonaws.kms#TagException":
-      response = {
-        ...(await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateAliasCommand = async (
@@ -5052,65 +3404,34 @@ const deserializeAws_json1_1UpdateAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.kms#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateCustomKeyStoreCommand = async (
@@ -5138,89 +3459,43 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudHsmClusterInvalidConfigurationException":
     case "com.amazonaws.kms#CloudHsmClusterInvalidConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotActiveException":
     case "com.amazonaws.kms#CloudHsmClusterNotActiveException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotFoundException":
     case "com.amazonaws.kms#CloudHsmClusterNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse(parsedOutput, context);
     case "CloudHsmClusterNotRelatedException":
     case "com.amazonaws.kms#CloudHsmClusterNotRelatedException":
-      response = {
-        ...(await deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreInvalidStateException":
     case "com.amazonaws.kms#CustomKeyStoreInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNameInUseException":
     case "com.amazonaws.kms#CustomKeyStoreNameInUseException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse(parsedOutput, context);
     case "CustomKeyStoreNotFoundException":
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateKeyDescriptionCommand = async (
@@ -5245,65 +3520,34 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdatePrimaryRegionCommand = async (
@@ -5328,73 +3572,37 @@ const deserializeAws_json1_1UpdatePrimaryRegionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.kms#InvalidArnException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1VerifyCommand = async (
@@ -5422,97 +3630,46 @@ const deserializeAws_json1_1VerifyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyTimeoutException":
     case "com.amazonaws.kms#DependencyTimeoutException":
-      response = {
-        ...(await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DependencyTimeoutExceptionResponse(parsedOutput, context);
     case "DisabledException":
     case "com.amazonaws.kms#DisabledException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context);
     case "InvalidGrantTokenException":
     case "com.amazonaws.kms#InvalidGrantTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGrantTokenExceptionResponse(parsedOutput, context);
     case "InvalidKeyUsageException":
     case "com.amazonaws.kms#InvalidKeyUsageException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidKeyUsageExceptionResponse(parsedOutput, context);
     case "KeyUnavailableException":
     case "com.amazonaws.kms#KeyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KeyUnavailableExceptionResponse(parsedOutput, context);
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
     case "KMSInvalidSignatureException":
     case "com.amazonaws.kms#KMSInvalidSignatureException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidSignatureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidSignatureExceptionResponse(parsedOutput, context);
     case "KMSInvalidStateException":
     case "com.amazonaws.kms#KMSInvalidStateException":
-      response = {
-        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.kms#NotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
@@ -5521,13 +3678,11 @@ const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AlreadyExistsException(body, context);
-  const contents: AlreadyExistsException = {
-    name: "AlreadyExistsException",
-    $fault: "client",
+  const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse = async (
@@ -5536,13 +3691,11 @@ const deserializeAws_json1_1CloudHsmClusterInUseExceptionResponse = async (
 ): Promise<CloudHsmClusterInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudHsmClusterInUseException(body, context);
-  const contents: CloudHsmClusterInUseException = {
-    name: "CloudHsmClusterInUseException",
-    $fault: "client",
+  const exception = new CloudHsmClusterInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse = async (
@@ -5551,13 +3704,11 @@ const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationExceptionResponse
 ): Promise<CloudHsmClusterInvalidConfigurationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException(body, context);
-  const contents: CloudHsmClusterInvalidConfigurationException = {
-    name: "CloudHsmClusterInvalidConfigurationException",
-    $fault: "client",
+  const exception = new CloudHsmClusterInvalidConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse = async (
@@ -5566,13 +3717,11 @@ const deserializeAws_json1_1CloudHsmClusterNotActiveExceptionResponse = async (
 ): Promise<CloudHsmClusterNotActiveException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotActiveException(body, context);
-  const contents: CloudHsmClusterNotActiveException = {
-    name: "CloudHsmClusterNotActiveException",
-    $fault: "client",
+  const exception = new CloudHsmClusterNotActiveException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse = async (
@@ -5581,13 +3730,11 @@ const deserializeAws_json1_1CloudHsmClusterNotFoundExceptionResponse = async (
 ): Promise<CloudHsmClusterNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotFoundException(body, context);
-  const contents: CloudHsmClusterNotFoundException = {
-    name: "CloudHsmClusterNotFoundException",
-    $fault: "client",
+  const exception = new CloudHsmClusterNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse = async (
@@ -5596,13 +3743,11 @@ const deserializeAws_json1_1CloudHsmClusterNotRelatedExceptionResponse = async (
 ): Promise<CloudHsmClusterNotRelatedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CloudHsmClusterNotRelatedException(body, context);
-  const contents: CloudHsmClusterNotRelatedException = {
-    name: "CloudHsmClusterNotRelatedException",
-    $fault: "client",
+  const exception = new CloudHsmClusterNotRelatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse = async (
@@ -5611,13 +3756,11 @@ const deserializeAws_json1_1CustomKeyStoreHasCMKsExceptionResponse = async (
 ): Promise<CustomKeyStoreHasCMKsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomKeyStoreHasCMKsException(body, context);
-  const contents: CustomKeyStoreHasCMKsException = {
-    name: "CustomKeyStoreHasCMKsException",
-    $fault: "client",
+  const exception = new CustomKeyStoreHasCMKsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse = async (
@@ -5626,13 +3769,11 @@ const deserializeAws_json1_1CustomKeyStoreInvalidStateExceptionResponse = async 
 ): Promise<CustomKeyStoreInvalidStateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomKeyStoreInvalidStateException(body, context);
-  const contents: CustomKeyStoreInvalidStateException = {
-    name: "CustomKeyStoreInvalidStateException",
-    $fault: "client",
+  const exception = new CustomKeyStoreInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse = async (
@@ -5641,13 +3782,11 @@ const deserializeAws_json1_1CustomKeyStoreNameInUseExceptionResponse = async (
 ): Promise<CustomKeyStoreNameInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomKeyStoreNameInUseException(body, context);
-  const contents: CustomKeyStoreNameInUseException = {
-    name: "CustomKeyStoreNameInUseException",
-    $fault: "client",
+  const exception = new CustomKeyStoreNameInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse = async (
@@ -5656,13 +3795,11 @@ const deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse = async (
 ): Promise<CustomKeyStoreNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomKeyStoreNotFoundException(body, context);
-  const contents: CustomKeyStoreNotFoundException = {
-    name: "CustomKeyStoreNotFoundException",
-    $fault: "client",
+  const exception = new CustomKeyStoreNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DependencyTimeoutExceptionResponse = async (
@@ -5671,13 +3808,11 @@ const deserializeAws_json1_1DependencyTimeoutExceptionResponse = async (
 ): Promise<DependencyTimeoutException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DependencyTimeoutException(body, context);
-  const contents: DependencyTimeoutException = {
-    name: "DependencyTimeoutException",
-    $fault: "server",
+  const exception = new DependencyTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DisabledExceptionResponse = async (
@@ -5686,13 +3821,11 @@ const deserializeAws_json1_1DisabledExceptionResponse = async (
 ): Promise<DisabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DisabledException(body, context);
-  const contents: DisabledException = {
-    name: "DisabledException",
-    $fault: "client",
+  const exception = new DisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ExpiredImportTokenExceptionResponse = async (
@@ -5701,13 +3834,11 @@ const deserializeAws_json1_1ExpiredImportTokenExceptionResponse = async (
 ): Promise<ExpiredImportTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ExpiredImportTokenException(body, context);
-  const contents: ExpiredImportTokenException = {
-    name: "ExpiredImportTokenException",
-    $fault: "client",
+  const exception = new ExpiredImportTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1IncorrectKeyExceptionResponse = async (
@@ -5716,13 +3847,11 @@ const deserializeAws_json1_1IncorrectKeyExceptionResponse = async (
 ): Promise<IncorrectKeyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IncorrectKeyException(body, context);
-  const contents: IncorrectKeyException = {
-    name: "IncorrectKeyException",
-    $fault: "client",
+  const exception = new IncorrectKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse = async (
@@ -5731,13 +3860,11 @@ const deserializeAws_json1_1IncorrectKeyMaterialExceptionResponse = async (
 ): Promise<IncorrectKeyMaterialException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IncorrectKeyMaterialException(body, context);
-  const contents: IncorrectKeyMaterialException = {
-    name: "IncorrectKeyMaterialException",
-    $fault: "client",
+  const exception = new IncorrectKeyMaterialException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse = async (
@@ -5746,13 +3873,11 @@ const deserializeAws_json1_1IncorrectTrustAnchorExceptionResponse = async (
 ): Promise<IncorrectTrustAnchorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1IncorrectTrustAnchorException(body, context);
-  const contents: IncorrectTrustAnchorException = {
-    name: "IncorrectTrustAnchorException",
-    $fault: "client",
+  const exception = new IncorrectTrustAnchorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidAliasNameExceptionResponse = async (
@@ -5761,13 +3886,11 @@ const deserializeAws_json1_1InvalidAliasNameExceptionResponse = async (
 ): Promise<InvalidAliasNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidAliasNameException(body, context);
-  const contents: InvalidAliasNameException = {
-    name: "InvalidAliasNameException",
-    $fault: "client",
+  const exception = new InvalidAliasNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidArnExceptionResponse = async (
@@ -5776,13 +3899,11 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
 ): Promise<InvalidArnException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidArnException(body, context);
-  const contents: InvalidArnException = {
-    name: "InvalidArnException",
-    $fault: "client",
+  const exception = new InvalidArnException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidCiphertextExceptionResponse = async (
@@ -5791,13 +3912,11 @@ const deserializeAws_json1_1InvalidCiphertextExceptionResponse = async (
 ): Promise<InvalidCiphertextException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidCiphertextException(body, context);
-  const contents: InvalidCiphertextException = {
-    name: "InvalidCiphertextException",
-    $fault: "client",
+  const exception = new InvalidCiphertextException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidGrantIdExceptionResponse = async (
@@ -5806,13 +3925,11 @@ const deserializeAws_json1_1InvalidGrantIdExceptionResponse = async (
 ): Promise<InvalidGrantIdException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGrantIdException(body, context);
-  const contents: InvalidGrantIdException = {
-    name: "InvalidGrantIdException",
-    $fault: "client",
+  const exception = new InvalidGrantIdException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidGrantTokenExceptionResponse = async (
@@ -5821,13 +3938,11 @@ const deserializeAws_json1_1InvalidGrantTokenExceptionResponse = async (
 ): Promise<InvalidGrantTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGrantTokenException(body, context);
-  const contents: InvalidGrantTokenException = {
-    name: "InvalidGrantTokenException",
-    $fault: "client",
+  const exception = new InvalidGrantTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidImportTokenExceptionResponse = async (
@@ -5836,13 +3951,11 @@ const deserializeAws_json1_1InvalidImportTokenExceptionResponse = async (
 ): Promise<InvalidImportTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidImportTokenException(body, context);
-  const contents: InvalidImportTokenException = {
-    name: "InvalidImportTokenException",
-    $fault: "client",
+  const exception = new InvalidImportTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidKeyUsageExceptionResponse = async (
@@ -5851,13 +3964,11 @@ const deserializeAws_json1_1InvalidKeyUsageExceptionResponse = async (
 ): Promise<InvalidKeyUsageException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidKeyUsageException(body, context);
-  const contents: InvalidKeyUsageException = {
-    name: "InvalidKeyUsageException",
-    $fault: "client",
+  const exception = new InvalidKeyUsageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
@@ -5866,13 +3977,11 @@ const deserializeAws_json1_1InvalidMarkerExceptionResponse = async (
 ): Promise<InvalidMarkerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidMarkerException(body, context);
-  const contents: InvalidMarkerException = {
-    name: "InvalidMarkerException",
-    $fault: "client",
+  const exception = new InvalidMarkerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
@@ -5881,13 +3990,11 @@ const deserializeAws_json1_1KeyUnavailableExceptionResponse = async (
 ): Promise<KeyUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KeyUnavailableException(body, context);
-  const contents: KeyUnavailableException = {
-    name: "KeyUnavailableException",
-    $fault: "server",
+  const exception = new KeyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KMSInternalExceptionResponse = async (
@@ -5896,13 +4003,11 @@ const deserializeAws_json1_1KMSInternalExceptionResponse = async (
 ): Promise<KMSInternalException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KMSInternalException(body, context);
-  const contents: KMSInternalException = {
-    name: "KMSInternalException",
-    $fault: "server",
+  const exception = new KMSInternalException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
@@ -5911,13 +4016,11 @@ const deserializeAws_json1_1KMSInvalidSignatureExceptionResponse = async (
 ): Promise<KMSInvalidSignatureException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KMSInvalidSignatureException(body, context);
-  const contents: KMSInvalidSignatureException = {
-    name: "KMSInvalidSignatureException",
-    $fault: "client",
+  const exception = new KMSInvalidSignatureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
@@ -5926,13 +4029,11 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
 ): Promise<KMSInvalidStateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KMSInvalidStateException(body, context);
-  const contents: KMSInvalidStateException = {
-    name: "KMSInvalidStateException",
-    $fault: "client",
+  const exception = new KMSInvalidStateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
@@ -5941,13 +4042,11 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
@@ -5956,13 +4055,11 @@ const deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MalformedPolicyDocumentException(body, context);
-  const contents: MalformedPolicyDocumentException = {
-    name: "MalformedPolicyDocumentException",
-    $fault: "client",
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1NotFoundExceptionResponse = async (
@@ -5971,13 +4068,11 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
 ): Promise<NotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
-  const contents: NotFoundException = {
-    name: "NotFoundException",
-    $fault: "client",
+  const exception = new NotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TagExceptionResponse = async (
@@ -5986,13 +4081,11 @@ const deserializeAws_json1_1TagExceptionResponse = async (
 ): Promise<TagException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TagException(body, context);
-  const contents: TagException = {
-    name: "TagException",
-    $fault: "client",
+  const exception = new TagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
@@ -6001,13 +4094,11 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
 ): Promise<UnsupportedOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
-  const contents: UnsupportedOperationException = {
-    name: "UnsupportedOperationException",
-    $fault: "client",
+  const exception = new UnsupportedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1CancelKeyDeletionRequest = (

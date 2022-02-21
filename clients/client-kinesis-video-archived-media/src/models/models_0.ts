@@ -1,13 +1,28 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { KinesisVideoArchivedMediaServiceException as __BaseException } from "./KinesisVideoArchivedMediaServiceException";
 
 /**
  * <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
  */
-export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ClientLimitExceededException";
-  $fault: "client";
+export class ClientLimitExceededException extends __BaseException {
+  readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientLimitExceededException, __BaseException>) {
+    super({
+      name: "ClientLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ClipFragmentSelectorType {
@@ -137,59 +152,131 @@ export namespace GetClipOutput {
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be
  *             used.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The codec private data in at least one of the tracks of the video stream is not valid
  *             for this operation.</p>
  */
-export interface InvalidCodecPrivateDataException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCodecPrivateDataException";
-  $fault: "client";
+export class InvalidCodecPrivateDataException extends __BaseException {
+  readonly name: "InvalidCodecPrivateDataException" = "InvalidCodecPrivateDataException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCodecPrivateDataException, __BaseException>) {
+    super({
+      name: "InvalidCodecPrivateDataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCodecPrivateDataException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more frames in the requested clip could not be parsed based on the specified
  *             codec.</p>
  */
-export interface InvalidMediaFrameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMediaFrameException";
-  $fault: "client";
+export class InvalidMediaFrameException extends __BaseException {
+  readonly name: "InvalidMediaFrameException" = "InvalidMediaFrameException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMediaFrameException, __BaseException>) {
+    super({
+      name: "InvalidMediaFrameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMediaFrameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
-export interface MissingCodecPrivateDataException extends __SmithyException, $MetadataBearer {
-  name: "MissingCodecPrivateDataException";
-  $fault: "client";
+export class MissingCodecPrivateDataException extends __BaseException {
+  readonly name: "MissingCodecPrivateDataException" = "MissingCodecPrivateDataException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingCodecPrivateDataException, __BaseException>) {
+    super({
+      name: "MissingCodecPrivateDataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingCodecPrivateDataException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A streaming session was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
-export interface NoDataRetentionException extends __SmithyException, $MetadataBearer {
-  name: "NoDataRetentionException";
-  $fault: "client";
+export class NoDataRetentionException extends __BaseException {
+  readonly name: "NoDataRetentionException" = "NoDataRetentionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoDataRetentionException, __BaseException>) {
+    super({
+      name: "NoDataRetentionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoDataRetentionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *             stream, or the token has expired.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -204,10 +291,22 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
  *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
  *             seconds.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -216,10 +315,22 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *             session. The codec ID for track 1 should be <code>V_MPEG/ISO/AVC</code> and, optionally,
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  */
-export interface UnsupportedStreamMediaTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedStreamMediaTypeException";
-  $fault: "client";
+export class UnsupportedStreamMediaTypeException extends __BaseException {
+  readonly name: "UnsupportedStreamMediaTypeException" = "UnsupportedStreamMediaTypeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedStreamMediaTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedStreamMediaTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedStreamMediaTypeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum DASHFragmentSelectorType {

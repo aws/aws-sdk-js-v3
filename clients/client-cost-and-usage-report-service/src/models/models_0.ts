@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CostAndUsageReportServiceServiceException as __BaseException } from "./CostAndUsageReportServiceServiceException";
 
 export enum AdditionalArtifact {
   ATHENA = "ATHENA",
@@ -47,25 +50,49 @@ export namespace DeleteReportDefinitionResponse {
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -290,13 +317,25 @@ export namespace ModifyReportDefinitionResponse {
 /**
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
-export interface DuplicateReportNameException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateReportNameException";
-  $fault: "client";
+export class DuplicateReportNameException extends __BaseException {
+  readonly name: "DuplicateReportNameException" = "DuplicateReportNameException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateReportNameException, __BaseException>) {
+    super({
+      name: "DuplicateReportNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateReportNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -336,11 +375,23 @@ export namespace PutReportDefinitionResponse {
 /**
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
-export interface ReportLimitReachedException extends __SmithyException, $MetadataBearer {
-  name: "ReportLimitReachedException";
-  $fault: "client";
+export class ReportLimitReachedException extends __BaseException {
+  readonly name: "ReportLimitReachedException" = "ReportLimitReachedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message to show the detail of the exception.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReportLimitReachedException, __BaseException>) {
+    super({
+      name: "ReportLimitReachedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReportLimitReachedException.prototype);
+    this.Message = opts.Message;
+  }
 }

@@ -1,4 +1,6 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { EchoServiceServiceException as __BaseException } from "./EchoServiceServiceException";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface EchoInput {
   string?: string;
@@ -29,10 +31,20 @@ export namespace EchoOutput {
 /**
  * For some reason, this service does not like palindromes!
  */
-export interface PalindromeException extends __SmithyException, $MetadataBearer {
-  name: "PalindromeException";
-  $fault: "client";
-  message?: string;
+export class PalindromeException extends __BaseException {
+  readonly name: "PalindromeException" = "PalindromeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PalindromeException, __BaseException>) {
+    super({
+      name: "PalindromeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PalindromeException.prototype);
+  }
 }
 
 export interface LengthInput {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MarketplaceCommerceAnalyticsServiceException as __BaseException } from "./MarketplaceCommerceAnalyticsServiceException";
 
 export enum DataSetType {
   CUSTOMER_PROFILE_BY_GEOGRAPHY = "customer_profile_by_geography",
@@ -216,13 +219,20 @@ export namespace GenerateDataSetResult {
 /**
  * This exception is thrown when an internal service error occurs.
  */
-export interface MarketplaceCommerceAnalyticsException extends __SmithyException, $MetadataBearer {
-  name: "MarketplaceCommerceAnalyticsException";
-  $fault: "server";
+export class MarketplaceCommerceAnalyticsException extends __BaseException {
+  readonly name: "MarketplaceCommerceAnalyticsException" = "MarketplaceCommerceAnalyticsException";
+  readonly $fault: "server" = "server";
   /**
-   * This message describes details of the error.
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MarketplaceCommerceAnalyticsException, __BaseException>) {
+    super({
+      name: "MarketplaceCommerceAnalyticsException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MarketplaceCommerceAnalyticsException.prototype);
+  }
 }
 
 export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";

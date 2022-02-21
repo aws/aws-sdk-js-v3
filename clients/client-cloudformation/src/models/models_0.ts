@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
 export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
 
@@ -270,28 +273,64 @@ export namespace ActivateTypeOutput {
 /**
  * <p>An error occurred during a CloudFormation registry operation.</p>
  */
-export interface CFNRegistryException extends __SmithyException, $MetadataBearer {
-  name: "CFNRegistryException";
-  $fault: "client";
+export class CFNRegistryException extends __BaseException {
+  readonly name: "CFNRegistryException" = "CFNRegistryException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CFNRegistryException, __BaseException>) {
+    super({
+      name: "CFNRegistryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CFNRegistryException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  */
-export interface TypeNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TypeNotFoundException";
-  $fault: "client";
+export class TypeNotFoundException extends __BaseException {
+  readonly name: "TypeNotFoundException" = "TypeNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TypeNotFoundException, __BaseException>) {
+    super({
+      name: "TypeNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TypeNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource with the name requested already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -509,10 +548,22 @@ export namespace BatchDescribeTypeConfigurationsOutput {
 /**
  * <p>The specified extension configuration can't be found.</p>
  */
-export interface TypeConfigurationNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TypeConfigurationNotFoundException";
-  $fault: "client";
+export class TypeConfigurationNotFoundException extends __BaseException {
+  readonly name: "TypeConfigurationNotFoundException" = "TypeConfigurationNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TypeConfigurationNotFoundException, __BaseException>) {
+    super({
+      name: "TypeConfigurationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TypeConfigurationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum CallAs {
@@ -551,10 +602,22 @@ export namespace CancelUpdateStackInput {
 /**
  * <p>A client request token already exists.</p>
  */
-export interface TokenAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TokenAlreadyExistsException";
-  $fault: "client";
+export class TokenAlreadyExistsException extends __BaseException {
+  readonly name: "TokenAlreadyExistsException" = "TokenAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TokenAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TokenAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TokenAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum Capability {
@@ -1073,10 +1136,22 @@ export enum ChangeSetHooksStatus {
  * <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
  *          use the <code>ListChangeSets</code> operation.</p>
  */
-export interface ChangeSetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ChangeSetNotFoundException";
-  $fault: "client";
+export class ChangeSetNotFoundException extends __BaseException {
+  readonly name: "ChangeSetNotFoundException" = "ChangeSetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ChangeSetNotFoundException, __BaseException>) {
+    super({
+      name: "ChangeSetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ChangeSetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ChangeSetStatus {
@@ -1747,10 +1822,22 @@ export namespace CreateChangeSetOutput {
  * <p>The template contains resources with capabilities that weren't specified in the
  *          Capabilities parameter.</p>
  */
-export interface InsufficientCapabilitiesException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientCapabilitiesException";
-  $fault: "client";
+export class InsufficientCapabilitiesException extends __BaseException {
+  readonly name: "InsufficientCapabilitiesException" = "InsufficientCapabilitiesException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapabilitiesException, __BaseException>) {
+    super({
+      name: "InsufficientCapabilitiesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapabilitiesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1758,10 +1845,22 @@ export interface InsufficientCapabilitiesException extends __SmithyException, $M
  *          <p>For information on resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
  *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum OnFailure {
@@ -2318,57 +2417,129 @@ export namespace CreateStackInstancesOutput {
 /**
  * <p>The specified operation isn't valid.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified operation ID already exists.</p>
  */
-export interface OperationIdAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "OperationIdAlreadyExistsException";
-  $fault: "client";
+export class OperationIdAlreadyExistsException extends __BaseException {
+  readonly name: "OperationIdAlreadyExistsException" = "OperationIdAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationIdAlreadyExistsException, __BaseException>) {
+    super({
+      name: "OperationIdAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationIdAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Another operation is currently in progress for this stack set. Only one operation can be
  *          performed for a stack set at a given time.</p>
  */
-export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
-  name: "OperationInProgressException";
-  $fault: "client";
+export class OperationInProgressException extends __BaseException {
+  readonly name: "OperationInProgressException" = "OperationInProgressException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationInProgressException, __BaseException>) {
+    super({
+      name: "OperationInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationInProgressException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified stack set doesn't exist.</p>
  */
-export interface StackSetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "StackSetNotFoundException";
-  $fault: "client";
+export class StackSetNotFoundException extends __BaseException {
+  readonly name: "StackSetNotFoundException" = "StackSetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StackSetNotFoundException, __BaseException>) {
+    super({
+      name: "StackSetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StackSetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Another operation has been performed on this stack set since the specified operation was
  *          performed.</p>
  */
-export interface StaleRequestException extends __SmithyException, $MetadataBearer {
-  name: "StaleRequestException";
-  $fault: "client";
+export class StaleRequestException extends __BaseException {
+  readonly name: "StaleRequestException" = "StaleRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StaleRequestException, __BaseException>) {
+    super({
+      name: "StaleRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StaleRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource exists, but has been changed.</p>
  */
-export interface CreatedButModifiedException extends __SmithyException, $MetadataBearer {
-  name: "CreatedButModifiedException";
-  $fault: "client";
+export class CreatedButModifiedException extends __BaseException {
+  readonly name: "CreatedButModifiedException" = "CreatedButModifiedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreatedButModifiedException, __BaseException>) {
+    super({
+      name: "CreatedButModifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreatedButModifiedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2671,10 +2842,22 @@ export namespace CreateStackSetOutput {
 /**
  * <p>The specified name is already in use.</p>
  */
-export interface NameAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "NameAlreadyExistsException";
-  $fault: "client";
+export class NameAlreadyExistsException extends __BaseException {
+  readonly name: "NameAlreadyExistsException" = "NameAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NameAlreadyExistsException, __BaseException>) {
+    super({
+      name: "NameAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeactivateTypeInput {
@@ -2765,10 +2948,22 @@ export namespace DeleteChangeSetOutput {
  *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
  */
-export interface InvalidChangeSetStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidChangeSetStatusException";
-  $fault: "client";
+export class InvalidChangeSetStatusException extends __BaseException {
+  readonly name: "InvalidChangeSetStatusException" = "InvalidChangeSetStatusException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidChangeSetStatusException, __BaseException>) {
+    super({
+      name: "InvalidChangeSetStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidChangeSetStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2980,10 +3175,22 @@ export namespace DeleteStackSetOutput {
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
  */
-export interface StackSetNotEmptyException extends __SmithyException, $MetadataBearer {
-  name: "StackSetNotEmptyException";
-  $fault: "client";
+export class StackSetNotEmptyException extends __BaseException {
+  readonly name: "StackSetNotEmptyException" = "StackSetNotEmptyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StackSetNotEmptyException, __BaseException>) {
+    super({
+      name: "StackSetNotEmptyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StackSetNotEmptyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type RegistryType = "HOOK" | "MODULE" | "RESOURCE";
@@ -3985,10 +4192,22 @@ export namespace DescribeStackInstanceOutput {
 /**
  * <p>The specified stack instance doesn't exist.</p>
  */
-export interface StackInstanceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "StackInstanceNotFoundException";
-  $fault: "client";
+export class StackInstanceNotFoundException extends __BaseException {
+  readonly name: "StackInstanceNotFoundException" = "StackInstanceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StackInstanceNotFoundException, __BaseException>) {
+    super({
+      name: "StackInstanceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StackInstanceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5475,10 +5694,22 @@ export namespace DescribeStackSetOperationOutput {
 /**
  * <p>The specified ID refers to an operation that doesn't exist.</p>
  */
-export interface OperationNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotFoundException";
-  $fault: "client";
+export class OperationNotFoundException extends __BaseException {
+  readonly name: "OperationNotFoundException" = "OperationNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotFoundException, __BaseException>) {
+    super({
+      name: "OperationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeTypeInput {
@@ -6669,10 +6900,22 @@ export namespace ImportStacksToStackSetOutput {
  * <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in
  *          input.</p>
  */
-export interface StackNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "StackNotFoundException";
-  $fault: "client";
+export class StackNotFoundException extends __BaseException {
+  readonly name: "StackNotFoundException" = "StackNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StackNotFoundException, __BaseException>) {
+    super({
+      name: "StackNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StackNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -8606,20 +8849,44 @@ export namespace PublishTypeOutput {
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
-export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateTransitionException";
-  $fault: "client";
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't return this error to
  *          users.</p>
  */
-export interface OperationStatusCheckFailedException extends __SmithyException, $MetadataBearer {
-  name: "OperationStatusCheckFailedException";
-  $fault: "client";
+export class OperationStatusCheckFailedException extends __BaseException {
+  readonly name: "OperationStatusCheckFailedException" = "OperationStatusCheckFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationStatusCheckFailedException, __BaseException>) {
+    super({
+      name: "OperationStatusCheckFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationStatusCheckFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum OperationStatus {

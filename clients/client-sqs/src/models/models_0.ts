@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SQSServiceException as __BaseException } from "./SQSServiceException";
 
 /**
  * <p></p>
@@ -47,9 +50,20 @@ export namespace AddPermissionRequest {
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
  */
-export interface OverLimit extends __SmithyException, $MetadataBearer {
-  name: "OverLimit";
-  $fault: "client";
+export class OverLimit extends __BaseException {
+  readonly name: "OverLimit" = "OverLimit";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OverLimit, __BaseException>) {
+    super({
+      name: "OverLimit",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OverLimit.prototype);
+  }
 }
 
 export interface ChangeMessageVisibilityRequest {
@@ -84,25 +98,58 @@ export namespace ChangeMessageVisibilityRequest {
 /**
  * <p>The specified message isn't in flight.</p>
  */
-export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
-  name: "MessageNotInflight";
-  $fault: "client";
+export class MessageNotInflight extends __BaseException {
+  readonly name: "MessageNotInflight" = "MessageNotInflight";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MessageNotInflight, __BaseException>) {
+    super({
+      name: "MessageNotInflight",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageNotInflight.prototype);
+  }
 }
 
 /**
  * <p>The specified receipt handle isn't valid.</p>
  */
-export interface ReceiptHandleIsInvalid extends __SmithyException, $MetadataBearer {
-  name: "ReceiptHandleIsInvalid";
-  $fault: "client";
+export class ReceiptHandleIsInvalid extends __BaseException {
+  readonly name: "ReceiptHandleIsInvalid" = "ReceiptHandleIsInvalid";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReceiptHandleIsInvalid, __BaseException>) {
+    super({
+      name: "ReceiptHandleIsInvalid",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReceiptHandleIsInvalid.prototype);
+  }
 }
 
 /**
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
-export interface BatchEntryIdsNotDistinct extends __SmithyException, $MetadataBearer {
-  name: "BatchEntryIdsNotDistinct";
-  $fault: "client";
+export class BatchEntryIdsNotDistinct extends __BaseException {
+  readonly name: "BatchEntryIdsNotDistinct" = "BatchEntryIdsNotDistinct";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchEntryIdsNotDistinct, __BaseException>) {
+    super({
+      name: "BatchEntryIdsNotDistinct",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchEntryIdsNotDistinct.prototype);
+  }
 }
 
 /**
@@ -268,25 +315,58 @@ export namespace ChangeMessageVisibilityBatchResult {
 /**
  * <p>The batch request doesn't contain any entries.</p>
  */
-export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
-  name: "EmptyBatchRequest";
-  $fault: "client";
+export class EmptyBatchRequest extends __BaseException {
+  readonly name: "EmptyBatchRequest" = "EmptyBatchRequest";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EmptyBatchRequest, __BaseException>) {
+    super({
+      name: "EmptyBatchRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EmptyBatchRequest.prototype);
+  }
 }
 
 /**
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  */
-export interface InvalidBatchEntryId extends __SmithyException, $MetadataBearer {
-  name: "InvalidBatchEntryId";
-  $fault: "client";
+export class InvalidBatchEntryId extends __BaseException {
+  readonly name: "InvalidBatchEntryId" = "InvalidBatchEntryId";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidBatchEntryId, __BaseException>) {
+    super({
+      name: "InvalidBatchEntryId",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBatchEntryId.prototype);
+  }
 }
 
 /**
  * <p>The batch request contains more entries than permissible.</p>
  */
-export interface TooManyEntriesInBatchRequest extends __SmithyException, $MetadataBearer {
-  name: "TooManyEntriesInBatchRequest";
-  $fault: "client";
+export class TooManyEntriesInBatchRequest extends __BaseException {
+  readonly name: "TooManyEntriesInBatchRequest" = "TooManyEntriesInBatchRequest";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyEntriesInBatchRequest, __BaseException>) {
+    super({
+      name: "TooManyEntriesInBatchRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyEntriesInBatchRequest.prototype);
+  }
 }
 
 export type QueueAttributeName =
@@ -566,18 +646,40 @@ export namespace CreateQueueResult {
  * <p>You must wait 60 seconds after deleting a queue before you can create another queue
  *             with the same name.</p>
  */
-export interface QueueDeletedRecently extends __SmithyException, $MetadataBearer {
-  name: "QueueDeletedRecently";
-  $fault: "client";
+export class QueueDeletedRecently extends __BaseException {
+  readonly name: "QueueDeletedRecently" = "QueueDeletedRecently";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueueDeletedRecently, __BaseException>) {
+    super({
+      name: "QueueDeletedRecently",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueueDeletedRecently.prototype);
+  }
 }
 
 /**
  * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
  */
-export interface QueueNameExists extends __SmithyException, $MetadataBearer {
-  name: "QueueNameExists";
-  $fault: "client";
+export class QueueNameExists extends __BaseException {
+  readonly name: "QueueNameExists" = "QueueNameExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueueNameExists, __BaseException>) {
+    super({
+      name: "QueueNameExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueueNameExists.prototype);
+  }
 }
 
 /**
@@ -608,9 +710,20 @@ export namespace DeleteMessageRequest {
 /**
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */
-export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
-  name: "InvalidIdFormat";
-  $fault: "client";
+export class InvalidIdFormat extends __BaseException {
+  readonly name: "InvalidIdFormat" = "InvalidIdFormat";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIdFormat, __BaseException>) {
+    super({
+      name: "InvalidIdFormat",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIdFormat.prototype);
+  }
 }
 
 /**
@@ -955,9 +1068,20 @@ export namespace GetQueueAttributesResult {
 /**
  * <p>The specified attribute doesn't exist.</p>
  */
-export interface InvalidAttributeName extends __SmithyException, $MetadataBearer {
-  name: "InvalidAttributeName";
-  $fault: "client";
+export class InvalidAttributeName extends __BaseException {
+  readonly name: "InvalidAttributeName" = "InvalidAttributeName";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAttributeName, __BaseException>) {
+    super({
+      name: "InvalidAttributeName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAttributeName.prototype);
+  }
 }
 
 /**
@@ -1007,9 +1131,20 @@ export namespace GetQueueUrlResult {
 /**
  * <p>The specified queue doesn't exist.</p>
  */
-export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "QueueDoesNotExist";
-  $fault: "client";
+export class QueueDoesNotExist extends __BaseException {
+  readonly name: "QueueDoesNotExist" = "QueueDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueueDoesNotExist, __BaseException>) {
+    super({
+      name: "QueueDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueueDoesNotExist.prototype);
+  }
 }
 
 /**
@@ -1159,9 +1294,20 @@ export namespace ListQueueTagsResult {
 /**
  * <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
  */
-export interface PurgeQueueInProgress extends __SmithyException, $MetadataBearer {
-  name: "PurgeQueueInProgress";
-  $fault: "client";
+export class PurgeQueueInProgress extends __BaseException {
+  readonly name: "PurgeQueueInProgress" = "PurgeQueueInProgress";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PurgeQueueInProgress, __BaseException>) {
+    super({
+      name: "PurgeQueueInProgress",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PurgeQueueInProgress.prototype);
+  }
 }
 
 /**
@@ -1563,9 +1709,20 @@ export namespace RemovePermissionRequest {
 /**
  * <p>The message contains characters outside the allowed set.</p>
  */
-export interface InvalidMessageContents extends __SmithyException, $MetadataBearer {
-  name: "InvalidMessageContents";
-  $fault: "client";
+export class InvalidMessageContents extends __BaseException {
+  readonly name: "InvalidMessageContents" = "InvalidMessageContents";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMessageContents, __BaseException>) {
+    super({
+      name: "InvalidMessageContents",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMessageContents.prototype);
+  }
 }
 
 export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
@@ -1810,17 +1967,39 @@ export namespace SendMessageResult {
 /**
  * <p>Error code 400. Unsupported operation.</p>
  */
-export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperation";
-  $fault: "client";
+export class UnsupportedOperation extends __BaseException {
+  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
+    super({
+      name: "UnsupportedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
+  }
 }
 
 /**
  * <p>The length of all the messages put together is more than the limit.</p>
  */
-export interface BatchRequestTooLong extends __SmithyException, $MetadataBearer {
-  name: "BatchRequestTooLong";
-  $fault: "client";
+export class BatchRequestTooLong extends __BaseException {
+  readonly name: "BatchRequestTooLong" = "BatchRequestTooLong";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchRequestTooLong, __BaseException>) {
+    super({
+      name: "BatchRequestTooLong",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchRequestTooLong.prototype);
+  }
 }
 
 /**

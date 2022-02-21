@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DynamoDBStreamsServiceException as __BaseException } from "./DynamoDBStreamsServiceException";
 
 /**
  * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
@@ -280,13 +283,20 @@ export namespace DescribeStreamOutput {
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The server encountered an internal error trying to fulfill the request.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+  }
 }
 
 /**
@@ -294,13 +304,20 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
  *             might not be specified correctly, or its status might not be
  *             <code>ACTIVE</code>.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The resource which is being requested does not exist.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -308,13 +325,20 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *       iterator expires 15 minutes after it is retrieved using the <code>GetShardIterator</code>
  *       action.</p>
  */
-export interface ExpiredIteratorException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredIteratorException";
-  $fault: "client";
+export class ExpiredIteratorException extends __BaseException {
+  readonly name: "ExpiredIteratorException" = "ExpiredIteratorException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The provided iterator exceeds the maximum age allowed.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ExpiredIteratorException, __BaseException>) {
+    super({
+      name: "ExpiredIteratorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredIteratorException.prototype);
+  }
 }
 
 /**
@@ -382,13 +406,20 @@ export namespace Identity {
  *             concurrent operations.</p>
  *          <p>There is a soft account quota of 256 tables.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Too many operations for a given subscriber.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
@@ -405,13 +436,20 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
  *             </li>
  *          </ul>
  */
-export interface TrimmedDataAccessException extends __SmithyException, $MetadataBearer {
-  name: "TrimmedDataAccessException";
-  $fault: "client";
+export class TrimmedDataAccessException extends __BaseException {
+  readonly name: "TrimmedDataAccessException" = "TrimmedDataAccessException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>"The data you are trying to access has been trimmed.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TrimmedDataAccessException, __BaseException>) {
+    super({
+      name: "TrimmedDataAccessException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrimmedDataAccessException.prototype);
+  }
 }
 
 export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON";

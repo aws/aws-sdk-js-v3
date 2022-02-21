@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
 export enum AlgorithmSpec {
   RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
@@ -52,10 +54,20 @@ export namespace AliasListEntry {
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+  }
 }
 
 export interface CancelKeyDeletionRequest {
@@ -108,30 +120,60 @@ export namespace CancelKeyDeletionResponse {
  * <p>The system timed out while trying to fulfill the request. The request can be
  *       retried.</p>
  */
-export interface DependencyTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "DependencyTimeoutException";
-  $fault: "server";
-  message?: string;
+export class DependencyTimeoutException extends __BaseException {
+  readonly name: "DependencyTimeoutException" = "DependencyTimeoutException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyTimeoutException, __BaseException>) {
+    super({
+      name: "DependencyTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyTimeoutException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
  *       valid.</p>
  */
-export interface InvalidArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArnException";
-  $fault: "client";
-  message?: string;
+export class InvalidArnException extends __BaseException {
+  readonly name: "InvalidArnException" = "InvalidArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
+    super({
+      name: "InvalidArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArnException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because an internal exception occurred. The request can be
  *       retried.</p>
  */
-export interface KMSInternalException extends __SmithyException, $MetadataBearer {
-  name: "KMSInternalException";
-  $fault: "server";
-  message?: string;
+export class KMSInternalException extends __BaseException {
+  readonly name: "KMSInternalException" = "KMSInternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInternalException, __BaseException>) {
+    super({
+      name: "KMSInternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInternalException.prototype);
+  }
 }
 
 /**
@@ -142,20 +184,40 @@ export interface KMSInternalException extends __SmithyException, $MetadataBearer
  *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
  */
-export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidStateException";
-  $fault: "client";
-  message?: string;
+export class KMSInvalidStateException extends __BaseException {
+  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
+    super({
+      name: "KMSInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource could not be
  *       found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
@@ -165,10 +227,20 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
  *          <p>Clusters that share a backup history have the same cluster certificate. To view the
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  */
-export interface CloudHsmClusterInUseException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmClusterInUseException";
-  $fault: "client";
-  message?: string;
+export class CloudHsmClusterInUseException extends __BaseException {
+  readonly name: "CloudHsmClusterInUseException" = "CloudHsmClusterInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmClusterInUseException, __BaseException>) {
+    super({
+      name: "CloudHsmClusterInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmClusterInUseException.prototype);
+  }
 }
 
 /**
@@ -206,10 +278,20 @@ export interface CloudHsmClusterInUseException extends __SmithyException, $Metad
  *                <i>CloudHSM User Guide</i>
  *             </i>. </p>
  */
-export interface CloudHsmClusterInvalidConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmClusterInvalidConfigurationException";
-  $fault: "client";
-  message?: string;
+export class CloudHsmClusterInvalidConfigurationException extends __BaseException {
+  readonly name: "CloudHsmClusterInvalidConfigurationException" = "CloudHsmClusterInvalidConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmClusterInvalidConfigurationException, __BaseException>) {
+    super({
+      name: "CloudHsmClusterInvalidConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmClusterInvalidConfigurationException.prototype);
+  }
 }
 
 /**
@@ -217,20 +299,40 @@ export interface CloudHsmClusterInvalidConfigurationException extends __SmithyEx
  *       store is not active. Initialize and activate the cluster and try the command again. For
  *       detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>CloudHSM User Guide</i>.</p>
  */
-export interface CloudHsmClusterNotActiveException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmClusterNotActiveException";
-  $fault: "client";
-  message?: string;
+export class CloudHsmClusterNotActiveException extends __BaseException {
+  readonly name: "CloudHsmClusterNotActiveException" = "CloudHsmClusterNotActiveException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmClusterNotActiveException, __BaseException>) {
+    super({
+      name: "CloudHsmClusterNotActiveException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmClusterNotActiveException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because KMS cannot find the CloudHSM cluster with the specified
  *       cluster ID. Retry the request with a different cluster ID.</p>
  */
-export interface CloudHsmClusterNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmClusterNotFoundException";
-  $fault: "client";
-  message?: string;
+export class CloudHsmClusterNotFoundException extends __BaseException {
+  readonly name: "CloudHsmClusterNotFoundException" = "CloudHsmClusterNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmClusterNotFoundException, __BaseException>) {
+    super({
+      name: "CloudHsmClusterNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmClusterNotFoundException.prototype);
+  }
 }
 
 /**
@@ -243,10 +345,20 @@ export interface CloudHsmClusterNotFoundException extends __SmithyException, $Me
  *          <p>Clusters that share a backup history have the same cluster certificate. To view the
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  */
-export interface CloudHsmClusterNotRelatedException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmClusterNotRelatedException";
-  $fault: "client";
-  message?: string;
+export class CloudHsmClusterNotRelatedException extends __BaseException {
+  readonly name: "CloudHsmClusterNotRelatedException" = "CloudHsmClusterNotRelatedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmClusterNotRelatedException, __BaseException>) {
+    super({
+      name: "CloudHsmClusterNotRelatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmClusterNotRelatedException.prototype);
+  }
 }
 
 export interface ConnectCustomKeyStoreRequest {
@@ -300,20 +412,40 @@ export namespace ConnectCustomKeyStoreResponse {
  *             </li>
  *          </ul>
  */
-export interface CustomKeyStoreInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "CustomKeyStoreInvalidStateException";
-  $fault: "client";
-  message?: string;
+export class CustomKeyStoreInvalidStateException extends __BaseException {
+  readonly name: "CustomKeyStoreInvalidStateException" = "CustomKeyStoreInvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomKeyStoreInvalidStateException, __BaseException>) {
+    super({
+      name: "CustomKeyStoreInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomKeyStoreInvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because KMS cannot find a custom key store with the specified
  *       key store name or ID.</p>
  */
-export interface CustomKeyStoreNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CustomKeyStoreNotFoundException";
-  $fault: "client";
-  message?: string;
+export class CustomKeyStoreNotFoundException extends __BaseException {
+  readonly name: "CustomKeyStoreNotFoundException" = "CustomKeyStoreNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomKeyStoreNotFoundException, __BaseException>) {
+    super({
+      name: "CustomKeyStoreNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomKeyStoreNotFoundException.prototype);
+  }
 }
 
 export enum ConnectionErrorCodeType {
@@ -386,20 +518,40 @@ export namespace CreateAliasRequest {
 /**
  * <p>The request was rejected because the specified alias name is not valid.</p>
  */
-export interface InvalidAliasNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAliasNameException";
-  $fault: "client";
-  message?: string;
+export class InvalidAliasNameException extends __BaseException {
+  readonly name: "InvalidAliasNameException" = "InvalidAliasNameException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAliasNameException, __BaseException>) {
+    super({
+      name: "InvalidAliasNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAliasNameException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 export interface CreateCustomKeyStoreRequest {
@@ -465,10 +617,20 @@ export namespace CreateCustomKeyStoreResponse {
  *       to another custom key store in the account. Try again with a custom key store name that is
  *       unique in the account.</p>
  */
-export interface CustomKeyStoreNameInUseException extends __SmithyException, $MetadataBearer {
-  name: "CustomKeyStoreNameInUseException";
-  $fault: "client";
-  message?: string;
+export class CustomKeyStoreNameInUseException extends __BaseException {
+  readonly name: "CustomKeyStoreNameInUseException" = "CustomKeyStoreNameInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomKeyStoreNameInUseException, __BaseException>) {
+    super({
+      name: "CustomKeyStoreNameInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomKeyStoreNameInUseException.prototype);
+  }
 }
 
 /**
@@ -477,10 +639,20 @@ export interface CustomKeyStoreNameInUseException extends __SmithyException, $Me
  *          <p>When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the cluster</a>, you create the trust anchor certificate and save it in the
  *         <code>customerCA.crt</code> file.</p>
  */
-export interface IncorrectTrustAnchorException extends __SmithyException, $MetadataBearer {
-  name: "IncorrectTrustAnchorException";
-  $fault: "client";
-  message?: string;
+export class IncorrectTrustAnchorException extends __BaseException {
+  readonly name: "IncorrectTrustAnchorException" = "IncorrectTrustAnchorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectTrustAnchorException, __BaseException>) {
+    super({
+      name: "IncorrectTrustAnchorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectTrustAnchorException.prototype);
+  }
 }
 
 /**
@@ -684,19 +856,39 @@ export namespace CreateGrantResponse {
 /**
  * <p>The request was rejected because the specified KMS key is not enabled.</p>
  */
-export interface DisabledException extends __SmithyException, $MetadataBearer {
-  name: "DisabledException";
-  $fault: "client";
-  message?: string;
+export class DisabledException extends __BaseException {
+  readonly name: "DisabledException" = "DisabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DisabledException, __BaseException>) {
+    super({
+      name: "DisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisabledException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified grant token is not valid.</p>
  */
-export interface InvalidGrantTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidGrantTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidGrantTokenException extends __BaseException {
+  readonly name: "InvalidGrantTokenException" = "InvalidGrantTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGrantTokenException, __BaseException>) {
+    super({
+      name: "InvalidGrantTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGrantTokenException.prototype);
+  }
 }
 
 export enum CustomerMasterKeySpec {
@@ -1323,29 +1515,59 @@ export namespace CreateKeyResponse {
  * <p>The request was rejected because the specified policy is not syntactically or semantically
  *       correct.</p>
  */
-export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
-  name: "MalformedPolicyDocumentException";
-  $fault: "client";
-  message?: string;
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because one or more tags are not valid.</p>
  */
-export interface TagException extends __SmithyException, $MetadataBearer {
-  name: "TagException";
-  $fault: "client";
-  message?: string;
+export class TagException extends __BaseException {
+  readonly name: "TagException" = "TagException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagException, __BaseException>) {
+    super({
+      name: "TagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because a specified parameter is not supported or a specified
  *       resource is not valid for this operation.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
 }
 
 /**
@@ -1354,10 +1576,20 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
  *       operation to delete the KMS keys. After they are deleted, you can delete the custom key
  *       store.</p>
  */
-export interface CustomKeyStoreHasCMKsException extends __SmithyException, $MetadataBearer {
-  name: "CustomKeyStoreHasCMKsException";
-  $fault: "client";
-  message?: string;
+export class CustomKeyStoreHasCMKsException extends __BaseException {
+  readonly name: "CustomKeyStoreHasCMKsException" = "CustomKeyStoreHasCMKsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomKeyStoreHasCMKsException, __BaseException>) {
+    super({
+      name: "CustomKeyStoreHasCMKsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomKeyStoreHasCMKsException.prototype);
+  }
 }
 
 /**
@@ -1616,10 +1848,20 @@ export namespace DecryptResponse {
  *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
  *       encrypt the ciphertext.</p>
  */
-export interface IncorrectKeyException extends __SmithyException, $MetadataBearer {
-  name: "IncorrectKeyException";
-  $fault: "client";
-  message?: string;
+export class IncorrectKeyException extends __BaseException {
+  readonly name: "IncorrectKeyException" = "IncorrectKeyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectKeyException, __BaseException>) {
+    super({
+      name: "IncorrectKeyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectKeyException.prototype);
+  }
 }
 
 /**
@@ -1630,10 +1872,20 @@ export interface IncorrectKeyException extends __SmithyException, $MetadataBeare
  *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
  *       KMS could not decrypt the encrypted (wrapped) key material. </p>
  */
-export interface InvalidCiphertextException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCiphertextException";
-  $fault: "client";
-  message?: string;
+export class InvalidCiphertextException extends __BaseException {
+  readonly name: "InvalidCiphertextException" = "InvalidCiphertextException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCiphertextException, __BaseException>) {
+    super({
+      name: "InvalidCiphertextException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCiphertextException.prototype);
+  }
 }
 
 /**
@@ -1655,20 +1907,40 @@ export interface InvalidCiphertextException extends __SmithyException, $Metadata
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  */
-export interface InvalidKeyUsageException extends __SmithyException, $MetadataBearer {
-  name: "InvalidKeyUsageException";
-  $fault: "client";
-  message?: string;
+export class InvalidKeyUsageException extends __BaseException {
+  readonly name: "InvalidKeyUsageException" = "InvalidKeyUsageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKeyUsageException, __BaseException>) {
+    super({
+      name: "InvalidKeyUsageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKeyUsageException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified KMS key was not available. You can retry
  *       the request.</p>
  */
-export interface KeyUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "KeyUnavailableException";
-  $fault: "server";
-  message?: string;
+export class KeyUnavailableException extends __BaseException {
+  readonly name: "KeyUnavailableException" = "KeyUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeyUnavailableException, __BaseException>) {
+    super({
+      name: "KeyUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeyUnavailableException.prototype);
+  }
 }
 
 export interface DeleteAliasRequest {
@@ -1824,10 +2096,20 @@ export namespace DescribeCustomKeyStoresResponse {
  * <p>The request was rejected because the marker that specifies where pagination should next
  *       begin is not valid.</p>
  */
-export interface InvalidMarkerException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMarkerException";
-  $fault: "client";
-  message?: string;
+export class InvalidMarkerException extends __BaseException {
+  readonly name: "InvalidMarkerException" = "InvalidMarkerException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMarkerException, __BaseException>) {
+    super({
+      name: "InvalidMarkerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMarkerException.prototype);
+  }
 }
 
 export interface DescribeKeyRequest {
@@ -2139,10 +2421,20 @@ export namespace EncryptResponse {
  * <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
  *       public key to encrypt the key material, and then try the request again.</p>
  */
-export interface ExpiredImportTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredImportTokenException";
-  $fault: "client";
-  message?: string;
+export class ExpiredImportTokenException extends __BaseException {
+  readonly name: "ExpiredImportTokenException" = "ExpiredImportTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredImportTokenException, __BaseException>) {
+    super({
+      name: "ExpiredImportTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredImportTokenException.prototype);
+  }
 }
 
 export interface GenerateDataKeyRequest {
@@ -2996,29 +3288,59 @@ export namespace ImportKeyMaterialResponse {
  * <p>The request was rejected because the key material in the request is, expired, invalid, or
  *       is not the same key material that was previously imported into this KMS key.</p>
  */
-export interface IncorrectKeyMaterialException extends __SmithyException, $MetadataBearer {
-  name: "IncorrectKeyMaterialException";
-  $fault: "client";
-  message?: string;
+export class IncorrectKeyMaterialException extends __BaseException {
+  readonly name: "IncorrectKeyMaterialException" = "IncorrectKeyMaterialException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectKeyMaterialException, __BaseException>) {
+    super({
+      name: "IncorrectKeyMaterialException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectKeyMaterialException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the provided import token is invalid or is associated
  *       with a different KMS key.</p>
  */
-export interface InvalidImportTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidImportTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidImportTokenException extends __BaseException {
+  readonly name: "InvalidImportTokenException" = "InvalidImportTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidImportTokenException, __BaseException>) {
+    super({
+      name: "InvalidImportTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidImportTokenException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
  */
-export interface InvalidGrantIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidGrantIdException";
-  $fault: "client";
-  message?: string;
+export class InvalidGrantIdException extends __BaseException {
+  readonly name: "InvalidGrantIdException" = "InvalidGrantIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGrantIdException, __BaseException>) {
+    super({
+      name: "InvalidGrantIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGrantIdException.prototype);
+  }
 }
 
 /**
@@ -3050,10 +3372,20 @@ export namespace KeyListEntry {
  *       fails when it cannot confirm that signature was produced by signing the specified message with
  *       the specified KMS key and signing algorithm.</p>
  */
-export interface KMSInvalidSignatureException extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidSignatureException";
-  $fault: "client";
-  message?: string;
+export class KMSInvalidSignatureException extends __BaseException {
+  readonly name: "KMSInvalidSignatureException" = "KMSInvalidSignatureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidSignatureException, __BaseException>) {
+    super({
+      name: "KMSInvalidSignatureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidSignatureException.prototype);
+  }
 }
 
 export interface ListAliasesRequest {

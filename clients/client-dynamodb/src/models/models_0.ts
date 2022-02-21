@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceException";
 
 /**
  * <p>Contains details of a table archival operation.</p>
@@ -933,19 +936,39 @@ export namespace BackupDescription {
  * <p>There is another ongoing conflicting backup control plane operation on the table.
  *             The backup is either being created, deleted or restored to a table.</p>
  */
-export interface BackupInUseException extends __SmithyException, $MetadataBearer {
-  name: "BackupInUseException";
-  $fault: "client";
-  message?: string;
+export class BackupInUseException extends __BaseException {
+  readonly name: "BackupInUseException" = "BackupInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupInUseException, __BaseException>) {
+    super({
+      name: "BackupInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupInUseException.prototype);
+  }
 }
 
 /**
  * <p>Backup not found for the given BackupARN. </p>
  */
-export interface BackupNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "BackupNotFoundException";
-  $fault: "client";
-  message?: string;
+export class BackupNotFoundException extends __BaseException {
+  readonly name: "BackupNotFoundException" = "BackupNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupNotFoundException, __BaseException>) {
+    super({
+      name: "BackupNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupNotFoundException.prototype);
+  }
 }
 
 /**
@@ -1167,13 +1190,20 @@ export namespace BatchStatementError {
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The server encountered an internal error trying to fulfill the request.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+  }
 }
 
 /**
@@ -1181,16 +1211,38 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
  *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
  *             quota increase.</p>
  */
-export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "RequestLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class RequestLimitExceeded extends __BaseException {
+  readonly name: "RequestLimitExceeded" = "RequestLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestLimitExceeded, __BaseException>) {
+    super({
+      name: "RequestLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
+  }
 }
 
-export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEndpointException";
-  $fault: "client";
+export class InvalidEndpointException extends __BaseException {
+  readonly name: "InvalidEndpointException" = "InvalidEndpointException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEndpointException, __BaseException>) {
+    super({
+      name: "InvalidEndpointException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEndpointException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1199,26 +1251,40 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
  *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
-export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
-  name: "ProvisionedThroughputExceededException";
-  $fault: "client";
+export class ProvisionedThroughputExceededException extends __BaseException {
+  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>You exceeded your maximum allowed provisioned throughput.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
+    super({
+      name: "ProvisionedThroughputExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
+  }
 }
 
 /**
  * <p>The operation tried to access a nonexistent table or index. The resource might not
  *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The resource which is being requested does not exist.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
@@ -1227,14 +1293,20 @@ export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
  * <p>An item collection is too large. This exception is only returned for tables that
  *             have one or more local secondary indexes.</p>
  */
-export interface ItemCollectionSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ItemCollectionSizeLimitExceededException";
-  $fault: "client";
+export class ItemCollectionSizeLimitExceededException extends __BaseException {
+  readonly name: "ItemCollectionSizeLimitExceededException" = "ItemCollectionSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The total size of an item collection has exceeded the maximum limit of 10
-   *             gigabytes.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ItemCollectionSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "ItemCollectionSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ItemCollectionSizeLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -1295,13 +1367,20 @@ export type ComparisonOperator =
 /**
  * <p>A condition specified in the operation could not be evaluated.</p>
  */
-export interface ConditionalCheckFailedException extends __SmithyException, $MetadataBearer {
-  name: "ConditionalCheckFailedException";
-  $fault: "client";
+export class ConditionalCheckFailedException extends __BaseException {
+  readonly name: "ConditionalCheckFailedException" = "ConditionalCheckFailedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The conditional request failed.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConditionalCheckFailedException, __BaseException>) {
+    super({
+      name: "ConditionalCheckFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionalCheckFailedException.prototype);
+  }
 }
 
 export type ConditionalOperator = "AND" | "OR";
@@ -1384,10 +1463,20 @@ export namespace ContinuousBackupsDescription {
 /**
  * <p>Backups have not yet been enabled for this table.</p>
  */
-export interface ContinuousBackupsUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ContinuousBackupsUnavailableException";
-  $fault: "client";
-  message?: string;
+export class ContinuousBackupsUnavailableException extends __BaseException {
+  readonly name: "ContinuousBackupsUnavailableException" = "ContinuousBackupsUnavailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContinuousBackupsUnavailableException, __BaseException>) {
+    super({
+      name: "ContinuousBackupsUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContinuousBackupsUnavailableException.prototype);
+  }
 }
 
 export type ContributorInsightsAction = "DISABLE" | "ENABLE";
@@ -1473,33 +1562,60 @@ export namespace CreateBackupOutput {
  *             of concurrent operations.</p>
  *         <p>There is a soft account quota of 256 tables.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Too many operations for a given subscriber.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>A target table with the specified name is either being created or deleted.
  *         </p>
  */
-export interface TableInUseException extends __SmithyException, $MetadataBearer {
-  name: "TableInUseException";
-  $fault: "client";
-  message?: string;
+export class TableInUseException extends __BaseException {
+  readonly name: "TableInUseException" = "TableInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TableInUseException, __BaseException>) {
+    super({
+      name: "TableInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TableInUseException.prototype);
+  }
 }
 
 /**
  * <p>A source table with the name <code>TableName</code> does not currently exist within
  *             the subscriber's account.</p>
  */
-export interface TableNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TableNotFoundException";
-  $fault: "client";
-  message?: string;
+export class TableNotFoundException extends __BaseException {
+  readonly name: "TableNotFoundException" = "TableNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TableNotFoundException, __BaseException>) {
+    super({
+      name: "TableNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TableNotFoundException.prototype);
+  }
 }
 
 /**
@@ -1846,10 +1962,20 @@ export namespace CreateGlobalTableOutput {
 /**
  * <p>The specified global table already exists.</p>
  */
-export interface GlobalTableAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "GlobalTableAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class GlobalTableAlreadyExistsException extends __BaseException {
+  readonly name: "GlobalTableAlreadyExistsException" = "GlobalTableAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalTableAlreadyExistsException, __BaseException>) {
+    super({
+      name: "GlobalTableAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalTableAlreadyExistsException.prototype);
+  }
 }
 
 /**
@@ -3136,13 +3262,20 @@ export namespace CreateTableOutput {
  *             attempted to recreate an existing table, or tried to delete a table currently in the
  *                 <code>CREATING</code> state.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The resource which is being attempted to be changed is in use.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export interface DeleteBackupInput {
@@ -3202,10 +3335,20 @@ export type ReturnValue = "ALL_NEW" | "ALL_OLD" | "NONE" | "UPDATED_NEW" | "UPDA
  * <p>Operation was rejected because there is an ongoing transaction for the
  *             item.</p>
  */
-export interface TransactionConflictException extends __SmithyException, $MetadataBearer {
-  name: "TransactionConflictException";
-  $fault: "client";
-  message?: string;
+export class TransactionConflictException extends __BaseException {
+  readonly name: "TransactionConflictException" = "TransactionConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionConflictException, __BaseException>) {
+    super({
+      name: "TransactionConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionConflictException.prototype);
+  }
 }
 
 /**
@@ -3684,10 +3827,20 @@ export namespace DescribeExportOutput {
 /**
  * <p>The specified export was not found.</p>
  */
-export interface ExportNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ExportNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ExportNotFoundException extends __BaseException {
+  readonly name: "ExportNotFoundException" = "ExportNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExportNotFoundException, __BaseException>) {
+    super({
+      name: "ExportNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExportNotFoundException.prototype);
+  }
 }
 
 export interface DescribeGlobalTableInput {
@@ -3725,10 +3878,20 @@ export namespace DescribeGlobalTableOutput {
 /**
  * <p>The specified global table does not exist.</p>
  */
-export interface GlobalTableNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "GlobalTableNotFoundException";
-  $fault: "client";
-  message?: string;
+export class GlobalTableNotFoundException extends __BaseException {
+  readonly name: "GlobalTableNotFoundException" = "GlobalTableNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlobalTableNotFoundException, __BaseException>) {
+    super({
+      name: "GlobalTableNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlobalTableNotFoundException.prototype);
+  }
 }
 
 export interface DescribeGlobalTableSettingsInput {
@@ -4352,38 +4515,82 @@ export namespace KinesisStreamingDestinationOutput {
  * <p> There was an attempt to insert an item with the same primary key as an item that
  *             already exists in the DynamoDB table.</p>
  */
-export interface DuplicateItemException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateItemException";
-  $fault: "client";
-  message?: string;
+export class DuplicateItemException extends __BaseException {
+  readonly name: "DuplicateItemException" = "DuplicateItemException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateItemException, __BaseException>) {
+    super({
+      name: "DuplicateItemException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateItemException.prototype);
+  }
 }
 
 /**
  * <p>DynamoDB rejected the request because you retried a request with a
  *             different payload but with an idempotent token that was already used.</p>
  */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The transaction with the given request token is already in progress.</p>
  */
-export interface TransactionInProgressException extends __SmithyException, $MetadataBearer {
-  name: "TransactionInProgressException";
-  $fault: "client";
+export class TransactionInProgressException extends __BaseException {
+  readonly name: "TransactionInProgressException" = "TransactionInProgressException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionInProgressException, __BaseException>) {
+    super({
+      name: "TransactionInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionInProgressException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There was a conflict when writing to the specified S3 bucket.</p>
  */
-export interface ExportConflictException extends __SmithyException, $MetadataBearer {
-  name: "ExportConflictException";
-  $fault: "client";
-  message?: string;
+export class ExportConflictException extends __BaseException {
+  readonly name: "ExportConflictException" = "ExportConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExportConflictException, __BaseException>) {
+    super({
+      name: "ExportConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExportConflictException.prototype);
+  }
 }
 
 export interface ExportTableToPointInTimeInput {
@@ -4489,19 +4696,39 @@ export namespace ExportTableToPointInTimeOutput {
  * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
  *             window.</p>
  */
-export interface InvalidExportTimeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidExportTimeException";
-  $fault: "client";
-  message?: string;
+export class InvalidExportTimeException extends __BaseException {
+  readonly name: "InvalidExportTimeException" = "InvalidExportTimeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExportTimeException, __BaseException>) {
+    super({
+      name: "InvalidExportTimeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExportTimeException.prototype);
+  }
 }
 
 /**
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
-export interface PointInTimeRecoveryUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "PointInTimeRecoveryUnavailableException";
-  $fault: "client";
-  message?: string;
+export class PointInTimeRecoveryUnavailableException extends __BaseException {
+  readonly name: "PointInTimeRecoveryUnavailableException" = "PointInTimeRecoveryUnavailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PointInTimeRecoveryUnavailableException, __BaseException>) {
+    super({
+      name: "PointInTimeRecoveryUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PointInTimeRecoveryUnavailableException.prototype);
+  }
 }
 
 export interface ListBackupsInput {
@@ -4971,20 +5198,40 @@ export namespace RestoreTableFromBackupOutput {
 /**
  * <p>A target table with the specified name already exists. </p>
  */
-export interface TableAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TableAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class TableAlreadyExistsException extends __BaseException {
+  readonly name: "TableAlreadyExistsException" = "TableAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TableAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TableAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TableAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>An invalid restore time was specified. RestoreDateTime must be between
  *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  */
-export interface InvalidRestoreTimeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRestoreTimeException";
-  $fault: "client";
-  message?: string;
+export class InvalidRestoreTimeException extends __BaseException {
+  readonly name: "InvalidRestoreTimeException" = "InvalidRestoreTimeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRestoreTimeException, __BaseException>) {
+    super({
+      name: "InvalidRestoreTimeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRestoreTimeException.prototype);
+  }
 }
 
 export interface RestoreTableToPointInTimeInput {
@@ -5228,19 +5475,39 @@ export namespace UpdateContributorInsightsOutput {
 /**
  * <p>The specified replica is already part of the global table.</p>
  */
-export interface ReplicaAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ReplicaAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ReplicaAlreadyExistsException extends __BaseException {
+  readonly name: "ReplicaAlreadyExistsException" = "ReplicaAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicaAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ReplicaAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicaAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified replica is no longer part of the global table.</p>
  */
-export interface ReplicaNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ReplicaNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ReplicaNotFoundException extends __BaseException {
+  readonly name: "ReplicaNotFoundException" = "ReplicaNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicaNotFoundException, __BaseException>) {
+    super({
+      name: "ReplicaNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicaNotFoundException.prototype);
+  }
 }
 
 /**
@@ -5318,10 +5585,20 @@ export namespace UpdateGlobalTableOutput {
 /**
  * <p>The operation tried to access a nonexistent index.</p>
  */
-export interface IndexNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "IndexNotFoundException";
-  $fault: "client";
-  message?: string;
+export class IndexNotFoundException extends __BaseException {
+  readonly name: "IndexNotFoundException" = "IndexNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IndexNotFoundException, __BaseException>) {
+    super({
+      name: "IndexNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IndexNotFoundException.prototype);
+  }
 }
 
 /**
@@ -7845,14 +8122,27 @@ export namespace TransactGetItemsOutput {
  *             </li>
  *          </ul>
  */
-export interface TransactionCanceledException extends __SmithyException, $MetadataBearer {
-  name: "TransactionCanceledException";
-  $fault: "client";
+export class TransactionCanceledException extends __BaseException {
+  readonly name: "TransactionCanceledException" = "TransactionCanceledException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>A list of cancellation reasons.</p>
    */
   CancellationReasons?: CancellationReason[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TransactionCanceledException, __BaseException>) {
+    super({
+      name: "TransactionCanceledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TransactionCanceledException.prototype);
+    this.Message = opts.Message;
+    this.CancellationReasons = opts.CancellationReasons;
+  }
 }
 
 /**

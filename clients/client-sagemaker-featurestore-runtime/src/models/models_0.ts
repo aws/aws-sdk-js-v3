@@ -1,12 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "./SageMakerFeatureStoreRuntimeServiceException";
 
 /**
  * <p>You do not have permission to perform an action.</p>
  */
-export interface AccessForbidden extends __SmithyException, $MetadataBearer {
-  name: "AccessForbidden";
-  $fault: "client";
+export class AccessForbidden extends __BaseException {
+  readonly name: "AccessForbidden" = "AccessForbidden";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessForbidden, __BaseException>) {
+    super({
+      name: "AccessForbidden",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessForbidden.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -176,28 +191,64 @@ export namespace BatchGetRecordResponse {
  * <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact AWS customer support.</p>
  */
-export interface InternalFailure extends __SmithyException, $MetadataBearer {
-  name: "InternalFailure";
-  $fault: "server";
+export class InternalFailure extends __BaseException {
+  readonly name: "InternalFailure" = "InternalFailure";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailure, __BaseException>) {
+    super({
+      name: "InternalFailure",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailure.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The service is currently unavailable.</p>
  */
-export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailable";
-  $fault: "server";
+export class ServiceUnavailable extends __BaseException {
+  readonly name: "ServiceUnavailable" = "ServiceUnavailable";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailable, __BaseException>) {
+    super({
+      name: "ServiceUnavailable",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailable.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There was an error validating your request.</p>
  */
-export interface ValidationError extends __SmithyException, $MetadataBearer {
-  name: "ValidationError";
-  $fault: "client";
+export class ValidationError extends __BaseException {
+  readonly name: "ValidationError" = "ValidationError";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationError, __BaseException>) {
+    super({
+      name: "ValidationError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteRecordRequest {
@@ -275,10 +326,22 @@ export namespace GetRecordResponse {
 /**
  * <p>A resource that is required to perform an action was not found.</p>
  */
-export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFound";
-  $fault: "client";
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutRecordRequest {

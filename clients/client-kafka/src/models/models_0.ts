@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
  * Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
@@ -1529,9 +1532,9 @@ export namespace UnprocessedScramSecret {
 /**
  * <p>Returns information about an error.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1541,6 +1544,19 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1591,9 +1607,9 @@ export namespace BatchAssociateScramSecretResponse {
 /**
  * <p>Returns information about an error.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1603,14 +1619,27 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1620,14 +1649,27 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1637,14 +1679,27 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1654,14 +1709,27 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1671,14 +1739,27 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returns information about an error.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1688,6 +1769,19 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1738,9 +1832,9 @@ export namespace BatchDisassociateScramSecretResponse {
 /**
  * <p>Returns information about an error.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The parameter that caused the error.</p>
    */
@@ -1750,6 +1844,19 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The description of the error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.InvalidParameter = opts.InvalidParameter;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateClusterRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GreengrassServiceException as __BaseException } from "./GreengrassServiceException";
 
 /**
  * Information about a Greengrass core's connectivity.
@@ -897,9 +900,9 @@ export namespace ErrorDetail {
 /**
  * General error information.
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * Details about the error.
    */
@@ -909,14 +912,27 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * A message containing information about the error.
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.ErrorDetails = opts.ErrorDetails;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * General error information.
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * Details about the error.
    */
@@ -926,6 +942,19 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * A message containing information about the error.
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.ErrorDetails = opts.ErrorDetails;
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateServiceRoleToAccountRequest {

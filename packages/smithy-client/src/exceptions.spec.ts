@@ -29,6 +29,11 @@ describe("decorateServiceException", () => {
     expect(decorated.message).toBe("Error");
   });
 
+  it("should not overwrite the parsed exceptions", () => {
+    const decorated = decorateServiceException(exception, { message: "Another Error" });
+    expect(decorated.message).toBe("Error");
+  });
+
   it("should replace Message with message", () => {
     const decorated = decorateServiceException({
       name: "Error",

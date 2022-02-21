@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudHSMServiceException as __BaseException } from "./CloudHSMServiceException";
 
 /**
  * <p>A key-value pair that identifies or specifies metadata about an AWS CloudHSM
@@ -65,52 +68,76 @@ export namespace AddTagsToResourceResponse {
 /**
  * <p>Indicates that an internal error occurred.</p>
  */
-export interface CloudHsmInternalException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmInternalException";
-  $fault: "server";
-  /**
-   * <p>Additional information about the error.</p>
-   */
-  message?: string;
-
+export class CloudHsmInternalException extends __BaseException {
+  readonly name: "CloudHsmInternalException" = "CloudHsmInternalException";
+  readonly $fault: "server" = "server";
   /**
    * <p>Indicates if the action can be retried.</p>
    */
   retryable?: boolean;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmInternalException, __BaseException>) {
+    super({
+      name: "CloudHsmInternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmInternalException.prototype);
+    this.retryable = opts.retryable;
+  }
 }
 
 /**
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
-export interface CloudHsmServiceException extends __SmithyException, $MetadataBearer {
-  name: "CloudHsmServiceException";
-  $fault: "client";
-  /**
-   * <p>Additional information about the error.</p>
-   */
-  message?: string;
-
+export class CloudHsmServiceException extends __BaseException {
+  readonly name: "CloudHsmServiceException" = "CloudHsmServiceException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates if the action can be retried.</p>
    */
   retryable?: boolean;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudHsmServiceException, __BaseException>) {
+    super({
+      name: "CloudHsmServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudHsmServiceException.prototype);
+    this.retryable = opts.retryable;
+  }
 }
 
 /**
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>Additional information about the error.</p>
-   */
-  message?: string;
-
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates if the action can be retried.</p>
    */
   retryable?: boolean;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.retryable = opts.retryable;
+  }
 }
 
 export enum ClientVersion {

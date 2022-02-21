@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { PinpointServiceException as __BaseException } from "./PinpointServiceException";
 
 export enum __EndpointTypesElement {
   ADM = "ADM",
@@ -2415,9 +2418,9 @@ export namespace AttributesResource {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -2427,6 +2430,19 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
@@ -3648,9 +3664,9 @@ export namespace ChannelsResponse {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3660,6 +3676,19 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
@@ -3721,9 +3750,9 @@ export namespace CreateAppResponse {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3733,14 +3762,27 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3750,14 +3792,27 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface MethodNotAllowedException extends __SmithyException, $MetadataBearer {
-  name: "MethodNotAllowedException";
-  $fault: "client";
+export class MethodNotAllowedException extends __BaseException {
+  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3767,14 +3822,27 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
+    super({
+      name: "MethodNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3784,14 +3852,27 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "PayloadTooLargeException";
-  $fault: "client";
+export class PayloadTooLargeException extends __BaseException {
+  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3801,14 +3882,27 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
+    super({
+      name: "PayloadTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The message that's returned from the API.</p>
    */
@@ -3818,6 +3912,19 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+    this.RequestID = opts.RequestID;
+  }
 }
 
 /**

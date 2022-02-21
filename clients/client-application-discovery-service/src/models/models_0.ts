@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ApplicationDiscoveryServiceServiceException as __BaseException } from "./ApplicationDiscoveryServiceServiceException";
 
 /**
  * <p>Information about agents or connectors that were instructed to start collecting data.
@@ -171,47 +174,97 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
  * <p>The AWS user account does not have permission to perform the action. Check the IAM
  *       policy associated with this account.</p>
  */
-export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationErrorException";
-  $fault: "client";
-  message?: string;
+export class AuthorizationErrorException extends __BaseException {
+  readonly name: "AuthorizationErrorException" = "AuthorizationErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationErrorException, __BaseException>) {
+    super({
+      name: "AuthorizationErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationErrorException.prototype);
+  }
 }
 
 /**
  * <p>The home region is not set. Set the home region to continue.</p>
  */
-export interface HomeRegionNotSetException extends __SmithyException, $MetadataBearer {
-  name: "HomeRegionNotSetException";
-  $fault: "client";
-  message?: string;
+export class HomeRegionNotSetException extends __BaseException {
+  readonly name: "HomeRegionNotSetException" = "HomeRegionNotSetException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HomeRegionNotSetException, __BaseException>) {
+    super({
+      name: "HomeRegionNotSetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HomeRegionNotSetException.prototype);
+  }
 }
 
 /**
  * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
-export interface ServerInternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "ServerInternalErrorException";
-  $fault: "server";
-  message?: string;
+export class ServerInternalErrorException extends __BaseException {
+  readonly name: "ServerInternalErrorException" = "ServerInternalErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerInternalErrorException, __BaseException>) {
+    super({
+      name: "ServerInternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerInternalErrorException.prototype);
+  }
 }
 
 export interface BatchDeleteImportDataRequest {
@@ -385,10 +438,20 @@ export namespace CreateTagsResponse {
  * <p>The specified configuration ID was not located. Verify the configuration ID and try
  *       again.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface DeleteApplicationsRequest {
@@ -790,10 +853,20 @@ export namespace DescribeContinuousExportsResponse {
 /**
  * <p>This operation is not permitted.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
-  message?: string;
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+  }
 }
 
 export interface DescribeExportConfigurationsRequest {
@@ -1764,10 +1837,20 @@ export namespace ListServerNeighborsResponse {
 /**
  * <p></p>
  */
-export interface ConflictErrorException extends __SmithyException, $MetadataBearer {
-  name: "ConflictErrorException";
-  $fault: "client";
-  message?: string;
+export class ConflictErrorException extends __BaseException {
+  readonly name: "ConflictErrorException" = "ConflictErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictErrorException, __BaseException>) {
+    super({
+      name: "ConflictErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictErrorException.prototype);
+  }
 }
 
 /**
@@ -1777,10 +1860,20 @@ export interface ConflictErrorException extends __SmithyException, $MetadataBear
  *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
  *       try again.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export interface StartContinuousExportRequest {}

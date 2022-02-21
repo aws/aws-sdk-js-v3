@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AthenaServiceException as __BaseException } from "./AthenaServiceException";
 
 export interface BatchGetNamedQueryInput {
   /**
@@ -117,19 +120,31 @@ export namespace BatchGetNamedQueryOutput {
  * <p>Indicates a platform issue, which may be due to a transient condition or
  *             outage.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code returned when the query execution failed to process, or when the
    *             processing request for the named query failed.</p>
@@ -137,6 +152,19 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   AthenaErrorCode?: string;
 
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.AthenaErrorCode = opts.AthenaErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface BatchGetQueryExecutionInput {
@@ -1059,11 +1087,24 @@ export namespace DeletePreparedStatementOutput {
 /**
  * <p>A resource, such as a workgroup, was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export interface DeleteWorkGroupInput {
@@ -1173,10 +1214,22 @@ export namespace GetDatabaseOutput {
  *                 Lambda
  *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
  */
-export interface MetadataException extends __SmithyException, $MetadataBearer {
-  name: "MetadataException";
-  $fault: "client";
+export class MetadataException extends __BaseException {
+  readonly name: "MetadataException" = "MetadataException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MetadataException, __BaseException>) {
+    super({
+      name: "MetadataException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MetadataException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetDataCatalogInput {
@@ -2496,15 +2549,28 @@ export enum ThrottleReason {
 /**
  * <p>Indicates that the request was throttled.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
    *             limit.</p>
    */
   Reason?: ThrottleReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export interface StopQueryExecutionInput {

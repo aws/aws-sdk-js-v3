@@ -1,5 +1,5 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   _Parameters,
@@ -47,6 +47,7 @@ import {
   ThemeType,
   VpcConnectionProperties,
 } from "./models_0";
+import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 export enum UserRole {
   ADMIN = "ADMIN",
@@ -197,14 +198,27 @@ export namespace DescribeUserResponse {
  * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
  * 			added to the approved list by an Amazon QuickSight admin.</p>
  */
-export interface DomainNotWhitelistedException extends __SmithyException, $MetadataBearer {
-  name: "DomainNotWhitelistedException";
-  $fault: "client";
+export class DomainNotWhitelistedException extends __BaseException {
+  readonly name: "DomainNotWhitelistedException" = "DomainNotWhitelistedException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DomainNotWhitelistedException, __BaseException>) {
+    super({
+      name: "DomainNotWhitelistedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainNotWhitelistedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export enum EmbeddingIdentityType {
@@ -414,14 +428,27 @@ export namespace GenerateEmbedUrlForAnonymousUserResponse {
  * <p>The number of minutes specified for the lifetime of a session isn't valid. The session
  * 			lifetime must be 15-600 minutes.</p>
  */
-export interface SessionLifetimeInMinutesInvalidException extends __SmithyException, $MetadataBearer {
-  name: "SessionLifetimeInMinutesInvalidException";
-  $fault: "client";
+export class SessionLifetimeInMinutesInvalidException extends __BaseException {
+  readonly name: "SessionLifetimeInMinutesInvalidException" = "SessionLifetimeInMinutesInvalidException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionLifetimeInMinutesInvalidException, __BaseException>) {
+    super({
+      name: "SessionLifetimeInMinutesInvalidException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionLifetimeInMinutesInvalidException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -435,14 +462,27 @@ export interface SessionLifetimeInMinutesInvalidException extends __SmithyExcept
  *             </code> API operation with the
  *             <code>--identity-type ANONYMOUS</code> option.</p>
  */
-export interface UnsupportedPricingPlanException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedPricingPlanException";
-  $fault: "client";
+export class UnsupportedPricingPlanException extends __BaseException {
+  readonly name: "UnsupportedPricingPlanException" = "UnsupportedPricingPlanException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedPricingPlanException, __BaseException>) {
+    super({
+      name: "UnsupportedPricingPlanException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedPricingPlanException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -667,14 +707,27 @@ export namespace GenerateEmbedUrlForRegisteredUserResponse {
  * 			that requires finding a user based on a provided user name, such as
  * 				<code>DeleteUser</code>, <code>DescribeUser</code>, and so on.</p>
  */
-export interface QuickSightUserNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "QuickSightUserNotFoundException";
-  $fault: "client";
+export class QuickSightUserNotFoundException extends __BaseException {
+  readonly name: "QuickSightUserNotFoundException" = "QuickSightUserNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QuickSightUserNotFoundException, __BaseException>) {
+    super({
+      name: "QuickSightUserNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QuickSightUserNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface GetDashboardEmbedUrlRequest {
@@ -806,14 +859,27 @@ export namespace GetDashboardEmbedUrlResponse {
  * <p>The identity type specified isn't supported. Supported identity types include
  * 				<code>IAM</code> and <code>QUICKSIGHT</code>.</p>
  */
-export interface IdentityTypeNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "IdentityTypeNotSupportedException";
-  $fault: "client";
+export class IdentityTypeNotSupportedException extends __BaseException {
+  readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdentityTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "IdentityTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdentityTypeNotSupportedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface GetSessionEmbedUrlRequest {

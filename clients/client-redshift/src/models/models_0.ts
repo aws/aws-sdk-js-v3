@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
 export interface AcceptReservedNodeExchangeInputMessage {
   /**
@@ -175,83 +177,173 @@ export namespace AcceptReservedNodeExchangeOutputMessage {
  * <p>Your request cannot be completed because a dependent internal service is
  *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
  */
-export interface DependentServiceUnavailableFault extends __SmithyException, $MetadataBearer {
-  name: "DependentServiceUnavailableFault";
-  $fault: "client";
-  message?: string;
+export class DependentServiceUnavailableFault extends __BaseException {
+  readonly name: "DependentServiceUnavailableFault" = "DependentServiceUnavailableFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependentServiceUnavailableFault, __BaseException>) {
+    super({
+      name: "DependentServiceUnavailableFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependentServiceUnavailableFault.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
  */
-export interface InvalidReservedNodeStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidReservedNodeStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidReservedNodeStateFault extends __BaseException {
+  readonly name: "InvalidReservedNodeStateFault" = "InvalidReservedNodeStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidReservedNodeStateFault, __BaseException>) {
+    super({
+      name: "InvalidReservedNodeStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReservedNodeStateFault.prototype);
+  }
 }
 
 /**
  * <p>User already has a reservation with the given identifier.</p>
  */
-export interface ReservedNodeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeAlreadyExistsFault extends __BaseException {
+  readonly name: "ReservedNodeAlreadyExistsFault" = "ReservedNodeAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ReservedNodeAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the reserved node has already been exchanged.</p>
  */
-export interface ReservedNodeAlreadyMigratedFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeAlreadyMigratedFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeAlreadyMigratedFault extends __BaseException {
+  readonly name: "ReservedNodeAlreadyMigratedFault" = "ReservedNodeAlreadyMigratedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeAlreadyMigratedFault, __BaseException>) {
+    super({
+      name: "ReservedNodeAlreadyMigratedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeAlreadyMigratedFault.prototype);
+  }
 }
 
 /**
  * <p>The specified reserved compute node not found.</p>
  */
-export interface ReservedNodeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeNotFoundFault extends __BaseException {
+  readonly name: "ReservedNodeNotFoundFault" = "ReservedNodeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedNodeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>Specified offering does not exist.</p>
  */
-export interface ReservedNodeOfferingNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeOfferingNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeOfferingNotFoundFault extends __BaseException {
+  readonly name: "ReservedNodeOfferingNotFoundFault" = "ReservedNodeOfferingNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeOfferingNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedNodeOfferingNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeOfferingNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The requested operation isn't supported.</p>
  */
-export interface UnsupportedOperationFault extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationFault";
-  $fault: "client";
-  message?: string;
+export class UnsupportedOperationFault extends __BaseException {
+  readonly name: "UnsupportedOperationFault" = "UnsupportedOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationFault, __BaseException>) {
+    super({
+      name: "UnsupportedOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationFault.prototype);
+  }
 }
 
 /**
  * <p>You are not authorized to access the cluster.</p>
  */
-export interface AccessToClusterDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "AccessToClusterDeniedFault";
-  $fault: "client";
-  message?: string;
+export class AccessToClusterDeniedFault extends __BaseException {
+  readonly name: "AccessToClusterDeniedFault" = "AccessToClusterDeniedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessToClusterDeniedFault, __BaseException>) {
+    super({
+      name: "AccessToClusterDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessToClusterDeniedFault.prototype);
+  }
 }
 
 /**
  * <p>The owner of the specified snapshot has not authorized your account to access the
  *             snapshot.</p>
  */
-export interface AccessToSnapshotDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "AccessToSnapshotDeniedFault";
-  $fault: "client";
-  message?: string;
+export class AccessToSnapshotDeniedFault extends __BaseException {
+  readonly name: "AccessToSnapshotDeniedFault" = "AccessToSnapshotDeniedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessToSnapshotDeniedFault, __BaseException>) {
+    super({
+      name: "AccessToSnapshotDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessToSnapshotDeniedFault.prototype);
+  }
 }
 
 /**
@@ -349,10 +441,20 @@ export enum ActionType {
  * <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
  *         </p>
  */
-export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterNotFoundFault extends __BaseException {
+  readonly name: "ClusterNotFoundFault" = "ClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterNotFoundFault.prototype);
+  }
 }
 
 export interface PartnerIntegrationInputMessage {
@@ -410,19 +512,39 @@ export namespace PartnerIntegrationOutputMessage {
 /**
  * <p>The name of the partner was not found.</p>
  */
-export interface PartnerNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "PartnerNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class PartnerNotFoundFault extends __BaseException {
+  readonly name: "PartnerNotFoundFault" = "PartnerNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PartnerNotFoundFault, __BaseException>) {
+    super({
+      name: "PartnerNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PartnerNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The partner integration is not authorized.</p>
  */
-export interface UnauthorizedPartnerIntegrationFault extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedPartnerIntegrationFault";
-  $fault: "client";
-  message?: string;
+export class UnauthorizedPartnerIntegrationFault extends __BaseException {
+  readonly name: "UnauthorizedPartnerIntegrationFault" = "UnauthorizedPartnerIntegrationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedPartnerIntegrationFault, __BaseException>) {
+    super({
+      name: "UnauthorizedPartnerIntegrationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedPartnerIntegrationFault.prototype);
+  }
 }
 
 export enum AquaConfigurationStatus {
@@ -604,19 +726,39 @@ export namespace DataShare {
 /**
  * <p>There is an error with the datashare.</p>
  */
-export interface InvalidDataShareFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidDataShareFault";
-  $fault: "client";
-  message?: string;
+export class InvalidDataShareFault extends __BaseException {
+  readonly name: "InvalidDataShareFault" = "InvalidDataShareFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDataShareFault, __BaseException>) {
+    super({
+      name: "InvalidDataShareFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDataShareFault.prototype);
+  }
 }
 
 /**
  * <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
  */
-export interface InvalidNamespaceFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidNamespaceFault";
-  $fault: "client";
-  message?: string;
+export class InvalidNamespaceFault extends __BaseException {
+  readonly name: "InvalidNamespaceFault" = "InvalidNamespaceFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNamespaceFault, __BaseException>) {
+    super({
+      name: "InvalidNamespaceFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNamespaceFault.prototype);
+  }
 }
 
 export type ScheduleState = "ACTIVE" | "FAILED" | "MODIFYING";
@@ -673,58 +815,118 @@ export namespace AuthenticationProfile {
 /**
  * <p>The authentication profile already exists.</p>
  */
-export interface AuthenticationProfileAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "AuthenticationProfileAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
+  readonly name: "AuthenticationProfileAlreadyExistsFault" = "AuthenticationProfileAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthenticationProfileAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "AuthenticationProfileAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthenticationProfileAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The authentication profile can't be found.</p>
  */
-export interface AuthenticationProfileNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "AuthenticationProfileNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class AuthenticationProfileNotFoundFault extends __BaseException {
+  readonly name: "AuthenticationProfileNotFoundFault" = "AuthenticationProfileNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthenticationProfileNotFoundFault, __BaseException>) {
+    super({
+      name: "AuthenticationProfileNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthenticationProfileNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The size or number of authentication profiles has exceeded the quota.
  *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
  */
-export interface AuthenticationProfileQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "AuthenticationProfileQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class AuthenticationProfileQuotaExceededFault extends __BaseException {
+  readonly name: "AuthenticationProfileQuotaExceededFault" = "AuthenticationProfileQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthenticationProfileQuotaExceededFault, __BaseException>) {
+    super({
+      name: "AuthenticationProfileQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthenticationProfileQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The specified CIDR block or EC2 security group is already authorized for the
  *             specified cluster security group.</p>
  */
-export interface AuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationAlreadyExistsFault extends __BaseException {
+  readonly name: "AuthorizationAlreadyExistsFault" = "AuthorizationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "AuthorizationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The specified CIDR IP range or EC2 security group is not authorized for the
  *             specified cluster security group.</p>
  */
-export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationNotFoundFault extends __BaseException {
+  readonly name: "AuthorizationNotFoundFault" = "AuthorizationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationNotFoundFault, __BaseException>) {
+    super({
+      name: "AuthorizationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The authorization quota for the cluster security group has been reached.</p>
  */
-export interface AuthorizationQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class AuthorizationQuotaExceededFault extends __BaseException {
+  readonly name: "AuthorizationQuotaExceededFault" = "AuthorizationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "AuthorizationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationQuotaExceededFault.prototype);
+  }
 }
 
 export enum AuthorizationStatus {
@@ -920,19 +1122,39 @@ export namespace AuthorizeClusterSecurityGroupIngressResult {
  * <p>The cluster security group name does not refer to an existing cluster security
  *             group.</p>
  */
-export interface ClusterSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSecurityGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSecurityGroupNotFoundFault extends __BaseException {
+  readonly name: "ClusterSecurityGroupNotFoundFault" = "ClusterSecurityGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterSecurityGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSecurityGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The state of the cluster security group is not <code>available</code>. </p>
  */
-export interface InvalidClusterSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterSecurityGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterSecurityGroupStateFault extends __BaseException {
+  readonly name: "InvalidClusterSecurityGroupStateFault" = "InvalidClusterSecurityGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterSecurityGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterSecurityGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterSecurityGroupStateFault.prototype);
+  }
 }
 
 export interface AuthorizeDataShareMessage {
@@ -1045,37 +1267,78 @@ export namespace EndpointAuthorization {
 /**
  * <p>The authorization already exists for this endpoint.</p>
  */
-export interface EndpointAuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointAuthorizationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
+  readonly name: "EndpointAuthorizationAlreadyExistsFault" = "EndpointAuthorizationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointAuthorizationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "EndpointAuthorizationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointAuthorizationAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
  */
-export interface EndpointAuthorizationsPerClusterLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointAuthorizationsPerClusterLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseException {
+  readonly name: "EndpointAuthorizationsPerClusterLimitExceededFault" =
+    "EndpointAuthorizationsPerClusterLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointAuthorizationsPerClusterLimitExceededFault, __BaseException>) {
+    super({
+      name: "EndpointAuthorizationsPerClusterLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointAuthorizationsPerClusterLimitExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The status of the authorization is not valid.</p>
  */
-export interface InvalidAuthorizationStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidAuthorizationStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidAuthorizationStateFault extends __BaseException {
+  readonly name: "InvalidAuthorizationStateFault" = "InvalidAuthorizationStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAuthorizationStateFault, __BaseException>) {
+    super({
+      name: "InvalidAuthorizationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthorizationStateFault.prototype);
+  }
 }
 
 /**
  * <p>The specified cluster is not in the <code>available</code> state. </p>
  */
-export interface InvalidClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterStateFault extends __BaseException {
+  readonly name: "InvalidClusterStateFault" = "InvalidClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterStateFault.prototype);
+  }
 }
 
 /**
@@ -1353,39 +1616,79 @@ export namespace AuthorizeSnapshotAccessResult {
 /**
  * <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
  */
-export interface ClusterSnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSnapshotNotFoundFault extends __BaseException {
+  readonly name: "ClusterSnapshotNotFoundFault" = "ClusterSnapshotNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSnapshotNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterSnapshotNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSnapshotNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The request cannot be completed because a dependent service is throttling requests
  *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
  */
-export interface DependentServiceRequestThrottlingFault extends __SmithyException, $MetadataBearer {
-  name: "DependentServiceRequestThrottlingFault";
-  $fault: "client";
-  message?: string;
+export class DependentServiceRequestThrottlingFault extends __BaseException {
+  readonly name: "DependentServiceRequestThrottlingFault" = "DependentServiceRequestThrottlingFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependentServiceRequestThrottlingFault, __BaseException>) {
+    super({
+      name: "DependentServiceRequestThrottlingFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependentServiceRequestThrottlingFault.prototype);
+  }
 }
 
 /**
  * <p>The specified cluster snapshot is not in the <code>available</code> state, or other
  *             accounts are authorized to access the snapshot. </p>
  */
-export interface InvalidClusterSnapshotStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterSnapshotStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterSnapshotStateFault extends __BaseException {
+  readonly name: "InvalidClusterSnapshotStateFault" = "InvalidClusterSnapshotStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterSnapshotStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterSnapshotStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterSnapshotStateFault.prototype);
+  }
 }
 
 /**
  * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  */
-export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class LimitExceededFault extends __BaseException {
+  readonly name: "LimitExceededFault" = "LimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
+    super({
+      name: "LimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededFault.prototype);
+  }
 }
 
 /**
@@ -1536,20 +1839,40 @@ export namespace BatchDeleteClusterSnapshotsResult {
  * <p>The maximum number for a batch delete of snapshots has been reached. The limit is
  *             100. </p>
  */
-export interface BatchDeleteRequestSizeExceededFault extends __SmithyException, $MetadataBearer {
-  name: "BatchDeleteRequestSizeExceededFault";
-  $fault: "client";
-  message?: string;
+export class BatchDeleteRequestSizeExceededFault extends __BaseException {
+  readonly name: "BatchDeleteRequestSizeExceededFault" = "BatchDeleteRequestSizeExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchDeleteRequestSizeExceededFault, __BaseException>) {
+    super({
+      name: "BatchDeleteRequestSizeExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchDeleteRequestSizeExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
  *         </p>
  */
-export interface BatchModifyClusterSnapshotsLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "BatchModifyClusterSnapshotsLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseException {
+  readonly name: "BatchModifyClusterSnapshotsLimitExceededFault" = "BatchModifyClusterSnapshotsLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchModifyClusterSnapshotsLimitExceededFault, __BaseException>) {
+    super({
+      name: "BatchModifyClusterSnapshotsLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchModifyClusterSnapshotsLimitExceededFault.prototype);
+  }
 }
 
 export interface BatchModifyClusterSnapshotsMessage {
@@ -1609,19 +1932,39 @@ export namespace BatchModifyClusterSnapshotsOutputMessage {
  * <p>The retention period specified is either in the past or is not a valid value.</p>
  *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  */
-export interface InvalidRetentionPeriodFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidRetentionPeriodFault";
-  $fault: "client";
-  message?: string;
+export class InvalidRetentionPeriodFault extends __BaseException {
+  readonly name: "InvalidRetentionPeriodFault" = "InvalidRetentionPeriodFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRetentionPeriodFault, __BaseException>) {
+    super({
+      name: "InvalidRetentionPeriodFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRetentionPeriodFault.prototype);
+  }
 }
 
 /**
  * <p>Could not find the specified S3 bucket.</p>
  */
-export interface BucketNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "BucketNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class BucketNotFoundFault extends __BaseException {
+  readonly name: "BucketNotFoundFault" = "BucketNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BucketNotFoundFault, __BaseException>) {
+    super({
+      name: "BucketNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BucketNotFoundFault.prototype);
+  }
 }
 
 export interface CancelResizeMessage {
@@ -1644,10 +1987,20 @@ export namespace CancelResizeMessage {
 /**
  * <p>A resize operation for the specified cluster is not found.</p>
  */
-export interface ResizeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ResizeNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ResizeNotFoundFault extends __BaseException {
+  readonly name: "ResizeNotFoundFault" = "ResizeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResizeNotFoundFault, __BaseException>) {
+    super({
+      name: "ResizeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResizeNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -2932,10 +3285,20 @@ export namespace Cluster {
 /**
  * <p>The account already has a cluster with the given identifier.</p>
  */
-export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterAlreadyExistsFault" = "ClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -3068,10 +3431,20 @@ export namespace ClusterDbRevisionsMessage {
 /**
  * <p>Cluster is already on the latest database revision.</p>
  */
-export interface ClusterOnLatestRevisionFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterOnLatestRevisionFault";
-  $fault: "client";
-  message?: string;
+export class ClusterOnLatestRevisionFault extends __BaseException {
+  readonly name: "ClusterOnLatestRevisionFault" = "ClusterOnLatestRevisionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterOnLatestRevisionFault, __BaseException>) {
+    super({
+      name: "ClusterOnLatestRevisionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterOnLatestRevisionFault.prototype);
+  }
 }
 
 /**
@@ -3112,10 +3485,20 @@ export namespace ClusterParameterGroup {
 /**
  * <p>A cluster parameter group with the same name already exists.</p>
  */
-export interface ClusterParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterParameterGroupAlreadyExistsFault" = "ClusterParameterGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterParameterGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterParameterGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterParameterGroupAlreadyExistsFault.prototype);
+  }
 }
 
 export type ParameterApplyType = "dynamic" | "static";
@@ -3245,10 +3628,20 @@ export namespace ClusterParameterGroupNameMessage {
 /**
  * <p>The parameter group name does not refer to an existing parameter group.</p>
  */
-export interface ClusterParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "ClusterParameterGroupNotFoundFault" = "ClusterParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -3258,10 +3651,20 @@ export interface ClusterParameterGroupNotFoundFault extends __SmithyException, $
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterParameterGroupQuotaExceededFault" = "ClusterParameterGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterParameterGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterParameterGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterParameterGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3301,19 +3704,39 @@ export namespace ClusterParameterGroupsMessage {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterQuotaExceededFault" = "ClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>A cluster security group with the same name already exists.</p>
  */
-export interface ClusterSecurityGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSecurityGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterSecurityGroupAlreadyExistsFault" = "ClusterSecurityGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterSecurityGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSecurityGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -3351,10 +3774,20 @@ export namespace ClusterSecurityGroupMessage {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSecurityGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSecurityGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterSecurityGroupQuotaExceededFault" = "ClusterSecurityGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSecurityGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterSecurityGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSecurityGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3390,20 +3823,40 @@ export namespace ClustersMessage {
  * <p>The value specified as a snapshot identifier is already used by an existing
  *             snapshot.</p>
  */
-export interface ClusterSnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterSnapshotAlreadyExistsFault" = "ClusterSnapshotAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSnapshotAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterSnapshotAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSnapshotAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The request would result in the user exceeding the allowed number of cluster
  *             snapshots.</p>
  */
-export interface ClusterSnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSnapshotQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterSnapshotQuotaExceededFault" = "ClusterSnapshotQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSnapshotQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterSnapshotQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSnapshotQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3484,10 +3937,20 @@ export namespace ClusterSubnetGroup {
  * <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
  *             cluster subnet group. </p>
  */
-export interface ClusterSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterSubnetGroupAlreadyExistsFault" = "ClusterSubnetGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterSubnetGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSubnetGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -3523,10 +3986,20 @@ export namespace ClusterSubnetGroupMessage {
  * <p>The cluster subnet group name does not refer to an existing cluster subnet
  *             group.</p>
  */
-export interface ClusterSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSubnetGroupNotFoundFault extends __BaseException {
+  readonly name: "ClusterSubnetGroupNotFoundFault" = "ClusterSubnetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterSubnetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSubnetGroupNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -3536,10 +4009,20 @@ export interface ClusterSubnetGroupNotFoundFault extends __SmithyException, $Met
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterSubnetGroupQuotaExceededFault" = "ClusterSubnetGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSubnetGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterSubnetGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSubnetGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3549,10 +4032,20 @@ export interface ClusterSubnetGroupQuotaExceededFault extends __SmithyException,
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ClusterSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterSubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterSubnetQuotaExceededFault extends __BaseException {
+  readonly name: "ClusterSubnetQuotaExceededFault" = "ClusterSubnetQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterSubnetQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ClusterSubnetQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterSubnetQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -3704,10 +4197,20 @@ export namespace CopyClusterSnapshotResult {
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
-export interface CopyToRegionDisabledFault extends __SmithyException, $MetadataBearer {
-  name: "CopyToRegionDisabledFault";
-  $fault: "client";
-  message?: string;
+export class CopyToRegionDisabledFault extends __BaseException {
+  readonly name: "CopyToRegionDisabledFault" = "CopyToRegionDisabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CopyToRegionDisabledFault, __BaseException>) {
+    super({
+      name: "CopyToRegionDisabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CopyToRegionDisabledFault.prototype);
+  }
 }
 
 export interface CreateAuthenticationProfileMessage {
@@ -3757,10 +4260,20 @@ export namespace CreateAuthenticationProfileResult {
  * <p>The authentication profile request is not valid. The profile name can't be null or empty.
  *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
  */
-export interface InvalidAuthenticationProfileRequestFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidAuthenticationProfileRequestFault";
-  $fault: "client";
-  message?: string;
+export class InvalidAuthenticationProfileRequestFault extends __BaseException {
+  readonly name: "InvalidAuthenticationProfileRequestFault" = "InvalidAuthenticationProfileRequestFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAuthenticationProfileRequestFault, __BaseException>) {
+    super({
+      name: "InvalidAuthenticationProfileRequestFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthenticationProfileRequestFault.prototype);
+  }
 }
 
 /**
@@ -4171,93 +4684,193 @@ export namespace CreateClusterResult {
  * <p>There is no Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
-export interface HsmClientCertificateNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "HsmClientCertificateNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class HsmClientCertificateNotFoundFault extends __BaseException {
+  readonly name: "HsmClientCertificateNotFoundFault" = "HsmClientCertificateNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmClientCertificateNotFoundFault, __BaseException>) {
+    super({
+      name: "HsmClientCertificateNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmClientCertificateNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
  */
-export interface HsmConfigurationNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "HsmConfigurationNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class HsmConfigurationNotFoundFault extends __BaseException {
+  readonly name: "HsmConfigurationNotFoundFault" = "HsmConfigurationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmConfigurationNotFoundFault, __BaseException>) {
+    super({
+      name: "HsmConfigurationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmConfigurationNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The number of nodes specified exceeds the allotted capacity of the
  *             cluster.</p>
  */
-export interface InsufficientClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientClusterCapacityFault" = "InsufficientClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>The cluster subnet group cannot be deleted because it is in use.</p>
  */
-export interface InvalidClusterSubnetGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterSubnetGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterSubnetGroupStateFault extends __BaseException {
+  readonly name: "InvalidClusterSubnetGroupStateFault" = "InvalidClusterSubnetGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterSubnetGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterSubnetGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterSubnetGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p>The provided cluster track name is not valid.</p>
  */
-export interface InvalidClusterTrackFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterTrackFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterTrackFault extends __BaseException {
+  readonly name: "InvalidClusterTrackFault" = "InvalidClusterTrackFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterTrackFault, __BaseException>) {
+    super({
+      name: "InvalidClusterTrackFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterTrackFault.prototype);
+  }
 }
 
 /**
  * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
  */
-export interface InvalidElasticIpFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidElasticIpFault";
-  $fault: "client";
-  message?: string;
+export class InvalidElasticIpFault extends __BaseException {
+  readonly name: "InvalidElasticIpFault" = "InvalidElasticIpFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidElasticIpFault, __BaseException>) {
+    super({
+      name: "InvalidElasticIpFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidElasticIpFault.prototype);
+  }
 }
 
 /**
  * <p>The requested subnet is not valid, or not all of the subnets are in the same
  *             VPC.</p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p>The tag is invalid.</p>
  */
-export interface InvalidTagFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagFault";
-  $fault: "client";
-  message?: string;
+export class InvalidTagFault extends __BaseException {
+  readonly name: "InvalidTagFault" = "InvalidTagFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagFault, __BaseException>) {
+    super({
+      name: "InvalidTagFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagFault.prototype);
+  }
 }
 
 /**
  * <p>The cluster subnet group does not cover all Availability Zones.</p>
  */
-export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidVPCNetworkStateFault extends __BaseException {
+  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
+    super({
+      name: "InvalidVPCNetworkStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
 }
 
 /**
  * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
  */
-export interface NumberOfNodesPerClusterLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NumberOfNodesPerClusterLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
+  readonly name: "NumberOfNodesPerClusterLimitExceededFault" = "NumberOfNodesPerClusterLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NumberOfNodesPerClusterLimitExceededFault, __BaseException>) {
+    super({
+      name: "NumberOfNodesPerClusterLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NumberOfNodesPerClusterLimitExceededFault.prototype);
+  }
 }
 
 /**
@@ -4267,37 +4880,77 @@ export interface NumberOfNodesPerClusterLimitExceededFault extends __SmithyExcep
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface NumberOfNodesQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NumberOfNodesQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class NumberOfNodesQuotaExceededFault extends __BaseException {
+  readonly name: "NumberOfNodesQuotaExceededFault" = "NumberOfNodesQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NumberOfNodesQuotaExceededFault, __BaseException>) {
+    super({
+      name: "NumberOfNodesQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NumberOfNodesQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>We could not find the specified snapshot schedule. </p>
  */
-export interface SnapshotScheduleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotScheduleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotScheduleNotFoundFault extends __BaseException {
+  readonly name: "SnapshotScheduleNotFoundFault" = "SnapshotScheduleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotScheduleNotFoundFault, __BaseException>) {
+    super({
+      name: "SnapshotScheduleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotScheduleNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the number of tags allowed.</p>
  */
-export interface TagLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "TagLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class TagLimitExceededFault extends __BaseException {
+  readonly name: "TagLimitExceededFault" = "TagLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagLimitExceededFault, __BaseException>) {
+    super({
+      name: "TagLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagLimitExceededFault.prototype);
+  }
 }
 
 /**
  * <p>Your account is not authorized to perform the requested operation.</p>
  */
-export interface UnauthorizedOperation extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedOperation";
-  $fault: "client";
-  message?: string;
+export class UnauthorizedOperation extends __BaseException {
+  readonly name: "UnauthorizedOperation" = "UnauthorizedOperation";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedOperation, __BaseException>) {
+    super({
+      name: "UnauthorizedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedOperation.prototype);
+  }
 }
 
 /**
@@ -4680,28 +5333,58 @@ export namespace EndpointAccess {
 /**
  * <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
  */
-export interface EndpointAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class EndpointAlreadyExistsFault extends __BaseException {
+  readonly name: "EndpointAlreadyExistsFault" = "EndpointAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "EndpointAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
  */
-export interface EndpointsPerAuthorizationLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointsPerAuthorizationLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException {
+  readonly name: "EndpointsPerAuthorizationLimitExceededFault" = "EndpointsPerAuthorizationLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointsPerAuthorizationLimitExceededFault, __BaseException>) {
+    super({
+      name: "EndpointsPerAuthorizationLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointsPerAuthorizationLimitExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
  */
-export interface EndpointsPerClusterLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointsPerClusterLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class EndpointsPerClusterLimitExceededFault extends __BaseException {
+  readonly name: "EndpointsPerClusterLimitExceededFault" = "EndpointsPerClusterLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointsPerClusterLimitExceededFault, __BaseException>) {
+    super({
+      name: "EndpointsPerClusterLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointsPerClusterLimitExceededFault.prototype);
+  }
 }
 
 /**
@@ -4905,58 +5588,118 @@ export namespace CreateEventSubscriptionResult {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface EventSubscriptionQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "EventSubscriptionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class EventSubscriptionQuotaExceededFault extends __BaseException {
+  readonly name: "EventSubscriptionQuotaExceededFault" = "EventSubscriptionQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventSubscriptionQuotaExceededFault, __BaseException>) {
+    super({
+      name: "EventSubscriptionQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventSubscriptionQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
  *             topic.</p>
  */
-export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
-  message?: string;
+export class SNSInvalidTopicFault extends __BaseException {
+  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
+    super({
+      name: "SNSInvalidTopicFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
+  }
 }
 
 /**
  * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
  */
-export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
-  message?: string;
+export class SNSNoAuthorizationFault extends __BaseException {
+  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
+    super({
+      name: "SNSNoAuthorizationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
+  }
 }
 
 /**
  * <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
  *             exist.</p>
  */
-export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SNSTopicArnNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SNSTopicArnNotFoundFault extends __BaseException {
+  readonly name: "SNSTopicArnNotFoundFault" = "SNSTopicArnNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SNSTopicArnNotFoundFault, __BaseException>) {
+    super({
+      name: "SNSTopicArnNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSTopicArnNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon Redshift event source could not be found.</p>
  */
-export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SourceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SourceNotFoundFault extends __BaseException {
+  readonly name: "SourceNotFoundFault" = "SourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceNotFoundFault, __BaseException>) {
+    super({
+      name: "SourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>There is already an existing event notification subscription with the specified
  *             name.</p>
  */
-export interface SubscriptionAlreadyExistFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionAlreadyExistFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionAlreadyExistFault extends __BaseException {
+  readonly name: "SubscriptionAlreadyExistFault" = "SubscriptionAlreadyExistFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionAlreadyExistFault, __BaseException>) {
+    super({
+      name: "SubscriptionAlreadyExistFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionAlreadyExistFault.prototype);
+  }
 }
 
 /**
@@ -4964,19 +5707,39 @@ export interface SubscriptionAlreadyExistFault extends __SmithyException, $Metad
  *             specified a category that does not apply to the specified source type. The allowed
  *             values are Configuration, Management, Monitoring, and Security.</p>
  */
-export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionCategoryNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionCategoryNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionCategoryNotFoundFault" = "SubscriptionCategoryNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionCategoryNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionCategoryNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionCategoryNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
  */
-export interface SubscriptionEventIdNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionEventIdNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionEventIdNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionEventIdNotFoundFault" = "SubscriptionEventIdNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionEventIdNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionEventIdNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionEventIdNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -4984,10 +5747,20 @@ export interface SubscriptionEventIdNotFoundFault extends __SmithyException, $Me
  *             specified a severity that does not apply to the specified source type. The allowed
  *             values are ERROR and INFO.</p>
  */
-export interface SubscriptionSeverityNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionSeverityNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionSeverityNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionSeverityNotFoundFault" = "SubscriptionSeverityNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionSeverityNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionSeverityNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionSeverityNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -5069,10 +5842,20 @@ export namespace CreateHsmClientCertificateResult {
  * <p>There is already an existing Amazon Redshift HSM client certificate with the specified
  *             identifier.</p>
  */
-export interface HsmClientCertificateAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "HsmClientCertificateAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
+  readonly name: "HsmClientCertificateAlreadyExistsFault" = "HsmClientCertificateAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmClientCertificateAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "HsmClientCertificateAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmClientCertificateAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -5081,10 +5864,20 @@ export interface HsmClientCertificateAlreadyExistsFault extends __SmithyExceptio
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface HsmClientCertificateQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "HsmClientCertificateQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class HsmClientCertificateQuotaExceededFault extends __BaseException {
+  readonly name: "HsmClientCertificateQuotaExceededFault" = "HsmClientCertificateQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmClientCertificateQuotaExceededFault, __BaseException>) {
+    super({
+      name: "HsmClientCertificateQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmClientCertificateQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -5202,10 +5995,20 @@ export namespace CreateHsmConfigurationResult {
  * <p>There is already an existing Amazon Redshift HSM configuration with the specified
  *             identifier.</p>
  */
-export interface HsmConfigurationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "HsmConfigurationAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class HsmConfigurationAlreadyExistsFault extends __BaseException {
+  readonly name: "HsmConfigurationAlreadyExistsFault" = "HsmConfigurationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmConfigurationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "HsmConfigurationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmConfigurationAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -5214,10 +6017,20 @@ export interface HsmConfigurationAlreadyExistsFault extends __SmithyException, $
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface HsmConfigurationQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "HsmConfigurationQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class HsmConfigurationQuotaExceededFault extends __BaseException {
+  readonly name: "HsmConfigurationQuotaExceededFault" = "HsmConfigurationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HsmConfigurationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "HsmConfigurationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HsmConfigurationQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -5401,19 +6214,39 @@ export namespace CreateScheduledActionMessage {
 /**
  * <p>The scheduled action is not valid. </p>
  */
-export interface InvalidScheduledActionFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidScheduledActionFault";
-  $fault: "client";
-  message?: string;
+export class InvalidScheduledActionFault extends __BaseException {
+  readonly name: "InvalidScheduledActionFault" = "InvalidScheduledActionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidScheduledActionFault, __BaseException>) {
+    super({
+      name: "InvalidScheduledActionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidScheduledActionFault.prototype);
+  }
 }
 
 /**
  * <p>The schedule you submitted isn't valid.</p>
  */
-export interface InvalidScheduleFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidScheduleFault";
-  $fault: "client";
-  message?: string;
+export class InvalidScheduleFault extends __BaseException {
+  readonly name: "InvalidScheduleFault" = "InvalidScheduleFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidScheduleFault, __BaseException>) {
+    super({
+      name: "InvalidScheduleFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidScheduleFault.prototype);
+  }
 }
 
 export enum ScheduledActionState {
@@ -5498,28 +6331,58 @@ export namespace ScheduledAction {
 /**
  * <p>The scheduled action already exists. </p>
  */
-export interface ScheduledActionAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ScheduledActionAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ScheduledActionAlreadyExistsFault extends __BaseException {
+  readonly name: "ScheduledActionAlreadyExistsFault" = "ScheduledActionAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScheduledActionAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ScheduledActionAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScheduledActionAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The quota for scheduled actions exceeded. </p>
  */
-export interface ScheduledActionQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ScheduledActionQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ScheduledActionQuotaExceededFault extends __BaseException {
+  readonly name: "ScheduledActionQuotaExceededFault" = "ScheduledActionQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScheduledActionQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ScheduledActionQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScheduledActionQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The action type specified for a scheduled action is not supported. </p>
  */
-export interface ScheduledActionTypeUnsupportedFault extends __SmithyException, $MetadataBearer {
-  name: "ScheduledActionTypeUnsupportedFault";
-  $fault: "client";
-  message?: string;
+export class ScheduledActionTypeUnsupportedFault extends __BaseException {
+  readonly name: "ScheduledActionTypeUnsupportedFault" = "ScheduledActionTypeUnsupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScheduledActionTypeUnsupportedFault, __BaseException>) {
+    super({
+      name: "ScheduledActionTypeUnsupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScheduledActionTypeUnsupportedFault.prototype);
+  }
 }
 
 /**
@@ -5635,20 +6498,40 @@ export namespace CreateSnapshotCopyGrantResult {
  * <p>The snapshot copy grant can't be created because a grant with the same name already
  *             exists.</p>
  */
-export interface SnapshotCopyGrantAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyGrantAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
+  readonly name: "SnapshotCopyGrantAlreadyExistsFault" = "SnapshotCopyGrantAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyGrantAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyGrantAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
  *             region.</p>
  */
-export interface SnapshotCopyGrantQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyGrantQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
+  readonly name: "SnapshotCopyGrantQuotaExceededFault" = "SnapshotCopyGrantQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyGrantQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyGrantQuotaExceededFault.prototype);
+  }
 }
 
 export interface CreateSnapshotScheduleMessage {
@@ -5697,10 +6580,20 @@ export namespace CreateSnapshotScheduleMessage {
 /**
  * <p>The definition you submitted is not supported.</p>
  */
-export interface ScheduleDefinitionTypeUnsupportedFault extends __SmithyException, $MetadataBearer {
-  name: "ScheduleDefinitionTypeUnsupportedFault";
-  $fault: "client";
-  message?: string;
+export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
+  readonly name: "ScheduleDefinitionTypeUnsupportedFault" = "ScheduleDefinitionTypeUnsupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScheduleDefinitionTypeUnsupportedFault, __BaseException>) {
+    super({
+      name: "ScheduleDefinitionTypeUnsupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScheduleDefinitionTypeUnsupportedFault.prototype);
+  }
 }
 
 /**
@@ -5756,19 +6649,39 @@ export namespace SnapshotSchedule {
 /**
  * <p>The specified snapshot schedule already exists. </p>
  */
-export interface SnapshotScheduleAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotScheduleAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
+  readonly name: "SnapshotScheduleAlreadyExistsFault" = "SnapshotScheduleAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotScheduleAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SnapshotScheduleAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotScheduleAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the quota of snapshot schedules. </p>
  */
-export interface SnapshotScheduleQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotScheduleQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotScheduleQuotaExceededFault extends __BaseException {
+  readonly name: "SnapshotScheduleQuotaExceededFault" = "SnapshotScheduleQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotScheduleQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SnapshotScheduleQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotScheduleQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -5804,10 +6717,20 @@ export namespace CreateTagsMessage {
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundFault extends __BaseException {
+  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
+    super({
+      name: "ResourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
+  }
 }
 
 export enum UsageLimitBreachAction {
@@ -5890,10 +6813,20 @@ export namespace CreateUsageLimitMessage {
 /**
  * <p>The usage limit is not valid.</p>
  */
-export interface InvalidUsageLimitFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidUsageLimitFault";
-  $fault: "client";
-  message?: string;
+export class InvalidUsageLimitFault extends __BaseException {
+  readonly name: "InvalidUsageLimitFault" = "InvalidUsageLimitFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUsageLimitFault, __BaseException>) {
+    super({
+      name: "InvalidUsageLimitFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUsageLimitFault.prototype);
+  }
 }
 
 /**
@@ -5967,10 +6900,20 @@ export namespace UsageLimit {
 /**
  * <p>The usage limit already exists. </p>
  */
-export interface UsageLimitAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "UsageLimitAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class UsageLimitAlreadyExistsFault extends __BaseException {
+  readonly name: "UsageLimitAlreadyExistsFault" = "UsageLimitAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UsageLimitAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "UsageLimitAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UsageLimitAlreadyExistsFault.prototype);
+  }
 }
 
 export interface CustomerStorageMessage {
@@ -6220,10 +7163,20 @@ export namespace DeleteClusterParameterGroupMessage {
  *             progress that involves the parameter group. Wait a few moments and try the operation
  *             again.</p>
  */
-export interface InvalidClusterParameterGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterParameterGroupStateFault extends __BaseException {
+  readonly name: "InvalidClusterParameterGroupStateFault" = "InvalidClusterParameterGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterParameterGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterParameterGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterParameterGroupStateFault.prototype);
+  }
 }
 
 /**
@@ -6283,10 +7236,20 @@ export namespace DeleteClusterSubnetGroupMessage {
 /**
  * <p>The state of the subnet is invalid.</p>
  */
-export interface InvalidClusterSubnetStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterSubnetStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterSubnetStateFault extends __BaseException {
+  readonly name: "InvalidClusterSubnetStateFault" = "InvalidClusterSubnetStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterSubnetStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterSubnetStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterSubnetStateFault.prototype);
+  }
 }
 
 export interface DeleteEndpointAccessMessage {
@@ -6308,19 +7271,39 @@ export namespace DeleteEndpointAccessMessage {
 /**
  * <p>The endpoint name doesn't refer to an existing endpoint.</p>
  */
-export interface EndpointNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class EndpointNotFoundFault extends __BaseException {
+  readonly name: "EndpointNotFoundFault" = "EndpointNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointNotFoundFault, __BaseException>) {
+    super({
+      name: "EndpointNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>The status of the endpoint is not valid.</p>
  */
-export interface InvalidEndpointStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidEndpointStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidEndpointStateFault extends __BaseException {
+  readonly name: "InvalidEndpointStateFault" = "InvalidEndpointStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEndpointStateFault, __BaseException>) {
+    super({
+      name: "InvalidEndpointStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEndpointStateFault.prototype);
+  }
 }
 
 /**
@@ -6346,20 +7329,40 @@ export namespace DeleteEventSubscriptionMessage {
  * <p>The subscription request is invalid because it is a duplicate request. This
  *             subscription request is already in progress.</p>
  */
-export interface InvalidSubscriptionStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubscriptionStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidSubscriptionStateFault extends __BaseException {
+  readonly name: "InvalidSubscriptionStateFault" = "InvalidSubscriptionStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubscriptionStateFault, __BaseException>) {
+    super({
+      name: "InvalidSubscriptionStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubscriptionStateFault.prototype);
+  }
 }
 
 /**
  * <p>An Amazon Redshift event notification subscription with the specified name does not
  *             exist.</p>
  */
-export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubscriptionNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubscriptionNotFoundFault extends __BaseException {
+  readonly name: "SubscriptionNotFoundFault" = "SubscriptionNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionNotFoundFault, __BaseException>) {
+    super({
+      name: "SubscriptionNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -6385,10 +7388,20 @@ export namespace DeleteHsmClientCertificateMessage {
  * <p>The specified HSM client certificate is not in the <code>available</code> state, or
  *             it is still in use by one or more Amazon Redshift clusters.</p>
  */
-export interface InvalidHsmClientCertificateStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidHsmClientCertificateStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidHsmClientCertificateStateFault extends __BaseException {
+  readonly name: "InvalidHsmClientCertificateStateFault" = "InvalidHsmClientCertificateStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidHsmClientCertificateStateFault, __BaseException>) {
+    super({
+      name: "InvalidHsmClientCertificateStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidHsmClientCertificateStateFault.prototype);
+  }
 }
 
 /**
@@ -6414,10 +7427,20 @@ export namespace DeleteHsmConfigurationMessage {
  * <p>The specified HSM configuration is not in the <code>available</code> state, or it
  *             is still in use by one or more Amazon Redshift clusters.</p>
  */
-export interface InvalidHsmConfigurationStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidHsmConfigurationStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidHsmConfigurationStateFault extends __BaseException {
+  readonly name: "InvalidHsmConfigurationStateFault" = "InvalidHsmConfigurationStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidHsmConfigurationStateFault, __BaseException>) {
+    super({
+      name: "InvalidHsmConfigurationStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidHsmConfigurationStateFault.prototype);
+  }
 }
 
 export interface DeleteScheduledActionMessage {
@@ -6439,10 +7462,20 @@ export namespace DeleteScheduledActionMessage {
 /**
  * <p>The scheduled action cannot be found. </p>
  */
-export interface ScheduledActionNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ScheduledActionNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ScheduledActionNotFoundFault extends __BaseException {
+  readonly name: "ScheduledActionNotFoundFault" = "ScheduledActionNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScheduledActionNotFoundFault, __BaseException>) {
+    super({
+      name: "ScheduledActionNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScheduledActionNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -6468,20 +7501,40 @@ export namespace DeleteSnapshotCopyGrantMessage {
  * <p>The snapshot copy grant can't be deleted because it is used by one or more
  *             clusters.</p>
  */
-export interface InvalidSnapshotCopyGrantStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnapshotCopyGrantStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
+  readonly name: "InvalidSnapshotCopyGrantStateFault" = "InvalidSnapshotCopyGrantStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnapshotCopyGrantStateFault, __BaseException>) {
+    super({
+      name: "InvalidSnapshotCopyGrantStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnapshotCopyGrantStateFault.prototype);
+  }
 }
 
 /**
  * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
  *             correctly and that the grant exists in the destination region.</p>
  */
-export interface SnapshotCopyGrantNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyGrantNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyGrantNotFoundFault extends __BaseException {
+  readonly name: "SnapshotCopyGrantNotFoundFault" = "SnapshotCopyGrantNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyGrantNotFoundFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyGrantNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyGrantNotFoundFault.prototype);
+  }
 }
 
 export interface DeleteSnapshotScheduleMessage {
@@ -6503,10 +7556,20 @@ export namespace DeleteSnapshotScheduleMessage {
 /**
  * <p>The cluster snapshot schedule state is not valid.</p>
  */
-export interface InvalidClusterSnapshotScheduleStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterSnapshotScheduleStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
+  readonly name: "InvalidClusterSnapshotScheduleStateFault" = "InvalidClusterSnapshotScheduleStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterSnapshotScheduleStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterSnapshotScheduleStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterSnapshotScheduleStateFault.prototype);
+  }
 }
 
 /**
@@ -6553,10 +7616,20 @@ export namespace DeleteUsageLimitMessage {
 /**
  * <p>The usage limit identifier can't be found.</p>
  */
-export interface UsageLimitNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UsageLimitNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class UsageLimitNotFoundFault extends __BaseException {
+  readonly name: "UsageLimitNotFoundFault" = "UsageLimitNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UsageLimitNotFoundFault, __BaseException>) {
+    super({
+      name: "UsageLimitNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UsageLimitNotFoundFault.prototype);
+  }
 }
 
 export interface DescribeAccountAttributesMessage {

@@ -1,15 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RDSDataServiceException as __BaseException } from "./RDSDataServiceException";
 
 /**
  * <p>There is an error in the call or in a SQL statement.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message returned by this <code>BadRequestException</code> error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 export enum TypeHint {
@@ -24,47 +34,84 @@ export enum TypeHint {
 /**
  * <p>There are insufficient privileges to make the call.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message returned by this <code>ForbiddenException</code> error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+  }
 }
 
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+  }
 }
 
 /**
  * <p>The service specified by the <code>resourceArn</code> parameter is not
  *             available.</p>
  */
-export interface ServiceUnavailableError extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableError";
-  $fault: "server";
+export class ServiceUnavailableError extends __BaseException {
+  readonly name: "ServiceUnavailableError" = "ServiceUnavailableError";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableError, __BaseException>) {
+    super({
+      name: "ServiceUnavailableError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableError.prototype);
+  }
 }
 
 /**
  * <p>The execution of the SQL statement timed out.</p>
  */
-export interface StatementTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "StatementTimeoutException";
-  $fault: "client";
-  /**
-   * <p>The error message returned by this <code>StatementTimeoutException</code> error.</p>
-   */
-  message?: string;
-
+export class StatementTimeoutException extends __BaseException {
+  readonly name: "StatementTimeoutException" = "StatementTimeoutException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The database connection ID that executed the SQL statement.</p>
    */
   dbConnectionId?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StatementTimeoutException, __BaseException>) {
+    super({
+      name: "StatementTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StatementTimeoutException.prototype);
+    this.dbConnectionId = opts.dbConnectionId;
+  }
 }
 
 /**
@@ -257,13 +304,20 @@ export namespace CommitTransactionResponse {
 /**
  * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The error message returned by this <code>NotFoundException</code> error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 export enum DecimalReturnType {

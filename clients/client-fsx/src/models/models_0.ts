@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { FSxServiceException as __BaseException } from "./FSxServiceException";
 
 /**
  * <p>The Microsoft Active Directory attributes of the Amazon FSx for Windows File
@@ -44,9 +46,9 @@ export enum ActiveDirectoryErrorType {
 /**
  * <p>An Active Directory error.</p>
  */
-export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer {
-  name: "ActiveDirectoryError";
-  $fault: "client";
+export class ActiveDirectoryError extends __BaseException {
+  readonly name: "ActiveDirectoryError" = "ActiveDirectoryError";
+  readonly $fault: "client" = "client";
   /**
    * <p>The directory ID of the directory that an error pertains to.</p>
    */
@@ -61,6 +63,20 @@ export interface ActiveDirectoryError extends __SmithyException, $MetadataBearer
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveDirectoryError, __BaseException>) {
+    super({
+      name: "ActiveDirectoryError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveDirectoryError.prototype);
+    this.ActiveDirectoryId = opts.ActiveDirectoryId;
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 export enum AdministrativeActionType {
@@ -1729,37 +1745,73 @@ export namespace AssociateFileSystemAliasesResponse {
 /**
  * <p>A generic error indicating a failure with a client request.</p>
  */
-export interface BadRequest extends __SmithyException, $MetadataBearer {
-  name: "BadRequest";
-  $fault: "client";
+export class BadRequest extends __BaseException {
+  readonly name: "BadRequest" = "BadRequest";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequest, __BaseException>) {
+    super({
+      name: "BadRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequest.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
  */
-export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
-  name: "FileSystemNotFound";
-  $fault: "client";
+export class FileSystemNotFound extends __BaseException {
+  readonly name: "FileSystemNotFound" = "FileSystemNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileSystemNotFound, __BaseException>) {
+    super({
+      name: "FileSystemNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileSystemNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A generic error indicating a server-side failure.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum EventType {
@@ -1935,49 +1987,97 @@ export namespace CancelDataRepositoryTaskResponse {
 /**
  * <p>The data repository task could not be canceled because the task has already ended.</p>
  */
-export interface DataRepositoryTaskEnded extends __SmithyException, $MetadataBearer {
-  name: "DataRepositoryTaskEnded";
-  $fault: "client";
+export class DataRepositoryTaskEnded extends __BaseException {
+  readonly name: "DataRepositoryTaskEnded" = "DataRepositoryTaskEnded";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataRepositoryTaskEnded, __BaseException>) {
+    super({
+      name: "DataRepositoryTaskEnded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataRepositoryTaskEnded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The data repository task or tasks you specified could not be found.</p>
  */
-export interface DataRepositoryTaskNotFound extends __SmithyException, $MetadataBearer {
-  name: "DataRepositoryTaskNotFound";
-  $fault: "client";
+export class DataRepositoryTaskNotFound extends __BaseException {
+  readonly name: "DataRepositoryTaskNotFound" = "DataRepositoryTaskNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataRepositoryTaskNotFound, __BaseException>) {
+    super({
+      name: "DataRepositoryTaskNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataRepositoryTaskNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested operation is not supported for this resource or API.</p>
  */
-export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperation";
-  $fault: "client";
+export class UnsupportedOperation extends __BaseException {
+  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
+    super({
+      name: "UnsupportedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
  */
-export interface BackupNotFound extends __SmithyException, $MetadataBearer {
-  name: "BackupNotFound";
-  $fault: "client";
+export class BackupNotFound extends __BaseException {
+  readonly name: "BackupNotFound" = "BackupNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupNotFound, __BaseException>) {
+    super({
+      name: "BackupNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CopyBackupRequest {
@@ -2084,9 +2184,9 @@ export enum BackupType {
  *             token but different parameters settings. A client request token should always uniquely
  *             identify a single request.</p>
  */
-export interface IncompatibleParameterError extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleParameterError";
-  $fault: "client";
+export class IncompatibleParameterError extends __BaseException {
+  readonly name: "IncompatibleParameterError" = "IncompatibleParameterError";
+  readonly $fault: "client" = "client";
   /**
    * <p>A parameter that is incompatible with the earlier request.</p>
    */
@@ -2096,58 +2196,119 @@ export interface IncompatibleParameterError extends __SmithyException, $Metadata
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleParameterError, __BaseException>) {
+    super({
+      name: "IncompatibleParameterError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleParameterError.prototype);
+    this.Parameter = opts.Parameter;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Amazon FSx doesn't support Multi-AZ Windows File Server copy backup in the
  *          destination Region, so the copied backup can't be restored.</p>
  */
-export interface IncompatibleRegionForMultiAZ extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleRegionForMultiAZ";
-  $fault: "client";
+export class IncompatibleRegionForMultiAZ extends __BaseException {
+  readonly name: "IncompatibleRegionForMultiAZ" = "IncompatibleRegionForMultiAZ";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleRegionForMultiAZ, __BaseException>) {
+    super({
+      name: "IncompatibleRegionForMultiAZ",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleRegionForMultiAZ.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Key Management Service (KMS) key of the destination backup is not
  *          valid.</p>
  */
-export interface InvalidDestinationKmsKey extends __SmithyException, $MetadataBearer {
-  name: "InvalidDestinationKmsKey";
-  $fault: "client";
+export class InvalidDestinationKmsKey extends __BaseException {
+  readonly name: "InvalidDestinationKmsKey" = "InvalidDestinationKmsKey";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDestinationKmsKey, __BaseException>) {
+    super({
+      name: "InvalidDestinationKmsKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDestinationKmsKey.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Region provided for <code>SourceRegion</code> is not valid or is in a different
  *             Amazon Web Services partition.</p>
  */
-export interface InvalidRegion extends __SmithyException, $MetadataBearer {
-  name: "InvalidRegion";
-  $fault: "client";
+export class InvalidRegion extends __BaseException {
+  readonly name: "InvalidRegion" = "InvalidRegion";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRegion, __BaseException>) {
+    super({
+      name: "InvalidRegion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRegion.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Key Management Service (KMS) key of the source backup is not
  *          valid.</p>
  */
-export interface InvalidSourceKmsKey extends __SmithyException, $MetadataBearer {
-  name: "InvalidSourceKmsKey";
-  $fault: "client";
+export class InvalidSourceKmsKey extends __BaseException {
+  readonly name: "InvalidSourceKmsKey" = "InvalidSourceKmsKey";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSourceKmsKey, __BaseException>) {
+    super({
+      name: "InvalidSourceKmsKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSourceKmsKey.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ServiceLimit {
@@ -2166,9 +2327,9 @@ export enum ServiceLimit {
  * <p>An error indicating that a particular service limit was exceeded. You can increase
  *             some service limits by contacting Amazon Web Services Support.</p>
  */
-export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ServiceLimitExceeded";
-  $fault: "client";
+export class ServiceLimitExceeded extends __BaseException {
+  readonly name: "ServiceLimitExceeded" = "ServiceLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>Enumeration of the service limit that was exceeded. </p>
    */
@@ -2178,15 +2339,28 @@ export interface ServiceLimitExceeded extends __SmithyException, $MetadataBearer
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLimitExceeded, __BaseException>) {
+    super({
+      name: "ServiceLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLimitExceeded.prototype);
+    this.Limit = opts.Limit;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was rejected because the lifecycle status of the source backup isn't
  *             <code>AVAILABLE</code>.</p>
  */
-export interface SourceBackupUnavailable extends __SmithyException, $MetadataBearer {
-  name: "SourceBackupUnavailable";
-  $fault: "client";
+export class SourceBackupUnavailable extends __BaseException {
+  readonly name: "SourceBackupUnavailable" = "SourceBackupUnavailable";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
@@ -2196,19 +2370,44 @@ export interface SourceBackupUnavailable extends __SmithyException, $MetadataBea
    * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
    */
   BackupId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceBackupUnavailable, __BaseException>) {
+    super({
+      name: "SourceBackupUnavailable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceBackupUnavailable.prototype);
+    this.Message = opts.Message;
+    this.BackupId = opts.BackupId;
+  }
 }
 
 /**
  * <p>Another backup is already under way. Wait for completion before initiating
  *             additional backups of this file system.</p>
  */
-export interface BackupInProgress extends __SmithyException, $MetadataBearer {
-  name: "BackupInProgress";
-  $fault: "client";
+export class BackupInProgress extends __BaseException {
+  readonly name: "BackupInProgress" = "BackupInProgress";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupInProgress, __BaseException>) {
+    super({
+      name: "BackupInProgress",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupInProgress.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2254,13 +2453,25 @@ export namespace CreateBackupRequest {
 /**
  * <p>No Amazon FSx for NetApp ONTAP volumes were found based upon the supplied parameters.</p>
  */
-export interface VolumeNotFound extends __SmithyException, $MetadataBearer {
-  name: "VolumeNotFound";
-  $fault: "client";
+export class VolumeNotFound extends __BaseException {
+  readonly name: "VolumeNotFound" = "VolumeNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VolumeNotFound, __BaseException>) {
+    super({
+      name: "VolumeNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VolumeNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2875,13 +3086,25 @@ export namespace CreateDataRepositoryTaskResponse {
  * <p>An existing data repository task is currently executing on the file system.
  *         Wait until the existing task has completed, then create the new task.</p>
  */
-export interface DataRepositoryTaskExecuting extends __SmithyException, $MetadataBearer {
-  name: "DataRepositoryTaskExecuting";
-  $fault: "client";
+export class DataRepositoryTaskExecuting extends __BaseException {
+  readonly name: "DataRepositoryTaskExecuting" = "DataRepositoryTaskExecuting";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataRepositoryTaskExecuting, __BaseException>) {
+    super({
+      name: "DataRepositoryTaskExecuting",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataRepositoryTaskExecuting.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3996,33 +4219,57 @@ export namespace CreateFileSystemRequest {
 /**
  * <p>The path provided for data repository export isn't valid.</p>
  */
-export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
-  name: "InvalidExportPath";
-  $fault: "client";
+export class InvalidExportPath extends __BaseException {
+  readonly name: "InvalidExportPath" = "InvalidExportPath";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExportPath, __BaseException>) {
+    super({
+      name: "InvalidExportPath",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExportPath.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The path provided for data repository import isn't valid.</p>
  */
-export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
-  name: "InvalidImportPath";
-  $fault: "client";
+export class InvalidImportPath extends __BaseException {
+  readonly name: "InvalidImportPath" = "InvalidImportPath";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidImportPath, __BaseException>) {
+    super({
+      name: "InvalidImportPath",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidImportPath.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more network settings specified in the request are invalid.</p>
  */
-export interface InvalidNetworkSettings extends __SmithyException, $MetadataBearer {
-  name: "InvalidNetworkSettings";
-  $fault: "client";
+export class InvalidNetworkSettings extends __BaseException {
+  readonly name: "InvalidNetworkSettings" = "InvalidNetworkSettings";
+  readonly $fault: "client" = "client";
   /**
    * <p>Error message explaining what's wrong with network settings.</p>
    */
@@ -4042,30 +4289,69 @@ export interface InvalidNetworkSettings extends __SmithyException, $MetadataBear
    * <p>The route table ID is either invalid or not part of the VPC specified.</p>
    */
   InvalidRouteTableId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNetworkSettings, __BaseException>) {
+    super({
+      name: "InvalidNetworkSettings",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNetworkSettings.prototype);
+    this.Message = opts.Message;
+    this.InvalidSubnetId = opts.InvalidSubnetId;
+    this.InvalidSecurityGroupId = opts.InvalidSecurityGroupId;
+    this.InvalidRouteTableId = opts.InvalidRouteTableId;
+  }
 }
 
 /**
  * <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
  */
-export interface InvalidPerUnitStorageThroughput extends __SmithyException, $MetadataBearer {
-  name: "InvalidPerUnitStorageThroughput";
-  $fault: "client";
+export class InvalidPerUnitStorageThroughput extends __BaseException {
+  readonly name: "InvalidPerUnitStorageThroughput" = "InvalidPerUnitStorageThroughput";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPerUnitStorageThroughput, __BaseException>) {
+    super({
+      name: "InvalidPerUnitStorageThroughput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPerUnitStorageThroughput.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A file system configuration is required for this operation.</p>
  */
-export interface MissingFileSystemConfiguration extends __SmithyException, $MetadataBearer {
-  name: "MissingFileSystemConfiguration";
-  $fault: "client";
+export class MissingFileSystemConfiguration extends __BaseException {
+  readonly name: "MissingFileSystemConfiguration" = "MissingFileSystemConfiguration";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingFileSystemConfiguration, __BaseException>) {
+    super({
+      name: "MissingFileSystemConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingFileSystemConfiguration.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4858,25 +5144,49 @@ export namespace CreateVolumeRequest {
 /**
  * <p>A volume configuration is required for this operation.</p>
  */
-export interface MissingVolumeConfiguration extends __SmithyException, $MetadataBearer {
-  name: "MissingVolumeConfiguration";
-  $fault: "client";
+export class MissingVolumeConfiguration extends __BaseException {
+  readonly name: "MissingVolumeConfiguration" = "MissingVolumeConfiguration";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingVolumeConfiguration, __BaseException>) {
+    super({
+      name: "MissingVolumeConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingVolumeConfiguration.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No Amazon FSx for NetApp ONTAP SVMs were found based upon the supplied parameters.</p>
  */
-export interface StorageVirtualMachineNotFound extends __SmithyException, $MetadataBearer {
-  name: "StorageVirtualMachineNotFound";
-  $fault: "client";
+export class StorageVirtualMachineNotFound extends __BaseException {
+  readonly name: "StorageVirtualMachineNotFound" = "StorageVirtualMachineNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageVirtualMachineNotFound, __BaseException>) {
+    super({
+      name: "StorageVirtualMachineNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageVirtualMachineNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateVolumeFromBackupRequest {
@@ -4920,9 +5230,9 @@ export namespace CreateVolumeFromBackupRequest {
 /**
  * <p>You can't delete a backup while it's being copied.</p>
  */
-export interface BackupBeingCopied extends __SmithyException, $MetadataBearer {
-  name: "BackupBeingCopied";
-  $fault: "client";
+export class BackupBeingCopied extends __BaseException {
+  readonly name: "BackupBeingCopied" = "BackupBeingCopied";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
@@ -4932,15 +5242,28 @@ export interface BackupBeingCopied extends __SmithyException, $MetadataBearer {
    * <p>The ID of the source backup. Specifies the backup that you are copying.</p>
    */
   BackupId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupBeingCopied, __BaseException>) {
+    super({
+      name: "BackupBeingCopied",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupBeingCopied.prototype);
+    this.Message = opts.Message;
+    this.BackupId = opts.BackupId;
+  }
 }
 
 /**
  * <p>You can't delete a backup while it's being used to restore a file
  *             system.</p>
  */
-export interface BackupRestoring extends __SmithyException, $MetadataBearer {
-  name: "BackupRestoring";
-  $fault: "client";
+export class BackupRestoring extends __BaseException {
+  readonly name: "BackupRestoring" = "BackupRestoring";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
@@ -4950,6 +5273,19 @@ export interface BackupRestoring extends __SmithyException, $MetadataBearer {
    * <p>The ID of a file system being restored from the backup.</p>
    */
   FileSystemId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BackupRestoring, __BaseException>) {
+    super({
+      name: "BackupRestoring",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BackupRestoring.prototype);
+    this.Message = opts.Message;
+    this.FileSystemId = opts.FileSystemId;
+  }
 }
 
 /**
@@ -5006,13 +5342,25 @@ export namespace DeleteBackupResponse {
 /**
  * <p>No data repository associations were found based upon the supplied parameters.</p>
  */
-export interface DataRepositoryAssociationNotFound extends __SmithyException, $MetadataBearer {
-  name: "DataRepositoryAssociationNotFound";
-  $fault: "client";
+export class DataRepositoryAssociationNotFound extends __BaseException {
+  readonly name: "DataRepositoryAssociationNotFound" = "DataRepositoryAssociationNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataRepositoryAssociationNotFound, __BaseException>) {
+    super({
+      name: "DataRepositoryAssociationNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataRepositoryAssociationNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteDataRepositoryAssociationRequest {
@@ -5373,13 +5721,25 @@ export namespace DeleteSnapshotResponse {
 /**
  * <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
  */
-export interface SnapshotNotFound extends __SmithyException, $MetadataBearer {
-  name: "SnapshotNotFound";
-  $fault: "client";
+export class SnapshotNotFound extends __BaseException {
+  readonly name: "SnapshotNotFound" = "SnapshotNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotNotFound, __BaseException>) {
+    super({
+      name: "SnapshotNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteStorageVirtualMachineRequest {
@@ -5701,13 +6061,25 @@ export namespace DescribeDataRepositoryAssociationsResponse {
 /**
  * <p>You have filtered the response to a data repository type that is not supported.</p>
  */
-export interface InvalidDataRepositoryType extends __SmithyException, $MetadataBearer {
-  name: "InvalidDataRepositoryType";
-  $fault: "client";
+export class InvalidDataRepositoryType extends __BaseException {
+  readonly name: "InvalidDataRepositoryType" = "InvalidDataRepositoryType";
+  readonly $fault: "client" = "client";
   /**
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDataRepositoryType, __BaseException>) {
+    super({
+      name: "InvalidDataRepositoryType",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDataRepositoryType.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum DataRepositoryTaskFilterName {
@@ -6252,9 +6624,9 @@ export namespace ListTagsForResourceResponse {
  * <p>The resource specified for the tagging operation is not a resource type owned by
  *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
  */
-export interface NotServiceResourceError extends __SmithyException, $MetadataBearer {
-  name: "NotServiceResourceError";
-  $fault: "client";
+export class NotServiceResourceError extends __BaseException {
+  readonly name: "NotServiceResourceError" = "NotServiceResourceError";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon Resource Name (ARN) of the non-Amazon FSx resource.</p>
    */
@@ -6264,14 +6636,27 @@ export interface NotServiceResourceError extends __SmithyException, $MetadataBea
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotServiceResourceError, __BaseException>) {
+    super({
+      name: "NotServiceResourceError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotServiceResourceError.prototype);
+    this.ResourceARN = opts.ResourceARN;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource specified does not support tagging. </p>
  */
-export interface ResourceDoesNotSupportTagging extends __SmithyException, $MetadataBearer {
-  name: "ResourceDoesNotSupportTagging";
-  $fault: "client";
+export class ResourceDoesNotSupportTagging extends __BaseException {
+  readonly name: "ResourceDoesNotSupportTagging" = "ResourceDoesNotSupportTagging";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that doesn't support
    *             tagging.</p>
@@ -6282,14 +6667,27 @@ export interface ResourceDoesNotSupportTagging extends __SmithyException, $Metad
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceDoesNotSupportTagging, __BaseException>) {
+    super({
+      name: "ResourceDoesNotSupportTagging",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceDoesNotSupportTagging.prototype);
+    this.ResourceARN = opts.ResourceARN;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  */
-export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFound";
-  $fault: "client";
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The resource ARN of the resource that can't be found.</p>
    */
@@ -6299,6 +6697,19 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
    * <p>A detailed error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.ResourceARN = opts.ResourceARN;
+    this.Message = opts.Message;
+  }
 }
 
 export interface ReleaseFileSystemNfsV3LocksRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { XRayServiceException as __BaseException } from "./XRayServiceException";
 
 /**
  * <p>An alias for an edge.</p>
@@ -314,19 +317,43 @@ export namespace BatchGetTracesResult {
 /**
  * <p>The request is missing required parameters or has invalid parameters.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request exceeds the maximum number of requests per second.</p>
  */
-export interface ThrottledException extends __SmithyException, $MetadataBearer {
-  name: "ThrottledException";
-  $fault: "client";
+export class ThrottledException extends __BaseException {
+  readonly name: "ThrottledException" = "ThrottledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
+    super({
+      name: "ThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -707,10 +734,22 @@ export namespace CreateSamplingRuleResult {
 /**
  * <p>You have reached the maximum number of sampling rules.</p>
  */
-export interface RuleLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "RuleLimitExceededException";
-  $fault: "client";
+export class RuleLimitExceededException extends __BaseException {
+  readonly name: "RuleLimitExceededException" = "RuleLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuleLimitExceededException, __BaseException>) {
+    super({
+      name: "RuleLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteGroupRequest {
@@ -3078,11 +3117,24 @@ export namespace ListTagsForResourceResponse {
  * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
  *       correct.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export interface PutEncryptionConfigRequest {
@@ -3395,11 +3447,24 @@ export namespace TagResourceResponse {
 /**
  * <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export interface UntagResourceRequest {

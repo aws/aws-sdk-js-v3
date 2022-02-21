@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -11,10 +12,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -157,6 +156,7 @@ import {
   UserMetadata,
   UserStorageMetadata,
 } from "../models/models_0";
+import { WorkDocsServiceException as __BaseException } from "../models/WorkDocsServiceException";
 
 export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
   input: AbortDocumentVersionUploadCommandInput,
@@ -1675,73 +1675,37 @@ const deserializeAws_restJson1AbortDocumentVersionUploadCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ActivateUserCommand = async (
@@ -1770,65 +1734,34 @@ const deserializeAws_restJson1ActivateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AddResourcePermissionsCommand = async (
@@ -1857,57 +1790,31 @@ const deserializeAws_restJson1AddResourcePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateCommentCommand = async (
@@ -1936,89 +1843,43 @@ const deserializeAws_restJson1CreateCommentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      response = {
-        ...(await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidCommentOperationException":
     case "com.amazonaws.workdocs#InvalidCommentOperationException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidCommentOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidCommentOperationExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateCustomMetadataCommand = async (
@@ -2043,81 +1904,40 @@ const deserializeAws_restJson1CreateCustomMetadataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomMetadataLimitExceededException":
     case "com.amazonaws.workdocs#CustomMetadataLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateFolderCommand = async (
@@ -2146,97 +1966,46 @@ const deserializeAws_restJson1CreateFolderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateLabelsCommand = async (
@@ -2261,73 +2030,37 @@ const deserializeAws_restJson1CreateLabelsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyLabelsException":
     case "com.amazonaws.workdocs#TooManyLabelsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyLabelsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManyLabelsExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateNotificationSubscriptionCommand = async (
@@ -2356,49 +2089,28 @@ const deserializeAws_restJson1CreateNotificationSubscriptionCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManySubscriptionsException":
     case "com.amazonaws.workdocs#TooManySubscriptionsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManySubscriptionsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManySubscriptionsExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateUserCommand = async (
@@ -2427,65 +2139,34 @@ const deserializeAws_restJson1CreateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeactivateUserCommand = async (
@@ -2510,65 +2191,34 @@ const deserializeAws_restJson1DeactivateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteCommentCommand = async (
@@ -2593,81 +2243,40 @@ const deserializeAws_restJson1DeleteCommentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      response = {
-        ...(await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteCustomMetadataCommand = async (
@@ -2692,73 +2301,37 @@ const deserializeAws_restJson1DeleteCustomMetadataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteDocumentCommand = async (
@@ -2783,89 +2356,43 @@ const deserializeAws_restJson1DeleteDocumentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteFolderCommand = async (
@@ -2890,89 +2417,43 @@ const deserializeAws_restJson1DeleteFolderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteFolderContentsCommand = async (
@@ -2997,81 +2478,40 @@ const deserializeAws_restJson1DeleteFolderContentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteLabelsCommand = async (
@@ -3096,65 +2536,34 @@ const deserializeAws_restJson1DeleteLabelsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteNotificationSubscriptionCommand = async (
@@ -3179,57 +2588,31 @@ const deserializeAws_restJson1DeleteNotificationSubscriptionCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteUserCommand = async (
@@ -3254,65 +2637,34 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeActivitiesCommand = async (
@@ -3345,65 +2697,34 @@ const deserializeAws_restJson1DescribeActivitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeCommentsCommand = async (
@@ -3436,73 +2757,37 @@ const deserializeAws_restJson1DescribeCommentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeDocumentVersionsCommand = async (
@@ -3535,81 +2820,40 @@ const deserializeAws_restJson1DescribeDocumentVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeFolderContentsCommand = async (
@@ -3646,73 +2890,37 @@ const deserializeAws_restJson1DescribeFolderContentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeGroupsCommand = async (
@@ -3745,57 +2953,31 @@ const deserializeAws_restJson1DescribeGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeNotificationSubscriptionsCommand = async (
@@ -3828,49 +3010,28 @@ const deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeResourcePermissionsCommand = async (
@@ -3903,57 +3064,31 @@ const deserializeAws_restJson1DescribeResourcePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeRootFoldersCommand = async (
@@ -3986,65 +3121,34 @@ const deserializeAws_restJson1DescribeRootFoldersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeUsersCommand = async (
@@ -4081,81 +3185,40 @@ const deserializeAws_restJson1DescribeUsersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "RequestedEntityTooLargeException":
     case "com.amazonaws.workdocs#RequestedEntityTooLargeException":
-      response = {
-        ...(await deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetCurrentUserCommand = async (
@@ -4184,65 +3247,34 @@ const deserializeAws_restJson1GetCurrentUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDocumentCommand = async (
@@ -4275,81 +3307,40 @@ const deserializeAws_restJson1GetDocumentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDocumentPathCommand = async (
@@ -4378,65 +3369,34 @@ const deserializeAws_restJson1GetDocumentPathCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDocumentVersionCommand = async (
@@ -4469,81 +3429,40 @@ const deserializeAws_restJson1GetDocumentVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetFolderCommand = async (
@@ -4576,81 +3495,40 @@ const deserializeAws_restJson1GetFolderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetFolderPathCommand = async (
@@ -4679,65 +3557,34 @@ const deserializeAws_restJson1GetFolderPathCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourcesCommand = async (
@@ -4774,65 +3621,34 @@ const deserializeAws_restJson1GetResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1InitiateDocumentVersionUploadCommand = async (
@@ -4865,113 +3681,52 @@ const deserializeAws_restJson1InitiateDocumentVersionUploadCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DraftUploadOutOfSyncException":
     case "com.amazonaws.workdocs#DraftUploadOutOfSyncException":
-      response = {
-        ...(await deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ResourceAlreadyCheckedOutException":
     case "com.amazonaws.workdocs#ResourceAlreadyCheckedOutException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "StorageLimitExceededException":
     case "com.amazonaws.workdocs#StorageLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1StorageLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1StorageLimitExceededExceptionResponse(parsedOutput, context);
     case "StorageLimitWillExceedException":
     case "com.amazonaws.workdocs#StorageLimitWillExceedException":
-      response = {
-        ...(await deserializeAws_restJson1StorageLimitWillExceedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1StorageLimitWillExceedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
@@ -4996,57 +3751,31 @@ const deserializeAws_restJson1RemoveAllResourcePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RemoveResourcePermissionCommand = async (
@@ -5071,57 +3800,31 @@ const deserializeAws_restJson1RemoveResourcePermissionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateDocumentCommand = async (
@@ -5146,105 +3849,49 @@ const deserializeAws_restJson1UpdateDocumentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateDocumentVersionCommand = async (
@@ -5269,89 +3916,43 @@ const deserializeAws_restJson1UpdateDocumentVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.workdocs#InvalidOperationException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateFolderCommand = async (
@@ -5376,105 +3977,49 @@ const deserializeAws_restJson1UpdateFolderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.workdocs#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.workdocs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
-      response = {
-        ...(await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateUserCommand = async (
@@ -5503,153 +4048,98 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeactivatingLastSystemUserException":
     case "com.amazonaws.workdocs#DeactivatingLastSystemUserException":
-      response = {
-        ...(await deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
-      response = {
-        ...(await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
     case "IllegalUserStateException":
     case "com.amazonaws.workdocs#IllegalUserStateException":
-      response = {
-        ...(await deserializeAws_restJson1IllegalUserStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IllegalUserStateExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ConflictingOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictingOperationException> => {
-  const contents: ConflictingOperationException = {
-    name: "ConflictingOperationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ConflictingOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1CustomMetadataLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<CustomMetadataLimitExceededException> => {
-  const contents: CustomMetadataLimitExceededException = {
-    name: "CustomMetadataLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new CustomMetadataLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DeactivatingLastSystemUserException> => {
-  const contents: DeactivatingLastSystemUserException = {
-    name: "DeactivatingLastSystemUserException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -5657,71 +4147,66 @@ const deserializeAws_restJson1DeactivatingLastSystemUserExceptionResponse = asyn
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new DeactivatingLastSystemUserException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1DocumentLockedForCommentsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DocumentLockedForCommentsException> => {
-  const contents: DocumentLockedForCommentsException = {
-    name: "DocumentLockedForCommentsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new DocumentLockedForCommentsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1DraftUploadOutOfSyncExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DraftUploadOutOfSyncException> => {
-  const contents: DraftUploadOutOfSyncException = {
-    name: "DraftUploadOutOfSyncException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new DraftUploadOutOfSyncException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1EntityAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityAlreadyExistsException> => {
-  const contents: EntityAlreadyExistsException = {
-    name: "EntityAlreadyExistsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new EntityAlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1EntityNotExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityNotExistsException> => {
-  const contents: EntityNotExistsException = {
-    name: "EntityNotExistsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    EntityIds: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.EntityIds !== undefined && data.EntityIds !== null) {
     contents.EntityIds = deserializeAws_restJson1EntityIdList(data.EntityIds, context);
@@ -5729,275 +4214,258 @@ const deserializeAws_restJson1EntityNotExistsExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new EntityNotExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1FailedDependencyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<FailedDependencyException> => {
-  const contents: FailedDependencyException = {
-    name: "FailedDependencyException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new FailedDependencyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1IllegalUserStateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IllegalUserStateException> => {
-  const contents: IllegalUserStateException = {
-    name: "IllegalUserStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new IllegalUserStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidArgumentExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
-  const contents: InvalidArgumentException = {
-    name: "InvalidArgumentException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InvalidArgumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidCommentOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidCommentOperationException> => {
-  const contents: InvalidCommentOperationException = {
-    name: "InvalidCommentOperationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InvalidCommentOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
-  const contents: InvalidOperationException = {
-    name: "InvalidOperationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InvalidOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidPasswordExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
-  const contents: InvalidPasswordException = {
-    name: "InvalidPasswordException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InvalidPasswordException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ProhibitedStateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ProhibitedStateException> => {
-  const contents: ProhibitedStateException = {
-    name: "ProhibitedStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ProhibitedStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1RequestedEntityTooLargeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<RequestedEntityTooLargeException> => {
-  const contents: RequestedEntityTooLargeException = {
-    name: "RequestedEntityTooLargeException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new RequestedEntityTooLargeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceAlreadyCheckedOutExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyCheckedOutException> => {
-  const contents: ResourceAlreadyCheckedOutException = {
-    name: "ResourceAlreadyCheckedOutException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ResourceAlreadyCheckedOutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1StorageLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StorageLimitExceededException> => {
-  const contents: StorageLimitExceededException = {
-    name: "StorageLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new StorageLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1StorageLimitWillExceedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StorageLimitWillExceedException> => {
-  const contents: StorageLimitWillExceedException = {
-    name: "StorageLimitWillExceedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new StorageLimitWillExceedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TooManyLabelsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyLabelsException> => {
-  const contents: TooManyLabelsException = {
-    name: "TooManyLabelsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new TooManyLabelsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TooManySubscriptionsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManySubscriptionsException> => {
-  const contents: TooManySubscriptionsException = {
-    name: "TooManySubscriptionsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new TooManySubscriptionsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnauthorizedOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedOperationException> => {
-  const contents: UnauthorizedOperationException = {
-    name: "UnauthorizedOperationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -6005,24 +4473,27 @@ const deserializeAws_restJson1UnauthorizedOperationExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new UnauthorizedOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedResourceAccessException> => {
-  const contents: UnauthorizedResourceAccessException = {
-    name: "UnauthorizedResourceAccessException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new UnauthorizedResourceAccessException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1CustomMetadataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {

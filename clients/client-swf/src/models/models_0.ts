@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SWFServiceException as __BaseException } from "./SWFServiceException";
 
 /**
  * <p>Represents an activity type.</p>
@@ -1480,25 +1483,39 @@ export namespace CountClosedWorkflowExecutionsInput {
 /**
  * <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  */
-export interface OperationNotPermittedFault extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedFault";
-  $fault: "client";
+export class OperationNotPermittedFault extends __BaseException {
+  readonly name: "OperationNotPermittedFault" = "OperationNotPermittedFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedFault, __BaseException>) {
+    super({
+      name: "OperationNotPermittedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedFault.prototype);
+  }
 }
 
 /**
  * <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  */
-export interface UnknownResourceFault extends __SmithyException, $MetadataBearer {
-  name: "UnknownResourceFault";
-  $fault: "client";
+export class UnknownResourceFault extends __BaseException {
+  readonly name: "UnknownResourceFault" = "UnknownResourceFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnknownResourceFault, __BaseException>) {
+    super({
+      name: "UnknownResourceFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownResourceFault.prototype);
+  }
 }
 
 /**
@@ -4937,10 +4954,20 @@ export namespace DecisionTask {
  *         type, this error is displayed.</p>
  *          </note>
  */
-export interface DefaultUndefinedFault extends __SmithyException, $MetadataBearer {
-  name: "DefaultUndefinedFault";
-  $fault: "client";
-  message?: string;
+export class DefaultUndefinedFault extends __BaseException {
+  readonly name: "DefaultUndefinedFault" = "DefaultUndefinedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DefaultUndefinedFault, __BaseException>) {
+    super({
+      name: "DefaultUndefinedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DefaultUndefinedFault.prototype);
+  }
 }
 
 export interface DeprecateActivityTypeInput {
@@ -4967,13 +4994,20 @@ export namespace DeprecateActivityTypeInput {
 /**
  * <p>Returned when the specified activity or workflow type was already deprecated.</p>
  */
-export interface TypeDeprecatedFault extends __SmithyException, $MetadataBearer {
-  name: "TypeDeprecatedFault";
-  $fault: "client";
+export class TypeDeprecatedFault extends __BaseException {
+  readonly name: "TypeDeprecatedFault" = "TypeDeprecatedFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TypeDeprecatedFault, __BaseException>) {
+    super({
+      name: "TypeDeprecatedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TypeDeprecatedFault.prototype);
+  }
 }
 
 export interface DeprecateDomainInput {
@@ -4995,13 +5029,20 @@ export namespace DeprecateDomainInput {
 /**
  * <p>Returned when the specified domain has been deprecated.</p>
  */
-export interface DomainDeprecatedFault extends __SmithyException, $MetadataBearer {
-  name: "DomainDeprecatedFault";
-  $fault: "client";
+export class DomainDeprecatedFault extends __BaseException {
+  readonly name: "DomainDeprecatedFault" = "DomainDeprecatedFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DomainDeprecatedFault, __BaseException>) {
+    super({
+      name: "DomainDeprecatedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainDeprecatedFault.prototype);
+  }
 }
 
 export interface DeprecateWorkflowTypeInput {
@@ -5607,13 +5648,20 @@ export namespace WorkflowTypeDetail {
 /**
  * <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
  */
-export interface DomainAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "DomainAlreadyExistsFault";
-  $fault: "client";
+export class DomainAlreadyExistsFault extends __BaseException {
+  readonly name: "DomainAlreadyExistsFault" = "DomainAlreadyExistsFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DomainAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "DomainAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainAlreadyExistsFault.prototype);
+  }
 }
 
 /**
@@ -5719,13 +5767,20 @@ export namespace History {
 /**
  * <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
  */
-export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededFault";
-  $fault: "client";
+export class LimitExceededFault extends __BaseException {
+  readonly name: "LimitExceededFault" = "LimitExceededFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
+    super({
+      name: "LimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededFault.prototype);
+  }
 }
 
 export interface ListActivityTypesInput {
@@ -6411,13 +6466,20 @@ export namespace RegisterActivityTypeInput {
 /**
  * <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
  */
-export interface TypeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "TypeAlreadyExistsFault";
-  $fault: "client";
+export class TypeAlreadyExistsFault extends __BaseException {
+  readonly name: "TypeAlreadyExistsFault" = "TypeAlreadyExistsFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TypeAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "TypeAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TypeAlreadyExistsFault.prototype);
+  }
 }
 
 export interface RegisterDomainInput {
@@ -6469,10 +6531,20 @@ export namespace RegisterDomainInput {
 /**
  * <p>You've exceeded the number of tags allowed for a domain.</p>
  */
-export interface TooManyTagsFault extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsFault";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsFault extends __BaseException {
+  readonly name: "TooManyTagsFault" = "TooManyTagsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsFault, __BaseException>) {
+    super({
+      name: "TooManyTagsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsFault.prototype);
+  }
 }
 
 export interface RegisterWorkflowTypeInput {
@@ -6965,13 +7037,20 @@ export namespace StartWorkflowExecutionInput {
  * <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
  *       the specified domain.</p>
  */
-export interface WorkflowExecutionAlreadyStartedFault extends __SmithyException, $MetadataBearer {
-  name: "WorkflowExecutionAlreadyStartedFault";
-  $fault: "client";
+export class WorkflowExecutionAlreadyStartedFault extends __BaseException {
+  readonly name: "WorkflowExecutionAlreadyStartedFault" = "WorkflowExecutionAlreadyStartedFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description that may help with diagnosing the cause of the fault.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<WorkflowExecutionAlreadyStartedFault, __BaseException>) {
+    super({
+      name: "WorkflowExecutionAlreadyStartedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WorkflowExecutionAlreadyStartedFault.prototype);
+  }
 }
 
 export interface TagResourceInput {

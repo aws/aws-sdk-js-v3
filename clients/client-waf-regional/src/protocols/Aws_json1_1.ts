@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "../commands/AssociateWebACLCommand";
@@ -442,6 +441,7 @@ import {
   XssMatchSetUpdate,
   XssMatchTuple,
 } from "../models/models_0";
+import { WAFRegionalServiceException as __BaseException } from "../models/WAFRegionalServiceException";
 
 export const serializeAws_json1_1AssociateWebACLCommand = async (
   input: AssociateWebACLCommandInput,
@@ -1521,65 +1521,34 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFUnavailableEntityException":
     case "com.amazonaws.wafregional#WAFUnavailableEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateByteMatchSetCommand = async (
@@ -1607,73 +1576,37 @@ const deserializeAws_json1_1CreateByteMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateGeoMatchSetCommand = async (
@@ -1701,73 +1634,37 @@ const deserializeAws_json1_1CreateGeoMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateIPSetCommand = async (
@@ -1795,73 +1692,37 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRateBasedRuleCommand = async (
@@ -1889,89 +1750,43 @@ const deserializeAws_json1_1CreateRateBasedRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRegexMatchSetCommand = async (
@@ -1999,57 +1814,31 @@ const deserializeAws_json1_1CreateRegexMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRegexPatternSetCommand = async (
@@ -2077,57 +1866,31 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRuleCommand = async (
@@ -2155,89 +1918,43 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRuleGroupCommand = async (
@@ -2265,81 +1982,40 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateSizeConstraintSetCommand = async (
@@ -2367,73 +2043,37 @@ const deserializeAws_json1_1CreateSizeConstraintSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateSqlInjectionMatchSetCommand = async (
@@ -2461,73 +2101,37 @@ const deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateWebACLCommand = async (
@@ -2555,97 +2159,46 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateWebACLMigrationStackCommand = async (
@@ -2673,65 +2226,34 @@ const deserializeAws_json1_1CreateWebACLMigrationStackCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFEntityMigrationException":
     case "com.amazonaws.wafregional#WAFEntityMigrationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFEntityMigrationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFEntityMigrationExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateXssMatchSetCommand = async (
@@ -2759,73 +2281,37 @@ const deserializeAws_json1_1CreateXssMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteByteMatchSetCommand = async (
@@ -2853,73 +2339,37 @@ const deserializeAws_json1_1DeleteByteMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteGeoMatchSetCommand = async (
@@ -2947,73 +2397,37 @@ const deserializeAws_json1_1DeleteGeoMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteIPSetCommand = async (
@@ -3041,73 +2455,37 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteLoggingConfigurationCommand = async (
@@ -3135,49 +2513,28 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeletePermissionPolicyCommand = async (
@@ -3205,49 +2562,28 @@ const deserializeAws_json1_1DeletePermissionPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRateBasedRuleCommand = async (
@@ -3275,89 +2611,43 @@ const deserializeAws_json1_1DeleteRateBasedRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRegexMatchSetCommand = async (
@@ -3385,73 +2675,37 @@ const deserializeAws_json1_1DeleteRegexMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRegexPatternSetCommand = async (
@@ -3479,73 +2733,37 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRuleCommand = async (
@@ -3573,89 +2791,43 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRuleGroupCommand = async (
@@ -3683,89 +2855,43 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteSizeConstraintSetCommand = async (
@@ -3793,73 +2919,37 @@ const deserializeAws_json1_1DeleteSizeConstraintSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand = async (
@@ -3887,73 +2977,37 @@ const deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteWebACLCommand = async (
@@ -3981,89 +3035,43 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteXssMatchSetCommand = async (
@@ -4091,73 +3099,37 @@ const deserializeAws_json1_1DeleteXssMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.wafregional#WAFNonEmptyEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateWebACLCommand = async (
@@ -4185,57 +3157,31 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetByteMatchSetCommand = async (
@@ -4263,49 +3209,28 @@ const deserializeAws_json1_1GetByteMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetChangeTokenCommand = async (
@@ -4333,33 +3258,22 @@ const deserializeAws_json1_1GetChangeTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetChangeTokenStatusCommand = async (
@@ -4387,41 +3301,25 @@ const deserializeAws_json1_1GetChangeTokenStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetGeoMatchSetCommand = async (
@@ -4449,49 +3347,28 @@ const deserializeAws_json1_1GetGeoMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetIPSetCommand = async (
@@ -4519,49 +3396,28 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLoggingConfigurationCommand = async (
@@ -4589,41 +3445,25 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetPermissionPolicyCommand = async (
@@ -4651,41 +3491,25 @@ const deserializeAws_json1_1GetPermissionPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRateBasedRuleCommand = async (
@@ -4713,49 +3537,28 @@ const deserializeAws_json1_1GetRateBasedRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand = async (
@@ -4783,57 +3586,31 @@ const deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRegexMatchSetCommand = async (
@@ -4861,49 +3638,28 @@ const deserializeAws_json1_1GetRegexMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRegexPatternSetCommand = async (
@@ -4931,49 +3687,28 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRuleCommand = async (
@@ -5001,49 +3736,28 @@ const deserializeAws_json1_1GetRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRuleGroupCommand = async (
@@ -5071,41 +3785,25 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetSampledRequestsCommand = async (
@@ -5133,41 +3831,25 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetSizeConstraintSetCommand = async (
@@ -5195,49 +3877,28 @@ const deserializeAws_json1_1GetSizeConstraintSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetSqlInjectionMatchSetCommand = async (
@@ -5265,49 +3926,28 @@ const deserializeAws_json1_1GetSqlInjectionMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetWebACLCommand = async (
@@ -5335,49 +3975,28 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetWebACLForResourceCommand = async (
@@ -5405,65 +4024,34 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFUnavailableEntityException":
     case "com.amazonaws.wafregional#WAFUnavailableEntityException":
-      response = {
-        ...(await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFUnavailableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetXssMatchSetCommand = async (
@@ -5491,49 +4079,28 @@ const deserializeAws_json1_1GetXssMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand = async (
@@ -5561,49 +4128,28 @@ const deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListByteMatchSetsCommand = async (
@@ -5631,41 +4177,25 @@ const deserializeAws_json1_1ListByteMatchSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListGeoMatchSetsCommand = async (
@@ -5693,41 +4223,25 @@ const deserializeAws_json1_1ListGeoMatchSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListIPSetsCommand = async (
@@ -5755,41 +4269,25 @@ const deserializeAws_json1_1ListIPSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListLoggingConfigurationsCommand = async (
@@ -5817,49 +4315,28 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRateBasedRulesCommand = async (
@@ -5887,41 +4364,25 @@ const deserializeAws_json1_1ListRateBasedRulesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRegexMatchSetsCommand = async (
@@ -5949,41 +4410,25 @@ const deserializeAws_json1_1ListRegexMatchSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRegexPatternSetsCommand = async (
@@ -6011,41 +4456,25 @@ const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListResourcesForWebACLCommand = async (
@@ -6073,57 +4502,31 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRuleGroupsCommand = async (
@@ -6151,33 +4554,22 @@ const deserializeAws_json1_1ListRuleGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListRulesCommand = async (
@@ -6205,41 +4597,25 @@ const deserializeAws_json1_1ListRulesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListSizeConstraintSetsCommand = async (
@@ -6267,41 +4643,25 @@ const deserializeAws_json1_1ListSizeConstraintSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListSqlInjectionMatchSetsCommand = async (
@@ -6329,41 +4689,25 @@ const deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListSubscribedRuleGroupsCommand = async (
@@ -6391,41 +4735,25 @@ const deserializeAws_json1_1ListSubscribedRuleGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -6453,73 +4781,37 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListWebACLsCommand = async (
@@ -6547,41 +4839,25 @@ const deserializeAws_json1_1ListWebACLsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListXssMatchSetsCommand = async (
@@ -6609,41 +4885,25 @@ const deserializeAws_json1_1ListXssMatchSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutLoggingConfigurationCommand = async (
@@ -6671,57 +4931,31 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFServiceLinkedRoleErrorException":
     case "com.amazonaws.wafregional#WAFServiceLinkedRoleErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutPermissionPolicyCommand = async (
@@ -6749,57 +4983,31 @@ const deserializeAws_json1_1PutPermissionPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidPermissionPolicyException":
     case "com.amazonaws.wafregional#WAFInvalidPermissionPolicyException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -6827,81 +5035,40 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -6929,73 +5096,37 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.wafregional#WAFBadRequestException":
-      response = {
-        ...(await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFTagOperationException":
     case "com.amazonaws.wafregional#WAFTagOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.wafregional#WAFTagOperationInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateByteMatchSetCommand = async (
@@ -7023,89 +5154,43 @@ const deserializeAws_json1_1UpdateByteMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateGeoMatchSetCommand = async (
@@ -7133,97 +5218,46 @@ const deserializeAws_json1_1UpdateGeoMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateIPSetCommand = async (
@@ -7251,97 +5285,46 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateRateBasedRuleCommand = async (
@@ -7369,97 +5352,46 @@ const deserializeAws_json1_1UpdateRateBasedRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateRegexMatchSetCommand = async (
@@ -7487,89 +5419,43 @@ const deserializeAws_json1_1UpdateRegexMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.wafregional#WAFDisallowedNameException":
-      response = {
-        ...(await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateRegexPatternSetCommand = async (
@@ -7597,89 +5483,43 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidRegexPatternException":
     case "com.amazonaws.wafregional#WAFInvalidRegexPatternException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateRuleCommand = async (
@@ -7707,97 +5547,46 @@ const deserializeAws_json1_1UpdateRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateRuleGroupCommand = async (
@@ -7825,81 +5614,40 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSizeConstraintSetCommand = async (
@@ -7927,97 +5675,46 @@ const deserializeAws_json1_1UpdateSizeConstraintSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand = async (
@@ -8045,89 +5742,43 @@ const deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateWebACLCommand = async (
@@ -8155,105 +5806,49 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFReferencedItemException":
     case "com.amazonaws.wafregional#WAFReferencedItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     case "WAFSubscriptionNotFoundException":
     case "com.amazonaws.wafregional#WAFSubscriptionNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateXssMatchSetCommand = async (
@@ -8281,89 +5876,43 @@ const deserializeAws_json1_1UpdateXssMatchSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.wafregional#WAFInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
     case "WAFInvalidAccountException":
     case "com.amazonaws.wafregional#WAFInvalidAccountException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
     case "WAFInvalidOperationException":
     case "com.amazonaws.wafregional#WAFInvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafregional#WAFInvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafregional#WAFLimitsExceededException":
-      response = {
-        ...(await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
     case "WAFNonexistentContainerException":
     case "com.amazonaws.wafregional#WAFNonexistentContainerException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
     case "WAFNonexistentItemException":
     case "com.amazonaws.wafregional#WAFNonexistentItemException":
-      response = {
-        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     case "WAFStaleDataException":
     case "com.amazonaws.wafregional#WAFStaleDataException":
-      response = {
-        ...(await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1WAFBadRequestExceptionResponse = async (
@@ -8372,13 +5921,11 @@ const deserializeAws_json1_1WAFBadRequestExceptionResponse = async (
 ): Promise<WAFBadRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFBadRequestException(body, context);
-  const contents: WAFBadRequestException = {
-    name: "WAFBadRequestException",
-    $fault: "client",
+  const exception = new WAFBadRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFDisallowedNameExceptionResponse = async (
@@ -8387,13 +5934,11 @@ const deserializeAws_json1_1WAFDisallowedNameExceptionResponse = async (
 ): Promise<WAFDisallowedNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFDisallowedNameException(body, context);
-  const contents: WAFDisallowedNameException = {
-    name: "WAFDisallowedNameException",
-    $fault: "client",
+  const exception = new WAFDisallowedNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFEntityMigrationExceptionResponse = async (
@@ -8402,13 +5947,11 @@ const deserializeAws_json1_1WAFEntityMigrationExceptionResponse = async (
 ): Promise<WAFEntityMigrationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFEntityMigrationException(body, context);
-  const contents: WAFEntityMigrationException = {
-    name: "WAFEntityMigrationException",
-    $fault: "client",
+  const exception = new WAFEntityMigrationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
@@ -8417,13 +5960,11 @@ const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
 ): Promise<WAFInternalErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInternalErrorException(body, context);
-  const contents: WAFInternalErrorException = {
-    name: "WAFInternalErrorException",
-    $fault: "server",
+  const exception = new WAFInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInvalidAccountExceptionResponse = async (
@@ -8432,13 +5973,11 @@ const deserializeAws_json1_1WAFInvalidAccountExceptionResponse = async (
 ): Promise<WAFInvalidAccountException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInvalidAccountException(body, context);
-  const contents: WAFInvalidAccountException = {
-    name: "WAFInvalidAccountException",
-    $fault: "client",
+  const exception = new WAFInvalidAccountException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInvalidOperationExceptionResponse = async (
@@ -8447,13 +5986,11 @@ const deserializeAws_json1_1WAFInvalidOperationExceptionResponse = async (
 ): Promise<WAFInvalidOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInvalidOperationException(body, context);
-  const contents: WAFInvalidOperationException = {
-    name: "WAFInvalidOperationException",
-    $fault: "client",
+  const exception = new WAFInvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
@@ -8462,13 +5999,11 @@ const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
 ): Promise<WAFInvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInvalidParameterException(body, context);
-  const contents: WAFInvalidParameterException = {
-    name: "WAFInvalidParameterException",
-    $fault: "client",
+  const exception = new WAFInvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse = async (
@@ -8477,13 +6012,11 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse = async 
 ): Promise<WAFInvalidPermissionPolicyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInvalidPermissionPolicyException(body, context);
-  const contents: WAFInvalidPermissionPolicyException = {
-    name: "WAFInvalidPermissionPolicyException",
-    $fault: "client",
+  const exception = new WAFInvalidPermissionPolicyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse = async (
@@ -8492,13 +6025,11 @@ const deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse = async (
 ): Promise<WAFInvalidRegexPatternException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFInvalidRegexPatternException(body, context);
-  const contents: WAFInvalidRegexPatternException = {
-    name: "WAFInvalidRegexPatternException",
-    $fault: "client",
+  const exception = new WAFInvalidRegexPatternException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
@@ -8507,13 +6038,11 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
 ): Promise<WAFLimitsExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFLimitsExceededException(body, context);
-  const contents: WAFLimitsExceededException = {
-    name: "WAFLimitsExceededException",
-    $fault: "client",
+  const exception = new WAFLimitsExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse = async (
@@ -8522,13 +6051,11 @@ const deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse = async (
 ): Promise<WAFNonEmptyEntityException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFNonEmptyEntityException(body, context);
-  const contents: WAFNonEmptyEntityException = {
-    name: "WAFNonEmptyEntityException",
-    $fault: "client",
+  const exception = new WAFNonEmptyEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFNonexistentContainerExceptionResponse = async (
@@ -8537,13 +6064,11 @@ const deserializeAws_json1_1WAFNonexistentContainerExceptionResponse = async (
 ): Promise<WAFNonexistentContainerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFNonexistentContainerException(body, context);
-  const contents: WAFNonexistentContainerException = {
-    name: "WAFNonexistentContainerException",
-    $fault: "client",
+  const exception = new WAFNonexistentContainerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
@@ -8552,13 +6077,11 @@ const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
 ): Promise<WAFNonexistentItemException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFNonexistentItemException(body, context);
-  const contents: WAFNonexistentItemException = {
-    name: "WAFNonexistentItemException",
-    $fault: "client",
+  const exception = new WAFNonexistentItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFReferencedItemExceptionResponse = async (
@@ -8567,13 +6090,11 @@ const deserializeAws_json1_1WAFReferencedItemExceptionResponse = async (
 ): Promise<WAFReferencedItemException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFReferencedItemException(body, context);
-  const contents: WAFReferencedItemException = {
-    name: "WAFReferencedItemException",
-    $fault: "client",
+  const exception = new WAFReferencedItemException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
@@ -8582,13 +6103,11 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
 ): Promise<WAFServiceLinkedRoleErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFServiceLinkedRoleErrorException(body, context);
-  const contents: WAFServiceLinkedRoleErrorException = {
-    name: "WAFServiceLinkedRoleErrorException",
-    $fault: "client",
+  const exception = new WAFServiceLinkedRoleErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFStaleDataExceptionResponse = async (
@@ -8597,13 +6116,11 @@ const deserializeAws_json1_1WAFStaleDataExceptionResponse = async (
 ): Promise<WAFStaleDataException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFStaleDataException(body, context);
-  const contents: WAFStaleDataException = {
-    name: "WAFStaleDataException",
-    $fault: "client",
+  const exception = new WAFStaleDataException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse = async (
@@ -8612,13 +6129,11 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse = async (
 ): Promise<WAFSubscriptionNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFSubscriptionNotFoundException(body, context);
-  const contents: WAFSubscriptionNotFoundException = {
-    name: "WAFSubscriptionNotFoundException",
-    $fault: "client",
+  const exception = new WAFSubscriptionNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
@@ -8627,13 +6142,11 @@ const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
 ): Promise<WAFTagOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFTagOperationException(body, context);
-  const contents: WAFTagOperationException = {
-    name: "WAFTagOperationException",
-    $fault: "client",
+  const exception = new WAFTagOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = async (
@@ -8642,13 +6155,11 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = asyn
 ): Promise<WAFTagOperationInternalErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFTagOperationInternalErrorException(body, context);
-  const contents: WAFTagOperationInternalErrorException = {
-    name: "WAFTagOperationInternalErrorException",
-    $fault: "server",
+  const exception = new WAFTagOperationInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1WAFUnavailableEntityExceptionResponse = async (
@@ -8657,13 +6168,11 @@ const deserializeAws_json1_1WAFUnavailableEntityExceptionResponse = async (
 ): Promise<WAFUnavailableEntityException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFUnavailableEntityException(body, context);
-  const contents: WAFUnavailableEntityException = {
-    name: "WAFUnavailableEntityException",
-    $fault: "client",
+  const exception = new WAFUnavailableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1ActivatedRule = (input: ActivatedRule, context: __SerdeContext): any => {

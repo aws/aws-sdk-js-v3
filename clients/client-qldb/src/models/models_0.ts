@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { QLDBServiceException as __BaseException } from "./QLDBServiceException";
 
 export interface CancelJournalKinesisStreamRequest {
   /**
@@ -42,22 +44,35 @@ export namespace CancelJournalKinesisStreamResponse {
 /**
  * <p>One or more parameters in the request aren't valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The name of the invalid parameter.</p>
    */
   ParameterName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+    this.ParameterName = opts.ParameterName;
+  }
 }
 
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
@@ -68,14 +83,28 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 /**
  * <p>The operation failed because a condition wasn't satisfied in advance.</p>
  */
-export interface ResourcePreconditionNotMetException extends __SmithyException, $MetadataBearer {
-  name: "ResourcePreconditionNotMetException";
-  $fault: "client";
+export class ResourcePreconditionNotMetException extends __BaseException {
+  readonly name: "ResourcePreconditionNotMetException" = "ResourcePreconditionNotMetException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
@@ -86,6 +115,20 @@ export interface ResourcePreconditionNotMetException extends __SmithyException, 
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePreconditionNotMetException, __BaseException>) {
+    super({
+      name: "ResourcePreconditionNotMetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePreconditionNotMetException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export enum PermissionsMode {
@@ -275,22 +318,35 @@ export namespace CreateLedgerResponse {
 /**
  * <p>You have reached the limit on the maximum number of resources allowed.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
@@ -301,14 +357,28 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 /**
  * <p>The specified resource can't be modified at this time.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The type of resource.</p>
@@ -319,6 +389,20 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export interface DeleteLedgerRequest {
