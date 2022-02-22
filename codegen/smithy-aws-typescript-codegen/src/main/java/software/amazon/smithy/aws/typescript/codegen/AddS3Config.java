@@ -186,7 +186,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket") && testServiceId(s))
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
+                                && testServiceId(s))
                         .build(),
                  /**
                  * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
