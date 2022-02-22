@@ -140,7 +140,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
-                        .withConventions(TypeScriptDependency.BODY_CHECKSUM.dependency, "ApplyBodyChecksum",
+                        .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
                                          HAS_MIDDLEWARE)
                         .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
                         .operationPredicate((m, s, o) -> hasHttpChecksumTrait(o))
