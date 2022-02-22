@@ -70,7 +70,9 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
     AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
     AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
-    MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery");
+    MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
+    AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "2.0.0"),
+    FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums");
 
     public final String packageName;
     public final String version;
