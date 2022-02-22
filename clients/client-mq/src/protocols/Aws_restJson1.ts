@@ -2539,7 +2539,7 @@ const serializeAws_restJson1WeeklyStartTime = (input: WeeklyStartTime, context: 
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2547,10 +2547,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2558,10 +2559,11 @@ const deserializeAws_restJson1__listOfAvailabilityZone = (output: any, context: 
       }
       return deserializeAws_restJson1AvailabilityZone(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBrokerEngineType = (output: any, context: __SerdeContext): BrokerEngineType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2569,10 +2571,11 @@ const deserializeAws_restJson1__listOfBrokerEngineType = (output: any, context: 
       }
       return deserializeAws_restJson1BrokerEngineType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBrokerInstance = (output: any, context: __SerdeContext): BrokerInstance[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2580,13 +2583,14 @@ const deserializeAws_restJson1__listOfBrokerInstance = (output: any, context: __
       }
       return deserializeAws_restJson1BrokerInstance(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBrokerInstanceOption = (
   output: any,
   context: __SerdeContext
 ): BrokerInstanceOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2594,10 +2598,11 @@ const deserializeAws_restJson1__listOfBrokerInstanceOption = (
       }
       return deserializeAws_restJson1BrokerInstanceOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBrokerSummary = (output: any, context: __SerdeContext): BrokerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2605,10 +2610,11 @@ const deserializeAws_restJson1__listOfBrokerSummary = (output: any, context: __S
       }
       return deserializeAws_restJson1BrokerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __SerdeContext): Configuration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2616,10 +2622,11 @@ const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __S
       }
       return deserializeAws_restJson1Configuration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConfigurationId = (output: any, context: __SerdeContext): ConfigurationId[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2627,13 +2634,14 @@ const deserializeAws_restJson1__listOfConfigurationId = (output: any, context: _
       }
       return deserializeAws_restJson1ConfigurationId(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
 ): ConfigurationRevision[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2641,13 +2649,14 @@ const deserializeAws_restJson1__listOfConfigurationRevision = (
       }
       return deserializeAws_restJson1ConfigurationRevision(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfDeploymentMode = (
   output: any,
   context: __SerdeContext
 ): (DeploymentMode | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2655,10 +2664,11 @@ const deserializeAws_restJson1__listOfDeploymentMode = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfEngineVersion = (output: any, context: __SerdeContext): EngineVersion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2666,13 +2676,14 @@ const deserializeAws_restJson1__listOfEngineVersion = (output: any, context: __S
       }
       return deserializeAws_restJson1EngineVersion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSanitizationWarning = (
   output: any,
   context: __SerdeContext
 ): SanitizationWarning[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2680,10 +2691,11 @@ const deserializeAws_restJson1__listOfSanitizationWarning = (
       }
       return deserializeAws_restJson1SanitizationWarning(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfUserSummary = (output: any, context: __SerdeContext): UserSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2691,6 +2703,7 @@ const deserializeAws_restJson1__listOfUserSummary = (output: any, context: __Ser
       }
       return deserializeAws_restJson1UserSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

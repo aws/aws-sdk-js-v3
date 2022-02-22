@@ -256,7 +256,7 @@ const serializeAws_restJson1InputList = (input: string[], context: __SerdeContex
 };
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -264,6 +264,7 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1PredictedItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {

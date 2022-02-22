@@ -6130,7 +6130,7 @@ const serializeAws_restJson1XavcSettings = (input: XavcSettings, context: __Serd
 };
 
 const deserializeAws_restJson1__listOf__doubleMinNegative60Max6 = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6138,10 +6138,11 @@ const deserializeAws_restJson1__listOf__doubleMinNegative60Max6 = (output: any, 
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__integerMin1Max2147483647 = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6149,10 +6150,11 @@ const deserializeAws_restJson1__listOf__integerMin1Max2147483647 = (output: any,
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__integerMin32Max8182 = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6160,10 +6162,11 @@ const deserializeAws_restJson1__listOf__integerMin32Max8182 = (output: any, cont
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__integerMinNegative60Max6 = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6171,10 +6174,11 @@ const deserializeAws_restJson1__listOf__integerMinNegative60Max6 = (output: any,
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6182,10 +6186,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__stringMin1 = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6193,13 +6198,14 @@ const deserializeAws_restJson1__listOf__stringMin1 = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6207,13 +6213,14 @@ const deserializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409a
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12 = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6221,13 +6228,14 @@ const deserializeAws_restJson1__listOf__stringPattern09aFAF809aFAF409aFAF409aFAF
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6235,10 +6243,11 @@ const deserializeAws_restJson1__listOf__stringPatternS3ASSETMAPXml = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: __SerdeContext): AudioDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6246,13 +6255,14 @@ const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: 
       }
       return deserializeAws_restJson1AudioDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
 ): CaptionDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6260,13 +6270,14 @@ const deserializeAws_restJson1__listOfCaptionDescription = (
       }
       return deserializeAws_restJson1CaptionDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCaptionDescriptionPreset = (
   output: any,
   context: __SerdeContext
 ): CaptionDescriptionPreset[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6274,13 +6285,14 @@ const deserializeAws_restJson1__listOfCaptionDescriptionPreset = (
       }
       return deserializeAws_restJson1CaptionDescriptionPreset(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCmafAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): CmafAdditionalManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6288,13 +6300,14 @@ const deserializeAws_restJson1__listOfCmafAdditionalManifest = (
       }
       return deserializeAws_restJson1CmafAdditionalManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfDashAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): DashAdditionalManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6302,10 +6315,11 @@ const deserializeAws_restJson1__listOfDashAdditionalManifest = (
       }
       return deserializeAws_restJson1DashAdditionalManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfEndpoint = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6313,13 +6327,14 @@ const deserializeAws_restJson1__listOfEndpoint = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1Endpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): HlsAdditionalManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6327,13 +6342,14 @@ const deserializeAws_restJson1__listOfHlsAdditionalManifest = (
       }
       return deserializeAws_restJson1HlsAdditionalManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
 ): (HlsAdMarkers | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6341,13 +6357,14 @@ const deserializeAws_restJson1__listOfHlsAdMarkers = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsCaptionLanguageMapping = (
   output: any,
   context: __SerdeContext
 ): HlsCaptionLanguageMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6355,10 +6372,11 @@ const deserializeAws_restJson1__listOfHlsCaptionLanguageMapping = (
       }
       return deserializeAws_restJson1HlsCaptionLanguageMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHopDestination = (output: any, context: __SerdeContext): HopDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6366,10 +6384,11 @@ const deserializeAws_restJson1__listOfHopDestination = (output: any, context: __
       }
       return deserializeAws_restJson1HopDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfId3Insertion = (output: any, context: __SerdeContext): Id3Insertion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6377,10 +6396,11 @@ const deserializeAws_restJson1__listOfId3Insertion = (output: any, context: __Se
       }
       return deserializeAws_restJson1Id3Insertion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInput = (output: any, context: __SerdeContext): Input[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6388,10 +6408,11 @@ const deserializeAws_restJson1__listOfInput = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Input(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputClipping = (output: any, context: __SerdeContext): InputClipping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6399,10 +6420,11 @@ const deserializeAws_restJson1__listOfInputClipping = (output: any, context: __S
       }
       return deserializeAws_restJson1InputClipping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputTemplate = (output: any, context: __SerdeContext): InputTemplate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6410,10 +6432,11 @@ const deserializeAws_restJson1__listOfInputTemplate = (output: any, context: __S
       }
       return deserializeAws_restJson1InputTemplate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInsertableImage = (output: any, context: __SerdeContext): InsertableImage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6421,10 +6444,11 @@ const deserializeAws_restJson1__listOfInsertableImage = (output: any, context: _
       }
       return deserializeAws_restJson1InsertableImage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfJob = (output: any, context: __SerdeContext): Job[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6432,10 +6456,11 @@ const deserializeAws_restJson1__listOfJob = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Job(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfJobTemplate = (output: any, context: __SerdeContext): JobTemplate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6443,13 +6468,14 @@ const deserializeAws_restJson1__listOfJobTemplate = (output: any, context: __Ser
       }
       return deserializeAws_restJson1JobTemplate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMsSmoothAdditionalManifest = (
   output: any,
   context: __SerdeContext
 ): MsSmoothAdditionalManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6457,10 +6483,11 @@ const deserializeAws_restJson1__listOfMsSmoothAdditionalManifest = (
       }
       return deserializeAws_restJson1MsSmoothAdditionalManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6468,13 +6495,14 @@ const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Output(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputChannelMapping = (
   output: any,
   context: __SerdeContext
 ): OutputChannelMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6482,10 +6510,11 @@ const deserializeAws_restJson1__listOfOutputChannelMapping = (
       }
       return deserializeAws_restJson1OutputChannelMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputDetail = (output: any, context: __SerdeContext): OutputDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6493,10 +6522,11 @@ const deserializeAws_restJson1__listOfOutputDetail = (output: any, context: __Se
       }
       return deserializeAws_restJson1OutputDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputGroup = (output: any, context: __SerdeContext): OutputGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6504,13 +6534,14 @@ const deserializeAws_restJson1__listOfOutputGroup = (output: any, context: __Ser
       }
       return deserializeAws_restJson1OutputGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputGroupDetail = (
   output: any,
   context: __SerdeContext
 ): OutputGroupDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6518,10 +6549,11 @@ const deserializeAws_restJson1__listOfOutputGroupDetail = (
       }
       return deserializeAws_restJson1OutputGroupDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPreset = (output: any, context: __SerdeContext): Preset[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6529,10 +6561,11 @@ const deserializeAws_restJson1__listOfPreset = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Preset(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfQueue = (output: any, context: __SerdeContext): Queue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6540,10 +6573,11 @@ const deserializeAws_restJson1__listOfQueue = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Queue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfQueueTransition = (output: any, context: __SerdeContext): QueueTransition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6551,13 +6585,14 @@ const deserializeAws_restJson1__listOfQueueTransition = (output: any, context: _
       }
       return deserializeAws_restJson1QueueTransition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfTeletextPageType = (
   output: any,
   context: __SerdeContext
 ): (TeletextPageType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6565,6 +6600,7 @@ const deserializeAws_restJson1__listOfTeletextPageType = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

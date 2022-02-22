@@ -2359,7 +2359,7 @@ const deserializeAws_json1_1Address = (output: any, context: __SerdeContext): Ad
 };
 
 const deserializeAws_json1_1AddressList = (output: any, context: __SerdeContext): Address[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2367,6 +2367,7 @@ const deserializeAws_json1_1AddressList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Address(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CancelClusterResult = (output: any, context: __SerdeContext): CancelClusterResult => {
@@ -2399,7 +2400,7 @@ const deserializeAws_json1_1ClusterListEntry = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ClusterListEntryList = (output: any, context: __SerdeContext): ClusterListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2407,6 +2408,7 @@ const deserializeAws_json1_1ClusterListEntryList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ClusterListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeContext): ClusterMetadata => {
@@ -2452,7 +2454,7 @@ const deserializeAws_json1_1CompatibleImage = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1CompatibleImageList = (output: any, context: __SerdeContext): CompatibleImage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2460,6 +2462,7 @@ const deserializeAws_json1_1CompatibleImageList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1CompatibleImage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -2589,7 +2592,7 @@ const deserializeAws_json1_1Ec2AmiResource = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Ec2AmiResourceList = (output: any, context: __SerdeContext): Ec2AmiResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2597,6 +2600,7 @@ const deserializeAws_json1_1Ec2AmiResourceList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1Ec2AmiResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Ec2RequestFailedException = (
@@ -2618,7 +2622,7 @@ const deserializeAws_json1_1EventTriggerDefinitionList = (
   output: any,
   context: __SerdeContext
 ): EventTriggerDefinition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2626,6 +2630,7 @@ const deserializeAws_json1_1EventTriggerDefinitionList = (
       }
       return deserializeAws_json1_1EventTriggerDefinition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetJobManifestResult = (output: any, context: __SerdeContext): GetJobManifestResult => {
@@ -2724,7 +2729,7 @@ const deserializeAws_json1_1JobListEntry = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1JobListEntryList = (output: any, context: __SerdeContext): JobListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2732,6 +2737,7 @@ const deserializeAws_json1_1JobListEntryList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1JobListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1JobLogs = (output: any, context: __SerdeContext): JobLogs => {
@@ -2797,7 +2803,7 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1JobMetadataList = (output: any, context: __SerdeContext): JobMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2805,6 +2811,7 @@ const deserializeAws_json1_1JobMetadataList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1JobMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext): JobResource => {
@@ -2825,7 +2832,7 @@ const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1JobStateList = (output: any, context: __SerdeContext): (JobState | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2833,6 +2840,7 @@ const deserializeAws_json1_1JobStateList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1KeyRange = (output: any, context: __SerdeContext): KeyRange => {
@@ -2862,7 +2870,7 @@ const deserializeAws_json1_1LambdaResource = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1LambdaResourceList = (output: any, context: __SerdeContext): LambdaResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2870,6 +2878,7 @@ const deserializeAws_json1_1LambdaResourceList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1LambdaResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __SerdeContext): ListClusterJobsResult => {
@@ -2929,7 +2938,7 @@ const deserializeAws_json1_1ListLongTermPricingResult = (
 };
 
 const deserializeAws_json1_1LongTermPricingAssociatedJobIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2937,13 +2946,14 @@ const deserializeAws_json1_1LongTermPricingAssociatedJobIdList = (output: any, c
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LongTermPricingEntryList = (
   output: any,
   context: __SerdeContext
 ): LongTermPricingListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2951,6 +2961,7 @@ const deserializeAws_json1_1LongTermPricingEntryList = (
       }
       return deserializeAws_json1_1LongTermPricingListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LongTermPricingListEntry = (
@@ -3041,7 +3052,7 @@ const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1S3ResourceList = (output: any, context: __SerdeContext): S3Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3049,6 +3060,7 @@ const deserializeAws_json1_1S3ResourceList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1S3Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Shipment = (output: any, context: __SerdeContext): Shipment => {
@@ -3095,7 +3107,7 @@ const deserializeAws_json1_1TargetOnDeviceServiceList = (
   output: any,
   context: __SerdeContext
 ): TargetOnDeviceService[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3103,6 +3115,7 @@ const deserializeAws_json1_1TargetOnDeviceServiceList = (
       }
       return deserializeAws_json1_1TargetOnDeviceService(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext): TaxDocuments => {

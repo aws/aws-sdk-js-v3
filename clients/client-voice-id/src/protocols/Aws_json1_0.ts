@@ -2117,7 +2117,7 @@ const deserializeAws_json1_0Domain = (output: any, context: __SerdeContext): Dom
 };
 
 const deserializeAws_json1_0DomainSummaries = (output: any, context: __SerdeContext): DomainSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2125,6 +2125,7 @@ const deserializeAws_json1_0DomainSummaries = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_0DomainSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
@@ -2209,7 +2210,7 @@ const deserializeAws_json1_0FraudDetectionReasons = (
   output: any,
   context: __SerdeContext
 ): (FraudDetectionReason | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2217,6 +2218,7 @@ const deserializeAws_json1_0FraudDetectionReasons = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0FraudDetectionResult = (output: any, context: __SerdeContext): FraudDetectionResult => {
@@ -2311,7 +2313,7 @@ const deserializeAws_json1_0FraudsterRegistrationJobSummaries = (
   output: any,
   context: __SerdeContext
 ): FraudsterRegistrationJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2319,6 +2321,7 @@ const deserializeAws_json1_0FraudsterRegistrationJobSummaries = (
       }
       return deserializeAws_json1_0FraudsterRegistrationJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0FraudsterRegistrationJobSummary = (
@@ -2545,7 +2548,7 @@ const deserializeAws_json1_0SpeakerEnrollmentJobSummaries = (
   output: any,
   context: __SerdeContext
 ): SpeakerEnrollmentJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2553,6 +2556,7 @@ const deserializeAws_json1_0SpeakerEnrollmentJobSummaries = (
       }
       return deserializeAws_json1_0SpeakerEnrollmentJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0SpeakerEnrollmentJobSummary = (
@@ -2584,7 +2588,7 @@ const deserializeAws_json1_0SpeakerEnrollmentJobSummary = (
 };
 
 const deserializeAws_json1_0SpeakerSummaries = (output: any, context: __SerdeContext): SpeakerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2592,6 +2596,7 @@ const deserializeAws_json1_0SpeakerSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0SpeakerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0SpeakerSummary = (output: any, context: __SerdeContext): SpeakerSummary => {
@@ -2643,7 +2648,7 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2651,6 +2656,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

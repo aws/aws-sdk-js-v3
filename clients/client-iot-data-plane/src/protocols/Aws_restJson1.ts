@@ -880,7 +880,7 @@ const deserializeAws_restJson1UnsupportedDocumentEncodingExceptionResponse = asy
 };
 
 const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -888,13 +888,14 @@ const deserializeAws_restJson1NamedShadowList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RetainedMessageList = (
   output: any,
   context: __SerdeContext
 ): RetainedMessageSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -902,6 +903,7 @@ const deserializeAws_restJson1RetainedMessageList = (
       }
       return deserializeAws_restJson1RetainedMessageSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RetainedMessageSummary = (

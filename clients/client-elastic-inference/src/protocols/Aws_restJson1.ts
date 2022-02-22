@@ -641,7 +641,7 @@ const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AcceleratorTypeList = (output: any, context: __SerdeContext): AcceleratorType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -649,6 +649,7 @@ const deserializeAws_restJson1AcceleratorTypeList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1AcceleratorType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AcceleratorTypeOffering = (
@@ -666,7 +667,7 @@ const deserializeAws_restJson1AcceleratorTypeOfferingList = (
   output: any,
   context: __SerdeContext
 ): AcceleratorTypeOffering[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -674,6 +675,7 @@ const deserializeAws_restJson1AcceleratorTypeOfferingList = (
       }
       return deserializeAws_restJson1AcceleratorTypeOffering(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ElasticInferenceAccelerator = (
@@ -705,7 +707,7 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
   output: any,
   context: __SerdeContext
 ): ElasticInferenceAccelerator[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -713,6 +715,7 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
       }
       return deserializeAws_restJson1ElasticInferenceAccelerator(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
@@ -741,7 +744,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 };
 
 const deserializeAws_restJson1ThroughputInfoList = (output: any, context: __SerdeContext): KeyValuePair[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -749,6 +752,7 @@ const deserializeAws_restJson1ThroughputInfoList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1KeyValuePair(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

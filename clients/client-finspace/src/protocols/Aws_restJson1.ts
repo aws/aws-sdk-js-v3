@@ -928,7 +928,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -936,6 +936,7 @@ const deserializeAws_restJson1EnvironmentList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Environment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FederationParameters = (output: any, context: __SerdeContext): FederationParameters => {

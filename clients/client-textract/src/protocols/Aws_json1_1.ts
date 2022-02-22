@@ -1443,7 +1443,7 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
 };
 
 const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): Block[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1451,6 +1451,7 @@ const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Block(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
@@ -1496,7 +1497,7 @@ const deserializeAws_json1_1DocumentTooLargeException = (
 };
 
 const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1504,6 +1505,7 @@ const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExpenseDetection = (output: any, context: __SerdeContext): ExpenseDetection => {
@@ -1532,7 +1534,7 @@ const deserializeAws_json1_1ExpenseDocument = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ExpenseDocumentList = (output: any, context: __SerdeContext): ExpenseDocument[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1540,6 +1542,7 @@ const deserializeAws_json1_1ExpenseDocumentList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ExpenseDocument(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext): ExpenseField => {
@@ -1561,7 +1564,7 @@ const deserializeAws_json1_1ExpenseField = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeContext): ExpenseField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1569,6 +1572,7 @@ const deserializeAws_json1_1ExpenseFieldList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ExpenseField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExpenseType = (output: any, context: __SerdeContext): ExpenseType => {
@@ -1682,7 +1686,7 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
 };
 
 const deserializeAws_json1_1HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1690,6 +1694,7 @@ const deserializeAws_json1_1HumanLoopActivationReasons = (output: any, context: 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HumanLoopQuotaExceededException = (
@@ -1742,7 +1747,7 @@ const deserializeAws_json1_1IdentityDocumentFieldList = (
   output: any,
   context: __SerdeContext
 ): IdentityDocumentField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1750,10 +1755,11 @@ const deserializeAws_json1_1IdentityDocumentFieldList = (
       }
       return deserializeAws_json1_1IdentityDocumentField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IdentityDocumentList = (output: any, context: __SerdeContext): IdentityDocument[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1761,10 +1767,11 @@ const deserializeAws_json1_1IdentityDocumentList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1IdentityDocument(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1772,6 +1779,7 @@ const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
@@ -1842,7 +1850,7 @@ const deserializeAws_json1_1LineItemGroup = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1LineItemGroupList = (output: any, context: __SerdeContext): LineItemGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1850,10 +1858,11 @@ const deserializeAws_json1_1LineItemGroupList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1LineItemGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LineItemList = (output: any, context: __SerdeContext): LineItemFields[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1861,6 +1870,7 @@ const deserializeAws_json1_1LineItemList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1LineItemFields(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NormalizedValue = (output: any, context: __SerdeContext): NormalizedValue => {
@@ -1871,7 +1881,7 @@ const deserializeAws_json1_1NormalizedValue = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1879,6 +1889,7 @@ const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): numb
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
@@ -1889,7 +1900,7 @@ const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Poin
 };
 
 const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Point[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1897,6 +1908,7 @@ const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Po
       }
       return deserializeAws_json1_1Point(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -1918,7 +1930,7 @@ const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1926,6 +1938,7 @@ const deserializeAws_json1_1RelationshipList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1Relationship(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartDocumentAnalysisResponse = (
@@ -1983,7 +1996,7 @@ const deserializeAws_json1_1Warning = (output: any, context: __SerdeContext): Wa
 };
 
 const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): Warning[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1991,6 +2004,7 @@ const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): W
       }
       return deserializeAws_json1_1Warning(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

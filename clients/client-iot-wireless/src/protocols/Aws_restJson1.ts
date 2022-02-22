@@ -8891,7 +8891,7 @@ const deserializeAws_restJson1CertificateList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1DestinationList = (output: any, context: __SerdeContext): Destinations[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8899,6 +8899,7 @@ const deserializeAws_restJson1DestinationList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Destinations(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Destinations = (output: any, context: __SerdeContext): Destinations => {
@@ -8913,7 +8914,7 @@ const deserializeAws_restJson1Destinations = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1DeviceCertificateList = (output: any, context: __SerdeContext): CertificateList[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8921,6 +8922,7 @@ const deserializeAws_restJson1DeviceCertificateList = (output: any, context: __S
       }
       return deserializeAws_restJson1CertificateList(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeviceProfile = (output: any, context: __SerdeContext): DeviceProfile => {
@@ -8932,7 +8934,7 @@ const deserializeAws_restJson1DeviceProfile = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DeviceProfileList = (output: any, context: __SerdeContext): DeviceProfile[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8940,6 +8942,7 @@ const deserializeAws_restJson1DeviceProfileList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DeviceProfile(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
@@ -8970,7 +8973,7 @@ const deserializeAws_restJson1DownlinkQueueMessagesList = (
   output: any,
   context: __SerdeContext
 ): DownlinkQueueMessage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8978,10 +8981,11 @@ const deserializeAws_restJson1DownlinkQueueMessagesList = (
       }
       return deserializeAws_restJson1DownlinkQueueMessage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8989,6 +8993,7 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FPorts = (output: any, context: __SerdeContext): FPorts => {
@@ -9008,7 +9013,7 @@ const deserializeAws_restJson1FuotaTask = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1FuotaTaskList = (output: any, context: __SerdeContext): FuotaTask[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9016,10 +9021,11 @@ const deserializeAws_restJson1FuotaTaskList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1FuotaTask(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9027,10 +9033,11 @@ const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1JoinEuiRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1JoinEuiRange = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9038,6 +9045,7 @@ const deserializeAws_restJson1JoinEuiRange = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeContext): LoRaWANDevice => {
@@ -9168,7 +9176,7 @@ const deserializeAws_restJson1LoRaWANGatewayMetadataList = (
   output: any,
   context: __SerdeContext
 ): LoRaWANGatewayMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9176,6 +9184,7 @@ const deserializeAws_restJson1LoRaWANGatewayMetadataList = (
       }
       return deserializeAws_restJson1LoRaWANGatewayMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LoRaWANGatewayVersion = (output: any, context: __SerdeContext): LoRaWANGatewayVersion => {
@@ -9304,7 +9313,7 @@ const deserializeAws_restJson1MulticastGroupByFuotaTask = (
 };
 
 const deserializeAws_restJson1MulticastGroupList = (output: any, context: __SerdeContext): MulticastGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9312,13 +9321,14 @@ const deserializeAws_restJson1MulticastGroupList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1MulticastGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MulticastGroupListByFuotaTask = (
   output: any,
   context: __SerdeContext
 ): MulticastGroupByFuotaTask[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9326,10 +9336,11 @@ const deserializeAws_restJson1MulticastGroupListByFuotaTask = (
       }
       return deserializeAws_restJson1MulticastGroupByFuotaTask(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9337,6 +9348,7 @@ const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1OtaaV1_0_x = (output: any, context: __SerdeContext): OtaaV1_0_x => {
@@ -9376,7 +9388,7 @@ const deserializeAws_restJson1ServiceProfile = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ServiceProfileList = (output: any, context: __SerdeContext): ServiceProfile[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9384,6 +9396,7 @@ const deserializeAws_restJson1ServiceProfileList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1ServiceProfile(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SessionKeysAbpV1_0_x = (output: any, context: __SerdeContext): SessionKeysAbpV1_0_x => {
@@ -9424,7 +9437,7 @@ const deserializeAws_restJson1SidewalkAccountList = (
   output: any,
   context: __SerdeContext
 ): SidewalkAccountInfoWithFingerprint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9432,6 +9445,7 @@ const deserializeAws_restJson1SidewalkAccountList = (
       }
       return deserializeAws_restJson1SidewalkAccountInfoWithFingerprint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SidewalkDevice = (output: any, context: __SerdeContext): SidewalkDevice => {
@@ -9480,7 +9494,7 @@ const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1SubBands = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9488,6 +9502,7 @@ const deserializeAws_restJson1SubBands = (output: any, context: __SerdeContext):
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -9498,7 +9513,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9506,6 +9521,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TraceContent = (output: any, context: __SerdeContext): TraceContent => {
@@ -9557,7 +9573,7 @@ const deserializeAws_restJson1WirelessDeviceEventLogOptionList = (
   output: any,
   context: __SerdeContext
 ): WirelessDeviceEventLogOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9565,10 +9581,11 @@ const deserializeAws_restJson1WirelessDeviceEventLogOptionList = (
       }
       return deserializeAws_restJson1WirelessDeviceEventLogOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessDeviceList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9576,6 +9593,7 @@ const deserializeAws_restJson1WirelessDeviceList = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessDeviceLogOption = (
@@ -9596,7 +9614,7 @@ const deserializeAws_restJson1WirelessDeviceLogOptionList = (
   output: any,
   context: __SerdeContext
 ): WirelessDeviceLogOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9604,6 +9622,7 @@ const deserializeAws_restJson1WirelessDeviceLogOptionList = (
       }
       return deserializeAws_restJson1WirelessDeviceLogOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessDeviceStatistics = (
@@ -9635,7 +9654,7 @@ const deserializeAws_restJson1WirelessDeviceStatisticsList = (
   output: any,
   context: __SerdeContext
 ): WirelessDeviceStatistics[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9643,6 +9662,7 @@ const deserializeAws_restJson1WirelessDeviceStatisticsList = (
       }
       return deserializeAws_restJson1WirelessDeviceStatistics(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessGatewayEventLogOption = (
@@ -9659,7 +9679,7 @@ const deserializeAws_restJson1WirelessGatewayEventLogOptionList = (
   output: any,
   context: __SerdeContext
 ): WirelessGatewayEventLogOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9667,10 +9687,11 @@ const deserializeAws_restJson1WirelessGatewayEventLogOptionList = (
       }
       return deserializeAws_restJson1WirelessGatewayEventLogOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessGatewayList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9678,6 +9699,7 @@ const deserializeAws_restJson1WirelessGatewayList = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessGatewayLogOption = (
@@ -9698,7 +9720,7 @@ const deserializeAws_restJson1WirelessGatewayLogOptionList = (
   output: any,
   context: __SerdeContext
 ): WirelessGatewayLogOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9706,6 +9728,7 @@ const deserializeAws_restJson1WirelessGatewayLogOptionList = (
       }
       return deserializeAws_restJson1WirelessGatewayLogOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessGatewayStatistics = (
@@ -9729,7 +9752,7 @@ const deserializeAws_restJson1WirelessGatewayStatisticsList = (
   output: any,
   context: __SerdeContext
 ): WirelessGatewayStatistics[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9737,13 +9760,14 @@ const deserializeAws_restJson1WirelessGatewayStatisticsList = (
       }
       return deserializeAws_restJson1WirelessGatewayStatistics(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WirelessGatewayTaskDefinitionList = (
   output: any,
   context: __SerdeContext
 ): UpdateWirelessGatewayTaskEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9751,6 +9775,7 @@ const deserializeAws_restJson1WirelessGatewayTaskDefinitionList = (
       }
       return deserializeAws_restJson1UpdateWirelessGatewayTaskEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

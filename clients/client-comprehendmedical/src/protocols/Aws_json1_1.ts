@@ -2349,7 +2349,7 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContext): Attribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2357,6 +2357,7 @@ const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1Attribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Characters = (output: any, context: __SerdeContext): Characters => {
@@ -2406,7 +2407,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): ComprehendMedicalAsyncJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2414,6 +2415,7 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobPropertiesList = (
       }
       return deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse = (
@@ -2541,7 +2543,7 @@ const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Ent
 };
 
 const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext): Entity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2549,6 +2551,7 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Entity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeContext): ICD10CMAttribute => {
@@ -2570,7 +2573,7 @@ const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ICD10CMAttributeList = (output: any, context: __SerdeContext): ICD10CMAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2578,6 +2581,7 @@ const deserializeAws_json1_1ICD10CMAttributeList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ICD10CMAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ICD10CMConcept = (output: any, context: __SerdeContext): ICD10CMConcept => {
@@ -2589,7 +2593,7 @@ const deserializeAws_json1_1ICD10CMConcept = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ICD10CMConceptList = (output: any, context: __SerdeContext): ICD10CMConcept[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2597,6 +2601,7 @@ const deserializeAws_json1_1ICD10CMConceptList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ICD10CMConcept(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ICD10CMEntity = (output: any, context: __SerdeContext): ICD10CMEntity => {
@@ -2624,7 +2629,7 @@ const deserializeAws_json1_1ICD10CMEntity = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1ICD10CMEntityList = (output: any, context: __SerdeContext): ICD10CMEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2632,6 +2637,7 @@ const deserializeAws_json1_1ICD10CMEntityList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1ICD10CMEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
@@ -2642,7 +2648,7 @@ const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ICD10CMTraitList = (output: any, context: __SerdeContext): ICD10CMTrait[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2650,6 +2656,7 @@ const deserializeAws_json1_1ICD10CMTraitList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ICD10CMTrait(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InferICD10CMResponse = (output: any, context: __SerdeContext): InferICD10CMResponse => {
@@ -2845,7 +2852,7 @@ const deserializeAws_json1_1RxNormAttribute = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1RxNormAttributeList = (output: any, context: __SerdeContext): RxNormAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2853,6 +2860,7 @@ const deserializeAws_json1_1RxNormAttributeList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1RxNormAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RxNormConcept = (output: any, context: __SerdeContext): RxNormConcept => {
@@ -2864,7 +2872,7 @@ const deserializeAws_json1_1RxNormConcept = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1RxNormConceptList = (output: any, context: __SerdeContext): RxNormConcept[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2872,6 +2880,7 @@ const deserializeAws_json1_1RxNormConceptList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1RxNormConcept(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext): RxNormEntity => {
@@ -2899,7 +2908,7 @@ const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1RxNormEntityList = (output: any, context: __SerdeContext): RxNormEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2907,6 +2916,7 @@ const deserializeAws_json1_1RxNormEntityList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1RxNormEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
@@ -2917,7 +2927,7 @@ const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1RxNormTraitList = (output: any, context: __SerdeContext): RxNormTrait[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2925,6 +2935,7 @@ const deserializeAws_json1_1RxNormTraitList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1RxNormTrait(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
@@ -2959,7 +2970,7 @@ const deserializeAws_json1_1SNOMEDCTAttribute = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1SNOMEDCTAttributeList = (output: any, context: __SerdeContext): SNOMEDCTAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2967,6 +2978,7 @@ const deserializeAws_json1_1SNOMEDCTAttributeList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1SNOMEDCTAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SNOMEDCTConcept = (output: any, context: __SerdeContext): SNOMEDCTConcept => {
@@ -2978,7 +2990,7 @@ const deserializeAws_json1_1SNOMEDCTConcept = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1SNOMEDCTConceptList = (output: any, context: __SerdeContext): SNOMEDCTConcept[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2986,6 +2998,7 @@ const deserializeAws_json1_1SNOMEDCTConceptList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1SNOMEDCTConcept(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SNOMEDCTDetails = (output: any, context: __SerdeContext): SNOMEDCTDetails => {
@@ -3021,7 +3034,7 @@ const deserializeAws_json1_1SNOMEDCTEntity = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1SNOMEDCTEntityList = (output: any, context: __SerdeContext): SNOMEDCTEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3029,6 +3042,7 @@ const deserializeAws_json1_1SNOMEDCTEntityList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1SNOMEDCTEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SNOMEDCTTrait = (output: any, context: __SerdeContext): SNOMEDCTTrait => {
@@ -3039,7 +3053,7 @@ const deserializeAws_json1_1SNOMEDCTTrait = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1SNOMEDCTTraitList = (output: any, context: __SerdeContext): SNOMEDCTTrait[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3047,6 +3061,7 @@ const deserializeAws_json1_1SNOMEDCTTraitList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1SNOMEDCTTrait(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartEntitiesDetectionV2JobResponse = (
@@ -3165,7 +3180,7 @@ const deserializeAws_json1_1Trait = (output: any, context: __SerdeContext): Trai
 };
 
 const deserializeAws_json1_1TraitList = (output: any, context: __SerdeContext): Trait[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3173,6 +3188,7 @@ const deserializeAws_json1_1TraitList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Trait(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnmappedAttribute = (output: any, context: __SerdeContext): UnmappedAttribute => {
@@ -3186,7 +3202,7 @@ const deserializeAws_json1_1UnmappedAttribute = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1UnmappedAttributeList = (output: any, context: __SerdeContext): UnmappedAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3194,6 +3210,7 @@ const deserializeAws_json1_1UnmappedAttributeList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1UnmappedAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {

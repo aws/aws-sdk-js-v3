@@ -2461,7 +2461,7 @@ const deserializeAws_restJson1AggregatedProfileTime = (output: any, context: __S
 };
 
 const deserializeAws_restJson1Anomalies = (output: any, context: __SerdeContext): Anomaly[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2469,6 +2469,7 @@ const deserializeAws_restJson1Anomalies = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Anomaly(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Anomaly = (output: any, context: __SerdeContext): Anomaly => {
@@ -2504,7 +2505,7 @@ const deserializeAws_restJson1AnomalyInstance = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AnomalyInstances = (output: any, context: __SerdeContext): AnomalyInstance[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2512,6 +2513,7 @@ const deserializeAws_restJson1AnomalyInstances = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1AnomalyInstance(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -2526,46 +2528,34 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): Channel[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = deserializeAws_restJson1Channel(entry, context);
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "com.amazonaws.codeguruprofiler#Channels" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return deserializeAws_restJson1Channel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EventPublishers = (output: any, context: __SerdeContext): (EventPublisher | string)[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = __expectString(entry) as any;
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "com.amazonaws.codeguruprofiler#EventPublishers" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FindingsReportSummaries = (
   output: any,
   context: __SerdeContext
 ): FindingsReportSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2573,6 +2563,7 @@ const deserializeAws_restJson1FindingsReportSummaries = (
       }
       return deserializeAws_restJson1FindingsReportSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FindingsReportSummary = (output: any, context: __SerdeContext): FindingsReportSummary => {
@@ -2603,7 +2594,7 @@ const deserializeAws_restJson1FrameMetric = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1FrameMetricData = (output: any, context: __SerdeContext): FrameMetricDatum[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2611,6 +2602,7 @@ const deserializeAws_restJson1FrameMetricData = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1FrameMetricDatum(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FrameMetricDatum = (output: any, context: __SerdeContext): FrameMetricDatum => {
@@ -2627,7 +2619,7 @@ const deserializeAws_restJson1FrameMetricDatum = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1FrameMetricValues = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2635,10 +2627,11 @@ const deserializeAws_restJson1FrameMetricValues = (output: any, context: __Serde
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfTimestamps = (output: any, context: __SerdeContext): TimestampStructure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2646,6 +2639,7 @@ const deserializeAws_restJson1ListOfTimestamps = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1TimestampStructure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Match = (output: any, context: __SerdeContext): Match => {
@@ -2657,7 +2651,7 @@ const deserializeAws_restJson1Match = (output: any, context: __SerdeContext): Ma
 };
 
 const deserializeAws_restJson1Matches = (output: any, context: __SerdeContext): Match[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2665,6 +2659,7 @@ const deserializeAws_restJson1Matches = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Match(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Metric = (output: any, context: __SerdeContext): Metric => {
@@ -2718,7 +2713,7 @@ const deserializeAws_restJson1ProfileTime = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ProfileTimes = (output: any, context: __SerdeContext): ProfileTime[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2726,6 +2721,7 @@ const deserializeAws_restJson1ProfileTimes = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1ProfileTime(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProfilingGroupDescription = (
@@ -2763,7 +2759,7 @@ const deserializeAws_restJson1ProfilingGroupDescriptions = (
   output: any,
   context: __SerdeContext
 ): ProfilingGroupDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2771,10 +2767,11 @@ const deserializeAws_restJson1ProfilingGroupDescriptions = (
       }
       return deserializeAws_restJson1ProfilingGroupDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProfilingGroupNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2782,6 +2779,7 @@ const deserializeAws_restJson1ProfilingGroupNames = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProfilingStatus = (output: any, context: __SerdeContext): ProfilingStatus => {
@@ -2825,7 +2823,7 @@ const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Recommendations = (output: any, context: __SerdeContext): Recommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2833,10 +2831,11 @@ const deserializeAws_restJson1Recommendations = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Recommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Strings = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2844,6 +2843,7 @@ const deserializeAws_restJson1Strings = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2859,7 +2859,7 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1TargetFrame = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2867,10 +2867,11 @@ const deserializeAws_restJson1TargetFrame = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TargetFrames = (output: any, context: __SerdeContext): string[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2878,10 +2879,11 @@ const deserializeAws_restJson1TargetFrames = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1TargetFrame(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2889,6 +2891,7 @@ const deserializeAws_restJson1ThreadStates = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TimestampStructure = (output: any, context: __SerdeContext): TimestampStructure => {

@@ -3026,7 +3026,7 @@ const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __SerdeContext): DeviceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3034,6 +3034,7 @@ const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DeviceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
@@ -3049,7 +3050,7 @@ const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DomainSummaryList = (output: any, context: __SerdeContext): DomainSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3057,6 +3058,7 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DomainSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
@@ -3082,7 +3084,7 @@ const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1FleetSummaryList = (output: any, context: __SerdeContext): FleetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3090,10 +3092,11 @@ const deserializeAws_restJson1FleetSummaryList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1FleetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3101,10 +3104,11 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3112,6 +3116,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3130,7 +3135,7 @@ const deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList = (
   output: any,
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3138,6 +3143,7 @@ const deserializeAws_restJson1WebsiteAuthorizationProvidersSummaryList = (
       }
       return deserializeAws_restJson1WebsiteAuthorizationProviderSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
@@ -3167,7 +3173,7 @@ const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1WebsiteCaSummaryList = (output: any, context: __SerdeContext): WebsiteCaSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3175,6 +3181,7 @@ const deserializeAws_restJson1WebsiteCaSummaryList = (output: any, context: __Se
       }
       return deserializeAws_restJson1WebsiteCaSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

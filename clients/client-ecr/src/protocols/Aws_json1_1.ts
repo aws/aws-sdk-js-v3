@@ -4217,7 +4217,7 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContext): Attribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4225,6 +4225,7 @@ const deserializeAws_json1_1AttributeList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1Attribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeContext): AuthorizationData => {
@@ -4239,7 +4240,7 @@ const deserializeAws_json1_1AuthorizationData = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AuthorizationDataList = (output: any, context: __SerdeContext): AuthorizationData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4247,6 +4248,7 @@ const deserializeAws_json1_1AuthorizationDataList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1AuthorizationData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AwsEcrContainerImageDetails = (
@@ -4388,7 +4390,7 @@ const deserializeAws_json1_1CvssScoreAdjustment = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1CvssScoreAdjustmentList = (output: any, context: __SerdeContext): CvssScoreAdjustment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4396,6 +4398,7 @@ const deserializeAws_json1_1CvssScoreAdjustmentList = (output: any, context: __S
       }
       return deserializeAws_json1_1CvssScoreAdjustment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CvssScoreDetails = (output: any, context: __SerdeContext): CvssScoreDetails => {
@@ -4412,7 +4415,7 @@ const deserializeAws_json1_1CvssScoreDetails = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4420,6 +4423,7 @@ const deserializeAws_json1_1CvssScoreList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1CvssScore(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
@@ -4638,7 +4642,7 @@ const deserializeAws_json1_1EnhancedImageScanFindingList = (
   output: any,
   context: __SerdeContext
 ): EnhancedImageScanFinding[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4646,6 +4650,7 @@ const deserializeAws_json1_1EnhancedImageScanFindingList = (
       }
       return deserializeAws_json1_1EnhancedImageScanFinding(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FindingSeverityCounts = (
@@ -4808,7 +4813,7 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ImageDetailList = (output: any, context: __SerdeContext): ImageDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4816,6 +4821,7 @@ const deserializeAws_json1_1ImageDetailList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ImageDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageDigestDoesNotMatchException = (
@@ -4839,7 +4845,7 @@ const deserializeAws_json1_1ImageFailure = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ImageFailureList = (output: any, context: __SerdeContext): ImageFailure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4847,6 +4853,7 @@ const deserializeAws_json1_1ImageFailureList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ImageFailure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageIdentifier = (output: any, context: __SerdeContext): ImageIdentifier => {
@@ -4857,7 +4864,7 @@ const deserializeAws_json1_1ImageIdentifier = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ImageIdentifierList = (output: any, context: __SerdeContext): ImageIdentifier[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4865,10 +4872,11 @@ const deserializeAws_json1_1ImageIdentifierList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ImageIdentifier(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): Image[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4876,6 +4884,7 @@ const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Image(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageNotFoundException = (output: any, context: __SerdeContext): ImageNotFoundException => {
@@ -4897,7 +4906,7 @@ const deserializeAws_json1_1ImageReplicationStatusList = (
   output: any,
   context: __SerdeContext
 ): ImageReplicationStatus[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4905,6 +4914,7 @@ const deserializeAws_json1_1ImageReplicationStatusList = (
       }
       return deserializeAws_json1_1ImageReplicationStatus(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageScanFinding = (output: any, context: __SerdeContext): ImageScanFinding => {
@@ -4921,7 +4931,7 @@ const deserializeAws_json1_1ImageScanFinding = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ImageScanFindingList = (output: any, context: __SerdeContext): ImageScanFinding[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4929,6 +4939,7 @@ const deserializeAws_json1_1ImageScanFindingList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ImageScanFinding(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageScanFindings = (output: any, context: __SerdeContext): ImageScanFindings => {
@@ -5002,7 +5013,7 @@ const deserializeAws_json1_1ImageTagAlreadyExistsException = (
 };
 
 const deserializeAws_json1_1ImageTagList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5010,10 +5021,11 @@ const deserializeAws_json1_1ImageTagList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImageTagsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5021,6 +5033,7 @@ const deserializeAws_json1_1ImageTagsList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InitiateLayerUploadResponse = (
@@ -5104,7 +5117,7 @@ const deserializeAws_json1_1LayerFailure = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1LayerFailureList = (output: any, context: __SerdeContext): LayerFailure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5112,6 +5125,7 @@ const deserializeAws_json1_1LayerFailureList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1LayerFailure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LayerInaccessibleException = (
@@ -5124,7 +5138,7 @@ const deserializeAws_json1_1LayerInaccessibleException = (
 };
 
 const deserializeAws_json1_1LayerList = (output: any, context: __SerdeContext): Layer[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5132,6 +5146,7 @@ const deserializeAws_json1_1LayerList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Layer(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LayerPartTooSmallException = (
@@ -5205,7 +5220,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResultList = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyPreviewResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5213,6 +5228,7 @@ const deserializeAws_json1_1LifecyclePolicyPreviewResultList = (
       }
       return deserializeAws_json1_1LifecyclePolicyPreviewResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewSummary = (
@@ -5322,7 +5338,7 @@ const deserializeAws_json1_1PullThroughCacheRuleList = (
   output: any,
   context: __SerdeContext
 ): PullThroughCacheRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5330,6 +5346,7 @@ const deserializeAws_json1_1PullThroughCacheRuleList = (
       }
       return deserializeAws_json1_1PullThroughCacheRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PullThroughCacheRuleNotFoundException = (
@@ -5437,7 +5454,7 @@ const deserializeAws_json1_1ReferencedImagesNotFoundException = (
 };
 
 const deserializeAws_json1_1ReferenceUrlsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5445,6 +5462,7 @@ const deserializeAws_json1_1ReferenceUrlsList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegistryPolicyNotFoundException = (
@@ -5483,7 +5501,7 @@ const deserializeAws_json1_1RegistryScanningRuleList = (
   output: any,
   context: __SerdeContext
 ): RegistryScanningRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5491,10 +5509,11 @@ const deserializeAws_json1_1RegistryScanningRuleList = (
       }
       return deserializeAws_json1_1RegistryScanningRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RelatedVulnerabilitiesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5502,6 +5521,7 @@ const deserializeAws_json1_1RelatedVulnerabilitiesList = (output: any, context: 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Remediation = (output: any, context: __SerdeContext): Remediation => {
@@ -5536,7 +5556,7 @@ const deserializeAws_json1_1ReplicationDestinationList = (
   output: any,
   context: __SerdeContext
 ): ReplicationDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5544,6 +5564,7 @@ const deserializeAws_json1_1ReplicationDestinationList = (
       }
       return deserializeAws_json1_1ReplicationDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
@@ -5560,7 +5581,7 @@ const deserializeAws_json1_1ReplicationRule = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ReplicationRuleList = (output: any, context: __SerdeContext): ReplicationRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5568,6 +5589,7 @@ const deserializeAws_json1_1ReplicationRuleList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ReplicationRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Repository = (output: any, context: __SerdeContext): Repository => {
@@ -5609,7 +5631,7 @@ const deserializeAws_json1_1RepositoryFilter = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1RepositoryFilterList = (output: any, context: __SerdeContext): RepositoryFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5617,10 +5639,11 @@ const deserializeAws_json1_1RepositoryFilterList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1RepositoryFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RepositoryList = (output: any, context: __SerdeContext): Repository[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5628,6 +5651,7 @@ const deserializeAws_json1_1RepositoryList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1Repository(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RepositoryNotEmptyException = (
@@ -5688,7 +5712,7 @@ const deserializeAws_json1_1RepositoryScanningConfigurationFailureList = (
   output: any,
   context: __SerdeContext
 ): RepositoryScanningConfigurationFailure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5696,13 +5720,14 @@ const deserializeAws_json1_1RepositoryScanningConfigurationFailureList = (
       }
       return deserializeAws_json1_1RepositoryScanningConfigurationFailure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RepositoryScanningConfigurationList = (
   output: any,
   context: __SerdeContext
 ): RepositoryScanningConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5710,6 +5735,7 @@ const deserializeAws_json1_1RepositoryScanningConfigurationList = (
       }
       return deserializeAws_json1_1RepositoryScanningConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
@@ -5735,7 +5761,7 @@ const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5743,6 +5769,7 @@ const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScanningRepositoryFilter = (
@@ -5759,7 +5786,7 @@ const deserializeAws_json1_1ScanningRepositoryFilterList = (
   output: any,
   context: __SerdeContext
 ): ScanningRepositoryFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5767,6 +5794,7 @@ const deserializeAws_json1_1ScanningRepositoryFilterList = (
       }
       return deserializeAws_json1_1ScanningRepositoryFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScanNotFoundException = (output: any, context: __SerdeContext): ScanNotFoundException => {
@@ -5836,7 +5864,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5844,6 +5872,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -5931,7 +5960,7 @@ const deserializeAws_json1_1VulnerablePackage = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1VulnerablePackagesList = (output: any, context: __SerdeContext): VulnerablePackage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5939,6 +5968,7 @@ const deserializeAws_json1_1VulnerablePackagesList = (output: any, context: __Se
       }
       return deserializeAws_json1_1VulnerablePackage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

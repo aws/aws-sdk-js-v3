@@ -2483,7 +2483,7 @@ const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
 };
 
 const deserializeAws_json1_1DeliveryStreamNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2491,6 +2491,7 @@ const deserializeAws_json1_1DeliveryStreamNameList = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeDeliveryStreamOutput = (
@@ -2560,7 +2561,7 @@ const deserializeAws_json1_1DestinationDescriptionList = (
   output: any,
   context: __SerdeContext
 ): DestinationDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2568,6 +2569,7 @@ const deserializeAws_json1_1DestinationDescriptionList = (
       }
       return deserializeAws_json1_1DestinationDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DynamicPartitioningConfiguration = (
@@ -2736,7 +2738,7 @@ const deserializeAws_json1_1HttpEndpointCommonAttributesList = (
   output: any,
   context: __SerdeContext
 ): HttpEndpointCommonAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2744,6 +2746,7 @@ const deserializeAws_json1_1HttpEndpointCommonAttributesList = (
       }
       return deserializeAws_json1_1HttpEndpointCommonAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HttpEndpointDescription = (
@@ -2887,7 +2890,7 @@ const deserializeAws_json1_1ListDeliveryStreamsOutput = (
 };
 
 const deserializeAws_json1_1ListOfNonEmptyStrings = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2895,13 +2898,14 @@ const deserializeAws_json1_1ListOfNonEmptyStrings = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2909,6 +2913,7 @@ const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
@@ -2925,7 +2930,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
 };
 
 const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2933,6 +2938,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (output: an
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1OpenXJsonSerDe = (output: any, context: __SerdeContext): OpenXJsonSerDe => {
@@ -3011,7 +3017,7 @@ const deserializeAws_json1_1Processor = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3019,6 +3025,7 @@ const deserializeAws_json1_1ProcessorList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1Processor(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProcessorParameter = (output: any, context: __SerdeContext): ProcessorParameter => {
@@ -3029,7 +3036,7 @@ const deserializeAws_json1_1ProcessorParameter = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ProcessorParameterList = (output: any, context: __SerdeContext): ProcessorParameter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3037,6 +3044,7 @@ const deserializeAws_json1_1ProcessorParameterList = (output: any, context: __Se
       }
       return deserializeAws_json1_1ProcessorParameter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutRecordBatchOutput = (output: any, context: __SerdeContext): PutRecordBatchOutput => {
@@ -3065,7 +3073,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): PutRecordBatchResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3073,6 +3081,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
       }
       return deserializeAws_json1_1PutRecordBatchResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutRecordOutput = (output: any, context: __SerdeContext): PutRecordOutput => {
@@ -3182,7 +3191,7 @@ const deserializeAws_json1_1SchemaConfiguration = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3190,6 +3199,7 @@ const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Serializer = (output: any, context: __SerdeContext): Serializer => {
@@ -3273,7 +3283,7 @@ const deserializeAws_json1_1StopDeliveryStreamEncryptionOutput = (
 };
 
 const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3281,6 +3291,7 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {

@@ -1888,7 +1888,7 @@ const deserializeAws_json1_1ApplicationState = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ApplicationStateList = (output: any, context: __SerdeContext): ApplicationState[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1896,6 +1896,7 @@ const deserializeAws_json1_1ApplicationStateList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ApplicationState(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AssociateCreatedArtifactResult = (
@@ -1920,7 +1921,7 @@ const deserializeAws_json1_1CreatedArtifact = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1CreatedArtifactList = (output: any, context: __SerdeContext): CreatedArtifact[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1928,6 +1929,7 @@ const deserializeAws_json1_1CreatedArtifactList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1CreatedArtifact(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
@@ -1991,7 +1993,7 @@ const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1999,6 +2001,7 @@ const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __Se
       }
       return deserializeAws_json1_1DiscoveredResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
@@ -2039,7 +2042,7 @@ const deserializeAws_json1_1LatestResourceAttributeList = (
   output: any,
   context: __SerdeContext
 ): ResourceAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2047,6 +2050,7 @@ const deserializeAws_json1_1LatestResourceAttributeList = (
       }
       return deserializeAws_json1_1ResourceAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListApplicationStatesResult = (
@@ -2149,7 +2153,7 @@ const deserializeAws_json1_1MigrationTaskSummaryList = (
   output: any,
   context: __SerdeContext
 ): MigrationTaskSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2157,6 +2161,7 @@ const deserializeAws_json1_1MigrationTaskSummaryList = (
       }
       return deserializeAws_json1_1MigrationTaskSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NotifyApplicationStateResult = (
@@ -2192,7 +2197,7 @@ const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
   output: any,
   context: __SerdeContext
 ): ProgressUpdateStreamSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2200,6 +2205,7 @@ const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
       }
       return deserializeAws_json1_1ProgressUpdateStreamSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutResourceAttributesResult = (

@@ -2073,7 +2073,7 @@ const deserializeAws_restJson1EncryptionAlgorithms = (
   output: any,
   context: __SerdeContext
 ): (EncryptionAlgorithm | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2081,6 +2081,7 @@ const deserializeAws_restJson1EncryptionAlgorithms = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __SerdeContext): HashAlgorithmOptions => {
@@ -2094,7 +2095,7 @@ const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeContext): (HashAlgorithm | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2102,10 +2103,11 @@ const deserializeAws_restJson1HashAlgorithms = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeContext): (ImageFormat | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2113,6 +2115,7 @@ const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext): Permission => {
@@ -2125,7 +2128,7 @@ const deserializeAws_restJson1Permission = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContext): Permission[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2133,6 +2136,7 @@ const deserializeAws_restJson1Permissions = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Permission(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3SignedObject = (output: any, context: __SerdeContext): S3SignedObject => {
@@ -2251,7 +2255,7 @@ const deserializeAws_restJson1SigningJobRevocationRecord = (
 };
 
 const deserializeAws_restJson1SigningJobs = (output: any, context: __SerdeContext): SigningJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2259,6 +2263,7 @@ const deserializeAws_restJson1SigningJobs = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1SigningJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SigningMaterial = (output: any, context: __SerdeContext): SigningMaterial => {
@@ -2313,7 +2318,7 @@ const deserializeAws_restJson1SigningPlatformOverrides = (
 };
 
 const deserializeAws_restJson1SigningPlatforms = (output: any, context: __SerdeContext): SigningPlatform[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2321,6 +2326,7 @@ const deserializeAws_restJson1SigningPlatforms = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1SigningPlatform(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeContext): SigningProfile => {
@@ -2369,7 +2375,7 @@ const deserializeAws_restJson1SigningProfileRevocationRecord = (
 };
 
 const deserializeAws_restJson1SigningProfiles = (output: any, context: __SerdeContext): SigningProfile[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2377,6 +2383,7 @@ const deserializeAws_restJson1SigningProfiles = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1SigningProfile(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {

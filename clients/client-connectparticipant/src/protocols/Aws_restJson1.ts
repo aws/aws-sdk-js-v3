@@ -868,7 +868,7 @@ const deserializeAws_restJson1AttachmentItem = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Attachments = (output: any, context: __SerdeContext): AttachmentItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -876,6 +876,7 @@ const deserializeAws_restJson1Attachments = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1AttachmentItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
@@ -903,7 +904,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Item[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -911,6 +912,7 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Item(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {

@@ -2303,7 +2303,7 @@ const deserializeAws_json1_1InvalidRequestException = (
 };
 
 const deserializeAws_json1_1KmsKeyIdListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2311,6 +2311,7 @@ const deserializeAws_json1_1KmsKeyIdListType = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -2420,7 +2421,7 @@ const deserializeAws_json1_1ReplicationStatusListType = (
   output: any,
   context: __SerdeContext
 ): ReplicationStatusType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2428,6 +2429,7 @@ const deserializeAws_json1_1ReplicationStatusListType = (
       }
       return deserializeAws_json1_1ReplicationStatusType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReplicationStatusType = (output: any, context: __SerdeContext): ReplicationStatusType => {
@@ -2530,7 +2532,7 @@ const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1SecretListType = (output: any, context: __SerdeContext): SecretListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2538,6 +2540,7 @@ const deserializeAws_json1_1SecretListType = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1SecretListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SecretVersionsListEntry = (
@@ -2569,7 +2572,7 @@ const deserializeAws_json1_1SecretVersionsListType = (
   output: any,
   context: __SerdeContext
 ): SecretVersionsListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2577,10 +2580,11 @@ const deserializeAws_json1_1SecretVersionsListType = (
       }
       return deserializeAws_json1_1SecretVersionsListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2588,6 +2592,7 @@ const deserializeAws_json1_1SecretVersionStagesType = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SecretVersionsToStagesMapType = (
@@ -2622,7 +2627,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2630,6 +2635,7 @@ const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
@@ -2671,7 +2677,7 @@ const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __SerdeContext): ValidationErrorsEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2679,6 +2685,7 @@ const deserializeAws_json1_1ValidationErrorsType = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ValidationErrorsEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -4042,7 +4042,7 @@ const serializeAws_restJson1VpcConfig = (input: VpcConfig, context: __SerdeConte
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4050,13 +4050,14 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBrokerEBSVolumeInfo = (
   output: any,
   context: __SerdeContext
 ): BrokerEBSVolumeInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4064,10 +4065,11 @@ const deserializeAws_restJson1__listOfBrokerEBSVolumeInfo = (
       }
       return deserializeAws_restJson1BrokerEBSVolumeInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCluster = (output: any, context: __SerdeContext): Cluster[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4075,10 +4077,11 @@ const deserializeAws_restJson1__listOfCluster = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Cluster(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfClusterInfo = (output: any, context: __SerdeContext): ClusterInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4086,13 +4089,14 @@ const deserializeAws_restJson1__listOfClusterInfo = (output: any, context: __Ser
       }
       return deserializeAws_restJson1ClusterInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfClusterOperationInfo = (
   output: any,
   context: __SerdeContext
 ): ClusterOperationInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4100,13 +4104,14 @@ const deserializeAws_restJson1__listOfClusterOperationInfo = (
       }
       return deserializeAws_restJson1ClusterOperationInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfClusterOperationStep = (
   output: any,
   context: __SerdeContext
 ): ClusterOperationStep[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4114,13 +4119,14 @@ const deserializeAws_restJson1__listOfClusterOperationStep = (
       }
       return deserializeAws_restJson1ClusterOperationStep(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCompatibleKafkaVersion = (
   output: any,
   context: __SerdeContext
 ): CompatibleKafkaVersion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4128,10 +4134,11 @@ const deserializeAws_restJson1__listOfCompatibleKafkaVersion = (
       }
       return deserializeAws_restJson1CompatibleKafkaVersion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __SerdeContext): Configuration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4139,13 +4146,14 @@ const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __S
       }
       return deserializeAws_restJson1Configuration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
 ): ConfigurationRevision[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4153,10 +4161,11 @@ const deserializeAws_restJson1__listOfConfigurationRevision = (
       }
       return deserializeAws_restJson1ConfigurationRevision(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfKafkaVersion = (output: any, context: __SerdeContext): KafkaVersion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4164,10 +4173,11 @@ const deserializeAws_restJson1__listOfKafkaVersion = (output: any, context: __Se
       }
       return deserializeAws_restJson1KafkaVersion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4175,13 +4185,14 @@ const deserializeAws_restJson1__listOfNodeInfo = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1NodeInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfUnprocessedScramSecret = (
   output: any,
   context: __SerdeContext
 ): UnprocessedScramSecret[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4189,10 +4200,11 @@ const deserializeAws_restJson1__listOfUnprocessedScramSecret = (
       }
       return deserializeAws_restJson1UnprocessedScramSecret(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfVpcConfig = (output: any, context: __SerdeContext): VpcConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4200,6 +4212,7 @@ const deserializeAws_restJson1__listOfVpcConfig = (output: any, context: __Serde
       }
       return deserializeAws_restJson1VpcConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

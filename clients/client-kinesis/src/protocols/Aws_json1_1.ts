@@ -2625,7 +2625,7 @@ const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeContext): ChildShard[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2633,6 +2633,7 @@ const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1ChildShard(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): Consumer => {
@@ -2661,7 +2662,7 @@ const deserializeAws_json1_1ConsumerDescription = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext): Consumer[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2669,6 +2670,7 @@ const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Consumer(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
@@ -2723,7 +2725,7 @@ const deserializeAws_json1_1EnhancedMetrics = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EnhancedMonitoringList = (output: any, context: __SerdeContext): EnhancedMetrics[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2731,6 +2733,7 @@ const deserializeAws_json1_1EnhancedMonitoringList = (output: any, context: __Se
       }
       return deserializeAws_json1_1EnhancedMetrics(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EnhancedMonitoringOutput = (
@@ -2909,7 +2912,7 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
 };
 
 const deserializeAws_json1_1MetricsNameList = (output: any, context: __SerdeContext): (MetricsName | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2917,6 +2920,7 @@ const deserializeAws_json1_1MetricsNameList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -2960,7 +2964,7 @@ const deserializeAws_json1_1PutRecordsResultEntryList = (
   output: any,
   context: __SerdeContext
 ): PutRecordsResultEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2968,6 +2972,7 @@ const deserializeAws_json1_1PutRecordsResultEntryList = (
       }
       return deserializeAws_json1_1PutRecordsResultEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _Record => {
@@ -2984,7 +2989,7 @@ const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _R
 };
 
 const deserializeAws_json1_1RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2992,6 +2997,7 @@ const deserializeAws_json1_1RecordList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1_Record(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegisterStreamConsumerOutput = (
@@ -3045,7 +3051,7 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
 };
 
 const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3053,10 +3059,11 @@ const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): Shard[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3064,6 +3071,7 @@ const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Shard(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
@@ -3129,7 +3137,7 @@ const deserializeAws_json1_1StreamModeDetails = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3137,6 +3145,7 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
@@ -3240,7 +3249,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3248,6 +3257,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {

@@ -11427,7 +11427,7 @@ const deserializeAws_json1_1AliasAttributesListType = (
   output: any,
   context: __SerdeContext
 ): (AliasAttributeType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11435,6 +11435,7 @@ const deserializeAws_json1_1AliasAttributesListType = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AliasExistsException = (output: any, context: __SerdeContext): AliasExistsException => {
@@ -11467,7 +11468,7 @@ const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
 };
 
 const deserializeAws_json1_1AttributeListType = (output: any, context: __SerdeContext): AttributeType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11475,6 +11476,7 @@ const deserializeAws_json1_1AttributeListType = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1AttributeType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttributeMappingType = (
@@ -11517,7 +11519,7 @@ const deserializeAws_json1_1AuthenticationResultType = (
 };
 
 const deserializeAws_json1_1AuthEventsType = (output: any, context: __SerdeContext): AuthEventType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11525,6 +11527,7 @@ const deserializeAws_json1_1AuthEventsType = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1AuthEventType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AuthEventType = (output: any, context: __SerdeContext): AuthEventType => {
@@ -11556,7 +11559,7 @@ const deserializeAws_json1_1AuthEventType = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1BlockedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11564,10 +11567,11 @@ const deserializeAws_json1_1BlockedIPRangeListType = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CallbackURLsListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11575,6 +11579,7 @@ const deserializeAws_json1_1CallbackURLsListType = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ChallengeParametersType = (
@@ -11596,7 +11601,7 @@ const deserializeAws_json1_1ChallengeResponseListType = (
   output: any,
   context: __SerdeContext
 ): ChallengeResponseType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11604,6 +11609,7 @@ const deserializeAws_json1_1ChallengeResponseListType = (
       }
       return deserializeAws_json1_1ChallengeResponseType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ChallengeResponseType = (output: any, context: __SerdeContext): ChallengeResponseType => {
@@ -11618,7 +11624,7 @@ const deserializeAws_json1_1ChangePasswordResponse = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1ClientPermissionListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11626,13 +11632,14 @@ const deserializeAws_json1_1ClientPermissionListType = (output: any, context: __
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CodeDeliveryDetailsListType = (
   output: any,
   context: __SerdeContext
 ): CodeDeliveryDetailsType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11640,6 +11647,7 @@ const deserializeAws_json1_1CodeDeliveryDetailsListType = (
       }
       return deserializeAws_json1_1CodeDeliveryDetailsType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CodeDeliveryDetailsType = (
@@ -11929,7 +11937,7 @@ const deserializeAws_json1_1DeviceConfigurationType = (
 };
 
 const deserializeAws_json1_1DeviceListType = (output: any, context: __SerdeContext): DeviceType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -11937,6 +11945,7 @@ const deserializeAws_json1_1DeviceListType = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1DeviceType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext): DeviceType => {
@@ -12027,7 +12036,7 @@ const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeContext): (EventFilterType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12035,6 +12044,7 @@ const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
@@ -12055,7 +12065,7 @@ const deserializeAws_json1_1ExplicitAuthFlowsListType = (
   output: any,
   context: __SerdeContext
 ): (ExplicitAuthFlowsType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12063,6 +12073,7 @@ const deserializeAws_json1_1ExplicitAuthFlowsListType = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {
@@ -12194,7 +12205,7 @@ const deserializeAws_json1_1GroupExistsException = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1GroupListType = (output: any, context: __SerdeContext): GroupType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12202,6 +12213,7 @@ const deserializeAws_json1_1GroupListType = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1GroupType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): GroupType => {
@@ -12251,7 +12263,7 @@ const deserializeAws_json1_1IdentityProviderType = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1IdpIdentifiersListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12259,6 +12271,7 @@ const deserializeAws_json1_1IdpIdentifiersListType = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InitiateAuthResponse = (output: any, context: __SerdeContext): InitiateAuthResponse => {
@@ -12418,7 +12431,7 @@ const deserializeAws_json1_1ListIdentityProvidersResponse = (
 };
 
 const deserializeAws_json1_1ListOfStringTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12426,6 +12439,7 @@ const deserializeAws_json1_1ListOfStringTypes = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListResourceServersResponse = (
@@ -12513,7 +12527,7 @@ const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1LogoutURLsListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12521,6 +12535,7 @@ const deserializeAws_json1_1LogoutURLsListType = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MessageTemplateType = (output: any, context: __SerdeContext): MessageTemplateType => {
@@ -12541,7 +12556,7 @@ const deserializeAws_json1_1MFAMethodNotFoundException = (
 };
 
 const deserializeAws_json1_1MFAOptionListType = (output: any, context: __SerdeContext): MFAOptionType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12549,6 +12564,7 @@ const deserializeAws_json1_1MFAOptionListType = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1MFAOptionType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MFAOptionType = (output: any, context: __SerdeContext): MFAOptionType => {
@@ -12613,7 +12629,7 @@ const deserializeAws_json1_1NumberAttributeConstraintsType = (
 };
 
 const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeContext): (OAuthFlowType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12621,6 +12637,7 @@ const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
@@ -12680,7 +12697,7 @@ const deserializeAws_json1_1ProviderDetailsType = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1ProvidersListType = (output: any, context: __SerdeContext): ProviderDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12688,10 +12705,11 @@ const deserializeAws_json1_1ProvidersListType = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1ProviderDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RecoveryMechanismsType = (output: any, context: __SerdeContext): RecoveryOptionType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12699,6 +12717,7 @@ const deserializeAws_json1_1RecoveryMechanismsType = (output: any, context: __Se
       }
       return deserializeAws_json1_1RecoveryOptionType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
@@ -12733,7 +12752,7 @@ const deserializeAws_json1_1ResourceServerScopeListType = (
   output: any,
   context: __SerdeContext
 ): ResourceServerScopeType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12741,6 +12760,7 @@ const deserializeAws_json1_1ResourceServerScopeListType = (
       }
       return deserializeAws_json1_1ResourceServerScopeType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceServerScopeType = (
@@ -12754,7 +12774,7 @@ const deserializeAws_json1_1ResourceServerScopeType = (
 };
 
 const deserializeAws_json1_1ResourceServersListType = (output: any, context: __SerdeContext): ResourceServerType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12762,6 +12782,7 @@ const deserializeAws_json1_1ResourceServersListType = (output: any, context: __S
       }
       return deserializeAws_json1_1ResourceServerType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceServerType = (output: any, context: __SerdeContext): ResourceServerType => {
@@ -12845,7 +12866,7 @@ const deserializeAws_json1_1SchemaAttributesListType = (
   output: any,
   context: __SerdeContext
 ): SchemaAttributeType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12853,6 +12874,7 @@ const deserializeAws_json1_1SchemaAttributesListType = (
       }
       return deserializeAws_json1_1SchemaAttributeType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SchemaAttributeType = (output: any, context: __SerdeContext): SchemaAttributeType => {
@@ -12883,7 +12905,7 @@ const deserializeAws_json1_1ScopeDoesNotExistException = (
 };
 
 const deserializeAws_json1_1ScopeListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12891,6 +12913,7 @@ const deserializeAws_json1_1ScopeListType = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SetRiskConfigurationResponse = (
@@ -12960,7 +12983,7 @@ const deserializeAws_json1_1SignUpResponse = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1SkippedIPRangeListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -12968,6 +12991,7 @@ const deserializeAws_json1_1SkippedIPRangeListType = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __SerdeContext): SmsConfigurationType => {
@@ -13040,7 +13064,7 @@ const deserializeAws_json1_1StringAttributeConstraintsType = (
 };
 
 const deserializeAws_json1_1SupportedIdentityProvidersListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13048,6 +13072,7 @@ const deserializeAws_json1_1SupportedIdentityProvidersListType = (output: any, c
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -13247,7 +13272,7 @@ const deserializeAws_json1_1UserImportInProgressException = (
 };
 
 const deserializeAws_json1_1UserImportJobsListType = (output: any, context: __SerdeContext): UserImportJobType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13255,6 +13280,7 @@ const deserializeAws_json1_1UserImportJobsListType = (output: any, context: __Se
       }
       return deserializeAws_json1_1UserImportJobType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeContext): UserImportJobType => {
@@ -13294,7 +13320,7 @@ const deserializeAws_json1_1UserLambdaValidationException = (
 };
 
 const deserializeAws_json1_1UserMFASettingListType = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13302,13 +13328,14 @@ const deserializeAws_json1_1UserMFASettingListType = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UsernameAttributesListType = (
   output: any,
   context: __SerdeContext
 ): (UsernameAttributeType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13316,6 +13343,7 @@ const deserializeAws_json1_1UsernameAttributesListType = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UsernameConfigurationType = (
@@ -13381,7 +13409,7 @@ const deserializeAws_json1_1UserPoolClientListType = (
   output: any,
   context: __SerdeContext
 ): UserPoolClientDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13389,6 +13417,7 @@ const deserializeAws_json1_1UserPoolClientListType = (
       }
       return deserializeAws_json1_1UserPoolClientDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
@@ -13479,7 +13508,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
 };
 
 const deserializeAws_json1_1UserPoolListType = (output: any, context: __SerdeContext): UserPoolDescriptionType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13487,6 +13516,7 @@ const deserializeAws_json1_1UserPoolListType = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1UserPoolDescriptionType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserPoolPolicyType = (output: any, context: __SerdeContext): UserPoolPolicyType => {
@@ -13607,7 +13637,7 @@ const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1UsersListType = (output: any, context: __SerdeContext): UserType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13615,6 +13645,7 @@ const deserializeAws_json1_1UsersListType = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1UserType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserType = (output: any, context: __SerdeContext): UserType => {
@@ -13659,7 +13690,7 @@ const deserializeAws_json1_1VerifiedAttributesListType = (
   output: any,
   context: __SerdeContext
 ): (VerifiedAttributeType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -13667,6 +13698,7 @@ const deserializeAws_json1_1VerifiedAttributesListType = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1VerifySoftwareTokenResponse = (

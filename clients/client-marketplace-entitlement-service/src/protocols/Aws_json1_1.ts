@@ -187,7 +187,7 @@ const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -195,6 +195,7 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1Entitlement(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {

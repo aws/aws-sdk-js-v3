@@ -1274,7 +1274,7 @@ const deserializeAws_restJson1SavingsPlan = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1SavingsPlanList = (output: any, context: __SerdeContext): SavingsPlan[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1282,6 +1282,7 @@ const deserializeAws_restJson1SavingsPlanList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1SavingsPlan(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanOffering = (output: any, context: __SerdeContext): SavingsPlanOffering => {
@@ -1320,7 +1321,7 @@ const deserializeAws_restJson1SavingsPlanOfferingPropertyList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingProperty[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1328,6 +1329,7 @@ const deserializeAws_restJson1SavingsPlanOfferingPropertyList = (
       }
       return deserializeAws_restJson1SavingsPlanOfferingProperty(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanOfferingRate = (
@@ -1366,7 +1368,7 @@ const deserializeAws_restJson1SavingsPlanOfferingRatePropertyList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingRateProperty[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1374,13 +1376,14 @@ const deserializeAws_restJson1SavingsPlanOfferingRatePropertyList = (
       }
       return deserializeAws_restJson1SavingsPlanOfferingRateProperty(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanOfferingRatesList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingRate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1388,13 +1391,14 @@ const deserializeAws_restJson1SavingsPlanOfferingRatesList = (
       }
       return deserializeAws_restJson1SavingsPlanOfferingRate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanOfferingsList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOffering[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1402,13 +1406,14 @@ const deserializeAws_restJson1SavingsPlanOfferingsList = (
       }
       return deserializeAws_restJson1SavingsPlanOffering(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanProductTypeList = (
   output: any,
   context: __SerdeContext
 ): (SavingsPlanProductType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1416,6 +1421,7 @@ const deserializeAws_restJson1SavingsPlanProductTypeList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanRate = (output: any, context: __SerdeContext): SavingsPlanRate => {
@@ -1435,7 +1441,7 @@ const deserializeAws_restJson1SavingsPlanRate = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1SavingsPlanRateList = (output: any, context: __SerdeContext): SavingsPlanRate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1443,6 +1449,7 @@ const deserializeAws_restJson1SavingsPlanRateList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1SavingsPlanRate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SavingsPlanRateProperty = (
@@ -1459,7 +1466,7 @@ const deserializeAws_restJson1SavingsPlanRatePropertyList = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanRateProperty[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1467,6 +1474,7 @@ const deserializeAws_restJson1SavingsPlanRatePropertyList = (
       }
       return deserializeAws_restJson1SavingsPlanRateProperty(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

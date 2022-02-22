@@ -1989,7 +1989,7 @@ const deserializeAws_restJson1ChannelInfo = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ChannelInfoList = (output: any, context: __SerdeContext): ChannelInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1997,13 +1997,14 @@ const deserializeAws_restJson1ChannelInfoList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1ChannelInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceEndpointList = (
   output: any,
   context: __SerdeContext
 ): ResourceEndpointListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2011,6 +2012,7 @@ const deserializeAws_restJson1ResourceEndpointList = (
       }
       return deserializeAws_restJson1ResourceEndpointListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceEndpointListItem = (
@@ -2062,7 +2064,7 @@ const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1StreamInfoList = (output: any, context: __SerdeContext): StreamInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2070,6 +2072,7 @@ const deserializeAws_restJson1StreamInfoList = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1StreamInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -3900,7 +3900,7 @@ const serializeAws_restJson1Transition = (input: Transition, context: __SerdeCon
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3908,10 +3908,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAdBreak = (output: any, context: __SerdeContext): AdBreak[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3919,10 +3920,11 @@ const deserializeAws_restJson1__listOfAdBreak = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1AdBreak(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAlert = (output: any, context: __SerdeContext): Alert[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3930,13 +3932,14 @@ const deserializeAws_restJson1__listOfAlert = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Alert(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAvailMatchingCriteria = (
   output: any,
   context: __SerdeContext
 ): AvailMatchingCriteria[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3944,10 +3947,11 @@ const deserializeAws_restJson1__listOfAvailMatchingCriteria = (
       }
       return deserializeAws_restJson1AvailMatchingCriteria(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeContext): Channel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3955,13 +3959,14 @@ const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Channel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPlaybackConfiguration = (
   output: any,
   context: __SerdeContext
 ): PlaybackConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3969,10 +3974,11 @@ const deserializeAws_restJson1__listOfPlaybackConfiguration = (
       }
       return deserializeAws_restJson1PlaybackConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3980,10 +3986,11 @@ const deserializeAws_restJson1__listOfPrefetchSchedule = (output: any, context: 
       }
       return deserializeAws_restJson1PrefetchSchedule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3991,10 +3998,11 @@ const deserializeAws_restJson1__listOfScheduleAdBreak = (output: any, context: _
       }
       return deserializeAws_restJson1ScheduleAdBreak(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfScheduleEntry = (output: any, context: __SerdeContext): ScheduleEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4002,13 +4010,14 @@ const deserializeAws_restJson1__listOfScheduleEntry = (output: any, context: __S
       }
       return deserializeAws_restJson1ScheduleEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSegmentDeliveryConfiguration = (
   output: any,
   context: __SerdeContext
 ): SegmentDeliveryConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4016,10 +4025,11 @@ const deserializeAws_restJson1__listOfSegmentDeliveryConfiguration = (
       }
       return deserializeAws_restJson1SegmentDeliveryConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSourceLocation = (output: any, context: __SerdeContext): SourceLocation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4027,10 +4037,11 @@ const deserializeAws_restJson1__listOfSourceLocation = (output: any, context: __
       }
       return deserializeAws_restJson1SourceLocation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfVodSource = (output: any, context: __SerdeContext): VodSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4038,6 +4049,7 @@ const deserializeAws_restJson1__listOfVodSource = (output: any, context: __Serde
       }
       return deserializeAws_restJson1VodSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -4237,7 +4249,7 @@ const deserializeAws_restJson1HttpPackageConfigurations = (
   output: any,
   context: __SerdeContext
 ): HttpPackageConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4245,6 +4257,7 @@ const deserializeAws_restJson1HttpPackageConfigurations = (
       }
       return deserializeAws_restJson1HttpPackageConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LivePreRollConfiguration = (
@@ -4397,7 +4410,7 @@ const deserializeAws_restJson1ResponseOutputItem = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeContext): ResponseOutputItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4405,6 +4418,7 @@ const deserializeAws_restJson1ResponseOutputs = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1ResponseOutputItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ScheduleAdBreak = (output: any, context: __SerdeContext): ScheduleAdBreak => {

@@ -374,7 +374,7 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -382,6 +382,7 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Endpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
@@ -391,7 +392,7 @@ const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1NetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -399,6 +400,7 @@ const deserializeAws_restJson1NetworkInterfaces = (output: any, context: __Serde
       }
       return deserializeAws_restJson1NetworkInterface(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

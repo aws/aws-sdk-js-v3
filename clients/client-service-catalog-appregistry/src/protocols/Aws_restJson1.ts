@@ -2058,7 +2058,7 @@ const deserializeAws_restJson1Application = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2066,6 +2066,7 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
       }
       return deserializeAws_restJson1ApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
@@ -2107,7 +2108,7 @@ const deserializeAws_restJson1AttributeGroup = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1AttributeGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2115,13 +2116,14 @@ const deserializeAws_restJson1AttributeGroupIds = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AttributeGroupSummaries = (
   output: any,
   context: __SerdeContext
 ): AttributeGroupSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2129,6 +2131,7 @@ const deserializeAws_restJson1AttributeGroupSummaries = (
       }
       return deserializeAws_restJson1AttributeGroupSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AttributeGroupSummary = (output: any, context: __SerdeContext): AttributeGroupSummary => {
@@ -2197,7 +2200,7 @@ const deserializeAws_restJson1ResourceIntegrations = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): ResourceInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2205,6 +2208,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1ResourceInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {

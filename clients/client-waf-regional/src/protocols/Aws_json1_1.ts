@@ -7395,7 +7395,7 @@ const deserializeAws_json1_1ActivatedRule = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1ActivatedRules = (output: any, context: __SerdeContext): ActivatedRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7403,6 +7403,7 @@ const deserializeAws_json1_1ActivatedRules = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1ActivatedRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AssociateWebACLResponse = (
@@ -7424,7 +7425,7 @@ const deserializeAws_json1_1ByteMatchSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ByteMatchSetSummaries = (output: any, context: __SerdeContext): ByteMatchSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7432,6 +7433,7 @@ const deserializeAws_json1_1ByteMatchSetSummaries = (output: any, context: __Ser
       }
       return deserializeAws_json1_1ByteMatchSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ByteMatchSetSummary = (output: any, context: __SerdeContext): ByteMatchSetSummary => {
@@ -7457,7 +7459,7 @@ const deserializeAws_json1_1ByteMatchTuple = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ByteMatchTuples = (output: any, context: __SerdeContext): ByteMatchTuple[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7465,6 +7467,7 @@ const deserializeAws_json1_1ByteMatchTuples = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ByteMatchTuple(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateByteMatchSetResponse = (
@@ -7748,7 +7751,7 @@ const deserializeAws_json1_1ExcludedRule = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ExcludedRules = (output: any, context: __SerdeContext): ExcludedRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7756,6 +7759,7 @@ const deserializeAws_json1_1ExcludedRules = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1ExcludedRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FieldToMatch = (output: any, context: __SerdeContext): FieldToMatch => {
@@ -7773,7 +7777,7 @@ const deserializeAws_json1_1GeoMatchConstraint = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1GeoMatchConstraints = (output: any, context: __SerdeContext): GeoMatchConstraint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7781,6 +7785,7 @@ const deserializeAws_json1_1GeoMatchConstraints = (output: any, context: __Serde
       }
       return deserializeAws_json1_1GeoMatchConstraint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GeoMatchSet = (output: any, context: __SerdeContext): GeoMatchSet => {
@@ -7795,7 +7800,7 @@ const deserializeAws_json1_1GeoMatchSet = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1GeoMatchSetSummaries = (output: any, context: __SerdeContext): GeoMatchSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7803,6 +7808,7 @@ const deserializeAws_json1_1GeoMatchSetSummaries = (output: any, context: __Serd
       }
       return deserializeAws_json1_1GeoMatchSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GeoMatchSetSummary = (output: any, context: __SerdeContext): GeoMatchSetSummary => {
@@ -8022,7 +8028,7 @@ const deserializeAws_json1_1HTTPHeader = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1HTTPHeaders = (output: any, context: __SerdeContext): HTTPHeader[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8030,6 +8036,7 @@ const deserializeAws_json1_1HTTPHeaders = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1HTTPHeader(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HTTPRequest = (output: any, context: __SerdeContext): HTTPRequest => {
@@ -8065,7 +8072,7 @@ const deserializeAws_json1_1IPSetDescriptor = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1IPSetDescriptors = (output: any, context: __SerdeContext): IPSetDescriptor[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8073,10 +8080,11 @@ const deserializeAws_json1_1IPSetDescriptors = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1IPSetDescriptor(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IPSetSummaries = (output: any, context: __SerdeContext): IPSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8084,6 +8092,7 @@ const deserializeAws_json1_1IPSetSummaries = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1IPSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IPSetSummary = (output: any, context: __SerdeContext): IPSetSummary => {
@@ -8302,7 +8311,7 @@ const deserializeAws_json1_1ListXssMatchSetsResponse = (
 };
 
 const deserializeAws_json1_1LogDestinationConfigs = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8310,6 +8319,7 @@ const deserializeAws_json1_1LogDestinationConfigs = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
@@ -8327,7 +8337,7 @@ const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1LoggingConfigurations = (output: any, context: __SerdeContext): LoggingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8335,10 +8345,11 @@ const deserializeAws_json1_1LoggingConfigurations = (output: any, context: __Ser
       }
       return deserializeAws_json1_1LoggingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ManagedKeys = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8346,6 +8357,7 @@ const deserializeAws_json1_1ManagedKeys = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Predicate = (output: any, context: __SerdeContext): Predicate => {
@@ -8357,7 +8369,7 @@ const deserializeAws_json1_1Predicate = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1Predicates = (output: any, context: __SerdeContext): Predicate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8365,6 +8377,7 @@ const deserializeAws_json1_1Predicates = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Predicate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutLoggingConfigurationResponse = (
@@ -8401,7 +8414,7 @@ const deserializeAws_json1_1RateBasedRule = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1RedactedFields = (output: any, context: __SerdeContext): FieldToMatch[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8409,6 +8422,7 @@ const deserializeAws_json1_1RedactedFields = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1FieldToMatch(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegexMatchSet = (output: any, context: __SerdeContext): RegexMatchSet => {
@@ -8423,7 +8437,7 @@ const deserializeAws_json1_1RegexMatchSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1RegexMatchSetSummaries = (output: any, context: __SerdeContext): RegexMatchSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8431,6 +8445,7 @@ const deserializeAws_json1_1RegexMatchSetSummaries = (output: any, context: __Se
       }
       return deserializeAws_json1_1RegexMatchSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegexMatchSetSummary = (output: any, context: __SerdeContext): RegexMatchSetSummary => {
@@ -8452,7 +8467,7 @@ const deserializeAws_json1_1RegexMatchTuple = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1RegexMatchTuples = (output: any, context: __SerdeContext): RegexMatchTuple[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8460,6 +8475,7 @@ const deserializeAws_json1_1RegexMatchTuples = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1RegexMatchTuple(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegexPatternSet = (output: any, context: __SerdeContext): RegexPatternSet => {
@@ -8477,7 +8493,7 @@ const deserializeAws_json1_1RegexPatternSetSummaries = (
   output: any,
   context: __SerdeContext
 ): RegexPatternSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8485,6 +8501,7 @@ const deserializeAws_json1_1RegexPatternSetSummaries = (
       }
       return deserializeAws_json1_1RegexPatternSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegexPatternSetSummary = (output: any, context: __SerdeContext): RegexPatternSetSummary => {
@@ -8495,7 +8512,7 @@ const deserializeAws_json1_1RegexPatternSetSummary = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1RegexPatternStrings = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8503,10 +8520,11 @@ const deserializeAws_json1_1RegexPatternStrings = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8514,6 +8532,7 @@ const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
@@ -8537,7 +8556,7 @@ const deserializeAws_json1_1RuleGroup = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1RuleGroupSummaries = (output: any, context: __SerdeContext): RuleGroupSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8545,6 +8564,7 @@ const deserializeAws_json1_1RuleGroupSummaries = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1RuleGroupSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RuleGroupSummary = (output: any, context: __SerdeContext): RuleGroupSummary => {
@@ -8555,7 +8575,7 @@ const deserializeAws_json1_1RuleGroupSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1RuleSummaries = (output: any, context: __SerdeContext): RuleSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8563,6 +8583,7 @@ const deserializeAws_json1_1RuleSummaries = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1RuleSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
@@ -8589,7 +8610,7 @@ const deserializeAws_json1_1SampledHTTPRequest = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1SampledHTTPRequests = (output: any, context: __SerdeContext): SampledHTTPRequest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8597,6 +8618,7 @@ const deserializeAws_json1_1SampledHTTPRequests = (output: any, context: __Serde
       }
       return deserializeAws_json1_1SampledHTTPRequest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SizeConstraint = (output: any, context: __SerdeContext): SizeConstraint => {
@@ -8612,7 +8634,7 @@ const deserializeAws_json1_1SizeConstraint = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1SizeConstraints = (output: any, context: __SerdeContext): SizeConstraint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8620,6 +8642,7 @@ const deserializeAws_json1_1SizeConstraints = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1SizeConstraint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SizeConstraintSet = (output: any, context: __SerdeContext): SizeConstraintSet => {
@@ -8637,7 +8660,7 @@ const deserializeAws_json1_1SizeConstraintSetSummaries = (
   output: any,
   context: __SerdeContext
 ): SizeConstraintSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8645,6 +8668,7 @@ const deserializeAws_json1_1SizeConstraintSetSummaries = (
       }
       return deserializeAws_json1_1SizeConstraintSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SizeConstraintSetSummary = (
@@ -8672,7 +8696,7 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummaries = (
   output: any,
   context: __SerdeContext
 ): SqlInjectionMatchSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8680,6 +8704,7 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummaries = (
       }
       return deserializeAws_json1_1SqlInjectionMatchSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
@@ -8706,7 +8731,7 @@ const deserializeAws_json1_1SqlInjectionMatchTuples = (
   output: any,
   context: __SerdeContext
 ): SqlInjectionMatchTuple[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8714,13 +8739,14 @@ const deserializeAws_json1_1SqlInjectionMatchTuples = (
       }
       return deserializeAws_json1_1SqlInjectionMatchTuple(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubscribedRuleGroupSummaries = (
   output: any,
   context: __SerdeContext
 ): SubscribedRuleGroupSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8728,6 +8754,7 @@ const deserializeAws_json1_1SubscribedRuleGroupSummaries = (
       }
       return deserializeAws_json1_1SubscribedRuleGroupSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubscribedRuleGroupSummary = (
@@ -8759,7 +8786,7 @@ const deserializeAws_json1_1TagInfoForResource = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8767,6 +8794,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -9095,7 +9123,7 @@ const deserializeAws_json1_1WebACL = (output: any, context: __SerdeContext): Web
 };
 
 const deserializeAws_json1_1WebACLSummaries = (output: any, context: __SerdeContext): WebACLSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9103,6 +9131,7 @@ const deserializeAws_json1_1WebACLSummaries = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1WebACLSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1WebACLSummary = (output: any, context: __SerdeContext): WebACLSummary => {
@@ -9124,7 +9153,7 @@ const deserializeAws_json1_1XssMatchSet = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1XssMatchSetSummaries = (output: any, context: __SerdeContext): XssMatchSetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9132,6 +9161,7 @@ const deserializeAws_json1_1XssMatchSetSummaries = (output: any, context: __Serd
       }
       return deserializeAws_json1_1XssMatchSetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1XssMatchSetSummary = (output: any, context: __SerdeContext): XssMatchSetSummary => {
@@ -9152,7 +9182,7 @@ const deserializeAws_json1_1XssMatchTuple = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1XssMatchTuples = (output: any, context: __SerdeContext): XssMatchTuple[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9160,6 +9190,7 @@ const deserializeAws_json1_1XssMatchTuples = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1XssMatchTuple(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

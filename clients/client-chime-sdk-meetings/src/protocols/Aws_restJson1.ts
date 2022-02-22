@@ -1357,7 +1357,7 @@ const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1365,6 +1365,7 @@ const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Attendee(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AudioFeatures = (output: any, context: __SerdeContext): AudioFeatures => {
@@ -1377,7 +1378,7 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
   output: any,
   context: __SerdeContext
 ): CreateAttendeeError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1385,6 +1386,7 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
       }
       return deserializeAws_restJson1CreateAttendeeError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {

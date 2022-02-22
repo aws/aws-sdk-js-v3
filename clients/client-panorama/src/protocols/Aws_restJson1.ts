@@ -3728,7 +3728,7 @@ const deserializeAws_restJson1ApplicationInstance = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1ApplicationInstances = (output: any, context: __SerdeContext): ApplicationInstance[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3736,6 +3736,7 @@ const deserializeAws_restJson1ApplicationInstances = (output: any, context: __Se
       }
       return deserializeAws_restJson1ApplicationInstance(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ConflictExceptionErrorArgument = (
@@ -3752,7 +3753,7 @@ const deserializeAws_restJson1ConflictExceptionErrorArgumentList = (
   output: any,
   context: __SerdeContext
 ): ConflictExceptionErrorArgument[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3760,6 +3761,7 @@ const deserializeAws_restJson1ConflictExceptionErrorArgumentList = (
       }
       return deserializeAws_restJson1ConflictExceptionErrorArgument(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
@@ -3795,7 +3797,7 @@ const deserializeAws_restJson1DeviceJob = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1DeviceJobList = (output: any, context: __SerdeContext): DeviceJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3803,10 +3805,11 @@ const deserializeAws_restJson1DeviceJobList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1DeviceJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeviceList = (output: any, context: __SerdeContext): Device[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3814,10 +3817,11 @@ const deserializeAws_restJson1DeviceList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Device(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DnsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3825,6 +3829,7 @@ const deserializeAws_restJson1DnsList = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EthernetPayload = (output: any, context: __SerdeContext): EthernetPayload => {
@@ -3846,7 +3851,7 @@ const deserializeAws_restJson1EthernetStatus = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1InputPortList = (output: any, context: __SerdeContext): NodeInputPort[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3854,6 +3859,7 @@ const deserializeAws_restJson1InputPortList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1NodeInputPort(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
@@ -3864,7 +3870,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 };
 
 const deserializeAws_restJson1JobList = (output: any, context: __SerdeContext): Job[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3872,6 +3878,7 @@ const deserializeAws_restJson1JobList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Job(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1JobResourceTags = (output: any, context: __SerdeContext): JobResourceTags => {
@@ -3885,7 +3892,7 @@ const deserializeAws_restJson1JobResourceTags = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1JobTagsList = (output: any, context: __SerdeContext): JobResourceTags[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3893,6 +3900,7 @@ const deserializeAws_restJson1JobTagsList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1JobResourceTags(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ManifestOverridesPayload = (
@@ -3975,7 +3983,7 @@ const deserializeAws_restJson1NodeFromTemplateJobList = (
   output: any,
   context: __SerdeContext
 ): NodeFromTemplateJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3983,6 +3991,7 @@ const deserializeAws_restJson1NodeFromTemplateJobList = (
       }
       return deserializeAws_restJson1NodeFromTemplateJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NodeInputPort = (output: any, context: __SerdeContext): NodeInputPort => {
@@ -4008,7 +4017,7 @@ const deserializeAws_restJson1NodeInstance = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1NodeInstances = (output: any, context: __SerdeContext): NodeInstance[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4016,6 +4025,7 @@ const deserializeAws_restJson1NodeInstances = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1NodeInstance(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NodeInterface = (output: any, context: __SerdeContext): NodeInterface => {
@@ -4040,7 +4050,7 @@ const deserializeAws_restJson1NodeOutputPort = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1NodesList = (output: any, context: __SerdeContext): Node[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4048,10 +4058,11 @@ const deserializeAws_restJson1NodesList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Node(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1OutputPortList = (output: any, context: __SerdeContext): NodeOutputPort[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4059,6 +4070,7 @@ const deserializeAws_restJson1OutputPortList = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1NodeOutputPort(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1OutPutS3Location = (output: any, context: __SerdeContext): OutPutS3Location => {
@@ -4098,7 +4110,7 @@ const deserializeAws_restJson1PackageImportJobInputConfig = (
 };
 
 const deserializeAws_restJson1PackageImportJobList = (output: any, context: __SerdeContext): PackageImportJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4106,6 +4118,7 @@ const deserializeAws_restJson1PackageImportJobList = (output: any, context: __Se
       }
       return deserializeAws_restJson1PackageImportJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PackageImportJobOutput = (
@@ -4136,7 +4149,7 @@ const deserializeAws_restJson1PackageImportJobOutputConfig = (
 };
 
 const deserializeAws_restJson1PackageList = (output: any, context: __SerdeContext): PackageListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4144,6 +4157,7 @@ const deserializeAws_restJson1PackageList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1PackageListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PackageListItem = (output: any, context: __SerdeContext): PackageListItem => {
@@ -4171,7 +4185,7 @@ const deserializeAws_restJson1PackageObject = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1PackageObjects = (output: any, context: __SerdeContext): PackageObject[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4179,6 +4193,7 @@ const deserializeAws_restJson1PackageObjects = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1PackageObject(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PackageVersionInputConfig = (
@@ -4205,7 +4220,7 @@ const deserializeAws_restJson1PackageVersionOutputConfig = (
 };
 
 const deserializeAws_restJson1PrincipalArnsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4213,6 +4228,7 @@ const deserializeAws_restJson1PrincipalArnsList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
@@ -4289,7 +4305,7 @@ const deserializeAws_restJson1ValidationExceptionErrorArgumentList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionErrorArgument[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4297,6 +4313,7 @@ const deserializeAws_restJson1ValidationExceptionErrorArgumentList = (
       }
       return deserializeAws_restJson1ValidationExceptionErrorArgument(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (
@@ -4313,7 +4330,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4321,6 +4338,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

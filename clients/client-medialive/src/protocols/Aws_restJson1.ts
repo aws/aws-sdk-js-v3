@@ -10034,7 +10034,7 @@ const serializeAws_restJson1WebvttDestinationSettings = (
 };
 
 const deserializeAws_restJson1__listOf__integer = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10042,10 +10042,11 @@ const deserializeAws_restJson1__listOf__integer = (output: any, context: __Serde
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10053,13 +10054,14 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAudioChannelMapping = (
   output: any,
   context: __SerdeContext
 ): AudioChannelMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10067,10 +10069,11 @@ const deserializeAws_restJson1__listOfAudioChannelMapping = (
       }
       return deserializeAws_restJson1AudioChannelMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: __SerdeContext): AudioDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10078,10 +10081,11 @@ const deserializeAws_restJson1__listOfAudioDescription = (output: any, context: 
       }
       return deserializeAws_restJson1AudioDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAudioSelector = (output: any, context: __SerdeContext): AudioSelector[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10089,10 +10093,11 @@ const deserializeAws_restJson1__listOfAudioSelector = (output: any, context: __S
       }
       return deserializeAws_restJson1AudioSelector(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAudioTrack = (output: any, context: __SerdeContext): AudioTrack[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10100,13 +10105,14 @@ const deserializeAws_restJson1__listOfAudioTrack = (output: any, context: __Serd
       }
       return deserializeAws_restJson1AudioTrack(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBatchFailedResultModel = (
   output: any,
   context: __SerdeContext
 ): BatchFailedResultModel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10114,13 +10120,14 @@ const deserializeAws_restJson1__listOfBatchFailedResultModel = (
       }
       return deserializeAws_restJson1BatchFailedResultModel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfBatchSuccessfulResultModel = (
   output: any,
   context: __SerdeContext
 ): BatchSuccessfulResultModel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10128,13 +10135,14 @@ const deserializeAws_restJson1__listOfBatchSuccessfulResultModel = (
       }
       return deserializeAws_restJson1BatchSuccessfulResultModel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCaptionDescription = (
   output: any,
   context: __SerdeContext
 ): CaptionDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10142,13 +10150,14 @@ const deserializeAws_restJson1__listOfCaptionDescription = (
       }
       return deserializeAws_restJson1CaptionDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCaptionLanguageMapping = (
   output: any,
   context: __SerdeContext
 ): CaptionLanguageMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10156,10 +10165,11 @@ const deserializeAws_restJson1__listOfCaptionLanguageMapping = (
       }
       return deserializeAws_restJson1CaptionLanguageMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCaptionSelector = (output: any, context: __SerdeContext): CaptionSelector[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10167,13 +10177,14 @@ const deserializeAws_restJson1__listOfCaptionSelector = (output: any, context: _
       }
       return deserializeAws_restJson1CaptionSelector(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfChannelEgressEndpoint = (
   output: any,
   context: __SerdeContext
 ): ChannelEgressEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10181,10 +10192,11 @@ const deserializeAws_restJson1__listOfChannelEgressEndpoint = (
       }
       return deserializeAws_restJson1ChannelEgressEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfChannelSummary = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10192,13 +10204,14 @@ const deserializeAws_restJson1__listOfChannelSummary = (output: any, context: __
       }
       return deserializeAws_restJson1ChannelSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfFailoverCondition = (
   output: any,
   context: __SerdeContext
 ): FailoverCondition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10206,13 +10219,14 @@ const deserializeAws_restJson1__listOfFailoverCondition = (
       }
       return deserializeAws_restJson1FailoverCondition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
 ): (HlsAdMarkers | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10220,10 +10234,11 @@ const deserializeAws_restJson1__listOfHlsAdMarkers = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInput = (output: any, context: __SerdeContext): Input[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10231,10 +10246,11 @@ const deserializeAws_restJson1__listOfInput = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Input(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputAttachment = (output: any, context: __SerdeContext): InputAttachment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10242,13 +10258,14 @@ const deserializeAws_restJson1__listOfInputAttachment = (output: any, context: _
       }
       return deserializeAws_restJson1InputAttachment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputChannelLevel = (
   output: any,
   context: __SerdeContext
 ): InputChannelLevel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10256,10 +10273,11 @@ const deserializeAws_restJson1__listOfInputChannelLevel = (
       }
       return deserializeAws_restJson1InputChannelLevel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputDestination = (output: any, context: __SerdeContext): InputDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10267,13 +10285,14 @@ const deserializeAws_restJson1__listOfInputDestination = (output: any, context: 
       }
       return deserializeAws_restJson1InputDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputDeviceSettings = (
   output: any,
   context: __SerdeContext
 ): InputDeviceSettings[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10281,13 +10300,14 @@ const deserializeAws_restJson1__listOfInputDeviceSettings = (
       }
       return deserializeAws_restJson1InputDeviceSettings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputDeviceSummary = (
   output: any,
   context: __SerdeContext
 ): InputDeviceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10295,13 +10315,14 @@ const deserializeAws_restJson1__listOfInputDeviceSummary = (
       }
       return deserializeAws_restJson1InputDeviceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputSecurityGroup = (
   output: any,
   context: __SerdeContext
 ): InputSecurityGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10309,10 +10330,11 @@ const deserializeAws_restJson1__listOfInputSecurityGroup = (
       }
       return deserializeAws_restJson1InputSecurityGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputSource = (output: any, context: __SerdeContext): InputSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10320,13 +10342,14 @@ const deserializeAws_restJson1__listOfInputSource = (output: any, context: __Ser
       }
       return deserializeAws_restJson1InputSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfInputWhitelistRule = (
   output: any,
   context: __SerdeContext
 ): InputWhitelistRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10334,10 +10357,11 @@ const deserializeAws_restJson1__listOfInputWhitelistRule = (
       }
       return deserializeAws_restJson1InputWhitelistRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMediaConnectFlow = (output: any, context: __SerdeContext): MediaConnectFlow[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10345,13 +10369,14 @@ const deserializeAws_restJson1__listOfMediaConnectFlow = (output: any, context: 
       }
       return deserializeAws_restJson1MediaConnectFlow(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMediaPackageOutputDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): MediaPackageOutputDestinationSettings[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10359,13 +10384,14 @@ const deserializeAws_restJson1__listOfMediaPackageOutputDestinationSettings = (
       }
       return deserializeAws_restJson1MediaPackageOutputDestinationSettings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMultiplexOutputDestination = (
   output: any,
   context: __SerdeContext
 ): MultiplexOutputDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10373,13 +10399,14 @@ const deserializeAws_restJson1__listOfMultiplexOutputDestination = (
       }
       return deserializeAws_restJson1MultiplexOutputDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMultiplexProgramPipelineDetail = (
   output: any,
   context: __SerdeContext
 ): MultiplexProgramPipelineDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10387,13 +10414,14 @@ const deserializeAws_restJson1__listOfMultiplexProgramPipelineDetail = (
       }
       return deserializeAws_restJson1MultiplexProgramPipelineDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMultiplexProgramSummary = (
   output: any,
   context: __SerdeContext
 ): MultiplexProgramSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10401,10 +10429,11 @@ const deserializeAws_restJson1__listOfMultiplexProgramSummary = (
       }
       return deserializeAws_restJson1MultiplexProgramSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMultiplexSummary = (output: any, context: __SerdeContext): MultiplexSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10412,10 +10441,11 @@ const deserializeAws_restJson1__listOfMultiplexSummary = (output: any, context: 
       }
       return deserializeAws_restJson1MultiplexSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOffering = (output: any, context: __SerdeContext): Offering[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10423,10 +10453,11 @@ const deserializeAws_restJson1__listOfOffering = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1Offering(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10434,13 +10465,14 @@ const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Output(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputDestination = (
   output: any,
   context: __SerdeContext
 ): OutputDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10448,13 +10480,14 @@ const deserializeAws_restJson1__listOfOutputDestination = (
       }
       return deserializeAws_restJson1OutputDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): OutputDestinationSettings[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10462,10 +10495,11 @@ const deserializeAws_restJson1__listOfOutputDestinationSettings = (
       }
       return deserializeAws_restJson1OutputDestinationSettings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOutputGroup = (output: any, context: __SerdeContext): OutputGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10473,10 +10507,11 @@ const deserializeAws_restJson1__listOfOutputGroup = (output: any, context: __Ser
       }
       return deserializeAws_restJson1OutputGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPipelineDetail = (output: any, context: __SerdeContext): PipelineDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10484,13 +10519,14 @@ const deserializeAws_restJson1__listOfPipelineDetail = (output: any, context: __
       }
       return deserializeAws_restJson1PipelineDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPipelinePauseStateSettings = (
   output: any,
   context: __SerdeContext
 ): PipelinePauseStateSettings[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10498,10 +10534,11 @@ const deserializeAws_restJson1__listOfPipelinePauseStateSettings = (
       }
       return deserializeAws_restJson1PipelinePauseStateSettings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfReservation = (output: any, context: __SerdeContext): Reservation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10509,13 +10546,14 @@ const deserializeAws_restJson1__listOfReservation = (output: any, context: __Ser
       }
       return deserializeAws_restJson1Reservation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfRtmpAdMarkers = (
   output: any,
   context: __SerdeContext
 ): (RtmpAdMarkers | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10523,10 +10561,11 @@ const deserializeAws_restJson1__listOfRtmpAdMarkers = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfScheduleAction = (output: any, context: __SerdeContext): ScheduleAction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10534,10 +10573,11 @@ const deserializeAws_restJson1__listOfScheduleAction = (output: any, context: __
       }
       return deserializeAws_restJson1ScheduleAction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfScte35Descriptor = (output: any, context: __SerdeContext): Scte35Descriptor[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10545,13 +10585,14 @@ const deserializeAws_restJson1__listOfScte35Descriptor = (output: any, context: 
       }
       return deserializeAws_restJson1Scte35Descriptor(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfTransferringInputDeviceSummary = (
   output: any,
   context: __SerdeContext
 ): TransferringInputDeviceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10559,10 +10600,11 @@ const deserializeAws_restJson1__listOfTransferringInputDeviceSummary = (
       }
       return deserializeAws_restJson1TransferringInputDeviceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfValidationError = (output: any, context: __SerdeContext): ValidationError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10570,10 +10612,11 @@ const deserializeAws_restJson1__listOfValidationError = (output: any, context: _
       }
       return deserializeAws_restJson1ValidationError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfVideoDescription = (output: any, context: __SerdeContext): VideoDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -10581,6 +10624,7 @@ const deserializeAws_restJson1__listOfVideoDescription = (output: any, context: 
       }
       return deserializeAws_restJson1VideoDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContext): AacSettings => {

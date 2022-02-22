@@ -701,7 +701,7 @@ const deserializeAws_restJson1ReportDefinition = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -709,6 +709,7 @@ const deserializeAws_restJson1ReportDefinitionList = (output: any, context: __Se
       }
       return deserializeAws_restJson1ReportDefinition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {

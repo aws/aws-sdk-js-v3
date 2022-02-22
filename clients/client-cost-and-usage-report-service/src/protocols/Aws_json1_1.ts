@@ -436,7 +436,7 @@ const deserializeAws_json1_1AdditionalArtifactList = (
   output: any,
   context: __SerdeContext
 ): (AdditionalArtifact | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -444,6 +444,7 @@ const deserializeAws_json1_1AdditionalArtifactList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeleteReportDefinitionResponse = (
@@ -521,7 +522,7 @@ const deserializeAws_json1_1ReportDefinition = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ReportDefinitionList = (output: any, context: __SerdeContext): ReportDefinition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -529,6 +530,7 @@ const deserializeAws_json1_1ReportDefinitionList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ReportDefinition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReportLimitReachedException = (
@@ -541,7 +543,7 @@ const deserializeAws_json1_1ReportLimitReachedException = (
 };
 
 const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeContext): (SchemaElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -549,6 +551,7 @@ const deserializeAws_json1_1SchemaElementList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {

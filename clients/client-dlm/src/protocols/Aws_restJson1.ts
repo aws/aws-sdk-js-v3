@@ -1203,7 +1203,7 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext): Action[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1211,10 +1211,11 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Action(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1222,6 +1223,7 @@ const deserializeAws_restJson1AvailabilityZoneList = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CreateRule = (output: any, context: __SerdeContext): CreateRule => {
@@ -1255,7 +1257,7 @@ const deserializeAws_restJson1CrossRegionCopyActionList = (
   output: any,
   context: __SerdeContext
 ): CrossRegionCopyAction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1263,6 +1265,7 @@ const deserializeAws_restJson1CrossRegionCopyActionList = (
       }
       return deserializeAws_restJson1CrossRegionCopyAction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CrossRegionCopyDeprecateRule = (
@@ -1304,7 +1307,7 @@ const deserializeAws_restJson1CrossRegionCopyRule = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __SerdeContext): CrossRegionCopyRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1312,6 +1315,7 @@ const deserializeAws_restJson1CrossRegionCopyRules = (output: any, context: __Se
       }
       return deserializeAws_restJson1CrossRegionCopyRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeprecateRule = (output: any, context: __SerdeContext): DeprecateRule => {
@@ -1412,7 +1416,7 @@ const deserializeAws_restJson1LifecyclePolicySummaryList = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1420,10 +1424,11 @@ const deserializeAws_restJson1LifecyclePolicySummaryList = (
       }
       return deserializeAws_restJson1LifecyclePolicySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1431,6 +1436,7 @@ const deserializeAws_restJson1ParameterList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContext): _Parameters => {
@@ -1475,7 +1481,7 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1PolicyIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1483,13 +1489,14 @@ const deserializeAws_restJson1PolicyIdList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceLocationList = (
   output: any,
   context: __SerdeContext
 ): (ResourceLocationValues | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1497,13 +1504,14 @@ const deserializeAws_restJson1ResourceLocationList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceTypeValuesList = (
   output: any,
   context: __SerdeContext
 ): (ResourceTypeValues | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1511,6 +1519,7 @@ const deserializeAws_restJson1ResourceTypeValuesList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RetainRule = (output: any, context: __SerdeContext): RetainRule => {
@@ -1561,7 +1570,7 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeContext): Schedule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1569,6 +1578,7 @@ const deserializeAws_restJson1ScheduleList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Schedule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ShareRule = (output: any, context: __SerdeContext): ShareRule => {
@@ -1583,7 +1593,7 @@ const deserializeAws_restJson1ShareRule = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1ShareRules = (output: any, context: __SerdeContext): ShareRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1591,10 +1601,11 @@ const deserializeAws_restJson1ShareRules = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1ShareRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ShareTargetAccountList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1602,10 +1613,11 @@ const deserializeAws_restJson1ShareTargetAccountList = (output: any, context: __
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SnapshotOwnerList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1613,6 +1625,7 @@ const deserializeAws_restJson1SnapshotOwnerList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1635,7 +1648,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 };
 
 const deserializeAws_restJson1TagsToAddList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1643,10 +1656,11 @@ const deserializeAws_restJson1TagsToAddList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TargetTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1654,10 +1668,11 @@ const deserializeAws_restJson1TargetTagList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TimesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1665,10 +1680,11 @@ const deserializeAws_restJson1TimesList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VariableTagsList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1676,6 +1692,7 @@ const deserializeAws_restJson1VariableTagsList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

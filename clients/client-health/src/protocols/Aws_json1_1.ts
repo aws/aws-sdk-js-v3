@@ -1365,7 +1365,7 @@ const serializeAws_json1_1tagSet = (input: { [key: string]: string }, context: _
 };
 
 const deserializeAws_json1_1affectedAccountsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1373,6 +1373,7 @@ const deserializeAws_json1_1affectedAccountsList = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity => {
@@ -1421,7 +1422,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1429,6 +1430,7 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
       }
       return deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
@@ -1490,7 +1492,7 @@ const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
   output: any,
   context: __SerdeContext
 ): EventDetailsErrorItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1498,13 +1500,14 @@ const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
       }
       return deserializeAws_json1_1EventDetailsErrorItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1512,6 +1515,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet = (
       }
       return deserializeAws_json1_1OrganizationEventDetailsErrorItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
@@ -1534,7 +1538,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetails[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1542,6 +1546,7 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
       }
       return deserializeAws_json1_1OrganizationEventDetails(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsResponse = (
@@ -1564,7 +1569,7 @@ const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
   output: any,
   context: __SerdeContext
 ): EventDetails[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1572,6 +1577,7 @@ const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
       }
       return deserializeAws_json1_1EventDetails(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
@@ -1627,7 +1633,7 @@ const deserializeAws_json1_1EntityAggregate = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntityAggregateList = (output: any, context: __SerdeContext): EntityAggregate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1635,10 +1641,11 @@ const deserializeAws_json1_1EntityAggregateList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1EntityAggregate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext): AffectedEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1646,6 +1653,7 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1AffectedEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
@@ -1681,7 +1689,7 @@ const deserializeAws_json1_1EventAggregate = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1EventAggregateList = (output: any, context: __SerdeContext): EventAggregate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1689,6 +1697,7 @@ const deserializeAws_json1_1EventAggregateList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1EventAggregate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EventDescription = (output: any, context: __SerdeContext): EventDescription => {
@@ -1723,7 +1732,7 @@ const deserializeAws_json1_1EventDetailsErrorItem = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): Event[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1731,6 +1740,7 @@ const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Event(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1eventMetadata = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -1754,7 +1764,7 @@ const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1EventTypeList = (output: any, context: __SerdeContext): EventType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1762,6 +1772,7 @@ const deserializeAws_json1_1EventTypeList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1EventType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidPaginationToken = (output: any, context: __SerdeContext): InvalidPaginationToken => {
@@ -1840,7 +1851,7 @@ const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
 };
 
 const deserializeAws_json1_1OrganizationEventList = (output: any, context: __SerdeContext): OrganizationEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1848,6 +1859,7 @@ const deserializeAws_json1_1OrganizationEventList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1OrganizationEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1tagSet = (output: any, context: __SerdeContext): { [key: string]: string } => {

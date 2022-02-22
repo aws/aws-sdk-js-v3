@@ -1179,7 +1179,7 @@ const deserializeAws_restJson1ActiveContextParametersMap = (
 };
 
 const deserializeAws_restJson1ActiveContextsList = (output: any, context: __SerdeContext): ActiveContext[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1187,6 +1187,7 @@ const deserializeAws_restJson1ActiveContextsList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1ActiveContext(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ActiveContextTimeToLive = (
@@ -1235,7 +1236,7 @@ const deserializeAws_restJson1GenericAttachment = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1genericAttachmentList = (output: any, context: __SerdeContext): GenericAttachment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1243,6 +1244,7 @@ const deserializeAws_restJson1genericAttachmentList = (output: any, context: __S
       }
       return deserializeAws_restJson1GenericAttachment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1IntentConfidence = (output: any, context: __SerdeContext): IntentConfidence => {
@@ -1252,7 +1254,7 @@ const deserializeAws_restJson1IntentConfidence = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1IntentList = (output: any, context: __SerdeContext): PredictedIntent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1260,6 +1262,7 @@ const deserializeAws_restJson1IntentList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1PredictedIntent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
@@ -1278,7 +1281,7 @@ const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1IntentSummaryList = (output: any, context: __SerdeContext): IntentSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1286,10 +1289,11 @@ const deserializeAws_restJson1IntentSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1IntentSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1listOfButtons = (output: any, context: __SerdeContext): Button[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1297,6 +1301,7 @@ const deserializeAws_restJson1listOfButtons = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Button(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PredictedIntent = (output: any, context: __SerdeContext): PredictedIntent => {

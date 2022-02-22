@@ -790,7 +790,7 @@ const deserializeAws_json1_0GreetingStruct = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -798,6 +798,7 @@ const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

@@ -1288,7 +1288,7 @@ const deserializeAws_restJson1__listOfDeviceDescription = (
   output: any,
   context: __SerdeContext
 ): DeviceDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1296,10 +1296,11 @@ const deserializeAws_restJson1__listOfDeviceDescription = (
       }
       return deserializeAws_restJson1DeviceDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfDeviceEvent = (output: any, context: __SerdeContext): DeviceEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1307,10 +1308,11 @@ const deserializeAws_restJson1__listOfDeviceEvent = (output: any, context: __Ser
       }
       return deserializeAws_restJson1DeviceEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfDeviceMethod = (output: any, context: __SerdeContext): DeviceMethod[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1318,6 +1320,7 @@ const deserializeAws_restJson1__listOfDeviceMethod = (output: any, context: __Se
       }
       return deserializeAws_restJson1DeviceMethod(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

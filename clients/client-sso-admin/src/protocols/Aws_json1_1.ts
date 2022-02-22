@@ -2958,7 +2958,7 @@ const deserializeAws_json1_1AccessControlAttributeList = (
   output: any,
   context: __SerdeContext
 ): AccessControlAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2966,6 +2966,7 @@ const deserializeAws_json1_1AccessControlAttributeList = (
       }
       return deserializeAws_json1_1AccessControlAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccessControlAttributeValue = (
@@ -2984,7 +2985,7 @@ const deserializeAws_json1_1AccessControlAttributeValueSourceList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2992,6 +2993,7 @@ const deserializeAws_json1_1AccessControlAttributeValueSourceList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -3010,7 +3012,7 @@ const deserializeAws_json1_1AccountAssignment = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AccountAssignmentList = (output: any, context: __SerdeContext): AccountAssignment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3018,6 +3020,7 @@ const deserializeAws_json1_1AccountAssignmentList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1AccountAssignment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccountAssignmentOperationStatus = (
@@ -3044,7 +3047,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusList = (
   output: any,
   context: __SerdeContext
 ): AccountAssignmentOperationStatusMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3052,6 +3055,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusList = (
       }
       return deserializeAws_json1_1AccountAssignmentOperationStatusMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
@@ -3069,7 +3073,7 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
 };
 
 const deserializeAws_json1_1AccountList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3077,6 +3081,7 @@ const deserializeAws_json1_1AccountList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttachedManagedPolicy = (output: any, context: __SerdeContext): AttachedManagedPolicy => {
@@ -3090,7 +3095,7 @@ const deserializeAws_json1_1AttachedManagedPolicyList = (
   output: any,
   context: __SerdeContext
 ): AttachedManagedPolicy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3098,6 +3103,7 @@ const deserializeAws_json1_1AttachedManagedPolicyList = (
       }
       return deserializeAws_json1_1AttachedManagedPolicy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttachManagedPolicyToPermissionSetResponse = (
@@ -3272,7 +3278,7 @@ const deserializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
 };
 
 const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext): InstanceMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3280,6 +3286,7 @@ const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1InstanceMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InstanceMetadata = (output: any, context: __SerdeContext): InstanceMetadata => {
@@ -3440,7 +3447,7 @@ const deserializeAws_json1_1PermissionSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1PermissionSetList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3448,6 +3455,7 @@ const deserializeAws_json1_1PermissionSetList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PermissionSetProvisioningStatus = (
@@ -3471,7 +3479,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatusList = (
   output: any,
   context: __SerdeContext
 ): PermissionSetProvisioningStatusMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3479,6 +3487,7 @@ const deserializeAws_json1_1PermissionSetProvisioningStatusList = (
       }
       return deserializeAws_json1_1PermissionSetProvisioningStatusMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PermissionSetProvisioningStatusMetadata = (
@@ -3540,7 +3549,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3548,6 +3557,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

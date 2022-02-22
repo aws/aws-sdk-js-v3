@@ -6408,7 +6408,7 @@ const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext
 };
 
 const deserializeAws_json1_1AttributeNamesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6416,6 +6416,7 @@ const deserializeAws_json1_1AttributeNamesList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AugmentedManifestsListItem = (
@@ -6590,7 +6591,7 @@ const deserializeAws_json1_1BatchItemError = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1BatchItemErrorList = (output: any, context: __SerdeContext): BatchItemError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6598,6 +6599,7 @@ const deserializeAws_json1_1BatchItemErrorList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1BatchItemError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BatchSizeLimitExceededException = (
@@ -6991,7 +6993,7 @@ const deserializeAws_json1_1DocumentClassificationJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): DocumentClassificationJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6999,13 +7001,14 @@ const deserializeAws_json1_1DocumentClassificationJobPropertiesList = (
       }
       return deserializeAws_json1_1DocumentClassificationJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DocumentClassifierAugmentedManifestsList = (
   output: any,
   context: __SerdeContext
 ): AugmentedManifestsListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7013,6 +7016,7 @@ const deserializeAws_json1_1DocumentClassifierAugmentedManifestsList = (
       }
       return deserializeAws_json1_1AugmentedManifestsListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DocumentClassifierInputDataConfig = (
@@ -7095,7 +7099,7 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
   output: any,
   context: __SerdeContext
 ): DocumentClassifierProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7103,13 +7107,14 @@ const deserializeAws_json1_1DocumentClassifierPropertiesList = (
       }
       return deserializeAws_json1_1DocumentClassifierProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DocumentClassifierSummariesList = (
   output: any,
   context: __SerdeContext
 ): DocumentClassifierSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7117,6 +7122,7 @@ const deserializeAws_json1_1DocumentClassifierSummariesList = (
       }
       return deserializeAws_json1_1DocumentClassifierSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DocumentClassifierSummary = (
@@ -7199,7 +7205,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): DominantLanguageDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7207,6 +7213,7 @@ const deserializeAws_json1_1DominantLanguageDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1DominantLanguageDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeContext): EndpointProperties => {
@@ -7232,7 +7239,7 @@ const deserializeAws_json1_1EndpointProperties = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1EndpointPropertiesList = (output: any, context: __SerdeContext): EndpointProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7240,6 +7247,7 @@ const deserializeAws_json1_1EndpointPropertiesList = (output: any, context: __Se
       }
       return deserializeAws_json1_1EndpointProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntitiesDetectionJobProperties = (
@@ -7283,7 +7291,7 @@ const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): EntitiesDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7291,6 +7299,7 @@ const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1EntitiesDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
@@ -7324,7 +7333,7 @@ const deserializeAws_json1_1EntityRecognizerAugmentedManifestsList = (
   output: any,
   context: __SerdeContext
 ): AugmentedManifestsListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7332,6 +7341,7 @@ const deserializeAws_json1_1EntityRecognizerAugmentedManifestsList = (
       }
       return deserializeAws_json1_1AugmentedManifestsListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityRecognizerDocuments = (
@@ -7416,7 +7426,7 @@ const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesList = (
   output: any,
   context: __SerdeContext
 ): EntityRecognizerMetadataEntityTypesListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7424,6 +7434,7 @@ const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesList = (
       }
       return deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityRecognizerMetadataEntityTypesListItem = (
@@ -7489,7 +7500,7 @@ const deserializeAws_json1_1EntityRecognizerPropertiesList = (
   output: any,
   context: __SerdeContext
 ): EntityRecognizerProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7497,13 +7508,14 @@ const deserializeAws_json1_1EntityRecognizerPropertiesList = (
       }
       return deserializeAws_json1_1EntityRecognizerProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityRecognizerSummariesList = (
   output: any,
   context: __SerdeContext
 ): EntityRecognizerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7511,6 +7523,7 @@ const deserializeAws_json1_1EntityRecognizerSummariesList = (
       }
       return deserializeAws_json1_1EntityRecognizerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityRecognizerSummary = (
@@ -7541,7 +7554,7 @@ const deserializeAws_json1_1EntityTypesEvaluationMetrics = (
 };
 
 const deserializeAws_json1_1EntityTypesList = (output: any, context: __SerdeContext): EntityTypesListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7549,6 +7562,7 @@ const deserializeAws_json1_1EntityTypesList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1EntityTypesListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntityTypesListItem = (output: any, context: __SerdeContext): EntityTypesListItem => {
@@ -7596,7 +7610,7 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): EventsDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7604,6 +7618,7 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1EventsDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImportModelResponse = (output: any, context: __SerdeContext): ImportModelResponse => {
@@ -7702,7 +7717,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): KeyPhrasesDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7710,6 +7725,7 @@ const deserializeAws_json1_1KeyPhrasesDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1KeyPhrasesDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1KmsKeyValidationException = (
@@ -7860,7 +7876,7 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
 };
 
 const deserializeAws_json1_1ListOfClasses = (output: any, context: __SerdeContext): DocumentClass[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7868,13 +7884,14 @@ const deserializeAws_json1_1ListOfClasses = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1DocumentClass(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectDominantLanguageItemResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7882,13 +7899,14 @@ const deserializeAws_json1_1ListOfDetectDominantLanguageResult = (
       }
       return deserializeAws_json1_1BatchDetectDominantLanguageItemResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDetectEntitiesResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectEntitiesItemResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7896,13 +7914,14 @@ const deserializeAws_json1_1ListOfDetectEntitiesResult = (
       }
       return deserializeAws_json1_1BatchDetectEntitiesItemResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectKeyPhrasesItemResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7910,13 +7929,14 @@ const deserializeAws_json1_1ListOfDetectKeyPhrasesResult = (
       }
       return deserializeAws_json1_1BatchDetectKeyPhrasesItemResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDetectSentimentResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectSentimentItemResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7924,13 +7944,14 @@ const deserializeAws_json1_1ListOfDetectSentimentResult = (
       }
       return deserializeAws_json1_1BatchDetectSentimentItemResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDetectSyntaxResult = (
   output: any,
   context: __SerdeContext
 ): BatchDetectSyntaxItemResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7938,13 +7959,14 @@ const deserializeAws_json1_1ListOfDetectSyntaxResult = (
       }
       return deserializeAws_json1_1BatchDetectSyntaxItemResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
   output: any,
   context: __SerdeContext
 ): (DocumentReadFeatureTypes | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7952,10 +7974,11 @@ const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfDominantLanguages = (output: any, context: __SerdeContext): DominantLanguage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7963,10 +7986,11 @@ const deserializeAws_json1_1ListOfDominantLanguages = (output: any, context: __S
       }
       return deserializeAws_json1_1DominantLanguage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfEntities = (output: any, context: __SerdeContext): Entity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7974,10 +7998,11 @@ const deserializeAws_json1_1ListOfEntities = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1Entity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfEntityLabels = (output: any, context: __SerdeContext): EntityLabel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7985,10 +8010,11 @@ const deserializeAws_json1_1ListOfEntityLabels = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1EntityLabel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfKeyPhrases = (output: any, context: __SerdeContext): KeyPhrase[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7996,10 +8022,11 @@ const deserializeAws_json1_1ListOfKeyPhrases = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1KeyPhrase(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfLabels = (output: any, context: __SerdeContext): DocumentLabel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8007,10 +8034,11 @@ const deserializeAws_json1_1ListOfLabels = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1DocumentLabel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfPiiEntities = (output: any, context: __SerdeContext): PiiEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8018,13 +8046,14 @@ const deserializeAws_json1_1ListOfPiiEntities = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1PiiEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfPiiEntityTypes = (
   output: any,
   context: __SerdeContext
 ): (PiiEntityType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8032,10 +8061,11 @@ const deserializeAws_json1_1ListOfPiiEntityTypes = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfSyntaxTokens = (output: any, context: __SerdeContext): SyntaxToken[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8043,6 +8073,7 @@ const deserializeAws_json1_1ListOfSyntaxTokens = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1SyntaxToken(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListPiiEntitiesDetectionJobsResponse = (
@@ -8155,7 +8186,7 @@ const deserializeAws_json1_1PiiEntitiesDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): PiiEntitiesDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8163,6 +8194,7 @@ const deserializeAws_json1_1PiiEntitiesDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1PiiEntitiesDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PiiEntity = (output: any, context: __SerdeContext): PiiEntity => {
@@ -8235,7 +8267,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 };
 
 const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8243,6 +8275,7 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SentimentDetectionJobProperties = (
@@ -8285,7 +8318,7 @@ const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): SentimentDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8293,6 +8326,7 @@ const deserializeAws_json1_1SentimentDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1SentimentDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SentimentScore = (output: any, context: __SerdeContext): SentimentScore => {
@@ -8467,7 +8501,7 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
 };
 
 const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8475,6 +8509,7 @@ const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SyntaxToken = (output: any, context: __SerdeContext): SyntaxToken => {
@@ -8498,7 +8533,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8506,6 +8541,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -8513,7 +8549,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8521,6 +8557,7 @@ const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededException = (
@@ -8596,7 +8633,7 @@ const deserializeAws_json1_1TopicsDetectionJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): TopicsDetectionJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8604,6 +8641,7 @@ const deserializeAws_json1_1TopicsDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1TopicsDetectionJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnsupportedLanguageException = (

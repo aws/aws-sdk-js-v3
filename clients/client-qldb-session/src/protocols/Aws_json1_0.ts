@@ -485,7 +485,7 @@ const deserializeAws_json1_0ValueHolder = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_0ValueHolders = (output: any, context: __SerdeContext): ValueHolder[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -493,6 +493,7 @@ const deserializeAws_json1_0ValueHolders = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_0ValueHolder(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

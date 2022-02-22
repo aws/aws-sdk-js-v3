@@ -422,7 +422,7 @@ const deserializeAws_json1_1HomeRegionControl = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeContext): HomeRegionControl[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -430,6 +430,7 @@ const deserializeAws_json1_1HomeRegionControls = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1HomeRegionControl(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {

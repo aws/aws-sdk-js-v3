@@ -457,7 +457,7 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -465,6 +465,7 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
       }
       return deserializeAws_json1_1Group(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalServerException = (
@@ -524,7 +525,7 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
 };
 
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -532,6 +533,7 @@ const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User
       }
       return deserializeAws_json1_1User(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {

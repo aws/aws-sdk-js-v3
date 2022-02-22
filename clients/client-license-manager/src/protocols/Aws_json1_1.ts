@@ -5052,7 +5052,7 @@ const deserializeAws_json1_1AllowedOperationList = (
   output: any,
   context: __SerdeContext
 ): (AllowedOperation | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5060,10 +5060,11 @@ const deserializeAws_json1_1AllowedOperationList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5071,6 +5072,7 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AuthorizationException = (output: any, context: __SerdeContext): AuthorizationException => {
@@ -5160,7 +5162,7 @@ const deserializeAws_json1_1ConsumedLicenseSummaryList = (
   output: any,
   context: __SerdeContext
 ): ConsumedLicenseSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5168,6 +5170,7 @@ const deserializeAws_json1_1ConsumedLicenseSummaryList = (
       }
       return deserializeAws_json1_1ConsumedLicenseSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConsumptionConfiguration = (
@@ -5320,7 +5323,7 @@ const deserializeAws_json1_1EntitlementData = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EntitlementDataList = (output: any, context: __SerdeContext): EntitlementData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5328,10 +5331,11 @@ const deserializeAws_json1_1EntitlementDataList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1EntitlementData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeContext): Entitlement[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5339,6 +5343,7 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1Entitlement(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EntitlementNotAllowedException = (
@@ -5360,7 +5365,7 @@ const deserializeAws_json1_1EntitlementUsage = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1EntitlementUsageList = (output: any, context: __SerdeContext): EntitlementUsage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5368,6 +5373,7 @@ const deserializeAws_json1_1EntitlementUsageList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1EntitlementUsage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExtendLicenseConsumptionResponse = (
@@ -5595,7 +5601,7 @@ const deserializeAws_json1_1GrantedLicense = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1GrantedLicenseList = (output: any, context: __SerdeContext): GrantedLicense[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5603,10 +5609,11 @@ const deserializeAws_json1_1GrantedLicenseList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1GrantedLicense(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): Grant[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5614,6 +5621,7 @@ const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Grant(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidParameterValueException = (
@@ -5732,7 +5740,7 @@ const deserializeAws_json1_1LicenseConfigurationAssociations = (
   output: any,
   context: __SerdeContext
 ): LicenseConfigurationAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5740,10 +5748,11 @@ const deserializeAws_json1_1LicenseConfigurationAssociations = (
       }
       return deserializeAws_json1_1LicenseConfigurationAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseConfigurations = (output: any, context: __SerdeContext): LicenseConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5751,6 +5760,7 @@ const deserializeAws_json1_1LicenseConfigurations = (output: any, context: __Ser
       }
       return deserializeAws_json1_1LicenseConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseConfigurationUsage = (
@@ -5774,7 +5784,7 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
   output: any,
   context: __SerdeContext
 ): LicenseConfigurationUsage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5782,6 +5792,7 @@ const deserializeAws_json1_1LicenseConfigurationUsageList = (
       }
       return deserializeAws_json1_1LicenseConfigurationUsage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseConversionContext = (
@@ -5826,7 +5837,7 @@ const deserializeAws_json1_1LicenseConversionTasks = (
   output: any,
   context: __SerdeContext
 ): LicenseConversionTask[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5834,10 +5845,11 @@ const deserializeAws_json1_1LicenseConversionTasks = (
       }
       return deserializeAws_json1_1LicenseConversionTask(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseList = (output: any, context: __SerdeContext): License[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5845,6 +5857,7 @@ const deserializeAws_json1_1LicenseList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1License(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseOperationFailure = (
@@ -5873,7 +5886,7 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
   output: any,
   context: __SerdeContext
 ): LicenseOperationFailure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5881,6 +5894,7 @@ const deserializeAws_json1_1LicenseOperationFailureList = (
       }
       return deserializeAws_json1_1LicenseOperationFailure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseSpecification = (output: any, context: __SerdeContext): LicenseSpecification => {
@@ -5891,7 +5905,7 @@ const deserializeAws_json1_1LicenseSpecification = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __SerdeContext): LicenseSpecification[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5899,6 +5913,7 @@ const deserializeAws_json1_1LicenseSpecifications = (output: any, context: __Ser
       }
       return deserializeAws_json1_1LicenseSpecification(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LicenseUsage = (output: any, context: __SerdeContext): LicenseUsage => {
@@ -6115,7 +6130,7 @@ const deserializeAws_json1_1ManagedResourceSummaryList = (
   output: any,
   context: __SerdeContext
 ): ManagedResourceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6123,10 +6138,11 @@ const deserializeAws_json1_1ManagedResourceSummaryList = (
       }
       return deserializeAws_json1_1ManagedResourceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6134,6 +6150,7 @@ const deserializeAws_json1_1MaxSize3StringList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): Metadata => {
@@ -6144,7 +6161,7 @@ const deserializeAws_json1_1Metadata = (output: any, context: __SerdeContext): M
 };
 
 const deserializeAws_json1_1MetadataList = (output: any, context: __SerdeContext): Metadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6152,6 +6169,7 @@ const deserializeAws_json1_1MetadataList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Metadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NoEntitlementsAllowedException = (
@@ -6200,7 +6218,7 @@ const deserializeAws_json1_1ProductInformationFilterList = (
   output: any,
   context: __SerdeContext
 ): ProductInformationFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6208,10 +6226,11 @@ const deserializeAws_json1_1ProductInformationFilterList = (
       }
       return deserializeAws_json1_1ProductInformationFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProductInformationList = (output: any, context: __SerdeContext): ProductInformation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6219,6 +6238,7 @@ const deserializeAws_json1_1ProductInformationList = (output: any, context: __Se
       }
       return deserializeAws_json1_1ProductInformation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProvisionalConfiguration = (
@@ -6315,7 +6335,7 @@ const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ReportGeneratorList = (output: any, context: __SerdeContext): ReportGenerator[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6323,10 +6343,11 @@ const deserializeAws_json1_1ReportGeneratorList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ReportGenerator(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6334,6 +6355,7 @@ const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
@@ -6348,7 +6370,7 @@ const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ResourceInventoryList = (output: any, context: __SerdeContext): ResourceInventory[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6356,6 +6378,7 @@ const deserializeAws_json1_1ResourceInventoryList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1ResourceInventory(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceLimitExceededException = (
@@ -6393,7 +6416,7 @@ const deserializeAws_json1_1ServerInternalException = (
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6401,6 +6424,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6411,7 +6435,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6419,6 +6443,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -6444,7 +6469,7 @@ const deserializeAws_json1_1TokenData = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1TokenList = (output: any, context: __SerdeContext): TokenData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6452,6 +6477,7 @@ const deserializeAws_json1_1TokenList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1TokenData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnsupportedDigitalSignatureMethodException = (

@@ -6597,7 +6597,7 @@ const serializeAws_restJson1WorldCount = (input: WorldCount, context: __SerdeCon
 };
 
 const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6605,6 +6605,7 @@ const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContext): BatchPolicy => {
@@ -6615,7 +6616,7 @@ const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1CommandList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6623,6 +6624,7 @@ const deserializeAws_restJson1CommandList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): Compute => {
@@ -6645,7 +6647,7 @@ const deserializeAws_restJson1CreateSimulationJobRequests = (
   output: any,
   context: __SerdeContext
 ): SimulationJobRequest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6653,6 +6655,7 @@ const deserializeAws_restJson1CreateSimulationJobRequests = (
       }
       return deserializeAws_restJson1SimulationJobRequest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
@@ -6682,7 +6685,7 @@ const deserializeAws_restJson1DataSourceConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1DataSourceConfigs = (output: any, context: __SerdeContext): DataSourceConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6690,10 +6693,11 @@ const deserializeAws_restJson1DataSourceConfigs = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DataSourceConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataSourceNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6701,10 +6705,11 @@ const deserializeAws_restJson1DataSourceNames = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6712,6 +6717,7 @@ const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1DataSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeploymentApplicationConfig = (
@@ -6732,7 +6738,7 @@ const deserializeAws_restJson1DeploymentApplicationConfigs = (
   output: any,
   context: __SerdeContext
 ): DeploymentApplicationConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6740,6 +6746,7 @@ const deserializeAws_restJson1DeploymentApplicationConfigs = (
       }
       return deserializeAws_restJson1DeploymentApplicationConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeploymentConfig = (output: any, context: __SerdeContext): DeploymentConfig => {
@@ -6777,7 +6784,7 @@ const deserializeAws_restJson1DeploymentJob = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DeploymentJobs = (output: any, context: __SerdeContext): DeploymentJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6785,6 +6792,7 @@ const deserializeAws_restJson1DeploymentJobs = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1DeploymentJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeploymentLaunchConfig = (
@@ -6846,7 +6854,7 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequests = (
   output: any,
   context: __SerdeContext
 ): FailedCreateSimulationJobRequest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6854,6 +6862,7 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequests = (
       }
       return deserializeAws_restJson1FailedCreateSimulationJobRequest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FailureSummary = (output: any, context: __SerdeContext): FailureSummary => {
@@ -6898,7 +6907,7 @@ const deserializeAws_restJson1Fleet = (output: any, context: __SerdeContext): Fl
 };
 
 const deserializeAws_restJson1Fleets = (output: any, context: __SerdeContext): Fleet[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6906,6 +6915,7 @@ const deserializeAws_restJson1Fleets = (output: any, context: __SerdeContext): F
       }
       return deserializeAws_restJson1Fleet(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LaunchConfig = (output: any, context: __SerdeContext): LaunchConfig => {
@@ -6967,7 +6977,7 @@ const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1PortMappingList = (output: any, context: __SerdeContext): PortMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6975,6 +6985,7 @@ const deserializeAws_restJson1PortMappingList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1PortMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeContext): ProgressDetail => {
@@ -7041,7 +7052,7 @@ const deserializeAws_restJson1RobotApplicationConfigs = (
   output: any,
   context: __SerdeContext
 ): RobotApplicationConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7049,10 +7060,11 @@ const deserializeAws_restJson1RobotApplicationConfigs = (
       }
       return deserializeAws_restJson1RobotApplicationConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RobotApplicationNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7060,13 +7072,14 @@ const deserializeAws_restJson1RobotApplicationNames = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RobotApplicationSummaries = (
   output: any,
   context: __SerdeContext
 ): RobotApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7074,6 +7087,7 @@ const deserializeAws_restJson1RobotApplicationSummaries = (
       }
       return deserializeAws_restJson1RobotApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RobotApplicationSummary = (
@@ -7117,7 +7131,7 @@ const deserializeAws_restJson1RobotDeployment = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1RobotDeploymentSummary = (output: any, context: __SerdeContext): RobotDeployment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7125,10 +7139,11 @@ const deserializeAws_restJson1RobotDeploymentSummary = (output: any, context: __
       }
       return deserializeAws_restJson1RobotDeployment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Robots = (output: any, context: __SerdeContext): Robot[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7136,6 +7151,7 @@ const deserializeAws_restJson1Robots = (output: any, context: __SerdeContext): R
       }
       return deserializeAws_restJson1Robot(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RobotSoftwareSuite = (output: any, context: __SerdeContext): RobotSoftwareSuite => {
@@ -7153,7 +7169,7 @@ const deserializeAws_restJson1S3KeyOutput = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1S3KeyOutputs = (output: any, context: __SerdeContext): S3KeyOutput[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7161,10 +7177,11 @@ const deserializeAws_restJson1S3KeyOutputs = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1S3KeyOutput(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3KeysOrPrefixes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7172,6 +7189,7 @@ const deserializeAws_restJson1S3KeysOrPrefixes = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext): S3Object => {
@@ -7183,7 +7201,7 @@ const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7191,6 +7209,7 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationApplicationConfig = (
@@ -7225,7 +7244,7 @@ const deserializeAws_restJson1SimulationApplicationConfigs = (
   output: any,
   context: __SerdeContext
 ): SimulationApplicationConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7233,10 +7252,11 @@ const deserializeAws_restJson1SimulationApplicationConfigs = (
       }
       return deserializeAws_restJson1SimulationApplicationConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationApplicationNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7244,13 +7264,14 @@ const deserializeAws_restJson1SimulationApplicationNames = (output: any, context
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationApplicationSummaries = (
   output: any,
   context: __SerdeContext
 ): SimulationApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7258,6 +7279,7 @@ const deserializeAws_restJson1SimulationApplicationSummaries = (
       }
       return deserializeAws_restJson1SimulationApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationApplicationSummary = (
@@ -7346,7 +7368,7 @@ const deserializeAws_restJson1SimulationJobBatchSummaries = (
   output: any,
   context: __SerdeContext
 ): SimulationJobBatchSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7354,6 +7376,7 @@ const deserializeAws_restJson1SimulationJobBatchSummaries = (
       }
       return deserializeAws_restJson1SimulationJobBatchSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationJobBatchSummary = (
@@ -7419,7 +7442,7 @@ const deserializeAws_restJson1SimulationJobRequest = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1SimulationJobs = (output: any, context: __SerdeContext): SimulationJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7427,13 +7450,14 @@ const deserializeAws_restJson1SimulationJobs = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1SimulationJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationJobSummaries = (
   output: any,
   context: __SerdeContext
 ): SimulationJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7441,6 +7465,7 @@ const deserializeAws_restJson1SimulationJobSummaries = (
       }
       return deserializeAws_restJson1SimulationJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SimulationJobSummary = (output: any, context: __SerdeContext): SimulationJobSummary => {
@@ -7488,7 +7513,7 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_restJson1Sources = (output: any, context: __SerdeContext): Source[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7496,10 +7521,11 @@ const deserializeAws_restJson1Sources = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Source(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7507,6 +7533,7 @@ const deserializeAws_restJson1Subnets = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -7522,7 +7549,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 };
 
 const deserializeAws_restJson1TemplateSummaries = (output: any, context: __SerdeContext): TemplateSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7530,6 +7557,7 @@ const deserializeAws_restJson1TemplateSummaries = (output: any, context: __Serde
       }
       return deserializeAws_restJson1TemplateSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
@@ -7559,7 +7587,7 @@ const deserializeAws_restJson1Tool = (output: any, context: __SerdeContext): Too
 };
 
 const deserializeAws_restJson1Tools = (output: any, context: __SerdeContext): Tool[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7567,6 +7595,7 @@ const deserializeAws_restJson1Tools = (output: any, context: __SerdeContext): To
       }
       return deserializeAws_restJson1Tool(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UploadConfiguration = (output: any, context: __SerdeContext): UploadConfiguration => {
@@ -7578,7 +7607,7 @@ const deserializeAws_restJson1UploadConfiguration = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1UploadConfigurations = (output: any, context: __SerdeContext): UploadConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7586,6 +7615,7 @@ const deserializeAws_restJson1UploadConfigurations = (output: any, context: __Se
       }
       return deserializeAws_restJson1UploadConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {
@@ -7624,7 +7654,7 @@ const deserializeAws_restJson1WorldConfig = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1WorldConfigs = (output: any, context: __SerdeContext): WorldConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7632,6 +7662,7 @@ const deserializeAws_restJson1WorldConfigs = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1WorldConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorldCount = (output: any, context: __SerdeContext): WorldCount => {
@@ -7645,7 +7676,7 @@ const deserializeAws_restJson1WorldExportJobSummaries = (
   output: any,
   context: __SerdeContext
 ): WorldExportJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7653,6 +7684,7 @@ const deserializeAws_restJson1WorldExportJobSummaries = (
       }
       return deserializeAws_restJson1WorldExportJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorldExportJobSummary = (output: any, context: __SerdeContext): WorldExportJobSummary => {
@@ -7679,7 +7711,7 @@ const deserializeAws_restJson1WorldFailure = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1WorldFailures = (output: any, context: __SerdeContext): WorldFailure[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7687,13 +7719,14 @@ const deserializeAws_restJson1WorldFailures = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1WorldFailure(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorldGenerationJobSummaries = (
   output: any,
   context: __SerdeContext
 ): WorldGenerationJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7701,6 +7734,7 @@ const deserializeAws_restJson1WorldGenerationJobSummaries = (
       }
       return deserializeAws_restJson1WorldGenerationJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorldGenerationJobSummary = (
@@ -7725,7 +7759,7 @@ const deserializeAws_restJson1WorldGenerationJobSummary = (
 };
 
 const deserializeAws_restJson1WorldSummaries = (output: any, context: __SerdeContext): WorldSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7733,6 +7767,7 @@ const deserializeAws_restJson1WorldSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1WorldSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorldSummary = (output: any, context: __SerdeContext): WorldSummary => {

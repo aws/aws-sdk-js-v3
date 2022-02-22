@@ -4389,7 +4389,7 @@ const deserializeAws_restJson1GetBackendStorageResourceConfig = (
 };
 
 const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4397,13 +4397,14 @@ const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
   output: any,
   context: __SerdeContext
 ): (AdditionalConstraintsElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4411,13 +4412,14 @@ const deserializeAws_restJson1ListOfAdditionalConstraintsElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfAuthenticatedElement = (
   output: any,
   context: __SerdeContext
 ): (AuthenticatedElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4425,13 +4427,14 @@ const deserializeAws_restJson1ListOfAuthenticatedElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfBackendAPIAuthType = (
   output: any,
   context: __SerdeContext
 ): BackendAPIAuthType[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4439,10 +4442,11 @@ const deserializeAws_restJson1ListOfBackendAPIAuthType = (
       }
       return deserializeAws_restJson1BackendAPIAuthType(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfBackendJobRespObj = (output: any, context: __SerdeContext): BackendJobRespObj[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4450,13 +4454,14 @@ const deserializeAws_restJson1ListOfBackendJobRespObj = (output: any, context: _
       }
       return deserializeAws_restJson1BackendJobRespObj(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfMfaTypesElement = (
   output: any,
   context: __SerdeContext
 ): (MfaTypesElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4464,13 +4469,14 @@ const deserializeAws_restJson1ListOfMfaTypesElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfOAuthScopesElement = (
   output: any,
   context: __SerdeContext
 ): (OAuthScopesElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4478,13 +4484,14 @@ const deserializeAws_restJson1ListOfOAuthScopesElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
   output: any,
   context: __SerdeContext
 ): (RequiredSignUpAttributesElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4492,10 +4499,11 @@ const deserializeAws_restJson1ListOfRequiredSignUpAttributesElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfS3BucketInfo = (output: any, context: __SerdeContext): S3BucketInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4503,13 +4511,14 @@ const deserializeAws_restJson1ListOfS3BucketInfo = (output: any, context: __Serd
       }
       return deserializeAws_restJson1S3BucketInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfUnAuthenticatedElement = (
   output: any,
   context: __SerdeContext
 ): (UnAuthenticatedElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4517,6 +4526,7 @@ const deserializeAws_restJson1ListOfUnAuthenticatedElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LoginAuthConfigReqObj = (output: any, context: __SerdeContext): LoginAuthConfigReqObj => {

@@ -4606,7 +4606,7 @@ const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1CommentList = (output: any, context: __SerdeContext): Comment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4614,6 +4614,7 @@ const deserializeAws_restJson1CommentList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Comment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
@@ -4670,7 +4671,7 @@ const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __SerdeContext): DocumentMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4678,6 +4679,7 @@ const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __Se
       }
       return deserializeAws_restJson1DocumentMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DocumentSourceUrlMap = (
@@ -4759,7 +4761,7 @@ const deserializeAws_restJson1DocumentVersionMetadataList = (
   output: any,
   context: __SerdeContext
 ): DocumentVersionMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4767,10 +4769,11 @@ const deserializeAws_restJson1DocumentVersionMetadataList = (
       }
       return deserializeAws_restJson1DocumentVersionMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4778,6 +4781,7 @@ const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
@@ -4806,7 +4810,7 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1FolderMetadataList = (output: any, context: __SerdeContext): FolderMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4814,6 +4818,7 @@ const deserializeAws_restJson1FolderMetadataList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1FolderMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeContext): GroupMetadata => {
@@ -4824,7 +4829,7 @@ const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1GroupMetadataList = (output: any, context: __SerdeContext): GroupMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4832,10 +4837,11 @@ const deserializeAws_restJson1GroupMetadataList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1GroupMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1OrganizationUserList = (output: any, context: __SerdeContext): User[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4843,6 +4849,7 @@ const deserializeAws_restJson1OrganizationUserList = (output: any, context: __Se
       }
       return deserializeAws_restJson1User(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participants => {
@@ -4866,7 +4873,7 @@ const deserializeAws_restJson1PermissionInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1PermissionInfoList = (output: any, context: __SerdeContext): PermissionInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4874,6 +4881,7 @@ const deserializeAws_restJson1PermissionInfoList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1PermissionInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
@@ -4888,7 +4896,7 @@ const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeContext): Principal[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4896,6 +4904,7 @@ const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Principal(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
@@ -4933,7 +4942,7 @@ const deserializeAws_restJson1ResourcePathComponentList = (
   output: any,
   context: __SerdeContext
 ): ResourcePathComponent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4941,10 +4950,11 @@ const deserializeAws_restJson1ResourcePathComponentList = (
       }
       return deserializeAws_restJson1ResourcePathComponent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SharedLabels = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4952,6 +4962,7 @@ const deserializeAws_restJson1SharedLabels = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContext): ShareResult => {
@@ -4966,7 +4977,7 @@ const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ShareResultsList = (output: any, context: __SerdeContext): ShareResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4974,6 +4985,7 @@ const deserializeAws_restJson1ShareResultsList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1ShareResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -5004,7 +5016,7 @@ const deserializeAws_restJson1Subscription = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5012,6 +5024,7 @@ const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1Subscription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
@@ -5054,7 +5067,7 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
 };
 
 const deserializeAws_restJson1UserActivities = (output: any, context: __SerdeContext): Activity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5062,6 +5075,7 @@ const deserializeAws_restJson1UserActivities = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Activity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): UserMetadata => {
@@ -5075,7 +5089,7 @@ const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeContext): UserMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5083,6 +5097,7 @@ const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1UserMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {

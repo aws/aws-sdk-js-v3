@@ -2673,7 +2673,7 @@ const deserializeAws_restJson1AppInstanceAdminList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceAdminSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2681,6 +2681,7 @@ const deserializeAws_restJson1AppInstanceAdminList = (
       }
       return deserializeAws_restJson1AppInstanceAdminSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceAdminSummary = (
@@ -2696,7 +2697,7 @@ const deserializeAws_restJson1AppInstanceAdminSummary = (
 };
 
 const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2704,6 +2705,7 @@ const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1AppInstanceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceRetentionSettings = (
@@ -2793,7 +2795,7 @@ const deserializeAws_restJson1AppInstanceUserEndpointSummaryList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserEndpointSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2801,13 +2803,14 @@ const deserializeAws_restJson1AppInstanceUserEndpointSummaryList = (
       }
       return deserializeAws_restJson1AppInstanceUserEndpointSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceUserList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2815,6 +2818,7 @@ const deserializeAws_restJson1AppInstanceUserList = (
       }
       return deserializeAws_restJson1AppInstanceUserSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceUserSummary = (
@@ -2866,7 +2870,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2874,6 +2878,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

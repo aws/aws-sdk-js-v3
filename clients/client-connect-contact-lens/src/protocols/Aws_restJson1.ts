@@ -240,7 +240,7 @@ const deserializeAws_restJson1IssueDetected = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1IssuesDetected = (output: any, context: __SerdeContext): IssueDetected[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -248,10 +248,11 @@ const deserializeAws_restJson1IssuesDetected = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1IssueDetected(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MatchedCategories = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -259,6 +260,7 @@ const deserializeAws_restJson1MatchedCategories = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MatchedDetails = (
@@ -284,7 +286,7 @@ const deserializeAws_restJson1PointOfInterest = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1PointsOfInterest = (output: any, context: __SerdeContext): PointOfInterest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -292,6 +294,7 @@ const deserializeAws_restJson1PointsOfInterest = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1PointOfInterest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RealtimeContactAnalysisSegment = (
@@ -314,7 +317,7 @@ const deserializeAws_restJson1RealtimeContactAnalysisSegments = (
   output: any,
   context: __SerdeContext
 ): RealtimeContactAnalysisSegment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -322,6 +325,7 @@ const deserializeAws_restJson1RealtimeContactAnalysisSegments = (
       }
       return deserializeAws_restJson1RealtimeContactAnalysisSegment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {

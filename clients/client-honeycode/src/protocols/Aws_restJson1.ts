@@ -2175,7 +2175,7 @@ const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cel
 };
 
 const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Cell[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2183,6 +2183,7 @@ const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Ce
       }
       return deserializeAws_restJson1Cell(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
@@ -2213,7 +2214,7 @@ const deserializeAws_restJson1DataItem = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1DataItems = (output: any, context: __SerdeContext): DataItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2221,6 +2222,7 @@ const deserializeAws_restJson1DataItems = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1DataItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DelimitedTextImportOptions = (
@@ -2252,7 +2254,7 @@ const deserializeAws_restJson1FailedBatchItem = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1FailedBatchItems = (output: any, context: __SerdeContext): FailedBatchItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2260,10 +2262,11 @@ const deserializeAws_restJson1FailedBatchItems = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1FailedBatchItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FormattedValuesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2271,6 +2274,7 @@ const deserializeAws_restJson1FormattedValuesList = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ImportColumnMap = (
@@ -2330,7 +2334,7 @@ const deserializeAws_restJson1ImportOptions = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ResourceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2338,10 +2342,11 @@ const deserializeAws_restJson1ResourceIds = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResultHeader = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2349,6 +2354,7 @@ const deserializeAws_restJson1ResultHeader = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1ColumnMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
@@ -2362,7 +2368,7 @@ const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1ResultRows = (output: any, context: __SerdeContext): ResultRow[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2370,6 +2376,7 @@ const deserializeAws_restJson1ResultRows = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1ResultRow(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext): ResultSet => {
@@ -2398,7 +2405,7 @@ const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1RowIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2406,6 +2413,7 @@ const deserializeAws_restJson1RowIdList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SourceDataColumnProperties = (
@@ -2433,7 +2441,7 @@ const deserializeAws_restJson1TableColumn = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1TableColumns = (output: any, context: __SerdeContext): TableColumn[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2441,6 +2449,7 @@ const deserializeAws_restJson1TableColumns = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1TableColumn(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TableDataImportJobMetadata = (
@@ -2478,7 +2487,7 @@ const deserializeAws_restJson1TableRow = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1TableRows = (output: any, context: __SerdeContext): TableRow[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2486,10 +2495,11 @@ const deserializeAws_restJson1TableRows = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1TableRow(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tables = (output: any, context: __SerdeContext): Table[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2497,6 +2507,7 @@ const deserializeAws_restJson1Tables = (output: any, context: __SerdeContext): T
       }
       return deserializeAws_restJson1Table(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

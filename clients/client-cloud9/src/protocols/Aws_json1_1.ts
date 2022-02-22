@@ -1438,7 +1438,7 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1446,6 +1446,7 @@ const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
@@ -1457,7 +1458,7 @@ const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeContext): Environment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1465,6 +1466,7 @@ const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1Environment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
@@ -1481,7 +1483,7 @@ const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __SerdeContext): EnvironmentMember[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1489,6 +1491,7 @@ const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __Se
       }
       return deserializeAws_json1_1EnvironmentMember(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
@@ -1556,7 +1559,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1564,6 +1567,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

@@ -3772,7 +3772,7 @@ const deserializeAws_restJson1ListOfAssetDestinationEntry = (
   output: any,
   context: __SerdeContext
 ): AssetDestinationEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3780,10 +3780,11 @@ const deserializeAws_restJson1ListOfAssetDestinationEntry = (
       }
       return deserializeAws_restJson1AssetDestinationEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfAssetEntry = (output: any, context: __SerdeContext): AssetEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3791,10 +3792,11 @@ const deserializeAws_restJson1ListOfAssetEntry = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1AssetEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfAssetSourceEntry = (output: any, context: __SerdeContext): AssetSourceEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3802,10 +3804,11 @@ const deserializeAws_restJson1ListOfAssetSourceEntry = (output: any, context: __
       }
       return deserializeAws_restJson1AssetSourceEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfDataSetEntry = (output: any, context: __SerdeContext): DataSetEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3813,10 +3816,11 @@ const deserializeAws_restJson1ListOfDataSetEntry = (output: any, context: __Serd
       }
       return deserializeAws_restJson1DataSetEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfEventActionEntry = (output: any, context: __SerdeContext): EventActionEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3824,10 +3828,11 @@ const deserializeAws_restJson1ListOfEventActionEntry = (output: any, context: __
       }
       return deserializeAws_restJson1EventActionEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfJobEntry = (output: any, context: __SerdeContext): JobEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3835,10 +3840,11 @@ const deserializeAws_restJson1ListOfJobEntry = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1JobEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeContext): JobError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3846,13 +3852,14 @@ const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1JobError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry = (
   output: any,
   context: __SerdeContext
 ): RedshiftDataShareAssetSourceEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3860,13 +3867,14 @@ const deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry = (
       }
       return deserializeAws_restJson1RedshiftDataShareAssetSourceEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfRevisionDestinationEntry = (
   output: any,
   context: __SerdeContext
 ): RevisionDestinationEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3874,10 +3882,11 @@ const deserializeAws_restJson1ListOfRevisionDestinationEntry = (
       }
       return deserializeAws_restJson1RevisionDestinationEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListOfRevisionEntry = (output: any, context: __SerdeContext): RevisionEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3885,6 +3894,7 @@ const deserializeAws_restJson1ListOfRevisionEntry = (output: any, context: __Ser
       }
       return deserializeAws_restJson1RevisionEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

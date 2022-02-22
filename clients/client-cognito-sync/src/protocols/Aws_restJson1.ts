@@ -2098,7 +2098,7 @@ const serializeAws_restJson1RecordPatchList = (input: RecordPatch[], context: __
 };
 
 const deserializeAws_restJson1ApplicationArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2106,6 +2106,7 @@ const deserializeAws_restJson1ApplicationArnList = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
@@ -2135,7 +2136,7 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1DatasetList = (output: any, context: __SerdeContext): Dataset[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2143,6 +2144,7 @@ const deserializeAws_restJson1DatasetList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Dataset(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2170,7 +2172,7 @@ const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __SerdeContext): IdentityPoolUsage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2178,6 +2180,7 @@ const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __S
       }
       return deserializeAws_restJson1IdentityPoolUsage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
@@ -2194,7 +2197,7 @@ const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2202,6 +2205,7 @@ const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext): PushSync => {
@@ -2232,7 +2236,7 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2240,6 +2244,7 @@ const deserializeAws_restJson1RecordList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1_Record(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

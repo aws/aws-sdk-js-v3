@@ -1737,7 +1737,7 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 };
 
 const deserializeAws_restJson1AccountIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1745,6 +1745,7 @@ const deserializeAws_restJson1AccountIdList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Administrator = (output: any, context: __SerdeContext): Administrator => {
@@ -1759,7 +1760,7 @@ const deserializeAws_restJson1Administrator = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1AdministratorList = (output: any, context: __SerdeContext): Administrator[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1767,6 +1768,7 @@ const deserializeAws_restJson1AdministratorList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1Administrator(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
@@ -1780,7 +1782,7 @@ const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Gr
 };
 
 const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext): Graph[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1788,6 +1790,7 @@ const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Graph(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
@@ -1822,7 +1825,7 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1MemberDetailList = (output: any, context: __SerdeContext): MemberDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1830,6 +1833,7 @@ const deserializeAws_restJson1MemberDetailList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1MemberDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -1852,7 +1856,7 @@ const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1UnprocessedAccountList = (output: any, context: __SerdeContext): UnprocessedAccount[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1860,6 +1864,7 @@ const deserializeAws_restJson1UnprocessedAccountList = (output: any, context: __
       }
       return deserializeAws_restJson1UnprocessedAccount(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1420,7 +1420,7 @@ const deserializeAws_restJson1BaseScreenshot = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1BaseScreenshotIgnoreCoordinates = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1428,10 +1428,11 @@ const deserializeAws_restJson1BaseScreenshotIgnoreCoordinates = (output: any, co
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BaseScreenshots = (output: any, context: __SerdeContext): BaseScreenshot[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1439,10 +1440,11 @@ const deserializeAws_restJson1BaseScreenshots = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1BaseScreenshot(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Canaries = (output: any, context: __SerdeContext): Canary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1450,10 +1452,11 @@ const deserializeAws_restJson1Canaries = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Canary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeContext): CanaryLastRun[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1461,6 +1464,7 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1CanaryLastRun(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
@@ -1554,7 +1558,7 @@ const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __S
 };
 
 const deserializeAws_restJson1CanaryRuns = (output: any, context: __SerdeContext): CanaryRun[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1562,6 +1566,7 @@ const deserializeAws_restJson1CanaryRuns = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1CanaryRun(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CanaryRunStatus = (output: any, context: __SerdeContext): CanaryRunStatus => {
@@ -1637,7 +1642,7 @@ const deserializeAws_restJson1RuntimeVersion = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1RuntimeVersionList = (output: any, context: __SerdeContext): RuntimeVersion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1645,6 +1650,7 @@ const deserializeAws_restJson1RuntimeVersionList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1RuntimeVersion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3EncryptionConfig = (output: any, context: __SerdeContext): S3EncryptionConfig => {
@@ -1655,7 +1661,7 @@ const deserializeAws_restJson1S3EncryptionConfig = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1663,10 +1669,11 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1674,6 +1681,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

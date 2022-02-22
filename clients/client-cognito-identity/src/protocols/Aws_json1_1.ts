@@ -2401,7 +2401,7 @@ const deserializeAws_json1_1CognitoIdentityProviderList = (
   output: any,
   context: __SerdeContext
 ): CognitoIdentityProvider[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2409,6 +2409,7 @@ const deserializeAws_json1_1CognitoIdentityProviderList = (
       }
       return deserializeAws_json1_1CognitoIdentityProvider(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
@@ -2454,7 +2455,7 @@ const deserializeAws_json1_1DeveloperUserAlreadyRegisteredException = (
 };
 
 const deserializeAws_json1_1DeveloperUserIdentifierList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2462,6 +2463,7 @@ const deserializeAws_json1_1DeveloperUserIdentifierList = (output: any, context:
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExternalServiceException = (
@@ -2542,7 +2544,7 @@ const deserializeAws_json1_1GetPrincipalTagAttributeMapResponse = (
 };
 
 const deserializeAws_json1_1IdentitiesList = (output: any, context: __SerdeContext): IdentityDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2550,6 +2552,7 @@ const deserializeAws_json1_1IdentitiesList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1IdentityDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IdentityDescription = (output: any, context: __SerdeContext): IdentityDescription => {
@@ -2614,7 +2617,7 @@ const deserializeAws_json1_1IdentityPoolsList = (
   output: any,
   context: __SerdeContext
 ): IdentityPoolShortDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2622,6 +2625,7 @@ const deserializeAws_json1_1IdentityPoolsList = (
       }
       return deserializeAws_json1_1IdentityPoolShortDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IdentityPoolTagsType = (
@@ -2718,7 +2722,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 };
 
 const deserializeAws_json1_1LoginsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2726,6 +2730,7 @@ const deserializeAws_json1_1LoginsList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LookupDeveloperIdentityResponse = (
@@ -2752,7 +2757,7 @@ const deserializeAws_json1_1MappingRule = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1MappingRulesList = (output: any, context: __SerdeContext): MappingRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2760,6 +2765,7 @@ const deserializeAws_json1_1MappingRulesList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1MappingRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MergeDeveloperIdentitiesResponse = (
@@ -2778,7 +2784,7 @@ const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1OIDCProviderList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2786,6 +2792,7 @@ const deserializeAws_json1_1OIDCProviderList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PrincipalTags = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2863,7 +2870,7 @@ const deserializeAws_json1_1RulesConfigurationType = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1SAMLProviderList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2871,6 +2878,7 @@ const deserializeAws_json1_1SAMLProviderList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SetPrincipalTagAttributeMapResponse = (
@@ -2912,7 +2920,7 @@ const deserializeAws_json1_1UnprocessedIdentityIdList = (
   output: any,
   context: __SerdeContext
 ): UnprocessedIdentityId[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2920,6 +2928,7 @@ const deserializeAws_json1_1UnprocessedIdentityIdList = (
       }
       return deserializeAws_json1_1UnprocessedIdentityId(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

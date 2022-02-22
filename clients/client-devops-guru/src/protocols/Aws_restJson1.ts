@@ -3163,7 +3163,7 @@ const deserializeAws_restJson1AccountHealth = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1AccountHealths = (output: any, context: __SerdeContext): AccountHealth[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3171,6 +3171,7 @@ const deserializeAws_restJson1AccountHealths = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1AccountHealth(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AccountInsightHealth = (output: any, context: __SerdeContext): AccountInsightHealth => {
@@ -3204,7 +3205,7 @@ const deserializeAws_restJson1AnomalyResource = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AnomalyResources = (output: any, context: __SerdeContext): AnomalyResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3212,6 +3213,7 @@ const deserializeAws_restJson1AnomalyResources = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1AnomalyResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AnomalySourceDetails = (output: any, context: __SerdeContext): AnomalySourceDetails => {
@@ -3241,7 +3243,7 @@ const deserializeAws_restJson1AnomalyTimeRange = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1AssociatedResourceArns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3249,10 +3251,11 @@ const deserializeAws_restJson1AssociatedResourceArns = (output: any, context: __
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): NotificationChannel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3260,6 +3263,7 @@ const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1NotificationChannel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CloudFormationCollection = (
@@ -3312,7 +3316,7 @@ const deserializeAws_restJson1CloudFormationHealths = (
   output: any,
   context: __SerdeContext
 ): CloudFormationHealth[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3320,6 +3324,7 @@ const deserializeAws_restJson1CloudFormationHealths = (
       }
       return deserializeAws_restJson1CloudFormationHealth(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CloudWatchMetricsDataSummary = (
@@ -3360,7 +3365,7 @@ const deserializeAws_restJson1CloudWatchMetricsDetails = (
   output: any,
   context: __SerdeContext
 ): CloudWatchMetricsDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3368,6 +3373,7 @@ const deserializeAws_restJson1CloudWatchMetricsDetails = (
       }
       return deserializeAws_restJson1CloudWatchMetricsDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CloudWatchMetricsDimension = (
@@ -3384,7 +3390,7 @@ const deserializeAws_restJson1CloudWatchMetricsDimensions = (
   output: any,
   context: __SerdeContext
 ): CloudWatchMetricsDimension[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3392,6 +3398,7 @@ const deserializeAws_restJson1CloudWatchMetricsDimensions = (
       }
       return deserializeAws_restJson1CloudWatchMetricsDimension(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CostEstimationResourceCollectionFilter = (
@@ -3411,7 +3418,7 @@ const deserializeAws_restJson1CostEstimationResourceCollectionFilter = (
 };
 
 const deserializeAws_restJson1CostEstimationStackNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3419,10 +3426,11 @@ const deserializeAws_restJson1CostEstimationStackNames = (output: any, context: 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CostEstimationTagValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3430,6 +3438,7 @@ const deserializeAws_restJson1CostEstimationTagValues = (output: any, context: _
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CostEstimationTimeRange = (
@@ -3479,7 +3488,7 @@ const deserializeAws_restJson1EventResource = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1EventResources = (output: any, context: __SerdeContext): EventResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3487,10 +3496,11 @@ const deserializeAws_restJson1EventResources = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1EventResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): Event[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3498,6 +3508,7 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): E
       }
       return deserializeAws_restJson1Event(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1InsightFeedback = (output: any, context: __SerdeContext): InsightFeedback => {
@@ -3574,7 +3585,7 @@ const deserializeAws_restJson1PerformanceInsightsMetricDimensions = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3582,6 +3593,7 @@ const deserializeAws_restJson1PerformanceInsightsMetricDimensions = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PerformanceInsightsMetricFilterMap = (
@@ -3646,7 +3658,7 @@ const deserializeAws_restJson1PerformanceInsightsMetricsDetails = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsMetricsDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3654,6 +3666,7 @@ const deserializeAws_restJson1PerformanceInsightsMetricsDetails = (
       }
       return deserializeAws_restJson1PerformanceInsightsMetricsDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PerformanceInsightsReferenceComparisonValues = (
@@ -3689,7 +3702,7 @@ const deserializeAws_restJson1PerformanceInsightsReferenceDataList = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsReferenceData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3697,6 +3710,7 @@ const deserializeAws_restJson1PerformanceInsightsReferenceDataList = (
       }
       return deserializeAws_restJson1PerformanceInsightsReferenceData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PerformanceInsightsReferenceMetric = (
@@ -3734,7 +3748,7 @@ const deserializeAws_restJson1PerformanceInsightsStats = (
   output: any,
   context: __SerdeContext
 ): PerformanceInsightsStat[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3742,6 +3756,7 @@ const deserializeAws_restJson1PerformanceInsightsStats = (
       }
       return deserializeAws_restJson1PerformanceInsightsStat(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PredictionTimeRange = (output: any, context: __SerdeContext): PredictionTimeRange => {
@@ -3761,7 +3776,7 @@ const deserializeAws_restJson1ProactiveAnomalies = (
   output: any,
   context: __SerdeContext
 ): ProactiveAnomalySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3769,6 +3784,7 @@ const deserializeAws_restJson1ProactiveAnomalies = (
       }
       return deserializeAws_restJson1ProactiveAnomalySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeContext): ProactiveAnomaly => {
@@ -3865,7 +3881,7 @@ const deserializeAws_restJson1ProactiveInsight = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1ProactiveInsights = (output: any, context: __SerdeContext): ProactiveInsightSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3873,6 +3889,7 @@ const deserializeAws_restJson1ProactiveInsights = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ProactiveInsightSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProactiveInsightSummary = (
@@ -3911,7 +3928,7 @@ const deserializeAws_restJson1ProactiveOrganizationInsights = (
   output: any,
   context: __SerdeContext
 ): ProactiveOrganizationInsightSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3919,6 +3936,7 @@ const deserializeAws_restJson1ProactiveOrganizationInsights = (
       }
       return deserializeAws_restJson1ProactiveOrganizationInsightSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProactiveOrganizationInsightSummary = (
@@ -3952,7 +3970,7 @@ const deserializeAws_restJson1ProactiveOrganizationInsightSummary = (
 };
 
 const deserializeAws_restJson1ReactiveAnomalies = (output: any, context: __SerdeContext): ReactiveAnomalySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3960,6 +3978,7 @@ const deserializeAws_restJson1ReactiveAnomalies = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ReactiveAnomalySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReactiveAnomaly = (output: any, context: __SerdeContext): ReactiveAnomaly => {
@@ -4050,7 +4069,7 @@ const deserializeAws_restJson1ReactiveInsight = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1ReactiveInsights = (output: any, context: __SerdeContext): ReactiveInsightSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4058,6 +4077,7 @@ const deserializeAws_restJson1ReactiveInsights = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1ReactiveInsightSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReactiveInsightSummary = (
@@ -4092,7 +4112,7 @@ const deserializeAws_restJson1ReactiveOrganizationInsights = (
   output: any,
   context: __SerdeContext
 ): ReactiveOrganizationInsightSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4100,6 +4120,7 @@ const deserializeAws_restJson1ReactiveOrganizationInsights = (
       }
       return deserializeAws_restJson1ReactiveOrganizationInsightSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReactiveOrganizationInsightSummary = (
@@ -4149,7 +4170,7 @@ const deserializeAws_restJson1RecommendationRelatedAnomalies = (
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedAnomaly[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4157,6 +4178,7 @@ const deserializeAws_restJson1RecommendationRelatedAnomalies = (
       }
       return deserializeAws_restJson1RecommendationRelatedAnomaly(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecommendationRelatedAnomaly = (
@@ -4190,7 +4212,7 @@ const deserializeAws_restJson1RecommendationRelatedAnomalyResources = (
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedAnomalyResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4198,6 +4220,7 @@ const deserializeAws_restJson1RecommendationRelatedAnomalyResources = (
       }
       return deserializeAws_restJson1RecommendationRelatedAnomalyResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecommendationRelatedAnomalySourceDetail = (
@@ -4226,7 +4249,7 @@ const deserializeAws_restJson1RecommendationRelatedCloudWatchMetricsSourceDetail
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedCloudWatchMetricsSourceDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4234,6 +4257,7 @@ const deserializeAws_restJson1RecommendationRelatedCloudWatchMetricsSourceDetail
       }
       return deserializeAws_restJson1RecommendationRelatedCloudWatchMetricsSourceDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecommendationRelatedEvent = (
@@ -4263,7 +4287,7 @@ const deserializeAws_restJson1RecommendationRelatedEventResources = (
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedEventResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4271,13 +4295,14 @@ const deserializeAws_restJson1RecommendationRelatedEventResources = (
       }
       return deserializeAws_restJson1RecommendationRelatedEventResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecommendationRelatedEvents = (
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4285,10 +4310,11 @@ const deserializeAws_restJson1RecommendationRelatedEvents = (
       }
       return deserializeAws_restJson1RecommendationRelatedEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Recommendations = (output: any, context: __SerdeContext): Recommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4296,13 +4322,14 @@ const deserializeAws_restJson1Recommendations = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Recommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RelatedAnomalySourceDetails = (
   output: any,
   context: __SerdeContext
 ): RecommendationRelatedAnomalySourceDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4310,6 +4337,7 @@ const deserializeAws_restJson1RelatedAnomalySourceDetails = (
       }
       return deserializeAws_restJson1RecommendationRelatedAnomalySourceDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceCollection = (output: any, context: __SerdeContext): ResourceCollection => {
@@ -4361,7 +4389,7 @@ const deserializeAws_restJson1ServiceHealth = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ServiceHealths = (output: any, context: __SerdeContext): ServiceHealth[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4369,6 +4397,7 @@ const deserializeAws_restJson1ServiceHealths = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1ServiceHealth(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ServiceInsightHealth = (output: any, context: __SerdeContext): ServiceInsightHealth => {
@@ -4391,7 +4420,7 @@ const deserializeAws_restJson1ServiceIntegrationConfig = (
 };
 
 const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeContext): (ServiceName | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4399,6 +4428,7 @@ const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ServiceResourceCost = (output: any, context: __SerdeContext): ServiceResourceCost => {
@@ -4412,7 +4442,7 @@ const deserializeAws_restJson1ServiceResourceCost = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1ServiceResourceCosts = (output: any, context: __SerdeContext): ServiceResourceCost[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4420,6 +4450,7 @@ const deserializeAws_restJson1ServiceResourceCosts = (output: any, context: __Se
       }
       return deserializeAws_restJson1ServiceResourceCost(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SnsChannelConfig = (output: any, context: __SerdeContext): SnsChannelConfig => {
@@ -4429,7 +4460,7 @@ const deserializeAws_restJson1SnsChannelConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1StackNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4437,6 +4468,7 @@ const deserializeAws_restJson1StackNames = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagCollection = (output: any, context: __SerdeContext): TagCollection => {
@@ -4460,7 +4492,7 @@ const deserializeAws_restJson1TagCollectionFilter = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1TagCollectionFilters = (output: any, context: __SerdeContext): TagCollectionFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4468,10 +4500,11 @@ const deserializeAws_restJson1TagCollectionFilters = (output: any, context: __Se
       }
       return deserializeAws_restJson1TagCollectionFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagCollections = (output: any, context: __SerdeContext): TagCollection[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4479,6 +4512,7 @@ const deserializeAws_restJson1TagCollections = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1TagCollection(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagCostEstimationResourceCollectionFilter = (
@@ -4498,7 +4532,7 @@ const deserializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
   output: any,
   context: __SerdeContext
 ): TagCostEstimationResourceCollectionFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4506,6 +4540,7 @@ const deserializeAws_restJson1TagCostEstimationResourceCollectionFilters = (
       }
       return deserializeAws_restJson1TagCostEstimationResourceCollectionFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagHealth = (output: any, context: __SerdeContext): TagHealth => {
@@ -4520,7 +4555,7 @@ const deserializeAws_restJson1TagHealth = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1TagHealths = (output: any, context: __SerdeContext): TagHealth[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4528,10 +4563,11 @@ const deserializeAws_restJson1TagHealths = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1TagHealth(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4539,6 +4575,7 @@ const deserializeAws_restJson1TagValues = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TimestampMetricValuePair = (
@@ -4558,7 +4595,7 @@ const deserializeAws_restJson1TimestampMetricValuePairList = (
   output: any,
   context: __SerdeContext
 ): TimestampMetricValuePair[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4566,6 +4603,7 @@ const deserializeAws_restJson1TimestampMetricValuePairList = (
       }
       return deserializeAws_restJson1TimestampMetricValuePair(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (
@@ -4582,7 +4620,7 @@ const deserializeAws_restJson1ValidationExceptionFields = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4590,6 +4628,7 @@ const deserializeAws_restJson1ValidationExceptionFields = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1708,7 +1708,7 @@ const serializeAws_restJson1WorkerLogDelivery = (input: WorkerLogDelivery, conte
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1716,10 +1716,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1727,13 +1728,14 @@ const deserializeAws_restJson1__listOfConnectorSummary = (output: any, context: 
       }
       return deserializeAws_restJson1ConnectorSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCustomPluginSummary = (
   output: any,
   context: __SerdeContext
 ): CustomPluginSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1741,13 +1743,14 @@ const deserializeAws_restJson1__listOfCustomPluginSummary = (
       }
       return deserializeAws_restJson1CustomPluginSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPluginDescription = (
   output: any,
   context: __SerdeContext
 ): PluginDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1755,13 +1758,14 @@ const deserializeAws_restJson1__listOfPluginDescription = (
       }
       return deserializeAws_restJson1PluginDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfWorkerConfigurationSummary = (
   output: any,
   context: __SerdeContext
 ): WorkerConfigurationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1769,6 +1773,7 @@ const deserializeAws_restJson1__listOfWorkerConfigurationSummary = (
       }
       return deserializeAws_restJson1WorkerConfigurationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

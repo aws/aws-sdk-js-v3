@@ -2237,7 +2237,7 @@ const deserializeAws_json1_0DataIngestionJobSummaries = (
   output: any,
   context: __SerdeContext
 ): DataIngestionJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2245,6 +2245,7 @@ const deserializeAws_json1_0DataIngestionJobSummaries = (
       }
       return deserializeAws_json1_0DataIngestionJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DataIngestionJobSummary = (
@@ -2273,7 +2274,7 @@ const deserializeAws_json1_0DataPreProcessingConfiguration = (
 };
 
 const deserializeAws_json1_0DatasetSummaries = (output: any, context: __SerdeContext): DatasetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2281,6 +2282,7 @@ const deserializeAws_json1_0DatasetSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0DatasetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
@@ -2437,7 +2439,7 @@ const deserializeAws_json1_0InferenceExecutionSummaries = (
   output: any,
   context: __SerdeContext
 ): InferenceExecutionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2445,6 +2447,7 @@ const deserializeAws_json1_0InferenceExecutionSummaries = (
       }
       return deserializeAws_json1_0InferenceExecutionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InferenceExecutionSummary = (
@@ -2549,7 +2552,7 @@ const deserializeAws_json1_0InferenceSchedulerSummaries = (
   output: any,
   context: __SerdeContext
 ): InferenceSchedulerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2557,6 +2560,7 @@ const deserializeAws_json1_0InferenceSchedulerSummaries = (
       }
       return deserializeAws_json1_0InferenceSchedulerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InferenceSchedulerSummary = (
@@ -2699,7 +2703,7 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
 };
 
 const deserializeAws_json1_0ModelSummaries = (output: any, context: __SerdeContext): ModelSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2707,6 +2711,7 @@ const deserializeAws_json1_0ModelSummaries = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_0ModelSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ModelSummary = (output: any, context: __SerdeContext): ModelSummary => {
@@ -2792,7 +2797,7 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2800,6 +2805,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

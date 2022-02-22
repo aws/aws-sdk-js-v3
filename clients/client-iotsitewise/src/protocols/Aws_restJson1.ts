@@ -7450,7 +7450,7 @@ const serializeAws_restJson1Variant = (input: Variant, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1AccessPolicySummaries = (output: any, context: __SerdeContext): AccessPolicySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7458,6 +7458,7 @@ const deserializeAws_restJson1AccessPolicySummaries = (output: any, context: __S
       }
       return deserializeAws_restJson1AccessPolicySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AccessPolicySummary = (output: any, context: __SerdeContext): AccessPolicySummary => {
@@ -7498,7 +7499,7 @@ const deserializeAws_restJson1AggregatedValue = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeContext): AggregatedValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7506,6 +7507,7 @@ const deserializeAws_restJson1AggregatedValues = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1AggregatedValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext): Aggregates => {
@@ -7539,7 +7541,7 @@ const deserializeAws_restJson1AssetCompositeModel = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1AssetCompositeModels = (output: any, context: __SerdeContext): AssetCompositeModel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7547,6 +7549,7 @@ const deserializeAws_restJson1AssetCompositeModels = (output: any, context: __Se
       }
       return deserializeAws_restJson1AssetCompositeModel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __SerdeContext): AssetErrorDetails => {
@@ -7558,7 +7561,7 @@ const deserializeAws_restJson1AssetErrorDetails = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1AssetHierarchies = (output: any, context: __SerdeContext): AssetHierarchy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7566,6 +7569,7 @@ const deserializeAws_restJson1AssetHierarchies = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1AssetHierarchy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetHierarchy = (output: any, context: __SerdeContext): AssetHierarchy => {
@@ -7583,7 +7587,7 @@ const deserializeAws_restJson1AssetHierarchyInfo = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1AssetIDs = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7591,6 +7595,7 @@ const deserializeAws_restJson1AssetIDs = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetModelCompositeModel = (
@@ -7612,7 +7617,7 @@ const deserializeAws_restJson1AssetModelCompositeModels = (
   output: any,
   context: __SerdeContext
 ): AssetModelCompositeModel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7620,10 +7625,11 @@ const deserializeAws_restJson1AssetModelCompositeModels = (
       }
       return deserializeAws_restJson1AssetModelCompositeModel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __SerdeContext): AssetModelHierarchy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7631,6 +7637,7 @@ const deserializeAws_restJson1AssetModelHierarchies = (output: any, context: __S
       }
       return deserializeAws_restJson1AssetModelHierarchy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __SerdeContext): AssetModelHierarchy => {
@@ -7642,7 +7649,7 @@ const deserializeAws_restJson1AssetModelHierarchy = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1AssetModelProperties = (output: any, context: __SerdeContext): AssetModelProperty[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7650,6 +7657,7 @@ const deserializeAws_restJson1AssetModelProperties = (output: any, context: __Se
       }
       return deserializeAws_restJson1AssetModelProperty(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetModelProperty = (output: any, context: __SerdeContext): AssetModelProperty => {
@@ -7677,7 +7685,7 @@ const deserializeAws_restJson1AssetModelStatus = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1AssetModelSummaries = (output: any, context: __SerdeContext): AssetModelSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7685,6 +7693,7 @@ const deserializeAws_restJson1AssetModelSummaries = (output: any, context: __Ser
       }
       return deserializeAws_restJson1AssetModelSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetModelSummary = (output: any, context: __SerdeContext): AssetModelSummary => {
@@ -7709,7 +7718,7 @@ const deserializeAws_restJson1AssetModelSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1AssetProperties = (output: any, context: __SerdeContext): AssetProperty[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7717,6 +7726,7 @@ const deserializeAws_restJson1AssetProperties = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1AssetProperty(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetProperty = (output: any, context: __SerdeContext): AssetProperty => {
@@ -7752,7 +7762,7 @@ const deserializeAws_restJson1AssetPropertyValueHistory = (
   output: any,
   context: __SerdeContext
 ): AssetPropertyValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7760,13 +7770,14 @@ const deserializeAws_restJson1AssetPropertyValueHistory = (
       }
       return deserializeAws_restJson1AssetPropertyValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetRelationshipSummaries = (
   output: any,
   context: __SerdeContext
 ): AssetRelationshipSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7774,6 +7785,7 @@ const deserializeAws_restJson1AssetRelationshipSummaries = (
       }
       return deserializeAws_restJson1AssetRelationshipSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetRelationshipSummary = (
@@ -7800,7 +7812,7 @@ const deserializeAws_restJson1AssetStatus = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AssetSummaries = (output: any, context: __SerdeContext): AssetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7808,6 +7820,7 @@ const deserializeAws_restJson1AssetSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1AssetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
@@ -7839,7 +7852,7 @@ const deserializeAws_restJson1AssociatedAssetsSummaries = (
   output: any,
   context: __SerdeContext
 ): AssociatedAssetsSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7847,6 +7860,7 @@ const deserializeAws_restJson1AssociatedAssetsSummaries = (
       }
       return deserializeAws_restJson1AssociatedAssetsSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssociatedAssetsSummary = (
@@ -7887,7 +7901,7 @@ const deserializeAws_restJson1BatchAssociateProjectAssetsErrors = (
   output: any,
   context: __SerdeContext
 ): AssetErrorDetails[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7895,13 +7909,14 @@ const deserializeAws_restJson1BatchAssociateProjectAssetsErrors = (
       }
       return deserializeAws_restJson1AssetErrorDetails(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchDisassociateProjectAssetsErrors = (
   output: any,
   context: __SerdeContext
 ): AssetErrorDetails[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7909,6 +7924,7 @@ const deserializeAws_restJson1BatchDisassociateProjectAssetsErrors = (
       }
       return deserializeAws_restJson1AssetErrorDetails(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchPutAssetPropertyError = (
@@ -7929,7 +7945,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchPutAssetPropertyErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7937,6 +7953,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrorEntries = (
       }
       return deserializeAws_restJson1BatchPutAssetPropertyErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchPutAssetPropertyErrorEntry = (
@@ -7956,7 +7973,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
   output: any,
   context: __SerdeContext
 ): BatchPutAssetPropertyError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7964,6 +7981,7 @@ const deserializeAws_restJson1BatchPutAssetPropertyErrors = (
       }
       return deserializeAws_restJson1BatchPutAssetPropertyError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CompositeModelProperty = (
@@ -8011,7 +8029,7 @@ const deserializeAws_restJson1CustomerManagedS3Storage = (
 };
 
 const deserializeAws_restJson1DashboardSummaries = (output: any, context: __SerdeContext): DashboardSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8019,6 +8037,7 @@ const deserializeAws_restJson1DashboardSummaries = (output: any, context: __Serd
       }
       return deserializeAws_restJson1DashboardSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
@@ -8045,7 +8064,7 @@ const deserializeAws_restJson1DetailedError = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1DetailedErrors = (output: any, context: __SerdeContext): DetailedError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8053,6 +8072,7 @@ const deserializeAws_restJson1DetailedErrors = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1DetailedError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
@@ -8077,7 +8097,7 @@ const deserializeAws_restJson1ExpressionVariable = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1ExpressionVariables = (output: any, context: __SerdeContext): ExpressionVariable[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8085,6 +8105,7 @@ const deserializeAws_restJson1ExpressionVariables = (output: any, context: __Ser
       }
       return deserializeAws_restJson1ExpressionVariable(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ForwardingConfig = (output: any, context: __SerdeContext): ForwardingConfig => {
@@ -8097,7 +8118,7 @@ const deserializeAws_restJson1GatewayCapabilitySummaries = (
   output: any,
   context: __SerdeContext
 ): GatewayCapabilitySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8105,6 +8126,7 @@ const deserializeAws_restJson1GatewayCapabilitySummaries = (
       }
       return deserializeAws_restJson1GatewayCapabilitySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GatewayCapabilitySummary = (
@@ -8131,7 +8153,7 @@ const deserializeAws_restJson1GatewayPlatform = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1GatewaySummaries = (output: any, context: __SerdeContext): GatewaySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8139,6 +8161,7 @@ const deserializeAws_restJson1GatewaySummaries = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1GatewaySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
@@ -8242,7 +8265,7 @@ const deserializeAws_restJson1InterpolatedAssetPropertyValues = (
   output: any,
   context: __SerdeContext
 ): InterpolatedAssetPropertyValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8250,6 +8273,7 @@ const deserializeAws_restJson1InterpolatedAssetPropertyValues = (
       }
       return deserializeAws_restJson1InterpolatedAssetPropertyValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
@@ -8348,7 +8372,7 @@ const deserializeAws_restJson1PortalStatus = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1PortalSummaries = (output: any, context: __SerdeContext): PortalSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8356,6 +8380,7 @@ const deserializeAws_restJson1PortalSummaries = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1PortalSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeContext): PortalSummary => {
@@ -8387,7 +8412,7 @@ const deserializeAws_restJson1ProjectResource = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8395,6 +8420,7 @@ const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1ProjectSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
@@ -8499,7 +8525,7 @@ const deserializeAws_restJson1TimeInNanos = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1TimeSeriesSummaries = (output: any, context: __SerdeContext): TimeSeriesSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8507,6 +8533,7 @@ const deserializeAws_restJson1TimeSeriesSummaries = (output: any, context: __Ser
       }
       return deserializeAws_restJson1TimeSeriesSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TimeSeriesSummary = (output: any, context: __SerdeContext): TimeSeriesSummary => {
@@ -8529,7 +8556,7 @@ const deserializeAws_restJson1TimeSeriesSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext): TimeInNanos[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8537,6 +8564,7 @@ const deserializeAws_restJson1Timestamps = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1TimeInNanos(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Transform = (output: any, context: __SerdeContext): Transform => {
