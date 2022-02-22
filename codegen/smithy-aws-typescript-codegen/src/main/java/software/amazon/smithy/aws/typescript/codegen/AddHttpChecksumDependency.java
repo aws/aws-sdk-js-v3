@@ -94,7 +94,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                 return MapUtils.of(
                     "streamHasher", writer -> {
                         writer.addDependency(TypeScriptDependency.STREAM_HASHER_NODE);
-                        writer.addImport("fileStreamHasher", "streamHasher",
+                        writer.addImport("readableStreamHasher", "streamHasher",
                                 TypeScriptDependency.STREAM_HASHER_NODE.packageName);
                         writer.write("streamHasher");
                     },
