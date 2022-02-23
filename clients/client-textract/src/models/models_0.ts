@@ -212,13 +212,16 @@ export enum BlockType {
   CELL = "CELL",
   KEY_VALUE_SET = "KEY_VALUE_SET",
   LINE = "LINE",
+  MERGED_CELL = "MERGED_CELL",
   PAGE = "PAGE",
   SELECTION_ELEMENT = "SELECTION_ELEMENT",
   TABLE = "TABLE",
+  TITLE = "TITLE",
   WORD = "WORD",
 }
 
 export enum EntityType {
+  COLUMN_HEADER = "COLUMN_HEADER",
   KEY = "KEY",
   VALUE = "VALUE",
 }
@@ -333,6 +336,8 @@ export namespace Geometry {
 export enum RelationshipType {
   CHILD = "CHILD",
   COMPLEX_FEATURES = "COMPLEX_FEATURES",
+  MERGED_CELL = "MERGED_CELL",
+  TITLE = "TITLE",
   VALUE = "VALUE",
 }
 

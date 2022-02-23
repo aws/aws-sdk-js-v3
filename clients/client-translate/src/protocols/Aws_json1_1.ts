@@ -1452,6 +1452,7 @@ const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, c
 
 const serializeAws_json1_1TranslationSettings = (input: TranslationSettings, context: __SerdeContext): any => {
   return {
+    ...(input.Formality !== undefined && input.Formality !== null && { Formality: input.Formality }),
     ...(input.Profanity !== undefined && input.Profanity !== null && { Profanity: input.Profanity }),
   };
 };
@@ -2040,6 +2041,7 @@ const deserializeAws_json1_1TranslateTextResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1TranslationSettings = (output: any, context: __SerdeContext): TranslationSettings => {
   return {
+    Formality: __expectString(output.Formality),
     Profanity: __expectString(output.Profanity),
   } as any;
 };

@@ -63,9 +63,6 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  *             <li>
  *                <p>FullName</p>
  *             </li>
- *             <li>
- *                <p>BusinessName</p>
- *             </li>
  *          </ul>
  *          <p>For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and <b>Jhn Doe</b>, or different casing
  *          email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b> and

@@ -165,6 +165,9 @@ import {
   DistributionConfiguration,
   DistributionConfigurationSummary,
   EbsInstanceBlockDeviceSpecification,
+  FastLaunchConfiguration,
+  FastLaunchLaunchTemplateSpecification,
+  FastLaunchSnapshotConfiguration,
   Filter,
   ForbiddenException,
   IdempotentParameterMismatchException,
@@ -5570,6 +5573,13 @@ const serializeAws_restJson1Distribution = (input: Distribution, context: __Serd
           context
         ),
       }),
+    ...(input.fastLaunchConfigurations !== undefined &&
+      input.fastLaunchConfigurations !== null && {
+        fastLaunchConfigurations: serializeAws_restJson1FastLaunchConfigurationList(
+          input.fastLaunchConfigurations,
+          context
+        ),
+      }),
     ...(input.launchTemplateConfigurations !== undefined &&
       input.launchTemplateConfigurations !== null && {
         launchTemplateConfigurations: serializeAws_restJson1LaunchTemplateConfigurationList(
@@ -5617,6 +5627,67 @@ const serializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
     ...(input.throughput !== undefined && input.throughput !== null && { throughput: input.throughput }),
     ...(input.volumeSize !== undefined && input.volumeSize !== null && { volumeSize: input.volumeSize }),
     ...(input.volumeType !== undefined && input.volumeType !== null && { volumeType: input.volumeType }),
+  };
+};
+
+const serializeAws_restJson1FastLaunchConfiguration = (
+  input: FastLaunchConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountId !== undefined && input.accountId !== null && { accountId: input.accountId }),
+    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
+    ...(input.launchTemplate !== undefined &&
+      input.launchTemplate !== null && {
+        launchTemplate: serializeAws_restJson1FastLaunchLaunchTemplateSpecification(input.launchTemplate, context),
+      }),
+    ...(input.maxParallelLaunches !== undefined &&
+      input.maxParallelLaunches !== null && { maxParallelLaunches: input.maxParallelLaunches }),
+    ...(input.snapshotConfiguration !== undefined &&
+      input.snapshotConfiguration !== null && {
+        snapshotConfiguration: serializeAws_restJson1FastLaunchSnapshotConfiguration(
+          input.snapshotConfiguration,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1FastLaunchConfigurationList = (
+  input: FastLaunchConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1FastLaunchConfiguration(entry, context);
+    });
+};
+
+const serializeAws_restJson1FastLaunchLaunchTemplateSpecification = (
+  input: FastLaunchLaunchTemplateSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.launchTemplateId !== undefined &&
+      input.launchTemplateId !== null && { launchTemplateId: input.launchTemplateId }),
+    ...(input.launchTemplateName !== undefined &&
+      input.launchTemplateName !== null && { launchTemplateName: input.launchTemplateName }),
+    ...(input.launchTemplateVersion !== undefined &&
+      input.launchTemplateVersion !== null && { launchTemplateVersion: input.launchTemplateVersion }),
+  };
+};
+
+const serializeAws_restJson1FastLaunchSnapshotConfiguration = (
+  input: FastLaunchSnapshotConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.targetResourceCount !== undefined &&
+      input.targetResourceCount !== null && { targetResourceCount: input.targetResourceCount }),
   };
 };
 
@@ -6302,6 +6373,10 @@ const deserializeAws_restJson1Distribution = (output: any, context: __SerdeConte
       output.containerDistributionConfiguration !== undefined && output.containerDistributionConfiguration !== null
         ? deserializeAws_restJson1ContainerDistributionConfiguration(output.containerDistributionConfiguration, context)
         : undefined,
+    fastLaunchConfigurations:
+      output.fastLaunchConfigurations !== undefined && output.fastLaunchConfigurations !== null
+        ? deserializeAws_restJson1FastLaunchConfigurationList(output.fastLaunchConfigurations, context)
+        : undefined,
     launchTemplateConfigurations:
       output.launchTemplateConfigurations !== undefined && output.launchTemplateConfigurations !== null
         ? deserializeAws_restJson1LaunchTemplateConfigurationList(output.launchTemplateConfigurations, context)
@@ -6401,6 +6476,60 @@ const deserializeAws_restJson1EbsInstanceBlockDeviceSpecification = (
     throughput: __expectInt32(output.throughput),
     volumeSize: __expectInt32(output.volumeSize),
     volumeType: __expectString(output.volumeType),
+  } as any;
+};
+
+const deserializeAws_restJson1FastLaunchConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchConfiguration => {
+  return {
+    accountId: __expectString(output.accountId),
+    enabled: __expectBoolean(output.enabled),
+    launchTemplate:
+      output.launchTemplate !== undefined && output.launchTemplate !== null
+        ? deserializeAws_restJson1FastLaunchLaunchTemplateSpecification(output.launchTemplate, context)
+        : undefined,
+    maxParallelLaunches: __expectInt32(output.maxParallelLaunches),
+    snapshotConfiguration:
+      output.snapshotConfiguration !== undefined && output.snapshotConfiguration !== null
+        ? deserializeAws_restJson1FastLaunchSnapshotConfiguration(output.snapshotConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FastLaunchConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchConfiguration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FastLaunchConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FastLaunchLaunchTemplateSpecification = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchLaunchTemplateSpecification => {
+  return {
+    launchTemplateId: __expectString(output.launchTemplateId),
+    launchTemplateName: __expectString(output.launchTemplateName),
+    launchTemplateVersion: __expectString(output.launchTemplateVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1FastLaunchSnapshotConfiguration = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchSnapshotConfiguration => {
+  return {
+    targetResourceCount: __expectInt32(output.targetResourceCount),
   } as any;
 };
 

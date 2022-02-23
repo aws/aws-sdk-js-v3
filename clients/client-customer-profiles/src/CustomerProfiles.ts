@@ -11,6 +11,11 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreateIntegrationWorkflowCommand,
+  CreateIntegrationWorkflowCommandInput,
+  CreateIntegrationWorkflowCommandOutput,
+} from "./commands/CreateIntegrationWorkflowCommand";
+import {
   CreateProfileCommand,
   CreateProfileCommandInput,
   CreateProfileCommandOutput,
@@ -46,6 +51,11 @@ import {
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
 import {
+  DeleteWorkflowCommand,
+  DeleteWorkflowCommandInput,
+  DeleteWorkflowCommandOutput,
+} from "./commands/DeleteWorkflowCommand";
+import {
   GetAutoMergingPreviewCommand,
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
@@ -72,6 +82,12 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import {
+  GetWorkflowStepsCommand,
+  GetWorkflowStepsCommandInput,
+  GetWorkflowStepsCommandOutput,
+} from "./commands/GetWorkflowStepsCommand";
 import {
   ListAccountIntegrationsCommand,
   ListAccountIntegrationsCommandInput,
@@ -108,6 +124,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorkflowsCommand,
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput,
+} from "./commands/ListWorkflowsCommand";
 import {
   MergeProfilesCommand,
   MergeProfilesCommandInput,
@@ -227,6 +248,40 @@ export class CustomerProfiles extends CustomerProfilesClient {
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
+   * 	</p>
+   */
+  public createIntegrationWorkflow(
+    args: CreateIntegrationWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationWorkflowCommandOutput>;
+  public createIntegrationWorkflow(
+    args: CreateIntegrationWorkflowCommandInput,
+    cb: (err: any, data?: CreateIntegrationWorkflowCommandOutput) => void
+  ): void;
+  public createIntegrationWorkflow(
+    args: CreateIntegrationWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationWorkflowCommandOutput) => void
+  ): void;
+  public createIntegrationWorkflow(
+    args: CreateIntegrationWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: CreateIntegrationWorkflowCommandOutput) => void
+  ): Promise<CreateIntegrationWorkflowCommandOutput> | void {
+    const command = new CreateIntegrationWorkflowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -465,6 +520,38 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
+   * <p>Deletes the specified workflow and all its corresponding resources. This is an async process.</p>
+   */
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkflowCommandOutput>;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+  public deleteWorkflow(
+    args: DeleteWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): Promise<DeleteWorkflowCommandOutput> | void {
+    const command = new DeleteWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Tests the auto-merging settings of your Identity Resolution Job without merging your data. It randomly
    *          selects a sample of matching groups from the existing matching results, and applies the
    *          automerging settings that you provided. You can then view the number of profiles in the
@@ -643,9 +730,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *             <li>
    *                <p>FullName</p>
    *             </li>
-   *             <li>
-   *                <p>BusinessName</p>
-   *             </li>
    *          </ul>
    *          <p>For example, two or more profiles—with spelling mistakes such as <b>John Doe</b> and <b>Jhn Doe</b>, or different casing
    *          email addresses such as <b>JOHN_DOE@ANYCOMPANY.COM</b> and
@@ -733,6 +817,64 @@ export class CustomerProfiles extends CustomerProfilesClient {
     cb?: (err: any, data?: GetProfileObjectTypeTemplateCommandOutput) => void
   ): Promise<GetProfileObjectTypeTemplateCommandOutput> | void {
     const command = new GetProfileObjectTypeTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get details of specified workflow.</p>
+   */
+  public getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
+  public getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  public getWorkflow(
+    args: GetWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
+  public getWorkflow(
+    args: GetWorkflowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): Promise<GetWorkflowCommandOutput> | void {
+    const command = new GetWorkflowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get granular list of steps in workflow.</p>
+   */
+  public getWorkflowSteps(
+    args: GetWorkflowStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowStepsCommandOutput>;
+  public getWorkflowSteps(
+    args: GetWorkflowStepsCommandInput,
+    cb: (err: any, data?: GetWorkflowStepsCommandOutput) => void
+  ): void;
+  public getWorkflowSteps(
+    args: GetWorkflowStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowStepsCommandOutput) => void
+  ): void;
+  public getWorkflowSteps(
+    args: GetWorkflowStepsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkflowStepsCommandOutput) => void),
+    cb?: (err: any, data?: GetWorkflowStepsCommandOutput) => void
+  ): Promise<GetWorkflowStepsCommandOutput> | void {
+    const command = new GetWorkflowStepsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -985,6 +1127,38 @@ export class CustomerProfiles extends CustomerProfilesClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Query to list all workflows.</p>
+   */
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowsCommandOutput>;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+  public listWorkflows(
+    args: ListWorkflowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkflowsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): Promise<ListWorkflowsCommandOutput> | void {
+    const command = new ListWorkflowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

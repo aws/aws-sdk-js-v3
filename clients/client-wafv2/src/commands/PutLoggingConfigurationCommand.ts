@@ -23,8 +23,11 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
 
 /**
  * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
- *          web ACL, according to the configuration provided.</p>
- *          <p>You can access information about all traffic that WAF inspects using the following
+ *          web ACL, according to the configuration provided. </p>
+ *          <note>
+ *             <p>You can define one logging destination per web ACL.</p>
+ *          </note>
+ *          <p>You can access information about the traffic that WAF inspects using the following
  *          steps:</p>
  *          <ol>
  *             <li>
@@ -42,6 +45,9 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *           request, WAF creates an additional role or policy that is required to write
  *               logs to the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource policy on the log group.
  *           For an Amazon S3 bucket, WAF creates a bucket policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.</p>
+ *          <p>For additional information about web ACL logging, see
+ *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *                in the <i>WAF Developer Guide</i>.</p>
  *          <note>
  *             <p>This operation completely replaces the mutable specifications that you already have for the logging configuration with the ones that you provide to this call. To modify the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>, update the settings as needed, and then provide the complete logging configuration specification to this call.</p>
  *          </note>

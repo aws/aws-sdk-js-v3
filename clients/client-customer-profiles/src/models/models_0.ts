@@ -225,97 +225,245 @@ export namespace Address {
   });
 }
 
-export enum ConflictResolvingModel {
-  RECENCY = "RECENCY",
-  SOURCE = "SOURCE",
-}
-
 /**
- * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+ * <p>Batch defines the boundaries for ingestion for each step in <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow splits ingestion based on these boundaries.</p>
  */
-export interface ConflictResolution {
+export interface Batch {
   /**
-   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RECENCY</code>: Uses the data that was most recently updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SOURCE</code>: Uses the data from a specific source. For example, if a
-   *                company has been aquired or two departments have merged, data from the specified
-   *                source is used. If two duplicate profiles are from the same source, then
-   *                   <code>RECENCY</code> is used again.</p>
-   *             </li>
-   *          </ul>
+   * <p>Start time of batch to split ingestion.</p>
    */
-  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+  StartTime: Date | undefined;
 
   /**
-   * <p>The <code>ObjectType</code> name that is used to resolve profile merging conflicts when
-   *          choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</p>
+   * <p>End time of batch to split ingestion.</p>
    */
-  SourceName?: string;
+  EndTime: Date | undefined;
 }
 
-export namespace ConflictResolution {
+export namespace Batch {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
+  export const filterSensitiveLog = (obj: Batch): any => ({
+    ...obj,
+  });
+}
+
+export enum SourceConnectorType {
+  MARKETO = "Marketo",
+  S3 = "S3",
+  SALESFORCE = "Salesforce",
+  SERVICENOW = "Servicenow",
+  ZENDESK = "Zendesk",
+}
+
+/**
+ * <p>Specifies the configuration used when importing incremental records from the
+ *          source.</p>
+ */
+export interface IncrementalPullConfig {
+  /**
+   * <p>A field that specifies the date time or timestamp field as the criteria to use when
+   *          importing incremental records from the source.</p>
+   */
+  DatetimeTypeFieldName?: string;
+}
+
+export namespace IncrementalPullConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The matching criteria to be used during the auto-merging process. </p>
+ * <p>The properties that are applied when Marketo is being used as a source.</p>
  */
-export interface Consolidation {
+export interface MarketoSourceProperties {
   /**
-   * <p>A list of matching criteria.</p>
+   * <p>The object specified in the Marketo flow source.</p>
    */
-  MatchingAttributesList: string[][] | undefined;
+  Object: string | undefined;
 }
 
-export namespace Consolidation {
+export namespace MarketoSourceProperties {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: Consolidation): any => ({
+  export const filterSensitiveLog = (obj: MarketoSourceProperties): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Configuration settings for how to perform the auto-merging of profiles.</p>
+ * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
  */
-export interface AutoMerging {
+export interface S3SourceProperties {
   /**
-   * <p>The flag that enables the auto-merging of duplicate profiles.</p>
+   * <p>The Amazon S3 bucket name where the source files are stored.</p>
    */
-  Enabled: boolean | undefined;
+  BucketName: string | undefined;
 
   /**
-   * <p>A list of matching attributes that represent matching criteria. If two profiles meet at
-   *          least one of the requirements in the matching attributes list, they will be merged.</p>
+   * <p>The object key for the Amazon S3 bucket in which the source files are stored.</p>
    */
-  Consolidation?: Consolidation;
-
-  /**
-   * <p>How the auto-merging process should resolve conflicts between different profiles. For
-   *          example, if Profile A and Profile B have the same <code>FirstName</code> and
-   *             <code>LastName</code> (and that is the matching criteria), which
-   *             <code>EmailAddress</code> should be used? </p>
-   */
-  ConflictResolution?: ConflictResolution;
+  BucketPrefix?: string;
 }
 
-export namespace AutoMerging {
+export namespace S3SourceProperties {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AutoMerging): any => ({
+  export const filterSensitiveLog = (obj: S3SourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when Salesforce is being used as a source.</p>
+ */
+export interface SalesforceSourceProperties {
+  /**
+   * <p>The object specified in the Salesforce flow source.</p>
+   */
+  Object: string | undefined;
+
+  /**
+   * <p>The flag that enables dynamic fetching of new (recently added) fields in the Salesforce
+   *          objects while running a flow.</p>
+   */
+  EnableDynamicFieldUpdate?: boolean;
+
+  /**
+   * <p>Indicates whether Amazon AppFlow includes deleted files in the flow run.</p>
+   */
+  IncludeDeletedRecords?: boolean;
+}
+
+export namespace SalesforceSourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when ServiceNow is being used as a source.</p>
+ */
+export interface ServiceNowSourceProperties {
+  /**
+   * <p>The object specified in the ServiceNow flow source.</p>
+   */
+  Object: string | undefined;
+}
+
+export namespace ServiceNowSourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when using Zendesk as a flow source.</p>
+ */
+export interface ZendeskSourceProperties {
+  /**
+   * <p>The object specified in the Zendesk flow source.</p>
+   */
+  Object: string | undefined;
+}
+
+export namespace ZendeskSourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the information that is required to query a particular Amazon AppFlow connector.
+ *          Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.</p>
+ */
+export interface SourceConnectorProperties {
+  /**
+   * <p>The properties that are applied when Marketo is being used as a source.</p>
+   */
+  Marketo?: MarketoSourceProperties;
+
+  /**
+   * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
+   */
+  S3?: S3SourceProperties;
+
+  /**
+   * <p>The properties that are applied when Salesforce is being used as a source.</p>
+   */
+  Salesforce?: SalesforceSourceProperties;
+
+  /**
+   * <p>The properties that are applied when ServiceNow is being used as a source.</p>
+   */
+  ServiceNow?: ServiceNowSourceProperties;
+
+  /**
+   * <p>The properties that are applied when using Zendesk as a flow source.</p>
+   */
+  Zendesk?: ZendeskSourceProperties;
+}
+
+export namespace SourceConnectorProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceConnectorProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the configuration of the source connector used in the
+ *          flow.</p>
+ */
+export interface SourceFlowConfig {
+  /**
+   * <p>The name of the AppFlow connector profile. This name must be unique for each connector
+   *          profile in the AWS account.</p>
+   */
+  ConnectorProfileName?: string;
+
+  /**
+   * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
+   */
+  ConnectorType: SourceConnectorType | string | undefined;
+
+  /**
+   * <p>Defines the configuration for a scheduled incremental data pull. If a valid
+   *          configuration is provided, the fields specified in the configuration are used when querying
+   *          for the incremental data pull.</p>
+   */
+  IncrementalPullConfig?: IncrementalPullConfig;
+
+  /**
+   * <p>Specifies the information that is required to query a particular source
+   *          connector.</p>
+   */
+  SourceConnectorProperties: SourceConnectorProperties | undefined;
+}
+
+export namespace SourceFlowConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceFlowConfig): any => ({
     ...obj,
   });
 }
@@ -462,6 +610,479 @@ export namespace ConnectorOperator {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConnectorOperator): any => ({
+    ...obj,
+  });
+}
+
+export enum OperatorPropertiesKeys {
+  CONCAT_FORMAT = "CONCAT_FORMAT",
+  DATA_TYPE = "DATA_TYPE",
+  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
+  LOWER_BOUND = "LOWER_BOUND",
+  MASK_LENGTH = "MASK_LENGTH",
+  MASK_VALUE = "MASK_VALUE",
+  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
+  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
+  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
+  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
+  UPPER_BOUND = "UPPER_BOUND",
+  VALIDATION_ACTION = "VALIDATION_ACTION",
+  VALUE = "VALUE",
+  VALUES = "VALUES",
+}
+
+export enum TaskType {
+  ARITHMETIC = "Arithmetic",
+  FILTER = "Filter",
+  MAP = "Map",
+  MASK = "Mask",
+  MERGE = "Merge",
+  TRUNCATE = "Truncate",
+  VALIDATE = "Validate",
+}
+
+/**
+ * <p>A class for modeling different type of tasks. Task implementation varies based on the
+ *          TaskType.</p>
+ */
+export interface Task {
+  /**
+   * <p>The operation to be performed on the provided source fields.</p>
+   */
+  ConnectorOperator?: ConnectorOperator;
+
+  /**
+   * <p>A field in a destination connector, or a field value against which Amazon AppFlow validates a
+   *          source field.</p>
+   */
+  DestinationField?: string;
+
+  /**
+   * <p>The source fields to which a particular task is applied.</p>
+   */
+  SourceFields: string[] | undefined;
+
+  /**
+   * <p>A map used to store task-related information. The service looks for particular
+   *          information based on the TaskType.</p>
+   */
+  TaskProperties?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
+   */
+  TaskType: TaskType | string | undefined;
+}
+
+export namespace Task {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Task): any => ({
+    ...obj,
+  });
+}
+
+export enum DataPullMode {
+  COMPLETE = "Complete",
+  INCREMENTAL = "Incremental",
+}
+
+/**
+ * <p>Specifies the configuration details of a scheduled-trigger flow that you define.
+ *          Currently, these settings only apply to the scheduled-trigger type.</p>
+ */
+export interface ScheduledTriggerProperties {
+  /**
+   * <p>The scheduling expression that determines the rate at which the schedule will run, for
+   *          example rate (5 minutes).</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
+   *          transfer for each flow run.</p>
+   */
+  DataPullMode?: DataPullMode | string;
+
+  /**
+   * <p>Specifies the scheduled start time for a scheduled-trigger flow.</p>
+   */
+  ScheduleStartTime?: Date;
+
+  /**
+   * <p>Specifies the scheduled end time for a scheduled-trigger flow.</p>
+   */
+  ScheduleEndTime?: Date;
+
+  /**
+   * <p>Specifies the time zone used when referring to the date and time of a
+   *          scheduled-triggered flow, such as America/New_York.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>Specifies the optional offset that is added to the time interval for a
+   *          schedule-triggered flow.</p>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>Specifies the date range for the records to import from the connector in the first flow
+   *          run.</p>
+   */
+  FirstExecutionFrom?: Date;
+}
+
+export namespace ScheduledTriggerProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration details that control the trigger for a flow. Currently,
+ *          these settings only apply to the Scheduled trigger type.</p>
+ */
+export interface TriggerProperties {
+  /**
+   * <p>Specifies the configuration details of a schedule-triggered flow that you define.</p>
+   */
+  Scheduled?: ScheduledTriggerProperties;
+}
+
+export namespace TriggerProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TriggerProperties): any => ({
+    ...obj,
+  });
+}
+
+export enum TriggerType {
+  EVENT = "Event",
+  ONDEMAND = "OnDemand",
+  SCHEDULED = "Scheduled",
+}
+
+/**
+ * <p>The trigger settings that determine how and when Amazon AppFlow runs the specified
+ *          flow.</p>
+ */
+export interface TriggerConfig {
+  /**
+   * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
+   */
+  TriggerType: TriggerType | string | undefined;
+
+  /**
+   * <p>Specifies the configuration details of a schedule-triggered flow that you define.
+   *          Currently, these settings only apply to the Scheduled trigger type.</p>
+   */
+  TriggerProperties?: TriggerProperties;
+}
+
+export namespace TriggerConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configurations that control how Customer Profiles retrieves data from the source,
+ *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of
+ *          customers.</p>
+ */
+export interface FlowDefinition {
+  /**
+   * <p>A description of the flow you want to create.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not
+   *          allowed.</p>
+   */
+  FlowName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the AWS Key Management Service (KMS) key you provide for encryption.</p>
+   */
+  KmsArn: string | undefined;
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   */
+  SourceFlowConfig: SourceFlowConfig | undefined;
+
+  /**
+   * <p>A list of tasks that Customer Profiles performs while transferring the data in the flow
+   *          run.</p>
+   */
+  Tasks: Task[] | undefined;
+
+  /**
+   * <p>The trigger settings that determine how and when the flow runs.</p>
+   */
+  TriggerConfig: TriggerConfig | undefined;
+}
+
+export namespace FlowDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FlowDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for workflow of type <code>APPFLOW_INTEGRATION</code>.</p>
+ */
+export interface AppflowIntegration {
+  /**
+   * <p>The configurations that control how Customer Profiles retrieves data from the source,
+   *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of
+   *          customers.</p>
+   */
+  FlowDefinition: FlowDefinition | undefined;
+
+  /**
+   * <p>Batches in workflow of type <code>APPFLOW_INTEGRATION</code>.</p>
+   */
+  Batches?: Batch[];
+}
+
+export namespace AppflowIntegration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppflowIntegration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Structure holding all <code>APPFLOW_INTEGRATION</code> specific workflow attributes.</p>
+ */
+export interface AppflowIntegrationWorkflowAttributes {
+  /**
+   * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo. Indicates source of ingestion.</p>
+   */
+  SourceConnectorType: SourceConnectorType | string | undefined;
+
+  /**
+   * <p>The name of the AppFlow connector profile used for ingestion.</p>
+   */
+  ConnectorProfileName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Customer Profiles assumes this role to create resources on your behalf as part of workflow execution.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace AppflowIntegrationWorkflowAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Workflow specific execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+ */
+export interface AppflowIntegrationWorkflowMetrics {
+  /**
+   * <p>Number of records processed in <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  RecordsProcessed: number | undefined;
+
+  /**
+   * <p>Total steps completed in <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  StepsCompleted: number | undefined;
+
+  /**
+   * <p>Total steps in <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  TotalSteps: number | undefined;
+}
+
+export namespace AppflowIntegrationWorkflowMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowMetrics): any => ({
+    ...obj,
+  });
+}
+
+export enum Status {
+  CANCELLED = "CANCELLED",
+  COMPLETE = "COMPLETE",
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+  RETRY = "RETRY",
+  SPLIT = "SPLIT",
+}
+
+/**
+ * <p>Workflow step details for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+ */
+export interface AppflowIntegrationWorkflowStep {
+  /**
+   * <p>Name of the flow created during execution of workflow step. <code>APPFLOW_INTEGRATION</code> workflow type creates an appflow flow during workflow step execution on the customers behalf.</p>
+   */
+  FlowName: string | undefined;
+
+  /**
+   * <p>Workflow step status for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  Status: Status | string | undefined;
+
+  /**
+   * <p>Message indicating execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  ExecutionMessage: string | undefined;
+
+  /**
+   * <p>Total number of records processed during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  RecordsProcessed: number | undefined;
+
+  /**
+   * <p>Start datetime of records pulled in batch during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  BatchRecordsStartTime: string | undefined;
+
+  /**
+   * <p>End datetime of records pulled in batch during execution of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  BatchRecordsEndTime: string | undefined;
+
+  /**
+   * <p>Creation timestamp of workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Last updated timestamp for workflow step for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+export namespace AppflowIntegrationWorkflowStep {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowStep): any => ({
+    ...obj,
+  });
+}
+
+export enum ConflictResolvingModel {
+  RECENCY = "RECENCY",
+  SOURCE = "SOURCE",
+}
+
+/**
+ * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+ */
+export interface ConflictResolution {
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RECENCY</code>: Uses the data that was most recently updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SOURCE</code>: Uses the data from a specific source. For example, if a
+   *                company has been aquired or two departments have merged, data from the specified
+   *                source is used. If two duplicate profiles are from the same source, then
+   *                   <code>RECENCY</code> is used again.</p>
+   *             </li>
+   *          </ul>
+   */
+  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+
+  /**
+   * <p>The <code>ObjectType</code> name that is used to resolve profile merging conflicts when
+   *          choosing <code>SOURCE</code> as the <code>ConflictResolvingModel</code>.</p>
+   */
+  SourceName?: string;
+}
+
+export namespace ConflictResolution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The matching criteria to be used during the auto-merging process. </p>
+ */
+export interface Consolidation {
+  /**
+   * <p>A list of matching criteria.</p>
+   */
+  MatchingAttributesList: string[][] | undefined;
+}
+
+export namespace Consolidation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Consolidation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration settings for how to perform the auto-merging of profiles.</p>
+ */
+export interface AutoMerging {
+  /**
+   * <p>The flag that enables the auto-merging of duplicate profiles.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>A list of matching attributes that represent matching criteria. If two profiles meet at
+   *          least one of the requirements in the matching attributes list, they will be merged.</p>
+   */
+  Consolidation?: Consolidation;
+
+  /**
+   * <p>How the auto-merging process should resolve conflicts between different profiles. For
+   *          example, if Profile A and Profile B have the same <code>FirstName</code> and
+   *             <code>LastName</code> (and that is the matching criteria), which
+   *             <code>EmailAddress</code> should be used? </p>
+   */
+  ConflictResolution?: ConflictResolution;
+}
+
+export namespace AutoMerging {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoMerging): any => ({
     ...obj,
   });
 }
@@ -726,6 +1347,91 @@ export namespace CreateDomainResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration data for integration workflow.</p>
+ */
+export interface IntegrationConfig {
+  /**
+   * <p>Configuration data for <code>APPFLOW_INTEGRATION</code> workflow type.</p>
+   */
+  AppflowIntegration?: AppflowIntegration;
+}
+
+export namespace IntegrationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IntegrationConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum WorkflowType {
+  APPFLOW_INTEGRATION = "APPFLOW_INTEGRATION",
+}
+
+export interface CreateIntegrationWorkflowRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   */
+  WorkflowType: WorkflowType | string | undefined;
+
+  /**
+   * <p>Configuration data for integration workflow.</p>
+   */
+  IntegrationConfig: IntegrationConfig | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. Customer Profiles assumes this role to create resources on your behalf as part of workflow execution.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateIntegrationWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateIntegrationWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateIntegrationWorkflowResponse {
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>A message indicating create request was received.</p>
+   */
+  Message: string | undefined;
+}
+
+export namespace CreateIntegrationWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateIntegrationWorkflowResponse): any => ({
     ...obj,
   });
 }
@@ -1115,6 +1821,38 @@ export namespace DeleteProfileObjectTypeResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteProfileObjectTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkflowRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace DeleteWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteWorkflowResponse {}
+
+export namespace DeleteWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
     ...obj,
   });
 }
@@ -1556,6 +2294,11 @@ export interface GetIntegrationResponse {
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
   ObjectTypeNames?: { [key: string]: string };
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
 }
 
 export namespace GetIntegrationResponse {
@@ -1902,6 +2645,198 @@ export namespace GetProfileObjectTypeTemplateResponse {
   });
 }
 
+export interface GetWorkflowRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+}
+
+export namespace GetWorkflowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetWorkflowRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Structure to hold workflow attributes.</p>
+ */
+export interface WorkflowAttributes {
+  /**
+   * <p>Workflow attributes specific to <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  AppflowIntegration?: AppflowIntegrationWorkflowAttributes;
+}
+
+export namespace WorkflowAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Generic object containing workflow execution metrics.</p>
+ */
+export interface WorkflowMetrics {
+  /**
+   * <p>Workflow execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  AppflowIntegration?: AppflowIntegrationWorkflowMetrics;
+}
+
+export namespace WorkflowMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowMetrics): any => ({
+    ...obj,
+  });
+}
+
+export interface GetWorkflowResponse {
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
+
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   */
+  WorkflowType?: WorkflowType | string;
+
+  /**
+   * <p>Status of workflow execution.</p>
+   */
+  Status?: Status | string;
+
+  /**
+   * <p>Workflow error messages during execution (if any).</p>
+   */
+  ErrorDescription?: string;
+
+  /**
+   * <p>The timestamp that represents when workflow execution started.</p>
+   */
+  StartDate?: Date;
+
+  /**
+   * <p>The timestamp that represents when workflow execution last updated.</p>
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>Attributes provided for workflow execution.</p>
+   */
+  Attributes?: WorkflowAttributes;
+
+  /**
+   * <p>Workflow specific execution metrics.</p>
+   */
+  Metrics?: WorkflowMetrics;
+}
+
+export namespace GetWorkflowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetWorkflowResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetWorkflowStepsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetWorkflowStepsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetWorkflowStepsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>List containing steps in workflow.</p>
+ */
+export interface WorkflowStepItem {
+  /**
+   * <p>Workflow step information specific to <code>APPFLOW_INTEGRATION</code> workflow.</p>
+   */
+  AppflowIntegration?: AppflowIntegrationWorkflowStep;
+}
+
+export namespace WorkflowStepItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WorkflowStepItem): any => ({
+    ...obj,
+  });
+}
+
+export interface GetWorkflowStepsResponse {
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
+
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   */
+  WorkflowType?: WorkflowType | string;
+
+  /**
+   * <p>List containing workflow step details.</p>
+   */
+  Items?: WorkflowStepItem[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetWorkflowStepsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetWorkflowStepsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAccountIntegrationsRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
@@ -1917,6 +2852,11 @@ export interface ListAccountIntegrationsRequest {
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</p>
+   */
+  IncludeHidden?: boolean;
 }
 
 export namespace ListAccountIntegrationsRequest {
@@ -1968,6 +2908,11 @@ export interface ListIntegrationItem {
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
   ObjectTypeNames?: { [key: string]: string };
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
 }
 
 export namespace ListIntegrationItem {
@@ -2228,6 +3173,11 @@ export interface ListIntegrationsRequest {
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</p>
+   */
+  IncludeHidden?: boolean;
 }
 
 export namespace ListIntegrationsRequest {
@@ -2571,6 +3521,118 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface ListWorkflowsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   */
+  WorkflowType?: WorkflowType | string;
+
+  /**
+   * <p>Status of workflow execution.</p>
+   */
+  Status?: Status | string;
+
+  /**
+   * <p>Retrieve workflows started after timestamp.</p>
+   */
+  QueryStartDate?: Date;
+
+  /**
+   * <p>Retrieve workflows ended after timestamp.</p>
+   */
+  QueryEndDate?: Date;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListWorkflowsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A workflow in list of workflows.</p>
+ */
+export interface ListWorkflowsItem {
+  /**
+   * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
+   */
+  WorkflowType: WorkflowType | string | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId: string | undefined;
+
+  /**
+   * <p>Status of workflow execution.</p>
+   */
+  Status: Status | string | undefined;
+
+  /**
+   * <p>Description for workflow execution status.</p>
+   */
+  StatusDescription: string | undefined;
+
+  /**
+   * <p>Creation timestamp for workflow.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>Last updated timestamp for workflow.</p>
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+export namespace ListWorkflowsItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkflowsItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ListWorkflowsResponse {
+  /**
+   * <p>List containing workflow details.</p>
+   */
+  Items?: ListWorkflowsItem[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListWorkflowsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A duplicate customer profile that is to be merged into a main profile. </p>
  */
@@ -2739,455 +3801,6 @@ export namespace MergeProfilesResponse {
   });
 }
 
-export enum SourceConnectorType {
-  MARKETO = "Marketo",
-  S3 = "S3",
-  SALESFORCE = "Salesforce",
-  SERVICENOW = "Servicenow",
-  ZENDESK = "Zendesk",
-}
-
-/**
- * <p>Specifies the configuration used when importing incremental records from the
- *          source.</p>
- */
-export interface IncrementalPullConfig {
-  /**
-   * <p>A field that specifies the date time or timestamp field as the criteria to use when
-   *          importing incremental records from the source.</p>
-   */
-  DatetimeTypeFieldName?: string;
-}
-
-export namespace IncrementalPullConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties that are applied when Marketo is being used as a source.</p>
- */
-export interface MarketoSourceProperties {
-  /**
-   * <p>The object specified in the Marketo flow source.</p>
-   */
-  Object: string | undefined;
-}
-
-export namespace MarketoSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoSourceProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
- */
-export interface S3SourceProperties {
-  /**
-   * <p>The Amazon S3 bucket name where the source files are stored.</p>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The object key for the Amazon S3 bucket in which the source files are stored.</p>
-   */
-  BucketPrefix?: string;
-}
-
-export namespace S3SourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SourceProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties that are applied when Salesforce is being used as a source.</p>
- */
-export interface SalesforceSourceProperties {
-  /**
-   * <p>The object specified in the Salesforce flow source.</p>
-   */
-  Object: string | undefined;
-
-  /**
-   * <p>The flag that enables dynamic fetching of new (recently added) fields in the Salesforce
-   *          objects while running a flow.</p>
-   */
-  EnableDynamicFieldUpdate?: boolean;
-
-  /**
-   * <p>Indicates whether Amazon AppFlow includes deleted files in the flow run.</p>
-   */
-  IncludeDeletedRecords?: boolean;
-}
-
-export namespace SalesforceSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties that are applied when ServiceNow is being used as a source.</p>
- */
-export interface ServiceNowSourceProperties {
-  /**
-   * <p>The object specified in the ServiceNow flow source.</p>
-   */
-  Object: string | undefined;
-}
-
-export namespace ServiceNowSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The properties that are applied when using Zendesk as a flow source.</p>
- */
-export interface ZendeskSourceProperties {
-  /**
-   * <p>The object specified in the Zendesk flow source.</p>
-   */
-  Object: string | undefined;
-}
-
-export namespace ZendeskSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the information that is required to query a particular Amazon AppFlow connector.
- *          Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.</p>
- */
-export interface SourceConnectorProperties {
-  /**
-   * <p>The properties that are applied when Marketo is being used as a source.</p>
-   */
-  Marketo?: MarketoSourceProperties;
-
-  /**
-   * <p>The properties that are applied when Amazon S3 is being used as the flow source.</p>
-   */
-  S3?: S3SourceProperties;
-
-  /**
-   * <p>The properties that are applied when Salesforce is being used as a source.</p>
-   */
-  Salesforce?: SalesforceSourceProperties;
-
-  /**
-   * <p>The properties that are applied when ServiceNow is being used as a source.</p>
-   */
-  ServiceNow?: ServiceNowSourceProperties;
-
-  /**
-   * <p>The properties that are applied when using Zendesk as a flow source.</p>
-   */
-  Zendesk?: ZendeskSourceProperties;
-}
-
-export namespace SourceConnectorProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConnectorProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the configuration of the source connector used in the
- *          flow.</p>
- */
-export interface SourceFlowConfig {
-  /**
-   * <p>The name of the AppFlow connector profile. This name must be unique for each connector
-   *          profile in the AWS account.</p>
-   */
-  ConnectorProfileName?: string;
-
-  /**
-   * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
-   */
-  ConnectorType: SourceConnectorType | string | undefined;
-
-  /**
-   * <p>Defines the configuration for a scheduled incremental data pull. If a valid
-   *          configuration is provided, the fields specified in the configuration are used when querying
-   *          for the incremental data pull.</p>
-   */
-  IncrementalPullConfig?: IncrementalPullConfig;
-
-  /**
-   * <p>Specifies the information that is required to query a particular source
-   *          connector.</p>
-   */
-  SourceConnectorProperties: SourceConnectorProperties | undefined;
-}
-
-export namespace SourceFlowConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFlowConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum OperatorPropertiesKeys {
-  CONCAT_FORMAT = "CONCAT_FORMAT",
-  DATA_TYPE = "DATA_TYPE",
-  DESTINATION_DATA_TYPE = "DESTINATION_DATA_TYPE",
-  LOWER_BOUND = "LOWER_BOUND",
-  MASK_LENGTH = "MASK_LENGTH",
-  MASK_VALUE = "MASK_VALUE",
-  MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
-  SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
-  SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
-  TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
-  UPPER_BOUND = "UPPER_BOUND",
-  VALIDATION_ACTION = "VALIDATION_ACTION",
-  VALUE = "VALUE",
-  VALUES = "VALUES",
-}
-
-export enum TaskType {
-  ARITHMETIC = "Arithmetic",
-  FILTER = "Filter",
-  MAP = "Map",
-  MASK = "Mask",
-  MERGE = "Merge",
-  TRUNCATE = "Truncate",
-  VALIDATE = "Validate",
-}
-
-/**
- * <p>A class for modeling different type of tasks. Task implementation varies based on the
- *          TaskType.</p>
- */
-export interface Task {
-  /**
-   * <p>The operation to be performed on the provided source fields.</p>
-   */
-  ConnectorOperator?: ConnectorOperator;
-
-  /**
-   * <p>A field in a destination connector, or a field value against which Amazon AppFlow validates a
-   *          source field.</p>
-   */
-  DestinationField?: string;
-
-  /**
-   * <p>The source fields to which a particular task is applied.</p>
-   */
-  SourceFields: string[] | undefined;
-
-  /**
-   * <p>A map used to store task-related information. The service looks for particular
-   *          information based on the TaskType.</p>
-   */
-  TaskProperties?: { [key: string]: string };
-
-  /**
-   * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
-   */
-  TaskType: TaskType | string | undefined;
-}
-
-export namespace Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Task): any => ({
-    ...obj,
-  });
-}
-
-export enum DataPullMode {
-  COMPLETE = "Complete",
-  INCREMENTAL = "Incremental",
-}
-
-/**
- * <p>Specifies the configuration details of a scheduled-trigger flow that you define.
- *          Currently, these settings only apply to the scheduled-trigger type.</p>
- */
-export interface ScheduledTriggerProperties {
-  /**
-   * <p>The scheduling expression that determines the rate at which the schedule will run, for
-   *          example rate (5 minutes).</p>
-   */
-  ScheduleExpression: string | undefined;
-
-  /**
-   * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
-   *          transfer for each flow run.</p>
-   */
-  DataPullMode?: DataPullMode | string;
-
-  /**
-   * <p>Specifies the scheduled start time for a scheduled-trigger flow.</p>
-   */
-  ScheduleStartTime?: Date;
-
-  /**
-   * <p>Specifies the scheduled end time for a scheduled-trigger flow.</p>
-   */
-  ScheduleEndTime?: Date;
-
-  /**
-   * <p>Specifies the time zone used when referring to the date and time of a
-   *          scheduled-triggered flow, such as America/New_York.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>Specifies the optional offset that is added to the time interval for a
-   *          schedule-triggered flow.</p>
-   */
-  ScheduleOffset?: number;
-
-  /**
-   * <p>Specifies the date range for the records to import from the connector in the first flow
-   *          run.</p>
-   */
-  FirstExecutionFrom?: Date;
-}
-
-export namespace ScheduledTriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the configuration details that control the trigger for a flow. Currently,
- *          these settings only apply to the Scheduled trigger type.</p>
- */
-export interface TriggerProperties {
-  /**
-   * <p>Specifies the configuration details of a schedule-triggered flow that you define.</p>
-   */
-  Scheduled?: ScheduledTriggerProperties;
-}
-
-export namespace TriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerProperties): any => ({
-    ...obj,
-  });
-}
-
-export enum TriggerType {
-  EVENT = "Event",
-  ONDEMAND = "OnDemand",
-  SCHEDULED = "Scheduled",
-}
-
-/**
- * <p>The trigger settings that determine how and when Amazon AppFlow runs the specified
- *          flow.</p>
- */
-export interface TriggerConfig {
-  /**
-   * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
-   */
-  TriggerType: TriggerType | string | undefined;
-
-  /**
-   * <p>Specifies the configuration details of a schedule-triggered flow that you define.
-   *          Currently, these settings only apply to the Scheduled trigger type.</p>
-   */
-  TriggerProperties?: TriggerProperties;
-}
-
-export namespace TriggerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The configurations that control how Customer Profiles retrieves data from the source,
- *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of
- *          customers.</p>
- */
-export interface FlowDefinition {
-  /**
-   * <p>A description of the flow you want to create.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not
-   *          allowed.</p>
-   */
-  FlowName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name of the AWS Key Management Service (KMS) key you provide for encryption.</p>
-   */
-  KmsArn: string | undefined;
-
-  /**
-   * <p>The configuration that controls how Customer Profiles retrieves data from the
-   *          source.</p>
-   */
-  SourceFlowConfig: SourceFlowConfig | undefined;
-
-  /**
-   * <p>A list of tasks that Customer Profiles performs while transferring the data in the flow
-   *          run.</p>
-   */
-  Tasks: Task[] | undefined;
-
-  /**
-   * <p>The trigger settings that determine how and when the flow runs.</p>
-   */
-  TriggerConfig: TriggerConfig | undefined;
-}
-
-export namespace FlowDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlowDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface PutIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3269,6 +3882,11 @@ export interface PutIntegrationResponse {
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
   ObjectTypeNames?: { [key: string]: string };
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   */
+  WorkflowId?: string;
 }
 
 export namespace PutIntegrationResponse {

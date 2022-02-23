@@ -766,7 +766,8 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Generates a presigned download URL for the specified release of the mobile SDK.</p>
-   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+   * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   public generateMobileSdkReleaseUrl(
     args: GenerateMobileSdkReleaseUrlCommandInput,
@@ -893,7 +894,8 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Retrieves information for the specified mobile SDK release, including release notes and tags.</p>
-   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+   * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   public getMobileSdkRelease(
     args: GetMobileSdkReleaseCommandInput,
@@ -1316,7 +1318,8 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Retrieves a list of the available releases for the mobile SDK and the specified device platform. </p>
-   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+   * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   public listMobileSdkReleases(
     args: ListMobileSdkReleasesCommandInput,
@@ -1515,8 +1518,11 @@ export class WAFV2 extends WAFV2Client {
 
   /**
    * <p>Enables the specified <a>LoggingConfiguration</a>, to start logging from a
-   *          web ACL, according to the configuration provided.</p>
-   *          <p>You can access information about all traffic that WAF inspects using the following
+   *          web ACL, according to the configuration provided. </p>
+   *          <note>
+   *             <p>You can define one logging destination per web ACL.</p>
+   *          </note>
+   *          <p>You can access information about the traffic that WAF inspects using the following
    *          steps:</p>
    *          <ol>
    *             <li>
@@ -1534,6 +1540,9 @@ export class WAFV2 extends WAFV2Client {
    *           request, WAF creates an additional role or policy that is required to write
    *               logs to the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource policy on the log group.
    *           For an Amazon S3 bucket, WAF creates a bucket policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.</p>
+   *          <p>For additional information about web ACL logging, see
+   *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+   *                in the <i>WAF Developer Guide</i>.</p>
    *          <note>
    *             <p>This operation completely replaces the mutable specifications that you already have for the logging configuration with the ones that you provide to this call. To modify the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>, update the settings as needed, and then provide the complete logging configuration specification to this call.</p>
    *          </note>

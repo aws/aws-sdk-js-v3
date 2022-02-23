@@ -1370,7 +1370,7 @@ export namespace UsernameField {
  */
 export interface ManagedRuleGroupConfig {
   /**
-   * <p>The login endpoint for your application. For example <code>https://example.com/web/login</code>.</p>
+   * <p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>.</p>
    */
   LoginPath?: string;
 
@@ -2352,8 +2352,8 @@ export interface CreateIPSetRequest {
   IPAddressVersion: IPAddressVersion | string | undefined;
 
   /**
-   * <p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
-   *          <p>Examples: </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
    *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
@@ -2370,6 +2370,24 @@ export interface CreateIPSetRequest {
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
+   *          <p>Example JSON <code>Addresses</code> specifications: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Empty array: <code>"Addresses": []</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with one address: <code>"Addresses": ["192.0.2.44/32"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with three addresses: <code>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>INVALID specification: <code>"Addresses": [""]</code> INVALID </p>
+   *             </li>
+   *          </ul>
    */
   Addresses: string[] | undefined;
 
@@ -3434,7 +3452,7 @@ export namespace GetIPSetRequest {
 }
 
 /**
- * <p>Contains one or more IP addresses or blocks of IP addresses specified in Classless
+ * <p>Contains zero or more IP addresses or blocks of IP addresses specified in Classless
  *          Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges
  *          except for /0. For information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
  *             Inter-Domain Routing</a>. </p>
@@ -3468,8 +3486,8 @@ export interface IPSet {
   IPAddressVersion: IPAddressVersion | string | undefined;
 
   /**
-   * <p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
-   *          <p>Examples: </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
    *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
@@ -3486,6 +3504,24 @@ export interface IPSet {
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
+   *          <p>Example JSON <code>Addresses</code> specifications: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Empty array: <code>"Addresses": []</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with one address: <code>"Addresses": ["192.0.2.44/32"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with three addresses: <code>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>INVALID specification: <code>"Addresses": [""]</code> INVALID </p>
+   *             </li>
+   *          </ul>
    */
   Addresses: string[] | undefined;
 }
@@ -3655,7 +3691,28 @@ export namespace LoggingFilter {
  *          resource, for logging from WAF. As part of the association, you can specify parts of
  *          the standard logging fields to keep out of the logs and you can specify filters so that you
  *          log only a subset of the logging records. </p>
- *          <p>For information about configuring web ACL logging destinations, see
+ *          <note>
+ *             <p>You can define one logging destination per web ACL.</p>
+ *          </note>
+ *          <p>You can access information about the traffic that WAF inspects using the following
+ *          steps:</p>
+ *          <ol>
+ *             <li>
+ *                <p>Create your logging destination. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
+ *                  For information about configuring logging destinations and the permissions that are required for each, see
+ *                  <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *                  in the <i>WAF Developer Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Associate your logging destination to your web ACL using a
+ *                   <code>PutLoggingConfiguration</code> request.</p>
+ *             </li>
+ *          </ol>
+ *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code>
+ *           request, WAF creates an additional role or policy that is required to write
+ *               logs to the logging destination. For an Amazon CloudWatch Logs log group, WAF creates a resource policy on the log group.
+ *           For an Amazon S3 bucket, WAF creates a bucket policy. For an Amazon Kinesis Data Firehose, WAF creates a service-linked role.</p>
+ *          <p>For additional information about web ACL logging, see
  *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
  *                in the <i>WAF Developer Guide</i>.</p>
  */
@@ -3667,8 +3724,11 @@ export interface LoggingConfiguration {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the logging destinations that you want to associate
+   * <p>The logging destination configuration that you want to associate
    *          with the web ACL.</p>
+   *          <note>
+   *             <p>You can associate one logging destination to a web ACL.</p>
+   *          </note>
    */
   LogDestinationConfigs: string[] | undefined;
 
@@ -3931,7 +3991,8 @@ export namespace GetMobileSdkReleaseRequest {
 
 /**
  * <p>Information for a release of the mobile SDK, including release notes and tags.</p>
- *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+ *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. For more information, see
+ * <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
  */
 export interface MobileSdkRelease {
   /**
@@ -5834,8 +5895,8 @@ export interface UpdateIPSetRequest {
   Description?: string;
 
   /**
-   * <p>Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
-   *          <p>Examples: </p>
+   * <p>Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for /0. </p>
+   *          <p>Example address strings: </p>
    *          <ul>
    *             <li>
    *                <p>To configure WAF to allow, block, or count requests that originated from the IP address 192.0.2.44, specify <code>192.0.2.44/32</code>.</p>
@@ -5852,6 +5913,24 @@ export interface UpdateIPSetRequest {
    *             </li>
    *          </ul>
    *          <p>For more information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless Inter-Domain Routing</a>.</p>
+   *          <p>Example JSON <code>Addresses</code> specifications: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Empty array: <code>"Addresses": []</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with one address: <code>"Addresses": ["192.0.2.44/32"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Array with three addresses: <code>"Addresses": ["192.0.2.44/32", "192.0.2.0/24", "192.0.0.0/16"]</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>INVALID specification: <code>"Addresses": [""]</code> INVALID </p>
+   *             </li>
+   *          </ul>
    */
   Addresses: string[] | undefined;
 
@@ -7147,7 +7226,7 @@ export interface GetWebACLResponse {
   LockToken?: string;
 
   /**
-   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF application integration</a> in the <i>WAF Developer Guide</i>.</p>
+   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF client application integration</a> in the <i>WAF Developer Guide</i>.</p>
    */
   ApplicationIntegrationURL?: string;
 }

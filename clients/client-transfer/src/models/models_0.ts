@@ -147,7 +147,9 @@ export interface CopyStepDetails {
   Name?: string;
 
   /**
-   * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+   * <p>Specifies the location for the file being copied. Only applicable for Copy type workflow
+   *       steps. Use <code>${Transfer:username}</code> in this field to parametrize the destination
+   *       prefix by username.</p>
    */
   DestinationFileLocation?: InputFileLocation;
 
@@ -156,6 +158,22 @@ export interface CopyStepDetails {
    *       The default is <code>FALSE</code>.</p>
    */
   OverwriteExisting?: OverwriteExisting | string;
+
+  /**
+   * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
+   *     for the workflow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *           In this case, this workflow step uses the output file from the previous workflow step as input.
+   *           This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceFileLocation?: string;
 }
 
 export namespace CopyStepDetails {
@@ -174,15 +192,6 @@ export namespace CopyStepDetails {
  *          <p>
  *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
  *          </p>
- *
- *          <note>
- *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
- *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
- *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
- *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
- *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
- *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
- *          </note>
  */
 export interface HomeDirectoryMapEntry {
   /**
@@ -279,15 +288,6 @@ export interface CreateAccessRequest {
    *          <p>
    *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
-   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
-   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
-   *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
@@ -1086,15 +1086,6 @@ export interface CreateUserRequest {
    *          <p>
    *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
-   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
-   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
-   *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
@@ -1219,6 +1210,22 @@ export interface CustomStepDetails {
    * <p>Timeout, in seconds, for the step.</p>
    */
   TimeoutSeconds?: number;
+
+  /**
+   * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
+   *     for the workflow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *           In this case, this workflow step uses the output file from the previous workflow step as input.
+   *           This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceFileLocation?: string;
 }
 
 export namespace CustomStepDetails {
@@ -1238,6 +1245,22 @@ export interface DeleteStepDetails {
    * <p>The name of the step, used as an identifier.</p>
    */
   Name?: string;
+
+  /**
+   * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
+   *     for the workflow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *           In this case, this workflow step uses the output file from the previous workflow step as input.
+   *           This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceFileLocation?: string;
 }
 
 export namespace DeleteStepDetails {
@@ -1287,6 +1310,22 @@ export interface TagStepDetails {
    * <p>Array that contains from 1 to 10 key/value pairs.</p>
    */
   Tags?: S3Tag[];
+
+  /**
+   * <p>Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file
+   *     for the workflow.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Enter <code>${previous.file}</code> to use the previous file as the input.
+   *           In this case, this workflow step uses the output file from the previous workflow step as input.
+   *           This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Enter <code>${original.file}</code> to use the originally-uploaded file location as input for this step.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceFileLocation?: string;
 }
 
 export namespace TagStepDetails {
@@ -3518,6 +3557,9 @@ export interface TestIdentityProviderResponse {
 
   /**
    * <p>A message that indicates whether the test was successful or not.</p>
+   *          <note>
+   *             <p>If an empty string is returned, the most likely cause is that the authentication failed due to an incorrect username or password.</p>
+   *          </note>
    */
   Message?: string;
 
@@ -3595,15 +3637,6 @@ export interface UpdateAccessRequest {
    *          <p>
    *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
-   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
-   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
-   *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
@@ -3937,15 +3970,6 @@ export interface UpdateUserRequest {
    *          <p>
    *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry is
-   *         ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
-   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a folder.</p>
-   *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
