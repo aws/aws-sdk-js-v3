@@ -34,27 +34,71 @@ describe("Flexible Checksums", () => {
     testCases.forEach(([body, checksumAlgorithm, checksumValue]) => {
       const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
 
-      it(`sets ${checksumHeader}="${checksumValue}"" for checksum="${checksumAlgorithm}"`, async () => {
-        const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
-          // middleware intercept the request and return it early
-          const request = args.request as HttpRequest;
-          const { headers } = request;
-          expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(checksumAlgorithm);
-          expect(headers[checksumHeader]).to.equal(checksumValue);
-          return { output: {} as any, response: {} as any };
+      describe(`sets ${checksumHeader}="${checksumValue}"" for checksum="${checksumAlgorithm}"`, () => {
+        const getBodyAsReadableStream = (content: string) => {
+          const readableStream = new Readable();
+          const separator = " ";
+          const wordsAsChunks = content.split(separator);
+          wordsAsChunks.forEach((word, index) => {
+            readableStream.push(word);
+            if (index !== wordsAsChunks.length - 1) {
+              readableStream.push(separator);
+            }
+          });
+          readableStream.push(null);
+          return readableStream;
         };
 
-        const client = new S3({});
-        client.middlewareStack.addRelativeTo(requestChecksumValidator, {
-          relation: "after",
-          toMiddleware: "flexibleChecksumsMiddleware",
+        it(`when body is sent as a request`, async () => {
+          const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
+            // middleware intercept the request and return it early
+            const request = args.request as HttpRequest;
+            const { headers } = request;
+            expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(checksumAlgorithm);
+            expect(headers[checksumHeader]).to.equal(checksumValue);
+            return { output: {} as any, response: {} as any };
+          };
+
+          const client = new S3({});
+          client.middlewareStack.addRelativeTo(requestChecksumValidator, {
+            relation: "after",
+            toMiddleware: "flexibleChecksumsMiddleware",
+          });
+
+          return await client.putObject({
+            Bucket: "bucket",
+            Key: "key",
+            Body: body,
+            ChecksumAlgorithm: checksumAlgorithm,
+          });
         });
 
-        return await client.putObject({
-          Bucket: "bucket",
-          Key: "key",
-          Body: body,
-          ChecksumAlgorithm: checksumAlgorithm,
+        it(`when body is sent as a stream`, async () => {
+          const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
+            // middleware intercept the request and return it early
+            const request = args.request as HttpRequest;
+            const { headers } = request;
+            expect(headers["content-length"]).to.be.undefined;
+            expect(headers["content-encoding"]).to.equal("aws-chunked");
+            expect(headers["transfer-encoding"]).to.equal("chunked");
+            expect(headers["x-amz-content-sha256"]).to.equal("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
+            expect(headers["x-amz-trailer"]).to.equal(checksumHeader);
+            return { output: {} as any, response: {} as any };
+          };
+
+          const client = new S3({});
+          client.middlewareStack.addRelativeTo(requestChecksumValidator, {
+            relation: "after",
+            toMiddleware: "flexibleChecksumsMiddleware",
+          });
+
+          const bodyStream = getBodyAsReadableStream(body);
+          return await client.putObject({
+            Bucket: "bucket",
+            Key: "key",
+            Body: bodyStream,
+            ChecksumAlgorithm: checksumAlgorithm,
+          });
         });
       });
     });
