@@ -3325,7 +3325,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This operation allows you to perform reads and singleton writes on data stored in\n            DynamoDB, using PartiQL.</p>"
+        "smithy.api#documentation": "<p>This operation allows you to perform reads and singleton writes on data stored in\n            DynamoDB, using PartiQL.</p>\n        <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed\n            items exceeds the maximum dataset size limit of 1 MB, the read stops and results are\n            returned to the user as a <code>LastEvaluatedKey</code> value to continue the read in a\n            subsequent operation. If the filter criteria in <code>WHERE</code> clause does not match\n            any data, the read will return an empty result set.</p>\n        <p>A single <code>SELECT</code> statement response can return up to the maximum number of\n            items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any\n            filtering to the results using <code>WHERE</code> clause). If\n                <code>LastEvaluatedKey</code> is present in the response, you need to paginate the\n            result set.</p>"
       }
     },
     "com.amazonaws.dynamodb#ExecuteStatementInput": {
@@ -3358,6 +3358,12 @@
         },
         "ReturnConsumedCapacity": {
           "target": "com.amazonaws.dynamodb#ReturnConsumedCapacity"
+        },
+        "Limit": {
+          "target": "com.amazonaws.dynamodb#PositiveIntegerObject",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to evaluate (not necessarily the number of matching\n            items). If DynamoDB processes the number of items up to the limit while processing the\n            results, it stops the operation and returns the matching values up to that point, along\n            with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you\n            can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before\n            DynamoDB reaches this limit, it stops the operation and returns the matching values up\n            to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent\n            operation to continue the operation. </p>"
+          }
         }
       }
     },
@@ -3378,6 +3384,12 @@
         },
         "ConsumedCapacity": {
           "target": "com.amazonaws.dynamodb#ConsumedCapacity"
+        },
+        "LastEvaluatedKey": {
+          "target": "com.amazonaws.dynamodb#Key",
+          "traits": {
+            "smithy.api#documentation": "<p>The primary key of the item where the operation stopped, inclusive of the previous\n            result set. Use this value to start a new operation, excluding this value in the new\n            request. If <code>LastEvaluatedKey</code> is empty, then the \"last page\" of results has\n            been processed and there is no more data to be retrieved. If\n                <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there\n            is more data in the result set. The only way to know when you have reached the end of\n            the result set is when <code>LastEvaluatedKey</code> is empty. </p>"
+          }
         }
       }
     },
