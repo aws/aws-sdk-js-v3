@@ -13,6 +13,7 @@ import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
+import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
@@ -26,20 +27,38 @@ export const flexibleChecksumsMiddleware =
 
     const { request } = args;
     const { body: requestBody, headers } = request;
-    const { streamHasher, base64Encoder } = config;
+    const { base64Encoder, streamHasher } = config;
     const { input, requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
       requestChecksumRequired,
       requestAlgorithmMember,
     });
+    let updatedBody = requestBody;
     let updatedHeaders = headers;
 
     if (checksumAlgorithm) {
       const checksumLocationName = getChecksumLocationName(checksumAlgorithm);
-      // ToDo: Update trailer instead if it is Unsigned-payload.
-      if (!hasHeader(checksumLocationName, headers)) {
-        const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
+      const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
+      if (isStreaming(requestBody)) {
+        const { getAwsChunkedEncodingStream, bodyLengthChecker } = config;
+        updatedBody = getAwsChunkedEncodingStream(requestBody, {
+          base64Encoder,
+          bodyLengthChecker,
+          checksumLocationName,
+          checksumAlgorithmFn,
+          streamHasher,
+        });
+        updatedHeaders = {
+          ...headers,
+          "content-encoding": "aws-chunked",
+          "transfer-encoding": "chunked",
+          "x-amz-decoded-content-length": headers["content-length"],
+          "x-amz-content-sha256": "STREAMING-UNSIGNED-PAYLOAD-TRAILER",
+          "x-amz-trailer": checksumLocationName,
+        };
+        delete updatedHeaders["content-length"];
+      } else if (!hasHeader(checksumLocationName, headers)) {
         const checksum = await getChecksum(requestBody, { streamHasher, checksumAlgorithmFn, base64Encoder });
         updatedHeaders = {
           ...headers,
@@ -53,6 +72,7 @@ export const flexibleChecksumsMiddleware =
       request: {
         ...request,
         headers: updatedHeaders,
+        body: updatedBody,
       },
     });
 
