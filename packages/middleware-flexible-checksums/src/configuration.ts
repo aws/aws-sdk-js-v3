@@ -1,4 +1,4 @@
-import { Encoder, HashConstructor, StreamHasher } from "@aws-sdk/types";
+import { Encoder, GetAwsChunkedEncodingStream, HashConstructor, StreamHasher } from "@aws-sdk/types";
 
 export interface PreviouslyResolved {
   /**
@@ -6,6 +6,16 @@ export interface PreviouslyResolved {
    * @internal
    */
   base64Encoder: Encoder;
+
+  /**
+   * A function that can calculate the length of a body.
+   */
+  bodyLengthChecker: (body: any) => number | undefined;
+
+  /**
+   * A function that returns Readable Stream which follows aws-chunked encoding stream.
+   */
+  getAwsChunkedEncodingStream: GetAwsChunkedEncodingStream;
 
   /**
    * A constructor for a class implementing the {@link Hash} interface that computes MD5 hashes.
