@@ -1,5 +1,16 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.10.0 (2022-03-02)
+
+### Features
+
+* Added http checksum dependency integration. ([#3346](https://github.com/aws/aws-sdk-js-v3/pull/3346), [#3349](https://github.com/aws/aws-sdk-js-v3/pull/3349))
+
+### Bug Fixes
+
+* Disabled bucket endpoint plugin in WriteGetObjectResponseCommand. ([#3344](https://github.com/aws/aws-sdk-js-v3/pull/3344))
+* Fixed set deserialization in SSDKs. ([#3322](https://github.com/aws/aws-sdk-js-v3/pull/3322))
+
 ## 0.9.0 (2022-02-14)
 
 ### Features
