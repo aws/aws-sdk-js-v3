@@ -10,8 +10,19 @@ describe(getChecksumAlgorithmListForResponse.name, () => {
     expect(getChecksumAlgorithmListForResponse(["UNKNOWNALGO"])).toEqual([]);
   });
 
-  it("returns list as per priority order", () => {
-    const responseAlgorithms = [...PRIORITY_ORDER_ALGORITHMS];
-    expect(getChecksumAlgorithmListForResponse(responseAlgorithms.reverse())).toEqual(PRIORITY_ORDER_ALGORITHMS);
+  describe("returns list as per priority order", () => {
+    it("when all algorithms are passed in reverse order", () => {
+      expect(getChecksumAlgorithmListForResponse([...PRIORITY_ORDER_ALGORITHMS].reverse())).toEqual(
+        PRIORITY_ORDER_ALGORITHMS
+      );
+    });
+
+    it.each([...Array(PRIORITY_ORDER_ALGORITHMS.length).keys()].filter((num) => num !== 0))(
+      "when subset of algorithms are passed in reverse order starting with element at '%s'",
+      (start) => {
+        const responseAlgorithms = PRIORITY_ORDER_ALGORITHMS.slice(start);
+        expect(getChecksumAlgorithmListForResponse([...responseAlgorithms].reverse())).toEqual(responseAlgorithms);
+      }
+    );
   });
 });
