@@ -4,13 +4,13 @@ import { BuildHandlerArguments } from "@aws-sdk/types";
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
-import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
+import { stringHasher } from "./stringHasher";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 jest.mock("@aws-sdk/protocol-http");
@@ -19,8 +19,9 @@ jest.mock("./getChecksumAlgorithmForRequest");
 jest.mock("./getChecksumLocationName");
 jest.mock("./hasHeader");
 jest.mock("./isStreaming");
-jest.mock("./validateChecksumFromResponse");
 jest.mock("./selectChecksumAlgorithmFunction");
+jest.mock("./stringHasher");
+jest.mock("./validateChecksumFromResponse");
 
 describe(flexibleChecksumsMiddleware.name, () => {
   const mockNext = jest.fn();
@@ -29,8 +30,11 @@ describe(flexibleChecksumsMiddleware.name, () => {
   const mockChecksumAlgorithmFunction = jest.fn();
   const mockChecksumLocationName = "mock-checksum-location-name";
 
+  const mockRawChecksum = Buffer.from(mockChecksum);
+  const mockBase64Encoder = jest.fn();
+
   const mockInput = {};
-  const mockConfig = {} as PreviouslyResolved;
+  const mockConfig = { base64Encoder: mockBase64Encoder } as unknown as PreviouslyResolved;
   const mockMiddlewareConfig = { input: mockInput } as FlexibleChecksumsMiddlewareConfig;
 
   const mockBody = { body: "mockBody" };
@@ -43,12 +47,14 @@ describe(flexibleChecksumsMiddleware.name, () => {
     mockNext.mockResolvedValueOnce(mockResult);
     const { isInstance } = HttpRequest;
     (isInstance as unknown as jest.Mock).mockReturnValue(true);
-    (getChecksum as jest.Mock).mockReturnValue(mockChecksum);
     (getChecksumAlgorithmForRequest as jest.Mock).mockReturnValue(ChecksumAlgorithm.MD5);
     (getChecksumLocationName as jest.Mock).mockReturnValue(mockChecksumLocationName);
     (hasHeader as jest.Mock).mockReturnValue(false);
     (isStreaming as jest.Mock).mockReturnValue(false);
     (selectChecksumAlgorithmFunction as jest.Mock).mockReturnValue(mockChecksumAlgorithmFunction);
+    (stringHasher as jest.Mock).mockResolvedValue(mockRawChecksum);
+
+    mockBase64Encoder.mockReturnValue(mockChecksum);
   });
 
   afterEach(() => {
@@ -68,7 +74,8 @@ describe(flexibleChecksumsMiddleware.name, () => {
     describe("request checksum", () => {
       afterEach(() => {
         expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
-        expect(getChecksum).not.toHaveBeenCalled();
+        expect(stringHasher).not.toHaveBeenCalled();
+        expect(mockBase64Encoder).not.toHaveBeenCalled();
       });
 
       it("if checksumAlgorithm is not defined", async () => {
@@ -165,7 +172,8 @@ describe(flexibleChecksumsMiddleware.name, () => {
         },
       });
       expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeaders);
-      expect(getChecksum).toHaveBeenCalledTimes(1);
+      expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, mockRequest.body);
+      expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
     });
   });
 

@@ -8,7 +8,6 @@ import {
 } from "@aws-sdk/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
