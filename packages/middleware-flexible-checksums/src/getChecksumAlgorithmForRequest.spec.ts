@@ -10,21 +10,22 @@ describe(getChecksumAlgorithmForRequest.name, () => {
       expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: true })).toEqual(ChecksumAlgorithm.MD5);
     });
 
-    it("returns undefined if requestChecksumRequired is not set", () => {
-      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired: false })).toBeUndefined();
+    it.each([false, undefined])("returns undefined if requestChecksumRequired=%s", (requestChecksumRequired) => {
+      expect(getChecksumAlgorithmForRequest({}, { requestChecksumRequired })).toBeUndefined();
     });
   });
 
   describe("when requestAlgorithmMember is not set in input", () => {
     const mockOptions = { requestAlgorithmMember: mockRequestAlgorithmMember };
+
     it("returns MD5 if requestChecksumRequired is set", () => {
       expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: true })).toEqual(
         ChecksumAlgorithm.MD5
       );
     });
 
-    it("returns undefined if requestChecksumRequired is not set", () => {
-      expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: false })).toBeUndefined();
+    it.each([false, undefined])("returns undefined if requestChecksumRequired=%s", (requestChecksumRequired) => {
+      expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired })).toBeUndefined();
     });
   });
 
