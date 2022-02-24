@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
+
+
+### Bug Fixes
+
+* **client-s3:** disable bucket endpoint plugin in WriteGetObjectResponseCommand ([#3344](https://github.com/aws/aws-sdk-js-v3/issues/3344)) ([1945d47](https://github.com/aws/aws-sdk-js-v3/commit/1945d47c9612eca3d04c8a346bbc4de35c3d0ef3))
+
+
+### Features
+
+* **clients:** generate service exceptions as classes ([#3267](https://github.com/aws/aws-sdk-js-v3/issues/3267)) ([ca64fee](https://github.com/aws/aws-sdk-js-v3/commit/ca64feed3351c394c07dc26b782a5760a396a074))
+* **clients:** update clients as of 2022/02/24 ([#3361](https://github.com/aws/aws-sdk-js-v3/issues/3361)) ([ec3cc1e](https://github.com/aws/aws-sdk-js-v3/commit/ec3cc1eacd4010797a3a9eec2b0cc1a55e531ea9))
+
+
+
+
+
 # [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
+
+
+### Bug Fixes
+
+* **client-s3:** disable bucket endpoint plugin in WriteGetObjectResponseCommand ([#3344](https://github.com/aws/aws-sdk-js-v3/issues/3344)) ([1945d47](https://github.com/aws/aws-sdk-js-v3/commit/1945d47c9612eca3d04c8a346bbc4de35c3d0ef3))
+* **codegen:** fix set deserialization in SSDKs ([#3322](https://github.com/aws/aws-sdk-js-v3/issues/3322)) ([c827d5c](https://github.com/aws/aws-sdk-js-v3/commit/c827d5c1699dfbcec3feb33101ef14b589b20f3b))
+* **hash-stream-node:** support file stream in readableStreamHasher ([#3338](https://github.com/aws/aws-sdk-js-v3/issues/3338)) ([1e3faa1](https://github.com/aws/aws-sdk-js-v3/commit/1e3faa1976a5119dcc985c8f513833e3d01fe3dc))
+* **hash-stream-node:** throw error if non-file readableStream is flowing ([#3341](https://github.com/aws/aws-sdk-js-v3/issues/3341)) ([76df645](https://github.com/aws/aws-sdk-js-v3/commit/76df645d6109f6ce853830236a0bc77960b97f6c))
+* **util-stream:** remove jest from devDeps ([#3348](https://github.com/aws/aws-sdk-js-v3/issues/3348)) ([d9e4c4b](https://github.com/aws/aws-sdk-js-v3/commit/d9e4c4be361199cd2dc2ac4e5b6bd14b53535b02))
+* **util-stream:** rename downlevel-dts to build:types:downlevel ([#3355](https://github.com/aws/aws-sdk-js-v3/issues/3355)) ([110bb19](https://github.com/aws/aws-sdk-js-v3/commit/110bb19045d275aaeeddbd308b724e31eef4476a))
+
+
+### Features
+
+* **clients:** generate service exceptions as classes ([#3267](https://github.com/aws/aws-sdk-js-v3/issues/3267)) ([ca64fee](https://github.com/aws/aws-sdk-js-v3/commit/ca64feed3351c394c07dc26b782a5760a396a074))
+* **clients:** update clients as of 2022/02/23 ([#3356](https://github.com/aws/aws-sdk-js-v3/issues/3356)) ([b6b2e25](https://github.com/aws/aws-sdk-js-v3/commit/b6b2e258add12c73d807483ca078401a6d84a12b))
+* **clients:** update clients as of 2022/02/24 ([#3361](https://github.com/aws/aws-sdk-js-v3/issues/3361)) ([ec3cc1e](https://github.com/aws/aws-sdk-js-v3/commit/ec3cc1eacd4010797a3a9eec2b0cc1a55e531ea9))
+* **codegen:** add getAwsChunkedEncodingStream to config ([#3349](https://github.com/aws/aws-sdk-js-v3/issues/3349)) ([6c05df3](https://github.com/aws/aws-sdk-js-v3/commit/6c05df319c940d19ceb7ae4b86df83cc7716be97))
+* **codegen:** http checksum dependency integration ([#3346](https://github.com/aws/aws-sdk-js-v3/issues/3346)) ([bfc9257](https://github.com/aws/aws-sdk-js-v3/commit/bfc9257ed2e2354955b202adf7cfd98f3160eda7))
+* **middleware-flexible-checksums:** add flexibleChecksumMiddleware ([#3340](https://github.com/aws/aws-sdk-js-v3/issues/3340)) ([15e0512](https://github.com/aws/aws-sdk-js-v3/commit/15e05124f9eb4a9fbf9437f14179188d7d4b11e1))
+* **middleware-flexible-checksums:** support trailing checksums with aws-chunked encoding ([#3347](https://github.com/aws/aws-sdk-js-v3/issues/3347)) ([50b48fe](https://github.com/aws/aws-sdk-js-v3/commit/50b48fec155cb87f85799f001beac6ca6434372b))
+* **util-stream:** add getAwsChunkedEncodingStream ([#3339](https://github.com/aws/aws-sdk-js-v3/issues/3339)) ([42d433b](https://github.com/aws/aws-sdk-js-v3/commit/42d433b274eeeb38db268af4d6d48c972fc10486))
+
+
+
+
+
 # [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
 
 
