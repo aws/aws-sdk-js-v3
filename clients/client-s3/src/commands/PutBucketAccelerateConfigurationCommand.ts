@@ -1,4 +1,5 @@
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -27,10 +28,10 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
  *
  *          <p> To use this operation, you must have permission to perform the
- *          s3:PutAccelerateConfiguration action. The bucket owner has this permission by default. The
- *          bucket owner can grant this permission to others. For more information about permissions,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
+ *             <code>s3:PutAccelerateConfiguration</code> action. The bucket owner has this permission
+ *          by default. The bucket owner can grant this permission to others. For more information
+ *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+ *             Access Permissions to Your Amazon S3 Resources</a>.</p>
  *
  *          <p> The Transfer Acceleration state of a bucket can be set to one of the following two
  *          values:</p>
@@ -108,6 +109,13 @@ export class PutBucketAccelerateConfigurationCommand extends $Command<
   ): Handler<PutBucketAccelerateConfigurationCommandInput, PutBucketAccelerateConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: false,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

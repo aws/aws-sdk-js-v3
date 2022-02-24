@@ -1,5 +1,5 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,8 +24,7 @@ export interface PutBucketVersioningCommandInput extends PutBucketVersioningRequ
 export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the versioning state of an existing bucket. To set the versioning state, you must
- *          be the bucket owner.</p>
+ * <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
  *
  *          <p>
@@ -39,8 +38,9 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *          <p>If the versioning state has never been set on a bucket, it has no versioning state; a
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> request does not return a versioning state value.</p>
  *
- *          <p>If the bucket owner enables MFA Delete in the bucket versioning configuration, the
- *          bucket owner must include the <code>x-amz-mfa request</code> header and the
+ *          <p>In order to enable MFA Delete, you must be the bucket owner. If you are the bucket owner
+ *          and want to enable MFA Delete in the bucket versioning configuration, you must
+ *          include the <code>x-amz-mfa request</code> header and the
  *             <code>Status</code> and the <code>MfaDelete</code> request elements in a request to set
  *          the versioning state of the bucket.</p>
  *
@@ -112,7 +112,13 @@ export class PutBucketVersioningCommand extends $Command<
   ): Handler<PutBucketVersioningCommandInput, PutBucketVersioningCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: true,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

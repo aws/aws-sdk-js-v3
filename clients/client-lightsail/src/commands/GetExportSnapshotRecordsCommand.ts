@@ -25,7 +25,8 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  * <p>Returns all export snapshot records created as a result of the <code>export
  *         snapshot</code> operation.</p>
  *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
- *       resources with the <a>CreateCloudFormationStack</a> action.</p>
+ *       resources with the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html">CreateCloudFormationStack</a>
+ *       action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,13 @@ export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
 export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Creates an SSH key pair.</p>
+ * <p>Creates a custom SSH key pair that you can use with an Amazon Lightsail
+ *       instance.</p>
+ *          <note>
+ *             <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a> action to create a Lightsail default key
+ *         pair in an Amazon Web Services Region where a default key pair does not currently
+ *         exist.</p>
+ *          </note>
  *          <p>The <code>create key pair</code> operation supports tag-based access control via request
  *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example

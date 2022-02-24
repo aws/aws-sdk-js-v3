@@ -35,6 +35,29 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * 				<code>efs.amazonaws.com</code>. </p>
  * 			         </li>
  *          </ul>
+ * 		       <note>
+ *             <p>When listing private hosted zones, the hosted zone and the Amazon VPC must belong to
+ * 				the same partition where the hosted zones were created. A partition is a group of
+ * 					Amazon Web Services Regions. Each Amazon Web Services account is scoped to one
+ * 				partition.</p>
+ * 			         <p>The following are the supported partitions:</p>
+ * 			         <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>aws</code> - Amazon Web Services Regions</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>aws-cn</code> - China Regions</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
+ *                </li>
+ *             </ul>
+ * 			         <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
+ * 				in the <i>Amazon Web Services General Reference</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -114,13 +114,19 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                         used to encrypt data, specify the following headers in the request.</p>
  *                      <ul>
  *                         <li>
- *                            <p>x-amz-server-side-encryption</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-server-side-encryption-context</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption-context</code>
+ *                            </p>
  *                         </li>
  *                      </ul>
  *                      <note>
@@ -140,13 +146,19 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                         encryption keys, provide all the following headers in the request.</p>
  *                      <ul>
  *                         <li>
- *                            <p>x-amz-server-side-encryption-customer-algorithm</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption-customer-algorithm</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-server-side-encryption-customer-key</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption-customer-key</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-server-side-encryption-customer-key-MD5</p>
+ *                            <p>
+ *                               <code>x-amz-server-side-encryption-customer-key-MD5</code>
+ *                            </p>
  *                         </li>
  *                      </ul>
  *                      <p>For more information about server-side encryption with KMS keys (SSE-KMS),
@@ -180,19 +192,29 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                         use:</p>
  *                      <ul>
  *                         <li>
- *                            <p>x-amz-grant-read</p>
+ *                            <p>
+ *                               <code>x-amz-grant-read</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-grant-write</p>
+ *                            <p>
+ *                               <code>x-amz-grant-write</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-grant-read-acp</p>
+ *                            <p>
+ *                               <code>x-amz-grant-read-acp</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-grant-write-acp</p>
+ *                            <p>
+ *                               <code>x-amz-grant-write-acp</code>
+ *                            </p>
  *                         </li>
  *                         <li>
- *                            <p>x-amz-grant-full-control</p>
+ *                            <p>
+ *                               <code>x-amz-grant-full-control</code>
+ *                            </p>
  *                         </li>
  *                      </ul>
  *                      <p>You specify each grantee as a type=value pair, where the type is one of

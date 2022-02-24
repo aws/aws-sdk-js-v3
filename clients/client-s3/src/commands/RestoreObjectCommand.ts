@@ -1,4 +1,5 @@
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -12,8 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreObjectOutput } from "../models/models_0";
-import { RestoreObjectRequest } from "../models/models_1";
+import { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlRestoreObjectCommand,
   serializeAws_restXmlRestoreObjectCommand,
@@ -161,42 +161,35 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>
- *                      <code>Expedited</code>
- *                   </b> - Expedited retrievals
- *                allow you to quickly access your data stored in the S3 Glacier
- *                storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests for a
- *                subset of archives are required. For all but the largest archived objects (250 MB+),
- *                data accessed using Expedited retrievals is typically made available within 1–5
- *                minutes. Provisioned capacity ensures that retrieval capacity for Expedited
- *                retrievals is available when you need it. Expedited retrievals and provisioned
- *                capacity are not available for objects stored in the S3 Glacier Deep Archive
- *                storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
+ *                   <code>Expedited</code> - Expedited retrievals allow you to quickly access your
+ *                data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
+ *                tier when occasional urgent requests for a subset of archives are required. For all
+ *                but the largest archived objects (250 MB+), data accessed using Expedited retrievals
+ *                is typically made available within 1–5 minutes. Provisioned capacity ensures that
+ *                retrieval capacity for Expedited retrievals is available when you need it. Expedited
+ *                retrievals and provisioned capacity are not available for objects stored in the
+ *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>
- *                      <code>Standard</code>
- *                   </b> - Standard retrievals allow
- *                you to access any of your archived objects within several hours. This is the default
- *                option for retrieval requests that do not specify the retrieval option. Standard
- *                retrievals typically finish within 3–5 hours for objects stored in the
- *                S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
- *                typically finish within 12 hours for objects stored in the
- *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
- *                Standard retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+ *                   <code>Standard</code> - Standard retrievals allow you to access any of your
+ *                archived objects within several hours. This is the default option for retrieval
+ *                requests that do not specify the retrieval option. Standard retrievals typically
+ *                finish within 3–5 hours for objects stored in the S3 Glacier storage
+ *                class or S3 Intelligent-Tiering Archive tier. They typically finish within 12 hours for
+ *                objects stored in the S3 Glacier Deep Archive storage class or
+ *                S3 Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects stored in
+ *                S3 Intelligent-Tiering.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>
- *                      <code>Bulk</code>
- *                   </b> - Bulk retrievals are the
- *                lowest-cost retrieval option in S3 Glacier, enabling you to retrieve large amounts,
- *                even petabytes, of data inexpensively. Bulk retrievals typically finish within 5–12
- *                hours for objects stored in the S3 Glacier storage class or
- *                S3 Intelligent-Tiering Archive tier. They typically finish within 48 hours for objects stored
- *                in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
- *                Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+ *                   <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in
+ *                S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data
+ *                inexpensively. Bulk retrievals typically finish within 5–12 hours for objects stored
+ *                in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
+ *                typically finish within 48 hours for objects stored in the
+ *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Bulk
+ *                retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
  *             </li>
  *          </ul>
  *          <p>For more information about archive retrieval options and provisioned capacity for
@@ -355,6 +348,13 @@ export class RestoreObjectCommand extends $Command<
   ): Handler<RestoreObjectCommandInput, RestoreObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: false,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

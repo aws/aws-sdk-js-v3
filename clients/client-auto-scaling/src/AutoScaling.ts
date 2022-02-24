@@ -559,9 +559,14 @@ export class AutoScaling extends AutoScalingClient {
    *             group:</p>
    *         <ol>
    *             <li>
-   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
-   *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
-   *                     instances.</p>
+   *                 <p>(Optional) Create a launch template or launch configuration with a user data
+   *                     script that runs while an instance is in a wait state due to a lifecycle
+   *                     hook.</p>
+   *             </li>
+   *             <li>
+   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+   *                     your Lambda function when an instance is put into a wait state due to a
+   *                     lifecycle hook.</p>
    *             </li>
    *             <li>
    *                 <p>(Optional) Create a notification target and an IAM role. The target can be
@@ -574,7 +579,7 @@ export class AutoScaling extends AutoScalingClient {
    *             </li>
    *             <li>
    *                 <p>If you need more time, record the lifecycle action heartbeat to keep the
-   *                     instance in a pending state.</p>
+   *                     instance in a wait state.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -620,8 +625,7 @@ export class AutoScaling extends AutoScalingClient {
    * <p>
    *             <b>We strongly recommend using a launch template when calling this operation to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
    *          </p>
-   *          <p>Creates an Auto Scaling group with
-   *             the specified name and attributes. </p>
+   *         <p>Creates an Auto Scaling group with the specified name and attributes. </p>
    *         <p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit,
    *             call the <a>DescribeAccountLimits</a> API. For information about updating
    *             this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
@@ -1762,7 +1766,7 @@ export class AutoScaling extends AutoScalingClient {
   /**
    * <p>Gets information about a warm pool and its instances.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
-   *             Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   public describeWarmPool(
     args: DescribeWarmPoolCommandInput,
@@ -2112,16 +2116,21 @@ export class AutoScaling extends AutoScalingClient {
 
   /**
    * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
-   *         <p>A lifecycle hook enables an Auto Scaling group to be aware of events in the Auto Scaling instance
-   *             lifecycle, and then perform a custom action when the corresponding lifecycle event
-   *             occurs.</p>
+   *         <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
+   *             lifecycle, and then perform a custom action on instances when the corresponding
+   *             lifecycle event occurs.</p>
    *         <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
    *             group:</p>
    *         <ol>
    *             <li>
-   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
-   *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
-   *                     instances.</p>
+   *                 <p>(Optional) Create a launch template or launch configuration with a user data
+   *                     script that runs while an instance is in a wait state due to a lifecycle
+   *                     hook.</p>
+   *             </li>
+   *             <li>
+   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+   *                     your Lambda function when an instance is put into a wait state due to a
+   *                     lifecycle hook.</p>
    *             </li>
    *             <li>
    *                 <p>(Optional) Create a notification target and an IAM role. The target can be
@@ -2136,7 +2145,7 @@ export class AutoScaling extends AutoScalingClient {
    *             </li>
    *             <li>
    *                 <p>If you need more time, record the lifecycle action heartbeat to keep the
-   *                     instance in a pending state using the <a>RecordLifecycleActionHeartbeat</a> API call.</p>
+   *                     instance in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.</p>
    *             </li>
    *             <li>
    *                 <p>If you finish before the timeout period ends, send a callback by using the
@@ -2338,9 +2347,14 @@ export class AutoScaling extends AutoScalingClient {
    *             group:</p>
    *         <ol>
    *             <li>
-   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
-   *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
-   *                     instances.</p>
+   *                 <p>(Optional) Create a launch template or launch configuration with a user data
+   *                     script that runs while an instance is in a wait state due to a lifecycle
+   *                     hook.</p>
+   *             </li>
+   *             <li>
+   *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+   *                     your Lambda function when an instance is put into a wait state due to a
+   *                     lifecycle hook.</p>
    *             </li>
    *             <li>
    *                 <p>(Optional) Create a notification target and an IAM role. The target can be
@@ -2354,7 +2368,7 @@ export class AutoScaling extends AutoScalingClient {
    *             <li>
    *                 <p>
    *                     <b>If you need more time, record the lifecycle action
-   *                         heartbeat to keep the instance in a pending state.</b>
+   *                         heartbeat to keep the instance in a wait state.</b>
    *                 </p>
    *             </li>
    *             <li>
@@ -2670,8 +2684,7 @@ export class AutoScaling extends AutoScalingClient {
    * <p>
    *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
    *          </p>
-   *          <p>Updates the configuration for
-   *             the specified Auto Scaling group.</p>
+   *         <p>Updates the configuration for the specified Auto Scaling group.</p>
    *         <p>To update an Auto Scaling group, specify the name of the group and the parameter that you want
    *             to change. Any parameters that you don't specify are not changed by this update request.
    *             The new settings take effect on any scaling activities after this call returns.

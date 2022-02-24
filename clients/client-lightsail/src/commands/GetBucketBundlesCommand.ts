@@ -27,8 +27,8 @@ export interface GetBucketBundlesCommandOutput extends GetBucketBundlesResult, _
  *          <p>The bucket bundle specifies the monthly cost, storage quota, and data transfer quota for a
  *       bucket.</p>
  *
- *          <p>Use the <a>UpdateBucketBundle</a> action to update the bundle for a
- *       bucket.</p>
+ *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to update the
+ *       bundle for a bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

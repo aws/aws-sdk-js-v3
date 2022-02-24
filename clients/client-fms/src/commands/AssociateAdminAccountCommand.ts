@@ -22,10 +22,11 @@ export interface AssociateAdminAccountCommandInput extends AssociateAdminAccount
 export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the Firewall Manager administrator account. The account must be
- *       a member of the organization in Organizations whose resources you want to protect.
- *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
- *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator account. </p>
+ * <p>Sets the Firewall Manager administrator account. The account must be a member of the
+ *          organization in Organizations whose resources you want to protect. Firewall Manager sets the
+ *          permissions that allow the account to administer your Firewall Manager policies.</p>
+ *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator
+ *          account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

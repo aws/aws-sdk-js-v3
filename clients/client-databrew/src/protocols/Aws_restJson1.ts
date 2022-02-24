@@ -4616,6 +4616,8 @@ const serializeAws_restJson1Output = (input: Output, context: __SerdeContext): a
       }),
     ...(input.Location !== undefined &&
       input.Location !== null && { Location: serializeAws_restJson1S3Location(input.Location, context) }),
+    ...(input.MaxOutputFiles !== undefined &&
+      input.MaxOutputFiles !== null && { MaxOutputFiles: input.MaxOutputFiles }),
     ...(input.Overwrite !== undefined && input.Overwrite !== null && { Overwrite: input.Overwrite }),
     ...(input.PartitionColumns !== undefined &&
       input.PartitionColumns !== null && {
@@ -5504,6 +5506,7 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
       output.Location !== undefined && output.Location !== null
         ? deserializeAws_restJson1S3Location(output.Location, context)
         : undefined,
+    MaxOutputFiles: __expectInt32(output.MaxOutputFiles),
     Overwrite: __expectBoolean(output.Overwrite),
     PartitionColumns:
       output.PartitionColumns !== undefined && output.PartitionColumns !== null

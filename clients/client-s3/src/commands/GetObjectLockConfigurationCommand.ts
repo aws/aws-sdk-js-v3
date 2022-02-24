@@ -27,6 +27,15 @@ export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockCo
  *          configuration will be applied by default to every new object placed in the specified
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
+ *
+ *          <p>The following action is related to <code>GetObjectLockConfiguration</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

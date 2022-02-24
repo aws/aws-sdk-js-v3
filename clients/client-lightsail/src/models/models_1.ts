@@ -1194,6 +1194,12 @@ export interface GetKeyPairsRequest {
    *       token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether to include the default key pair in the response of
+   *       your request.</p>
+   */
+  includeDefaultKeyPair?: boolean;
 }
 
 export namespace GetKeyPairsRequest {
@@ -5275,8 +5281,8 @@ export interface UpdateBucketBundleRequest {
   /**
    * <p>The ID of the new bundle to apply to the bucket.</p>
    *
-   *          <p>Use the <a>GetBucketBundles</a> action to get a list of bundle IDs that you can
-   *       specify.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a> action to get a list of
+   *       bundle IDs that you can specify.</p>
    */
   bundleId: string | undefined;
 }
@@ -5401,7 +5407,7 @@ export interface UpdateDistributionRequest {
 
   /**
    * <p>An object that describes the origin resource for the distribution, such as a Lightsail
-   *       instance or load balancer.</p>
+   *       instance, bucket, or load balancer.</p>
    *          <p>The distribution pulls, caches, and serves content from the origin.</p>
    */
   origin?: InputOrigin;

@@ -310,6 +310,7 @@ import {
   InstanceRefreshProgressDetails,
   InstanceRefreshWarmPoolProgress,
   InstanceRequirements,
+  InstanceReusePolicy,
   InstancesDistribution,
   InvalidNextToken,
   LaunchConfiguration,
@@ -5588,6 +5589,14 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
   return entries;
 };
 
+const serializeAws_queryInstanceReusePolicy = (input: InstanceReusePolicy, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ReuseOnScaleIn !== undefined && input.ReuseOnScaleIn !== null) {
+    entries["ReuseOnScaleIn"] = input.ReuseOnScaleIn;
+  }
+  return entries;
+};
+
 const serializeAws_queryInstancesDistribution = (input: InstancesDistribution, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.OnDemandAllocationStrategy !== undefined && input.OnDemandAllocationStrategy !== null) {
@@ -6414,6 +6423,13 @@ const serializeAws_queryPutWarmPoolType = (input: PutWarmPoolType, context: __Se
   }
   if (input.PoolState !== undefined && input.PoolState !== null) {
     entries["PoolState"] = input.PoolState;
+  }
+  if (input.InstanceReusePolicy !== undefined && input.InstanceReusePolicy !== null) {
+    const memberEntries = serializeAws_queryInstanceReusePolicy(input.InstanceReusePolicy, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceReusePolicy.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -8512,6 +8528,16 @@ const deserializeAws_queryInstanceRequirements = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_queryInstanceReusePolicy = (output: any, context: __SerdeContext): InstanceReusePolicy => {
+  const contents: any = {
+    ReuseOnScaleIn: undefined,
+  };
+  if (output["ReuseOnScaleIn"] !== undefined) {
+    contents.ReuseOnScaleIn = __parseBoolean(output["ReuseOnScaleIn"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInstances = (output: any, context: __SerdeContext): Instance[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -10045,6 +10071,7 @@ const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __Serde
     MinSize: undefined,
     PoolState: undefined,
     Status: undefined,
+    InstanceReusePolicy: undefined,
   };
   if (output["MaxGroupPreparedCapacity"] !== undefined) {
     contents.MaxGroupPreparedCapacity = __strictParseInt32(output["MaxGroupPreparedCapacity"]) as number;
@@ -10057,6 +10084,9 @@ const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __Serde
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
+  }
+  if (output["InstanceReusePolicy"] !== undefined) {
+    contents.InstanceReusePolicy = deserializeAws_queryInstanceReusePolicy(output["InstanceReusePolicy"], context);
   }
   return contents;
 };

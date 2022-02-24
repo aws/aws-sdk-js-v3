@@ -41,6 +41,7 @@ export * from "./GetBucketTaggingCommand";
 export * from "./GetBucketVersioningCommand";
 export * from "./GetBucketWebsiteCommand";
 export * from "./GetObjectAclCommand";
+export * from "./GetObjectAttributesCommand";
 export * from "./GetObjectCommand";
 export * from "./GetObjectLegalHoldCommand";
 export * from "./GetObjectLockConfigurationCommand";

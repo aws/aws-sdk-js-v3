@@ -32,7 +32,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *             <code>GetBucketTagging</code> has the following special error:</p>
  *          <ul>
  *             <li>
- *                <p>Error code: <code>NoSuchTagSetError</code>
+ *                <p>Error code: <code>NoSuchTagSet</code>
  *                </p>
  *                <ul>
  *                   <li>

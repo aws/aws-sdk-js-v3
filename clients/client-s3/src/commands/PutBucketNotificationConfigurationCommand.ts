@@ -54,7 +54,8 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *
  *          <p>You can disable notifications by adding the empty NotificationConfiguration
  *          element.</p>
- *
+ *          <p>For more information about the number of event notification configurations that you can create per bucket, see
+ *          <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3">Amazon S3 service quotas</a> in <i>Amazon Web Services General Reference</i>.</p>
  *          <p>By default, only the bucket owner can configure notifications on a bucket. However,
  *          bucket owners can use a bucket policy to grant permission to other users to set this
  *          configuration with <code>s3:PutBucketNotification</code> permission.</p>

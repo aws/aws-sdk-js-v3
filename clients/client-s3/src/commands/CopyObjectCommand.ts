@@ -28,9 +28,10 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  *          <note>
  *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
- *             object up to 5 GB in size in a single atomic action using this API. However, to copy
- *             an object greater than 5 GB, you must use the multipart upload Upload Part - Copy API.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST Multipart Upload API</a>.</p>
+ *             object up to 5 GB in size in a single atomic action using this API. However, to copy an
+ *             object greater than 5 GB, you must use the multipart upload Upload Part - Copy
+ *             (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the
+ *                REST Multipart Upload API</a>.</p>
  *          </note>
  *          <p>All copy requests must be authenticated. Additionally, you must have
  *             <i>read</i> access to the source object and <i>write</i>
@@ -73,8 +74,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
  *             Amazon S3</a>.</p>
  *          <p>
- *             <b>
- *                <code>x-amz-copy-source-if</code> Headers</b>
+ *             <b>x-amz-copy-source-if Headers</b>
  *          </p>
  *          <p>To only copy an object under certain conditions, such as whether the <code>Etag</code>
  *          matches or whether the object was modified before or after a specified date, use the
@@ -168,6 +168,12 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
  *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
  *          </note>
+ *          <p>
+ *             <b>Checksums</b>
+ *          </p>
+ *          <p>When copying an object, if it has a checksum, that checksum will be copied to the new object
+ *            by default. When you copy the object over, you may optionally specify a different checksum
+ *            algorithm to use with the <code>x-amz-checksum-algorithm</code> header.</p>
  *          <p>
  *             <b>Storage Class Options</b>
  *          </p>

@@ -1631,6 +1631,13 @@ export namespace S3SetObjectAclOperation {
   });
 }
 
+export enum S3ChecksumAlgorithm {
+  CRC32 = "CRC32",
+  CRC32C = "CRC32C",
+  SHA1 = "SHA1",
+  SHA256 = "SHA256",
+}
+
 export enum S3MetadataDirective {
   COPY = "COPY",
   REPLACE = "REPLACE",
@@ -1857,6 +1864,13 @@ export interface S3CopyObjectOperation {
    *             <i>bucket-level</i> settings for S3 Bucket Key.</p>
    */
   BucketKeyEnabled?: boolean;
+
+  /**
+   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more information
+   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
+   *                 Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
 }
 
 export namespace S3CopyObjectOperation {

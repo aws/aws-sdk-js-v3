@@ -105,6 +105,8 @@ import {
   EC2ReplaceRouteTableAssociationAction,
   EvaluationResult,
   ExpectedRoute,
+  FirewallSubnetIsOutOfScopeViolation,
+  FMSPolicyUpdateFirewallCreationConfigAction,
   GetAdminAccountRequest,
   GetAdminAccountResponse,
   GetAppsListRequest,
@@ -145,6 +147,7 @@ import {
   NetworkFirewallMissingExpectedRTViolation,
   NetworkFirewallMissingFirewallViolation,
   NetworkFirewallMissingSubnetViolation,
+  NetworkFirewallPolicy,
   NetworkFirewallPolicyDescription,
   NetworkFirewallPolicyModifiedViolation,
   NetworkFirewallUnexpectedFirewallRoutesViolation,
@@ -153,6 +156,7 @@ import {
   Policy,
   PolicyComplianceDetail,
   PolicyComplianceStatus,
+  PolicyOption,
   PolicySummary,
   PossibleRemediationAction,
   PossibleRemediationActions,
@@ -171,6 +175,7 @@ import {
   ResourceTag,
   ResourceViolation,
   Route,
+  RouteHasOutOfScopeEndpointViolation,
   SecurityGroupRemediationAction,
   SecurityGroupRuleDescription,
   SecurityServicePolicyData,
@@ -2143,6 +2148,13 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1NetworkFirewallPolicy = (input: NetworkFirewallPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.FirewallDeploymentModel !== undefined &&
+      input.FirewallDeploymentModel !== null && { FirewallDeploymentModel: input.FirewallDeploymentModel }),
+  };
+};
+
 const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any => {
   return {
     ...(input.DeleteUnusedFMManagedResources !== undefined &&
@@ -2178,6 +2190,15 @@ const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any
           input.SecurityServicePolicyData,
           context
         ),
+      }),
+  };
+};
+
+const serializeAws_json1_1PolicyOption = (input: PolicyOption, context: __SerdeContext): any => {
+  return {
+    ...(input.NetworkFirewallPolicy !== undefined &&
+      input.NetworkFirewallPolicy !== null && {
+        NetworkFirewallPolicy: serializeAws_json1_1NetworkFirewallPolicy(input.NetworkFirewallPolicy, context),
       }),
   };
 };
@@ -2316,6 +2337,8 @@ const serializeAws_json1_1SecurityServicePolicyData = (
   return {
     ...(input.ManagedServiceData !== undefined &&
       input.ManagedServiceData !== null && { ManagedServiceData: input.ManagedServiceData }),
+    ...(input.PolicyOption !== undefined &&
+      input.PolicyOption !== null && { PolicyOption: serializeAws_json1_1PolicyOption(input.PolicyOption, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
@@ -2502,10 +2525,29 @@ const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
 
 const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeContext): ComplianceViolator => {
   return {
+    Metadata:
+      output.Metadata !== undefined && output.Metadata !== null
+        ? deserializeAws_json1_1ComplianceViolatorMetadata(output.Metadata, context)
+        : undefined,
     ResourceId: __expectString(output.ResourceId),
     ResourceType: __expectString(output.ResourceType),
     ViolationReason: __expectString(output.ViolationReason),
   } as any;
+};
+
+const deserializeAws_json1_1ComplianceViolatorMetadata = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ComplianceViolators = (output: any, context: __SerdeContext): ComplianceViolator[] => {
@@ -2765,6 +2807,29 @@ const deserializeAws_json1_1ExpectedRoutes = (output: any, context: __SerdeConte
       return deserializeAws_json1_1ExpectedRoute(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation = (
+  output: any,
+  context: __SerdeContext
+): FirewallSubnetIsOutOfScopeViolation => {
+  return {
+    FirewallSubnetId: __expectString(output.FirewallSubnetId),
+    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
+    SubnetAvailabilityZoneId: __expectString(output.SubnetAvailabilityZoneId),
+    VpcEndpointId: __expectString(output.VpcEndpointId),
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
+const deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction = (
+  output: any,
+  context: __SerdeContext
+): FMSPolicyUpdateFirewallCreationConfigAction => {
+  return {
+    Description: __expectString(output.Description),
+    FirewallCreationConfig: __expectString(output.FirewallCreationConfig),
+  } as any;
 };
 
 const deserializeAws_json1_1GetAdminAccountResponse = (
@@ -3157,6 +3222,12 @@ const deserializeAws_json1_1NetworkFirewallMissingSubnetViolation = (
   } as any;
 };
 
+const deserializeAws_json1_1NetworkFirewallPolicy = (output: any, context: __SerdeContext): NetworkFirewallPolicy => {
+  return {
+    FirewallDeploymentModel: __expectString(output.FirewallDeploymentModel),
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkFirewallPolicyDescription = (
   output: any,
   context: __SerdeContext
@@ -3357,6 +3428,15 @@ const deserializeAws_json1_1PolicyComplianceStatusList = (
       return deserializeAws_json1_1PolicyComplianceStatus(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1PolicyOption = (output: any, context: __SerdeContext): PolicyOption => {
+  return {
+    NetworkFirewallPolicy:
+      output.NetworkFirewallPolicy !== undefined && output.NetworkFirewallPolicy !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicy(output.NetworkFirewallPolicy, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
@@ -3583,6 +3663,14 @@ const deserializeAws_json1_1RemediationAction = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    FMSPolicyUpdateFirewallCreationConfigAction:
+      output.FMSPolicyUpdateFirewallCreationConfigAction !== undefined &&
+      output.FMSPolicyUpdateFirewallCreationConfigAction !== null
+        ? deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction(
+            output.FMSPolicyUpdateFirewallCreationConfigAction,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -3681,6 +3769,10 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    FirewallSubnetIsOutOfScopeViolation:
+      output.FirewallSubnetIsOutOfScopeViolation !== undefined && output.FirewallSubnetIsOutOfScopeViolation !== null
+        ? deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation(output.FirewallSubnetIsOutOfScopeViolation, context)
+        : undefined,
     NetworkFirewallBlackHoleRouteDetectedViolation:
       output.NetworkFirewallBlackHoleRouteDetectedViolation !== undefined &&
       output.NetworkFirewallBlackHoleRouteDetectedViolation !== null
@@ -3765,6 +3857,10 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
       output.PossibleRemediationActions !== undefined && output.PossibleRemediationActions !== null
         ? deserializeAws_json1_1PossibleRemediationActions(output.PossibleRemediationActions, context)
         : undefined,
+    RouteHasOutOfScopeEndpointViolation:
+      output.RouteHasOutOfScopeEndpointViolation !== undefined && output.RouteHasOutOfScopeEndpointViolation !== null
+        ? deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation(output.RouteHasOutOfScopeEndpointViolation, context)
+        : undefined,
   } as any;
 };
 
@@ -3786,6 +3882,35 @@ const deserializeAws_json1_1Route = (output: any, context: __SerdeContext): Rout
     DestinationType: __expectString(output.DestinationType),
     Target: __expectString(output.Target),
     TargetType: __expectString(output.TargetType),
+  } as any;
+};
+
+const deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation = (
+  output: any,
+  context: __SerdeContext
+): RouteHasOutOfScopeEndpointViolation => {
+  return {
+    CurrentFirewallSubnetRouteTable: __expectString(output.CurrentFirewallSubnetRouteTable),
+    CurrentInternetGatewayRouteTable: __expectString(output.CurrentInternetGatewayRouteTable),
+    FirewallSubnetId: __expectString(output.FirewallSubnetId),
+    FirewallSubnetRoutes:
+      output.FirewallSubnetRoutes !== undefined && output.FirewallSubnetRoutes !== null
+        ? deserializeAws_json1_1Routes(output.FirewallSubnetRoutes, context)
+        : undefined,
+    InternetGatewayId: __expectString(output.InternetGatewayId),
+    InternetGatewayRoutes:
+      output.InternetGatewayRoutes !== undefined && output.InternetGatewayRoutes !== null
+        ? deserializeAws_json1_1Routes(output.InternetGatewayRoutes, context)
+        : undefined,
+    RouteTableId: __expectString(output.RouteTableId),
+    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
+    SubnetAvailabilityZoneId: __expectString(output.SubnetAvailabilityZoneId),
+    SubnetId: __expectString(output.SubnetId),
+    ViolatingRoutes:
+      output.ViolatingRoutes !== undefined && output.ViolatingRoutes !== null
+        ? deserializeAws_json1_1Routes(output.ViolatingRoutes, context)
+        : undefined,
+    VpcId: __expectString(output.VpcId),
   } as any;
 };
 
@@ -3851,6 +3976,10 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
 ): SecurityServicePolicyData => {
   return {
     ManagedServiceData: __expectString(output.ManagedServiceData),
+    PolicyOption:
+      output.PolicyOption !== undefined && output.PolicyOption !== null
+        ? deserializeAws_json1_1PolicyOption(output.PolicyOption, context)
+        : undefined,
     Type: __expectString(output.Type),
   } as any;
 };

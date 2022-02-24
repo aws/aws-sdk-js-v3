@@ -22,7 +22,8 @@ export interface ListBucketsCommandInput {}
 export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
+ * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
+ *         this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

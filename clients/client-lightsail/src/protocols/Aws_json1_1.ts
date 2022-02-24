@@ -12814,6 +12814,8 @@ const serializeAws_json1_1DeleteInstanceSnapshotRequest = (
 
 const serializeAws_json1_1DeleteKeyPairRequest = (input: DeleteKeyPairRequest, context: __SerdeContext): any => {
   return {
+    ...(input.expectedFingerprint !== undefined &&
+      input.expectedFingerprint !== null && { expectedFingerprint: input.expectedFingerprint }),
     ...(input.keyPairName !== undefined && input.keyPairName !== null && { keyPairName: input.keyPairName }),
   };
 };
@@ -13375,6 +13377,8 @@ const serializeAws_json1_1GetKeyPairRequest = (input: GetKeyPairRequest, context
 
 const serializeAws_json1_1GetKeyPairsRequest = (input: GetKeyPairsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.includeDefaultKeyPair !== undefined &&
+      input.includeDefaultKeyPair !== null && { includeDefaultKeyPair: input.includeDefaultKeyPair }),
     ...(input.pageToken !== undefined && input.pageToken !== null && { pageToken: input.pageToken }),
   };
 };
@@ -16034,6 +16038,10 @@ const deserializeAws_json1_1DownloadDefaultKeyPairResult = (
   context: __SerdeContext
 ): DownloadDefaultKeyPairResult => {
   return {
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
     privateKeyBase64: __expectString(output.privateKeyBase64),
     publicKeyBase64: __expectString(output.publicKeyBase64),
   } as any;

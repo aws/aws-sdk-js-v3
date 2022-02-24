@@ -51,6 +51,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EventStreamSerdeProvider as __EventStreamSerdeProvider,
+  GetAwsChunkedEncodingStream,
   Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
@@ -192,6 +193,10 @@ import {
 } from "./commands/GetBucketVersioningCommand";
 import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
 import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
+import {
+  GetObjectAttributesCommandInput,
+  GetObjectAttributesCommandOutput,
+} from "./commands/GetObjectAttributesCommand";
 import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "./commands/GetObjectLegalHoldCommand";
 import {
@@ -356,6 +361,7 @@ export type ServiceInputTypes =
   | GetBucketVersioningCommandInput
   | GetBucketWebsiteCommandInput
   | GetObjectAclCommandInput
+  | GetObjectAttributesCommandInput
   | GetObjectCommandInput
   | GetObjectLegalHoldCommandInput
   | GetObjectLockConfigurationCommandInput
@@ -450,6 +456,7 @@ export type ServiceOutputTypes =
   | GetBucketVersioningCommandOutput
   | GetBucketWebsiteCommandOutput
   | GetObjectAclCommandOutput
+  | GetObjectAttributesCommandOutput
   | GetObjectCommandOutput
   | GetObjectLegalHoldCommandOutput
   | GetObjectLockConfigurationCommandOutput
@@ -631,11 +638,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The function that provides necessary utilities for generating and parsing event stream
-   */
-  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
-
-  /**
    * A function that, given a hash constructor and a stream, calculates the
    * hash of the streamed value.
    * @internal
@@ -648,6 +650,24 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   md5?: __HashConstructor;
+
+  /**
+   * A constructor for a class implementing the {@link __Hash} interface
+   * that computes SHA1 hashes.
+   * @internal
+   */
+  sha1?: __HashConstructor;
+
+  /**
+   * A function that returns Readable Stream which follows aws-chunked encoding stream.
+   * @internal
+   */
+  getAwsChunkedEncodingStream?: GetAwsChunkedEncodingStream;
+
+  /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 
   /**
    * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.

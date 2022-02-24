@@ -1,5 +1,6 @@
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -30,6 +31,9 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *          and a <code>NextPartNumberMarker</code> element. In subsequent <code>ListParts</code>
  *          requests you can include the part-number-marker query string parameter and set its value to
  *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
+ *          <p>If the upload was created using a checksum algorithm, you will need to have permission
+ *            to the <code>kms:Decrypt</code> action for the request to succeed.
+ *        </p>
  *
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
  *             Upload</a>.</p>
@@ -57,6 +61,11 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
  *                </p>
  *             </li>
  *             <li>
@@ -99,6 +108,7 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     options?: __HttpHandlerOptions
   ): Handler<ListPartsCommandInput, ListPartsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
