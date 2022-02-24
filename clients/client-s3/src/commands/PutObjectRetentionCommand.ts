@@ -1,5 +1,5 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
+import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlPutObjectRetentionCommand,
   serializeAws_restXmlPutObjectRetentionCommand,
@@ -30,13 +30,6 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *           requires the <code>s3:BypassGovernanceRetention</code> permission.
  *          </p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
- *
- *          <p>
- *             <b>Permissions</b>
- *          </p>
- *          <p>When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code> and
- *          <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
- *          only <code>s3:PutObjectRetention</code> permissions are required.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,7 +69,13 @@ export class PutObjectRetentionCommand extends $Command<
   ): Handler<PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: true,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

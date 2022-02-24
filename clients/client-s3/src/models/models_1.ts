@@ -1,19 +1,286 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import {
+  ChecksumAlgorithm,
   Grant,
   ObjectCannedACL,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
+  ObjectLockRetention,
+  PublicAccessBlockConfiguration,
   ReplicationStatus,
   RequestCharged,
   RequestPayer,
   ServerSideEncryption,
   StorageClass,
   Tagging,
-  Tier,
 } from "./models_0";
+import { S3ServiceException as __BaseException } from "./S3ServiceException";
+
+export interface PutObjectRetentionOutput {
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+}
+
+export namespace PutObjectRetentionOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutObjectRetentionRequest {
+  /**
+   * <p>The bucket name that contains the object you want to apply this Object Retention
+   *          configuration to. </p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The key name for the object that you want to apply this Object Retention configuration
+   *          to.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The container element for the Object Retention configuration.</p>
+   */
+  Retention?: ObjectLockRetention;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>The version ID for the object that you want to apply this Object Retention configuration
+   *          to.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>Indicates whether this action should bypass Governance-mode restrictions.</p>
+   */
+  BypassGovernanceRetention?: boolean;
+
+  /**
+   * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
+   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter.</p>
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   */
+  ExpectedBucketOwner?: string;
+}
+
+export namespace PutObjectRetentionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutObjectTaggingOutput {
+  /**
+   * <p>The versionId of the object the tag-set was added to.</p>
+   */
+  VersionId?: string;
+}
+
+export namespace PutObjectTaggingOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface PutObjectTaggingRequest {
+  /**
+   * <p>The bucket name containing the object. </p>
+   *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Name of the object key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The versionId of the object that the tag-set will be added to.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The MD5 hash for the request body.</p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
+   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter.</p>
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
+   */
+  Tagging: Tagging | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+}
+
+export namespace PutObjectTaggingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPublicAccessBlockRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want
+   *          to set.</p>
+   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
+   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>
+   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
+   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter.</p>
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *          bucket. You can enable the configuration options in any combination. For more information
+   *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
+   */
+  ExpectedBucketOwner?: string;
+}
+
+export namespace PutPublicAccessBlockRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This action is not allowed against this storage tier.</p>
+ */
+export class ObjectAlreadyInActiveTierError extends __BaseException {
+  readonly name: "ObjectAlreadyInActiveTierError" = "ObjectAlreadyInActiveTierError";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectAlreadyInActiveTierError, __BaseException>) {
+    super({
+      name: "ObjectAlreadyInActiveTierError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectAlreadyInActiveTierError.prototype);
+  }
+}
+
+export interface RestoreObjectOutput {
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+
+  /**
+   * <p>Indicates the path in the provided S3 output location where Select results will be
+   *          restored to.</p>
+   */
+  RestoreOutputPath?: string;
+}
+
+export namespace RestoreObjectOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreObjectOutput): any => ({
+    ...obj,
+  });
+}
+
+export type Tier = "Bulk" | "Expedited" | "Standard";
 
 /**
  * <p>Container for S3 Glacier job parameters.</p>
@@ -48,7 +315,8 @@ export interface Encryption {
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of
    *          the symmetric customer managed key to use for encryption of job results. Amazon S3 only
    *          supports symmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and
-   *             asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+   *             asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer
+   *             Guide</i>.</p>
    */
   KMSKeyId?: string;
 
@@ -214,7 +482,8 @@ export interface CSVInput {
 
   /**
    * <p>A single character used for escaping the quotation mark character inside an already
-   *          escaped value. For example, the value """ a , b """ is parsed as " a , b ".</p>
+   *          escaped value. For example, the value <code>""" a , b """</code> is parsed as <code>" a , b
+   *             "</code>.</p>
    */
   QuoteEscapeCharacter?: string;
 
@@ -532,7 +801,8 @@ export interface RestoreObjectRequest {
   /**
    * <p>The bucket name containing the object to restore. </p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -556,13 +826,24 @@ export interface RestoreObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requestor Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
+   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter.</p>
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
 }
@@ -881,8 +1162,8 @@ export namespace RequestProgress {
 export interface ScanRange {
   /**
    * <p>Specifies the start of the byte range. This parameter is optional. Valid values:
-   *          non-negative integers. The default value is 0. If only start is supplied, it means scan
-   *          from that point to the end of the file.For example;
+   *          non-negative integers. The default value is 0. If only <code>start</code> is supplied, it
+   *          means scan from that point to the end of the file. For example,
    *             <code><scanrange><start>50</start></scanrange></code> means scan
    *          from byte 50 until the end of the file.</p>
    */
@@ -930,19 +1211,26 @@ export interface SelectObjectContentRequest {
   Key: string | undefined;
 
   /**
-   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
+   * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created
+   *     using a checksum algorithm. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
    */
   SSECustomerAlgorithm?: string;
 
   /**
-   * <p>The SSE Customer Key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
-   *             (Using Customer-Provided Encryption Keys</a>. </p>
+   * <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm.
+   *     For more information, see
+   *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
    */
   SSECustomerKey?: string;
 
   /**
-   * <p>The SSE Customer Key MD5. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
-   *             (Using Customer-Provided Encryption Keys</a>. </p>
+   * <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum
+   *     algorithm. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Protecting data using SSE-C keys</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
    */
   SSECustomerKeyMD5?: string;
 
@@ -1000,7 +1288,7 @@ export interface SelectObjectContentRequest {
   ScanRange?: ScanRange;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
 }
@@ -1026,6 +1314,38 @@ export interface UploadPartOutput {
    * <p>Entity tag for the uploaded object.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32?: string;
+
+  /**
+   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32C?: string;
+
+  /**
+   * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA1?: string;
+
+  /**
+   * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA256?: string;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -1077,7 +1397,8 @@ export interface UploadPartRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1095,6 +1416,51 @@ export interface UploadPartRequest {
    *          are specified.</p>
    */
   ContentMD5?: string;
+
+  /**
+   * <p>Indicates the algorithm used to create the checksum for the object when using the SDK. This header will not provide any
+   *     additional functionality if not using the SDK. When sending this header, there must be a corresponding <code>x-amz-checksum</code> or
+   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
+   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
+   *     the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>If you provide an individual checksum, Amazon S3 ignores any provided
+   *             <code>ChecksumAlgorithm</code> parameter.</p>
+   *         <p>This checksum algorithm must be the same for all parts and it match the checksum
+   *             value supplied in the <code>CreateMultipartUpload</code> request.</p>
+   */
+  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
+   *     This header specifies the base64-encoded, 32-bit CRC32 checksum of the object. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
+   *     This header specifies the base64-encoded, 32-bit CRC32C checksum of the object. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32C?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
+   *     This header specifies the base64-encoded, 160-bit SHA-1 digest of the object. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA1?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
+   *     This header specifies the base64-encoded, 256-bit SHA-256 digest of the object. For more information, see
+   *     <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the
+   *     <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA256?: string;
 
   /**
    * <p>Object key for which the multipart upload was initiated.</p>
@@ -1137,13 +1503,13 @@ export interface UploadPartRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requestor Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
 }
@@ -1171,6 +1537,38 @@ export interface CopyPartResult {
    * <p>Date and time at which the object was uploaded.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>The base64-encoded, 32-bit CRC32 checksum of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32?: string;
+
+  /**
+   * <p>The base64-encoded, 32-bit CRC32C checksum of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumCRC32C?: string;
+
+  /**
+   * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA1?: string;
+
+  /**
+   * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
+   *     with the object. With multipart uploads, this may not be a checksum value of the object. For more information about how checksums are calculated
+   *     with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">
+   *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  ChecksumSHA256?: string;
 }
 
 export namespace CopyPartResult {
@@ -1245,7 +1643,8 @@ export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
    *          <p>When using this action with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this action using S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>When using this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code>
+   *                <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When using this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
    */
@@ -1256,19 +1655,18 @@ export interface UploadPartCopyRequest {
    *          formats, depending on whether you want to access the source object through an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">access point</a>:</p>
    *          <ul>
    *             <li>
-   *                <p>For objects not accessed through an access point, specify the name of the source
-   *                bucket and key of the source object, separated by a slash (/). For example, to copy
-   *                the object <code>reports/january.pdf</code> from the bucket
-   *                   <code>awsexamplebucket</code>, use
-   *                   <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL
-   *                encoded.</p>
+   *                <p>For objects not accessed through an access point, specify the name of the source bucket
+   *                and key of the source object, separated by a slash (/). For example, to copy the
+   *                object <code>reports/january.pdf</code> from the bucket
+   *                <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>.
+   *                The value must be URL-encoded.</p>
    *             </li>
    *             <li>
    *                <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p>
    *                <note>
    *                   <p>Amazon S3 supports copy operations using access points only when the source and destination buckets are in the same Amazon Web Services Region.</p>
    *                </note>
-   *                <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL encoded.  </p>
+   *                <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.  </p>
    *             </li>
    *          </ul>
    *          <p>To copy a specific version of an object, append <code>?versionId=<version-id></code>
@@ -1368,18 +1766,18 @@ export interface UploadPartCopyRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requestor Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          objects from Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>The account ID of the expected destination bucket owner. If the destination bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
 
   /**
-   * <p>The account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>The account ID of the expected source bucket owner. If the source bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedSourceBucketOwner?: string;
 }
@@ -1421,72 +1819,72 @@ export interface WriteGetObjectResponseRequest {
    *          <ul>
    *             <li>
    *                    <p>
-   *                   <i>200 - OK</i>
+   *                   <code>200 - OK</code>
    *                </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>206 - Partial Content</i>
+   *                   <code>206 - Partial Content</code>
    *                </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>304 - Not Modified</i>
+   *                   <code>304 - Not Modified</code>
    *                </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>400 - Bad Request</i>
+   *                   <code>400 - Bad Request</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>401 - Unauthorized</i>
+   *                   <code>401 - Unauthorized</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>403 - Forbidden</i>
+   *                   <code>403 - Forbidden</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>404 - Not Found</i>
+   *                   <code>404 - Not Found</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>405 - Method Not Allowed</i>
+   *                   <code>405 - Method Not Allowed</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>409 - Conflict</i>
+   *                   <code>409 - Conflict</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>411 - Length Required</i>
+   *                   <code>411 - Length Required</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>412 - Precondition Failed</i>
+   *                   <code>412 - Precondition Failed</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>416 - Range Not Satisfiable</i>
+   *                   <code>416 - Range Not Satisfiable</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>500 - Internal Server Error</i>
+   *                   <code>500 - Internal Server Error</code>
    *                    </p>
    *                 </li>
    *             <li>
    *                    <p>
-   *                   <i>503 - Service Unavailable</i>
+   *                   <code>503 - Service Unavailable</code>
    *                    </p>
    *                 </li>
    *          </ul>
@@ -1497,7 +1895,8 @@ export interface WriteGetObjectResponseRequest {
    * <p>A string that uniquely identifies an error condition. Returned in the <Code> tag
    *          of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used
    *          with a successful <code>StatusCode</code> header or when the transformed object is provided
-   *           in the body. All error codes from S3 are sentence-cased. Regex value is "^[A-Z][a-zA-Z]+$".</p>
+   *          in the body. All error codes from S3 are sentence-cased. The regular expression (regex)
+   *          value is <code>"^[A-Z][a-zA-Z]+$"</code>.</p>
    */
   ErrorCode?: string;
 
@@ -1552,6 +1951,59 @@ export interface WriteGetObjectResponseRequest {
   ContentType?: string;
 
   /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the
+   *             same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32 checksum
+   *             of the object returned by the Object Lambda function. This may not match the checksum for the
+   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
+   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *             checksum headers, this request will fail.</p>
+   *         <p></p>
+   */
+  ChecksumCRC32?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the
+   *             same data that was originally sent. This specifies the base64-encoded, 32-bit CRC32C checksum
+   *             of the object returned by the Object Lambda function. This may not match the checksum for the
+   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
+   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *             checksum headers, this request will fail.</p>
+   */
+  ChecksumCRC32C?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the
+   *             same data that was originally sent. This specifies the base64-encoded, 160-bit SHA-1 digest
+   *             of the object returned by the Object Lambda function. This may not match the checksum for the
+   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
+   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *             checksum headers, this request will fail.</p>
+   */
+  ChecksumSHA1?: string;
+
+  /**
+   * <p>This header can be used as a data integrity check to verify that the data received is the
+   *             same data that was originally sent. This specifies the base64-encoded, 256-bit SHA-256 digest
+   *             of the object returned by the Object Lambda function. This may not match the checksum for the
+   *             object stored in Amazon S3. Amazon S3 will perform validation of the checksum values only when the original
+   *             <code>GetObject</code> request required checksum validation. For more information about checksums, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+   *                 object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *         <p>Only one checksum header can be specified at a time. If you supply multiple
+   *             checksum headers, this request will fail.</p>
+   */
+  ChecksumSHA256?: string;
+
+  /**
    * <p>Specifies whether an object stored in Amazon S3 is (<code>true</code>) or is not
    *             (<code>false</code>) a delete marker. </p>
    */
@@ -1569,7 +2021,10 @@ export interface WriteGetObjectResponseRequest {
   Expires?: Date;
 
   /**
-   * <p>If object stored in Amazon S3 expiration is configured (see PUT Bucket lifecycle) it includes expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded. </p>
+   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response
+   *          includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code>
+   *          key-value pairs that provide the object expiration information. The value of the
+   *             <code>rule-id</code> is URL-encoded. </p>
    */
   Expiration?: string;
 
@@ -1654,7 +2109,11 @@ export interface WriteGetObjectResponseRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p> The class of storage used to store object in Amazon S3.</p>
+   * <p>Provides storage class information of the object. Amazon S3 returns this header for all
+   *             objects except for S3 Standard storage class objects.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *             Classes</a>.</p>
    */
   StorageClass?: StorageClass | string;
 

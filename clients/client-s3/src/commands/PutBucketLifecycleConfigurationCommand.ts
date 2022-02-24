@@ -1,5 +1,5 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -25,6 +25,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
 
 /**
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
+ *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
+ *          you want to retain any configuration details, they must be included in the new lifecycle
  *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage
  *             lifecycle</a>.</p>
  *
@@ -76,7 +78,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *          subresources (for example, lifecycle configuration and website configuration). Only the
  *          resource owner (that is, the Amazon Web Services account that created it) can access the resource. The
  *          resource owner can optionally grant access permissions to others by writing an access
- *          policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+ *          policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
  *          permission.</p>
  *
  *          <p>You can also explicitly deny permissions. Explicit deny also supersedes any other
@@ -85,13 +87,19 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *
  *          <ul>
  *             <li>
- *                <p>s3:DeleteObject</p>
+ *                <p>
+ *                   <code>s3:DeleteObject</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>s3:DeleteObjectVersion</p>
+ *                <p>
+ *                   <code>s3:DeleteObjectVersion</code>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>s3:PutLifecycleConfiguration</p>
+ *                <p>
+ *                   <code>s3:PutLifecycleConfiguration</code>
+ *                </p>
  *             </li>
  *          </ul>
  *
@@ -157,7 +165,13 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
   ): Handler<PutBucketLifecycleConfigurationCommandInput, PutBucketLifecycleConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: true,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

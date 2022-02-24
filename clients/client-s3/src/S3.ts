@@ -211,6 +211,11 @@ import {
   GetObjectAclCommandInput,
   GetObjectAclCommandOutput,
 } from "./commands/GetObjectAclCommand";
+import {
+  GetObjectAttributesCommand,
+  GetObjectAttributesCommandInput,
+  GetObjectAttributesCommandOutput,
+} from "./commands/GetObjectAttributesCommand";
 import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import {
   GetObjectLegalHoldCommand,
@@ -649,9 +654,10 @@ export class S3 extends S3Client {
    * <p>Creates a copy of an object that is already stored in Amazon S3.</p>
    *          <note>
    *             <p>You can store individual objects of up to 5 TB in Amazon S3. You create a copy of your
-   *             object up to 5 GB in size in a single atomic action using this API. However, to copy
-   *             an object greater than 5 GB, you must use the multipart upload Upload Part - Copy API.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the REST Multipart Upload API</a>.</p>
+   *             object up to 5 GB in size in a single atomic action using this API. However, to copy an
+   *             object greater than 5 GB, you must use the multipart upload Upload Part - Copy
+   *             (UploadPartCopy) API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjctsUsingRESTMPUapi.html">Copy Object Using the
+   *                REST Multipart Upload API</a>.</p>
    *          </note>
    *          <p>All copy requests must be authenticated. Additionally, you must have
    *             <i>read</i> access to the source object and <i>write</i>
@@ -694,8 +700,7 @@ export class S3 extends S3Client {
    *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
    *             Amazon S3</a>.</p>
    *          <p>
-   *             <b>
-   *                <code>x-amz-copy-source-if</code> Headers</b>
+   *             <b>x-amz-copy-source-if Headers</b>
    *          </p>
    *          <p>To only copy an object under certain conditions, such as whether the <code>Etag</code>
    *          matches or whether the object was modified before or after a specified date, use the
@@ -789,6 +794,12 @@ export class S3 extends S3Client {
    *             <p>If your bucket uses the bucket owner enforced setting for Object Ownership,
    *             all objects written to the bucket by any account will be owned by the bucket owner.</p>
    *          </note>
+   *          <p>
+   *             <b>Checksums</b>
+   *          </p>
+   *          <p>When copying an object, if it has a checksum, that checksum will be copied to the new object
+   *            by default. When you copy the object over, you may optionally specify a different checksum
+   *            algorithm to use with the <code>x-amz-checksum-algorithm</code> header.</p>
    *          <p>
    *             <b>Storage Class Options</b>
    *          </p>
@@ -1116,13 +1127,19 @@ export class S3 extends S3Client {
    *                         used to encrypt data, specify the following headers in the request.</p>
    *                      <ul>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption-aws-kms-key-id</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption-aws-kms-key-id</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption-context</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption-context</code>
+   *                            </p>
    *                         </li>
    *                      </ul>
    *                      <note>
@@ -1142,13 +1159,19 @@ export class S3 extends S3Client {
    *                         encryption keys, provide all the following headers in the request.</p>
    *                      <ul>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption-customer-algorithm</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption-customer-algorithm</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption-customer-key</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption-customer-key</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-server-side-encryption-customer-key-MD5</p>
+   *                            <p>
+   *                               <code>x-amz-server-side-encryption-customer-key-MD5</code>
+   *                            </p>
    *                         </li>
    *                      </ul>
    *                      <p>For more information about server-side encryption with KMS keys (SSE-KMS),
@@ -1182,19 +1205,29 @@ export class S3 extends S3Client {
    *                         use:</p>
    *                      <ul>
    *                         <li>
-   *                            <p>x-amz-grant-read</p>
+   *                            <p>
+   *                               <code>x-amz-grant-read</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-grant-write</p>
+   *                            <p>
+   *                               <code>x-amz-grant-write</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-grant-read-acp</p>
+   *                            <p>
+   *                               <code>x-amz-grant-read-acp</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-grant-write-acp</p>
+   *                            <p>
+   *                               <code>x-amz-grant-write-acp</code>
+   *                            </p>
    *                         </li>
    *                         <li>
-   *                            <p>x-amz-grant-full-control</p>
+   *                            <p>
+   *                               <code>x-amz-grant-full-control</code>
+   *                            </p>
    *                         </li>
    *                      </ul>
    *                      <p>You specify each grantee as a type=value pair, where the type is one of
@@ -2478,13 +2511,15 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Returns the cors configuration information set for the bucket.</p>
+   * <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
+   *          bucket.</p>
    *
-   *          <p> To use this operation, you must have permission to perform the s3:GetBucketCORS action.
-   *          By default, the bucket owner has this permission and can grant it to others.</p>
+   *          <p> To use this operation, you must have permission to perform the
+   *             <code>s3:GetBucketCORS</code> action. By default, the bucket owner has this permission
+   *          and can grant it to others.</p>
    *
-   *          <p> For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling
-   *             Cross-Origin Resource Sharing</a>.</p>
+   *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource
+   *          Sharing</a>.</p>
    *
    *          <p>The following operations are related to <code>GetBucketCors</code>:</p>
    *          <ul>
@@ -3292,7 +3327,7 @@ export class S3 extends S3Client {
    *             <code>GetBucketTagging</code> has the following special error:</p>
    *          <ul>
    *             <li>
-   *                <p>Error code: <code>NoSuchTagSetError</code>
+   *                <p>Error code: <code>NoSuchTagSet</code>
    *                </p>
    *                <ul>
    *                   <li>
@@ -3472,9 +3507,7 @@ export class S3 extends S3Client {
    *             <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about
    *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host Header Bucket Specification</a>.</p>
    *
-   *          <p>To distribute large files to many people, you can save bandwidth costs by using
-   *          BitTorrent. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon S3
-   *             Torrent</a>. For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
+   *          <p>For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
    *
    *          <p>If the object you are retrieving is stored in the S3 Glacier or
    *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
@@ -3559,8 +3592,8 @@ export class S3 extends S3Client {
    *             <b>Overriding Response Header Values</b>
    *          </p>
    *          <p>There are times when you want to override certain response header values in a GET
-   *          response. For example, you might override the Content-Disposition response header value in
-   *          your GET request.</p>
+   *          response. For example, you might override the <code>Content-Disposition</code> response
+   *          header value in your GET request.</p>
    *
    *          <p>You can override values for a set of response headers using the following query
    *          parameters. These response header values are sent only on a successful request, that is,
@@ -3664,7 +3697,10 @@ export class S3 extends S3Client {
 
   /**
    * <p>Returns the access control list (ACL) of an object. To use this operation, you must have
-   *             <code>READ_ACP</code> access to the object.</p>
+   *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL permissions and access policy permissions</a> in the <i>Amazon S3
+   *             User Guide</i>
+   *          </p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    *             <p>
    *             <b>Versioning</b>
@@ -3683,6 +3719,11 @@ export class S3 extends S3Client {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
    *                </p>
    *             </li>
    *             <li>
@@ -3724,8 +3765,205 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Gets an object's current Legal Hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
+   * <p>Retrieves all the metadata from an object without returning the object itself. This
+   *          action is useful if you're interested only in an object's metadata. To use
+   *             <code>GetObjectAttributes</code>, you must have READ access to the object.</p>
+   *
+   *         <p>
+   *             <code>GetObjectAttributes</code> combines the functionality of
+   *             <code>GetObjectAcl</code>, <code>GetObjectLegalHold</code>,
+   *             <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
+   *             <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>. All
+   *          of the data returned with each of those individual calls can be returned with a single call
+   *          to <code>GetObjectAttributes</code>.</p>
+   *
+   *         <p>If you encrypt an object by using server-side encryption with customer-provided
+   *             encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the
+   *             metadata from the object, you must use the following headers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>x-amz-server-side-encryption-customer-algorithm</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>x-amz-server-side-encryption-customer-key</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>x-amz-server-side-encryption-customer-key-MD5</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+   *             (Using Customer-Provided Encryption Keys)</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
+   *         <note>
+   *             <ul>
+   *                <li>
+   *                     <p>Encryption request headers, such as
+   *                      <code>x-amz-server-side-encryption</code>, should not be sent for GET requests
+   *                   if your object uses server-side encryption with Amazon Web Services KMS keys stored in Amazon Web Services Key
+   *                   Management Service (SSE-KMS) or server-side encryption with Amazon S3 managed
+   *                   encryption keys (SSE-S3). If your object does use these types of keys, you'll get
+   *                   an HTTP <code>400 Bad Request</code> error.</p>
+   *                 </li>
+   *                <li>
+   *                   <p>
+   *                     The last modified property in this case is the creation date of the object.</p>
+   *                 </li>
+   *             </ul>
+   *         </note>
+   *
+   *         <p>Consider the following when using request headers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p> If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code>
+   *                headers are present in the request as follows, then Amazon S3 returns the HTTP
+   *                   status code <code>200 OK</code> and the data requested:</p>
+   *                 <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>If-Match</code> condition evaluates to <code>true</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>If-Unmodified-Since</code> condition evaluates to
+   *                         <code>false</code>.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code>
+   *                headers are present in the request as follows, then Amazon S3 returns the HTTP status code
+   *                    <code>304 Not Modified</code>:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>If-None-Match</code> condition evaluates to
+   *                      <code>false</code>.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>If-Modified-Since</code> condition evaluates to
+   *                         <code>true</code>.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
+   *
+   *         <p>
+   *             <b>Permissions</b>
+   *          </p>
+   *         <p>The permissions that you need to use this operation depend on whether the bucket is
+   *          versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
+   *          and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If the
+   *          bucket is not versioned, you need the <code>s3:GetObject</code> and
+   *             <code>s3:GetObjectAttributes</code> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+   *             Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the
+   *          object that you request does not exist, the error Amazon S3 returns depends on whether you also
+   *          have the <code>s3:ListBucket</code> permission.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
+   *                returns an HTTP status code <code>404 Not Found</code> ("no such key") error.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+   *                HTTP status code <code>403 Forbidden</code> ("access denied") error.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following actions are related to <code>GetObjectAttributes</code>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">GetObjectLegalHold</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html">GetObjectLockConfiguration</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">GetObjectRetention</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html">HeadObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public getObjectAttributes(
+    args: GetObjectAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetObjectAttributesCommandOutput>;
+  public getObjectAttributes(
+    args: GetObjectAttributesCommandInput,
+    cb: (err: any, data?: GetObjectAttributesCommandOutput) => void
+  ): void;
+  public getObjectAttributes(
+    args: GetObjectAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetObjectAttributesCommandOutput) => void
+  ): void;
+  public getObjectAttributes(
+    args: GetObjectAttributesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetObjectAttributesCommandOutput) => void
+  ): Promise<GetObjectAttributesCommandOutput> | void {
+    const command = new GetObjectAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+   *          Objects</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   *
+   *          <p>The following action is related to <code>GetObjectLegalHold</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getObjectLegalHold(
     args: GetObjectLegalHoldCommandInput,
@@ -3761,6 +3999,15 @@ export class S3 extends S3Client {
    *          configuration will be applied by default to every new object placed in the specified
    *          bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
    *             Objects</a>.</p>
+   *
+   *          <p>The following action is related to <code>GetObjectLockConfiguration</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getObjectLockConfiguration(
     args: GetObjectLockConfigurationCommandInput,
@@ -3794,6 +4041,15 @@ export class S3 extends S3Client {
   /**
    * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   *
+   *          <p>The following action is related to <code>GetObjectRetention</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getObjectRetention(
     args: GetObjectRetentionCommandInput,
@@ -3840,16 +4096,21 @@ export class S3 extends S3Client {
    *
    *          <p> For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</p>
    *
-   *          <p>The following action is related to <code>GetObjectTagging</code>:</p>
+   *          <p>The following actions are related to <code>GetObjectTagging</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -4148,11 +4409,16 @@ export class S3 extends S3Client {
    *             </li>
    *          </ul>
    *
-   *          <p>The following action is related to <code>HeadObject</code>:</p>
+   *          <p>The following actions are related to <code>HeadObject</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -4450,7 +4716,8 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
+   * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
+   *         this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.</p>
    */
   public listBuckets(args: ListBucketsCommandInput, options?: __HttpHandlerOptions): Promise<ListBucketsCommandOutput>;
   public listBuckets(args: ListBucketsCommandInput, cb: (err: any, data?: ListBucketsCommandOutput) => void): void;
@@ -4774,6 +5041,9 @@ export class S3 extends S3Client {
    *          and a <code>NextPartNumberMarker</code> element. In subsequent <code>ListParts</code>
    *          requests you can include the part-number-marker query string parameter and set its value to
    *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
+   *          <p>If the upload was created using a checksum algorithm, you will need to have permission
+   *            to the <code>kms:Decrypt</code> action for the request to succeed.
+   *        </p>
    *
    *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
    *             Upload</a>.</p>
@@ -4801,6 +5071,11 @@ export class S3 extends S3Client {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
    *                </p>
    *             </li>
    *             <li>
@@ -4838,10 +5113,10 @@ export class S3 extends S3Client {
    *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
    *
    *          <p> To use this operation, you must have permission to perform the
-   *          s3:PutAccelerateConfiguration action. The bucket owner has this permission by default. The
-   *          bucket owner can grant this permission to others. For more information about permissions,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
-   *             Resources</a>.</p>
+   *             <code>s3:PutAccelerateConfiguration</code> action. The bucket owner has this permission
+   *          by default. The bucket owner can grant this permission to others. For more information
+   *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+   *             Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
    *          <p> The Transfer Acceleration state of a bucket can be set to one of the following two
    *          values:</p>
@@ -5374,7 +5649,9 @@ export class S3 extends S3Client {
    *          encryption and Amazon S3 Bucket Key for an existing bucket.</p>
    *          <p>Default encryption for a bucket can use server-side encryption with Amazon S3-managed keys
    *          (SSE-S3) or customer managed keys (SSE-KMS). If you specify default encryption
-   *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. For information about default
+   *          using SSE-KMS, you can also configure Amazon S3 Bucket Key. When the default encryption is SSE-KMS, if
+   *          you upload an object to the bucket and do not specify the KMS key to use for encryption, Amazon S3
+   *          uses the default Amazon Web Services managed KMS key for your account. For information about default
    *          encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 default bucket encryption</a>
    *          in the <i>Amazon S3 User Guide</i>. For more information about S3 Bucket Keys,
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -5683,6 +5960,8 @@ export class S3 extends S3Client {
 
   /**
    * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
+   *          configuration. Keep in mind that this will overwrite an existing lifecycle configuration, so if
+   *          you want to retain any configuration details, they must be included in the new lifecycle
    *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage
    *             lifecycle</a>.</p>
    *
@@ -5734,7 +6013,7 @@ export class S3 extends S3Client {
    *          subresources (for example, lifecycle configuration and website configuration). Only the
    *          resource owner (that is, the Amazon Web Services account that created it) can access the resource. The
    *          resource owner can optionally grant access permissions to others by writing an access
-   *          policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+   *          policy. For this operation, a user must get the <code>s3:PutLifecycleConfiguration</code>
    *          permission.</p>
    *
    *          <p>You can also explicitly deny permissions. Explicit deny also supersedes any other
@@ -5743,13 +6022,19 @@ export class S3 extends S3Client {
    *
    *          <ul>
    *             <li>
-   *                <p>s3:DeleteObject</p>
+   *                <p>
+   *                   <code>s3:DeleteObject</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>s3:DeleteObjectVersion</p>
+   *                <p>
+   *                   <code>s3:DeleteObjectVersion</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>s3:PutLifecycleConfiguration</p>
+   *                <p>
+   *                   <code>s3:PutLifecycleConfiguration</code>
+   *                </p>
    *             </li>
    *          </ul>
    *
@@ -6036,7 +6321,8 @@ export class S3 extends S3Client {
    *
    *          <p>You can disable notifications by adding the empty NotificationConfiguration
    *          element.</p>
-   *
+   *          <p>For more information about the number of event notification configurations that you can create per bucket, see
+   *          <a href="https://docs.aws.amazon.com/general/latest/gr/s3.html#limits_s3">Amazon S3 service quotas</a> in <i>Amazon Web Services General Reference</i>.</p>
    *          <p>By default, only the bucket owner can configure notifications on a bucket. However,
    *          bucket owners can use a bucket policy to grant permission to other users to set this
    *          configuration with <code>s3:PutBucketNotification</code> permission.</p>
@@ -6468,8 +6754,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Sets the versioning state of an existing bucket. To set the versioning state, you must
-   *          be the bucket owner.</p>
+   * <p>Sets the versioning state of an existing bucket.</p>
    *          <p>You can set the versioning state with one of the following values:</p>
    *
    *          <p>
@@ -6483,8 +6768,9 @@ export class S3 extends S3Client {
    *          <p>If the versioning state has never been set on a bucket, it has no versioning state; a
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> request does not return a versioning state value.</p>
    *
-   *          <p>If the bucket owner enables MFA Delete in the bucket versioning configuration, the
-   *          bucket owner must include the <code>x-amz-mfa request</code> header and the
+   *          <p>In order to enable MFA Delete, you must be the bucket owner. If you are the bucket owner
+   *          and want to enable MFA Delete in the bucket versioning configuration, you must
+   *          include the <code>x-amz-mfa request</code> header and the
    *             <code>Status</code> and the <code>MfaDelete</code> request elements in a request to set
    *          the versioning state of the bucket.</p>
    *
@@ -7047,7 +7333,7 @@ export class S3 extends S3Client {
   }
 
   /**
-   * <p>Applies a Legal Hold configuration to the specified object. For more information, see
+   * <p>Applies a legal hold configuration to the specified object. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
    *             Objects</a>.</p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
@@ -7140,13 +7426,6 @@ export class S3 extends S3Client {
    *           requires the <code>s3:BypassGovernanceRetention</code> permission.
    *          </p>
    *          <p>This action is not supported by Amazon S3 on Outposts.</p>
-   *
-   *          <p>
-   *             <b>Permissions</b>
-   *          </p>
-   *          <p>When the Object Lock retention mode is set to compliance, you need <code>s3:PutObjectRetention</code> and
-   *          <code>s3:BypassGovernanceRetention</code> permissions. For other requests to <code>PutObjectRetention</code>,
-   *          only <code>s3:PutObjectRetention</code> permissions are required.</p>
    */
   public putObjectRetention(
     args: PutObjectRetentionCommandInput,
@@ -7526,42 +7805,35 @@ export class S3 extends S3Client {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Expedited</code>
-   *                   </b> - Expedited retrievals
-   *                allow you to quickly access your data stored in the S3 Glacier
-   *                storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests for a
-   *                subset of archives are required. For all but the largest archived objects (250 MB+),
-   *                data accessed using Expedited retrievals is typically made available within 1–5
-   *                minutes. Provisioned capacity ensures that retrieval capacity for Expedited
-   *                retrievals is available when you need it. Expedited retrievals and provisioned
-   *                capacity are not available for objects stored in the S3 Glacier Deep Archive
-   *                storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
+   *                   <code>Expedited</code> - Expedited retrievals allow you to quickly access your
+   *                data stored in the S3 Glacier storage class or S3 Intelligent-Tiering Archive
+   *                tier when occasional urgent requests for a subset of archives are required. For all
+   *                but the largest archived objects (250 MB+), data accessed using Expedited retrievals
+   *                is typically made available within 1–5 minutes. Provisioned capacity ensures that
+   *                retrieval capacity for Expedited retrievals is available when you need it. Expedited
+   *                retrievals and provisioned capacity are not available for objects stored in the
+   *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Standard</code>
-   *                   </b> - Standard retrievals allow
-   *                you to access any of your archived objects within several hours. This is the default
-   *                option for retrieval requests that do not specify the retrieval option. Standard
-   *                retrievals typically finish within 3–5 hours for objects stored in the
-   *                S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
-   *                typically finish within 12 hours for objects stored in the
-   *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
-   *                Standard retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+   *                   <code>Standard</code> - Standard retrievals allow you to access any of your
+   *                archived objects within several hours. This is the default option for retrieval
+   *                requests that do not specify the retrieval option. Standard retrievals typically
+   *                finish within 3–5 hours for objects stored in the S3 Glacier storage
+   *                class or S3 Intelligent-Tiering Archive tier. They typically finish within 12 hours for
+   *                objects stored in the S3 Glacier Deep Archive storage class or
+   *                S3 Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects stored in
+   *                S3 Intelligent-Tiering.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>Bulk</code>
-   *                   </b> - Bulk retrievals are the
-   *                lowest-cost retrieval option in S3 Glacier, enabling you to retrieve large amounts,
-   *                even petabytes, of data inexpensively. Bulk retrievals typically finish within 5–12
-   *                hours for objects stored in the S3 Glacier storage class or
-   *                S3 Intelligent-Tiering Archive tier. They typically finish within 48 hours for objects stored
-   *                in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier.
-   *                Bulk retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
+   *                   <code>Bulk</code> - Bulk retrievals are the lowest-cost retrieval option in
+   *                S3 Glacier, enabling you to retrieve large amounts, even petabytes, of data
+   *                inexpensively. Bulk retrievals typically finish within 5–12 hours for objects stored
+   *                in the S3 Glacier storage class or S3 Intelligent-Tiering Archive tier. They
+   *                typically finish within 48 hours for objects stored in the
+   *                S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive tier. Bulk
+   *                retrievals are free for objects stored in S3 Intelligent-Tiering.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about archive retrieval options and provisioned capacity for
@@ -8053,13 +8325,13 @@ export class S3 extends S3Client {
    *                   Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
    *             </li>
    *             <li>
-   *                <p>For information about copying objects using a single atomic action vs. the
-   *                multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on
-   *                   Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                <p>For information about copying objects using a single atomic action vs. a multipart
+   *                upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on Objects</a> in
+   *                the <i>Amazon S3 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>For information about using server-side encryption with customer-provided
-   *                encryption keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.</p>
+   *                encryption keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.</p>
    *             </li>
    *          </ul>
    *          <p>Note the following additional considerations about the request headers

@@ -128,11 +128,16 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *             </li>
  *          </ul>
  *
- *          <p>The following action is related to <code>HeadObject</code>:</p>
+ *          <p>The following actions are related to <code>HeadObject</code>:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
  *                </p>
  *             </li>
  *          </ul>

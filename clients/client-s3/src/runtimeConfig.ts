@@ -11,7 +11,7 @@ import {
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
-import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
+import { readableStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
 import {
   DEFAULT_RETRY_MODE,
@@ -23,6 +23,7 @@ import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/nod
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
+import { getAwsChunkedEncodingStream } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { S3ClientConfig } from "./S3Client";
@@ -51,6 +52,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
+    getAwsChunkedEncodingStream: config?.getAwsChunkedEncodingStream ?? getAwsChunkedEncodingStream,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
@@ -61,6 +63,7 @@ export const getRuntimeConfig = (config: S3ClientConfig) => {
         ...NODE_RETRY_MODE_CONFIG_OPTIONS,
         default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
       }),
+    sha1: config?.sha1 ?? Hash.bind(null, "sha1"),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,

@@ -6596,6 +6596,12 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("BucketKeyEnabled");
     bodyNode.addChildNode(node);
   }
+  if (input.ChecksumAlgorithm !== undefined && input.ChecksumAlgorithm !== null) {
+    const node = new __XmlNode("S3ChecksumAlgorithm")
+      .addChildNode(new __XmlText(input.ChecksumAlgorithm))
+      .withName("ChecksumAlgorithm");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -8680,6 +8686,7 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     ObjectLockMode: undefined,
     ObjectLockRetainUntilDate: undefined,
     BucketKeyEnabled: undefined,
+    ChecksumAlgorithm: undefined,
   };
   if (output["TargetResource"] !== undefined) {
     contents.TargetResource = __expectString(output["TargetResource"]);
@@ -8743,6 +8750,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
   }
   if (output["BucketKeyEnabled"] !== undefined) {
     contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
+  }
+  if (output["ChecksumAlgorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = __expectString(output["ChecksumAlgorithm"]);
   }
   return contents;
 };

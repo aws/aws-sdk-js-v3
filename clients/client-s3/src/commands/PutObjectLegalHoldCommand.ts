@@ -1,5 +1,5 @@
-import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -24,7 +24,7 @@ export interface PutObjectLegalHoldCommandInput extends PutObjectLegalHoldReques
 export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>Applies a Legal Hold configuration to the specified object. For more information, see
+ * <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
@@ -67,7 +67,13 @@ export class PutObjectLegalHoldCommand extends $Command<
   ): Handler<PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestChecksumRequired: true,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

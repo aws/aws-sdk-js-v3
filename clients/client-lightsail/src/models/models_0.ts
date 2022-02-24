@@ -38,7 +38,7 @@ export enum AccessDirection {
  * <p>Describes the last time an access key was used.</p>
  *
  *          <note>
- *             <p>This object does not include data in the response of a <a>CreateBucketAccessKey</a> action.</p>
+ *             <p>This object does not include data in the response of a <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action.</p>
  *          </note>
  */
 export interface AccessKeyLastUsed {
@@ -79,7 +79,7 @@ export enum StatusType {
  * <p>Describes an access key for an Amazon Lightsail bucket.</p>
  *
  *          <p>Access keys grant full programmatic access to the specified bucket and its objects. You
- *       can have a maximum of two access keys per bucket. Use the <a>CreateBucketAccessKey</a> action to create an access key for a specific bucket. For
+ *       can have a maximum of two access keys per bucket. Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action to create an access key for a specific bucket. For
  *       more information about access keys, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys">Creating access keys for a bucket in Amazon Lightsail</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  *
@@ -121,7 +121,7 @@ export interface AccessKey {
    * <p>An object that describes the last time the access key was used.</p>
    *
    *          <note>
-   *             <p>This object does not include data in the response of a <a>CreateBucketAccessKey</a> action. If the access key has not been used, the
+   *             <p>This object does not include data in the response of a <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action. If the access key has not been used, the
    *           <code>region</code> and <code>serviceName</code> values are <code>N/A</code>, and the
    *           <code>lastUsedDate</code> value is null.</p>
    *          </note>
@@ -1675,8 +1675,8 @@ export interface Bucket {
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
    *       bucket.</p>
    *
-   *          <p>Use the <a>UpdateBucketBundle</a> action to change the bundle of a
-   *       bucket.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change the
+   *       bundle of a bucket.</p>
    */
   bundleId?: string;
 
@@ -1742,7 +1742,8 @@ export interface Bucket {
    *          <p>You can update a bucket's bundle only one time within a monthly AWS billing
    *       cycle.</p>
    *
-   *          <p>Use the <a>UpdateBucketBundle</a> action to change a bucket's bundle.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change a
+   *       bucket's bundle.</p>
    */
   ableToUpdateBundle?: boolean;
 
@@ -1756,8 +1757,8 @@ export interface Bucket {
    * <p>An array of objects that describe Lightsail instances that have access to the
    *       bucket.</p>
    *
-   *          <p>Use the <a>SetResourceAccessForBucket</a> action to update the instances that
-   *       have access to a bucket.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
+   *       action to update the instances that have access to a bucket.</p>
    */
   resourcesReceivingAccess?: ResourceReceivingAccess[];
 
@@ -1964,7 +1965,6 @@ export namespace CacheBehavior {
  *       or file type that your distribution will cache. Alternately, if the distribution's
  *         <code>cacheBehavior</code> is <code>dont-cache</code>, then a per-path cache behavior can be
  *       used to specify a directory, file, or file type that your distribution will not cache.</p>
- *          <p>if the cacheBehavior's behavior is set to 'cache', then</p>
  */
 export interface CacheBehaviorPerPath {
   /**
@@ -3103,11 +3103,11 @@ export interface Container {
    *          <p>Container images sourced from your Lightsail container service, that are registered and
    *       stored on your service, start with a colon (<code>:</code>). For example, if your container
    *       service name is <code>container-service-1</code>, the container image label is
-   *       <code>mystaticsite</code>, and you want to use the third (<code>3</code>) version of the
+   *         <code>mystaticsite</code>, and you want to use the third (<code>3</code>) version of the
    *       registered container image, then you should specify
-   *       <code>:container-service-1.mystaticsite.3</code>. To use the latest version of a container
+   *         <code>:container-service-1.mystaticsite.3</code>. To use the latest version of a container
    *       image, specify <code>latest</code> instead of a version number (for example,
-   *       <code>:container-service-1.mystaticsite.latest</code>). Lightsail will automatically use
+   *         <code>:container-service-1.mystaticsite.latest</code>). Lightsail will automatically use
    *       the highest numbered version of the registered container image.</p>
    *
    *          <p>Container images sourced from a public registry like Docker Hub don't start with a colon.
@@ -3941,18 +3941,19 @@ export interface CreateBucketRequest {
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
    *       bucket.</p>
    *
-   *          <p>Use the <a>GetBucketBundles</a> action to get a list of bundle IDs that you can
-   *       specify.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html">GetBucketBundles</a> action to get a list of
+   *       bundle IDs that you can specify.</p>
    *
-   *          <p>Use the <a>UpdateBucketBundle</a> action to change the bundle after the bucket
-   *       is created.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change the
+   *       bundle after the bucket is created.</p>
    */
   bundleId: string | undefined;
 
   /**
    * <p>The tag keys and optional values to add to the bucket during creation.</p>
    *
-   *          <p>Use the <a>TagResource</a> action to tag the bucket after it's created.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html">TagResource</a> action to tag the bucket after it's
+   *       created.</p>
    */
   tags?: Tag[];
 
@@ -4746,8 +4747,8 @@ export enum OriginProtocolPolicyEnum {
 /**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
- *          <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content
- *       from an origin, caches it, and serves it to viewers via a worldwide network of edge
+ *          <p>An origin can be a Lightsail instance, bucket, or load balancer. A distribution pulls
+ *       content from an origin, caches it, and serves it to viewers via a worldwide network of edge
  *       servers.</p>
  */
 export interface InputOrigin {
@@ -4785,7 +4786,7 @@ export interface CreateDistributionRequest {
 
   /**
    * <p>An object that describes the origin resource for the distribution, such as a Lightsail
-   *       instance or load balancer.</p>
+   *       instance, bucket, or load balancer.</p>
    *          <p>The distribution pulls, caches, and serves content from the origin.</p>
    */
   origin: InputOrigin | undefined;
@@ -4843,8 +4844,8 @@ export namespace CreateDistributionRequest {
 /**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
- *          <p>An origin can be a Lightsail instance or load balancer. A distribution pulls content
- *       from an origin, caches it, and serves it to viewers via a worldwide network of edge
+ *          <p>An origin can be a Lightsail instance, bucket, or load balancer. A distribution pulls
+ *       content from an origin, caches it, and serves it to viewers via a worldwide network of edge
  *       servers.</p>
  */
 export interface Origin {
@@ -4953,7 +4954,7 @@ export interface LightsailDistribution {
 
   /**
    * <p>An object that describes the origin resource of the distribution, such as a Lightsail
-   *       instance or load balancer.</p>
+   *       instance, bucket, or load balancer.</p>
    *          <p>The distribution pulls, caches, and serves content from the origin.</p>
    */
   origin?: Origin;
@@ -6295,8 +6296,8 @@ export interface DeleteBucketRequest {
   /**
    * <p>The name of the bucket to delete.</p>
    *
-   *          <p>Use the <a>GetBuckets</a> action to get a list of bucket names that you can
-   *       specify.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action to get a list of bucket names
+   *       that you can specify.</p>
    */
   bucketName: string | undefined;
 
@@ -6309,7 +6310,7 @@ export interface DeleteBucketRequest {
    *                <p>The bucket is the origin of a distribution.</p>
    *             </li>
    *             <li>
-   *                <p>The bucket has instances that were granted access to it using the <a>SetResourceAccessForBucket</a> action.</p>
+   *                <p>The bucket has instances that were granted access to it using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a> action.</p>
    *             </li>
    *             <li>
    *                <p>The bucket has objects.</p>
@@ -6362,8 +6363,8 @@ export interface DeleteBucketAccessKeyRequest {
   /**
    * <p>The ID of the access key to delete.</p>
    *
-   *          <p>Use the <a>GetBucketAccessKeys</a> action to get a list of access key IDs that
-   *       you can specify.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html">GetBucketAccessKeys</a> action to get a
+   *       list of access key IDs that you can specify.</p>
    */
   accessKeyId: string | undefined;
 }
@@ -6792,6 +6793,15 @@ export interface DeleteKeyPairRequest {
    * <p>The name of the key pair to delete.</p>
    */
   keyPairName: string | undefined;
+
+  /**
+   * <p>The RSA fingerprint of the Lightsail default key pair to delete.</p>
+   *          <note>
+   *             <p>The <code>expectedFingerprint</code> parameter is required only when specifying to
+   *         delete a Lightsail default key pair.</p>
+   *          </note>
+   */
+  expectedFingerprint?: string;
 }
 
 export namespace DeleteKeyPairRequest {
@@ -7616,6 +7626,11 @@ export interface DownloadDefaultKeyPairResult {
    * <p>A base64-encoded RSA private key.</p>
    */
   privateKeyBase64?: string;
+
+  /**
+   * <p>The timestamp when the default key pair was created.</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace DownloadDefaultKeyPairResult {
@@ -8307,7 +8322,8 @@ export interface GetBucketsRequest {
 
   /**
    * <p>A Boolean value that indicates whether to include Lightsail instances that were given
-   *       access to the bucket using the <a>SetResourceAccessForBucket</a> action.</p>
+   *       access to the bucket using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html">SetResourceAccessForBucket</a>
+   *       action.</p>
    */
   includeConnectedResources?: boolean;
 }

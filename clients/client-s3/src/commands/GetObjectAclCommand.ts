@@ -24,7 +24,10 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
 
 /**
  * <p>Returns the access control list (ACL) of an object. To use this operation, you must have
- *             <code>READ_ACP</code> access to the object.</p>
+ *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL permissions and access policy permissions</a> in the <i>Amazon S3
+ *             User Guide</i>
+ *          </p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  *             <p>
  *             <b>Versioning</b>
@@ -43,6 +46,11 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
  *                </p>
  *             </li>
  *             <li>

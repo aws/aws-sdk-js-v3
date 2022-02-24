@@ -22,7 +22,9 @@ export interface DownloadDefaultKeyPairCommandInput extends DownloadDefaultKeyPa
 export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Downloads the default SSH key pair from the user's account.</p>
+ * <p>Downloads the regional Amazon Lightsail default key pair.</p>
+ *          <p>This action also creates a Lightsail default key pair if a default key pair
+ *       does not currently exist in the Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

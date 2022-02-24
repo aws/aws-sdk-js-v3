@@ -56,6 +56,27 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * 			For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the
  * 			NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.</p>
  * 		       <p>The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code> permission.</p>
+ * 		       <note>
+ *             <p>When creating private hosted zones, the Amazon VPC must belong to the same partition
+ * 				where the hosted zone is created. A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.</p>
+ * 			         <p>The following are the supported partitions:</p>
+ * 			         <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>aws</code> - Amazon Web Services Regions</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>aws-cn</code> - China Regions</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>aws-us-gov</code> - Amazon Web Services GovCloud (US) Region</p>
+ *                </li>
+ *             </ul>
+ * 			         <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Access Management</a>
+ * 				in the <i>Amazon Web Services General Reference</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

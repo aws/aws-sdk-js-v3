@@ -26,8 +26,8 @@ export interface GetBucketAccessKeysCommandOutput extends GetBucketAccessKeysRes
  *
  *          <important>
  *             <p>This action does not return the secret access key value of an access key. You can get a
- *         secret access key only when you create it from the response of the <a>CreateBucketAccessKey</a> action. If you lose the secret access key, you must
- *         create a new access key.</p>
+ *         secret access key only when you create it from the response of the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html">CreateBucketAccessKey</a> action. If you lose the secret access key, you must create
+ *         a new access key.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

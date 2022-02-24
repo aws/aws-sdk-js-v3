@@ -54,13 +54,13 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                   Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about copying objects using a single atomic action vs. the
- *                multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on
- *                   Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>For information about copying objects using a single atomic action vs. a multipart
+ *                upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on Objects</a> in
+ *                the <i>Amazon S3 User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For information about using server-side encryption with customer-provided
- *                encryption keys with the UploadPartCopy operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.</p>
+ *                encryption keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.</p>
  *             </li>
  *          </ul>
  *          <p>Note the following additional considerations about the request headers

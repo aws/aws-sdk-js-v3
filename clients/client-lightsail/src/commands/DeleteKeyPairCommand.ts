@@ -22,8 +22,11 @@ export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
 export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific SSH key pair.</p>
- *
+ * <p>Deletes the specified key pair by removing the public key from Amazon Lightsail.</p>
+ *          <p>You can delete key pairs that were created using the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html">ImportKeyPair</a> and
+ *         <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html">CreateKeyPair</a> actions, as well as the Lightsail default key pair. A new default
+ *       key pair will not be created unless you launch an instance without specifying a custom key
+ *       pair, or you call the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html">DownloadDefaultKeyPair</a> API. </p>
  *
  *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>key pair name</code>. For more information,

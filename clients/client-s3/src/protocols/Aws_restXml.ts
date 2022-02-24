@@ -156,6 +156,10 @@ import {
 } from "../commands/GetBucketVersioningCommand";
 import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "../commands/GetBucketWebsiteCommand";
 import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "../commands/GetObjectAclCommand";
+import {
+  GetObjectAttributesCommandInput,
+  GetObjectAttributesCommandOutput,
+} from "../commands/GetObjectAttributesCommand";
 import { GetObjectCommandInput, GetObjectCommandOutput } from "../commands/GetObjectCommand";
 import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "../commands/GetObjectLegalHoldCommand";
 import {
@@ -291,6 +295,8 @@ import {
   BucketAlreadyOwnedByYou,
   BucketLifecycleConfiguration,
   BucketLoggingStatus,
+  Checksum,
+  ChecksumAlgorithm,
   CommonPrefix,
   CompletedMultipartUpload,
   CompletedPart,
@@ -311,6 +317,7 @@ import {
   EventBridgeConfiguration,
   ExistingObjectReplication,
   FilterRule,
+  GetObjectAttributesParts,
   Grant,
   Grantee,
   IndexDocument,
@@ -345,13 +352,13 @@ import {
   NotFound,
   NotificationConfiguration,
   NotificationConfigurationFilter,
-  ObjectAlreadyInActiveTierError,
   ObjectIdentifier,
   ObjectLockConfiguration,
   ObjectLockLegalHold,
   ObjectLockRetention,
   ObjectLockRule,
   ObjectNotInActiveTierError,
+  ObjectPart,
   ObjectVersion,
   Owner,
   OwnershipControls,
@@ -402,6 +409,7 @@ import {
   JSONInput,
   JSONOutput,
   MetadataEntry,
+  ObjectAlreadyInActiveTierError,
   OutputLocation,
   OutputSerialization,
   ParquetInput,
@@ -479,9 +487,22 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.ChecksumCRC32) && { "x-amz-checksum-crc32": input.ChecksumCRC32! }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32C) && { "x-amz-checksum-crc32c": input.ChecksumCRC32C! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA1) && { "x-amz-checksum-sha1": input.ChecksumSHA1! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA256) && { "x-amz-checksum-sha256": input.ChecksumSHA256! }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
+      "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKey) && {
+      "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
@@ -545,6 +566,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-checksum-algorithm": input.ChecksumAlgorithm! }),
     ...(isSerializableHeaderValue(input.ContentDisposition) && { "content-disposition": input.ContentDisposition! }),
     ...(isSerializableHeaderValue(input.ContentEncoding) && { "content-encoding": input.ContentEncoding! }),
     ...(isSerializableHeaderValue(input.ContentLanguage) && { "content-language": input.ContentLanguage! }),
@@ -776,6 +798,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-checksum-algorithm": input.ChecksumAlgorithm! }),
     ...(input.Metadata !== undefined &&
       Object.keys(input.Metadata).reduce(
         (acc: any, suffix: string) => ({
@@ -1362,6 +1385,9 @@ export const serializeAws_restXmlDeleteObjectsCommand = async (
     }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
@@ -2241,6 +2267,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.ChecksumMode) && { "x-amz-checksum-mode": input.ChecksumMode! }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -2333,6 +2360,73 @@ export const serializeAws_restXmlGetObjectAclCommand = async (
   }
   const query: any = {
     acl: "",
+    ...(input.VersionId !== undefined && { versionId: input.VersionId }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetObjectAttributesCommand = async (
+  input: GetObjectAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.MaxParts) && { "x-amz-max-parts": input.MaxParts!.toString() }),
+    ...(isSerializableHeaderValue(input.PartNumberMarker) && { "x-amz-part-number-marker": input.PartNumberMarker! }),
+    ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
+      "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKey) && {
+      "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
+    }),
+    ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
+    ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
+      "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
+    }),
+    ...(isSerializableHeaderValue(input.ObjectAttributes) && {
+      "x-amz-object-attributes": (input.ObjectAttributes! || []).map((_entry) => _entry as any).join(", "),
+    }),
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
+  if (input.Bucket !== undefined) {
+    const labelValue: string = input.Bucket;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Bucket.");
+    }
+    resolvedPath = resolvedPath.replace("{Bucket}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Bucket.");
+  }
+  if (input.Key !== undefined) {
+    const labelValue: string = input.Key;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Key.");
+    }
+    resolvedPath = resolvedPath.replace(
+      "{Key+}",
+      labelValue
+        .split("/")
+        .map((segment) => __extendedEncodeURIComponent(segment))
+        .join("/")
+    );
+  } else {
+    throw new Error("No value provided for input HTTP label: Key.");
+  }
+  const query: any = {
+    attributes: "",
     ...(input.VersionId !== undefined && { versionId: input.VersionId }),
   };
   let body: any;
@@ -2691,6 +2785,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.ChecksumMode) && { "x-amz-checksum-mode": input.ChecksumMode! }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -3083,6 +3178,15 @@ export const serializeAws_restXmlListPartsCommand = async (
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
+      "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKey) && {
+      "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
+    }),
+    ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
+    }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -3138,6 +3242,9 @@ export const serializeAws_restXmlPutBucketAccelerateConfigurationCommand = async
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Bucket}";
   if (input.Bucket !== undefined) {
@@ -3184,6 +3291,9 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -3285,6 +3395,9 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3333,6 +3446,9 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3473,6 +3589,9 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3522,6 +3641,9 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3716,6 +3838,9 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
   const headers: any = {
     "content-type": "text/plain",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess) && {
       "x-amz-confirm-remove-self-bucket-access": input.ConfirmRemoveSelfBucketAccess!.toString(),
     }),
@@ -3765,6 +3890,9 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.Token) && { "x-amz-bucket-object-lock-token": input.Token! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3814,6 +3942,9 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3862,6 +3993,9 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3910,6 +4044,9 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3959,6 +4096,9 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4014,6 +4154,13 @@ export const serializeAws_restXmlPutObjectCommand = async (
     ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32) && { "x-amz-checksum-crc32": input.ChecksumCRC32! }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32C) && { "x-amz-checksum-crc32c": input.ChecksumCRC32C! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA1) && { "x-amz-checksum-sha1": input.ChecksumSHA1! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA256) && { "x-amz-checksum-sha256": input.ChecksumSHA256! }),
     ...(isSerializableHeaderValue(input.Expires) && { expires: __dateToUtcString(input.Expires!).toString() }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
@@ -4125,6 +4272,9 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -4196,6 +4346,9 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4263,6 +4416,9 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.Token) && { "x-amz-bucket-object-lock-token": input.Token! }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4315,6 +4471,9 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
       "x-amz-bypass-governance-retention": input.BypassGovernanceRetention!.toString(),
     }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4380,6 +4539,9 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4445,6 +4607,9 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4493,6 +4658,9 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4656,6 +4824,13 @@ export const serializeAws_restXmlUploadPartCommand = async (
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
     ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && {
+      "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32) && { "x-amz-checksum-crc32": input.ChecksumCRC32! }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32C) && { "x-amz-checksum-crc32c": input.ChecksumCRC32C! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA1) && { "x-amz-checksum-sha1": input.ChecksumSHA1! }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA256) && { "x-amz-checksum-sha256": input.ChecksumSHA256! }),
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
       "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
     }),
@@ -4837,6 +5012,18 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
     ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
     ...(isSerializableHeaderValue(input.ContentRange) && { "x-amz-fwd-header-content-range": input.ContentRange! }),
     ...(isSerializableHeaderValue(input.ContentType) && { "x-amz-fwd-header-content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32) && {
+      "x-amz-fwd-header-x-amz-checksum-crc32": input.ChecksumCRC32!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumCRC32C) && {
+      "x-amz-fwd-header-x-amz-checksum-crc32c": input.ChecksumCRC32C!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA1) && {
+      "x-amz-fwd-header-x-amz-checksum-sha1": input.ChecksumSHA1!,
+    }),
+    ...(isSerializableHeaderValue(input.ChecksumSHA256) && {
+      "x-amz-fwd-header-x-amz-checksum-sha256": input.ChecksumSHA256!,
+    }),
     ...(isSerializableHeaderValue(input.DeleteMarker) && {
       "x-amz-fwd-header-x-amz-delete-marker": input.DeleteMarker!.toString(),
     }),
@@ -4995,6 +5182,10 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
     $metadata: deserializeMetadata(output),
     Bucket: undefined,
     BucketKeyEnabled: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
     ETag: undefined,
     Expiration: undefined,
     Key: undefined,
@@ -5025,6 +5216,18 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
+  }
+  if (data["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(data["ChecksumCRC32"]);
+  }
+  if (data["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(data["ChecksumCRC32C"]);
+  }
+  if (data["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(data["ChecksumSHA1"]);
+  }
+  if (data["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(data["ChecksumSHA256"]);
   }
   if (data["ETag"] !== undefined) {
     contents.ETag = __expectString(data["ETag"]);
@@ -5203,6 +5406,7 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
     AbortRuleId: undefined,
     Bucket: undefined,
     BucketKeyEnabled: undefined,
+    ChecksumAlgorithm: undefined,
     Key: undefined,
     RequestCharged: undefined,
     SSECustomerAlgorithm: undefined,
@@ -5238,6 +5442,9 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
+  }
+  if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
   }
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Bucket"] !== undefined) {
@@ -6827,6 +7034,10 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     Body: undefined,
     BucketKeyEnabled: undefined,
     CacheControl: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
     ContentDisposition: undefined,
     ContentEncoding: undefined,
     ContentLanguage: undefined,
@@ -6876,6 +7087,18 @@ export const deserializeAws_restXmlGetObjectCommand = async (
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
+  }
+  if (output.headers["x-amz-checksum-crc32"] !== undefined) {
+    contents.ChecksumCRC32 = output.headers["x-amz-checksum-crc32"];
+  }
+  if (output.headers["x-amz-checksum-crc32c"] !== undefined) {
+    contents.ChecksumCRC32C = output.headers["x-amz-checksum-crc32c"];
+  }
+  if (output.headers["x-amz-checksum-sha1"] !== undefined) {
+    contents.ChecksumSHA1 = output.headers["x-amz-checksum-sha1"];
+  }
+  if (output.headers["x-amz-checksum-sha256"] !== undefined) {
+    contents.ChecksumSHA256 = output.headers["x-amz-checksum-sha256"];
   }
   if (output.headers["x-amz-missing-meta"] !== undefined) {
     contents.MissingMeta = __strictParseInt32(output.headers["x-amz-missing-meta"]);
@@ -7023,6 +7246,82 @@ const deserializeAws_restXmlGetObjectAclCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAclCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchKey":
+    case "com.amazonaws.s3#NoSuchKey":
+      throw await deserializeAws_restXmlNoSuchKeyResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restXmlGetObjectAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetObjectAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetObjectAttributesCommandError(output, context);
+  }
+  const contents: GetObjectAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Checksum: undefined,
+    DeleteMarker: undefined,
+    ETag: undefined,
+    LastModified: undefined,
+    ObjectParts: undefined,
+    ObjectSize: undefined,
+    RequestCharged: undefined,
+    StorageClass: undefined,
+    VersionId: undefined,
+  };
+  if (output.headers["x-amz-delete-marker"] !== undefined) {
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
+  }
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"]));
+  }
+  if (output.headers["x-amz-version-id"] !== undefined) {
+    contents.VersionId = output.headers["x-amz-version-id"];
+  }
+  if (output.headers["x-amz-request-charged"] !== undefined) {
+    contents.RequestCharged = output.headers["x-amz-request-charged"];
+  }
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Checksum"] !== undefined) {
+    contents.Checksum = deserializeAws_restXmlChecksum(data["Checksum"], context);
+  }
+  if (data["ETag"] !== undefined) {
+    contents.ETag = __expectString(data["ETag"]);
+  }
+  if (data["ObjectParts"] !== undefined) {
+    contents.ObjectParts = deserializeAws_restXmlGetObjectAttributesParts(data["ObjectParts"], context);
+  }
+  if (data["ObjectSize"] !== undefined) {
+    contents.ObjectSize = __strictParseLong(data["ObjectSize"]) as number;
+  }
+  if (data["StorageClass"] !== undefined) {
+    contents.StorageClass = __expectString(data["StorageClass"]);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetObjectAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetObjectAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -7345,6 +7644,10 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     ArchiveStatus: undefined,
     BucketKeyEnabled: undefined,
     CacheControl: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
     ContentDisposition: undefined,
     ContentEncoding: undefined,
     ContentLanguage: undefined,
@@ -7392,6 +7695,18 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
   }
   if (output.headers["content-length"] !== undefined) {
     contents.ContentLength = __strictParseLong(output.headers["content-length"]);
+  }
+  if (output.headers["x-amz-checksum-crc32"] !== undefined) {
+    contents.ChecksumCRC32 = output.headers["x-amz-checksum-crc32"];
+  }
+  if (output.headers["x-amz-checksum-crc32c"] !== undefined) {
+    contents.ChecksumCRC32C = output.headers["x-amz-checksum-crc32c"];
+  }
+  if (output.headers["x-amz-checksum-sha1"] !== undefined) {
+    contents.ChecksumSHA1 = output.headers["x-amz-checksum-sha1"];
+  }
+  if (output.headers["x-amz-checksum-sha256"] !== undefined) {
+    contents.ChecksumSHA256 = output.headers["x-amz-checksum-sha256"];
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
@@ -8176,6 +8491,7 @@ export const deserializeAws_restXmlListPartsCommand = async (
     AbortDate: undefined,
     AbortRuleId: undefined,
     Bucket: undefined,
+    ChecksumAlgorithm: undefined,
     Initiator: undefined,
     IsTruncated: undefined,
     Key: undefined,
@@ -8200,6 +8516,9 @@ export const deserializeAws_restXmlListPartsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
+  }
+  if (data["ChecksumAlgorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = __expectString(data["ChecksumAlgorithm"]);
   }
   if (data["Initiator"] !== undefined) {
     contents.Initiator = deserializeAws_restXmlInitiator(data["Initiator"], context);
@@ -8936,6 +9255,10 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   const contents: PutObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     BucketKeyEnabled: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
     ETag: undefined,
     Expiration: undefined,
     RequestCharged: undefined,
@@ -8951,6 +9274,18 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
+  }
+  if (output.headers["x-amz-checksum-crc32"] !== undefined) {
+    contents.ChecksumCRC32 = output.headers["x-amz-checksum-crc32"];
+  }
+  if (output.headers["x-amz-checksum-crc32c"] !== undefined) {
+    contents.ChecksumCRC32C = output.headers["x-amz-checksum-crc32c"];
+  }
+  if (output.headers["x-amz-checksum-sha1"] !== undefined) {
+    contents.ChecksumSHA1 = output.headers["x-amz-checksum-sha1"];
+  }
+  if (output.headers["x-amz-checksum-sha256"] !== undefined) {
+    contents.ChecksumSHA256 = output.headers["x-amz-checksum-sha256"];
   }
   if (output.headers["x-amz-server-side-encryption"] !== undefined) {
     contents.ServerSideEncryption = output.headers["x-amz-server-side-encryption"];
@@ -9359,6 +9694,10 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   const contents: UploadPartCommandOutput = {
     $metadata: deserializeMetadata(output),
     BucketKeyEnabled: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
     ETag: undefined,
     RequestCharged: undefined,
     SSECustomerAlgorithm: undefined,
@@ -9371,6 +9710,18 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   }
   if (output.headers["etag"] !== undefined) {
     contents.ETag = output.headers["etag"];
+  }
+  if (output.headers["x-amz-checksum-crc32"] !== undefined) {
+    contents.ChecksumCRC32 = output.headers["x-amz-checksum-crc32"];
+  }
+  if (output.headers["x-amz-checksum-crc32c"] !== undefined) {
+    contents.ChecksumCRC32C = output.headers["x-amz-checksum-crc32c"];
+  }
+  if (output.headers["x-amz-checksum-sha1"] !== undefined) {
+    contents.ChecksumSHA1 = output.headers["x-amz-checksum-sha1"];
+  }
+  if (output.headers["x-amz-checksum-sha256"] !== undefined) {
+    contents.ChecksumSHA256 = output.headers["x-amz-checksum-sha256"];
   }
   if (output.headers["x-amz-server-side-encryption-customer-algorithm"] !== undefined) {
     contents.SSECustomerAlgorithm = output.headers["x-amz-server-side-encryption-customer-algorithm"];
@@ -9937,6 +10288,28 @@ const serializeAws_restXmlCompletedPart = (input: CompletedPart, context: __Serd
   const bodyNode = new __XmlNode("CompletedPart");
   if (input.ETag !== undefined && input.ETag !== null) {
     const node = new __XmlNode("ETag").addChildNode(new __XmlText(input.ETag)).withName("ETag");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ChecksumCRC32 !== undefined && input.ChecksumCRC32 !== null) {
+    const node = new __XmlNode("ChecksumCRC32")
+      .addChildNode(new __XmlText(input.ChecksumCRC32))
+      .withName("ChecksumCRC32");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ChecksumCRC32C !== undefined && input.ChecksumCRC32C !== null) {
+    const node = new __XmlNode("ChecksumCRC32C")
+      .addChildNode(new __XmlText(input.ChecksumCRC32C))
+      .withName("ChecksumCRC32C");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ChecksumSHA1 !== undefined && input.ChecksumSHA1 !== null) {
+    const node = new __XmlNode("ChecksumSHA1").addChildNode(new __XmlText(input.ChecksumSHA1)).withName("ChecksumSHA1");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ChecksumSHA256 !== undefined && input.ChecksumSHA256 !== null) {
+    const node = new __XmlNode("ChecksumSHA256")
+      .addChildNode(new __XmlText(input.ChecksumSHA256))
+      .withName("ChecksumSHA256");
     bodyNode.addChildNode(node);
   }
   if (input.PartNumber !== undefined && input.PartNumber !== null) {
@@ -12190,6 +12563,42 @@ const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): Bu
     });
 };
 
+const deserializeAws_restXmlChecksum = (output: any, context: __SerdeContext): Checksum => {
+  const contents: any = {
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
+  };
+  if (output["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  }
+  if (output["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  }
+  if (output["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  }
+  if (output["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlChecksumAlgorithmList = (
+  output: any,
+  context: __SerdeContext
+): (ChecksumAlgorithm | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restXmlCommonPrefix = (output: any, context: __SerdeContext): CommonPrefix => {
   const contents: any = {
     Prefix: undefined,
@@ -12234,12 +12643,28 @@ const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeCon
   const contents: any = {
     ETag: undefined,
     LastModified: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
   };
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+  }
+  if (output["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  }
+  if (output["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  }
+  if (output["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  }
+  if (output["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
   }
   return contents;
 };
@@ -12248,12 +12673,28 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
   const contents: any = {
     ETag: undefined,
     LastModified: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
   };
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
   }
   if (output["LastModified"] !== undefined) {
     contents.LastModified = __expectNonNull(__parseRfc3339DateTime(output["LastModified"]));
+  }
+  if (output["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  }
+  if (output["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  }
+  if (output["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  }
+  if (output["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
   }
   return contents;
 };
@@ -12591,6 +13032,42 @@ const deserializeAws_restXmlFilterRuleList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restXmlFilterRule(entry, context);
     });
+};
+
+const deserializeAws_restXmlGetObjectAttributesParts = (
+  output: any,
+  context: __SerdeContext
+): GetObjectAttributesParts => {
+  const contents: any = {
+    TotalPartsCount: undefined,
+    PartNumberMarker: undefined,
+    NextPartNumberMarker: undefined,
+    MaxParts: undefined,
+    IsTruncated: undefined,
+    Parts: undefined,
+  };
+  if (output["PartsCount"] !== undefined) {
+    contents.TotalPartsCount = __strictParseInt32(output["PartsCount"]) as number;
+  }
+  if (output["PartNumberMarker"] !== undefined) {
+    contents.PartNumberMarker = __expectString(output["PartNumberMarker"]);
+  }
+  if (output["NextPartNumberMarker"] !== undefined) {
+    contents.NextPartNumberMarker = __expectString(output["NextPartNumberMarker"]);
+  }
+  if (output["MaxParts"] !== undefined) {
+    contents.MaxParts = __strictParseInt32(output["MaxParts"]) as number;
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
+  }
+  if (output.Part === "") {
+    contents.Parts = [];
+  }
+  if (output["Part"] !== undefined) {
+    contents.Parts = deserializeAws_restXmlPartsList(__getArrayIfSingleItem(output["Part"]), context);
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlGrant = (output: any, context: __SerdeContext): Grant => {
@@ -13199,6 +13676,7 @@ const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeCont
     StorageClass: undefined,
     Owner: undefined,
     Initiator: undefined,
+    ChecksumAlgorithm: undefined,
   };
   if (output["UploadId"] !== undefined) {
     contents.UploadId = __expectString(output["UploadId"]);
@@ -13217,6 +13695,9 @@ const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeCont
   }
   if (output["Initiator"] !== undefined) {
     contents.Initiator = deserializeAws_restXmlInitiator(output["Initiator"], context);
+  }
+  if (output["ChecksumAlgorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = __expectString(output["ChecksumAlgorithm"]);
   }
   return contents;
 };
@@ -13302,6 +13783,7 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
     Key: undefined,
     LastModified: undefined,
     ETag: undefined,
+    ChecksumAlgorithm: undefined,
     Size: undefined,
     StorageClass: undefined,
     Owner: undefined,
@@ -13314,6 +13796,15 @@ const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _O
   }
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
+  }
+  if (output.ChecksumAlgorithm === "") {
+    contents.ChecksumAlgorithm = [];
+  }
+  if (output["ChecksumAlgorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = deserializeAws_restXmlChecksumAlgorithmList(
+      __getArrayIfSingleItem(output["ChecksumAlgorithm"]),
+      context
+    );
   }
   if (output["Size"] !== undefined) {
     contents.Size = __strictParseLong(output["Size"]) as number;
@@ -13389,9 +13880,40 @@ const deserializeAws_restXmlObjectLockRule = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_restXmlObjectPart = (output: any, context: __SerdeContext): ObjectPart => {
+  const contents: any = {
+    PartNumber: undefined,
+    Size: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
+  };
+  if (output["PartNumber"] !== undefined) {
+    contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
+  }
+  if (output["Size"] !== undefined) {
+    contents.Size = __strictParseLong(output["Size"]) as number;
+  }
+  if (output["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  }
+  if (output["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  }
+  if (output["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  }
+  if (output["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContext): ObjectVersion => {
   const contents: any = {
     ETag: undefined,
+    ChecksumAlgorithm: undefined,
     Size: undefined,
     StorageClass: undefined,
     Key: undefined,
@@ -13402,6 +13924,15 @@ const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContex
   };
   if (output["ETag"] !== undefined) {
     contents.ETag = __expectString(output["ETag"]);
+  }
+  if (output.ChecksumAlgorithm === "") {
+    contents.ChecksumAlgorithm = [];
+  }
+  if (output["ChecksumAlgorithm"] !== undefined) {
+    contents.ChecksumAlgorithm = deserializeAws_restXmlChecksumAlgorithmList(
+      __getArrayIfSingleItem(output["ChecksumAlgorithm"]),
+      context
+    );
   }
   if (output["Size"] !== undefined) {
     contents.Size = __strictParseLong(output["Size"]) as number;
@@ -13495,6 +14026,10 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
     LastModified: undefined,
     ETag: undefined,
     Size: undefined,
+    ChecksumCRC32: undefined,
+    ChecksumCRC32C: undefined,
+    ChecksumSHA1: undefined,
+    ChecksumSHA256: undefined,
   };
   if (output["PartNumber"] !== undefined) {
     contents.PartNumber = __strictParseInt32(output["PartNumber"]) as number;
@@ -13508,6 +14043,18 @@ const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part 
   if (output["Size"] !== undefined) {
     contents.Size = __strictParseLong(output["Size"]) as number;
   }
+  if (output["ChecksumCRC32"] !== undefined) {
+    contents.ChecksumCRC32 = __expectString(output["ChecksumCRC32"]);
+  }
+  if (output["ChecksumCRC32C"] !== undefined) {
+    contents.ChecksumCRC32C = __expectString(output["ChecksumCRC32C"]);
+  }
+  if (output["ChecksumSHA1"] !== undefined) {
+    contents.ChecksumSHA1 = __expectString(output["ChecksumSHA1"]);
+  }
+  if (output["ChecksumSHA256"] !== undefined) {
+    contents.ChecksumSHA256 = __expectString(output["ChecksumSHA256"]);
+  }
   return contents;
 };
 
@@ -13519,6 +14066,17 @@ const deserializeAws_restXmlParts = (output: any, context: __SerdeContext): Part
         return null as any;
       }
       return deserializeAws_restXmlPart(entry, context);
+    });
+};
+
+const deserializeAws_restXmlPartsList = (output: any, context: __SerdeContext): ObjectPart[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlObjectPart(entry, context);
     });
 };
 

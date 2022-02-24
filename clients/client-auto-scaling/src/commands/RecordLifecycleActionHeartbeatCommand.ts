@@ -30,9 +30,14 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *             group:</p>
  *         <ol>
  *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to
- *                     invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates
- *                     instances.</p>
+ *                 <p>(Optional) Create a launch template or launch configuration with a user data
+ *                     script that runs while an instance is in a wait state due to a lifecycle
+ *                     hook.</p>
+ *             </li>
+ *             <li>
+ *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+ *                     your Lambda function when an instance is put into a wait state due to a
+ *                     lifecycle hook.</p>
  *             </li>
  *             <li>
  *                 <p>(Optional) Create a notification target and an IAM role. The target can be
@@ -46,7 +51,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *             <li>
  *                 <p>
  *                     <b>If you need more time, record the lifecycle action
- *                         heartbeat to keep the instance in a pending state.</b>
+ *                         heartbeat to keep the instance in a wait state.</b>
  *                 </p>
  *             </li>
  *             <li>

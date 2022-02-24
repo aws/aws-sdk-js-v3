@@ -23,8 +23,8 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
 
 /**
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
- *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
- *       by the specified policy. </p>
+ *             <code>PolicyComplianceStatus</code> to get a summary of which member accounts are
+ *          protected by the specified policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

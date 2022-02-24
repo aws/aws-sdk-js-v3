@@ -1,4 +1,5 @@
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -39,9 +40,7 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about
  *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host Header Bucket Specification</a>.</p>
  *
- *          <p>To distribute large files to many people, you can save bandwidth costs by using
- *          BitTorrent. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon S3
- *             Torrent</a>. For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
+ *          <p>For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
  *
  *          <p>If the object you are retrieving is stored in the S3 Glacier or
  *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
@@ -126,8 +125,8 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *             <b>Overriding Response Header Values</b>
  *          </p>
  *          <p>There are times when you want to override certain response header values in a GET
- *          response. For example, you might override the Content-Disposition response header value in
- *          your GET request.</p>
+ *          response. For example, you might override the <code>Content-Disposition</code> response
+ *          header value in your GET request.</p>
  *
  *          <p>You can override values for a set of response headers using the following query
  *          parameters. These response header values are sent only on a successful request, that is,
@@ -241,6 +240,14 @@ export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectC
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(
+      getFlexibleChecksumsPlugin(configuration, {
+        input: this.input,
+        requestChecksumRequired: false,
+        requestValidationModeMember: "ChecksumMode",
+        responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -23,13 +23,15 @@ export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the cors configuration information set for the bucket.</p>
+ * <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
+ *          bucket.</p>
  *
- *          <p> To use this operation, you must have permission to perform the s3:GetBucketCORS action.
- *          By default, the bucket owner has this permission and can grant it to others.</p>
+ *          <p> To use this operation, you must have permission to perform the
+ *             <code>s3:GetBucketCORS</code> action. By default, the bucket owner has this permission
+ *          and can grant it to others.</p>
  *
- *          <p> For more information about cors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling
- *             Cross-Origin Resource Sharing</a>.</p>
+ *          <p> For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html"> Enabling Cross-Origin Resource
+ *          Sharing</a>.</p>
  *
  *          <p>The following operations are related to <code>GetBucketCors</code>:</p>
  *          <ul>
