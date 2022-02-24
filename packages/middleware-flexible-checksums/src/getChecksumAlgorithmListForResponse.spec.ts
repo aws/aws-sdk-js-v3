@@ -2,12 +2,14 @@ import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListF
 import { PRIORITY_ORDER_ALGORITHMS } from "./types";
 
 describe(getChecksumAlgorithmListForResponse.name, () => {
+  const unknownAlgorithm = "UNKNOWNALGO";
+
   it("returns empty if responseAlgorithms is empty", () => {
     expect(getChecksumAlgorithmListForResponse([])).toEqual([]);
   });
 
   it("returns empty if contents of responseAlgorithms is not in priority order", () => {
-    expect(getChecksumAlgorithmListForResponse(["UNKNOWNALGO"])).toEqual([]);
+    expect(getChecksumAlgorithmListForResponse([unknownAlgorithm])).toEqual([]);
   });
 
   describe("returns list as per priority order", () => {
@@ -23,6 +25,15 @@ describe(getChecksumAlgorithmListForResponse.name, () => {
         const responseAlgorithms = PRIORITY_ORDER_ALGORITHMS.slice(start);
         expect(getChecksumAlgorithmListForResponse([...responseAlgorithms].reverse())).toEqual(responseAlgorithms);
       }
+    );
+  });
+
+  it("ignores algorithms not present in priority list", () => {
+    expect(getChecksumAlgorithmListForResponse([unknownAlgorithm, ...PRIORITY_ORDER_ALGORITHMS].reverse())).toEqual(
+      PRIORITY_ORDER_ALGORITHMS
+    );
+    expect(getChecksumAlgorithmListForResponse([...PRIORITY_ORDER_ALGORITHMS, unknownAlgorithm].reverse())).toEqual(
+      PRIORITY_ORDER_ALGORITHMS
     );
   });
 });
