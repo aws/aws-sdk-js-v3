@@ -26,6 +26,14 @@ describe(getChecksumAlgorithmListForResponse.name, () => {
         expect(getChecksumAlgorithmListForResponse([...responseAlgorithms].reverse())).toEqual(responseAlgorithms);
       }
     );
+
+    it.each([...Array(PRIORITY_ORDER_ALGORITHMS.length).keys()].filter((num) => num !== 0))(
+      "when subset of algorithms are passed in reverse order ending with element at '%s' from last",
+      (end) => {
+        const responseAlgorithms = PRIORITY_ORDER_ALGORITHMS.slice(PRIORITY_ORDER_ALGORITHMS.length - end);
+        expect(getChecksumAlgorithmListForResponse([...responseAlgorithms].reverse())).toEqual(responseAlgorithms);
+      }
+    );
   });
 
   it("ignores algorithms not present in priority list", () => {
