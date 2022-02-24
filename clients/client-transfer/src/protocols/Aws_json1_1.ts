@@ -2434,6 +2434,8 @@ const serializeAws_json1_1CopyStepDetails = (input: CopyStepDetails, context: __
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.OverwriteExisting !== undefined &&
       input.OverwriteExisting !== null && { OverwriteExisting: input.OverwriteExisting }),
+    ...(input.SourceFileLocation !== undefined &&
+      input.SourceFileLocation !== null && { SourceFileLocation: input.SourceFileLocation }),
   };
 };
 
@@ -2533,6 +2535,8 @@ const serializeAws_json1_1CreateWorkflowRequest = (input: CreateWorkflowRequest,
 const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourceFileLocation !== undefined &&
+      input.SourceFileLocation !== null && { SourceFileLocation: input.SourceFileLocation }),
     ...(input.Target !== undefined && input.Target !== null && { Target: input.Target }),
     ...(input.TimeoutSeconds !== undefined &&
       input.TimeoutSeconds !== null && { TimeoutSeconds: input.TimeoutSeconds }),
@@ -2567,6 +2571,8 @@ const serializeAws_json1_1DeleteSshPublicKeyRequest = (
 const serializeAws_json1_1DeleteStepDetails = (input: DeleteStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourceFileLocation !== undefined &&
+      input.SourceFileLocation !== null && { SourceFileLocation: input.SourceFileLocation }),
   };
 };
 
@@ -2927,6 +2933,8 @@ const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any =>
 const serializeAws_json1_1TagStepDetails = (input: TagStepDetails, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourceFileLocation !== undefined &&
+      input.SourceFileLocation !== null && { SourceFileLocation: input.SourceFileLocation }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1S3Tags(input.Tags, context) }),
   };
 };
@@ -3106,6 +3114,7 @@ const deserializeAws_json1_1CopyStepDetails = (output: any, context: __SerdeCont
         : undefined,
     Name: __expectString(output.Name),
     OverwriteExisting: __expectString(output.OverwriteExisting),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
   } as any;
 };
 
@@ -3138,6 +3147,7 @@ const deserializeAws_json1_1CreateWorkflowResponse = (output: any, context: __Se
 const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeContext): CustomStepDetails => {
   return {
     Name: __expectString(output.Name),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
     Target: __expectString(output.Target),
     TimeoutSeconds: __expectInt32(output.TimeoutSeconds),
   } as any;
@@ -3146,6 +3156,7 @@ const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeCo
 const deserializeAws_json1_1DeleteStepDetails = (output: any, context: __SerdeContext): DeleteStepDetails => {
   return {
     Name: __expectString(output.Name),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
   } as any;
 };
 
@@ -3961,6 +3972,7 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 const deserializeAws_json1_1TagStepDetails = (output: any, context: __SerdeContext): TagStepDetails => {
   return {
     Name: __expectString(output.Name),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1S3Tags(output.Tags, context)

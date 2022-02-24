@@ -1441,6 +1441,7 @@ export enum PackageType {
 }
 
 export enum Runtime {
+  dotnet6 = "dotnet6",
   dotnetcore10 = "dotnetcore1.0",
   dotnetcore20 = "dotnetcore2.0",
   dotnetcore21 = "dotnetcore2.1",
@@ -5638,18 +5639,19 @@ export interface UpdateFunctionCodeRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for
-   *       you.</p>
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients
+   * handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
    */
   ZipFile?: Uint8Array;
 
   /**
-   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
+   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different
+   * Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
    */
   S3Bucket?: string;
 
   /**
-   * <p>The Amazon S3 key of the deployment package.</p>
+   * <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
    */
   S3Key?: string;
 
@@ -5659,7 +5661,8 @@ export interface UpdateFunctionCodeRequest {
   S3ObjectVersion?: string;
 
   /**
-   * <p>URI of a container image in the Amazon ECR registry.</p>
+   * <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined
+   *     with a .zip file archive.</p>
    */
   ImageUri?: string;
 

@@ -7170,6 +7170,18 @@ export interface ExecuteStatementInput {
    *          </ul>
    */
   ReturnConsumedCapacity?: ReturnConsumedCapacity | string;
+
+  /**
+   * <p>The maximum number of items to evaluate (not necessarily the number of matching
+   *             items). If DynamoDB processes the number of items up to the limit while processing the
+   *             results, it stops the operation and returns the matching values up to that point, along
+   *             with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you
+   *             can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+   *             DynamoDB reaches this limit, it stops the operation and returns the matching values up
+   *             to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+   *             operation to continue the operation. </p>
+   */
+  Limit?: number;
 }
 
 export namespace ExecuteStatementInput {
@@ -7540,51 +7552,6 @@ export namespace PutRequest {
           [key]: AttributeValue.filterSensitiveLog(value),
         }),
         {}
-      ),
-    }),
-  });
-}
-
-export interface ExecuteStatementOutput {
-  /**
-   * <p>If a read operation was used, this property will contain the result of the read
-   *             operation; a map of attribute names and their values. For the write operations this
-   *             value will be empty.</p>
-   */
-  Items?: { [key: string]: AttributeValue }[];
-
-  /**
-   * <p>If the response of a read request exceeds the response payload limit DynamoDB will set
-   *             this value in the response. If set, you can use that this value in the subsequent
-   *             request to get the remaining results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The capacity units consumed by an operation. The data returned includes the total
-   *             provisioned throughput consumed, along with statistics for the table and any indexes
-   *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
-   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
-   */
-  ConsumedCapacity?: ConsumedCapacity;
-}
-
-export namespace ExecuteStatementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
-    ...obj,
-    ...(obj.Items && {
-      Items: obj.Items.map((item) =>
-        Object.entries(item).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => ({
-            ...acc,
-            [key]: AttributeValue.filterSensitiveLog(value),
-          }),
-          {}
-        )
       ),
     }),
   });
@@ -9002,6 +8969,71 @@ export namespace DeleteItemOutput {
     }),
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: ItemCollectionMetrics.filterSensitiveLog(obj.ItemCollectionMetrics),
+    }),
+  });
+}
+
+export interface ExecuteStatementOutput {
+  /**
+   * <p>If a read operation was used, this property will contain the result of the read
+   *             operation; a map of attribute names and their values. For the write operations this
+   *             value will be empty.</p>
+   */
+  Items?: { [key: string]: AttributeValue }[];
+
+  /**
+   * <p>If the response of a read request exceeds the response payload limit DynamoDB will set
+   *             this value in the response. If set, you can use that this value in the subsequent
+   *             request to get the remaining results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The capacity units consumed by an operation. The data returned includes the total
+   *             provisioned throughput consumed, along with statistics for the table and any indexes
+   *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
+   *             asked for it. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
+   */
+  ConsumedCapacity?: ConsumedCapacity;
+
+  /**
+   * <p>The primary key of the item where the operation stopped, inclusive of the previous
+   *             result set. Use this value to start a new operation, excluding this value in the new
+   *             request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has
+   *             been processed and there is no more data to be retrieved. If
+   *                 <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there
+   *             is more data in the result set. The only way to know when you have reached the end of
+   *             the result set is when <code>LastEvaluatedKey</code> is empty. </p>
+   */
+  LastEvaluatedKey?: { [key: string]: AttributeValue };
+}
+
+export namespace ExecuteStatementOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
+    ...obj,
+    ...(obj.Items && {
+      Items: obj.Items.map((item) =>
+        Object.entries(item).reduce(
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value),
+          }),
+          {}
+        )
+      ),
+    }),
+    ...(obj.LastEvaluatedKey && {
+      LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
     }),
   });
 }

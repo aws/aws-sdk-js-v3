@@ -560,6 +560,11 @@ export namespace OutputDataConfig {
   });
 }
 
+export enum Formality {
+  FORMAL = "FORMAL",
+  INFORMAL = "INFORMAL",
+}
+
 export enum Profanity {
   MASK = "MASK",
 }
@@ -568,6 +573,7 @@ export enum Profanity {
  * <p>Settings that configure the translation output.</p>
  */
 export interface TranslationSettings {
+  Formality?: Formality | string;
   /**
    * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
    *       phrases in your translation output.</p>

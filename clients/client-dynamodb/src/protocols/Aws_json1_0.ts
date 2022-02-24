@@ -4606,6 +4606,7 @@ const serializeAws_json1_0ExecuteStatementInput = (input: ExecuteStatementInput,
   return {
     ...(input.ConsistentRead !== undefined &&
       input.ConsistentRead !== null && { ConsistentRead: input.ConsistentRead }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Parameters !== undefined &&
       input.Parameters !== null && {
@@ -6869,6 +6870,10 @@ const deserializeAws_json1_0ExecuteStatementOutput = (output: any, context: __Se
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_json1_0ItemList(output.Items, context)
+        : undefined,
+    LastEvaluatedKey:
+      output.LastEvaluatedKey !== undefined && output.LastEvaluatedKey !== null
+        ? deserializeAws_json1_0Key(output.LastEvaluatedKey, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;

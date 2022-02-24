@@ -40,11 +40,19 @@ export interface AdditionalInstanceConfiguration {
   /**
    * <p>Use this property to provide commands or a command script to run when you launch
    * 			your build instance.</p>
+   * 		       <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
+   * 			that Systems Manager is installed on your Linux build instance. If you override the user data,
+   * 			make sure that you add commands to install Systems Manager, if it is not pre-installed on your
+   * 			base image.</p>
    * 		       <note>
-   * 			         <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
-   * 				that Systems Manager is installed on your Linux build instance. If you override the user data,
-   * 				make sure that you add commands to install Systems Manager, if it is not pre-installed on your
-   * 				base image.</p>
+   * 			         <p>The user data is always base 64 encoded. For example, the
+   * 				following commands are encoded as <code>IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$</code>:</p>
+   *
+   * 			         <p>
+   *                <i>#!/bin/bash</i>
+   *             </p>
+   * 			         <p>mkdir -p /var/bb/</p>
+   * 			         <p>touch /var</p>
    * 		       </note>
    */
   userDataOverride?: string;
@@ -574,7 +582,7 @@ export interface Component {
   owner?: string;
 
   /**
-   * <p>The data of the component.</p>
+   * <p>Component data contains the YAML document content for the component.</p>
    */
   data?: string;
 
@@ -1276,16 +1284,19 @@ export interface CreateComponentRequest {
   supportedOsVersions?: string[];
 
   /**
-   * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
-   * 			<code>uri</code> can be used to specify the data within the component.</p>
+   * <p>Component <code>data</code> contains inline YAML document content for the component.
+   * 			Alternatively, you can specify the <code>uri</code> of a YAML document file stored in
+   * 			Amazon S3. However, you cannot specify both properties.</p>
    */
   data?: string;
 
   /**
-   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission to
-   * 			access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your service
-   * 			quota. Either <code>data</code> or <code>uri</code> can be used to specify the data within the
-   * 			component.</p>
+   * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
+   * 			(<code>s3://bucket/key</code>), and the requester must have permission to access
+   * 			the S3 bucket it points to. If you use Amazon S3, you can specify component content
+   * 			up to your service quota.</p>
+   * 		       <p>Alternatively, you can specify the YAML document inline, using the component
+   * 			<code>data</code> property. You cannot specify both properties.</p>
    */
   uri?: string;
 
@@ -1547,6 +1558,106 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
+ * <p>Identifies the launch template that the associated Windows AMI uses for
+ * 			launching an instance when faster launching is enabled.</p>
+ * 		       <note>
+ * 			         <p>You can specify either the <code>launchTemplateName</code> or the
+ * 				<code>launchTemplateId</code>, but not both.</p>
+ * 		       </note>
+ */
+export interface FastLaunchLaunchTemplateSpecification {
+  /**
+   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  launchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  launchTemplateName?: string;
+
+  /**
+   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  launchTemplateVersion?: string;
+}
+
+export namespace FastLaunchLaunchTemplateSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots
+ * 			for a fast-launch enabled Windows AMI.</p>
+ */
+export interface FastLaunchSnapshotConfiguration {
+  /**
+   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled
+   * 			Windows AMI.</p>
+   */
+  targetResourceCount?: number;
+}
+
+export namespace FastLaunchSnapshotConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Define and configure faster launching for output Windows AMIs.</p>
+ */
+export interface FastLaunchConfiguration {
+  /**
+   * <p>A Boolean that represents the current state of faster launching for the
+   * 			Windows AMI. Set to <code>true</code> to start using Windows faster launching, or
+   * 			<code>false</code> to stop using it.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Configuration settings for managing the number of snapshots that are
+   * 			created from pre-provisioned instances for the Windows AMI when faster
+   * 			launching is enabled.</p>
+   */
+  snapshotConfiguration?: FastLaunchSnapshotConfiguration;
+
+  /**
+   * <p>The maximum number of parallel instances that are launched for creating
+   * 			resources.</p>
+   */
+  maxParallelLaunches?: number;
+
+  /**
+   * <p>The launch template that the fast-launch enabled Windows AMI uses when it
+   * 			launches Windows instances to create pre-provisioned snapshots.</p>
+   */
+  launchTemplate?: FastLaunchLaunchTemplateSpecification;
+
+  /**
+   * <p>The owner account ID for the fast-launch enabled Windows AMI.</p>
+   */
+  accountId?: string;
+}
+
+export namespace FastLaunchConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Identifies an Amazon EC2 launch template to use for a specific account.</p>
  */
 export interface LaunchTemplateConfiguration {
@@ -1672,6 +1783,11 @@ export interface Distribution {
    * 			using a file format that is compatible with your VMs in that Region.</p>
    */
   s3ExportConfiguration?: S3ExportConfiguration;
+
+  /**
+   * <p>The Windows faster-launching configurations to use for AMI distribution.</p>
+   */
+  fastLaunchConfigurations?: FastLaunchConfiguration[];
 }
 
 export namespace Distribution {

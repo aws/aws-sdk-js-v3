@@ -14,8 +14,9 @@ export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, 
   Parameters?: NativeAttributeValue[];
 };
 
-export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items"> & {
+export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items" | "LastEvaluatedKey"> & {
   Items?: { [key: string]: NativeAttributeValue }[];
+  LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
 };
 
 /**
@@ -31,7 +32,7 @@ export class ExecuteStatementCommand extends $Command<
   DynamoDBDocumentClientResolvedConfig
 > {
   private readonly inputKeyNodes = [{ key: "Parameters" }];
-  private readonly outputKeyNodes = [{ key: "Items" }];
+  private readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
   constructor(readonly input: ExecuteStatementCommandInput) {
     super();

@@ -2618,6 +2618,18 @@
           {
             "value": "NODEJS_12",
             "name": "NODEJS_12"
+          },
+          {
+            "value": "NODEJS_14",
+            "name": "NODEJS_14"
+          },
+          {
+            "value": "CORRETTO_8",
+            "name": "CORRETTO_8"
+          },
+          {
+            "value": "CORRETTO_11",
+            "name": "CORRETTO_11"
           }
         ]
       }

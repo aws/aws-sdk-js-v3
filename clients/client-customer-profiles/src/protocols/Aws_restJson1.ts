@@ -20,6 +20,10 @@ import {
 
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "../commands/AddProfileKeyCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
+import {
+  CreateIntegrationWorkflowCommandInput,
+  CreateIntegrationWorkflowCommandOutput,
+} from "../commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
@@ -33,6 +37,7 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "../commands/DeleteProfileObjectTypeCommand";
+import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
@@ -52,6 +57,8 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "../commands/GetProfileObjectTypeTemplateCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
+import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "../commands/GetWorkflowStepsCommand";
 import {
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
@@ -75,6 +82,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "../commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "../commands/PutIntegrationCommand";
 import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "../commands/PutProfileObjectCommand";
@@ -91,8 +99,13 @@ import { CustomerProfilesServiceException as __BaseException } from "../models/C
 import {
   AccessDeniedException,
   Address,
+  AppflowIntegration,
+  AppflowIntegrationWorkflowAttributes,
+  AppflowIntegrationWorkflowMetrics,
+  AppflowIntegrationWorkflowStep,
   AutoMerging,
   BadRequestException,
+  Batch,
   ConflictResolution,
   ConnectorOperator,
   Consolidation,
@@ -103,6 +116,7 @@ import {
   FlowDefinition,
   IdentityResolutionJob,
   IncrementalPullConfig,
+  IntegrationConfig,
   InternalServerException,
   JobSchedule,
   JobStats,
@@ -111,6 +125,7 @@ import {
   ListProfileObjectsItem,
   ListProfileObjectTypeItem,
   ListProfileObjectTypeTemplateItem,
+  ListWorkflowsItem,
   MarketoSourceProperties,
   MatchingRequest,
   MatchingResponse,
@@ -135,6 +150,9 @@ import {
   TriggerConfig,
   TriggerProperties,
   UpdateAddress,
+  WorkflowAttributes,
+  WorkflowMetrics,
+  WorkflowStepItem,
   ZendeskSourceProperties,
 } from "../models/models_0";
 
@@ -204,6 +222,49 @@ export const serializeAws_restJson1CreateDomainCommand = async (
     ...(input.Matching !== undefined &&
       input.Matching !== null && { Matching: serializeAws_restJson1MatchingRequest(input.Matching, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateIntegrationWorkflowCommand = async (
+  input: CreateIntegrationWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/workflows/integrations";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.IntegrationConfig !== undefined &&
+      input.IntegrationConfig !== null && {
+        IntegrationConfig: serializeAws_restJson1IntegrationConfig(input.IntegrationConfig, context),
+      }),
+    ...(input.ObjectTypeName !== undefined &&
+      input.ObjectTypeName !== null && { ObjectTypeName: input.ObjectTypeName }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.WorkflowType !== undefined && input.WorkflowType !== null && { WorkflowType: input.WorkflowType }),
   });
   return new __HttpRequest({
     protocol,
@@ -499,6 +560,45 @@ export const serializeAws_restJson1DeleteProfileObjectTypeCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteWorkflowCommand = async (
+  input: DeleteWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/workflows/{WorkflowId}";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.WorkflowId !== undefined) {
+    const labelValue: string = input.WorkflowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: WorkflowId.");
+    }
+    resolvedPath = resolvedPath.replace("{WorkflowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: WorkflowId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetAutoMergingPreviewCommand = async (
   input: GetAutoMergingPreviewCommandInput,
   context: __SerdeContext
@@ -743,6 +843,89 @@ export const serializeAws_restJson1GetProfileObjectTypeTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetWorkflowCommand = async (
+  input: GetWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/workflows/{WorkflowId}";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.WorkflowId !== undefined) {
+    const labelValue: string = input.WorkflowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: WorkflowId.");
+    }
+    resolvedPath = resolvedPath.replace("{WorkflowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: WorkflowId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetWorkflowStepsCommand = async (
+  input: GetWorkflowStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/domains/{DomainName}/workflows/{WorkflowId}/steps";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.WorkflowId !== undefined) {
+    const labelValue: string = input.WorkflowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: WorkflowId.");
+    }
+    resolvedPath = resolvedPath.replace("{WorkflowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: WorkflowId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAccountIntegrationsCommand = async (
   input: ListAccountIntegrationsCommandInput,
   context: __SerdeContext
@@ -755,6 +938,7 @@ export const serializeAws_restJson1ListAccountIntegrationsCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.IncludeHidden !== undefined && { "include-hidden": input.IncludeHidden.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -851,6 +1035,7 @@ export const serializeAws_restJson1ListIntegrationsCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.IncludeHidden !== undefined && { "include-hidden": input.IncludeHidden.toString() }),
   };
   let body: any;
   return new __HttpRequest({
@@ -990,6 +1175,50 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorkflowsCommand = async (
+  input: ListWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/domains/{DomainName}/workflows";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueryEndDate !== undefined &&
+      input.QueryEndDate !== null && { QueryEndDate: Math.round(input.QueryEndDate.getTime() / 1000) }),
+    ...(input.QueryStartDate !== undefined &&
+      input.QueryStartDate !== null && { QueryStartDate: Math.round(input.QueryStartDate.getTime() / 1000) }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.WorkflowType !== undefined && input.WorkflowType !== null && { WorkflowType: input.WorkflowType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1539,6 +1768,66 @@ const deserializeAws_restJson1CreateDomainCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateIntegrationWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateIntegrationWorkflowCommandError(output, context);
+  }
+  const contents: CreateIntegrationWorkflowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Message: undefined,
+    WorkflowId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.WorkflowId !== undefined && data.WorkflowId !== null) {
+    contents.WorkflowId = __expectString(data.WorkflowId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateIntegrationWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1931,6 +2220,58 @@ const deserializeAws_restJson1DeleteProfileObjectTypeCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteWorkflowCommandError(output, context);
+  }
+  const contents: DeleteWorkflowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetAutoMergingPreviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2199,6 +2540,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
     ObjectTypeNames: undefined,
     Tags: undefined,
     Uri: undefined,
+    WorkflowId: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
@@ -2221,6 +2563,9 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   if (data.Uri !== undefined && data.Uri !== null) {
     contents.Uri = __expectString(data.Uri);
+  }
+  if (data.WorkflowId !== undefined && data.WorkflowId !== null) {
+    contents.WorkflowId = __expectString(data.WorkflowId);
   }
   return Promise.resolve(contents);
 };
@@ -2477,6 +2822,158 @@ const deserializeAws_restJson1GetProfileObjectTypeTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileObjectTypeTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWorkflowCommandError(output, context);
+  }
+  const contents: GetWorkflowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Attributes: undefined,
+    ErrorDescription: undefined,
+    LastUpdatedAt: undefined,
+    Metrics: undefined,
+    StartDate: undefined,
+    Status: undefined,
+    WorkflowId: undefined,
+    WorkflowType: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Attributes !== undefined && data.Attributes !== null) {
+    contents.Attributes = deserializeAws_restJson1WorkflowAttributes(data.Attributes, context);
+  }
+  if (data.ErrorDescription !== undefined && data.ErrorDescription !== null) {
+    contents.ErrorDescription = __expectString(data.ErrorDescription);
+  }
+  if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
+    contents.LastUpdatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastUpdatedAt)));
+  }
+  if (data.Metrics !== undefined && data.Metrics !== null) {
+    contents.Metrics = deserializeAws_restJson1WorkflowMetrics(data.Metrics, context);
+  }
+  if (data.StartDate !== undefined && data.StartDate !== null) {
+    contents.StartDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.StartDate)));
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectString(data.Status);
+  }
+  if (data.WorkflowId !== undefined && data.WorkflowId !== null) {
+    contents.WorkflowId = __expectString(data.WorkflowId);
+  }
+  if (data.WorkflowType !== undefined && data.WorkflowType !== null) {
+    contents.WorkflowType = __expectString(data.WorkflowType);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetWorkflowStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowStepsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWorkflowStepsCommandError(output, context);
+  }
+  const contents: GetWorkflowStepsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Items: undefined,
+    NextToken: undefined,
+    WorkflowId: undefined,
+    WorkflowType: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Items !== undefined && data.Items !== null) {
+    contents.Items = deserializeAws_restJson1WorkflowStepsList(data.Items, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.WorkflowId !== undefined && data.WorkflowId !== null) {
+    contents.WorkflowId = __expectString(data.WorkflowId);
+  }
+  if (data.WorkflowType !== undefined && data.WorkflowType !== null) {
+    contents.WorkflowType = __expectString(data.WorkflowType);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetWorkflowStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowStepsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2984,6 +3481,66 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorkflowsCommandError(output, context);
+  }
+  const contents: ListWorkflowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Items: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Items !== undefined && data.Items !== null) {
+    contents.Items = deserializeAws_restJson1WorkflowList(data.Items, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListWorkflowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1MergeProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3053,6 +3610,7 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
     ObjectTypeNames: undefined,
     Tags: undefined,
     Uri: undefined,
+    WorkflowId: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
@@ -3075,6 +3633,9 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   }
   if (data.Uri !== undefined && data.Uri !== null) {
     contents.Uri = __expectString(data.Uri);
+  }
+  if (data.WorkflowId !== undefined && data.WorkflowId !== null) {
+    contents.WorkflowId = __expectString(data.WorkflowId);
   }
   return Promise.resolve(contents);
 };
@@ -3660,6 +4221,17 @@ const serializeAws_restJson1Address = (input: Address, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1AppflowIntegration = (input: AppflowIntegration, context: __SerdeContext): any => {
+  return {
+    ...(input.Batches !== undefined &&
+      input.Batches !== null && { Batches: serializeAws_restJson1Batches(input.Batches, context) }),
+    ...(input.FlowDefinition !== undefined &&
+      input.FlowDefinition !== null && {
+        FlowDefinition: serializeAws_restJson1FlowDefinition(input.FlowDefinition, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3696,6 +4268,26 @@ const serializeAws_restJson1AutoMerging = (input: AutoMerging, context: __SerdeC
       }),
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
   };
+};
+
+const serializeAws_restJson1Batch = (input: Batch, context: __SerdeContext): any => {
+  return {
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1Batches = (input: Batch[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Batch(entry, context);
+    });
 };
 
 const serializeAws_restJson1ConflictResolution = (input: ConflictResolution, context: __SerdeContext): any => {
@@ -3817,6 +4409,15 @@ const serializeAws_restJson1IncrementalPullConfig = (input: IncrementalPullConfi
   return {
     ...(input.DatetimeTypeFieldName !== undefined &&
       input.DatetimeTypeFieldName !== null && { DatetimeTypeFieldName: input.DatetimeTypeFieldName }),
+  };
+};
+
+const serializeAws_restJson1IntegrationConfig = (input: IntegrationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AppflowIntegration !== undefined &&
+      input.AppflowIntegration !== null && {
+        AppflowIntegration: serializeAws_restJson1AppflowIntegration(input.AppflowIntegration, context),
+      }),
   };
 };
 
@@ -4206,6 +4807,50 @@ const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_restJson1AppflowIntegrationWorkflowAttributes = (
+  output: any,
+  context: __SerdeContext
+): AppflowIntegrationWorkflowAttributes => {
+  return {
+    ConnectorProfileName: __expectString(output.ConnectorProfileName),
+    RoleArn: __expectString(output.RoleArn),
+    SourceConnectorType: __expectString(output.SourceConnectorType),
+  } as any;
+};
+
+const deserializeAws_restJson1AppflowIntegrationWorkflowMetrics = (
+  output: any,
+  context: __SerdeContext
+): AppflowIntegrationWorkflowMetrics => {
+  return {
+    RecordsProcessed: __expectLong(output.RecordsProcessed),
+    StepsCompleted: __expectLong(output.StepsCompleted),
+    TotalSteps: __expectLong(output.TotalSteps),
+  } as any;
+};
+
+const deserializeAws_restJson1AppflowIntegrationWorkflowStep = (
+  output: any,
+  context: __SerdeContext
+): AppflowIntegrationWorkflowStep => {
+  return {
+    BatchRecordsEndTime: __expectString(output.BatchRecordsEndTime),
+    BatchRecordsStartTime: __expectString(output.BatchRecordsStartTime),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    ExecutionMessage: __expectString(output.ExecutionMessage),
+    FlowName: __expectString(output.FlowName),
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
+        : undefined,
+    RecordsProcessed: __expectLong(output.RecordsProcessed),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -4429,6 +5074,7 @@ const deserializeAws_restJson1ListIntegrationItem = (output: any, context: __Ser
         ? deserializeAws_restJson1TagMap(output.Tags, context)
         : undefined,
     Uri: __expectString(output.Uri),
+    WorkflowId: __expectString(output.WorkflowId),
   } as any;
 };
 
@@ -4473,6 +5119,23 @@ const deserializeAws_restJson1ListProfileObjectTypeTemplateItem = (
     SourceName: __expectString(output.SourceName),
     SourceObject: __expectString(output.SourceObject),
     TemplateId: __expectString(output.TemplateId),
+  } as any;
+};
+
+const deserializeAws_restJson1ListWorkflowsItem = (output: any, context: __SerdeContext): ListWorkflowsItem => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
+        : undefined,
+    Status: __expectString(output.Status),
+    StatusDescription: __expectString(output.StatusDescription),
+    WorkflowId: __expectString(output.WorkflowId),
+    WorkflowType: __expectString(output.WorkflowType),
   } as any;
 };
 
@@ -4745,6 +5408,57 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1WorkflowAttributes = (output: any, context: __SerdeContext): WorkflowAttributes => {
+  return {
+    AppflowIntegration:
+      output.AppflowIntegration !== undefined && output.AppflowIntegration !== null
+        ? deserializeAws_restJson1AppflowIntegrationWorkflowAttributes(output.AppflowIntegration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorkflowList = (output: any, context: __SerdeContext): ListWorkflowsItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ListWorkflowsItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1WorkflowMetrics = (output: any, context: __SerdeContext): WorkflowMetrics => {
+  return {
+    AppflowIntegration:
+      output.AppflowIntegration !== undefined && output.AppflowIntegration !== null
+        ? deserializeAws_restJson1AppflowIntegrationWorkflowMetrics(output.AppflowIntegration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorkflowStepItem = (output: any, context: __SerdeContext): WorkflowStepItem => {
+  return {
+    AppflowIntegration:
+      output.AppflowIntegration !== undefined && output.AppflowIntegration !== null
+        ? deserializeAws_restJson1AppflowIntegrationWorkflowStep(output.AppflowIntegration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorkflowStepsList = (output: any, context: __SerdeContext): WorkflowStepItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1WorkflowStepItem(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

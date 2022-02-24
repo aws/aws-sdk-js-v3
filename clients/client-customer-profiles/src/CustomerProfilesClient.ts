@@ -52,6 +52,10 @@ import {
 
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import {
+  CreateIntegrationWorkflowCommandInput,
+  CreateIntegrationWorkflowCommandOutput,
+} from "./commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
@@ -65,6 +69,7 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
@@ -84,6 +89,8 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
 import {
   ListAccountIntegrationsCommandInput,
   ListAccountIntegrationsCommandOutput,
@@ -107,6 +114,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "./commands/PutProfileObjectCommand";
@@ -124,6 +132,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
   | CreateDomainCommandInput
+  | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
   | DeleteDomainCommandInput
   | DeleteIntegrationCommandInput
@@ -131,6 +140,7 @@ export type ServiceInputTypes =
   | DeleteProfileKeyCommandInput
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
+  | DeleteWorkflowCommandInput
   | GetAutoMergingPreviewCommandInput
   | GetDomainCommandInput
   | GetIdentityResolutionJobCommandInput
@@ -138,6 +148,8 @@ export type ServiceInputTypes =
   | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
+  | GetWorkflowCommandInput
+  | GetWorkflowStepsCommandInput
   | ListAccountIntegrationsCommandInput
   | ListDomainsCommandInput
   | ListIdentityResolutionJobsCommandInput
@@ -146,6 +158,7 @@ export type ServiceInputTypes =
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
   | PutIntegrationCommandInput
   | PutProfileObjectCommandInput
@@ -159,6 +172,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
   | CreateDomainCommandOutput
+  | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
   | DeleteDomainCommandOutput
   | DeleteIntegrationCommandOutput
@@ -166,6 +180,7 @@ export type ServiceOutputTypes =
   | DeleteProfileKeyCommandOutput
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
+  | DeleteWorkflowCommandOutput
   | GetAutoMergingPreviewCommandOutput
   | GetDomainCommandOutput
   | GetIdentityResolutionJobCommandOutput
@@ -173,6 +188,8 @@ export type ServiceOutputTypes =
   | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
+  | GetWorkflowCommandOutput
+  | GetWorkflowStepsCommandOutput
   | ListAccountIntegrationsCommandOutput
   | ListDomainsCommandOutput
   | ListIdentityResolutionJobsCommandOutput
@@ -181,6 +198,7 @@ export type ServiceOutputTypes =
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
   | PutIntegrationCommandOutput
   | PutProfileObjectCommandOutput

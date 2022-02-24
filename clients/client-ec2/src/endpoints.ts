@@ -208,7 +208,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "ec2-fips.{region}.amazonaws.com",
+        hostname: "ec2.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {

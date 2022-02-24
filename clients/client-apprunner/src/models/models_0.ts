@@ -696,7 +696,10 @@ export namespace AuthenticationConfiguration {
 }
 
 export enum Runtime {
+  CORRETTO_11 = "CORRETTO_11",
+  CORRETTO_8 = "CORRETTO_8",
   NODEJS_12 = "NODEJS_12",
+  NODEJS_14 = "NODEJS_14",
   PYTHON_3 = "PYTHON_3",
 }
 
