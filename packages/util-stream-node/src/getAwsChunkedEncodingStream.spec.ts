@@ -81,5 +81,31 @@ describe(getAwsChunkedEncodingStream.name, () => {
     });
   });
 
-  it("computes checksum and adds it to the end event", () => {});
+  it("computes checksum and adds it to the end event", (done) => {
+    const readableStream = getMockReadableStream(mockStreamChunks);
+    const awsChunkedEncodingStream = getAwsChunkedEncodingStream(readableStream, mockOptions);
+
+    let i = 0;
+    awsChunkedEncodingStream.on("data", (data) => {
+      if (i >= mockStreamChunks.length) {
+        switch (i) {
+          case mockStreamChunks.length:
+            expect(data.toString()).toStrictEqual(`0\r\n`);
+            break;
+          case mockStreamChunks.length + 1:
+            expect(data.toString()).toStrictEqual(`${mockChecksumLocationName}:${mockChecksum}\r\n`);
+            break;
+          case mockStreamChunks.length + 2:
+            expect(data.toString()).toStrictEqual(`\r\n`);
+            done();
+            break;
+          default:
+            throw Error("Code shouldn't reach here");
+        }
+      } else {
+        expect(data.toString()).toStrictEqual(`${mockBodyLength}\r\n${mockStreamChunks[i].toString()}\r\n`);
+      }
+      i++;
+    });
+  });
 });
