@@ -73,16 +73,24 @@ describe("Flexible Checksums", () => {
           });
         });
 
-        it(`when body is sent as a stream`, async () => {
+        it(`when body is sent as a stream`, (done) => {
           const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
             // middleware intercept the request and return it early
             const request = args.request as HttpRequest;
-            const { headers } = request;
+            const { headers, body } = request;
             expect(headers["content-length"]).to.be.undefined;
             expect(headers["content-encoding"]).to.equal("aws-chunked");
             expect(headers["transfer-encoding"]).to.equal("chunked");
             expect(headers["x-amz-content-sha256"]).to.equal("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
             expect(headers["x-amz-trailer"]).to.equal(checksumHeader);
+            body.on("data", (data) => {
+              const stringValue = data.toString();
+              if (stringValue.startsWith(checksumHeader)) {
+                const receivedChecksum = stringValue.replace("\r\n", "").split(":")[1];
+                expect(receivedChecksum).to.equal(checksumValue);
+                done();
+              }
+            });
             return { output: {} as any, response: {} as any };
           };
 
@@ -93,7 +101,7 @@ describe("Flexible Checksums", () => {
           });
 
           const bodyStream = getBodyAsReadableStream(body);
-          return await client.putObject({
+          client.putObject({
             Bucket: "bucket",
             Key: "key",
             Body: bodyStream,
