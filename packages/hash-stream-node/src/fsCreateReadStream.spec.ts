@@ -7,7 +7,7 @@ jest.setTimeout(30000);
 describe(fsCreateReadStream.name, () => {
   const mockFileContents = fs.readFileSync(__filename, "utf8");
 
-  it("uses file descriptor if defined", (done) => {
+  it.skip("uses file descriptor if defined", (done) => {
     fs.promises.open(__filename, "r").then((fd) => {
       if ((fd as any).createReadStream) {
         const readStream = (fd as any).createReadStream();
