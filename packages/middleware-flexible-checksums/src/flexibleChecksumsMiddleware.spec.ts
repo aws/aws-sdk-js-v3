@@ -31,13 +31,13 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
   const mockInput = {};
   const mockConfig = {} as PreviouslyResolved;
-  const mockMiddlewareConfig = { input: mockInput } as FlexibleChecksumsMiddlewareConfig;
+  const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
 
-  const mockBody = { body: "mockBody" };
+  const mockBody = { body: "mockRequestBody" };
   const mockHeaders = { "content-length": 100 };
   const mockRequest = { body: mockBody, headers: mockHeaders };
   const mockArgs = { request: mockRequest } as BuildHandlerArguments<any>;
-  const mockResult = { response: {} };
+  const mockResult = { response: { body: "mockResponsebody" } };
 
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
@@ -172,14 +172,19 @@ describe(flexibleChecksumsMiddleware.name, () => {
   it("validates checksum from the response header", async () => {
     const mockRequestValidationModeMember = "mockRequestValidationModeMember";
     const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
+    const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
 
     const handler = flexibleChecksumsMiddleware(mockConfig, {
       ...mockMiddlewareConfig,
       input: mockInput,
       requestValidationModeMember: mockRequestValidationModeMember,
+      responseAlgorithms: mockResponseAlgorithms,
     })(mockNext, {});
 
     await handler(mockArgs);
-    expect(validateChecksumFromResponse).toHaveBeenCalledTimes(1);
+    expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+      config: mockConfig,
+      responseAlgorithms: mockResponseAlgorithms,
+    });
   });
 });
