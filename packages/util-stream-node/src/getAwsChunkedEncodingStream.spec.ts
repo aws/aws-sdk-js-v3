@@ -47,17 +47,22 @@ describe(getAwsChunkedEncodingStream.name, () => {
 
   describe("skips checksum computation", () => {
     const validateStreamWithoutChecksum = (awsChunkedEncodingStream: Readable, done: Function) => {
-      let i = 0;
+      let dataEventCount = 0;
       awsChunkedEncodingStream.on("data", (data) => {
-        if (i === mockStreamChunks.length) {
+        if (dataEventCount === mockStreamChunks.length) {
           expect(data.toString()).toStrictEqual(`0\r\n`);
-          expect(mockStreamHasher).not.toHaveBeenCalled();
-          expect(mockBase64Encoder).not.toHaveBeenCalled();
-          done();
         } else {
-          expect(data.toString()).toStrictEqual(`${mockBodyLength}\r\n${mockStreamChunks[i].toString()}\r\n`);
+          expect(data.toString()).toStrictEqual(
+            `${mockBodyLength}\r\n${mockStreamChunks[dataEventCount].toString()}\r\n`
+          );
         }
-        i++;
+        dataEventCount++;
+      });
+      awsChunkedEncodingStream.on("end", () => {
+        expect(mockStreamHasher).not.toHaveBeenCalled();
+        expect(mockBase64Encoder).not.toHaveBeenCalled();
+        expect(dataEventCount).toStrictEqual(mockStreamChunks.length + 1);
+        done();
       });
     };
 
@@ -85,10 +90,10 @@ describe(getAwsChunkedEncodingStream.name, () => {
     const readableStream = getMockReadableStream();
     const awsChunkedEncodingStream = getAwsChunkedEncodingStream(readableStream, mockOptions);
 
-    let i = 0;
+    let dataEventCount = 0;
     awsChunkedEncodingStream.on("data", (data) => {
-      if (i >= mockStreamChunks.length) {
-        switch (i) {
+      if (dataEventCount >= mockStreamChunks.length) {
+        switch (dataEventCount) {
           case mockStreamChunks.length:
             expect(data.toString()).toStrictEqual(`0\r\n`);
             break;
@@ -97,17 +102,22 @@ describe(getAwsChunkedEncodingStream.name, () => {
             break;
           case mockStreamChunks.length + 2:
             expect(data.toString()).toStrictEqual(`\r\n`);
-            expect(mockStreamHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFn, readableStream);
-            expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
-            done();
             break;
           default:
             throw Error("Code shouldn't reach here");
         }
       } else {
-        expect(data.toString()).toStrictEqual(`${mockBodyLength}\r\n${mockStreamChunks[i].toString()}\r\n`);
+        expect(data.toString()).toStrictEqual(
+          `${mockBodyLength}\r\n${mockStreamChunks[dataEventCount].toString()}\r\n`
+        );
       }
-      i++;
+      dataEventCount++;
+    });
+    awsChunkedEncodingStream.on("end", () => {
+      expect(mockStreamHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFn, readableStream);
+      expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
+      expect(dataEventCount).toStrictEqual(mockStreamChunks.length + 3);
+      done();
     });
   });
 });
