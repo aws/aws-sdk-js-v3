@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.53.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.0...v3.53.1) (2022-02-25)
+
+
+### Bug Fixes
+
+* **hash-stream-node:** disable createReadStream with file descriptor ([#3369](https://github.com/aws/aws-sdk-js-v3/issues/3369)) ([e5e89d2](https://github.com/aws/aws-sdk-js-v3/commit/e5e89d2972324460b6327729e7dc07f85ea9cd15))
+
+
+
+
+
 # [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
 
 
