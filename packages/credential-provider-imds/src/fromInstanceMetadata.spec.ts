@@ -6,12 +6,14 @@ import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCre
 import { providerConfigFromInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
 import { getInstanceMetadataEndpoint } from "./utils/getInstanceMetadataEndpoint";
+import { staticStabilityProvider } from "./utils/staticStabilityProvider";
 
 jest.mock("./remoteProvider/httpRequest");
 jest.mock("./remoteProvider/ImdsCredentials");
 jest.mock("./remoteProvider/retry");
 jest.mock("./remoteProvider/RemoteProviderInit");
 jest.mock("./utils/getInstanceMetadataEndpoint");
+jest.mock("./utils/staticStabilityProvider");
 
 describe("fromInstanceMetadata", () => {
   const hostname = "127.0.0.1";
@@ -39,11 +41,12 @@ describe("fromInstanceMetadata", () => {
     },
   };
 
+  const ONE_HOUR_IN_FUTURE = new Date(Date.now() + 60 * 60 * 1000);
   const mockImdsCreds = Object.freeze({
     AccessKeyId: "foo",
     SecretAccessKey: "bar",
     Token: "baz",
-    Expiration: new Date().toISOString(),
+    Expiration: ONE_HOUR_IN_FUTURE.toISOString(),
   });
 
   const mockCreds = Object.freeze({
@@ -54,6 +57,7 @@ describe("fromInstanceMetadata", () => {
   });
 
   beforeEach(() => {
+    (staticStabilityProvider as jest.Mock).mockImplementation((input) => input);
     (getInstanceMetadataEndpoint as jest.Mock).mockResolvedValue({ hostname });
     (isImdsCredentials as unknown as jest.Mock).mockReturnValue(true);
     (providerConfigFromInit as jest.Mock).mockReturnValue({
@@ -192,6 +196,19 @@ describe("fromInstanceMetadata", () => {
     await expect(fromInstanceMetadata()()).rejects.toEqual(tokenError);
   });
 
+  it("should call staticStabilityProvider with the credential loader", async () => {
+    (httpRequest as jest.Mock)
+      .mockResolvedValueOnce(mockToken)
+      .mockResolvedValueOnce(mockProfile)
+      .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
+
+    (retry as jest.Mock).mockImplementation((fn: any) => fn());
+    (fromImdsCredentials as jest.Mock).mockReturnValue(mockCreds);
+
+    await fromInstanceMetadata()();
+    expect(staticStabilityProvider as jest.Mock).toBeCalledTimes(1);
+  });
+
   describe("disables fetching of token", () => {
     beforeEach(() => {
       (retry as jest.Mock).mockImplementation((fn: any) => fn());
@@ -267,48 +284,5 @@ describe("fromInstanceMetadata", () => {
     const fromInstanceMetadataFunc = fromInstanceMetadata();
     await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
     await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
-  });
-
-  describe("re-enables fetching of token", () => {
-    const error401 = Object.assign(new Error("error"), { statusCode: 401 });
-
-    beforeEach(() => {
-      const tokenError = new Error("TimeoutError");
-
-      (httpRequest as jest.Mock)
-        .mockRejectedValueOnce(tokenError)
-        .mockResolvedValueOnce(mockProfile)
-        .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
-
-      (retry as jest.Mock).mockImplementation((fn: any) => fn());
-      (fromImdsCredentials as jest.Mock).mockReturnValue(mockCreds);
-    });
-
-    it("when profile error with 401", async () => {
-      (httpRequest as jest.Mock)
-        .mockRejectedValueOnce(error401)
-        .mockResolvedValueOnce(mockToken)
-        .mockResolvedValueOnce(mockProfile)
-        .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
-
-      const fromInstanceMetadataFunc = fromInstanceMetadata();
-      await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
-      await expect(fromInstanceMetadataFunc()).rejects.toEqual(error401);
-      await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
-    });
-
-    it("when creds error with 401", async () => {
-      (httpRequest as jest.Mock)
-        .mockResolvedValueOnce(mockProfile)
-        .mockRejectedValueOnce(error401)
-        .mockResolvedValueOnce(mockToken)
-        .mockResolvedValueOnce(mockProfile)
-        .mockResolvedValueOnce(JSON.stringify(mockImdsCreds));
-
-      const fromInstanceMetadataFunc = fromInstanceMetadata();
-      await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
-      await expect(fromInstanceMetadataFunc()).rejects.toEqual(error401);
-      await expect(fromInstanceMetadataFunc()).resolves.toEqual(mockCreds);
-    });
   });
 });

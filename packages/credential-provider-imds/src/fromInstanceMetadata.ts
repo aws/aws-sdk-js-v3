@@ -1,12 +1,14 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { Credentials, Provider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 
 import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, isImdsCredentials } from "./remoteProvider/ImdsCredentials";
 import { providerConfigFromInit, RemoteProviderInit } from "./remoteProvider/RemoteProviderInit";
 import { retry } from "./remoteProvider/retry";
+import { InstanceMetadataCredentials } from "./types";
 import { getInstanceMetadataEndpoint } from "./utils/getInstanceMetadataEndpoint";
+import { staticStabilityProvider } from "./utils/staticStabilityProvider";
 
 const IMDS_PATH = "/latest/meta-data/iam/security-credentials/";
 const IMDS_TOKEN_PATH = "/latest/api/token";
@@ -15,7 +17,10 @@ const IMDS_TOKEN_PATH = "/latest/api/token";
  * Creates a credential provider that will source credentials from the EC2
  * Instance Metadata Service
  */
-export const fromInstanceMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
+export const fromInstanceMetadata = (init: RemoteProviderInit = {}): Provider<InstanceMetadataCredentials> =>
+  staticStabilityProvider(getInstanceImdsProvider(init));
+
+const getInstanceImdsProvider = (init: RemoteProviderInit) => {
   // when set to true, metadata service will not fetch token
   let disableFetchToken = false;
   const { timeout, maxRetries } = providerConfigFromInit(init);
