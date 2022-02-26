@@ -1,4 +1,4 @@
-import { S3SignatureV4, S3SignerV4Init } from "@aws-sdk/middleware-sdk-s3";
+import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "@aws-sdk/signature-v4-multi-region";
 import { RequestPresigner, RequestPresigningArguments } from "@aws-sdk/types";
 import { HttpRequest as IHttpRequest } from "@aws-sdk/types";
 
@@ -6,12 +6,12 @@ import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
 
 type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
-export type S3RequestPresignerOptions = PartialBy<S3SignerV4Init, "service" | "uriEscapePath"> & {
+export type S3RequestPresignerOptions = PartialBy<SignatureV4MultiRegionInit, "service" | "uriEscapePath"> & {
   signingName?: string;
 };
 
 export class S3RequestPresigner implements RequestPresigner {
-  private readonly signer: S3SignatureV4;
+  private readonly signer: SignatureV4MultiRegion;
   constructor(options: S3RequestPresignerOptions) {
     const resolvedOptions = {
       // Allow `signingName` because we want to support usecase of supply client's resolved config
@@ -21,7 +21,7 @@ export class S3RequestPresigner implements RequestPresigner {
       applyChecksum: options.applyChecksum || false,
       ...options,
     };
-    this.signer = new S3SignatureV4(resolvedOptions);
+    this.signer = new SignatureV4MultiRegion(resolvedOptions);
   }
 
   public async presign(

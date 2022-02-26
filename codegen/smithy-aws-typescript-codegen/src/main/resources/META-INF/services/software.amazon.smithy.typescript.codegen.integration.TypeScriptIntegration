@@ -22,3 +22,4 @@ software.amazon.smithy.aws.typescript.codegen.AddCrossRegionCopyingPlugin
 software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
 software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
 software.amazon.smithy.aws.typescript.codegen.AddHttpChecksumDependency
+software.amazon.smithy.aws.typescript.codegen.AddEventBridgePlugin

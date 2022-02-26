@@ -4,10 +4,10 @@ const mockV4 = jest.fn().mockReturnValue({
   presign: mockV4Presign,
   sign: mockV4Sign,
 });
-jest.mock("@aws-sdk/middleware-sdk-s3", () => ({
+jest.mock("@aws-sdk/signature-v4-multi-region", () => ({
   //@ts-ignore
-  ...jest.requireActual("@aws-sdk/middleware-sdk-s3"),
-  S3SignatureV4: mockV4,
+  ...jest.requireActual("@aws-sdk/signature-v4-multi-region"),
+  SignatureV4MultiRegion: mockV4,
 }));
 
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
