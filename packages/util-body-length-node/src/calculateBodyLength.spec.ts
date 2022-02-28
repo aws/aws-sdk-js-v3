@@ -1,10 +1,10 @@
-import { calculateBodyLength } from "./";
+import { calculateBodyLength } from "./calculateBodyLength";
 
 const arrayBuffer = new ArrayBuffer(1);
 const typedArray = new Uint8Array(1);
 const view = new DataView(arrayBuffer);
 
-describe("caclulateBodyLength", () => {
+describe(calculateBodyLength.name, () => {
   it("should handle null/undefined objects", () => {
     expect(calculateBodyLength(null)).toEqual(0);
   });
