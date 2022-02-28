@@ -1,9 +1,9 @@
-import { calculateBodyLength } from "./";
+import { calculateBodyLength } from "./calculateBodyLength";
 
 const arrayBuffer = new ArrayBuffer(1);
 const typedArray = new Uint8Array(1);
 
-describe("caclulateBodyLength", () => {
+describe(calculateBodyLength.name, () => {
   it("should handle string inputs", () => {
     expect(calculateBodyLength("foo")).toEqual(3);
   });
