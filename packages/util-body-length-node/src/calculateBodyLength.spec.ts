@@ -1,4 +1,4 @@
-import { createReadStream, lstatSync } from "fs";
+import { createReadStream, lstatSync, promises } from "fs";
 
 import { calculateBodyLength } from "./calculateBodyLength";
 
@@ -38,9 +38,20 @@ describe(calculateBodyLength.name, () => {
     expect(calculateBodyLength(view)).toEqual(1);
   });
 
-  it("should handle stream created using fs.createReadStream", () => {
+  describe("fs.ReadStream", () => {
     const fileSize = lstatSync(__filename).size;
-    const fsReadStream = createReadStream(__filename);
-    expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+
+    it("should handle stream created using fs.createReadStream", () => {
+      const fsReadStream = createReadStream(__filename);
+      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    });
+
+    it("should handle stream created using fd.createReadStream", async () => {
+      const fd = await promises.open(__filename, "r");
+      if ((fd as any).createReadStream) {
+        const fdReadStream = (fd as any).createReadStream();
+        expect(calculateBodyLength(fdReadStream)).toEqual(fileSize);
+      }
+    });
   });
 });

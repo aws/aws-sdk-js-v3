@@ -1,4 +1,4 @@
-import { lstatSync } from "fs";
+import { fstatSync, lstatSync } from "fs";
 
 export const calculateBodyLength = (body: any): number | undefined => {
   if (!body) {
@@ -14,5 +14,8 @@ export const calculateBodyLength = (body: any): number | undefined => {
   } else if (typeof body.path === "string" || Buffer.isBuffer(body.path)) {
     // handles fs readable streams
     return lstatSync(body.path).size;
+  } else if (typeof body.fd === "number") {
+    // handles fd readable streams
+    return fstatSync(body.fd).size;
   }
 };
