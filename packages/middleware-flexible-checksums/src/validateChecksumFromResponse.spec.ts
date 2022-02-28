@@ -92,6 +92,7 @@ describe(validateChecksumFromResponse.name, () => {
         responseAlgorithms: mockResponseAlgorithms,
       });
       expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
+      expect(getChecksumLocationName).toHaveBeenCalledWith(mockResponseAlgorithms[0]);
     });
 
     it("when checksum is populated for second algorithm", async () => {
@@ -101,6 +102,8 @@ describe(validateChecksumFromResponse.name, () => {
         responseAlgorithms: mockResponseAlgorithms,
       });
       expect(getChecksumLocationName).toHaveBeenCalledTimes(2);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(1, mockResponseAlgorithms[0]);
+      expect(getChecksumLocationName).toHaveBeenNthCalledWith(2, mockResponseAlgorithms[1]);
     });
   });
 

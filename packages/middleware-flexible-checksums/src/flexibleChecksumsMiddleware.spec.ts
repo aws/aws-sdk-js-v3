@@ -7,7 +7,6 @@ import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
@@ -31,13 +30,13 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
   const mockInput = {};
   const mockConfig = {} as PreviouslyResolved;
-  const mockMiddlewareConfig = { input: mockInput } as FlexibleChecksumsMiddlewareConfig;
+  const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
 
-  const mockBody = { body: "mockBody" };
+  const mockBody = { body: "mockRequestBody" };
   const mockHeaders = { "content-length": 100 };
   const mockRequest = { body: mockBody, headers: mockHeaders };
   const mockArgs = { request: mockRequest } as BuildHandlerArguments<any>;
-  const mockResult = { response: {} };
+  const mockResult = { response: { body: "mockResponsebody" } };
 
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
@@ -89,9 +88,8 @@ describe(flexibleChecksumsMiddleware.name, () => {
         };
         (hasHeader as jest.Mock).mockReturnValue(true);
         await handler(mockArgsWithChecksumHeader);
-        expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
-        expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
-        expect(hasHeader).toHaveBeenCalledTimes(1);
+        expect(getChecksumLocationName).toHaveBeenCalledWith(ChecksumAlgorithm.MD5);
+        expect(selectChecksumAlgorithmFunction).toHaveBeenCalledWith(ChecksumAlgorithm.MD5, mockConfig);
         expect(mockNext).toHaveBeenCalledWith(mockArgsWithChecksumHeader);
         expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeadersWithChecksumHeader);
       });
@@ -126,10 +124,20 @@ describe(flexibleChecksumsMiddleware.name, () => {
     it("for streaming body", async () => {
       (isStreaming as jest.Mock).mockReturnValue(true);
       const mockUpdatedBody = { body: "mockUpdatedBody" };
+
+      const mockBase64Encoder = jest.fn();
+      const mockStreamHasher = jest.fn();
+      const mockBodyLengthChecker = jest.fn();
       const mockGetAwsChunkedEncodingStream = jest.fn().mockReturnValue(mockUpdatedBody);
 
       const handler = flexibleChecksumsMiddleware(
-        { ...mockConfig, getAwsChunkedEncodingStream: mockGetAwsChunkedEncodingStream },
+        {
+          ...mockConfig,
+          base64Encoder: mockBase64Encoder,
+          bodyLengthChecker: mockBodyLengthChecker,
+          getAwsChunkedEncodingStream: mockGetAwsChunkedEncodingStream,
+          streamHasher: mockStreamHasher,
+        },
         mockMiddlewareConfig
       )(mockNext, {});
       await handler(mockArgs);
@@ -150,7 +158,13 @@ describe(flexibleChecksumsMiddleware.name, () => {
           body: mockUpdatedBody,
         },
       });
-      expect(mockGetAwsChunkedEncodingStream).toHaveBeenCalledTimes(1);
+      expect(mockGetAwsChunkedEncodingStream).toHaveBeenCalledWith(mockRequest.body, {
+        base64Encoder: mockBase64Encoder,
+        bodyLengthChecker: mockBodyLengthChecker,
+        checksumLocationName: mockChecksumLocationName,
+        checksumAlgorithmFn: mockChecksumAlgorithmFunction,
+        streamHasher: mockStreamHasher,
+      });
     });
 
     it("for non-streaming body", async () => {
@@ -172,14 +186,19 @@ describe(flexibleChecksumsMiddleware.name, () => {
   it("validates checksum from the response header", async () => {
     const mockRequestValidationModeMember = "mockRequestValidationModeMember";
     const mockInput = { [mockRequestValidationModeMember]: "ENABLED" };
+    const mockResponseAlgorithms = ["ALGO1", "ALGO2"];
 
     const handler = flexibleChecksumsMiddleware(mockConfig, {
       ...mockMiddlewareConfig,
       input: mockInput,
       requestValidationModeMember: mockRequestValidationModeMember,
+      responseAlgorithms: mockResponseAlgorithms,
     })(mockNext, {});
 
     await handler(mockArgs);
-    expect(validateChecksumFromResponse).toHaveBeenCalledTimes(1);
+    expect(validateChecksumFromResponse).toHaveBeenCalledWith(mockResult.response, {
+      config: mockConfig,
+      responseAlgorithms: mockResponseAlgorithms,
+    });
   });
 });
