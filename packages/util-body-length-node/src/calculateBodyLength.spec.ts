@@ -1,8 +1,6 @@
-import { lstatSync } from "fs";
+import { createReadStream, lstatSync } from "fs";
 
 import { calculateBodyLength } from "./calculateBodyLength";
-
-jest.mock("fs");
 
 describe(calculateBodyLength.name, () => {
   const arrayBuffer = new ArrayBuffer(1);
@@ -41,11 +39,8 @@ describe(calculateBodyLength.name, () => {
   });
 
   it("should handle stream created using fs.createReadStream", () => {
-    const mockSize = { size: 10 };
-    (lstatSync as jest.Mock).mockReturnValue(mockSize);
-
-    // Populate path as string to mock body created from fs.createReadStream
-    const mockBody = { path: "mockPath" };
-    expect(calculateBodyLength(mockBody)).toEqual(mockSize.size);
+    const fileSize = lstatSync(__filename).size;
+    const fsReadStream = createReadStream(__filename);
+    expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
   });
 });
