@@ -38,9 +38,17 @@ describe(calculateBodyLength.name, () => {
     expect(calculateBodyLength(view)).toEqual(1);
   });
 
-  it("should handle stream created using fs.createReadStream", () => {
+  describe("should handle stream created using fs.createReadStream", () => {
     const fileSize = lstatSync(__filename).size;
-    const fsReadStream = createReadStream(__filename);
-    expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+
+    it("when path is a string", () => {
+      const fsReadStream = createReadStream(__filename);
+      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    });
+
+    it("when path is a Buffer", () => {
+      const fsReadStream = createReadStream(Buffer.from(__filename));
+      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    });
   });
 });

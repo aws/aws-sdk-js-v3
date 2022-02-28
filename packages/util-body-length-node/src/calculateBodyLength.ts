@@ -11,7 +11,7 @@ export const calculateBodyLength = (body: any): number | undefined => {
     return body.byteLength;
   } else if (typeof body.size === "number") {
     return body.size;
-  } else if (typeof body.path === "string") {
+  } else if (typeof body.path === "string" || Buffer.isBuffer(body.path)) {
     // handles fs readable streams
     return lstatSync(body.path).size;
   }
