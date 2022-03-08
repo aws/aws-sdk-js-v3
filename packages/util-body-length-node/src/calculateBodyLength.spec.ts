@@ -41,9 +41,16 @@ describe(calculateBodyLength.name, () => {
   describe("fs.ReadStream", () => {
     const fileSize = lstatSync(__filename).size;
 
-    it("should handle stream created using fs.createReadStream", () => {
-      const fsReadStream = createReadStream(__filename);
-      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    describe("should handle stream created using fs.createReadStream", () => {
+      it("when path is a string", () => {
+        const fsReadStream = createReadStream(__filename);
+        expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+      });
+
+      it("when path is a Buffer", () => {
+        const fsReadStream = createReadStream(Buffer.from(__filename));
+        expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+      });
     });
 
     it("should handle stream created using fd.createReadStream", async () => {
