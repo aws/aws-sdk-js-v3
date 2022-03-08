@@ -1,4 +1,4 @@
-import { createReadStream, lstatSync } from "fs";
+import { createReadStream, lstatSync, promises } from "fs";
 
 import { calculateBodyLength } from "./calculateBodyLength";
 
@@ -38,17 +38,27 @@ describe(calculateBodyLength.name, () => {
     expect(calculateBodyLength(view)).toEqual(1);
   });
 
-  describe("should handle stream created using fs.createReadStream", () => {
+  describe("fs.ReadStream", () => {
     const fileSize = lstatSync(__filename).size;
 
-    it("when path is a string", () => {
-      const fsReadStream = createReadStream(__filename);
-      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    describe("should handle stream created using fs.createReadStream", () => {
+      it("when path is a string", () => {
+        const fsReadStream = createReadStream(__filename);
+        expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+      });
+
+      it("when path is a Buffer", () => {
+        const fsReadStream = createReadStream(Buffer.from(__filename));
+        expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+      });
     });
 
-    it("when path is a Buffer", () => {
-      const fsReadStream = createReadStream(Buffer.from(__filename));
-      expect(calculateBodyLength(fsReadStream)).toEqual(fileSize);
+    it("should handle stream created using fd.createReadStream", async () => {
+      const fd = await promises.open(__filename, "r");
+      if ((fd as any).createReadStream) {
+        const fdReadStream = (fd as any).createReadStream();
+        expect(calculateBodyLength(fdReadStream)).toEqual(fileSize);
+      }
     });
   });
 });
