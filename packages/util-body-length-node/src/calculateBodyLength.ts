@@ -18,4 +18,5 @@ export const calculateBodyLength = (body: any): number | undefined => {
     // handles fd readable streams
     return fstatSync(body.fd).size;
   }
+  throw new Error(`Body Length computation failed for ${body}`);
 };
