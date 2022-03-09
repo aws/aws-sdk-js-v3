@@ -11,6 +11,7 @@ import {
 } from "@aws-sdk/types";
 
 const CONTENT_LENGTH_HEADER = "content-length";
+const TRANSFER_ENCODING_HEADER = "transfer-encoding";
 
 export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
@@ -24,11 +25,16 @@ export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator)
             .map((str) => str.toLowerCase())
             .indexOf(CONTENT_LENGTH_HEADER) === -1
         ) {
-          const length = bodyLengthChecker(body);
-          if (length !== undefined) {
+          try {
+            const length = bodyLengthChecker(body);
             request.headers = {
               ...request.headers,
               [CONTENT_LENGTH_HEADER]: String(length),
+            };
+          } catch (error) {
+            request.headers = {
+              ...request.headers,
+              [TRANSFER_ENCODING_HEADER]: "chunked",
             };
           }
         }
