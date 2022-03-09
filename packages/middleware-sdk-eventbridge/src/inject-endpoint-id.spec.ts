@@ -114,7 +114,7 @@ describe("injectEndpointIdMiddleware", () => {
       inputParams: { EndpointId: "abc123.456def" },
     });
     expect(hostname).toEqual("abc123.456def.endpoint.events.amazonaws.com");
-    expect(middlewareContext).toEqual({ signingRegion: "*" });
+    expect(middlewareContext).toEqual({ signing_region: "*" });
   });
 
   it("should update endpoint if EndpointId is valid and client uses dualstack endpoint", async () => {
@@ -127,7 +127,7 @@ describe("injectEndpointIdMiddleware", () => {
       inputParams: { EndpointId: "abc123.456def" },
     });
     expect(hostname).toEqual("abc123.456def.endpoint.events.api.aws");
-    expect(middlewareContext).toEqual({ signingRegion: "*" });
+    expect(middlewareContext).toEqual({ signing_region: "*" });
   });
 
   it("should update endpoint if EndpointId is valid and client uses gov partition", async () => {
@@ -140,7 +140,7 @@ describe("injectEndpointIdMiddleware", () => {
       inputParams: { EndpointId: "abc123.456def" },
     });
     expect(hostname).toEqual("abc123.456def.endpoint.events.c2s.ic.gov");
-    expect(middlewareContext).toEqual({ signingRegion: "*" });
+    expect(middlewareContext).toEqual({ signing_region: "*" });
   });
 
   it("should throw if EndpointId is valid but client uses fips endpoint", async () => {
@@ -203,6 +203,6 @@ describe("injectEndpointIdMiddleware", () => {
       inputParams: { EndpointId: "abc123.456def" },
     });
     expect(hostname).toEqual("example.org");
-    expect(middlewareContext).toEqual({ signingRegion: "*" });
+    expect(middlewareContext).toEqual({ signing_region: "*" });
   });
 });

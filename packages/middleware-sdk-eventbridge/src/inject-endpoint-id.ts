@@ -32,7 +32,7 @@ export const injectEndpointIdMiddleware =
     if (typeof args.input.EndpointId === "undefined") {
       // Skip.
     } else if (config.isCustomEndpoint) {
-      context.signingRegion = "*";
+      context.signing_region = "*";
     } else if ((await config.useFipsEndpoint()) === true) {
       throw new Error(
         "FIPS is not supported with EventBridge multi-region endpoints, please check the useFipsEndpoint configuration."
@@ -43,7 +43,7 @@ export const injectEndpointIdMiddleware =
         throw new Error(`The EndpointId is not a valid domain name component, got ${args.input.EndpointId}.`);
       }
       args.request.hostname = `${args.input.EndpointId}.endpoint.events.${endpointSuffix}`;
-      context.signingRegion = "*";
+      context.signing_region = "*";
     }
 
     return next(args);
