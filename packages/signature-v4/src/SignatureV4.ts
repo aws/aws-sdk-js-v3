@@ -279,10 +279,30 @@ ${toHex(hashedRequest)}`;
 
   private getCanonicalPath({ path }: HttpRequest): string {
     if (this.uriEscapePath) {
-      const doubleEncoded = encodeURIComponent(path.replace(/^\//, ""));
-      return `/${doubleEncoded.replace(/%2F/g, "/")}`;
+      // Non-S3 services, we normalize the path and then double URI encode it.
+      // Ref: "Remove Dot Segments" https://datatracker.ietf.org/doc/html/rfc3986#section-5.2.4
+      const normalizedPathSegments = [];
+      for (const pathSegment of path.split("/")) {
+        if (pathSegment?.length === 0) continue;
+        if (pathSegment === ".") continue;
+        if (pathSegment === "..") {
+          normalizedPathSegments.pop();
+        } else {
+          normalizedPathSegments.push(pathSegment);
+        }
+      }
+      // Joining by single slashes to remove consecutive slashes.
+      const normalizedPath = `${path?.startsWith("/") ? "/" : ""}${normalizedPathSegments.join("/")}${
+        normalizedPathSegments.length > 0 && path?.endsWith("/") ? "/" : ""
+      }`;
+
+      const doubleEncoded = encodeURIComponent(normalizedPath);
+      return doubleEncoded.replace(/%2F/g, "/");
     }
 
+    // For S3, we shouldn't normalize the path. For example, object name
+    // my-object//example//photo.user should not be normalized to
+    // my-object/example/photo.user
     return path;
   }
 
