@@ -51,7 +51,7 @@ export interface Provider<T> {
  * the size of the file.
  */
 export interface BodyLengthCalculator {
-  (body: any): number | undefined;
+  (body: any): number;
 }
 
 /**
