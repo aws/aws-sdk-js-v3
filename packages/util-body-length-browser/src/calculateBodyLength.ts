@@ -16,4 +16,5 @@ export const calculateBodyLength = (body: any): number | undefined => {
     // handles browser File object
     return body.size;
   }
+  throw new Error(`Body Length computation failed for ${body}`);
 };
