@@ -8,7 +8,7 @@ import { httpRequest } from "./remoteProvider/httpRequest";
 import { fromImdsCredentials, ImdsCredentials } from "./remoteProvider/ImdsCredentials";
 
 const mockHttpRequest = <any>httpRequest;
-jest.mock("./remoteProvider/httpRequest", () => ({ httpRequest: jest.fn() }));
+jest.mock("./remoteProvider/httpRequest");
 
 const relativeUri = process.env[ENV_CMDS_RELATIVE_URI];
 const fullUri = process.env[ENV_CMDS_FULL_URI];
