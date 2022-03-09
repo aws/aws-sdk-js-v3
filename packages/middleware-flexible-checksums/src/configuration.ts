@@ -1,4 +1,10 @@
-import { Encoder, GetAwsChunkedEncodingStream, HashConstructor, StreamHasher } from "@aws-sdk/types";
+import {
+  BodyLengthCalculator,
+  Encoder,
+  GetAwsChunkedEncodingStream,
+  HashConstructor,
+  StreamHasher,
+} from "@aws-sdk/types";
 
 export interface PreviouslyResolved {
   /**
@@ -10,7 +16,7 @@ export interface PreviouslyResolved {
   /**
    * A function that can calculate the length of a body.
    */
-  bodyLengthChecker: (body: any) => number | undefined;
+  bodyLengthChecker: BodyLengthCalculator;
 
   /**
    * A function that returns Readable Stream which follows aws-chunked encoding stream.
