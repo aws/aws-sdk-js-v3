@@ -33,4 +33,10 @@ describe(calculateBodyLength.name, () => {
     };
     expect(calculateBodyLength(mockFileObject)).toEqual(mockFileObject.size);
   });
+
+  it.each([true, 1, {}, []])("throws error if Body Length computation fails for: %s", (body) => {
+    expect(() => {
+      expect(calculateBodyLength(body));
+    }).toThrowError(`Body Length computation failed for ${body}`);
+  });
 });
