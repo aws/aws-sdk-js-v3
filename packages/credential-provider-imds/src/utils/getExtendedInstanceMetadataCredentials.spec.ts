@@ -32,6 +32,6 @@ describe("getExtendedInstanceMetadataCredentials()", () => {
     const anyDate: Date = "any date" as unknown as Date;
     getExtendedInstanceMetadataCredentials({ ...staticSecret, expiration: anyDate });
     // TODO: fill the doc link
-    expect(console.warn).toBeCalledWith(expect.stringContaining("cannot renew the credential"));
+    expect(console.warn).toBeCalledWith(expect.stringContaining("Attempting credential expiration extension"));
   });
 });
