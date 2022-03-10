@@ -1,4 +1,3 @@
-import { HttpResponse } from "@aws-sdk/protocol-http";
 import {
   AbsoluteLocation,
   HandlerExecutionContext,

@@ -1,3 +1,5 @@
+import { Logger } from "@aws-sdk/types";
+
 import { getExtendedInstanceMetadataCredentials } from "./getExtendedInstanceMetadataCredentials";
 import { staticStabilityProvider } from "./staticStabilityProvider";
 
@@ -83,5 +85,15 @@ describe("staticStabilityProvider", () => {
     }
     expect(getExtendedInstanceMetadataCredentials).toBeCalledTimes(repeat);
     expect(console.warn).not.toBeCalled();
+  });
+
+  it("should allow custom logger to print warning messages", async () => {
+    const provider = jest.fn().mockResolvedValueOnce(mockCreds).mockRejectedValue("Error");
+    const logger = { warn: jest.fn() } as unknown as Logger;
+    const stableProvider = staticStabilityProvider(provider, { logger });
+    expect(await stableProvider()).toEqual(mockCreds); // load initial creds
+    await stableProvider();
+    expect(logger.warn).toBeCalledTimes(1);
+    expect(console.warn).toBeCalledTimes(0);
   });
 });
