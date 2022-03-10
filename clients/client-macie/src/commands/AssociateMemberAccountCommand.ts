@@ -22,7 +22,7 @@ export interface AssociateMemberAccountCommandInput extends AssociateMemberAccou
 export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates a specified AWS account with Amazon Macie Classic as a member
+ * <p>(Discontinued) Associates a specified Amazon Web Services account with Amazon Macie Classic as a member
  *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

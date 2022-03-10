@@ -24,7 +24,8 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a call analytics category using its name.</p>
+ * <p>Deletes a call analytics category. To use this operation, specify the name of the
+ *             category you want to delete using <code>CategoryName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

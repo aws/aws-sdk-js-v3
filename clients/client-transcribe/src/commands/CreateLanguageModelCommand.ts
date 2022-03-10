@@ -22,9 +22,11 @@ export interface CreateLanguageModelCommandInput extends CreateLanguageModelRequ
 export interface CreateLanguageModelCommandOutput extends CreateLanguageModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of
- *             your input files. The time it takes to create your model depends on the size of your training
- *             data.</p>
+ * <p>Creates a new custom language model. When creating a new language model,
+ *             you must specify if you want a Wideband (audio sample rates over 16,000 Hz) or
+ *             Narrowband (audio sample rates under 16,000 Hz) base model. You then include the
+ *             S3 URI location of your training and tuning files, the language for the model, a
+ *             unique name, and any tags you want associated with your model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

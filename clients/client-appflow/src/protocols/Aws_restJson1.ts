@@ -142,6 +142,7 @@ import {
   LookoutMetricsDestinationProperties,
   MarketoConnectorProfileCredentials,
   MarketoConnectorProfileProperties,
+  MarketoDestinationProperties,
   MarketoMetadata,
   MarketoSourceProperties,
   OAuth2Credentials,
@@ -2752,6 +2753,10 @@ const serializeAws_restJson1DestinationConnectorProperties = (
       input.LookoutMetrics !== null && {
         LookoutMetrics: serializeAws_restJson1LookoutMetricsDestinationProperties(input.LookoutMetrics, context),
       }),
+    ...(input.Marketo !== undefined &&
+      input.Marketo !== null && {
+        Marketo: serializeAws_restJson1MarketoDestinationProperties(input.Marketo, context),
+      }),
     ...(input.Redshift !== undefined &&
       input.Redshift !== null && {
         Redshift: serializeAws_restJson1RedshiftDestinationProperties(input.Redshift, context),
@@ -3012,6 +3017,19 @@ const serializeAws_restJson1MarketoConnectorProfileProperties = (
 ): any => {
   return {
     ...(input.instanceUrl !== undefined && input.instanceUrl !== null && { instanceUrl: input.instanceUrl }),
+  };
+};
+
+const serializeAws_restJson1MarketoDestinationProperties = (
+  input: MarketoDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.errorHandlingConfig !== undefined &&
+      input.errorHandlingConfig !== null && {
+        errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
+      }),
+    ...(input.object !== undefined && input.object !== null && { object: input.object }),
   };
 };
 
@@ -4525,6 +4543,10 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
       output.LookoutMetrics !== undefined && output.LookoutMetrics !== null
         ? deserializeAws_restJson1LookoutMetricsDestinationProperties(output.LookoutMetrics, context)
         : undefined,
+    Marketo:
+      output.Marketo !== undefined && output.Marketo !== null
+        ? deserializeAws_restJson1MarketoDestinationProperties(output.Marketo, context)
+        : undefined,
     Redshift:
       output.Redshift !== undefined && output.Redshift !== null
         ? deserializeAws_restJson1RedshiftDestinationProperties(output.Redshift, context)
@@ -4915,6 +4937,19 @@ const deserializeAws_restJson1MarketoConnectorProfileProperties = (
 ): MarketoConnectorProfileProperties => {
   return {
     instanceUrl: __expectString(output.instanceUrl),
+  } as any;
+};
+
+const deserializeAws_restJson1MarketoDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): MarketoDestinationProperties => {
+  return {
+    errorHandlingConfig:
+      output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
+        ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
+        : undefined,
+    object: __expectString(output.object),
   } as any;
 };
 

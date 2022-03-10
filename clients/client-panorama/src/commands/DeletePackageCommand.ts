@@ -23,6 +23,10 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
 
 /**
  * <p>Deletes a package.</p>
+ *         <note>
+ *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code>
+ *                 in addition to permissions for the AWS Panorama API.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,8 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of components for a specified Amplify app and backend environment.</p>
+ * <p>Retrieves a list of components for a specified Amplify app and backend
+ *       environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

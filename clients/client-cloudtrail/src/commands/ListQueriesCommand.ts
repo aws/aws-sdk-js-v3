@@ -26,7 +26,7 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  *          <code>EventDataStore</code>. Optionally, to shorten the list of results, you can specify a time range,
  *          formatted as timestamps, by adding <code>StartTime</code> and <code>EndTime</code> parameters, and a
  *          <code>QueryStatus</code> value. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
- *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>.</p>
+ *          <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

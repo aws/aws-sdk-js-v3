@@ -52,7 +52,7 @@ export enum MeetingFeatureStatus {
 }
 
 /**
- * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus.</p>
+ * <p>An optional category of meeting features that contains audio-specific configurations, such as operating parameters for Amazon Voice Focus. </p>
  */
 export interface AudioFeatures {
   /**
@@ -409,7 +409,7 @@ export class UnprocessableEntityException extends __BaseException {
 }
 
 /**
- * <p>The configuration settings of the features available to a meeting.</p>
+ * <p>The configuration settings of the features available to a meeting.></p>
  */
 export interface MeetingFeaturesConfiguration {
   /**
@@ -470,43 +470,26 @@ export interface CreateMeetingRequest {
    *
    *          <p>
    *            Available values:
-   *            <code>af-south-1</code>
-   *            ,
-   *            <code>ap-northeast-1</code>
-   *            ,
-   *            <code>ap-northeast-2</code>
-   *            ,
-   *            <code>ap-south-1</code>
-   *            ,
-   *            <code>ap-southeast-1</code>
-   *            ,
-   *            <code>ap-southeast-2</code>
-   *            ,
-   *            <code>ca-central-1</code>
-   *            ,
-   *            <code>eu-central-1</code>
-   *            ,
-   *            <code>eu-north-1</code>
-   *            ,
-   *            <code>eu-south-1</code>
-   *            ,
-   *            <code>eu-west-1</code>
-   *            ,
-   *            <code>eu-west-2</code>
-   *            ,
-   *            <code>eu-west-3</code>
-   *            ,
-   *            <code>sa-east-1</code>
-   *            ,
-   *            <code>us-east-1</code>
-   *            ,
-   *            <code>us-east-2</code>
-   *            ,
-   *            <code>us-west-1</code>
-   *            ,
-   *            <code>us-west-2</code>
-   *            .
+   *            <code>af-south-1</code>,
+   *            <code>ap-northeast-1</code>,
+   *            <code>ap-northeast-2</code>,
+   *            <code>ap-south-1</code>,
+   *            <code>ap-southeast-1</code>,
+   *            <code>ap-southeast-2</code>,
+   *            <code>ca-central-1</code>,
+   *            <code>eu-central-1</code>,
+   *            <code>eu-north-1</code>,
+   *            <code>eu-south-1</code>,
+   *            <code>eu-west-1</code>,
+   *            <code>eu-west-2</code>,
+   *            <code>eu-west-3</code>,
+   *            <code>sa-east-1</code>,
+   *            <code>us-east-1</code>,
+   *            <code>us-east-2</code>,
+   *            <code>us-west-1</code>,
+   *            <code>us-west-2</code>.
    *        </p>
+   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion: string | undefined;
 
@@ -626,6 +609,7 @@ export interface Meeting {
    *             <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
    *             <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
    *             <code>us-west-1</code>, <code>us-west-2</code>.</p>
+   *         <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion?: string;
 
@@ -677,6 +661,29 @@ export interface CreateMeetingWithAttendeesRequest {
 
   /**
    * <p>The Region in which to create the meeting.</p>
+   *
+   *          <p>
+   *            Available values:
+   *            <code>af-south-1</code>,
+   *            <code>ap-northeast-1</code>,
+   *            <code>ap-northeast-2</code>,
+   *            <code>ap-south-1</code>,
+   *            <code>ap-southeast-1</code>,
+   *            <code>ap-southeast-2</code>,
+   *            <code>ca-central-1</code>,
+   *            <code>eu-central-1</code>,
+   *            <code>eu-north-1</code>,
+   *            <code>eu-south-1</code>,
+   *            <code>eu-west-1</code>,
+   *            <code>eu-west-2</code>,
+   *            <code>eu-west-3</code>,
+   *            <code>sa-east-1</code>,
+   *            <code>us-east-1</code>,
+   *            <code>us-east-2</code>,
+   *            <code>us-west-1</code>,
+   *            <code>us-west-2</code>.
+   *        </p>
+   *          <p>Available values in AWS GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    */
   MediaRegion: string | undefined;
 
@@ -1043,7 +1050,7 @@ export interface EngineTranscribeSettings {
   /**
    * <p>The language code specified for the Amazon Transcribe engine.</p>
    */
-  LanguageCode: TranscribeLanguageCode | string | undefined;
+  LanguageCode?: TranscribeLanguageCode | string;
 
   /**
    * <p>The filtering method passed to Amazon Transcribe.</p>
@@ -1090,11 +1097,12 @@ export interface EngineTranscribeSettings {
   /**
    * <p>Lists the PII entity types you want to identify or redact. To specify entity types, you must enable <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
    *
-   *             <p>PIIEntityTypes must be comma-separated. The available values are:
-   *                 <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
-   *                 <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
+   *         <p>
+   *             <code>PIIEntityTypes</code> must be comma-separated. The available values are:
+   *             <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING, CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
+   *             <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, <code>SSN</code>, and <code>ALL</code>.</p>
    *
-   *             <p>
+   *         <p>
    *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;
@@ -1103,6 +1111,21 @@ export interface EngineTranscribeSettings {
    * <p>The name of the language model used during transcription.</p>
    */
   LanguageModelName?: string;
+
+  /**
+   * <p>Automatically identifies the language spoken in media files.</p>
+   */
+  IdentifyLanguage?: boolean;
+
+  /**
+   * <p>Language codes for the languages that you want to identify. You must provide at least 2 codes.</p>
+   */
+  LanguageOptions?: string;
+
+  /**
+   * <p>Language code for the preferred language.</p>
+   */
+  PreferredLanguage?: TranscribeLanguageCode | string;
 }
 
 export namespace EngineTranscribeSettings {

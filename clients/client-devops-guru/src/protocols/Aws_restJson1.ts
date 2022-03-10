@@ -32,6 +32,10 @@ import {
   DescribeAccountOverviewCommandOutput,
 } from "../commands/DescribeAccountOverviewCommand";
 import { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "../commands/DescribeAnomalyCommand";
+import {
+  DescribeEventSourcesConfigCommandInput,
+  DescribeEventSourcesConfigCommandOutput,
+} from "../commands/DescribeEventSourcesConfigCommand";
 import { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "../commands/DescribeFeedbackCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "../commands/DescribeInsightCommand";
 import {
@@ -92,6 +96,10 @@ import {
   StartCostEstimationCommandOutput,
 } from "../commands/StartCostEstimationCommand";
 import {
+  UpdateEventSourcesConfigCommandInput,
+  UpdateEventSourcesConfigCommandOutput,
+} from "../commands/UpdateEventSourcesConfigCommand";
+import {
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,
 } from "../commands/UpdateResourceCollectionCommand";
@@ -104,9 +112,11 @@ import {
   AccessDeniedException,
   AccountHealth,
   AccountInsightHealth,
+  AmazonCodeGuruProfilerIntegration,
   AnomalyReportedTimeRange,
   AnomalyResource,
   AnomalySourceDetails,
+  AnomalySourceMetadata,
   AnomalyTimeRange,
   CloudFormationCollection,
   CloudFormationCollectionFilter,
@@ -121,6 +131,7 @@ import {
   EndTimeRange,
   Event,
   EventResource,
+  EventSourcesConfig,
   EventTimeRange,
   InsightFeedback,
   InsightHealth,
@@ -292,6 +303,28 @@ export const serializeAws_restJson1DescribeAnomalyCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeEventSourcesConfigCommand = async (
+  input: DescribeEventSourcesConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-sources";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -907,6 +940,33 @@ export const serializeAws_restJson1StartCostEstimationCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateEventSourcesConfigCommand = async (
+  input: UpdateEventSourcesConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-sources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EventSources !== undefined &&
+      input.EventSources !== null && {
+        EventSources: serializeAws_restJson1EventSourcesConfig(input.EventSources, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateResourceCollectionCommand = async (
   input: UpdateResourceCollectionCommandInput,
   context: __SerdeContext
@@ -1193,6 +1253,59 @@ const deserializeAws_restJson1DescribeAnomalyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.devopsguru#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeEventSourcesConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSourcesConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeEventSourcesConfigCommandError(output, context);
+  }
+  const contents: DescribeEventSourcesConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EventSources: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.EventSources !== undefined && data.EventSources !== null) {
+    contents.EventSources = deserializeAws_restJson1EventSourcesConfig(data.EventSources, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeEventSourcesConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSourcesConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.devopsguru#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -2424,6 +2537,55 @@ const deserializeAws_restJson1StartCostEstimationCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateEventSourcesConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventSourcesConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateEventSourcesConfigCommandError(output, context);
+  }
+  const contents: UpdateEventSourcesConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateEventSourcesConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventSourcesConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateResourceCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2681,6 +2843,15 @@ const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1AmazonCodeGuruProfilerIntegration = (
+  input: AmazonCodeGuruProfilerIntegration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_restJson1CloudFormationCollection = (
   input: CloudFormationCollection,
   context: __SerdeContext
@@ -2749,6 +2920,18 @@ const serializeAws_restJson1EndTimeRange = (input: EndTimeRange, context: __Serd
     ...(input.FromTime !== undefined &&
       input.FromTime !== null && { FromTime: Math.round(input.FromTime.getTime() / 1000) }),
     ...(input.ToTime !== undefined && input.ToTime !== null && { ToTime: Math.round(input.ToTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1EventSourcesConfig = (input: EventSourcesConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AmazonCodeGuruProfiler !== undefined &&
+      input.AmazonCodeGuruProfiler !== null && {
+        AmazonCodeGuruProfiler: serializeAws_restJson1AmazonCodeGuruProfilerIntegration(
+          input.AmazonCodeGuruProfiler,
+          context
+        ),
+      }),
   };
 };
 
@@ -3181,6 +3364,15 @@ const deserializeAws_restJson1AccountInsightHealth = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1AmazonCodeGuruProfilerIntegration = (
+  output: any,
+  context: __SerdeContext
+): AmazonCodeGuruProfilerIntegration => {
+  return {
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_restJson1AnomalyReportedTimeRange = (
   output: any,
   context: __SerdeContext
@@ -3226,6 +3418,14 @@ const deserializeAws_restJson1AnomalySourceDetails = (output: any, context: __Se
       output.PerformanceInsightsMetrics !== undefined && output.PerformanceInsightsMetrics !== null
         ? deserializeAws_restJson1PerformanceInsightsMetricsDetails(output.PerformanceInsightsMetrics, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalySourceMetadata = (output: any, context: __SerdeContext): AnomalySourceMetadata => {
+  return {
+    Source: __expectString(output.Source),
+    SourceResourceName: __expectString(output.SourceResourceName),
+    SourceResourceType: __expectString(output.SourceResourceType),
   } as any;
 };
 
@@ -3511,6 +3711,15 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): E
   return retVal;
 };
 
+const deserializeAws_restJson1EventSourcesConfig = (output: any, context: __SerdeContext): EventSourcesConfig => {
+  return {
+    AmazonCodeGuruProfiler:
+      output.AmazonCodeGuruProfiler !== undefined && output.AmazonCodeGuruProfiler !== null
+        ? deserializeAws_restJson1AmazonCodeGuruProfilerIntegration(output.AmazonCodeGuruProfiler, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InsightFeedback = (output: any, context: __SerdeContext): InsightFeedback => {
   return {
     Feedback: __expectString(output.Feedback),
@@ -3793,6 +4002,10 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
       output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
         ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
         : undefined,
+    AnomalyResources:
+      output.AnomalyResources !== undefined && output.AnomalyResources !== null
+        ? deserializeAws_restJson1AnomalyResources(output.AnomalyResources, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
@@ -3812,6 +4025,10 @@ const deserializeAws_restJson1ProactiveAnomaly = (output: any, context: __SerdeC
     SourceDetails:
       output.SourceDetails !== undefined && output.SourceDetails !== null
         ? deserializeAws_restJson1AnomalySourceDetails(output.SourceDetails, context)
+        : undefined,
+    SourceMetadata:
+      output.SourceMetadata !== undefined && output.SourceMetadata !== null
+        ? deserializeAws_restJson1AnomalySourceMetadata(output.SourceMetadata, context)
         : undefined,
     Status: __expectString(output.Status),
     UpdateTime:
@@ -3830,6 +4047,10 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
       output.AnomalyReportedTimeRange !== undefined && output.AnomalyReportedTimeRange !== null
         ? deserializeAws_restJson1AnomalyReportedTimeRange(output.AnomalyReportedTimeRange, context)
         : undefined,
+    AnomalyResources:
+      output.AnomalyResources !== undefined && output.AnomalyResources !== null
+        ? deserializeAws_restJson1AnomalyResources(output.AnomalyResources, context)
+        : undefined,
     AnomalyTimeRange:
       output.AnomalyTimeRange !== undefined && output.AnomalyTimeRange !== null
         ? deserializeAws_restJson1AnomalyTimeRange(output.AnomalyTimeRange, context)
@@ -3850,6 +4071,10 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
       output.SourceDetails !== undefined && output.SourceDetails !== null
         ? deserializeAws_restJson1AnomalySourceDetails(output.SourceDetails, context)
         : undefined,
+    SourceMetadata:
+      output.SourceMetadata !== undefined && output.SourceMetadata !== null
+        ? deserializeAws_restJson1AnomalySourceMetadata(output.SourceMetadata, context)
+        : undefined,
     Status: __expectString(output.Status),
     UpdateTime:
       output.UpdateTime !== undefined && output.UpdateTime !== null
@@ -3860,6 +4085,7 @@ const deserializeAws_restJson1ProactiveAnomalySummary = (
 
 const deserializeAws_restJson1ProactiveInsight = (output: any, context: __SerdeContext): ProactiveInsight => {
   return {
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     InsightTimeRange:
       output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
@@ -4052,6 +4278,7 @@ const deserializeAws_restJson1ReactiveAnomalySummary = (
 
 const deserializeAws_restJson1ReactiveInsight = (output: any, context: __SerdeContext): ReactiveInsight => {
   return {
+    Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     InsightTimeRange:
       output.InsightTimeRange !== undefined && output.InsightTimeRange !== null
@@ -4151,6 +4378,7 @@ const deserializeAws_restJson1ReactiveOrganizationInsightSummary = (
 
 const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
   return {
+    Category: __expectString(output.Category),
     Description: __expectString(output.Description),
     Link: __expectString(output.Link),
     Name: __expectString(output.Name),

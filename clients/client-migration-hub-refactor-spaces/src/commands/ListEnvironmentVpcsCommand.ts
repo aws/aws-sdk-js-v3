@@ -26,7 +26,8 @@ export interface ListEnvironmentVpcsCommandInput extends ListEnvironmentVpcsRequ
 export interface ListEnvironmentVpcsCommandOutput extends ListEnvironmentVpcsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the virtual private clouds (VPCs) that are part of an Amazon Web Services Migration Hub Refactor Spaces environment. </p>
+ * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
+ *       environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

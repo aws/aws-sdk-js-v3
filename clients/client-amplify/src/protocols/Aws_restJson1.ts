@@ -3939,6 +3939,7 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
         ? deserializeAws_restJson1ProductionBranch(output.productionBranch, context)
         : undefined,
     repository: __expectString(output.repository),
+    repositoryCloneMethod: __expectString(output.repositoryCloneMethod),
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)

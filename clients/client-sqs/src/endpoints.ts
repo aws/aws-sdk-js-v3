@@ -163,7 +163,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "sqs-fips.{region}.amazonaws.com",
+        hostname: "sqs.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {

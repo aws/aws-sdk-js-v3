@@ -22,7 +22,8 @@ export interface ListThemesCommandInput extends ListThemesRequest {}
 export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of themes for a specified Amplify app and backend environment.</p>
+ * <p>Retrieves a list of themes for a specified Amplify app and backend
+ *       environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

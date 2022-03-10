@@ -3704,6 +3704,7 @@ export type ImageAttributeName =
   | "bootMode"
   | "description"
   | "kernel"
+  | "lastLaunchedTime"
   | "launchPermission"
   | "productCodes"
   | "ramdisk"
@@ -3824,9 +3825,20 @@ export interface ImageAttribute {
   SriovNetSupport?: AttributeValue;
 
   /**
-   * <p>Describes a value for a resource attribute that is a String.</p>
+   * <p>The boot mode.</p>
    */
   BootMode?: AttributeValue;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used,
+   *       there is a 24-hour delay before that usage is reported.</p>
+   *          <note>
+   *             <p>
+   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
+   *          </note>
+   */
+  LastLaunchedTime?: AttributeValue;
 }
 
 export namespace ImageAttribute {

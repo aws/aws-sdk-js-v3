@@ -28,7 +28,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  *         <p>When an image is pushed to a repository, each image layer is checked to verify if it
  *             has been uploaded before. If it has been uploaded, then the image layer is
  *             skipped.</p>
- *          <note>
+ *         <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>

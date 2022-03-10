@@ -877,6 +877,7 @@ export const serializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLaunchConfiguration";
   let body: any;
   body = JSON.stringify({
+    ...(input.bootMode !== undefined && input.bootMode !== null && { bootMode: input.bootMode }),
     ...(input.copyPrivateIp !== undefined && input.copyPrivateIp !== null && { copyPrivateIp: input.copyPrivateIp }),
     ...(input.copyTags !== undefined && input.copyTags !== null && { copyTags: input.copyTags }),
     ...(input.launchDisposition !== undefined &&
@@ -1889,6 +1890,7 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
   }
   const contents: GetLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    bootMode: undefined,
     copyPrivateIp: undefined,
     copyTags: undefined,
     ec2LaunchTemplateID: undefined,
@@ -1899,6 +1901,9 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
     targetInstanceTypeRightSizingMethod: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bootMode !== undefined && data.bootMode !== null) {
+    contents.bootMode = __expectString(data.bootMode);
+  }
   if (data.copyPrivateIp !== undefined && data.copyPrivateIp !== null) {
     contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
   }
@@ -2690,6 +2695,7 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
   }
   const contents: UpdateLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    bootMode: undefined,
     copyPrivateIp: undefined,
     copyTags: undefined,
     ec2LaunchTemplateID: undefined,
@@ -2700,6 +2706,9 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     targetInstanceTypeRightSizingMethod: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.bootMode !== undefined && data.bootMode !== null) {
+    contents.bootMode = __expectString(data.bootMode);
+  }
   if (data.copyPrivateIp !== undefined && data.copyPrivateIp !== null) {
     contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
   }
@@ -3365,6 +3374,7 @@ const serializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
     ...(input.isBootDisk !== undefined && input.isBootDisk !== null && { isBootDisk: input.isBootDisk }),
     ...(input.stagingDiskType !== undefined &&
       input.stagingDiskType !== null && { stagingDiskType: input.stagingDiskType }),
+    ...(input.throughput !== undefined && input.throughput !== null && { throughput: input.throughput }),
   };
 };
 
@@ -3861,6 +3871,7 @@ const deserializeAws_restJson1ReplicationConfigurationReplicatedDisk = (
     iops: __expectLong(output.iops),
     isBootDisk: __expectBoolean(output.isBootDisk),
     stagingDiskType: __expectString(output.stagingDiskType),
+    throughput: __expectLong(output.throughput),
   } as any;
 };
 

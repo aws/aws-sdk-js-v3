@@ -22,8 +22,9 @@ export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilt
 export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new vocabulary filter that you can use to filter words, such as profane words,
- *             from the output of a transcription job.</p>
+ * <p>Creates a new vocabulary filter that you can use to filter words from your transcription
+ *             output. For example, you can use this operation to remove profanity from your
+ *             transcript.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

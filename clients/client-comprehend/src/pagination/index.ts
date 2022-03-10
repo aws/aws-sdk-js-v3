@@ -9,4 +9,5 @@ export * from "./ListEntityRecognizersPaginator";
 export * from "./ListEventsDetectionJobsPaginator";
 export * from "./ListKeyPhrasesDetectionJobsPaginator";
 export * from "./ListSentimentDetectionJobsPaginator";
+export * from "./ListTargetedSentimentDetectionJobsPaginator";
 export * from "./ListTopicsDetectionJobsPaginator";

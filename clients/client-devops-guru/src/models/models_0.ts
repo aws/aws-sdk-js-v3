@@ -393,6 +393,30 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export enum EventSourceOptInStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Information about your account's integration with Amazon CodeGuru Profiler.</p>
+ */
+export interface AmazonCodeGuruProfilerIntegration {
+  /**
+   * <p>The status of the CodeGuru Profiler integration.</p>
+   */
+  Status?: EventSourceOptInStatus | string;
+}
+
+export namespace AmazonCodeGuruProfilerIntegration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AmazonCodeGuruProfilerIntegration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p> A time range that specifies when DevOps Guru opens and then closes an anomaly. This
  * 			is different from <code>AnomalyTimeRange</code>, which specifies the time range when
@@ -420,10 +444,10 @@ export namespace AnomalyReportedTimeRange {
 }
 
 /**
- * <p>The Amazon Web Services resources in which DevOps Guru detected unusual behavior that resulted in
- *       	the generation of an anomaly. When DevOps Guru detects multiple related anomalies, it creates
- *       and insight with details about the anomalous behavior and suggestions about how to correct the
- *       problem.</p>
+ * <p>The Amazon Web Services resources in which DevOps Guru detected unusual behavior that resulted in the
+ * 			generation of an anomaly. When DevOps Guru detects multiple related anomalies, it creates and
+ * 			insight with details about the anomalous behavior and suggestions about how to correct
+ * 			the problem.</p>
  */
 export interface AnomalyResource {
   /**
@@ -520,8 +544,8 @@ export interface CloudWatchMetricsDataSummary {
   TimestampMetricValuePairList?: TimestampMetricValuePair[];
 
   /**
-   * <p>This is an enum of the status showing whether the metric value pair list has partial or
-   * 			complete data, or if there was an error.</p>
+   * <p>This is an enum of the status showing whether the metric value pair list has partial
+   * 			or complete data, or if there was an error.</p>
    */
   StatusCode?: CloudWatchMetricDataStatusCode | string;
 }
@@ -600,15 +624,14 @@ export namespace CloudWatchMetricsDetail {
 
 /**
  * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
- *    		<code>db.sql</code> dimension group consists of the following dimensions:
- *    		<code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>, and
- *    		<code>db.sql.tokenized_id</code>.</p>
- *    	     <note>
- *    		       <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
- *    			only the first 500 bytes are returned.</p>
- *    	     </note>
- *
- *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ * 				<code>db.sql</code> dimension group consists of the following dimensions:
+ * 				<code>db.sql.id</code>, <code>db.sql.db_id</code>, <code>db.sql.statement</code>,
+ * 			and <code>db.sql.tokenized_id</code>.</p>
+ * 		       <note>
+ * 			         <p>Each response element returns a maximum of 500 bytes. For larger elements, such as
+ * 				SQL statements, only the first 500 bytes are returned.</p>
+ * 		       </note>
+ *          <p>Amazon RDS Performance Insights enables you to monitor and explore different
  *    		dimensions of database load based on data captured from a running DB instance.
  *    		DB load is measured as average active sessions. Performance Insights provides the
  *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
@@ -631,128 +654,144 @@ export interface PerformanceInsightsMetricDimensionGroup {
   /**
    * <p>The name of the dimension group. Its valid values are:</p>
    *
-   *    	     <ul>
+   * 		       <ul>
    *             <li>
-   *    			         <p>
-   *    				           <code>db</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS PostgreSQL,
-   *    				Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db</code> - The name of the database to which the client is connected
+   * 					(only Aurora PostgreSQL, Amazon RDS PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.application</code> - The name of the application that is connected to the database (only Aurora
-   *    				PostgreSQL and RDS PostgreSQL)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.application</code> - The name of the application that is connected to
+   * 					the database (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.host</code> - The host name of the connected client (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.host</code> - The host name of the connected client (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL
+   * 					and RDS PostgreSQL)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql</code> - The SQL that is currently executing (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql</code> - The SQL that is currently executing (all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql_tokenized</code> - The SQL digest (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql_tokenized</code> - The SQL digest (all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.wait_event</code> - The event for which the database backend is waiting  (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.wait_event</code> - The event for which the database backend is waiting
+   * 					(all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.wait_event_type</code> - The type of event for which the database backend is waiting (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.wait_event_type</code> - The type of event for which the database
+   * 					backend is waiting (all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.user</code> - The user logged in to the database (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.user</code> - The user logged in to the database (all engines)</p>
+   * 			         </li>
    *          </ul>
    */
   Group?: string;
 
   /**
-   * <p>A list of specific dimensions from a dimension group. If this parameter is not present,
-   *    		then it signifies that all of the dimensions in the group were requested or are present in
-   *    		the response.</p>
-   *    	     <p>Valid values for elements in the <code>Dimensions</code> array are:</p>
+   * <p>A list of specific dimensions from a dimension group. If this parameter is not
+   * 			present, then it signifies that all of the dimensions in the group were requested or are
+   * 			present in the response.</p>
+   * 		       <p>Valid values for elements in the <code>Dimensions</code> array are:</p>
    *
-   *    	     <ul>
+   * 		       <ul>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.application.name</code> - The name of the application that is connected to the database (only
-   *    				Aurora PostgreSQL and RDS PostgreSQL)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.application.name</code> - The name of the application that is connected
+   * 					to the database (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.host.id</code> - The host ID of the connected client (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.host.id</code> - The host ID of the connected client (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.host.name</code> - The host name of the connected client (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.host.name</code> - The host name of the connected client (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.name</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS
-   *    				PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.name</code> - The name of the database to which the client is connected
+   * 					(only Aurora PostgreSQL, Amazon RDS PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.session_type.name</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.session_type.name</code> - The type of the current session (only Aurora
+   * 					PostgreSQL and RDS PostgreSQL)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql.id</code> - The SQL ID generated by Performance Insights (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql.id</code> - The SQL ID generated by Performance Insights (all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql.db_id</code> - The SQL ID generated by the database (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql.db_id</code> - The SQL ID generated by the database (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql.statement</code> - The SQL text that is being executed (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql.statement</code> - The SQL text that is being executed (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql.tokenized_id</code>
-   *    			         </p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql.tokenized_id</code>
+   * 				           </p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql_tokenized.id</code> - The SQL digest ID generated by Performance Insights (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql_tokenized.id</code> - The SQL digest ID generated by Performance Insights (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql_tokenized.db_id</code> - SQL digest ID generated by the database (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql_tokenized.db_id</code> - SQL digest ID generated by the database
+   * 					(all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sql_tokenized.statement</code> - The SQL digest text (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sql_tokenized.statement</code> - The SQL digest text (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.user.id</code> - The ID of the user logged in to the database (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.user.id</code> - The ID of the user logged in to the database (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.user.name</code> - The name of the user logged in to the database (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.user.name</code> - The name of the user logged in to the database (all
+   * 					engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.wait_event.name</code> - The event for which the backend is waiting (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.wait_event.name</code> - The event for which the backend is waiting
+   * 					(all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.wait_event.type</code> - The type of event for which the backend is waiting (all engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.wait_event.type</code> - The type of event for which the backend is
+   * 					waiting (all engines)</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.wait_event_type.name</code> - The name of the event type for which the backend is waiting (all
-   *    				engines)</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.wait_event_type.name</code> - The name of the event type for which the
+   * 					backend is waiting (all engines)</p>
+   * 			         </li>
    *          </ul>
    */
   Dimensions?: string[];
@@ -773,14 +812,13 @@ export namespace PerformanceInsightsMetricDimensionGroup {
 }
 
 /**
- * <p>A single query to be processed. Use these parameters to
- *    		query the Performance Insights <code>GetResourceMetrics</code> API to retrieve the metrics
- *    		for an anomaly. For more information, see <code>
+ * <p>A single query to be processed. Use these parameters to query the Performance Insights
+ * 				<code>GetResourceMetrics</code> API to retrieve the metrics for an anomaly. For more
+ * 			information, see <code>
  *                <a href="https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_GetResourceMetrics.html">GetResourceMetrics</a>
- *             </code>
- *    	in the <i>Amazon RDS Performance Insights API Reference</i>.</p>
- *
- *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ *             </code> in the <i>Amazon RDS Performance Insights API
+ * 				Reference</i>.</p>
+ *          <p>Amazon RDS Performance Insights enables you to monitor and explore different
  *    		dimensions of database load based on data captured from a running DB instance.
  *    		DB load is measured as average active sessions. Performance Insights provides the
  *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
@@ -801,47 +839,53 @@ export namespace PerformanceInsightsMetricDimensionGroup {
  */
 export interface PerformanceInsightsMetricQuery {
   /**
-   * <p>The name of the meteric used used when querying an Performance Insights <code>GetResourceMetrics</code> API for
-   *    	anomaly metrics.</p>
+   * <p>The name of the meteric used used when querying an Performance Insights
+   * 				<code>GetResourceMetrics</code> API for anomaly metrics.</p>
    *
-   *    	     <p>Valid values for <code>Metric</code> are:</p>
+   * 		       <p>Valid values for <code>Metric</code> are:</p>
    *
-   *    	     <ul>
+   * 		       <ul>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.load.avg</code> - a scaled representation of the number of active sessions
-   *    				for the database engine.</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.load.avg</code> - a scaled representation of the number of active sessions for the
+   * 					database engine.</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>
-   *    				           <code>db.sampledload.avg</code> - the raw number of active sessions for the
-   *    				database engine.</p>
-   *    		       </li>
+   * 				           <p>
+   * 					             <code>db.sampledload.avg</code> - the raw number of active sessions for the database
+   * 					engine.</p>
+   * 			         </li>
    *          </ul>
-   *    	     <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code>
-   *    		are the same value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code>
-   *    		showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than <code>db.load.avg</code>.
-   *    		For most use cases, you can query <code>db.load.avg</code> only. </p>
+   * 		       <p>If the number of active sessions is less than an internal Performance Insights threshold,
+   * 				<code>db.load.avg</code> and <code>db.sampledload.avg</code> are the same value. If
+   * 			the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with
+   * 				<code>db.load.avg</code> showing the scaled values, <code>db.sampledload.avg</code>
+   * 			showing the raw values, and <code>db.sampledload.avg</code> less than
+   * 				<code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code>
+   * 			only. </p>
    */
   Metric?: string;
 
   /**
-   * <p>The specification for how to aggregate the data points from a Performance Insights <code>GetResourceMetrics</code> API query. The
-   *    		Performance Insights query returns all of the dimensions within that group,
-   *    		unless you provide the names of specific dimensions within that group. You can also request
-   *    		that Performance Insights return a limited number of values for a dimension.</p>
+   * <p>The specification for how to aggregate the data points from a Performance Insights
+   * 				<code>GetResourceMetrics</code> API query. The Performance Insights query returns all of the
+   * 			dimensions within that group, unless you provide the names of specific dimensions within
+   * 			that group. You can also request that Performance Insights return a limited number of values for a
+   * 			dimension.</p>
    */
   GroupBy?: PerformanceInsightsMetricDimensionGroup;
 
   /**
-   * <p>One or more filters to apply to a Performance Insights <code>GetResourceMetrics</code> API query. Restrictions:</p>
-   *    	     <ul>
+   * <p>One or more filters to apply to a Performance Insights <code>GetResourceMetrics</code> API query.
+   * 			Restrictions:</p>
+   * 		       <ul>
    *             <li>
-   *    			         <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> parameter.</p>
-   *    		       </li>
+   * 				           <p>Any number of filters by the same dimension, as specified in the
+   * 						<code>GroupBy</code> parameter.</p>
+   * 			         </li>
    *             <li>
-   *    			         <p>A single filter for any other dimension in this dimension group.</p>
-   *    		       </li>
+   * 				           <p>A single filter for any other dimension in this dimension group.</p>
+   * 			         </li>
    *          </ul>
    */
   Filter?: { [key: string]: string };
@@ -877,7 +921,7 @@ export namespace PerformanceInsightsReferenceMetric {
 
 /**
  * <p>A reference value to compare Performance Insights metrics against to determine if the metrics
- *       demonstrate anomalous behavior.</p>
+ * 			demonstrate anomalous behavior.</p>
  */
 export interface PerformanceInsightsReferenceScalar {
   /**
@@ -896,19 +940,22 @@ export namespace PerformanceInsightsReferenceScalar {
 }
 
 /**
- * <p>Reference scalar values and other metrics that DevOps Guru displays on a graph in its console along with the actual metrics it
- *       analyzed. Compare these reference values to your actual metrics to help you understand anomalous behavior that DevOps Guru detected.</p>
+ * <p>Reference scalar values and other metrics that DevOps Guru displays on a graph in its
+ * 			console along with the actual metrics it analyzed. Compare these reference values to
+ * 			your actual metrics to help you understand anomalous behavior that DevOps Guru
+ * 			detected.</p>
  */
 export interface PerformanceInsightsReferenceComparisonValues {
   /**
-   * <p>A scalar value DevOps Guru for a metric that DevOps Guru compares to actual metric values. This reference value is used
-   *       to determine if an actual metric value should be considered anomalous.</p>
+   * <p>A scalar value DevOps Guru for a metric that DevOps Guru compares to actual metric values. This
+   * 			reference value is used to determine if an actual metric value should be considered
+   * 			anomalous.</p>
    */
   ReferenceScalar?: PerformanceInsightsReferenceScalar;
 
   /**
-   * <p>A metric that DevOps Guru compares to actual metric values. This reference metric is used
-   *    		to determine if an actual metric should be considered anomalous.</p>
+   * <p>A metric that DevOps Guru compares to actual metric values. This reference metric is used to
+   * 			determine if an actual metric should be considered anomalous.</p>
    */
   ReferenceMetric?: PerformanceInsightsReferenceMetric;
 }
@@ -923,8 +970,8 @@ export namespace PerformanceInsightsReferenceComparisonValues {
 }
 
 /**
- * <p>Reference data used to evaluate Performance Insights to determine if its performance
- *       is anomalous or not.</p>
+ * <p>Reference data used to evaluate Performance Insights to determine if its performance is anomalous or
+ * 			not.</p>
  */
 export interface PerformanceInsightsReferenceData {
   /**
@@ -934,10 +981,9 @@ export interface PerformanceInsightsReferenceData {
 
   /**
    * <p>The specific reference values used to evaluate the Performance Insights. For more information, see
-   * 			<code>
+   * 					<code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html">PerformanceInsightsReferenceComparisonValues</a>
-   *             </code>.
-   * 		</p>
+   *             </code>. </p>
    */
   ComparisonValues?: PerformanceInsightsReferenceComparisonValues;
 }
@@ -977,8 +1023,7 @@ export namespace PerformanceInsightsStat {
 
 /**
  * <p>Details about Performance Insights metrics.</p>
- *
- *    	     <p>Amazon RDS Performance Insights enables you to monitor and explore different
+ *          <p>Amazon RDS Performance Insights enables you to monitor and explore different
  *    		dimensions of database load based on data captured from a running DB instance.
  *    		DB load is measured as average active sessions. Performance Insights provides the
  *    		data to API consumers as a two-dimensional time-series dataset. The time dimension
@@ -1009,20 +1054,16 @@ export interface PerformanceInsightsMetricsDetail {
   Unit?: string;
 
   /**
-   * <p>A single query to be processed for the metric. For more information, see
-   *    		<code>
+   * <p>A single query to be processed for the metric. For more information, see <code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html">PerformanceInsightsMetricQuery</a>
    *             </code>.</p>
    */
   MetricQuery?: PerformanceInsightsMetricQuery;
 
   /**
-   * <p>
-   *       	For more information, see
-   *       	<code>
+   * <p> For more information, see <code>
    *                <a href="https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html">PerformanceInsightsReferenceData</a>
-   *             </code>.
-   *       </p>
+   *             </code>. </p>
    */
   ReferenceData?: PerformanceInsightsReferenceData[];
 
@@ -1060,8 +1101,8 @@ export interface AnomalySourceDetails {
   CloudWatchMetrics?: CloudWatchMetricsDetail[];
 
   /**
-   * <p>An array of <code>PerformanceInsightsMetricsDetail</code> objects that contain information
-   *    		about analyzed Performance Insights metrics that show anomalous behavior.</p>
+   * <p>An array of <code>PerformanceInsightsMetricsDetail</code> objects that contain
+   * 			information about analyzed Performance Insights metrics that show anomalous behavior.</p>
    */
   PerformanceInsightsMetrics?: PerformanceInsightsMetricsDetail[];
 }
@@ -1071,6 +1112,35 @@ export namespace AnomalySourceDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnomalySourceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata about an anomaly. The anomaly is detected using analysis of the metric data  over a period of time</p>
+ */
+export interface AnomalySourceMetadata {
+  /**
+   * <p>The source of the anomaly.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The name of the anomaly's resource.</p>
+   */
+  SourceResourceName?: string;
+
+  /**
+   * <p>The anomaly's resource type.</p>
+   */
+  SourceResourceType?: string;
+}
+
+export namespace AnomalySourceMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnomalySourceMetadata): any => ({
     ...obj,
   });
 }
@@ -1282,7 +1352,7 @@ export namespace CloudFormationCollection {
 
 /**
  * <p>A collection of Amazon Web Services stags.</p>
- *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+ *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
  *    		tagging, so you can assign the same tag to resources from different services to indicate
  *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
  *    		table resource that you assign to an Lambda function. For more information about
@@ -1337,7 +1407,7 @@ export interface TagCollection {
 
   /**
    * <p>The values in an Amazon Web Services tag collection.</p>
-   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
    *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
    *    				Omitting the tag <i>value</i> is the same as using an empty
@@ -1371,7 +1441,7 @@ export interface ResourceCollection {
 
   /**
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
-   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
@@ -1490,6 +1560,16 @@ export interface ProactiveAnomaly {
    * 			threshold is related to the anomalous behavior that generated this anomaly. </p>
    */
   Limit?: number;
+
+  /**
+   * <p>The metadata for the anomaly.</p>
+   */
+  SourceMetadata?: AnomalySourceMetadata;
+
+  /**
+   * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
+   */
+  AnomalyResources?: AnomalyResource[];
 }
 
 export namespace ProactiveAnomaly {
@@ -1621,6 +1701,52 @@ export namespace DescribeAnomalyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeAnomalyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEventSourcesConfigRequest {}
+
+export namespace DescribeEventSourcesConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEventSourcesConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the event sources.</p>
+ */
+export interface EventSourcesConfig {
+  /**
+   * <p></p>
+   */
+  AmazonCodeGuruProfiler?: AmazonCodeGuruProfilerIntegration;
+}
+
+export namespace EventSourcesConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventSourcesConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEventSourcesConfigResponse {
+  /**
+   * <p>The name of the event source.</p>
+   */
+  EventSources?: EventSourcesConfig;
+}
+
+export namespace DescribeEventSourcesConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEventSourcesConfigResponse): any => ({
     ...obj,
   });
 }
@@ -1798,6 +1924,11 @@ export interface ProactiveInsight {
    * 			the creation of OpstItems insights before they are created for each insight. </p>
    */
   SsmOpsItemId?: string;
+
+  /**
+   * <p>Describes the proactive insight.</p>
+   */
+  Description?: string;
 }
 
 export namespace ProactiveInsight {
@@ -1855,6 +1986,11 @@ export interface ReactiveInsight {
    * 			the creation of OpstItems insights before they are created for each insight. </p>
    */
   SsmOpsItemId?: string;
+
+  /**
+   * <p>Describes the reactive insight.</p>
+   */
+  Description?: string;
 }
 
 export namespace ReactiveInsight {
@@ -2187,7 +2323,7 @@ export namespace ServiceHealth {
 
 /**
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
- *    		an Amazon Web Services tag <i>key</i>. </p>
+ * 			an Amazon Web Services tag <i>key</i>. </p>
  */
 export interface TagHealth {
   /**
@@ -2210,7 +2346,7 @@ export interface TagHealth {
 
   /**
    * <p>The value in an Amazon Web Services tag.</p>
-   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
    *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
    *    				Omitting the tag <i>value</i> is the same as using an empty
@@ -2220,9 +2356,9 @@ export interface TagHealth {
   TagValue?: string;
 
   /**
-   * <p>Information about the health of the Amazon Web Services resources in your account that are
-   * 			specified by an Amazon Web Services tag, including the number of open proactive, open reactive
-   * 			insights, and the Mean Time to Recover (MTTR) of closed insights. </p>
+   * <p>Information about the health of the Amazon Web Services resources in your account that are specified
+   * 			by an Amazon Web Services tag, including the number of open proactive, open reactive insights, and the
+   * 			Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
 }
@@ -2239,7 +2375,7 @@ export namespace TagHealth {
 export interface DescribeOrganizationResourceCollectionHealthResponse {
   /**
    * <p>The returned <code>CloudFormationHealthOverview</code> object that contains an
-   * 			<code>InsightHealthOverview</code> object with the requested system health
+   * 				<code>InsightHealthOverview</code> object with the requested system health
    * 			information.</p>
    */
   CloudFormation?: CloudFormationHealth[];
@@ -2361,7 +2497,7 @@ export interface DescribeResourceCollectionHealthResponse {
 
   /**
    * <p>The Amazon Web Services tags that are used by resources in the resource collection.</p>
-   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
@@ -2580,12 +2716,12 @@ export namespace CloudFormationCostEstimationResourceCollectionFilter {
 }
 
 /**
- * <p>Information about a collection of Amazon Web Services resources that are identified by an
- *    		Amazon Web Services tag. This collection of resources is used to create a monthly cost estimate
- *    		for DevOps Guru to analyze Amazon Web Services resources. The maximum number of tags you can specify for a
- *    		cost estimate is one. The estimate created is for the cost to analyze the Amazon Web Services
- *    		resources defined by the tag. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
- *    		<i>Amazon Web Services CloudFormation User Guide</i>.</p>
+ * <p>Information about a collection of Amazon Web Services resources that are identified by an Amazon Web Services tag.
+ * 			This collection of resources is used to create a monthly cost estimate for DevOps Guru to
+ * 			analyze Amazon Web Services resources. The maximum number of tags you can specify for a cost estimate
+ * 			is one. The estimate created is for the cost to analyze the Amazon Web Services resources defined by
+ * 			the tag. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Stacks</a> in the
+ * 				<i>Amazon Web Services CloudFormation User Guide</i>.</p>
  */
 export interface TagCostEstimationResourceCollectionFilter {
   /**
@@ -2608,7 +2744,7 @@ export interface TagCostEstimationResourceCollectionFilter {
 
   /**
    * <p>The values in an Amazon Web Services tag collection.</p>
-   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
    *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
    *    				Omitting the tag <i>value</i> is the same as using an empty
@@ -2642,9 +2778,9 @@ export interface CostEstimationResourceCollectionFilter {
   CloudFormation?: CloudFormationCostEstimationResourceCollectionFilter;
 
   /**
-   * <p>The Amazon Web Services tags used to filter the resource collection that is used for
-   *    		a cost estimate.</p>
-   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   * <p>The Amazon Web Services tags used to filter the resource collection that is used for a cost
+   * 			estimate.</p>
+   *          <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
@@ -2813,8 +2949,8 @@ export namespace CloudFormationCollectionFilter {
 }
 
 /**
- * <p>A collection of Amazon Web Services tags used to filter insights. This is used to return insights generated from
- *       only resources that contain the tags in the tag collection.</p>
+ * <p>A collection of Amazon Web Services tags used to filter insights. This is used to return insights
+ * 			generated from only resources that contain the tags in the tag collection.</p>
  */
 export interface TagCollectionFilter {
   /**
@@ -2837,7 +2973,7 @@ export interface TagCollectionFilter {
 
   /**
    * <p>The values in an Amazon Web Services tag collection.</p>
-   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
    *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
    *    				Omitting the tag <i>value</i> is the same as using an empty
@@ -2871,7 +3007,7 @@ export interface ResourceCollectionFilter {
 
   /**
    * <p>The Amazon Web Services tags used to filter the resources in the resource collection.</p>
-   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about
@@ -3080,6 +3216,16 @@ export interface ProactiveAnomalySummary {
    * 			threshold is related to the anomalous behavior that generated this anomaly. </p>
    */
   Limit?: number;
+
+  /**
+   * <p>Returns the metadata of the source.</p>
+   */
+  SourceMetadata?: AnomalySourceMetadata;
+
+  /**
+   * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
+   */
+  AnomalyResources?: AnomalyResource[];
 }
 
 export namespace ProactiveAnomalySummary {
@@ -3918,7 +4064,7 @@ export namespace ListOrganizationInsightsRequest {
 
 /**
  * <p>Details about a proactive insight. This object is returned by
- * 			<code>DescribeInsight</code>.</p>
+ * 				<code>DescribeInsight</code>.</p>
  */
 export interface ProactiveOrganizationInsightSummary {
   /**
@@ -3942,7 +4088,8 @@ export interface ProactiveOrganizationInsightSummary {
   Name?: string;
 
   /**
-   * <p> An array of severity values used to search for insights. For more information, see
+   * <p> An array of severity values used to search for insights.
+   * 			For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
@@ -3990,7 +4137,7 @@ export namespace ProactiveOrganizationInsightSummary {
 
 /**
  * <p>Information about a reactive insight. This object is returned by
- * 			<code>DescribeInsight</code>.</p>
+ * 				<code>DescribeInsight</code>.</p>
  */
 export interface ReactiveOrganizationInsightSummary {
   /**
@@ -4014,7 +4161,8 @@ export interface ReactiveOrganizationInsightSummary {
   Name?: string;
 
   /**
-   * <p> An array of severity values used to search for insights. For more information, see
+   * <p> An array of severity values used to search for insights.
+   * 			For more information, see
    * 	<a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
    * 	insight severities</a> in the <i>Amazon DevOps Guru User Guide</i>.</p>
    */
@@ -4139,11 +4287,11 @@ export interface RecommendationRelatedAnomalyResource {
   Name?: string;
 
   /**
-   * <p> The type of the resource. Resource types take the same form that is
-   * 			used by Amazon Web Services CloudFormation resource type identifiers, <code>service-provider::service-name::data-type-name</code>.
-   * 			For example, <code>AWS::RDS::DBCluster</code>. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
-   * 				property types reference</a> in the <i>Amazon Web Services CloudFormation User Guide</i>.</p>
+   * <p> The type of the resource. Resource types take the same form that is used by Amazon Web Services CloudFormation
+   * 			resource type identifiers, <code>service-provider::service-name::data-type-name</code>.
+   * 			For example, <code>AWS::RDS::DBCluster</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services
+   * 				resource and property types reference</a> in the <i>Amazon Web Services CloudFormation User
+   * 				Guide</i>.</p>
    */
   Type?: string;
 }
@@ -4323,6 +4471,11 @@ export interface Recommendation {
    * 			what's happening and to help address the issue. </p>
    */
   RelatedAnomalies?: RecommendationRelatedAnomaly[];
+
+  /**
+   * <p>The category type of the recommendation.</p>
+   */
+  Category?: string;
 }
 
 export namespace Recommendation {
@@ -4586,7 +4739,7 @@ export interface SearchOrganizationInsightsRequest {
 
   /**
    * <p> The type of insights you are searching for (<code>REACTIVE</code> or
-   * 			<code>PROACTIVE</code>). </p>
+   * 				<code>PROACTIVE</code>). </p>
    */
   Type: InsightType | string | undefined;
 }
@@ -4661,6 +4814,33 @@ export namespace StartCostEstimationResponse {
   });
 }
 
+export interface UpdateEventSourcesConfigRequest {
+  /**
+   * <p>The name of the event source.</p>
+   */
+  EventSources?: EventSourcesConfig;
+}
+
+export namespace UpdateEventSourcesConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventSourcesConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventSourcesConfigResponse {}
+
+export namespace UpdateEventSourcesConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventSourcesConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum UpdateResourceCollectionAction {
   ADD = "ADD",
   REMOVE = "REMOVE",
@@ -4689,7 +4869,7 @@ export namespace UpdateCloudFormationCollectionFilter {
 
 /**
  * <p>A new collection of Amazon Web Services resources that are defined by an Amazon Web Services tag or tag
- *       <i>key</i>/<i>value</i> pair.</p>
+ * 			<i>key</i>/<i>value</i> pair.</p>
  */
 export interface UpdateTagCollectionFilter {
   /**
@@ -4712,7 +4892,7 @@ export interface UpdateTagCollectionFilter {
 
   /**
    * <p>The values in an Amazon Web Services tag collection.</p>
-   *    	     <p>The tag's <i>value</i> is an optional field used to associate a string with
+   *          <p>The tag's <i>value</i> is an optional field used to associate a string with
    * 					the tag <i>key</i> (for example, <code>111122223333</code>, <code>Production</code>, or a team
    *    				name). The <i>key</i> and <i>value</i> are the tag's <i>key</i> pair.
    *    				Omitting the tag <i>value</i> is the same as using an empty
@@ -4742,7 +4922,7 @@ export interface UpdateResourceCollectionFilter {
 
   /**
    * <p>The updated Amazon Web Services tags used to filter the resources in the resource collection.</p>
-   *    	     <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
+   * 		       <p>Tags help you identify and organize your Amazon Web Services resources. Many Amazon Web Services services support
    *    		tagging, so you can assign the same tag to resources from different services to indicate
    *    		that the resources are related. For example, you can assign the same tag to an Amazon DynamoDB
    *    		table resource that you assign to an Lambda function. For more information about

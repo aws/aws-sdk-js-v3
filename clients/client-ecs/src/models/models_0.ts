@@ -68,7 +68,7 @@ export enum ManagedScalingStatus {
  */
 export interface ManagedScaling {
   /**
-   * <p>Determines whether to enable managed scaling for the capacity provider.</p>
+   * <p>Determines whether to use managed scaling for the capacity provider.</p>
    */
   status?: ManagedScalingStatus | string;
 
@@ -502,7 +502,7 @@ export interface ExecuteCommandLogConfiguration {
   cloudWatchLogGroupName?: string;
 
   /**
-   * <p>Determines whether to enable encryption on the CloudWatch logs. If not specified,
+   * <p>Determines whether to use encryption on the CloudWatch logs. If not specified,
    * 			encryption will be disabled.</p>
    */
   cloudWatchEncryptionEnabled?: boolean;
@@ -682,7 +682,7 @@ export enum ClusterSettingName {
 }
 
 /**
- * <p>The settings to use when creating a cluster. This parameter is used to enable CloudWatch
+ * <p>The settings to use when creating a cluster. This parameter is used to turn on CloudWatch
  * 			Container Insights for a cluster.</p>
  */
 export interface ClusterSetting {
@@ -757,7 +757,7 @@ export interface CreateClusterRequest {
   tags?: Tag[];
 
   /**
-   * <p>The setting to use when creating a cluster. This parameter is used to enable CloudWatch
+   * <p>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
    * 			Container Insights for a cluster. If this value is specified, it overrides the
    * 				<code>containerInsights</code> value set with <a>PutAccountSetting</a> or
    * 				<a>PutAccountSettingDefault</a>.</p>
@@ -1120,19 +1120,19 @@ export class ClusterNotFoundException extends __BaseException {
  * 		       <p>The <b>deployment circuit breaker</b> determines whether a
  * 			service deployment will fail if the service can't reach a steady state. If enabled, a
  * 			service deployment will transition to a failed state and stop launching new tasks. You
- * 			can also enable Amazon ECS to roll back your service to the last completed deployment after a
+ * 			can also configure Amazon ECS to roll back your service to the last completed deployment after a
  * 			failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
  * 				update</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface DeploymentCircuitBreaker {
   /**
-   * <p>Determines whether to enable the deployment circuit breaker logic for the
+   * <p>Determines whether to use the deployment circuit breaker logic for the
    * 			service.</p>
    */
   enable: boolean | undefined;
 
   /**
-   * <p>Determines whether to enable Amazon ECS to roll back the service if a service deployment
+   * <p>Determines whether to configure Amazon ECS to roll back the service if a service deployment
    * 			fails. If rollback is enabled, when a service deployment fails, the service is rolled
    * 			back to the last deployment that completed successfully.</p>
    */
@@ -1283,6 +1283,14 @@ export enum LaunchType {
  * <p>The load balancer configuration to use with a service or task set.</p>
  * 		       <p>For specific notes and restrictions regarding the use of load balancers with services
  * 			and task sets, see the CreateService and CreateTaskSet actions.</p>
+ * 		       <p>When you add, update, or remove a load blaancer configuration, Amazon ECS starts a new
+ * 			deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and
+ * 			deregister from load balancers.</p>
+ * 		       <p>We recommend that you verify this on a test environment before you update the Elastic Load Balancing
+ * 			configuration. </p>
+ * 		       <p>A service-linked role is required for services that use multiple target groups. For
+ * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked
+ * 				roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface LoadBalancer {
   /**
@@ -1493,6 +1501,7 @@ export namespace PlacementStrategy {
 }
 
 export enum PropagateTags {
+  NONE = "NONE",
   SERVICE = "SERVICE",
   TASK_DEFINITION = "TASK_DEFINITION",
 }
@@ -1504,6 +1513,11 @@ export enum SchedulingStrategy {
 
 /**
  * <p>The details for the service registry.</p>
+ * 		       <p>Each service may be associated with one service registry. Multiple service registries for
+ * 			each service are not supported.</p>
+ * 		       <p>When you add, update, or remove the service registries configuration, Amazon ECS starts a
+ * 			new deployment. New tasks are registered and deregistered to the updated service
+ * 			registry configuration.</p>
  */
 export interface ServiceRegistry {
   /**
@@ -1594,10 +1608,8 @@ export interface CreateServiceRequest {
    * 			also have up to two listeners: a required listener for production traffic and an
    * 			optional listener that you can use to perform validation tests with Lambda functions
    * 			before routing production traffic to it.</p>
-   * 		       <p>After you create a service using the <code>ECS</code> deployment controller, the load
-   * 			balancer name or target group ARN, container name, and container port that's specified
-   * 			in the service definition are immutable. If you use the <code>CODE_DEPLOY</code>
-   * 			deployment controller, these values can be changed when updating the service.</p>
+   * 		       <p>If you use the <code>CODE_DEPLOY</code> deployment controller, these values can be changed
+   * 			when updating the service.</p>
    * 		       <p>For Application Load Balancers and Network Load Balancers, this object must contain the load balancer target group ARN,
    * 			the container name, and the container port to access from the load balancer. The
    * 			container name must be as it appears in a container definition. The load balancer name
@@ -1741,6 +1753,7 @@ export interface CreateServiceRequest {
    * 			service is configured to use a load balancer. If your service has a load balancer
    * 			defined and you don't specify a health check grace period value, the default value of
    * 				<code>0</code> is used.</p>
+   * 		       <p>If you do not use an Elastic Load Balancing, we recomend that you use the <code>startPeriod</code> in the task definition healtch check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health check</a>.</p>
    * 		       <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you
    * 			can specify a health check grace period of up to
    * 			2,147,483,647
@@ -1828,7 +1841,7 @@ export interface CreateServiceRequest {
   tags?: Tag[];
 
   /**
-   * <p>Specifies whether to enable Amazon ECS managed tags for the tasks within the service. For
+   * <p>Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For
    * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -2464,13 +2477,11 @@ export interface Service {
    * 			         </li>
    *             <li>
    * 				           <p>
-   *                   <code>DAEMON</code>-The daemon scheduling strategy deploys exactly one
-   * 					task on each active container
-   * 					instance.
-   * 					This taskmeets all of the task placement constraints that you
-   * 					specify in your cluster. The service scheduler also evaluates the task placement
-   * 					constraints for running tasks. It stop tasks that don't meet the placement
-   * 					constraints.</p>
+   *                   <code>DAEMON</code>-The daemon scheduling strategy deploys exactly one task on each
+   * 					active container instance. This task meets all of the task placement constraints
+   * 					that you specify in your cluster. The service scheduler also evaluates the task
+   * 					placement constraints for running tasks. It stop tasks that don't meet the
+   * 					placement constraints.</p>
    * 				           <note>
    * 					             <p>Fargate tasks don't support the <code>DAEMON</code>
    * 						scheduling strategy.</p>
@@ -2531,7 +2542,7 @@ export interface Service {
   createdBy?: string;
 
   /**
-   * <p>Determines whether to enable Amazon ECS managed tags for the tasks in the service. For more
+   * <p>Determines whether to use Amazon ECS managed tags for the tasks in the service. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -2935,8 +2946,8 @@ export enum TargetType {
 }
 
 /**
- * <p>An attribute is a name-value pair that's associated with an Amazon ECS object. Attributes
- * 			enable you to extend the Amazon ECS data model by adding custom metadata to your resources.
+ * <p>An attribute is a name-value pair that's associated with an Amazon ECS object. Use attributes
+ * 			to extend the Amazon ECS data model by adding custom metadata to your resources.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface Attribute {
@@ -3701,7 +3712,7 @@ export enum ContainerCondition {
  * 			multiple dependencies. When a dependency is defined for container startup, for container
  * 			shutdown it is reversed.</p>
  * 		       <p>Your Amazon ECS container instances require at least version 1.26.0 of the container agent
- * 			to enable container dependencies. However, we recommend using the latest container agent
+ * 			to use container dependencies. However, we recommend using the latest container agent
  * 			version. For information about checking your agent version and updating to the latest
  * 			version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
  * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
@@ -4286,6 +4297,7 @@ export interface Secret {
   /**
    * <p>The secret to expose to the container. The supported values are either the full ARN of
    * 			the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.</p>
+   * 		       <p>For information about the require Identity and Access Management permissions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam">Required IAM permissions for Amazon ECS secrets</a> (for Secrets Manager) or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html">Required IAM permissions for Amazon ECS secrets</a> (for Systems Manager Parameter store) in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
    * 			         <p>If the SSM Parameter Store parameter exists in the same Region as the task
    * 				you're launching, then you can use either the full ARN or name of the parameter. If
@@ -5015,7 +5027,7 @@ export interface ContainerDefinition {
    * 			multiple dependencies. When a dependency is defined for container startup, for container
    * 			shutdown it is reversed.</p>
    * 		       <p>For tasks using the EC2 launch type, the container instances require at
-   * 			least version 1.26.0 of the container agent to enable container dependencies. However,
+   * 			least version 1.26.0 of the container agent to turn on container dependencies. However,
    * 			we recommend using the latest container agent version. For information about checking
    * 			your agent version and updating to the latest version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
    * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
@@ -5059,7 +5071,7 @@ export interface ContainerDefinition {
    * 			         </li>
    *          </ul>
    * 		       <p>For tasks using the EC2 launch type, your container instances require at
-   * 			least version <code>1.26.0</code> of the container agent to enable a container start
+   * 			least version <code>1.26.0</code> of the container agent to use a container start
    * 			timeout value. However, we recommend using the latest container agent version. For
    * 			information about checking your agent version and updating to the latest version, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
@@ -5092,7 +5104,7 @@ export interface ContainerDefinition {
    * 				<code>stopTimeout</code> parameter or the <code>ECS_CONTAINER_STOP_TIMEOUT</code>
    * 			agent configuration variable are set, then the default values of 30 seconds for Linux
    * 			containers and 30 seconds on Windows containers are used. Your container instances
-   * 			require at least version 1.26.0 of the container agent to enable a container stop
+   * 			require at least version 1.26.0 of the container agent to use a container stop
    * 			timeout value. However, we recommend using the latest container agent version. For
    * 			information about checking your agent version and updating to the latest version, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
@@ -5394,16 +5406,9 @@ export namespace ContainerDefinition {
  * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
  * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
  * 		       <note>
- * 			         <p>This parameter is only supported for tasks hosted on Fargate using
- * 				the following platform versions:</p>
- * 			         <ul>
- *                <li>
- * 					             <p>Linux platform version <code>1.4.0</code> or later.</p>
- * 				           </li>
- *                <li>
- * 					             <p>Windows platform version <code>1.0.0</code> or later.</p>
- * 				           </li>
- *             </ul>
+ * 			         <p>This parameter is only supported for tasks hosted on Fargate using Linux
+ * 				platform version <code>1.4.0</code> or later. This parameter is not supported for
+ * 				Windows containers on Fargate.</p>
  * 		       </note>
  */
 export interface EphemeralStorage {
@@ -5512,7 +5517,7 @@ export enum ProxyConfigurationType {
  * <p>The configuration details for the App Mesh proxy.</p>
  * 		       <p>For tasks that use the EC2 launch type, the container instances require
  * 			at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the
- * 				<code>ecs-init</code> package to enable a proxy configuration. If your container
+ * 				<code>ecs-init</code> package to use a proxy configuration. If your container
  * 			instances are launched from the Amazon ECS optimized AMI version <code>20190301</code> or
  * 			later, then they contain the required versions of the container agent and
  * 				<code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
@@ -5772,7 +5777,7 @@ export interface EFSVolumeConfiguration {
   rootDirectory?: string;
 
   /**
-   * <p>Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS
+   * <p>Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS
    * 			host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization
    * 			is used. If this parameter is omitted, the default value of <code>DISABLED</code> is
    * 			used. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting Data in Transit</a> in
@@ -6227,7 +6232,7 @@ export interface TaskDefinition {
   /**
    * <p>The configuration details for the App Mesh proxy.</p>
    * 		       <p>Your Amazon ECS container instances require at least version 1.26.0 of the container agent
-   * 			and at least version 1.26.0-1 of the <code>ecs-init</code> package to enable a proxy
+   * 			and at least version 1.26.0-1 of the <code>ecs-init</code> package to use a proxy
    * 			configuration. If your container instances are launched from the Amazon ECS optimized AMI
    * 			version <code>20190301</code> or later, they contain the required versions of the
    * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -7309,6 +7314,39 @@ export interface Task {
   /**
    * <p>The stop code indicating why a task was stopped. The <code>stoppedReason</code> might
    * 			contain additional details.</p>
+   * 		       <p>The following are valid values:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>TaskFailedToStart</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>EssentialContainerExited</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>UserInitiated</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>TerminationNotice</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>ServiceSchedulerInitiated</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>SpotInterruption</code>
+   *                </p>
+   * 			         </li>
+   *          </ul>
    */
   stopCode?: TaskStopCode | string;
 
@@ -7578,8 +7616,7 @@ export interface Session {
 
   /**
    * <p>A URL
-   * 			back
-   * 			to managed agent on the container that the SSM Session Manager client
+   * 						to the managed agent on the container that the SSM Session Manager client
    * 			uses to send commands and receive output from the container.</p>
    */
   streamUrl?: string;
@@ -9060,7 +9097,7 @@ export interface RegisterTaskDefinitionRequest {
    * <p>The configuration details for the App Mesh proxy.</p>
    * 		       <p>For tasks hosted on Amazon EC2 instances, the container instances require at least version
    * 				<code>1.26.0</code> of the container agent and at least version
-   * 				<code>1.26.0-1</code> of the <code>ecs-init</code> package to enable a proxy
+   * 				<code>1.26.0-1</code> of the <code>ecs-init</code> package to use a proxy
    * 			configuration. If your container instances are launched from the Amazon ECS-optimized
    * 			AMI version <code>20190301</code> or later, then they contain the required versions of
    * 			the container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html">Amazon ECS-optimized AMI versions</a> in the
@@ -9178,14 +9215,14 @@ export interface RunTaskRequest {
   count?: number;
 
   /**
-   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see
+   * <p>Specifies whether to use Amazon ECS managed tags for the task. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   enableECSManagedTags?: boolean;
 
   /**
-   * <p>Determines whether to enable the execute command functionality for the containers in
+   * <p>Determines whether to use the execute command functionality for the containers in
    * 			this task. If <code>true</code>, this enables execute command functionality on all
    * 			containers in the task.</p>
    */
@@ -9386,7 +9423,7 @@ export interface StartTaskRequest {
   containerInstances: string[] | undefined;
 
   /**
-   * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see
+   * <p>Specifies whether to use Amazon ECS managed tags for the task. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -10101,7 +10138,7 @@ export interface UpdateClusterSettingsRequest {
   cluster: string | undefined;
 
   /**
-   * <p>The setting to use by default for a cluster. This parameter is used to enable CloudWatch
+   * <p>The setting to use by default for a cluster. This parameter is used to turn on CloudWatch
    * 			Container Insights for a cluster. If this value is specified, it overrides the
    * 				<code>containerInsights</code> value set with <a>PutAccountSetting</a> or
    * 				<a>PutAccountSettingDefault</a>.</p>
@@ -10389,6 +10426,48 @@ export interface UpdateServiceRequest {
    * 			you can set this to <code>null</code> when performing this action.</p>
    */
   enableExecuteCommand?: boolean;
+
+  /**
+   * <p>Determines whether to turn on Amazon ECS managed tags for the tasks in the service. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
+   * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>Only tasks launched after the update will reflect the update. To update the tags on
+   * 			all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon ECS
+   * 			starts new tasks with the updated tags.</p>
+   */
+  enableECSManagedTags?: boolean;
+
+  /**
+   * <p>A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
+   * 			container name, and the container port to access from the load balancer. The container
+   * 			name is as it appears in a container definition.</p>
+   * 		       <p>When you add, update, or remove a load balancer configuration, Amazon ECS starts new tasks with
+   * 			the updated Elastic Load Balancing configuration, and then stops the old tasks when the new tasks are
+   * 			running.</p>
+   * 		       <p>You can remove existing <code>loadBalancers</code> by passing an empty list.</p>
+   */
+  loadBalancers?: LoadBalancer[];
+
+  /**
+   * <p>Determines whether to propagate the tags from the task definition or the service to
+   * 			the task. If no value is specified, the tags aren't propagated.</p>
+   * 		       <p>Only tasks launched after the update will reflect the update. To update the tags on
+   * 			all tasks, set <code>forceNewDeployment</code> to <code>true</code>, so that Amazon ECS
+   * 			starts new tasks with the updated tags.</p>
+   */
+  propagateTags?: PropagateTags | string;
+
+  /**
+   * <p>The details for the service discovery registries to assign to this service. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+   * 				Discovery</a>.</p>
+   * 		       <p>When you add, update, or remove the service registries configuration, Amazon ECS starts new tasks
+   * 			with the updated service registries configuration, and then stops the old tasks when the
+   * 			new tasks are running.</p>
+   * 		       <p>You can remove existing <code>serviceRegistries</code> by passing an empty
+   * 			list.</p>
+   */
+  serviceRegistries?: ServiceRegistry[];
 }
 
 export namespace UpdateServiceRequest {
@@ -10446,7 +10525,7 @@ export namespace UpdateServicePrimaryTaskSetRequest {
 
 export interface UpdateServicePrimaryTaskSetResponse {
   /**
-   * <p>Details about the task set.</p>
+   * <p>etails about the task set.</p>
    */
   taskSet?: TaskSet;
 }

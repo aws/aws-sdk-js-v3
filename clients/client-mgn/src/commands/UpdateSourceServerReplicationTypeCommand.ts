@@ -22,7 +22,7 @@ export interface UpdateSourceServerReplicationTypeCommandInput extends UpdateSou
 export interface UpdateSourceServerReplicationTypeCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>Updates source server Replication Type by ID.</p>
+ * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

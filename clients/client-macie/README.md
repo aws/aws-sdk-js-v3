@@ -9,12 +9,12 @@ AWS SDK for JavaScript Macie Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Macie Classic</fullname>
 
-<p>Amazon Macie Classic is a security service that uses machine learning to automatically
-discover, classify, and protect sensitive data in AWS. Macie Classic recognizes sensitive data
-such as personally identifiable information (PII) or intellectual property, and provides you
-with dashboards and alerts that give visibility into how this data is being accessed or moved.
-For more information, see the <a href="https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html">Amazon Macie
-Classic User Guide</a>. </p>
+<p>Amazon Macie Classic has been discontinued and is no longer available.</p>
+
+<p>A new Amazon Macie is now available with significant design improvements and additional
+features, at a lower price and in most Amazon Web Services Regions. We encourage you to take advantage of the
+new and improved features, and benefit from the reduced cost. To learn about features and pricing for the new Macie, see <a href="http://aws.amazon.com/macie/">Amazon Macie</a>. To learn how to use the new Macie, see the <a href="https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html">Amazon Macie User
+Guide</a>.</p>
 
 ## Installing
 

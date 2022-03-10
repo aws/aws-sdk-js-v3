@@ -198,7 +198,7 @@ export enum EntityType {
 }
 
 /**
- * <p>Provides the configuration information of users or groups in
+ * <p>Provides the configuration information for users or groups in
  *             your Amazon Web Services SSO identity source to grant access your Amazon Kendra
  *             experience.</p>
  */
@@ -406,7 +406,7 @@ export enum Persona {
 }
 
 /**
- * <p>Provides the configuration information of users or groups in your
+ * <p>Provides the configuration information for users or groups in your
  *             Amazon Web Services SSO identity source for access to your Amazon Kendra experience.
  *             Specific permissions are defined for each user or group once they are
  *             granted access to your Amazon Kendra experience.</p>
@@ -1844,7 +1844,7 @@ export enum ConfluenceVersion {
 }
 
 /**
- * <p>Provides information for connecting to an Amazon VPC.</p>
+ * <p>Provides the configuration information to connect to an Amazon VPC.</p>
  */
 export interface DataSourceVpcConfiguration {
   /**
@@ -1873,8 +1873,8 @@ export namespace DataSourceVpcConfiguration {
 }
 
 /**
- * <p>Provides configuration information for data sources that connect
- *             to Confluence.</p>
+ * <p>Provides the configuration information to connect to Confluence
+ *             as your data source.</p>
  */
 export interface ConfluenceConfiguration {
   /**
@@ -2045,7 +2045,7 @@ export namespace ColumnConfiguration {
 }
 
 /**
- * <p>Provides the information necessary to connect to a
+ * <p>Provides the configuration information that's required to connect to a
  *             database.</p>
  */
 export interface ConnectionConfiguration {
@@ -2104,7 +2104,7 @@ export enum QueryIdentifiersEnclosingOption {
 }
 
 /**
- * <p>Provides information that configures Amazon Kendra to use a SQL
+ * <p>Provides the configuration information to use a SQL
  *             database.</p>
  */
 export interface SqlConfiguration {
@@ -2135,7 +2135,7 @@ export namespace SqlConfiguration {
 }
 
 /**
- * <p>Provides the information necessary to connect a database to an
+ * <p>Provides the configuration information to connect to a
  *             index. </p>
  */
 export interface DatabaseConfiguration {
@@ -2145,12 +2145,12 @@ export interface DatabaseConfiguration {
   DatabaseEngineType: DatabaseEngineType | string | undefined;
 
   /**
-   * <p>The information necessary to connect to a database.</p>
+   * <p>Configuration information that's required to connect to a database.</p>
    */
   ConnectionConfiguration: ConnectionConfiguration | undefined;
 
   /**
-   * <p>Provides information for connecting to an Amazon VPC.</p>
+   * <p>Provides the configuration information to connect to an Amazon VPC.</p>
    */
   VpcConfiguration?: DataSourceVpcConfiguration;
 
@@ -2208,7 +2208,7 @@ export interface FsxConfiguration {
   FileSystemType: FsxFileSystemType | string | undefined;
 
   /**
-   * <p>Provides the configuration information for connecting to an
+   * <p>Configuration information for connecting to an
    *             Amazon Virtual Private Cloud for your Amazon FSx. Your Amazon FSx
    *             instance must reside inside your VPC.</p>
    */
@@ -2228,8 +2228,8 @@ export interface FsxConfiguration {
    *                     Amazon FSx file system for Windows.</p>
    *             </li>
    *             <li>
-   *                 <p>password—The password of the active directory user with
-   *                     read and mounting access Amazon FSx Windows file system.</p>
+   *                 <p>password—The password of the Active Directory user account with
+   *                     read and mounting access to the Amazon FSx Windows file system.</p>
    *             </li>
    *          </ul>
    */
@@ -2258,7 +2258,7 @@ export interface FsxConfiguration {
   /**
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that
    *             map Amazon FSx data source attributes or field names to Amazon Kendra
-   *             index field names in Amazon Kendra. To create custom fields, use the
+   *             index field names. To create custom fields, use the
    *             <code>UpdateIndex</code> API before you map to Amazon FSx fields.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
    *                 data source fields</a>. The Amazon FSx data source field names
@@ -2277,8 +2277,8 @@ export namespace FsxConfiguration {
 }
 
 /**
- * <p>Provides configuration information for data sources that connect
- *             to Google Drive.</p>
+ * <p>Provides the configuration information to connect to
+ *             Google Drive as your data source.</p>
  */
 export interface GoogleDriveConfiguration {
   /**
@@ -2382,8 +2382,8 @@ export namespace OneDriveUsers {
 }
 
 /**
- * <p>Provides configuration information for data sources that connect
- *             to OneDrive.</p>
+ * <p>Provides the configuration information to connect
+ *             to OneDrive as your data source.</p>
  */
 export interface OneDriveConfiguration {
   /**
@@ -2475,8 +2475,8 @@ export namespace DocumentsMetadataConfiguration {
 }
 
 /**
- * <p>Provides configuration information for a data source to index
- *             documents in an Amazon S3 bucket.</p>
+ * <p>Provides the configuration information to connect to
+ *             an Amazon S3 bucket.</p>
  */
 export interface S3DataSourceConfiguration {
   /**
@@ -2577,7 +2577,7 @@ export enum SalesforceChatterFeedIncludeFilterType {
 }
 
 /**
- * <p>Defines configuration for syncing a Salesforce chatter feed. The
+ * <p>The configuration information for syncing a Salesforce chatter feed. The
  *             contents of the object comes from the Salesforce FeedItem
  *             table.</p>
  */
@@ -2666,7 +2666,7 @@ export enum SalesforceKnowledgeArticleState {
 }
 
 /**
- * <p>Provides configuration information for standard Salesforce
+ * <p>Configuration information for standard Salesforce
  *             knowledge articles.</p>
  */
 export interface SalesforceStandardKnowledgeArticleTypeConfiguration {
@@ -2699,7 +2699,7 @@ export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
 }
 
 /**
- * <p>Specifies configuration information for the knowledge article
+ * <p>Provides the configuration information for the knowledge article
  *             types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge
  *             articles and the standard fields of knowledge articles, or the
  *             custom fields of custom knowledge articles, but not both </p>
@@ -2713,13 +2713,13 @@ export interface SalesforceKnowledgeArticleConfiguration {
   IncludedStates: (SalesforceKnowledgeArticleState | string)[] | undefined;
 
   /**
-   * <p>Provides configuration information for standard Salesforce
+   * <p>Configuration information for standard Salesforce
    *             knowledge articles.</p>
    */
   StandardKnowledgeArticleTypeConfiguration?: SalesforceStandardKnowledgeArticleTypeConfiguration;
 
   /**
-   * <p>Provides configuration information for custom Salesforce knowledge
+   * <p>Configuration information for custom Salesforce knowledge
    *             articles.</p>
    */
   CustomKnowledgeArticleTypeConfigurations?: SalesforceCustomKnowledgeArticleTypeConfiguration[];
@@ -2735,7 +2735,7 @@ export namespace SalesforceKnowledgeArticleConfiguration {
 }
 
 /**
- * <p>Provides configuration information for processing attachments to
+ * <p>Provides the configuration information for processing attachments to
  *             Salesforce standard objects. </p>
  */
 export interface SalesforceStandardObjectAttachmentConfiguration {
@@ -2781,7 +2781,7 @@ export enum SalesforceStandardObjectName {
 }
 
 /**
- * <p>Specifies configuration information for indexing a single standard
+ * <p>Provides the configuration information for indexing a single standard
  *             object.</p>
  */
 export interface SalesforceStandardObjectConfiguration {
@@ -2891,7 +2891,7 @@ export interface SalesforceConfiguration {
   CrawlAttachments?: boolean;
 
   /**
-   * <p>Provides configuration information for processing attachments to
+   * <p>Configuration information for processing attachments to
    *             Salesforce standard objects. </p>
    */
   StandardObjectAttachmentConfiguration?: SalesforceStandardObjectAttachmentConfiguration;
@@ -2932,7 +2932,7 @@ export enum ServiceNowAuthenticationType {
 }
 
 /**
- * <p>Provides configuration information for crawling knowledge articles
+ * <p>Provides the configuration information for crawling knowledge articles
  *             in the ServiceNow site.</p>
  */
 export interface ServiceNowKnowledgeArticleConfiguration {
@@ -2998,7 +2998,7 @@ export namespace ServiceNowKnowledgeArticleConfiguration {
 }
 
 /**
- * <p>Provides configuration information for crawling service catalog
+ * <p>Provides the configuration information for crawling service catalog
  *             items in the ServiceNow site</p>
  */
 export interface ServiceNowServiceCatalogConfiguration {
@@ -3062,8 +3062,8 @@ export enum ServiceNowBuildVersionType {
 }
 
 /**
- * <p>Provides configuration information required to connect to a
- *             ServiceNow data source.</p>
+ * <p>Provides the configuration information to connect to
+ *             ServiceNow as your data source.</p>
  */
 export interface ServiceNowConfiguration {
   /**
@@ -3089,13 +3089,13 @@ export interface ServiceNowConfiguration {
   ServiceNowBuildVersion: ServiceNowBuildVersionType | string | undefined;
 
   /**
-   * <p>Provides configuration information for crawling knowledge articles
+   * <p>Configuration information for crawling knowledge articles
    *             in the ServiceNow site.</p>
    */
   KnowledgeArticleConfiguration?: ServiceNowKnowledgeArticleConfiguration;
 
   /**
-   * <p>Provides configuration information for crawling service catalogs
+   * <p>Configuration information for crawling service catalogs
    *             in the ServiceNow site.</p>
    */
   ServiceCatalogConfiguration?: ServiceNowServiceCatalogConfiguration;
@@ -3133,8 +3133,8 @@ export enum SharePointVersion {
 }
 
 /**
- * <p>Provides configuration information for connecting to a Microsoft
- *             SharePoint data source.</p>
+ * <p>Provides the configuration information to connect to Microsoft
+ *             SharePoint as your data source.</p>
  */
 export interface SharePointConfiguration {
   /**
@@ -3203,7 +3203,7 @@ export interface SharePointConfiguration {
   ExclusionPatterns?: string[];
 
   /**
-   * <p>Provides information for connecting to an Amazon VPC.</p>
+   * <p>Provides the configuration information to connect to an Amazon VPC.</p>
    */
   VpcConfiguration?: DataSourceVpcConfiguration;
 
@@ -3294,7 +3294,7 @@ export enum WebCrawlerMode {
 }
 
 /**
- * <p>Provides the configuration information of the seed or starting point URLs to crawl.</p>
+ * <p>Provides the configuration information for the seed or starting point URLs to crawl.</p>
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
@@ -3347,7 +3347,7 @@ export namespace SeedUrlConfiguration {
 }
 
 /**
- * <p>Provides the configuration information of the sitemap URLs to crawl.</p>
+ * <p>Provides the configuration information for the sitemap URLs to crawl.</p>
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
@@ -3389,7 +3389,7 @@ export namespace SiteMapsConfiguration {
  */
 export interface Urls {
   /**
-   * <p>Provides the configuration of the seed or starting point URLs of the websites
+   * <p>Configuration of the seed or starting point URLs of the websites
    *             you want to crawl.</p>
    *         <p>You can choose to crawl only the website host names, or the website host names
    *             with subdomains, or the website host names with subdomains and other domains
@@ -3399,7 +3399,7 @@ export interface Urls {
   SeedUrlConfiguration?: SeedUrlConfiguration;
 
   /**
-   * <p>Provides the configuration of the sitemap URLs of the websites you want to crawl.</p>
+   * <p>Configuration of the sitemap URLs of the websites you want to crawl.</p>
    *         <p>Only URLs belonging to the same website host names are crawled. You can list up to
    *             three sitemap URLs.</p>
    */
@@ -3487,7 +3487,7 @@ export interface WebCrawlerConfiguration {
   UrlExclusionPatterns?: string[];
 
   /**
-   * <p>Provides configuration information required to connect to your internal
+   * <p>Configuration information required to connect to your internal
    *             websites via a web proxy.</p>
    *         <p>You must provide the website host name and port number. For example, the
    *             host name of https://a.example.com/page1.html is "a.example.com" and the
@@ -3499,7 +3499,7 @@ export interface WebCrawlerConfiguration {
   ProxyConfiguration?: ProxyConfiguration;
 
   /**
-   * <p>Provides configuration information required to connect to websites using
+   * <p>Configuration information required to connect to websites using
    *             authentication.</p>
    *         <p>You can connect to websites using basic authentication of user name and password.</p>
    *         <p>You must provide the website host name and port number. For example, the host name
@@ -3602,42 +3602,42 @@ export namespace WorkDocsConfiguration {
 }
 
 /**
- * <p>Configuration information for an Amazon Kendra data source.</p>
+ * <p>Provides the configuration information for an Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
   /**
-   * <p>Provides information to create a data source connector for a
-   *             document repository in an Amazon S3 bucket.</p>
+   * <p>Provides the configuration information to connect to an Amazon S3
+   *             bucket as your data source.</p>
    */
   S3Configuration?: S3DataSourceConfiguration;
 
   /**
-   * <p>Provides information necessary to create a data source connector
-   *             for a Microsoft SharePoint site.</p>
+   * <p>Provides the configuration information to connect to Microsoft SharePoint
+   *             as your data source.</p>
    */
   SharePointConfiguration?: SharePointConfiguration;
 
   /**
-   * <p>Provides information necessary to create a data source connector
-   *             for a database.</p>
+   * <p>Provides the configuration information to connect to a database as
+   *             your data source.</p>
    */
   DatabaseConfiguration?: DatabaseConfiguration;
 
   /**
-   * <p>Provides configuration information for data sources that connect
-   *             to a Salesforce site.</p>
+   * <p>Provides the configuration information to connect to
+   *             Salesforce as your data source.</p>
    */
   SalesforceConfiguration?: SalesforceConfiguration;
 
   /**
-   * <p>Provides configuration for data sources that connect to Microsoft
-   *             OneDrive.</p>
+   * <p>Provides the configuration information to connect to Microsoft
+   *             OneDrive as your data source.</p>
    */
   OneDriveConfiguration?: OneDriveConfiguration;
 
   /**
-   * <p>Provides configuration for data sources that connect to ServiceNow
-   *             instances.</p>
+   * <p>Provides the configuration information to connect to ServiceNow
+   *             as your data source.</p>
    */
   ServiceNowConfiguration?: ServiceNowConfiguration;
 
@@ -3648,8 +3648,8 @@ export interface DataSourceConfiguration {
   ConfluenceConfiguration?: ConfluenceConfiguration;
 
   /**
-   * <p>Provides configuration for data sources that connect to Google
-   *             Drive. </p>
+   * <p>Provides the configuration information to connect to Google
+   *             Drive as your data source. </p>
    */
   GoogleDriveConfiguration?: GoogleDriveConfiguration;
 
@@ -3743,7 +3743,7 @@ export interface CreateDataSourceRequest {
   Type: DataSourceType | string | undefined;
 
   /**
-   * <p>The connector configuration information that is required to access the
+   * <p>Configuration information that is required to access the data source
    *       repository.</p>
    *          <p>You can't specify the <code>Configuration</code> parameter when the
    *         <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
@@ -3842,7 +3842,7 @@ export namespace CreateDataSourceResponse {
 }
 
 /**
- * <p>Configuration information for your content sources, such as data sources,
+ * <p>Provides the configuration information for your content sources, such as data sources,
  *             FAQs, and content indexed directly via <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>.</p>
  */
 export interface ContentSourceConfiguration {
@@ -3874,7 +3874,7 @@ export namespace ContentSourceConfiguration {
 }
 
 /**
- * <p>Configuration information for the identifiers of your users.</p>
+ * <p>Provides the configuration information for the identifiers of your users.</p>
  */
 export interface UserIdentityConfiguration {
   /**
@@ -3899,7 +3899,7 @@ export namespace UserIdentityConfiguration {
 }
 
 /**
- * <p>Specifies the configuration information for your Amazon Kendra experience. This includes
+ * <p>Provides the configuration information for your Amazon Kendra experience. This includes
  *             the data source IDs and/or FAQ IDs, and user or group information to grant access
  *             to your Amazon Kendra experience.</p>
  */
@@ -3947,7 +3947,7 @@ export interface CreateExperienceRequest {
   RoleArn?: string;
 
   /**
-   * <p>Provides the configuration information for your Amazon Kendra experience. This includes
+   * <p>Configuration information for your Amazon Kendra experience. This includes
    *             <code>ContentSourceConfiguration</code>, which specifies the data source IDs
    *             and/or FAQ IDs, and <code>UserIdentityConfiguration</code>, which specifies the
    *             user or group information to grant access to your Amazon Kendra experience.</p>
@@ -4162,7 +4162,7 @@ export namespace UserGroupResolutionConfiguration {
 }
 
 /**
- * <p>Configuration information for the JSON token type.</p>
+ * <p>Provides the configuration information for the JSON token type.</p>
  */
 export interface JsonTokenTypeConfiguration {
   /**
@@ -4191,7 +4191,7 @@ export enum KeyLocation {
 }
 
 /**
- * <p>Configuration information for the JWT token type.</p>
+ * <p>Provides the configuration information for the JWT token type.</p>
  */
 export interface JwtTokenTypeConfiguration {
   /**
@@ -4240,7 +4240,7 @@ export namespace JwtTokenTypeConfiguration {
 }
 
 /**
- * <p>Provides configuration information for a token configuration.</p>
+ * <p>Provides the configuration information for a token.</p>
  */
 export interface UserTokenConfiguration {
   /**
@@ -4772,8 +4772,7 @@ export interface DescribeDataSourceResponse {
   Type?: DataSourceType | string;
 
   /**
-   * <p>Information that describes where the data source is located and how
-   *       the data source is configured. The specific information in the description
+   * <p>Describes how the data source is configured. The specific information in the description
    *       depends on the data source provider.</p>
    */
   Configuration?: DataSourceConfiguration;
@@ -4875,7 +4874,7 @@ export enum EndpointType {
 }
 
 /**
- * <p>Provides the configuration information of the endpoint for your Amazon Kendra
+ * <p>Provides the configuration information for the endpoint for your Amazon Kendra
  *             experience.</p>
  */
 export interface ExperienceEndpoint {
@@ -7265,7 +7264,7 @@ export namespace ListIndicesRequest {
 }
 
 /**
- * <p>A summary of information about an index.</p>
+ * <p>A summary of information on the configuration of an index.</p>
  */
 export interface IndexConfigurationSummary {
   /**
@@ -7316,7 +7315,7 @@ export namespace IndexConfigurationSummary {
 
 export interface ListIndicesResponse {
   /**
-   * <p>An array of summary information for one or more indexes.</p>
+   * <p>An array of summary information on the configuration of one or more indexes.</p>
    */
   IndexConfigurationSummaryItems?: IndexConfigurationSummary[];
 
@@ -7878,9 +7877,33 @@ export namespace SortingConfiguration {
 }
 
 /**
- * <p>
- *          Data source information for user context filtering.
- *       </p>
+ * <p>Provides the configuration information for suggested query spell corrections.</p>
+ *         <p>Suggested spell corrections are based on words that appear in your indexed documents
+ *             and how closely a corrected word matches a misspelled word.</p>
+ *         <p>This feature is designed with certain defaults or limits. For information on the
+ *             current limits and how to request more support for some limits, see the
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-spell-check.html">Spell
+ *                 Checker documentation</a>.</p>
+ */
+export interface SpellCorrectionConfiguration {
+  /**
+   * <p>
+   *             <code>TRUE</code> to suggest spell corrections for queries.</p>
+   */
+  IncludeQuerySpellCheckSuggestions: boolean | undefined;
+}
+
+export namespace SpellCorrectionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpellCorrectionConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Data source information for user context filtering.</p>
  */
 export interface DataSourceGroup {
   /**
@@ -8132,6 +8155,66 @@ export namespace QueryResultItem {
   });
 }
 
+/**
+ * <p>A corrected misspelled word in a query.</p>
+ */
+export interface Correction {
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word starts.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>The zero-based location in the response string or text where
+   *             the corrected word ends.</p>
+   */
+  EndOffset?: number;
+
+  /**
+   * <p>The string or text of a misspelled word in a query.</p>
+   */
+  Term?: string;
+
+  /**
+   * <p>The string or text of a corrected misspelled word in a query.</p>
+   */
+  CorrectedTerm?: string;
+}
+
+export namespace Correction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Correction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A query with suggested spell corrections. </p>
+ */
+export interface SpellCorrectedQuery {
+  /**
+   * <p>The query with the suggested spell corrections.</p>
+   */
+  SuggestedQueryText?: string;
+
+  /**
+   * <p>The corrected misspelled word or words in a query.</p>
+   */
+  Corrections?: Correction[];
+}
+
+export namespace SpellCorrectedQuery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpellCorrectedQuery): any => ({
+    ...obj,
+  });
+}
+
 export enum WarningCode {
   QUERY_LANGUAGE_INVALID_SYNTAX = "QUERY_LANGUAGE_INVALID_SYNTAX",
 }
@@ -8194,6 +8277,11 @@ export interface QueryResult {
    *             with advanced query syntax</a>.</p>
    */
   Warnings?: Warning[];
+
+  /**
+   * <p>A list of information related to suggested spell corrections for a query.</p>
+   */
+  SpellCorrectedQueries?: SpellCorrectedQuery[];
 }
 
 export namespace QueryResult {
@@ -8469,7 +8557,7 @@ export interface UpdateDataSourceRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>Configuration information for an Amazon Kendra data source.</p>
+   * <p>Configuration information for an Amazon Kendra data source you want to update.</p>
    */
   Configuration?: DataSourceConfiguration;
 
@@ -8543,8 +8631,7 @@ export interface UpdateExperienceRequest {
   RoleArn?: string;
 
   /**
-   * <p>Provides the user configuration information. This includes the Amazon Web Services SSO
-   *             field name that contains the identifiers of your users, such as their emails.</p>
+   * <p>Configuration information for your Amazon Kendra you want to update.</p>
    */
   Configuration?: ExperienceConfiguration;
 
@@ -8586,7 +8673,7 @@ export interface UpdateIndexRequest {
   Description?: string;
 
   /**
-   * <p>The document metadata to update. </p>
+   * <p>The document metadata you want to update.</p>
    */
   DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
@@ -8989,6 +9076,11 @@ export interface QueryRequest {
    *          email address, as the <code>VisitorId</code>.</p>
    */
   VisitorId?: string;
+
+  /**
+   * <p>Enables suggested spell corrections for queries.</p>
+   */
+  SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
 }
 
 export namespace QueryRequest {

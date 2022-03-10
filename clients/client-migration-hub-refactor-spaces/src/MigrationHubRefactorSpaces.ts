@@ -101,13 +101,16 @@ import { MigrationHubRefactorSpacesClient } from "./MigrationHubRefactorSpacesCl
  *       request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to
  *       access an API that is tailored to the programming language or platform that you're using. For
  *       more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
+ *
+ *          <p>To share Refactor Spaces environments with other Amazon Web Services accounts or with Organizations
+ *         and their OUs, use Resource Access Manager's <code>CreateResourceShare</code> API. See <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> in the <i>Amazon Web Services RAM API Reference</i>.</p>
  */
 export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient {
   /**
    * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the
    *       applications created inside the environment, regardless of the account that creates the
-   *       application. Refactor Spaces provisions the Amazon API Gateway and Network Load Balancer for
-   *       the application proxy inside your account.</p>
+   *       application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
+   *         Network Load Balancer for the application proxy inside your account.</p>
    */
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -139,10 +142,11 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
-   * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and they
-   *       are referred to as the <i>environment owner</i>. The environment owner has
-   *       cross-account visibility and control of Refactor Spaces resources that are added to the environment
-   *       by other accounts that the environment is shared with. When creating an environment, Refactor Spaces
+   * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces environment. The caller owns the environment resource, and all
+   *       Refactor Spaces applications, services, and routes created within the environment. They are referred
+   *       to as the <i>environment owner</i>. The environment owner has cross-account
+   *       visibility and control of Refactor Spaces resources that are added to the environment by other
+   *       accounts that the environment is shared with. When creating an environment, Refactor Spaces
    *       provisions a transit gateway in your account.</p>
    */
   public createEnvironment(
@@ -192,25 +196,29 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    *           Refactor Spaces routes traffic over the public internet.</p>
    *             </li>
    *             <li>
-   *                <p>If the service has an Lambda function endpoint, then Refactor Spaces uses
-   *           the API Gateway
-   *           Lambda integration.</p>
+   *                <p>If the service has an Lambda function endpoint, then Refactor Spaces
+   *           configures the Lambda function's resource policy to allow the application's
+   *             API Gateway to invoke the function.</p>
    *             </li>
    *          </ul>
-   *          <p>A health check is performed on the service when the route is created. If the health check
-   *       fails, the route transitions to <code>FAILED</code>, and no traffic is sent to the service.</p>
-   *          <p>For Lambda functions, the Lambda function state is checked. If
-   *       the function is not active, the function configuration is updated so that Lambda
+   *          <p>A one-time health check is performed on the service when the route is created. If the
+   *       health check fails, the route transitions to <code>FAILED</code>, and no traffic is sent to
+   *       the service.</p>
+   *          <p>For Lambda functions, the Lambda function state is checked. If the
+   *       function is not active, the function configuration is updated so that Lambda
    *       resources are provisioned. If the Lambda state is <code>Failed</code>, then the
    *       route creation fails. For more information, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's State response parameter</a> in the <i>Lambda Developer Guide</i>.</p>
-   *          <p>For public URLs, a connection is opened to the public endpoint. If the URL is not reachable,
-   *       the health check fails. For private URLs, a target group is created and the target group
-   *       health check is run.</p>
+   *          <p>For public URLs, a connection is opened to the public endpoint. If the URL is not
+   *       reachable, the health check fails. For private URLs, a target group is created and the target
+   *       group health check is run.</p>
    *          <p>The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>, and
    *         <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
    *       health URL, if used. All other settings use the default values, as described in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health checks
    *         for your target groups</a>. The health check is considered successful if at least one
    *       target within the target group transitions to a healthy state.</p>
+   *          <p>Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs, publicly-signed
+   *       certificates are supported. Private Certificate Authorities (CAs) are permitted only if the
+   *       CA's domain is publicly resolvable.</p>
    */
   public createRoute(args: CreateRouteCommandInput, options?: __HttpHandlerOptions): Promise<CreateRouteCommandOutput>;
   public createRoute(args: CreateRouteCommandInput, cb: (err: any, data?: CreateRouteCommandOutput) => void): void;
@@ -241,7 +249,7 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
    *       function endpoint.</p>
    *          <important>
-   *             <p>If an Amazon Web Services resourceis launched in a service VPC, and you want it to be
+   *             <p>If an Amazon Web Services resource is launched in a service VPC, and you want it to be
    *         accessible to all of an environment’s services with VPCs and routes, apply the
    *           <code>RefactorSpacesSecurityGroup</code> to the resource. Alternatively, to add more
    *         cross-account constraints, apply your own security group.</p>
@@ -646,7 +654,8 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
   }
 
   /**
-   * <p>Lists all the virtual private clouds (VPCs) that are part of an Amazon Web Services Migration Hub Refactor Spaces environment. </p>
+   * <p>Lists all Amazon Web Services Migration Hub Refactor Spaces service virtual private clouds (VPCs) that are part of the
+   *       environment. </p>
    */
   public listEnvironmentVpcs(
     args: ListEnvironmentVpcsCommandInput,
@@ -769,7 +778,8 @@ export class MigrationHubRefactorSpaces extends MigrationHubRefactorSpacesClient
    * <p>Attaches a resource-based permission policy to the Amazon Web Services Migration Hub Refactor Spaces environment. The policy
    *       must contain the same actions and condition statements as the
    *         <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
-   *       permission in Resource Access Manager. The policy must not contain new lines or blank lines. </p>
+   *       permission in Resource Access Manager. The policy must not contain new lines or blank lines.
+   *     </p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,

@@ -22,7 +22,8 @@ export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilt
 export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes a vocabulary filter.</p>
+ * <p>Deletes a vocabulary filter. To use this operation, specify the name of the vocabulary
+ *             filter you want to delete using <code>VocabularyFilterName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

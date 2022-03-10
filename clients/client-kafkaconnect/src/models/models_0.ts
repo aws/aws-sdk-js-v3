@@ -1,4 +1,4 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
@@ -8,7 +8,8 @@ import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectS
  */
 export interface ScaleInPolicyDescription {
   /**
-   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
+   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in
+   *          to be triggered.</p>
    */
   cpuUtilizationPercentage?: number;
 }
@@ -27,7 +28,8 @@ export namespace ScaleInPolicyDescription {
  */
 export interface ScaleOutPolicyDescription {
   /**
-   * <p>The CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
+   * <p>The CPU utilization percentage threshold at which you want connector scale out to be
+   *          triggered.</p>
    */
   cpuUtilizationPercentage?: number;
 }
@@ -51,7 +53,8 @@ export interface AutoScalingDescription {
   maxWorkerCount?: number;
 
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
+   *          values are 1,2,4,8.</p>
    */
   mcuCount?: number;
 
@@ -85,7 +88,8 @@ export namespace AutoScalingDescription {
  */
 export interface ProvisionedCapacityDescription {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
+   *          values are 1,2,4,8.</p>
    */
   mcuCount?: number;
 
@@ -170,7 +174,8 @@ export interface ApacheKafkaClusterDescription {
   bootstrapServers?: string;
 
   /**
-   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka
+   *          cluster.</p>
    */
   vpc?: VpcDescription;
 }
@@ -209,11 +214,13 @@ export enum KafkaClusterClientAuthenticationType {
 }
 
 /**
- * <p>The client authentication information used in order to authenticate with the Apache Kafka cluster.</p>
+ * <p>The client authentication information used in order to authenticate with the Apache
+ *          Kafka cluster.</p>
  */
 export interface KafkaClusterClientAuthenticationDescription {
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
+   *          NONE means that no client authentication is used.</p>
    */
   authenticationType?: KafkaClusterClientAuthenticationType | string;
 }
@@ -276,11 +283,13 @@ export namespace CloudWatchLogsLogDeliveryDescription {
 }
 
 /**
- * <p>A description of the settings for delivering logs to Amazon Kinesis Data Firehose.</p>
+ * <p>A description of the settings for delivering logs to Amazon Kinesis Data
+ *          Firehose.</p>
  */
 export interface FirehoseLogDeliveryDescription {
   /**
-   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.</p>
+   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log
+   *          delivery.</p>
    */
   deliveryStream?: string;
 
@@ -329,7 +338,8 @@ export namespace S3LogDeliveryDescription {
 }
 
 /**
- * <p>Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
+ * <p>Workers can send worker logs to different destination types. This configuration
+ *          specifies the details of these destinations.</p>
  */
 export interface WorkerLogDeliveryDescription {
   /**
@@ -362,7 +372,8 @@ export namespace WorkerLogDeliveryDescription {
  */
 export interface LogDeliveryDescription {
   /**
-   * <p>The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
+   * <p>The workers can send worker logs to different destination types. This configuration
+   *          specifies the details of these destinations.</p>
    */
   workerLogDelivery?: WorkerLogDeliveryDescription;
 }
@@ -488,7 +499,8 @@ export interface ConnectorSummary {
   kafkaCluster?: KafkaClusterDescription;
 
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
+   *          is NONE when no client authentication is used.</p>
    */
   kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription;
 
@@ -498,7 +510,8 @@ export interface ConnectorSummary {
   kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
+   *          cluster's version and the plugins.</p>
    */
   kafkaConnectVersion?: string;
 
@@ -513,7 +526,8 @@ export interface ConnectorSummary {
   plugins?: PluginDescription[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
+   *          Web Services resources.</p>
    */
   serviceExecutionRoleArn?: string;
 
@@ -551,7 +565,8 @@ export enum CustomPluginContentType {
  */
 export interface CustomPluginFileDescription {
   /**
-   * <p>The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.</p>
+   * <p>The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the
+   *          file.</p>
    */
   fileMd5?: string;
 
@@ -604,7 +619,8 @@ export namespace S3LocationDescription {
  */
 export interface CustomPluginLocationDescription {
   /**
-   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.</p>
+   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin
+   *          file stored in Amazon S3.</p>
    */
   s3Location?: S3LocationDescription;
 }
@@ -707,7 +723,8 @@ export namespace CustomPluginSummary {
 }
 
 /**
- * <p>A plugin is an AWS resource that contains the code that defines a connector's logic.</p>
+ * <p>A plugin is an AWS resource that contains the code that defines a connector's
+ *          logic.</p>
  */
 export interface CustomPlugin {
   /**
@@ -731,7 +748,8 @@ export namespace CustomPlugin {
 }
 
 /**
- * <p>A plugin is an AWS resource that contains the code that defines your connector logic. </p>
+ * <p>A plugin is an AWS resource that contains the code that defines your connector logic.
+ *       </p>
  */
 export interface Plugin {
   /**
@@ -851,7 +869,8 @@ export interface ApacheKafkaCluster {
   bootstrapServers: string | undefined;
 
   /**
-   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka
+   *          cluster.</p>
    */
   vpc: Vpc | undefined;
 }
@@ -870,7 +889,8 @@ export namespace ApacheKafkaCluster {
  */
 export interface ScaleInPolicy {
   /**
-   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
+   * <p>Specifies the CPU utilization percentage threshold at which you want connector scale in
+   *          to be triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
 }
@@ -889,7 +909,8 @@ export namespace ScaleInPolicy {
  */
 export interface ScaleOutPolicy {
   /**
-   * <p>The CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
+   * <p>The CPU utilization percentage threshold at which you want connector scale out to be
+   *          triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
 }
@@ -913,7 +934,8 @@ export interface AutoScaling {
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
+   *          values are 1,2,4,8.</p>
    */
   mcuCount: number | undefined;
 
@@ -947,7 +969,8 @@ export namespace AutoScaling {
  */
 export interface ScaleInPolicyUpdate {
   /**
-   * <p>The target CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>
+   * <p>The target CPU utilization percentage threshold at which you want connector scale in to
+   *          be triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
 }
@@ -966,7 +989,8 @@ export namespace ScaleInPolicyUpdate {
  */
 export interface ScaleOutPolicyUpdate {
   /**
-   * <p>The target CPU utilization percentage threshold at which you want connector scale out to be triggered.</p>
+   * <p>The target CPU utilization percentage threshold at which you want connector scale out to
+   *          be triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
 }
@@ -990,7 +1014,8 @@ export interface AutoScalingUpdate {
   maxWorkerCount: number | undefined;
 
   /**
-   * <p>The target number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The target number of microcontroller units (MCUs) allocated to each connector worker.
+   *          The valid values are 1,2,4,8.</p>
    */
   mcuCount: number | undefined;
 
@@ -1020,7 +1045,8 @@ export namespace AutoScalingUpdate {
 }
 
 /**
- * <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+ * <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
+ *          retry it.</p>
  */
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
@@ -1043,7 +1069,8 @@ export class BadRequestException extends __BaseException {
  */
 export interface ProvisionedCapacity {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
+   *          values are 1,2,4,8.</p>
    */
   mcuCount: number | undefined;
 
@@ -1063,7 +1090,8 @@ export namespace ProvisionedCapacity {
 }
 
 /**
- * <p>Information about the capacity of the connector, whether it is auto scaled or provisioned.</p>
+ * <p>Information about the capacity of the connector, whether it is auto scaled or
+ *          provisioned.</p>
  */
 export interface Capacity {
   /**
@@ -1091,7 +1119,8 @@ export namespace Capacity {
  */
 export interface ProvisionedCapacityUpdate {
   /**
-   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>
+   * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
+   *          values are 1,2,4,8.</p>
    */
   mcuCount: number | undefined;
 
@@ -1111,7 +1140,8 @@ export namespace ProvisionedCapacityUpdate {
 }
 
 /**
- * <p>The target capacity for the connector. The capacity can be auto scaled or provisioned.</p>
+ * <p>The target capacity for the connector. The capacity can be auto scaled or
+ *          provisioned.</p>
  */
 export interface CapacityUpdate {
   /**
@@ -1159,7 +1189,8 @@ export namespace CloudWatchLogsLogDelivery {
 }
 
 /**
- * <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+ * <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your
+ *          request with another name.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1197,11 +1228,13 @@ export namespace KafkaCluster {
 }
 
 /**
- * <p>The client authentication information used in order to authenticate with the Apache Kafka cluster.</p>
+ * <p>The client authentication information used in order to authenticate with the Apache
+ *          Kafka cluster.</p>
  */
 export interface KafkaClusterClientAuthentication {
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
+   *          NONE means that no client authentication is used.</p>
    */
   authenticationType: KafkaClusterClientAuthenticationType | string | undefined;
 }
@@ -1239,7 +1272,8 @@ export namespace KafkaClusterEncryptionInTransit {
  */
 export interface FirehoseLogDelivery {
   /**
-   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.</p>
+   * <p>The name of the Kinesis Data Firehose delivery stream that is the destination for log
+   *          delivery.</p>
    */
   deliveryStream?: string;
 
@@ -1288,7 +1322,8 @@ export namespace S3LogDelivery {
 }
 
 /**
- * <p>Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
+ * <p>Workers can send worker logs to different destination types. This configuration
+ *          specifies the details of these destinations.</p>
  */
 export interface WorkerLogDelivery {
   /**
@@ -1321,7 +1356,8 @@ export namespace WorkerLogDelivery {
  */
 export interface LogDelivery {
   /**
-   * <p>The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.</p>
+   * <p>The workers can send worker logs to different destination types. This configuration
+   *          specifies the details of these destinations.</p>
    */
   workerLogDelivery: WorkerLogDelivery | undefined;
 }
@@ -1336,7 +1372,8 @@ export namespace LogDelivery {
 }
 
 /**
- * <p>The configuration of the workers, which are the processes that run the connector logic.</p>
+ * <p>The configuration of the workers, which are the processes that run the connector
+ *          logic.</p>
  */
 export interface WorkerConfiguration {
   /**
@@ -1361,7 +1398,8 @@ export namespace WorkerConfiguration {
 
 export interface CreateConnectorRequest {
   /**
-   * <p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>
+   * <p>Information about the capacity allocated to the connector. Exactly one of the two
+   *          properties must be specified.</p>
    */
   capacity: Capacity | undefined;
 
@@ -1396,7 +1434,8 @@ export interface CreateConnectorRequest {
   kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransit | undefined;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
+   *          cluster's version and the plugins.</p>
    */
   kafkaConnectVersion: string | undefined;
 
@@ -1411,7 +1450,10 @@ export interface CreateConnectorRequest {
   plugins: Plugin[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access the
+   *          Amazon Web Services resources that it needs. The types of resources depends on the logic of
+   *          the connector. For example, a connector that has Amazon S3 as a destination must have
+   *          permissions that allow it to write to the S3 destination bucket.</p>
    */
   serviceExecutionRoleArn: string | undefined;
 
@@ -1427,6 +1469,7 @@ export namespace CreateConnectorRequest {
    */
   export const filterSensitiveLog = (obj: CreateConnectorRequest): any => ({
     ...obj,
+    ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
   });
 }
 
@@ -1457,7 +1500,8 @@ export namespace CreateConnectorResponse {
 }
 
 /**
- * <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+ * <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
+ *          request.</p>
  */
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
@@ -1476,7 +1520,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+ * <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might
+ *          resolve the issue.</p>
  */
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
@@ -1495,7 +1540,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+ * <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request
+ *          and then retry it.</p>
  */
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
@@ -1514,7 +1560,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+ * <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might
+ *          resolve the issue.</p>
  */
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
@@ -1552,7 +1599,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+ * <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be
+ *          validated.</p>
  */
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
@@ -1604,7 +1652,8 @@ export namespace S3Location {
  */
 export interface CustomPluginLocation {
   /**
-   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.</p>
+   * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin
+   *          file stored in Amazon S3.</p>
    */
   s3Location: S3Location | undefined;
 }
@@ -1703,6 +1752,7 @@ export namespace CreateWorkerConfigurationRequest {
    */
   export const filterSensitiveLog = (obj: CreateWorkerConfigurationRequest): any => ({
     ...obj,
+    ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
   });
 }
 
@@ -1779,6 +1829,43 @@ export namespace DeleteConnectorResponse {
   });
 }
 
+export interface DeleteCustomPluginRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</p>
+   */
+  customPluginArn: string | undefined;
+}
+
+export namespace DeleteCustomPluginRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomPluginRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomPluginResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom plugin that you requested to delete.</p>
+   */
+  customPluginArn?: string;
+
+  /**
+   * <p>The state of the custom plugin.</p>
+   */
+  customPluginState?: CustomPluginState | string;
+}
+
+export namespace DeleteCustomPluginResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomPluginResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to describe.</p>
@@ -1795,9 +1882,34 @@ export namespace DescribeConnectorRequest {
   });
 }
 
+/**
+ * <p>Details about the state of a resource.</p>
+ */
+export interface StateDescription {
+  /**
+   * <p>A code that describes the state of a resource.</p>
+   */
+  code?: string;
+
+  /**
+   * <p>A message that describes the state of a resource.</p>
+   */
+  message?: string;
+}
+
+export namespace StateDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StateDescription): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeConnectorResponse {
   /**
-   * <p>Information about the capacity of the connector, whether it is auto scaled or provisioned.</p>
+   * <p>Information about the capacity of the connector, whether it is auto scaled or
+   *          provisioned.</p>
    */
   capacity?: CapacityDescription;
 
@@ -1842,7 +1954,8 @@ export interface DescribeConnectorResponse {
   kafkaCluster?: KafkaClusterDescription;
 
   /**
-   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.</p>
+   * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
+   *          is NONE when no client authentication is used.</p>
    */
   kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription;
 
@@ -1852,7 +1965,8 @@ export interface DescribeConnectorResponse {
   kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription;
 
   /**
-   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.</p>
+   * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
+   *          cluster's version and the plugins.</p>
    */
   kafkaConnectVersion?: string;
 
@@ -1867,7 +1981,8 @@ export interface DescribeConnectorResponse {
   plugins?: PluginDescription[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon Web Services resources.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
+   *          Web Services resources.</p>
    */
   serviceExecutionRoleArn?: string;
 
@@ -1875,6 +1990,11 @@ export interface DescribeConnectorResponse {
    * <p>Specifies which worker configuration was used for the connector.</p>
    */
   workerConfiguration?: WorkerConfigurationDescription;
+
+  /**
+   * <p>Details about the state of a connector.</p>
+   */
+  stateDescription?: StateDescription;
 }
 
 export namespace DescribeConnectorResponse {
@@ -1883,6 +2003,7 @@ export namespace DescribeConnectorResponse {
    */
   export const filterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
     ...obj,
+    ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
   });
 }
 
@@ -1924,7 +2045,8 @@ export interface DescribeCustomPluginResponse {
   description?: string;
 
   /**
-   * <p>The latest successfully created revision of the custom plugin. If there are no successfully created revisions, this field will be absent.</p>
+   * <p>The latest successfully created revision of the custom plugin. If there are no
+   *          successfully created revisions, this field will be absent.</p>
    */
   latestRevision?: CustomPluginRevisionSummary;
 
@@ -1932,6 +2054,11 @@ export interface DescribeCustomPluginResponse {
    * <p>The name of the custom plugin.</p>
    */
   name?: string;
+
+  /**
+   * <p>Details about the state of a custom plugin.</p>
+   */
+  stateDescription?: StateDescription;
 }
 
 export namespace DescribeCustomPluginResponse {
@@ -1945,7 +2072,8 @@ export namespace DescribeCustomPluginResponse {
 
 export interface DescribeWorkerConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get information about.</p>
+   * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get
+   *          information about.</p>
    */
   workerConfigurationArn: string | undefined;
 }
@@ -1990,6 +2118,7 @@ export namespace WorkerConfigurationRevisionDescription {
    */
   export const filterSensitiveLog = (obj: WorkerConfigurationRevisionDescription): any => ({
     ...obj,
+    ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
   });
 }
 
@@ -2026,6 +2155,9 @@ export namespace DescribeWorkerConfigurationResponse {
    */
   export const filterSensitiveLog = (obj: DescribeWorkerConfigurationResponse): any => ({
     ...obj,
+    ...(obj.latestRevision && {
+      latestRevision: WorkerConfigurationRevisionDescription.filterSensitiveLog(obj.latestRevision),
+    }),
   });
 }
 
@@ -2041,7 +2173,9 @@ export interface ListConnectorsRequest {
   maxResults?: number;
 
   /**
-   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
+   *          Send this NextToken in a subsequent request to continue listing from where the previous
+   *          operation left off.</p>
    */
   nextToken?: string;
 }
@@ -2062,7 +2196,9 @@ export interface ListConnectorsResponse {
   connectors?: ConnectorSummary[];
 
   /**
-   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+   * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
+   *          Send this NextToken in a subsequent request to continue listing from where it left
+   *          off.</p>
    */
   nextToken?: string;
 }
@@ -2083,7 +2219,9 @@ export interface ListCustomPluginsRequest {
   maxResults?: number;
 
   /**
-   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
+   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
+   *          previous operation left off.</p>
    */
   nextToken?: string;
 }
@@ -2104,7 +2242,9 @@ export interface ListCustomPluginsResponse {
   customPlugins?: CustomPluginSummary[];
 
   /**
-   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+   * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
+   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
+   *          previous operation left off.</p>
    */
   nextToken?: string;
 }
@@ -2125,7 +2265,9 @@ export interface ListWorkerConfigurationsRequest {
   maxResults?: number;
 
   /**
-   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
+   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
+   *          previous operation left off.</p>
    */
   nextToken?: string;
 }
@@ -2141,7 +2283,9 @@ export namespace ListWorkerConfigurationsRequest {
 
 export interface ListWorkerConfigurationsResponse {
   /**
-   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>
+   * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
+   *          NextToken. Send this NextToken in a subsequent request to continue listing from where the
+   *          previous operation left off.</p>
    */
   nextToken?: string;
 

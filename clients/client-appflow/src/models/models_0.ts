@@ -3661,6 +3661,34 @@ export namespace LookoutMetricsDestinationProperties {
 }
 
 /**
+ * <p>The properties that Amazon AppFlow applies when you use Marketo as a flow destination.</p>
+ */
+export interface MarketoDestinationProperties {
+  /**
+   * <p>The object specified in the Marketo flow destination.</p>
+   */
+  object: string | undefined;
+
+  /**
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
+   *       destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
+   *     </p>
+   */
+  errorHandlingConfig?: ErrorHandlingConfig;
+}
+
+export namespace MarketoDestinationProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MarketoDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> The properties that are applied when Amazon Redshift is being used as a destination.
  *     </p>
  */
@@ -4123,6 +4151,11 @@ export interface DestinationConnectorProperties {
    * <p>The properties required to query Zendesk.</p>
    */
   Zendesk?: ZendeskDestinationProperties;
+
+  /**
+   * <p>The properties required to query Marketo.</p>
+   */
+  Marketo?: MarketoDestinationProperties;
 
   /**
    * <p>The properties that are required to query the custom Connector.</p>

@@ -22,7 +22,7 @@ export interface StartSentimentDetectionJobCommandInput extends StartSentimentDe
 export interface StartSentimentDetectionJobCommandOutput extends StartSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
+ * <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the
  *          operation to track the status of a
  *       job.</p>
  * @example

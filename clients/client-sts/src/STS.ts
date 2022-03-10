@@ -75,8 +75,8 @@ export class STS extends STSClient {
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             Policies</a> in the <i>IAM User Guide</i>.</p>
    *          <p>When you create a role, you create two policies: A role trust policy that specifies
-   *          <i>who</i> can assume the role and a permissions policy that specifies
-   *          <i>what</i> can be done with the role. You specify the trusted principal
+   *             <i>who</i> can assume the role and a permissions policy that specifies
+   *             <i>what</i> can be done with the role. You specify the trusted principal
    *          who is allowed to assume the role in the role trust policy.</p>
    *          <p>To assume a role from a different account, your Amazon Web Services account must be trusted by the
    *          role. The trust relationship is defined in the role's trust policy when the role is
@@ -90,8 +90,8 @@ export class STS extends STSClient {
    *          following:</p>
    *          <ul>
    *             <li>
-   *                <p>Attach a policy to the user that allows the user to call
-   *                <code>AssumeRole</code> (as long as the role's trust policy trusts the account).</p>
+   *                <p>Attach a policy to the user that allows the user to call <code>AssumeRole</code>
+   *                (as long as the role's trust policy trusts the account).</p>
    *             </li>
    *             <li>
    *                <p>Add the user as a principal directly in the role's trust policy.</p>
@@ -326,9 +326,9 @@ export class STS extends STSClient {
 
   /**
    * <p>Returns a set of temporary security credentials for users who have been authenticated in
-   *          a mobile or web application with a web identity provider. Example providers include Amazon Cognito,
-   *          Login with Amazon, Facebook, Google, or any OpenID Connect-compatible identity
-   *          provider.</p>
+   *          a mobile or web application with a web identity provider. Example providers include the
+   *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
+   *          identity provider such as Google or <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito federated identities</a>.</p>
    *          <note>
    *             <p>For mobile applications, we recommend that you use Amazon Cognito. You can use Amazon Cognito with the
    *                <a href="http://aws.amazon.com/sdkforios/">Amazon Web Services SDK for iOS Developer Guide</a> and the <a href="http://aws.amazon.com/sdkforandroid/">Amazon Web Services SDK for Android Developer Guide</a> to uniquely

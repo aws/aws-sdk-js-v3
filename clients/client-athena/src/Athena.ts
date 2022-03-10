@@ -154,6 +154,11 @@ import {
   UpdateDataCatalogCommandOutput,
 } from "./commands/UpdateDataCatalogCommand";
 import {
+  UpdateNamedQueryCommand,
+  UpdateNamedQueryCommandInput,
+  UpdateNamedQueryCommandOutput,
+} from "./commands/UpdateNamedQueryCommand";
+import {
   UpdatePreparedStatementCommand,
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
@@ -1254,6 +1259,38 @@ export class Athena extends AthenaClient {
     cb?: (err: any, data?: UpdateDataCatalogCommandOutput) => void
   ): Promise<UpdateDataCatalogCommandOutput> | void {
     const command = new UpdateDataCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.</p>
+   */
+  public updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNamedQueryCommandOutput>;
+  public updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
+  ): void;
+  public updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
+  ): void;
+  public updateNamedQuery(
+    args: UpdateNamedQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNamedQueryCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNamedQueryCommandOutput) => void
+  ): Promise<UpdateNamedQueryCommandOutput> | void {
+    const command = new UpdateNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

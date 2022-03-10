@@ -126,6 +126,11 @@ import {
   DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand";
 import {
+  DescribeTargetedSentimentDetectionJobCommand,
+  DescribeTargetedSentimentDetectionJobCommandInput,
+  DescribeTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/DescribeTargetedSentimentDetectionJobCommand";
+import {
   DescribeTopicsDetectionJobCommand,
   DescribeTopicsDetectionJobCommandInput,
   DescribeTopicsDetectionJobCommandOutput,
@@ -227,6 +232,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTargetedSentimentDetectionJobsCommand,
+  ListTargetedSentimentDetectionJobsCommandInput,
+  ListTargetedSentimentDetectionJobsCommandOutput,
+} from "./commands/ListTargetedSentimentDetectionJobsCommand";
+import {
   ListTopicsDetectionJobsCommand,
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
@@ -272,6 +282,11 @@ import {
   StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand";
 import {
+  StartTargetedSentimentDetectionJobCommand,
+  StartTargetedSentimentDetectionJobCommandInput,
+  StartTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/StartTargetedSentimentDetectionJobCommand";
+import {
   StartTopicsDetectionJobCommand,
   StartTopicsDetectionJobCommandInput,
   StartTopicsDetectionJobCommandOutput,
@@ -306,6 +321,11 @@ import {
   StopSentimentDetectionJobCommandInput,
   StopSentimentDetectionJobCommandOutput,
 } from "./commands/StopSentimentDetectionJobCommand";
+import {
+  StopTargetedSentimentDetectionJobCommand,
+  StopTargetedSentimentDetectionJobCommandInput,
+  StopTargetedSentimentDetectionJobCommandOutput,
+} from "./commands/StopTargetedSentimentDetectionJobCommand";
 import {
   StopTrainingDocumentClassifierCommand,
   StopTrainingDocumentClassifierCommandInput,
@@ -1175,6 +1195,41 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets the properties associated with a targeted sentiment detection job. Use this operation
+   *       to get the status of the job.</p>
+   */
+  public describeTargetedSentimentDetectionJob(
+    args: DescribeTargetedSentimentDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTargetedSentimentDetectionJobCommandOutput>;
+  public describeTargetedSentimentDetectionJob(
+    args: DescribeTargetedSentimentDetectionJobCommandInput,
+    cb: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public describeTargetedSentimentDetectionJob(
+    args: DescribeTargetedSentimentDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public describeTargetedSentimentDetectionJob(
+    args: DescribeTargetedSentimentDetectionJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTargetedSentimentDetectionJobCommandOutput) => void
+  ): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> | void {
+    const command = new DescribeTargetedSentimentDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the properties associated with a topic detection job. Use this operation to get
    *       the status of a detection job.</p>
    */
@@ -1854,6 +1909,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets a list of targeted sentiment detection jobs that you have submitted.</p>
+   */
+  public listTargetedSentimentDetectionJobs(
+    args: ListTargetedSentimentDetectionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTargetedSentimentDetectionJobsCommandOutput>;
+  public listTargetedSentimentDetectionJobs(
+    args: ListTargetedSentimentDetectionJobsCommandInput,
+    cb: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
+  ): void;
+  public listTargetedSentimentDetectionJobs(
+    args: ListTargetedSentimentDetectionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
+  ): void;
+  public listTargetedSentimentDetectionJobs(
+    args: ListTargetedSentimentDetectionJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListTargetedSentimentDetectionJobsCommandOutput) => void
+  ): Promise<ListTargetedSentimentDetectionJobsCommandOutput> | void {
+    const command = new ListTargetedSentimentDetectionJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of the topic detection jobs that you have submitted.</p>
    */
   public listTopicsDetectionJobs(
@@ -2121,7 +2208,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
+   * <p>Starts an asynchronous sentiment detection job for a collection of documents. Use the
    *          operation to track the status of a
    *       job.</p>
    */
@@ -2144,6 +2231,40 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: StartSentimentDetectionJobCommandOutput) => void
   ): Promise<StartSentimentDetectionJobCommandOutput> | void {
     const command = new StartSentimentDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an asynchronous targeted sentiment detection job for a collection of documents. Use the
+   *        operation to track the status of a
+   *       job.</p>
+   */
+  public startTargetedSentimentDetectionJob(
+    args: StartTargetedSentimentDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTargetedSentimentDetectionJobCommandOutput>;
+  public startTargetedSentimentDetectionJob(
+    args: StartTargetedSentimentDetectionJobCommandInput,
+    cb: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public startTargetedSentimentDetectionJob(
+    args: StartTargetedSentimentDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public startTargetedSentimentDetectionJob(
+    args: StartTargetedSentimentDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StartTargetedSentimentDetectionJobCommandOutput) => void
+  ): Promise<StartTargetedSentimentDetectionJobCommandOutput> | void {
+    const command = new StartTargetedSentimentDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2405,6 +2526,47 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: StopSentimentDetectionJobCommandOutput) => void
   ): Promise<StopSentimentDetectionJobCommandOutput> | void {
     const command = new StopSentimentDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a targeted sentiment detection job in progress.</p>
+   *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
+   *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
+   *       is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the
+   *       <code>STOPPED</code> state.</p>
+   *          <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the
+   *       <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400
+   *       Internal Request Exception. </p>
+   *          <p>When a job is stopped, any documents already processed are written to the output
+   *       location.</p>
+   */
+  public stopTargetedSentimentDetectionJob(
+    args: StopTargetedSentimentDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopTargetedSentimentDetectionJobCommandOutput>;
+  public stopTargetedSentimentDetectionJob(
+    args: StopTargetedSentimentDetectionJobCommandInput,
+    cb: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public stopTargetedSentimentDetectionJob(
+    args: StopTargetedSentimentDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
+  ): void;
+  public stopTargetedSentimentDetectionJob(
+    args: StopTargetedSentimentDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StopTargetedSentimentDetectionJobCommandOutput) => void
+  ): Promise<StopTargetedSentimentDetectionJobCommandOutput> | void {
+    const command = new StopTargetedSentimentDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -22,7 +22,9 @@ export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the connectors in this account and Region. The list is limited to connectors whose name starts with the specified prefix. The response also includes a description of each of the listed connectors.</p>
+ * <p>Returns a list of all the connectors in this account and Region. The list is limited to
+ *          connectors whose name starts with the specified prefix. The response also includes a
+ *          description of each of the listed connectors.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

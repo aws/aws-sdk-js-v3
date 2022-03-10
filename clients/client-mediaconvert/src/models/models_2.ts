@@ -10,6 +10,38 @@ import {
   StatusUpdateInterval,
 } from "./models_1";
 
+export interface TagResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
+   */
+  Arn: string | undefined;
+
+  /**
+   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.

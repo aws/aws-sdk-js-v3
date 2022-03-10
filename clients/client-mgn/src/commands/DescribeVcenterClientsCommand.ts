@@ -22,7 +22,7 @@ export interface DescribeVcenterClientsCommandInput extends DescribeVcenterClien
 export interface DescribeVcenterClientsCommandOutput extends DescribeVcenterClientsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all vCenter clients.</p>
+ * <p>Returns a list of the installed vCenter clients.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

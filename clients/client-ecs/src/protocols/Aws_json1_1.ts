@@ -6203,6 +6203,8 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
         deploymentConfiguration: serializeAws_json1_1DeploymentConfiguration(input.deploymentConfiguration, context),
       }),
     ...(input.desiredCount !== undefined && input.desiredCount !== null && { desiredCount: input.desiredCount }),
+    ...(input.enableECSManagedTags !== undefined &&
+      input.enableECSManagedTags !== null && { enableECSManagedTags: input.enableECSManagedTags }),
     ...(input.enableExecuteCommand !== undefined &&
       input.enableExecuteCommand !== null && { enableExecuteCommand: input.enableExecuteCommand }),
     ...(input.forceNewDeployment !== undefined &&
@@ -6210,6 +6212,10 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
     ...(input.healthCheckGracePeriodSeconds !== undefined &&
       input.healthCheckGracePeriodSeconds !== null && {
         healthCheckGracePeriodSeconds: input.healthCheckGracePeriodSeconds,
+      }),
+    ...(input.loadBalancers !== undefined &&
+      input.loadBalancers !== null && {
+        loadBalancers: serializeAws_json1_1LoadBalancers(input.loadBalancers, context),
       }),
     ...(input.networkConfiguration !== undefined &&
       input.networkConfiguration !== null && {
@@ -6225,7 +6231,12 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
       }),
     ...(input.platformVersion !== undefined &&
       input.platformVersion !== null && { platformVersion: input.platformVersion }),
+    ...(input.propagateTags !== undefined && input.propagateTags !== null && { propagateTags: input.propagateTags }),
     ...(input.service !== undefined && input.service !== null && { service: input.service }),
+    ...(input.serviceRegistries !== undefined &&
+      input.serviceRegistries !== null && {
+        serviceRegistries: serializeAws_json1_1ServiceRegistries(input.serviceRegistries, context),
+      }),
     ...(input.taskDefinition !== undefined &&
       input.taskDefinition !== null && { taskDefinition: input.taskDefinition }),
   };

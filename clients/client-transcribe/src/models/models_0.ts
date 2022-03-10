@@ -182,14 +182,14 @@ export interface Media {
    * <p>The S3 object location of the input media file. The URI must be in the same region as
    *             the API endpoint that you are calling. The general form is:</p>
    *         <p>
-   *             <code> s3://<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey></code>
+   *             <code>s3://DOC-EXAMPLE-BUCKET/keyprefix/objectkey</code>
    *          </p>
    *         <p>For example:</p>
    *         <p>
-   *             <code>s3://AWSDOC-EXAMPLE-BUCKET/example.mp4</code>
+   *             <code>s3://DOC-EXAMPLE-BUCKET/example.flac</code>
    *          </p>
    *         <p>
-   *             <code>s3://AWSDOC-EXAMPLE-BUCKET/mediadocs/example.mp4</code>
+   *             <code>s3://DOC-EXAMPLE-BUCKET/mediafiles/example.flac</code>
    *          </p>
    *         <p>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the
    *             <i>Amazon S3 Developer Guide</i>.</p>
@@ -1049,14 +1049,17 @@ export class ConflictException extends __BaseException {
 
 export interface CreateCallAnalyticsCategoryRequest {
   /**
-   * <p>The name that you choose for your category when you create it. </p>
+   * <p>A unique name, chosen by you, for your call analytics category. For example,
+   *         <code>sentiment-positive-last30seconds</code>.</p>
    */
   CategoryName: string | undefined;
 
   /**
-   * <p>To create a category, you must specify between 1 and 20 rules. For each rule, you
-   *             specify a filter to be applied to the attributes of the call. For example, you can specify a
-   *             sentiment filter to detect if the customer's sentiment was negative or neutral.</p>
+   * <p>Rules make up a call analytics category. When creating a call analytics category,
+   *             you must create between 1 and 20 rules for your category. For each rule, you
+   *             specify a filter you want applied to the attributes of a call. For example, you can choose
+   *             a sentiment filter that detects if a customer's sentiment was positive during the last
+   *             30 seconds of the call.</p>
    */
   Rules: Rule[] | undefined;
 }
@@ -1073,7 +1076,13 @@ export namespace CreateCallAnalyticsCategoryRequest {
 
 export interface CreateCallAnalyticsCategoryResponse {
   /**
-   * <p>The rules and associated metadata used to create a category.</p>
+   * <p>If your audio matches one of your categories, this field contains data on that
+   *             category and its associated rules. This parameter shows which category is flagged
+   *             (<code>CategoryName</code>) along with metadata for the rules that match your
+   *             audio. Metadata includes the rule filter (such as <code>InterruptionFilter</code>,
+   *             <code>NonTalkTimeFilter</code>, <code>SentimentFilter</code>, and
+   *             <code>TranscriptFilter</code>) and where in your audio (<code>StartTime</code>
+   *             and <code>EndTime</code>) the rule has a match.</p>
    */
   CategoryProperties?: CategoryProperties;
 }
@@ -1198,35 +1207,39 @@ export namespace Tag {
 
 export interface CreateLanguageModelRequest {
   /**
-   * <p>The language of the input text you're using to train your custom language
-   *             model.</p>
+   * <p>The language of your custom language model; note that the language code you
+   *             select must match the language of your training and tuning data.</p>
    */
   LanguageCode: CLMLanguageCode | string | undefined;
 
   /**
-   * <p>The Amazon Transcribe standard language model, or base model used to create your custom
-   *             language model.</p>
-   *         <p>If you want to use your custom language model to transcribe audio with a sample rate
-   *             of 16,000 Hz or greater, choose <code>Wideband</code>.</p>
-   *         <p>If you want to use your custom language model to transcribe audio with a sample rate
-   *             that is less than 16,000 Hz, choose <code>Narrowband</code>.</p>
+   * <p>The Amazon Transcribe standard language model, or base model, used to create your
+   *             custom language model. Amazon Transcribe offers two options for base models: Wideband and
+   *             Narrowband.</p>
+   *         <p>If the audio you want to transcribe has a sample rate of 16,000 Hz or greater,
+   *             choose <code>WideBand</code>. To transcribe audio with a sample rate less than
+   *             16,000 Hz, choose <code>NarrowBand</code>.</p>
    */
   BaseModelName: BaseModelName | string | undefined;
 
   /**
-   * <p>The name you choose for your custom language model when you create it.</p>
+   * <p>The name of your new custom language model.</p>
+   *         <p>This name is case sensitive, cannot contain spaces, and must be unique within an
+   *             Amazon Web Services account. If you try to create a language model with the same name as a
+   *             previous language model, you get a <code>ConflictException</code> error.</p>
    */
   ModelName: string | undefined;
 
   /**
-   * <p>Contains the data access role and the Amazon S3 prefixes to read the required input files to
-   *             create a custom language model.</p>
+   * <p>Contains your data access role ARN (Amazon Resource Name) and the Amazon S3
+   *             locations of your training (<code>S3Uri</code>) and tuning
+   *             (<code>TuningDataS3Uri</code>) data.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>Adds one or more tags, each in the form of a key:value pair, to a new language model
-   *             at the time you create this new model.</p>
+   * <p>Optionally add tags, each in the form of a key:value pair, to your new language
+   *             model. See also: .</p>
    */
   Tags?: Tag[];
 }
@@ -1248,29 +1261,34 @@ export enum ModelStatus {
 
 export interface CreateLanguageModelResponse {
   /**
-   * <p>The language code of the text you've used to create a custom language model.</p>
+   * <p>The language code you selected for your custom language model.</p>
    */
   LanguageCode?: CLMLanguageCode | string;
 
   /**
-   * <p>The Amazon Transcribe standard language model, or base model you've used to create a custom
-   *             language model.</p>
+   * <p>The Amazon Transcribe standard language model, or base model, you used when creating your
+   *             custom language model.</p>
+   *         <p>If your audio has a sample rate of 16,000 Hz or greater, this value should be
+   *             <code>WideBand</code>. If your audio has a sample rate of less than
+   *             16,000 Hz, this value should be <code>NarrowBand</code>.</p>
    */
   BaseModelName?: BaseModelName | string;
 
   /**
-   * <p>The name you've chosen for your custom language model.</p>
+   * <p>The unique name you chose for your custom language model.</p>
    */
   ModelName?: string;
 
   /**
-   * <p>The data access role and Amazon S3 prefixes you've chosen to create your custom language model.</p>
+   * <p>Lists your data access role ARN (Amazon Resource Name) and the Amazon S3
+   *             locations your provided for your training (<code>S3Uri</code>) and tuning
+   *             (<code>TuningDataS3Uri</code>) data.</p>
    */
   InputDataConfig?: InputDataConfig;
 
   /**
-   * <p>The status of the custom language model. When the status is
-   *             <code>COMPLETED</code> the model is ready to use.</p>
+   * <p>The status of your custom language model. When the status shows as
+   *             <code>COMPLETED</code>, your model is ready to use.</p>
    */
   ModelStatus?: ModelStatus | string;
 }
@@ -1286,40 +1304,35 @@ export namespace CreateLanguageModelResponse {
 
 export interface CreateMedicalVocabularyRequest {
   /**
-   * <p>The name of the custom vocabulary. This case-sensitive name must be unique within
-   *             an Amazon Web Services account. If you try to create a vocabulary with the same name
-   *             as a previous vocabulary, you get a <code>ConflictException</code> error.</p>
+   * <p>The name of your new vocabulary.</p>
+   *         <p>This name is case sensitive, cannot contain spaces, and must be unique within an
+   *             Amazon Web Services account. If you try to create a vocabulary with the same name as a
+   *             previous vocabulary, you get a <code>ConflictException</code> error.</p>
    */
   VocabularyName: string | undefined;
 
   /**
-   * <p>The language code for the language used for the entries in your custom vocabulary.
-   *             The language code of your custom vocabulary must match the language code of your
-   *             transcription job. US English (en-US) is the only language code available for Amazon Transcribe Medical.</p>
+   * <p>The language code that represents the language of the entries in your custom
+   *             vocabulary. Note that U.S. English (<code>en-US</code>) is the only language
+   *             supported with Amazon Transcribe Medical.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>The location in Amazon S3 of the text file you use to define your custom vocabulary. The URI
-   *             must be in the same Amazon Web Services Region as the resource that you're calling. Enter
-   *             information about your <code>VocabularyFileUri</code> in the following format:</p>
+   * <p>The Amazon S3 location (URI) of the text file that contains your custom vocabulary.
+   *             The URI must be in the same Amazon Web Services Region as the resource that you're
+   *             calling.</p>
+   *         <p>Here's an example URI path:</p>
    *          <p>
-   *             <code>https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey></code>
-   *         </p>
-   *         <p>The following is an example URI for a vocabulary file that is stored in Amazon S3:</p>
-   *         <p>
-   *             <code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code>
+   *             <code>https://s3.us-east-1.amazonaws.com/my-s3-bucket/my-vocab-file.txt</code>
    *          </p>
-   *         <p>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in
-   *             the <i>Amazon S3 Developer Guide</i>.</p>
-   *         <p>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-med.html">Medical Custom
-   *             Vocabularies</a>.</p>
    */
   VocabularyFileUri: string | undefined;
 
   /**
    * <p>Adds one or more tags, each in the form of a key:value pair, to a new medical
-   *             vocabulary at the time you create this new vocabulary.</p>
+   *             vocabulary at the time you create the new vocabulary.</p>
+   *         <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging resources</a>.</p>
    */
   Tags?: Tag[];
 }
@@ -1341,32 +1354,31 @@ export enum VocabularyState {
 
 export interface CreateMedicalVocabularyResponse {
   /**
-   * <p>The name of the vocabulary. The name must be unique within an Amazon Web Services
-   *             account and is case sensitive.</p>
+   * <p>The name you chose for your vocabulary.</p>
    */
   VocabularyName?: string;
 
   /**
-   * <p>The language code for the entries in your custom vocabulary. US English (en-US) is the
-   *             only valid language code for Amazon Transcribe Medical.</p>
+   * <p>The language code you selected for your medical vocabulary. Note that U.S. English
+   *             (<code>en-US</code>) is the only language supported with Amazon Transcribe Medical.</p>
    */
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The processing state of your custom vocabulary in Amazon Transcribe Medical. If the state is
+   * <p>The processing state of your custom medical vocabulary. If the state is
    *             <code>READY</code>, you can use the vocabulary in a
    *             <code>StartMedicalTranscriptionJob</code> request.</p>
    */
   VocabularyState?: VocabularyState | string;
 
   /**
-   * <p>The date and time that you created the vocabulary.</p>
+   * <p>The date and time you created your custom medical vocabulary.</p>
    */
   LastModifiedTime?: Date;
 
   /**
-   * <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains
-   *             information about why the job failed.</p>
+   * <p>If the <code>VocabularyState</code> field is <code>FAILED</code>,
+   *             <code>FailureReason</code> contains information about why the job failed.</p>
    */
   FailureReason?: string;
 }
@@ -1382,44 +1394,43 @@ export namespace CreateMedicalVocabularyResponse {
 
 export interface CreateVocabularyRequest {
   /**
-   * <p>The name of the vocabulary. The name must be unique within an
-   *             Amazon Web Services account. The name is case sensitive. If you try to create a vocabulary
-   *             with the same name as a previous vocabulary you will receive a
-   *             <code>ConflictException</code> error.</p>
+   * <p>The name of your new vocabulary.</p>
+   *         <p>This name is case sensitive, cannot contain spaces, and must be unique within an
+   *             Amazon Web Services account. If you try to create a vocabulary with the same name as a
+   *             previous vocabulary, you get a <code>ConflictException</code> error.</p>
    */
   VocabularyName: string | undefined;
 
   /**
-   * <p>The language code of the vocabulary entries. For a list of languages and their
-   *             corresponding language codes, see <a>table-language-matrix</a>.</p>
+   * <p>The language code that represents the language of the entries in your custom
+   *             vocabulary. Each vocabulary must contain terms in only one language. For a list of
+   *             languages and their corresponding language codes, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+   *                 languages</a>.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>An array of strings that contains the vocabulary entries. </p>
+   * <p>Use this flag to include a list of terms within your request.</p>
+   *         <p>Note that if you include <code>Phrases</code> in your request, you cannot
+   *             use <code>VocabularyFileUri</code>; you must choose one or the other.</p>
    */
   Phrases?: string[];
 
   /**
-   * <p>The S3 location of the text file that contains the definition of the custom vocabulary. The
-   *             URI must be in the same region as the API endpoint that you are calling. The general form
-   *             is:</p>
-   *         <p>
-   *             <code>https://s3.<Amazon Web Services-region>.amazonaws.com/<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey> </code>
+   * <p>The S3 location of the text file that contains your custom vocabulary. The
+   *             URI must be located in the same region as the API endpoint you're calling.</p>
+   *         <p>Here's an example URI path:</p>
+   *          <p>
+   *             <code>https://s3.us-east-1.amazonaws.com/my-s3-bucket/my-vocab-file.txt</code>
    *          </p>
-   *         <p>For example:</p>
-   *         <p>
-   *             <code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code>
-   *          </p>
-   *         <p>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the
-   *             <i>Amazon S3 Developer Guide</i>.</p>
-   *         <p>For more information about custom vocabularies, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom vocabularies</a>.</p>
+   *         <p>Note that if you include <code>VocabularyFileUri</code> in your request, you
+   *             cannot use the <code>Phrases</code> flag; you must choose one or the other.</p>
    */
   VocabularyFileUri?: string;
 
   /**
-   * <p>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe vocabulary at
-   *             the time you create this new vocabulary.</p>
+   * <p>Adds one or more tags, each in the form of a key:value pair, to a new
+   *             custom vocabulary at the time you create this new vocabulary.</p>
    */
   Tags?: Tag[];
 }
@@ -1435,30 +1446,29 @@ export namespace CreateVocabularyRequest {
 
 export interface CreateVocabularyResponse {
   /**
-   * <p>The name of the vocabulary.</p>
+   * <p>The name you chose for your vocabulary.</p>
    */
   VocabularyName?: string;
 
   /**
-   * <p>The language code of the vocabulary entries.</p>
+   * <p>The language code you selected for your vocabulary.</p>
    */
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The processing state of the vocabulary. When the <code>VocabularyState</code> field
-   *             contains <code>READY</code> the vocabulary is ready to be used in a <code>StartTranscriptionJob</code>
-   *             request.</p>
+   * <p>The processing state of your vocabulary. If the state is <code>READY</code>, you can
+   *             use the vocabulary in a <code>StartTranscriptionJob</code> request.</p>
    */
   VocabularyState?: VocabularyState | string;
 
   /**
-   * <p>The date and time that the vocabulary was created.</p>
+   * <p>The date and time you created your custom vocabulary.</p>
    */
   LastModifiedTime?: Date;
 
   /**
-   * <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains
-   *             information about why the job failed.</p>
+   * <p>If the <code>VocabularyState</code> field is <code>FAILED</code>,
+   *             <code>FailureReason</code> contains information about why the job failed.</p>
    */
   FailureReason?: string;
 }
@@ -1474,9 +1484,10 @@ export namespace CreateVocabularyResponse {
 
 export interface CreateVocabularyFilterRequest {
   /**
-   * <p>The vocabulary filter name. The name must be unique within the account that contains
-   *             it. If you try to create a vocabulary filter with the same name as another vocabulary filter, you
-   *             get a <code>ConflictException</code> error.</p>
+   * <p>The name of your new vocabulary filter.</p>
+   *         <p>This name is case sensitive, cannot contain spaces, and must be unique within an
+   *             Amazon Web Services account. If you try to create a vocabulary filter with the same name
+   *             as a previous vocabulary filter, you get a <code>ConflictException</code> error.</p>
    */
   VocabularyFilterName: string | undefined;
 
@@ -1488,27 +1499,27 @@ export interface CreateVocabularyFilterRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>The words to use in the vocabulary filter. Only use characters from the character set
-   *             defined for custom vocabularies. For a list of character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
-   *                 Vocabularies</a>.</p>
-   *         <p>If you provide a list of words in the <code>Words</code> parameter, you can't use the
-   *             <code>VocabularyFilterFileUri</code> parameter.</p>
+   * <p>The words you want in your vocabulary filter. Only use characters specified in the
+   *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+   *                 sets</a> for the language you're transcribing.</p>
+   *         <p>Note that if you include <code>Words</code> in your request, you cannot use
+   *             <code>VocabularyFilterFileUri</code>; you must choose one or the other.</p>
    */
   Words?: string[];
 
   /**
    * <p>The Amazon S3 location of a text file used as input to create the vocabulary filter. Only
-   *             use characters from the character set defined for custom vocabularies. For a list of character
-   *             sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
+   *             use characters from the character set defined for custom vocabularies. For a list of
+   *             character sets, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a>.</p>
-   *         <p>The specified file must be less than 50 KB of UTF-8 characters.</p>
-   *         <p>If you provide the location of a list of words in the <code>VocabularyFilterFileUri</code>
-   *             parameter, you can't use the <code>Words</code> parameter.</p>
+   *         <p>Your vocabulary filter file must be less than 50 KB in size.</p>
+   *         <p>Note that if you include <code>VocabularyFilterFileUri</code> in your request, you
+   *             cannot use <code>Words</code>; you must choose one or the other.</p>
    */
   VocabularyFilterFileUri?: string;
 
   /**
-   * <p>Adds one or more tags, each in the form of a key:value pair, to a new Amazon Transcribe vocabulary
+   * <p>Adds one or more tags, each in the form of a key:value pair, to a new vocabulary
    *             filter at the time you create this new vocabulary filter.</p>
    */
   Tags?: Tag[];
@@ -1530,12 +1541,12 @@ export interface CreateVocabularyFilterResponse {
   VocabularyFilterName?: string;
 
   /**
-   * <p>The language code of the words in the collection.</p>
+   * <p>The language code associated with your vocabulary filter.</p>
    */
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The date and time that the vocabulary filter was modified.</p>
+   * <p>The date and time the vocabulary filter was modified.</p>
    */
   LastModifiedTime?: Date;
 }
@@ -1551,8 +1562,8 @@ export namespace CreateVocabularyFilterResponse {
 
 export interface DeleteCallAnalyticsCategoryRequest {
   /**
-   * <p>The name of the call analytics category that you're choosing to delete. The value is case
-   *             sensitive. </p>
+   * <p>The name of the call analytics category you want to delete. Category names are
+   *             case-sensitive.</p>
    */
   CategoryName: string | undefined;
 }
@@ -1600,7 +1611,8 @@ export class NotFoundException extends __BaseException {
 
 export interface DeleteCallAnalyticsJobRequest {
   /**
-   * <p>The name of the call analytics job you want to delete.</p>
+   * <p>The name of the call analytics job you want to delete. Job names are
+   *             case-sensitive.</p>
    */
   CallAnalyticsJobName: string | undefined;
 }
@@ -1627,7 +1639,7 @@ export namespace DeleteCallAnalyticsJobResponse {
 
 export interface DeleteLanguageModelRequest {
   /**
-   * <p>The name of the model you're choosing to delete.</p>
+   * <p>The name of the model you want to delete. Model names are case-sensitive.</p>
    */
   ModelName: string | undefined;
 }
@@ -1643,8 +1655,8 @@ export namespace DeleteLanguageModelRequest {
 
 export interface DeleteMedicalTranscriptionJobRequest {
   /**
-   * <p>The name you provide to the <code>DeleteMedicalTranscriptionJob</code> object to
-   *             delete a transcription job.</p>
+   * <p>The name of the medical transcription job you want to delete. Job names are
+   *             case-sensitive.</p>
    */
   MedicalTranscriptionJobName: string | undefined;
 }
@@ -1660,7 +1672,8 @@ export namespace DeleteMedicalTranscriptionJobRequest {
 
 export interface DeleteMedicalVocabularyRequest {
   /**
-   * <p>The name of the vocabulary that you want to delete.</p>
+   * <p>The name of the vocabulary that you want to delete. Vocabulary names are
+   *             case-sensitive.</p>
    */
   VocabularyName: string | undefined;
 }
@@ -1676,7 +1689,8 @@ export namespace DeleteMedicalVocabularyRequest {
 
 export interface DeleteTranscriptionJobRequest {
   /**
-   * <p>The name of the transcription job to be deleted.</p>
+   * <p>The name of the transcription job you want to delete. Job names are
+   *             case-sensitive.</p>
    */
   TranscriptionJobName: string | undefined;
 }
@@ -1692,7 +1706,8 @@ export namespace DeleteTranscriptionJobRequest {
 
 export interface DeleteVocabularyRequest {
   /**
-   * <p>The name of the vocabulary to delete. </p>
+   * <p>The name of the vocabulary you want to delete. Vocabulary names are
+   *             case-sensitive.</p>
    */
   VocabularyName: string | undefined;
 }
@@ -1708,7 +1723,8 @@ export namespace DeleteVocabularyRequest {
 
 export interface DeleteVocabularyFilterRequest {
   /**
-   * <p>The name of the vocabulary filter to remove.</p>
+   * <p>The name of the vocabulary filter you want to delete. Vocabulary filter names are
+   *             case-sensitive.</p>
    */
   VocabularyFilterName: string | undefined;
 }
@@ -1724,7 +1740,8 @@ export namespace DeleteVocabularyFilterRequest {
 
 export interface DescribeLanguageModelRequest {
   /**
-   * <p>The name of the custom language model you submit to get more information.</p>
+   * <p>The name of the custom language model you want described. Model names are
+   *             case-sensitive.</p>
    */
   ModelName: string | undefined;
 }
@@ -1776,7 +1793,7 @@ export interface LanguageModel {
 
   /**
    * <p>Whether the base model used for the custom language model is up to date. If this field
-   *             is <code>true</code> then you are running the most up-to-date version of the base model
+   *             is <code>false</code> then you are running the most up-to-date version of the base model
    *             in your custom language model.</p>
    */
   UpgradeAvailability?: boolean;
@@ -1820,7 +1837,8 @@ export namespace DescribeLanguageModelResponse {
 
 export interface GetCallAnalyticsCategoryRequest {
   /**
-   * <p>The name of the category you want information about. This value is case sensitive.</p>
+   * <p>The name of the category you want information about. Category names are case
+   *             sensitive.</p>
    */
   CategoryName: string | undefined;
 }
@@ -1836,7 +1854,8 @@ export namespace GetCallAnalyticsCategoryRequest {
 
 export interface GetCallAnalyticsCategoryResponse {
   /**
-   * <p>The rules you've defined for a category.</p>
+   * <p>Provides you with the rules associated with the category you specified in your
+   *             <code>GetCallAnalyticsCategory</code> request.</p>
    */
   CategoryProperties?: CategoryProperties;
 }
@@ -1856,7 +1875,7 @@ export namespace GetCallAnalyticsCategoryResponse {
 export interface GetCallAnalyticsJobRequest {
   /**
    * <p>The name of the analytics job you want information about. This value is case
-   *             sensitive. </p>
+   *             sensitive.</p>
    */
   CallAnalyticsJobName: string | undefined;
 }
@@ -1872,7 +1891,14 @@ export namespace GetCallAnalyticsJobRequest {
 
 export interface GetCallAnalyticsJobResponse {
   /**
-   * <p>An object that contains the results of your call analytics job.</p>
+   * <p>An object that contains detailed information about your call analytics job. Returned fields
+   *             include: <code>CallAnalyticsJobName</code>, <code>CallAnalyticsJobStatus</code>,
+   *             <code>ChannelDefinitions</code>, <code>CompletionTime</code>,
+   *             <code>CreationTime</code>, <code>DataAccessRoleArn</code>,
+   *             <code>FailureReason</code>, <code>IdentifiedLanguageScore</code>,
+   *             <code>LanguageCode</code>, <code>Media</code>, <code>MediaFormat</code>,
+   *             <code>MediaSampleRateHertz</code>, <code>Settings</code>, <code>StartTime</code>,
+   *             and <code>Transcript</code>.</p>
    */
   CallAnalyticsJob?: CallAnalyticsJob;
 }
@@ -1888,7 +1914,8 @@ export namespace GetCallAnalyticsJobResponse {
 
 export interface GetMedicalTranscriptionJobRequest {
   /**
-   * <p>The name of the medical transcription job.</p>
+   * <p>The name of the medical transcription job you want information about. This value is case
+   *             sensitive.</p>
    */
   MedicalTranscriptionJobName: string | undefined;
 }
@@ -2162,7 +2189,15 @@ export namespace MedicalTranscriptionJob {
 
 export interface GetMedicalTranscriptionJobResponse {
   /**
-   * <p>An object that contains the results of the medical transcription job.</p>
+   * <p>An object that contains detailed information about your medical transcription job.
+   *             Returned fields include: <code>CompletionTime</code>,
+   *             <code>ContentIdentificationType</code>, <code>CreationTime</code>,
+   *             <code>FailureReason</code>, <code>LanguageCode</code>, <code>Media</code>,
+   *             <code>MediaFormat</code>, <code>MediaSampleRateHertz</code>,
+   *             <code>MedicalTranscriptionJobName</code>, <code>Settings</code>,
+   *             <code>Specialty</code>, <code>StartTime</code>, <code>Tags</code>,
+   *             <code>Transcript</code>, <code>TranscriptionJobStatus</code>, and
+   *             <code>Type</code>.</p>
    */
   MedicalTranscriptionJob?: MedicalTranscriptionJob;
 }
@@ -2178,7 +2213,8 @@ export namespace GetMedicalTranscriptionJobResponse {
 
 export interface GetMedicalVocabularyRequest {
   /**
-   * <p>The name of the vocabulary that you want information about. The value is case sensitive. </p>
+   * <p>The name of the medical vocabulary you want information about. This value is case
+   *             sensitive.</p>
    */
   VocabularyName: string | undefined;
 }
@@ -2216,14 +2252,17 @@ export interface GetMedicalVocabularyResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>If the <code>VocabularyState</code> is <code>FAILED</code>, this field contains information about why
-   *             the job failed.</p>
+   * <p>If your request returns a <code>VocabularyState</code> that is <code>FAILED</code>,
+   *             the <code>FailureReason</code> field contains information about why the request
+   *             failed.</p>
+   *         <p>For more information, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/CommonErrors.html">Common Errors</a>
+   *             section.</p>
    */
   FailureReason?: string;
 
   /**
-   * <p>The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You
-   *             can download your vocabulary from the URI for a limited time.</p>
+   * <p>The S3 location where the vocabulary is stored; use this URI to view or download the
+   *             vocabulary.</p>
    */
   DownloadUri?: string;
 }
@@ -2394,7 +2433,8 @@ export enum SubtitleFormat {
 }
 
 /**
- * <p>Specify the output format for your subtitle file.</p>
+ * <p>Choose the output format for your subtitle file and the S3 location where you want
+ *             your file saved.</p>
  */
 export interface SubtitlesOutput {
   /**
@@ -2404,7 +2444,7 @@ export interface SubtitlesOutput {
   Formats?: (SubtitleFormat | string)[];
 
   /**
-   * <p>Choose the output location for your subtitle file. This location must be an S3
+   * <p>Contains the output location for your subtitle file. This location must be an S3
    *             bucket.</p>
    */
   SubtitleFileUris?: string[];
@@ -3050,14 +3090,15 @@ export namespace ListMedicalTranscriptionJobsResponse {
 export interface ListMedicalVocabulariesRequest {
   /**
    * <p>If the result of your previous request to <code>ListMedicalVocabularies</code> was
-   *             truncated, include the <code>NextToken</code> to fetch the next set of vocabularies.</p>
+   *             truncated, include the <code>NextToken</code> to fetch the next set of
+   *             vocabularies.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of vocabularies to return in each page of results. If there are fewer
-   *             results than the value you specify, only the actual results are returned. If you do not specify
-   *             a value, the default of 5 is used.</p>
+   * <p>The maximum number of vocabularies to return in each page of results. If there are
+   *             fewer results than the value you specify, only the actual results are returned. If you do not
+   *             specify a value, the default of 5 is used.</p>
    */
   MaxResults?: number;
 
@@ -3127,12 +3168,12 @@ export interface ListMedicalVocabulariesResponse {
   Status?: VocabularyState | string;
 
   /**
-   * <p>The <code>ListMedicalVocabularies</code> operation returns a page of vocabularies at a
-   *             time. You set the maximum number of vocabularies to return on a page with the
+   * <p>The <code>ListMedicalVocabularies</code> operation returns a page of vocabularies at
+   *             a time. You set the maximum number of vocabularies to return on a page with the
    *             <code>MaxResults</code> parameter. If there are more jobs in the list will fit on a page,
    *             Amazon Transcribe Medical returns the <code>NextPage</code> token. To return the next page of vocabularies,
    *             include the token in the next request to the <code>ListMedicalVocabularies</code>
-   *             operation .</p>
+   *             operation.</p>
    */
   NextToken?: string;
 
@@ -3759,7 +3800,7 @@ export interface StartMedicalTranscriptionJobRequest {
   Type: Type | string | undefined;
 
   /**
-   * <p>Add tags to an Amazon Transcribe medical transcription job.</p>
+   * <p>Add tags to an Amazon Transcribe Medical transcription job.</p>
    */
   Tags?: Tag[];
 }
@@ -4146,11 +4187,11 @@ export interface UpdateMedicalVocabularyRequest {
    *             be in the same Amazon Web Services Region as the resource that you are calling. The following
    *             is the format for a URI:</p>
    *         <p>
-   *             <code>   https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey>     </code>
+   *             <code>https://s3.aws-region.amazonaws.com/bucket-name/keyprefix/objectkey</code>
    *         </p>
    *         <p>For example:</p>
    *         <p>
-   *             <code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code>
+   *             <code>https://s3.us-east-1.amazonaws.com/DOC-EXAMPLE-BUCKET/vocab.txt</code>
    *          </p>
    *         <p>For more information about Amazon S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the
    *             <i>Amazon S3 Developer Guide</i>.</p>
@@ -4227,11 +4268,11 @@ export interface UpdateVocabularyRequest {
    *             The URI must be in the same region as the API endpoint that you are calling. The general form
    *             is:</p>
    *         <p>
-   *             <code>https://s3.<aws-region>.amazonaws.com/<AWSDOC-EXAMPLE-BUCKET>/<keyprefix>/<objectkey></code>
+   *             <code>https://s3.aws-region.amazonaws.com/bucket-name/keyprefix/objectkey</code>
    *          </p>
    *         <p>For example:</p>
    *         <p>
-   *             <code>https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt</code>
+   *             <code>https://s3.us-east-1.amazonaws.com/DOC-EXAMPLE-BUCKET/vocab.txt</code>
    *          </p>
    *         <p>For more information about S3 object names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the
    *             <i>Amazon S3 Developer Guide</i>.</p>

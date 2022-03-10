@@ -32,8 +32,7 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  *           cluster results in a momentary outage, during which the DB cluster status is set to rebooting.
  *       </p>
  *
- *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.
- *           The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+ *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p>
  *
  *          <p>For more information on Multi-AZ DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">

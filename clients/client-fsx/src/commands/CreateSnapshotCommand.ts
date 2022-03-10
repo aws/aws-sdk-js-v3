@@ -22,7 +22,7 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS file system. With
+ * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
  *             snapshots, you can easily undo file changes and compare file versions by restoring the
  *             volume to a previous version.</p>
  *         <p>If a snapshot with the specified client request token exists, and the parameters
@@ -30,7 +30,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *             with the specified client request token exists, and the parameters don't match, this
  *             operation returns <code>IncompatibleParameterError</code>. If a snapshot with the
  *             specified client request token doesn't exist, <code>CreateSnapshot</code> does the
- *             following: </p>
+ *             following:</p>
  *         <ul>
  *             <li>
  *                 <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
@@ -49,7 +49,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *         <p>The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state
  *             is still <code>CREATING</code>. You can check the snapshot creation status by calling
  *             the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a> operation, which returns the snapshot state along with
- *             other information. </p>
+ *             other information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

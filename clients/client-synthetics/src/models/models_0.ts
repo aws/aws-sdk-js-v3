@@ -622,8 +622,19 @@ export interface CanaryCodeInput {
   ZipFile?: Uint8Array;
 
   /**
-   * <p>The entry point to use for the source code when running the canary. This value must end
-   *          with the string <code>.handler</code>. The string is limited to 29 characters or fewer.</p>
+   * <p>The entry point to use for the source code when running the canary. For canaries that use the
+   *          <code>syn-python-selenium-1.0</code> runtime
+   *          or a <code>syn-nodejs.puppeteer</code> runtime earlier than <code>syn-nodejs.puppeteer-3.4</code>,
+   *          the handler must be specified as <code>
+   *                <i>fileName</i>.handler</code>. For
+   *          <code>syn-python-selenium-1.1</code>, <code>syn-nodejs.puppeteer-3.4</code>, and later runtimes, the handler can be specified as
+   *             <code>
+   *                <i>fileName</i>.<i>functionName</i>
+   *             </code>, or
+   *             you can specify a folder where canary scripts reside as
+   * <code>
+   *                <i>folder</i>/<i>fileName</i>.<i>functionName</i>
+   *             </code>.</p>
    */
   Handler: string | undefined;
 }

@@ -22,7 +22,7 @@ export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequ
 export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed Job log with paging.</p>
+ * <p>Retrieves detailed job log items with paging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

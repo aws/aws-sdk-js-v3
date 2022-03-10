@@ -267,6 +267,15 @@ export interface UpdateRoutingControlStateRequest {
    * <p>The state of the routing control. You can set the value to be On or Off.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override when you're updating the state of
+   * 			a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
+   * 			by commas.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+   * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+   */
+  SafetyRulesToOverride?: string[];
 }
 
 export namespace UpdateRoutingControlStateRequest {
@@ -290,11 +299,11 @@ export namespace UpdateRoutingControlStateResponse {
 }
 
 /**
- * <p>A routing control state.</p>
+ * <p>A routing control state entry.</p>
  */
 export interface UpdateRoutingControlStateEntry {
   /**
-   * <p>The Amazon Resource Number (ARN) for the routing control state entry.</p>
+   * <p>The Amazon Resource Number (ARN) for a routing control state entry.</p>
    */
   RoutingControlArn: string | undefined;
 
@@ -318,6 +327,15 @@ export interface UpdateRoutingControlStatesRequest {
    * <p>A set of routing control entries that you want to update.</p>
    */
   UpdateRoutingControlStateEntries: UpdateRoutingControlStateEntry[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override when you're updating routing
+   * 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
+   * 			by commas.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+   * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
+   */
+  SafetyRulesToOverride?: string[];
 }
 
 export namespace UpdateRoutingControlStatesRequest {

@@ -212,7 +212,7 @@ export class ECR extends ECRClient {
    *         <p>When an image is pushed to a repository, each image layer is checked to verify if it
    *             has been uploaded before. If it has been uploaded, then the image layer is
    *             skipped.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
@@ -358,7 +358,7 @@ export class ECR extends ECRClient {
    *             of the image layer for data validation purposes.</p>
    *         <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image
    *             layer to verify that the upload has completed.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
@@ -864,7 +864,7 @@ export class ECR extends ECRClient {
    *             only get URLs for image layers that are referenced in an image.</p>
    *         <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
    *             that is not already cached.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
@@ -1064,7 +1064,7 @@ export class ECR extends ECRClient {
    *         <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer
    *             that has not already been uploaded. Whether or not an image layer has been uploaded is
    *             determined by the BatchCheckLayerAvailability API action.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>
@@ -1197,7 +1197,12 @@ export class ECR extends ECRClient {
   }
 
   /**
-   * <p>Updates the image scanning configuration for the specified repository.</p>
+   * <important>
+   *             <p>The <code>PutImageScanningConfiguration</code> API is being deprecated, in favor
+   *                 of specifying the image scanning configuration at the registry level. For more
+   *                 information, see <a>PutRegistryScanningConfiguration</a>.</p>
+   *         </important>
+   *         <p>Updates the image scanning configuration for the specified repository.</p>
    */
   public putImageScanningConfiguration(
     args: PutImageScanningConfigurationCommandInput,
@@ -1570,7 +1575,7 @@ export class ECR extends ECRClient {
    *         <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
    *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
    *             is called once per each new image layer part.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
    *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
    *          </note>

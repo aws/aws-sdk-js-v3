@@ -577,8 +577,8 @@ export class FSx extends FSxClient {
    *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
    *
    *         <p>If a file system with the specified client request token exists and the parameters
-   *             match, this operation returns the description of the file system. If a client request
-   *             token with the specified by the file system exists and the parameters don't match, this
+   *             match, this operation returns the description of the file system. If a file system
+   *             with the specified client request token exists but the parameters don't match, this
    *             call returns <code>IncompatibleParameterError</code>. If a file system with the
    *             specified client request token doesn't exist, this operation does the following:</p>
    *
@@ -641,7 +641,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS file system. With
+   * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
    *             snapshots, you can easily undo file changes and compare file versions by restoring the
    *             volume to a previous version.</p>
    *         <p>If a snapshot with the specified client request token exists, and the parameters
@@ -649,7 +649,7 @@ export class FSx extends FSxClient {
    *             with the specified client request token exists, and the parameters don't match, this
    *             operation returns <code>IncompatibleParameterError</code>. If a snapshot with the
    *             specified client request token doesn't exist, <code>CreateSnapshot</code> does the
-   *             following: </p>
+   *             following:</p>
    *         <ul>
    *             <li>
    *                 <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
@@ -668,7 +668,7 @@ export class FSx extends FSxClient {
    *         <p>The <code>CreateSnapshot</code> operation returns while the snapshot's lifecycle state
    *             is still <code>CREATING</code>. You can check the snapshot creation status by calling
    *             the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a> operation, which returns the snapshot state along with
-   *             other information. </p>
+   *             other information.</p>
    */
   public createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -732,8 +732,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Creates an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS storage
-   *             volume.</p>
+   * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
    */
   public createVolume(
     args: CreateVolumeCommandInput,
@@ -927,7 +926,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Deletes the Amazon FSx snapshot. After deletion, the snapshot no longer
+   * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
    *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
    *             file system backup. </p>
    *         <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
@@ -1275,7 +1274,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Returns the description of specific Amazon FSx snapshots, if a
+   * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
    *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
    *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
    *             the endpoint that you're calling.</p>
@@ -1830,7 +1829,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Updates the name of a snapshot. </p>
+   * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
    */
   public updateSnapshot(
     args: UpdateSnapshotCommandInput,

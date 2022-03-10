@@ -30,5 +30,6 @@ export * from "./StopQueryExecutionCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDataCatalogCommand";
+export * from "./UpdateNamedQueryCommand";
 export * from "./UpdatePreparedStatementCommand";
 export * from "./UpdateWorkGroupCommand";

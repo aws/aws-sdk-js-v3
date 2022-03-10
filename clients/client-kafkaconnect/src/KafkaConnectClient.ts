@@ -58,6 +58,7 @@ import {
   CreateWorkerConfigurationCommandOutput,
 } from "./commands/CreateWorkerConfigurationCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import { DeleteCustomPluginCommandInput, DeleteCustomPluginCommandOutput } from "./commands/DeleteCustomPluginCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import {
   DescribeCustomPluginCommandInput,
@@ -81,6 +82,7 @@ export type ServiceInputTypes =
   | CreateCustomPluginCommandInput
   | CreateWorkerConfigurationCommandInput
   | DeleteConnectorCommandInput
+  | DeleteCustomPluginCommandInput
   | DescribeConnectorCommandInput
   | DescribeCustomPluginCommandInput
   | DescribeWorkerConfigurationCommandInput
@@ -94,6 +96,7 @@ export type ServiceOutputTypes =
   | CreateCustomPluginCommandOutput
   | CreateWorkerConfigurationCommandOutput
   | DeleteConnectorCommandOutput
+  | DeleteCustomPluginCommandOutput
   | DescribeConnectorCommandOutput
   | DescribeCustomPluginCommandOutput
   | DescribeWorkerConfigurationCommandOutput

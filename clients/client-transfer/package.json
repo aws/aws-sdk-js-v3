@@ -48,6 +48,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "@aws-sdk/util-utf8-node": "*",
+    "@aws-sdk/util-waiter": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

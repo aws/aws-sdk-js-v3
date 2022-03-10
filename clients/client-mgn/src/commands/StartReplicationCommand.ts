@@ -22,7 +22,7 @@ export interface StartReplicationCommandInput extends StartReplicationRequest {}
 export interface StartReplicationCommandOutput extends SourceServer, __MetadataBearer {}
 
 /**
- * <p>Starts replication on source server by ID.</p>
+ * <p>Starts replication for SNAPSHOT_SHIPPING agents.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

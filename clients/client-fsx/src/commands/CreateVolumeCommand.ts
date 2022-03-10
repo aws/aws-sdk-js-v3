@@ -22,8 +22,7 @@ export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS storage
- *             volume.</p>
+ * <p>Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

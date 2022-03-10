@@ -3611,7 +3611,7 @@ export interface CreateSlotRequest {
    *          The slot type determines the values that can be entered into the
    *          slot.</p>
    */
-  slotTypeId: string | undefined;
+  slotTypeId?: string;
 
   /**
    * <p>Specifies prompts that Amazon Lex sends to the user to elicit a response
@@ -9625,7 +9625,7 @@ export interface UpdateSlotRequest {
    * <p>The unique identifier of the new slot type to associate with this
    *          slot. </p>
    */
-  slotTypeId: string | undefined;
+  slotTypeId?: string;
 
   /**
    * <p>A new set of prompts that Amazon Lex sends to the user to elicit a

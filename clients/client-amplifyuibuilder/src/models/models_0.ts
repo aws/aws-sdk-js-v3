@@ -83,13 +83,15 @@ export namespace SortProperty {
  */
 export interface ComponentVariant {
   /**
-   * <p>The combination of variants that comprise this variant.</p>
+   * <p>The combination of variants that comprise this variant. You can't specify
+   *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
    */
   variantValues?: { [key: string]: string };
 
   /**
    * <p>The properties of the component variant that can be overriden when customizing an instance
-   *       of the component.</p>
+   *       of the component. You can't specify <code>tags</code> as a valid property for
+   *         <code>overrides</code>.</p>
    */
   overrides?: { [key: string]: { [key: string]: string } };
 }
@@ -182,12 +184,14 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 export interface DeleteComponentRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the component to delete.</p>
+   * <p>The unique ID of the Amplify app associated with the component to
+   *       delete.</p>
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -232,9 +236,15 @@ export interface ExportComponentsRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ExportComponentsRequest {
@@ -279,7 +289,8 @@ export interface ListComponentsRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -314,7 +325,8 @@ export interface ComponentSummary {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -514,12 +526,14 @@ export namespace RefreshTokenResponse {
 
 export interface DeleteThemeRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the theme to delete.</p>
+   * <p>The unique ID of the Amplify app associated with the theme to
+   *       delete.</p>
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -548,6 +562,11 @@ export interface ExportThemesRequest {
    * <p>The name of the backend environment that is part of the Amplify app.</p>
    */
   environmentName: string | undefined;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ExportThemesRequest {
@@ -592,7 +611,8 @@ export interface ListThemesRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -720,8 +740,8 @@ export namespace ThemeValues {
 }
 
 /**
- * <p>Stores information for generating Amplify DataStore queries. Use a <code>Predicate</code>
- *       to retrieve a subset of the data in a collection.</p>
+ * <p>Stores information for generating Amplify DataStore queries. Use a
+ *         <code>Predicate</code> to retrieve a subset of the data in a collection.</p>
  */
 export interface Predicate {
   /**
@@ -849,8 +869,7 @@ export namespace ComponentDataConfiguration {
 
 /**
  * <p>Describes the configuration for all of a component's properties. Use
- *         <code>ComponentProperty</code> to specify the values to render or bind by
- *       default.</p>
+ *         <code>ComponentProperty</code> to specify the values to render or bind by default.</p>
  */
 export interface ComponentProperty {
   /**
@@ -864,7 +883,8 @@ export interface ComponentProperty {
   bindingProperties?: ComponentPropertyBindingProperties;
 
   /**
-   * <p>The information to bind the component property to data at runtime. Use this for collection components.</p>
+   * <p>The information to bind the component property to data at runtime. Use this for collection
+   *       components.</p>
    */
   collectionBindingProperties?: ComponentPropertyBindingProperties;
 
@@ -894,17 +914,19 @@ export interface ComponentProperty {
   userAttribute?: string;
 
   /**
-   * <p>A list of component properties to concatenate to create the value to assign to this component property.</p>
+   * <p>A list of component properties to concatenate to create the value to assign to this
+   *       component property.</p>
    */
   concat?: ComponentProperty[];
 
   /**
-   * <p>The conditional expression to use to assign a value to the component property..</p>
+   * <p>The conditional expression to use to assign a value to the component property.</p>
    */
   condition?: ComponentConditionProperty;
 
   /**
-   * <p>Specifies whether the user configured the property in Amplify Studio after importing it.</p>
+   * <p>Specifies whether the user configured the property in Amplify Studio after
+   *       importing it.</p>
    */
   configured?: boolean;
 
@@ -914,9 +936,20 @@ export interface ComponentProperty {
   type?: string;
 
   /**
-   * <p>The default value assigned to property when the component is imported into an app.</p>
+   * <p>The default value assigned to the property when the component is imported into an
+   *       app.</p>
    */
   importedValue?: string;
+
+  /**
+   * <p>The name of the component that is affected by an event.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The name of the component's property that is affected by an event.</p>
+   */
+  property?: string;
 }
 
 export namespace ComponentProperty {
@@ -1006,7 +1039,8 @@ export interface Theme {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -1090,6 +1124,36 @@ export namespace UpdateThemeData {
 }
 
 /**
+ * <p>Represents the state configuration when an action modifies a property of another
+ *       element within the same component.</p>
+ */
+export interface MutationActionSetStateParameter {
+  /**
+   * <p>The name of the component that is being modified.</p>
+   */
+  componentName: string | undefined;
+
+  /**
+   * <p>The name of the component property to apply the state configuration to.</p>
+   */
+  property: string | undefined;
+
+  /**
+   * <p>The state configuration to assign to the property.</p>
+   */
+  set: ComponentProperty | undefined;
+}
+
+export namespace MutationActionSetStateParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MutationActionSetStateParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents a conditional expression to set a component property. Use
  *         <code>ComponentConditionProperty</code> to set a property to different values conditionally,
  *       based on the value of another property.</p>
@@ -1125,6 +1189,11 @@ export interface ComponentConditionProperty {
    * <p>The value to assign to the property if the condition is not met.</p>
    */
   else?: ComponentProperty;
+
+  /**
+   * <p>The type of the property to evaluate.</p>
+   */
+  operandType?: string;
 }
 
 export namespace ComponentConditionProperty {
@@ -1143,7 +1212,8 @@ export interface CreateThemeRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -1256,6 +1326,11 @@ export interface ExportThemesResponse {
    * <p>Represents the configuration of the exported themes.</p>
    */
   entities: Theme[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ExportThemesResponse {
@@ -1263,6 +1338,96 @@ export namespace ExportThemesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ExportThemesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the event action configuration for an element of a <code>Component</code>
+ *       or <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
+ *       that allows you to bind events and actions to components. <code>ActionParameters</code>
+ *       defines the action that is performed when an event occurs on the component.</p>
+ */
+export interface ActionParameters {
+  /**
+   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>. This value is required for a navigation action.</p>
+   */
+  type?: ComponentProperty;
+
+  /**
+   * <p>The URL to the location to open. Specify this value for a navigation action.</p>
+   */
+  url?: ComponentProperty;
+
+  /**
+   * <p>The HTML anchor link to the location to open. Specify this value for a navigation action.</p>
+   */
+  anchor?: ComponentProperty;
+
+  /**
+   * <p>The element within the same component to modify when the action occurs.</p>
+   */
+  target?: ComponentProperty;
+
+  /**
+   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.</p>
+   */
+  global?: ComponentProperty;
+
+  /**
+   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore
+   *       model.</p>
+   */
+  model?: string;
+
+  /**
+   * <p>The unique ID of the component that the <code>ActionParameters</code> apply to.</p>
+   */
+  id?: ComponentProperty;
+
+  /**
+   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action
+   *       performs an operation on an Amplify DataStore model.</p>
+   */
+  fields?: { [key: string]: ComponentProperty };
+
+  /**
+   * <p>A key-value pair that specifies the state property name and its initial value.</p>
+   */
+  state?: MutationActionSetStateParameter;
+}
+
+export namespace ActionParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ActionParameters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration of an event. You can bind an event and a corresponding
+ *       action to a <code>Component</code> or a <code>ComponentChild</code>. A button click
+ *       is an example of an event. </p>
+ */
+export interface ComponentEvent {
+  /**
+   * <p>The action to perform when a specific event is raised.</p>
+   */
+  action?: string;
+
+  /**
+   * <p>Describes information about the action.</p>
+   */
+  parameters?: ActionParameters;
+}
+
+export namespace ComponentEvent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComponentEvent): any => ({
     ...obj,
   });
 }
@@ -1282,7 +1447,8 @@ export interface ComponentChild {
   name: string | undefined;
 
   /**
-   * <p>Describes the properties of the child component.</p>
+   * <p>Describes the properties of the child component. You can't specify <code>tags</code> as a
+   *       valid property for <code>properties</code>.</p>
    */
   properties: { [key: string]: ComponentProperty } | undefined;
 
@@ -1290,6 +1456,12 @@ export interface ComponentChild {
    * <p>The list of <code>ComponentChild</code> instances for this component.</p>
    */
   children?: ComponentChild[];
+
+  /**
+   * <p>Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to
+   *       bind events and actions to components.</p>
+   */
+  events?: { [key: string]: ComponentEvent };
 }
 
 export namespace ComponentChild {
@@ -1302,10 +1474,10 @@ export namespace ComponentChild {
 }
 
 /**
- * <p>Contains the configuration settings for a user interface (UI) element for an Amplify app. A
- *       component is configured as a primary, stand-alone UI element. Use <code>ComponentChild</code>
- *       to configure an instance of a <code>Component</code>. A <code>ComponentChild</code> instance
- *       inherits the configuration of the main <code>Component</code>.</p>
+ * <p>Contains the configuration settings for a user interface (UI) element for an Amplify app. A component is configured as a primary, stand-alone UI element. Use
+ *         <code>ComponentChild</code> to configure an instance of a <code>Component</code>. A
+ *         <code>ComponentChild</code> instance inherits the configuration of the main
+ *         <code>Component</code>.</p>
  */
 export interface Component {
   /**
@@ -1314,7 +1486,8 @@ export interface Component {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -1334,13 +1507,14 @@ export interface Component {
   name: string | undefined;
 
   /**
-   * <p>The type of the component. This can be an Amplify custom UI component or another custom
-   *       component.</p>
+   * <p>The type of the component. This can be an Amplify custom UI component or
+   *       another custom component.</p>
    */
   componentType: string | undefined;
 
   /**
-   * <p>Describes the component's properties.</p>
+   * <p>Describes the component's properties. You can't specify <code>tags</code> as a valid
+   *       property for <code>properties</code>.</p>
    */
   properties: { [key: string]: ComponentProperty } | undefined;
 
@@ -1350,24 +1524,29 @@ export interface Component {
   children?: ComponentChild[];
 
   /**
-   * <p>A list of the component's variants. A variant is a unique style configuration of a
-   *       main component.</p>
+   * <p>A list of the component's variants. A variant is a unique style configuration of a main
+   *       component.</p>
    */
   variants: ComponentVariant[] | undefined;
 
   /**
    * <p>Describes the component's properties that can be overriden in a customized instance of the
-   *       component.</p>
+   *       component. You can't specify <code>tags</code> as a valid property for
+   *       <code>overrides</code>.</p>
    */
   overrides: { [key: string]: { [key: string]: string } } | undefined;
 
   /**
-   * <p>The information to connect a component's properties to data at runtime.</p>
+   * <p>The information to connect a component's properties to data at runtime. You can't specify
+   *         <code>tags</code> as a valid property for <code>bindingProperties</code>.</p>
+   *          <p/>
    */
   bindingProperties: { [key: string]: ComponentBindingPropertiesValue } | undefined;
 
   /**
-   * <p>The data binding configuration for the component's properties. Use this for a collection component.</p>
+   * <p>The data binding configuration for the component's properties. Use this for a collection
+   *       component. You can't specify <code>tags</code> as a valid property for
+   *         <code>collectionProperties</code>.</p>
    */
   collectionProperties?: { [key: string]: ComponentDataConfiguration };
 
@@ -1385,6 +1564,17 @@ export interface Component {
    * <p>One or more key-value pairs to use when tagging the component.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to
+   *       bind events and actions to components.</p>
+   */
+  events?: { [key: string]: ComponentEvent };
+
+  /**
+   * <p>The schema version of the component when it was imported.</p>
+   */
+  schemaVersion?: string;
 }
 
 export namespace Component {
@@ -1411,8 +1601,8 @@ export interface CreateComponentData {
   sourceId?: string;
 
   /**
-   * <p>The component type. This can be an Amplify custom UI component or another custom
-   *       component.</p>
+   * <p>The component type. This can be an Amplify custom UI component or another
+   *       custom component.</p>
    */
   componentType: string | undefined;
 
@@ -1443,7 +1633,8 @@ export interface CreateComponentData {
   bindingProperties: { [key: string]: ComponentBindingPropertiesValue } | undefined;
 
   /**
-   * <p>The data binding configuration for customizing a component's properties. Use this for a collection component.</p>
+   * <p>The data binding configuration for customizing a component's properties. Use this for a
+   *       collection component.</p>
    */
   collectionProperties?: { [key: string]: ComponentDataConfiguration };
 
@@ -1451,6 +1642,16 @@ export interface CreateComponentData {
    * <p>One or more key-value pairs to use when tagging the component data.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
+   */
+  events?: { [key: string]: ComponentEvent };
+
+  /**
+   * <p>The schema version of the component when it was imported.</p>
+   */
+  schemaVersion?: string;
 }
 
 export namespace CreateComponentData {
@@ -1482,8 +1683,8 @@ export interface UpdateComponentData {
   sourceId?: string;
 
   /**
-   * <p>The type of the component. This can be an Amplify custom UI component or another custom
-   *       component.</p>
+   * <p>The type of the component. This can be an Amplify custom UI component or
+   *       another custom component.</p>
    */
   componentType?: string;
 
@@ -1513,9 +1714,20 @@ export interface UpdateComponentData {
   bindingProperties?: { [key: string]: ComponentBindingPropertiesValue };
 
   /**
-   * <p>The configuration for binding a component's properties to a data model. Use this for a collection component.</p>
+   * <p>The configuration for binding a component's properties to a data model. Use this for a
+   *       collection component.</p>
    */
   collectionProperties?: { [key: string]: ComponentDataConfiguration };
+
+  /**
+   * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
+   */
+  events?: { [key: string]: ComponentEvent };
+
+  /**
+   * <p>The schema version of the component when it was imported.</p>
+   */
+  schemaVersion?: string;
 }
 
 export namespace UpdateComponentData {
@@ -1534,7 +1746,8 @@ export interface CreateComponentRequest {
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * <p>The name of the backend environment that is a part of the Amplify
+   *       app.</p>
    */
   environmentName: string | undefined;
 
@@ -1647,6 +1860,11 @@ export interface ExportComponentsResponse {
    * <p>Represents the configuration of the exported components.</p>
    */
   entities: Component[] | undefined;
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ExportComponentsResponse {

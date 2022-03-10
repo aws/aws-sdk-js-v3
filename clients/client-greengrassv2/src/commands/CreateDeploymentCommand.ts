@@ -29,8 +29,8 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *       target that has an existing deployment, you replace the previous deployment. IoT Greengrass applies the
  *       new deployment to the target devices.</p>
  *          <p>Every deployment has a revision number that indicates how many deployment revisions you
- *       define for a target. Use this operation to create a new revision of an existing deployment.
- *       This operation returns the revision number of the new deployment when you create it.</p>
+ *       define for a target. Use this operation to create a new revision of an existing
+ *       deployment.</p>
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the
  *         <i>IoT Greengrass V2 Developer Guide</i>.</p>
  * @example

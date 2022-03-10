@@ -22,10 +22,11 @@ export interface DisassociateS3ResourcesCommandInput extends DisassociateS3Resou
 export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3ResourcesResult, __MetadataBearer {}
 
 /**
- * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If
- *       memberAccountId isn't specified, the action removes specified S3 resources from Macie Classic
- *       for the current Macie Classic administrator account. If memberAccountId is specified, the action removes specified
- *       S3 resources from Macie Classic for the specified member account.</p>
+ * <p>(Discontinued) Removes specified S3 resources from being monitored by Amazon Macie
+ *       Classic. If <code>memberAccountId</code> isn't specified, the action removes specified S3 resources from
+ *       Macie Classic for the current Macie Classic administrator account. If <code>memberAccountId</code> is
+ *       specified, the action removes specified S3 resources from Macie Classic for the specified
+ *       member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

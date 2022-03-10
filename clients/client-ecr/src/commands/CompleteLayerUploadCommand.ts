@@ -27,7 +27,7 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  *             of the image layer for data validation purposes.</p>
  *         <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image
  *             layer to verify that the upload has completed.</p>
- *          <note>
+ *         <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>

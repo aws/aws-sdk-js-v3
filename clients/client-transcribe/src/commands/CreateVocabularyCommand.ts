@@ -22,8 +22,13 @@ export interface CreateVocabularyCommandInput extends CreateVocabularyRequest {}
 export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an
- *             audio file.</p>
+ * <p>Creates a new custom vocabulary.</p>
+ *         <p>When creating a new medical vocabulary, you can either upload a text file that
+ *             contains your new entries, phrases, and terms into an S3 bucket or include a list of
+ *             terms directly in your request using the <code>Phrases</code> flag.</p>
+ *         <p>For more information on creating a custom vocabulary, see
+ *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating a custom
+ *                 vocabulary</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -298,7 +298,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Deletes a single vCenter client by ID.</p>
+   * <p>Deletes a given vCenter client by ID.</p>
    */
   public deleteVcenterClient(
     args: DeleteVcenterClientCommandInput,
@@ -330,7 +330,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Retrieves detailed Job log with paging.</p>
+   * <p>Retrieves detailed job log items with paging.</p>
    */
   public describeJobLogItems(
     args: DescribeJobLogItemsCommandInput,
@@ -362,7 +362,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normaly created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
+   * <p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>
    */
   public describeJobs(
     args: DescribeJobsCommandInput,
@@ -457,7 +457,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Lists all vCenter clients.</p>
+   * <p>Returns a list of the installed vCenter clients.</p>
    */
   public describeVcenterClients(
     args: DescribeVcenterClientsCommandInput,
@@ -489,7 +489,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communciating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>
+   * <p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communicating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public disconnectFromService(
     args: DisconnectFromServiceCommandInput,
@@ -521,7 +521,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>
+   * <p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>
    */
   public finalizeCutover(
     args: FinalizeCutoverCommandInput,
@@ -681,7 +681,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle.state which equals DISCONNECTED or CUTOVER.</p>
+   * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>
    */
   public markAsArchived(
     args: MarkAsArchivedCommandInput,
@@ -774,7 +774,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Starts replication on source server by ID.</p>
+   * <p>Starts replication for SNAPSHOT_SHIPPING agents.</p>
    */
   public startReplication(
     args: StartReplicationCommandInput,
@@ -806,7 +806,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
+   * <p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
    */
   public startTest(args: StartTestCommandInput, options?: __HttpHandlerOptions): Promise<StartTestCommandOutput>;
   public startTest(args: StartTestCommandInput, cb: (err: any, data?: StartTestCommandOutput) => void): void;
@@ -1020,7 +1020,7 @@ export class Mgn extends MgnClient {
   }
 
   /**
-   * <p>Updates source server Replication Type by ID.</p>
+   * <p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>
    */
   public updateSourceServerReplicationType(
     args: UpdateSourceServerReplicationTypeCommandInput,

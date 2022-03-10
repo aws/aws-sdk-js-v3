@@ -55,7 +55,9 @@ export interface AutoBranchCreationConfig {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the autocreated branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for the autocreated branch. You must
+   *             base64-encode the authorization credentials and provide them in the format
+   *                 <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -66,7 +68,9 @@ export interface AutoBranchCreationConfig {
 
   /**
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *             the edge for a longer interval. When performance mode is enabled, hosting configuration
+   *             or code changes can take up to 10 minutes to roll out. </p>
    */
   enablePerformanceMode?: boolean;
 
@@ -93,6 +97,7 @@ export namespace AutoBranchCreationConfig {
   export const filterSensitiveLog = (obj: AutoBranchCreationConfig): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
   });
 }
 
@@ -120,7 +125,8 @@ export interface CustomRule {
    *                 </dd>
    *             <dt>301</dt>
    *             <dd>
-   *                     <p>Represents a 301 (moved pemanently) redirect rule. This and all future requests should be directed to the target URL. </p>
+   *                     <p>Represents a 301 (moved pemanently) redirect rule. This and all future
+   *                         requests should be directed to the target URL. </p>
    *                 </dd>
    *             <dt>302</dt>
    *             <dd>
@@ -155,6 +161,7 @@ export namespace CustomRule {
 
 export enum Platform {
   WEB = "WEB",
+  WEB_DYNAMIC = "WEB_DYNAMIC",
 }
 
 /**
@@ -223,7 +230,9 @@ export interface CreateAppRequest {
   enableBasicAuth?: boolean;
 
   /**
-   * <p> The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The credentials for basic authorization for an Amplify app. You must base64-encode
+   *             the authorization credentials and provide them in the format
+   *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -272,6 +281,7 @@ export namespace CreateAppRequest {
     ...(obj.oauthToken && { oauthToken: SENSITIVE_STRING }),
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
@@ -312,6 +322,12 @@ export namespace ProductionBranch {
   });
 }
 
+export enum RepositoryCloneMethod {
+  SIGV4 = "SIGV4",
+  SSH = "SSH",
+  TOKEN = "TOKEN",
+}
+
 /**
  * <p> Represents the different branches of a repository for building, deploying, and
  *             hosting an Amplify app. </p>
@@ -343,7 +359,7 @@ export interface App {
   description: string | undefined;
 
   /**
-   * <p> The repository for the Amplify app. </p>
+   * <p> The Git repository for the Amplify app. </p>
    */
   repository: string | undefined;
 
@@ -395,7 +411,9 @@ export interface App {
   enableBasicAuth: boolean | undefined;
 
   /**
-   * <p> The basic authorization credentials for branches for the Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for branches for the Amplify app. You must
+   *             base64-encode the authorization credentials and provide them in the format
+   *                 <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -434,6 +452,14 @@ export interface App {
    * <p> Describes the automated branch creation configuration for the Amplify app. </p>
    */
   autoBranchCreationConfig?: AutoBranchCreationConfig;
+
+  /**
+   * <p>The authentication protocol to use to access the Git repository for an Amplify app.
+   *             For a GitHub repository, specify <code>TOKEN</code>. For an Amazon Web Services CodeCommit repository,
+   *             specify <code>SIGV4</code>. For GitLab and Bitbucket repositories, specify
+   *                 <code>SSH</code>.</p>
+   */
+  repositoryCloneMethod?: RepositoryCloneMethod | string;
 }
 
 export namespace App {
@@ -443,6 +469,7 @@ export namespace App {
   export const filterSensitiveLog = (obj: App): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
@@ -707,7 +734,9 @@ export interface CreateBranchRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for the branch. You must base64-encode the
+   *             authorization credentials and provide them in the format
+   *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -718,7 +747,9 @@ export interface CreateBranchRequest {
 
   /**
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *             the edge for a longer interval. When performance mode is enabled, hosting configuration
+   *             or code changes can take up to 10 minutes to roll out. </p>
    */
   enablePerformanceMode?: boolean;
 
@@ -766,6 +797,7 @@ export namespace CreateBranchRequest {
   export const filterSensitiveLog = (obj: CreateBranchRequest): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
   });
 }
 
@@ -855,7 +887,9 @@ export interface Branch {
 
   /**
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *             the edge for a longer interval. When performance mode is enabled, hosting configuration
+   *             or code changes can take up to 10 minutes to roll out. </p>
    */
   enablePerformanceMode?: boolean;
 
@@ -865,7 +899,9 @@ export interface Branch {
   thumbnailUrl?: string;
 
   /**
-   * <p> The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for a branch of an Amplify app. You must
+   *             base64-encode the authorization credentials and provide them in the format
+   *                 <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -919,6 +955,7 @@ export namespace Branch {
   export const filterSensitiveLog = (obj: Branch): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
   });
 }
 
@@ -2867,7 +2904,9 @@ export interface UpdateAppRequest {
   enableBasicAuth?: boolean;
 
   /**
-   * <p> The basic authorization credentials for an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for an Amplify app. You must base64-encode the
+   *             authorization credentials and provide them in the format
+   *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -2928,6 +2967,7 @@ export namespace UpdateAppRequest {
   export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
     ...(obj.autoBranchCreationConfig && {
       autoBranchCreationConfig: AutoBranchCreationConfig.filterSensitiveLog(obj.autoBranchCreationConfig),
     }),
@@ -3001,7 +3041,9 @@ export interface UpdateBranchRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
+   * <p> The basic authorization credentials for the branch. You must base64-encode the
+   *             authorization credentials and provide them in the format
+   *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -3012,7 +3054,9 @@ export interface UpdateBranchRequest {
 
   /**
    * <p>Enables performance mode for the branch.</p>
-   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out. </p>
+   *         <p>Performance mode optimizes for faster hosting performance by keeping content cached at
+   *             the edge for a longer interval. When performance mode is enabled, hosting configuration
+   *             or code changes can take up to 10 minutes to roll out. </p>
    */
   enablePerformanceMode?: boolean;
 
@@ -3055,6 +3099,7 @@ export namespace UpdateBranchRequest {
   export const filterSensitiveLog = (obj: UpdateBranchRequest): any => ({
     ...obj,
     ...(obj.basicAuthCredentials && { basicAuthCredentials: SENSITIVE_STRING }),
+    ...(obj.buildSpec && { buildSpec: SENSITIVE_STRING }),
   });
 }
 
@@ -3100,7 +3145,7 @@ export interface UpdateDomainAssociationRequest {
   /**
    * <p> Describes the settings for the subdomain. </p>
    */
-  subDomainSettings: SubDomainSetting[] | undefined;
+  subDomainSettings?: SubDomainSetting[];
 
   /**
    * <p> Sets the branch patterns for automatic subdomain creation. </p>

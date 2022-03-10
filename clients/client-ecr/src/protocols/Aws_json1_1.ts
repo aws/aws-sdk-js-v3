@@ -4807,6 +4807,10 @@ const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext)
       output.imageTags !== undefined && output.imageTags !== null
         ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
         : undefined,
+    lastRecordedPullTime:
+      output.lastRecordedPullTime !== undefined && output.lastRecordedPullTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRecordedPullTime)))
+        : undefined,
     registryId: __expectString(output.registryId),
     repositoryName: __expectString(output.repositoryName),
   } as any;

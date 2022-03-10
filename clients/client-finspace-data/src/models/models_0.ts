@@ -1,4 +1,4 @@
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { FinspaceDataServiceException as __BaseException } from "./FinspaceDataServiceException";
@@ -22,12 +22,28 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum ApiAccess {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum ApplicationPermission {
+  AccessNotebooks = "AccessNotebooks",
+  CreateDataset = "CreateDataset",
+  GetTemporaryCredentials = "GetTemporaryCredentials",
+  ManageAttributeSets = "ManageAttributeSets",
+  ManageClusters = "ManageClusters",
+  ManageUsersAndGroups = "ManageUsersAndGroups",
+  ViewAuditData = "ViewAuditData",
+}
+
 /**
  * <p>The request conflicts with an existing resource.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
+  reason?: string;
   /**
    * @internal
    */
@@ -38,6 +54,7 @@ export class ConflictException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
+    this.reason = opts.reason;
   }
 }
 
@@ -63,21 +80,21 @@ export interface CreateChangesetRequest {
   datasetId: string | undefined;
 
   /**
-   * <p>Option to indicate how a Changeset will be applied to a Dataset.</p>
+   * <p>The option to indicate how a Changeset will be applied to a Dataset.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>REPLACE</code> - Changeset will be considered as a replacement to all prior
+   *                   <code>REPLACE</code> – Changeset will be considered as a replacement to all prior
    *           loaded Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>APPEND</code> - Changeset will be considered as an addition to the end of all
+   *                   <code>APPEND</code> – Changeset will be considered as an addition to the end of all
    *           prior loaded Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MODIFY</code> - Changeset is considered as a replacement to a specific prior ingested Changeset.</p>
+   *                   <code>MODIFY</code> – Changeset is considered as a replacement to a specific prior ingested Changeset.</p>
    *             </li>
    *          </ul>
    */
@@ -96,7 +113,7 @@ export interface CreateChangesetRequest {
    *         }
    *       </code>
    *          </p>
-   *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
+   *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a> section.</p>
    */
   sourceParams: { [key: string]: string } | undefined;
 
@@ -109,19 +126,19 @@ export interface CreateChangesetRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PARQUET</code> - Parquet source file format.</p>
+   *                   <code>PARQUET</code> – Parquet source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CSV</code> - CSV source file format.</p>
+   *                   <code>CSV</code> – CSV source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>JSON</code> - JSON source file format.</p>
+   *                   <code>JSON</code> – JSON source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>XML</code> - XML source file format.</p>
+   *                   <code>XML</code> – XML source file format.</p>
    *             </li>
    *          </ul>
    *
@@ -229,6 +246,7 @@ export class LimitExceededException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
+  reason?: string;
   /**
    * @internal
    */
@@ -239,6 +257,7 @@ export class ResourceNotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.reason = opts.reason;
   }
 }
 
@@ -267,6 +286,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
+  reason?: string;
   /**
    * @internal
    */
@@ -277,6 +297,7 @@ export class ValidationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
   }
 }
 
@@ -290,7 +311,7 @@ export enum DatasetKind {
  */
 export interface DatasetOwnerInfo {
   /**
-   * <p>Name of the Dataset owner.</p>
+   * <p>The name of the Dataset owner.</p>
    */
   name?: string;
 
@@ -311,6 +332,7 @@ export namespace DatasetOwnerInfo {
    */
   export const filterSensitiveLog = (obj: DatasetOwnerInfo): any => ({
     ...obj,
+    ...(obj.email && { email: SENSITIVE_STRING }),
   });
 }
 
@@ -351,7 +373,7 @@ export namespace DatasetOwnerInfo {
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For more information on the ataset permissions, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/managing-user-permissions.html#supported-dataset-permissions">Supported Dataset Permissions</a> in the FinSpace User Guide.</p>
+ *          <p>For more information on the dataset permissions, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/managing-user-permissions.html#supported-dataset-permissions">Supported Dataset Permissions</a> in the FinSpace User Guide.</p>
  */
 export interface ResourcePermission {
   /**
@@ -388,7 +410,7 @@ export namespace ResourcePermission {
  */
 export interface PermissionGroupParams {
   /**
-   * <p>The unique identifier of the PermissionGroup.</p>
+   * <p>The unique identifier for the <code>PermissionGroup</code>.</p>
    */
   permissionGroupId?: string;
 
@@ -431,36 +453,36 @@ export interface ColumnDefinition {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STRING</code> - A String data type.</p>
+   *                   <code>STRING</code> – A String data type.</p>
    *                <p>
-   *                   <code>CHAR</code> - A char data type.</p>
+   *                   <code>CHAR</code> – A char data type.</p>
    *                <p>
-   *                   <code>INTEGER</code> - An integer data type.</p>
+   *                   <code>INTEGER</code> – An integer data type.</p>
    *                <p>
-   *                   <code>TINYINT</code> - A tinyint data type.</p>
+   *                   <code>TINYINT</code> – A tinyint data type.</p>
    *                <p>
-   *                   <code>SMALLINT</code> - A smallint data type.</p>
+   *                   <code>SMALLINT</code> – A smallint data type.</p>
    *                <p>
-   *                   <code>BIGINT</code> - A bigint data type.</p>
+   *                   <code>BIGINT</code> – A bigint data type.</p>
    *                <p>
-   *                   <code>FLOAT</code> - A float data type.</p>
+   *                   <code>FLOAT</code> – A float data type.</p>
    *                <p>
-   *                   <code>DOUBLE</code> - A double data type.</p>
+   *                   <code>DOUBLE</code> – A double data type.</p>
    *                <p>
-   *                   <code>DATE</code> - A date data type.</p>
+   *                   <code>DATE</code> – A date data type.</p>
    *                <p>
-   *                   <code>DATETIME</code> - A datetime data type.</p>
+   *                   <code>DATETIME</code> – A datetime data type.</p>
    *                <p>
-   *                   <code>BOOLEAN</code> - A boolean data type.</p>
+   *                   <code>BOOLEAN</code> – A boolean data type.</p>
    *                <p>
-   *                   <code>BINARY</code> - A binary data type.</p>
+   *                   <code>BINARY</code> – A binary data type.</p>
    *             </li>
    *          </ul>
    */
   dataType?: ColumnDataType | string;
 
   /**
-   * <p>Name for a column.</p>
+   * <p>The name of a column.</p>
    */
   columnName?: string;
 
@@ -541,11 +563,11 @@ export interface CreateDatasetRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABULAR</code> - Data is structured in a tabular format.</p>
+   *                   <code>TABULAR</code> – Data is structured in a tabular format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NON_TABULAR</code> - Data is structured in a non-tabular format.</p>
+   *                   <code>NON_TABULAR</code> – Data is structured in a non-tabular format.</p>
    *             </li>
    *          </ul>
    */
@@ -583,6 +605,7 @@ export namespace CreateDatasetRequest {
    */
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
+    ...(obj.ownerInfo && { ownerInfo: DatasetOwnerInfo.filterSensitiveLog(obj.ownerInfo) }),
   });
 }
 
@@ -619,11 +642,11 @@ export interface DataViewDestinationTypeParams {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>GLUE_TABLE</code> - Glue table destination type.</p>
+   *                   <code>GLUE_TABLE</code> – Glue table destination type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>S3</code> - S3 destination type.</p>
+   *                   <code>S3</code> – S3 destination type.</p>
    *             </li>
    *          </ul>
    */
@@ -634,11 +657,11 @@ export interface DataViewDestinationTypeParams {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PARQUET</code> - Parquet export file format.</p>
+   *                   <code>PARQUET</code> – Parquet export file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELIMITED_TEXT</code> - Delimited text export file format.</p>
+   *                   <code>DELIMITED_TEXT</code> – Delimited text export file format.</p>
    *             </li>
    *          </ul>
    */
@@ -699,7 +722,7 @@ export interface CreateDataViewRequest {
   partitionColumns?: string[];
 
   /**
-   * <p>Beginning time to use for the Dataview. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Beginning time to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   asOfTimestamp?: number;
 
@@ -738,6 +761,175 @@ export namespace CreateDataViewResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDataViewResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePermissionGroupRequest {
+  /**
+   * <p>The name of the permission group.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A brief description for the permission group.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The option to indicate FinSpace application permissions that are granted to a specific group.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateDataset</code> – Group members can create new datasets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ViewAuditData</code> – Group members can view audit data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p>
+   *             </li>
+   *          </ul>
+   */
+  applicationPermissions: (ApplicationPermission | string)[] | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace CreatePermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePermissionGroupRequest): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreatePermissionGroupResponse {
+  /**
+   * <p>The unique identifier for the permission group.</p>
+   */
+  permissionGroupId?: string;
+}
+
+export namespace CreatePermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePermissionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum UserType {
+  APP_USER = "APP_USER",
+  SUPER_USER = "SUPER_USER",
+}
+
+export interface CreateUserRequest {
+  /**
+   * <p>The email address of the user that you want to register. The email address serves as a uniquer identifier for each user and cannot be changed after it's created.</p>
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * <p>The option to indicate the type of user. Use one of the following options to specify this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUPER_USER</code> – A user with permission to all the functionality and data in FinSpace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permission group.</p>
+   *             </li>
+   *          </ul>
+   */
+  type: UserType | string | undefined;
+
+  /**
+   * <p>The first name of the user that you want to register.</p>
+   */
+  firstName?: string;
+
+  /**
+   * <p>The last name of the user that you want to register.</p>
+   */
+  lastName?: string;
+
+  /**
+   * <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user has permissions to use the APIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user does not have permissions to use any APIs.</p>
+   *             </li>
+   *          </ul>
+   */
+  ApiAccess?: ApiAccess | string;
+
+  /**
+   * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
+   */
+  apiAccessPrincipalArn?: string;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace CreateUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
+    ...obj,
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+    ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+    ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateUserResponse {
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId?: string;
+}
+
+export namespace CreateUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
     ...obj,
   });
 }
@@ -781,6 +973,117 @@ export namespace DeleteDatasetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group that you want to delete.</p>
+   */
+  permissionGroupId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace DeletePermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePermissionGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePermissionGroupResponse {
+  /**
+   * <p>The unique identifier for the deleted permission group.</p>
+   */
+  permissionGroupId?: string;
+}
+
+export namespace DeletePermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePermissionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableUserRequest {
+  /**
+   * <p>The unique identifier for the user account that you want to disable.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace DisableUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableUserResponse {
+  /**
+   * <p>The unique identifier for the disabled user account.</p>
+   */
+  userId?: string;
+}
+
+export namespace DisableUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableUserResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableUserRequest {
+  /**
+   * <p>The unique identifier for the user account that you want to enable.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace EnableUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableUserResponse {
+  /**
+   * <p>The unique identifier for the enabled user account.</p>
+   */
+  userId?: string;
+}
+
+export namespace EnableUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableUserResponse): any => ({
     ...obj,
   });
 }
@@ -834,40 +1137,40 @@ export interface ChangesetErrorInfo {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VALIDATION</code> -The inputs to this request are invalid.</p>
+   *                   <code>VALIDATION</code> – The inputs to this request are invalid.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SERVICE_QUOTA_EXCEEDED</code> - Service quotas have been exceeded. Please
+   *                   <code>SERVICE_QUOTA_EXCEEDED</code> – Service quotas have been exceeded. Please
    *           contact AWS support to increase quotas.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACCESS_DENIED</code> - Missing required permission to perform this
+   *                   <code>ACCESS_DENIED</code> – Missing required permission to perform this
    *           request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RESOURCE_NOT_FOUND</code> - One or more inputs to this request were not
+   *                   <code>RESOURCE_NOT_FOUND</code> – One or more inputs to this request were not
    *           found.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>THROTTLING</code> - The system temporarily lacks sufficient resources to process
+   *                   <code>THROTTLING</code> – The system temporarily lacks sufficient resources to process
    *           the request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INTERNAL_SERVICE_EXCEPTION</code> - An internal service error has
+   *                   <code>INTERNAL_SERVICE_EXCEPTION</code> – An internal service error has
    *           occurred.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> - Cancelled.</p>
+   *                   <code>CANCELLED</code> – Cancelled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>USER_RECOVERABLE</code> - A user recoverable error has occurred.</p>
+   *                   <code>USER_RECOVERABLE</code> – A user recoverable error has occurred.</p>
    *             </li>
    *          </ul>
    */
@@ -915,15 +1218,15 @@ export interface GetChangesetResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>REPLACE</code> - Changeset is considered as a replacement to all prior loaded Changesets.</p>
+   *                   <code>REPLACE</code> – Changeset is considered as a replacement to all prior loaded Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>APPEND</code> - Changeset is considered as an addition to the end of all prior loaded Changesets.</p>
+   *                   <code>APPEND</code> – Changeset is considered as an addition to the end of all prior loaded Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MODIFY</code> - Changeset is considered as a replacement to a specific prior ingested Changeset.</p>
+   *                   <code>MODIFY</code> – Changeset is considered as a replacement to a specific prior ingested Changeset.</p>
    *             </li>
    *          </ul>
    */
@@ -940,7 +1243,7 @@ export interface GetChangesetResponse {
   formatParams?: { [key: string]: string };
 
   /**
-   * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
@@ -955,12 +1258,12 @@ export interface GetChangesetResponse {
   errorInfo?: ChangesetErrorInfo;
 
   /**
-   * <p>Time until which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Time until which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeUntilTimestamp?: number;
 
   /**
-   * <p>Beginning time from which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Beginning time from which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeFromTimestamp?: number;
 
@@ -1034,11 +1337,11 @@ export interface GetDatasetResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABULAR</code> - Data is structured in a tabular format.</p>
+   *                   <code>TABULAR</code> – Data is structured in a tabular format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NON_TABULAR</code> - Data is structured in a non-tabular format.</p>
+   *                   <code>NON_TABULAR</code> – Data is structured in a non-tabular format.</p>
    *             </li>
    *          </ul>
    */
@@ -1050,12 +1353,12 @@ export interface GetDatasetResponse {
   datasetDescription?: string;
 
   /**
-   * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
   /**
-   * <p>The last time that the Dataset was modified. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The last time that the Dataset was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   lastModifiedTime?: number;
 
@@ -1074,19 +1377,19 @@ export interface GetDatasetResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Dataset is pending creation.</p>
+   *                   <code>PENDING</code> – Dataset is pending creation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - Dataset creation has failed.</p>
+   *                   <code>FAILED</code> – Dataset creation has failed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code> - Dataset creation has succeeded.</p>
+   *                   <code>SUCCESS</code> – Dataset creation has succeeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code> - Dataset creation is running.</p>
+   *                   <code>RUNNING</code> – Dataset creation is running.</p>
    *             </li>
    *          </ul>
    */
@@ -1140,40 +1443,40 @@ export interface DataViewErrorInfo {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VALIDATION</code> -The inputs to this request are invalid.</p>
+   *                   <code>VALIDATION</code> – The inputs to this request are invalid.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SERVICE_QUOTA_EXCEEDED</code> - Service quotas have been exceeded. Please
+   *                   <code>SERVICE_QUOTA_EXCEEDED</code> – Service quotas have been exceeded. Please
    *           contact AWS support to increase quotas.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACCESS_DENIED</code> - Missing required permission to perform this
+   *                   <code>ACCESS_DENIED</code> – Missing required permission to perform this
    *           request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RESOURCE_NOT_FOUND</code> - One or more inputs to this request were not
+   *                   <code>RESOURCE_NOT_FOUND</code> – One or more inputs to this request were not
    *           found.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>THROTTLING</code> - The system temporarily lacks sufficient resources to process
+   *                   <code>THROTTLING</code> – The system temporarily lacks sufficient resources to process
    *           the request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INTERNAL_SERVICE_EXCEPTION</code> - An internal service error has
+   *                   <code>INTERNAL_SERVICE_EXCEPTION</code> – An internal service error has
    *           occurred.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> - Cancelled.</p>
+   *                   <code>CANCELLED</code> – Cancelled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>USER_RECOVERABLE</code> - A user recoverable error has occurred.</p>
+   *                   <code>USER_RECOVERABLE</code> – A user recoverable error has occurred.</p>
    *             </li>
    *          </ul>
    */
@@ -1220,7 +1523,7 @@ export interface GetDataViewResponse {
   datasetId?: string;
 
   /**
-   * <p>Time range to use for the Dataview. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Time range to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   asOfTimestamp?: number;
 
@@ -1230,12 +1533,12 @@ export interface GetDataViewResponse {
   errorInfo?: DataViewErrorInfo;
 
   /**
-   * <p>The last time that a Dataview was modified. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The last time that a Dataview was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   lastModifiedTime?: number;
 
   /**
-   * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
@@ -1264,35 +1567,35 @@ export interface GetDataViewResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code> - Dataview creation is running.</p>
+   *                   <code>RUNNING</code> – Dataview creation is running.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STARTING</code> - Dataview creation is starting.</p>
+   *                   <code>STARTING</code> – Dataview creation is starting.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - Dataview creation has failed.</p>
+   *                   <code>FAILED</code> – Dataview creation has failed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> - Dataview creation has been cancelled.</p>
+   *                   <code>CANCELLED</code> – Dataview creation has been cancelled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TIMEOUT</code> - Dataview creation has timed out.</p>
+   *                   <code>TIMEOUT</code> – Dataview creation has timed out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code> - Dataview creation has succeeded.</p>
+   *                   <code>SUCCESS</code> – Dataview creation has succeeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Dataview creation is pending.</p>
+   *                   <code>PENDING</code> – Dataview creation is pending.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED_CLEANUP_FAILED</code> - Dataview creation failed and resource cleanup failed.</p>
+   *                   <code>FAILED_CLEANUP_FAILED</code> – Dataview creation failed and resource cleanup failed.</p>
    *             </li>
    *          </ul>
    */
@@ -1385,6 +1688,143 @@ export namespace GetProgrammaticAccessCredentialsResponse {
   });
 }
 
+export interface GetUserRequest {
+  /**
+   * <p>The unique identifier of the user to get data for.</p>
+   */
+  userId: string | undefined;
+}
+
+export namespace GetUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum UserStatus {
+  CREATING = "CREATING",
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export interface GetUserResponse {
+  /**
+   * <p>The unique identifier for the user account that is retrieved.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>The current status of the user account. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: UserStatus | string;
+
+  /**
+   * <p>The first name of the user.</p>
+   */
+  firstName?: string;
+
+  /**
+   * <p>The last name of the user.</p>
+   */
+  lastName?: string;
+
+  /**
+   * <p>The email address that is associated with the user.</p>
+   */
+  emailAddress?: string;
+
+  /**
+   * <p>Indicates the type of user.  </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUPER_USER</code> – A user with permission to all the functionality and data in FinSpace.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *             </li>
+   *          </ul>
+   */
+  type?: UserType | string;
+
+  /**
+   * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user has permissions to use the APIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user does not have permissions to use any APIs.</p>
+   *             </li>
+   *          </ul>
+   */
+  apiAccess?: ApiAccess | string;
+
+  /**
+   * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
+   */
+  apiAccessPrincipalArn?: string;
+
+  /**
+   * <p>The timestamp at which the user account was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
+   */
+  createTime?: number;
+
+  /**
+   * <p>Describes the last time the user account was enabled. The value is determined as epoch time in milliseconds.</p>
+   */
+  lastEnabledTime?: number;
+
+  /**
+   * <p>Describes the last time the user account was disabled. The value is determined as epoch time in milliseconds.</p>
+   */
+  lastDisabledTime?: number;
+
+  /**
+   * <p>Describes the last time the user account was updated. The value is determined as epoch time in milliseconds.</p>
+   */
+  lastModifiedTime?: number;
+
+  /**
+   * <p>Describes the last time that the user logged into their account. The value is determined as epoch time in milliseconds.</p>
+   */
+  lastLoginTime?: number;
+}
+
+export namespace GetUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserResponse): any => ({
+    ...obj,
+    ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+    ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+  });
+}
+
 export enum LocationType {
   INGESTION = "INGESTION",
   SAGEMAKER = "SAGEMAKER",
@@ -1396,12 +1836,12 @@ export interface GetWorkingLocationRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SAGEMAKER</code> - Use the Amazon S3 location as a temporary location to store data content when
+   *                   <code>SAGEMAKER</code> – Use the Amazon S3 location as a temporary location to store data content when
    *           working with FinSpace Notebooks that run on SageMaker studio.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INGESTION</code> - Use the Amazon S3 location as a staging location to copy your
+   *                   <code>INGESTION</code> – Use the Amazon S3 location as a staging location to copy your
    *           data content and then use the location with the Changeset creation operation.</p>
    *             </li>
    *          </ul>
@@ -1459,7 +1899,7 @@ export interface ListChangesetsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 }
@@ -1497,17 +1937,17 @@ export interface ChangesetSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>REPLACE</code> - Changeset is considered as a replacement to all prior loaded
+   *                   <code>REPLACE</code> – Changeset is considered as a replacement to all prior loaded
    *           Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>APPEND</code> - Changeset is considered as an addition to the end of all prior
+   *                   <code>APPEND</code> – Changeset is considered as an addition to the end of all prior
    *           loaded Changesets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MODIFY</code> - Changeset is considered as a replacement to a specific prior
+   *                   <code>MODIFY</code> – Changeset is considered as a replacement to a specific prior
    *           ingested Changeset.</p>
    *             </li>
    *          </ul>
@@ -1525,7 +1965,7 @@ export interface ChangesetSummary {
   formatParams?: { [key: string]: string };
 
   /**
-   * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
@@ -1534,23 +1974,23 @@ export interface ChangesetSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Changeset is pending creation.</p>
+   *                   <code>PENDING</code> – Changeset is pending creation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - Changeset creation has failed.</p>
+   *                   <code>FAILED</code> – Changeset creation has failed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code> - Changeset creation has succeeded.</p>
+   *                   <code>SUCCESS</code> – Changeset creation has succeeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code> - Changeset creation is running.</p>
+   *                   <code>RUNNING</code> – Changeset creation is running.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STOP_REQUESTED</code> - User requested Changeset creation to stop.</p>
+   *                   <code>STOP_REQUESTED</code> – User requested Changeset creation to stop.</p>
    *             </li>
    *          </ul>
    */
@@ -1562,12 +2002,12 @@ export interface ChangesetSummary {
   errorInfo?: ChangesetErrorInfo;
 
   /**
-   * <p>Time until which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Time until which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeUntilTimestamp?: number;
 
   /**
-   * <p>Beginning time from which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Beginning time from which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeFromTimestamp?: number;
 
@@ -1601,7 +2041,7 @@ export interface ListChangesetsResponse {
   changesets?: ChangesetSummary[];
 
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 }
@@ -1620,7 +2060,7 @@ export namespace ListChangesetsResponse {
  */
 export interface ListDatasetsRequest {
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 
@@ -1663,11 +2103,11 @@ export interface Dataset {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABULAR</code> - Data is structured in a tabular format.</p>
+   *                   <code>TABULAR</code> – Data is structured in a tabular format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NON_TABULAR</code> - Data is structured in a non-tabular format.</p>
+   *                   <code>NON_TABULAR</code> – Data is structured in a non-tabular format.</p>
    *             </li>
    *          </ul>
    */
@@ -1684,12 +2124,12 @@ export interface Dataset {
   ownerInfo?: DatasetOwnerInfo;
 
   /**
-   * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
   /**
-   * <p>The last time that the Dataset was modified. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The last time that the Dataset was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   lastModifiedTime?: number;
 
@@ -1710,6 +2150,7 @@ export namespace Dataset {
    */
   export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
+    ...(obj.ownerInfo && { ownerInfo: DatasetOwnerInfo.filterSensitiveLog(obj.ownerInfo) }),
   });
 }
 
@@ -1723,7 +2164,7 @@ export interface ListDatasetsResponse {
   datasets?: Dataset[];
 
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 }
@@ -1734,6 +2175,7 @@ export namespace ListDatasetsResponse {
    */
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
+    ...(obj.datasets && { datasets: obj.datasets.map((item) => Dataset.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1747,7 +2189,7 @@ export interface ListDataViewsRequest {
   datasetId: string | undefined;
 
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 
@@ -1786,7 +2228,7 @@ export interface DataViewSummary {
   datasetId?: string;
 
   /**
-   * <p>Time range to use for the Dataview. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>Time range to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   asOfTimestamp?: number;
 
@@ -1805,35 +2247,35 @@ export interface DataViewSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code> - Dataview creation is running.</p>
+   *                   <code>RUNNING</code> – Dataview creation is running.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>STARTING</code> - Dataview creation is starting.</p>
+   *                   <code>STARTING</code> – Dataview creation is starting.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - Dataview creation has failed.</p>
+   *                   <code>FAILED</code> – Dataview creation has failed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCELLED</code> - Dataview creation has been cancelled.</p>
+   *                   <code>CANCELLED</code> – Dataview creation has been cancelled.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TIMEOUT</code> - Dataview creation has timed out.</p>
+   *                   <code>TIMEOUT</code> – Dataview creation has timed out.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code> - Dataview creation has succeeded.</p>
+   *                   <code>SUCCESS</code> – Dataview creation has succeeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code> - Dataview creation is pending.</p>
+   *                   <code>PENDING</code> – Dataview creation is pending.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED_CLEANUP_FAILED</code> - Dataview creation failed and resource cleanup failed.</p>
+   *                   <code>FAILED_CLEANUP_FAILED</code> – Dataview creation failed and resource cleanup failed.</p>
    *             </li>
    *          </ul>
    */
@@ -1855,12 +2297,12 @@ export interface DataViewSummary {
   autoUpdate?: boolean;
 
   /**
-   * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   createTime?: number;
 
   /**
-   * <p>The last time that a Dataview was modified. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
+   * <p>The last time that a Dataview was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   lastModifiedTime?: number;
 }
@@ -1876,7 +2318,7 @@ export namespace DataViewSummary {
 
 export interface ListDataViewsResponse {
   /**
-   * <p>A token indicating where a results page should begin.</p>
+   * <p>A token that indicates where a results page should begin.</p>
    */
   nextToken?: string;
 
@@ -1892,6 +2334,334 @@ export namespace ListDataViewsResponse {
    */
   export const filterSensitiveLog = (obj: ListDataViewsResponse): any => ({
     ...obj,
+  });
+}
+
+export interface ListPermissionGroupsRequest {
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results per page.</p>
+   */
+  maxResults: number | undefined;
+}
+
+export namespace ListPermissionGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure for a permission group.</p>
+ */
+export interface PermissionGroup {
+  /**
+   * <p> The unique identifier for the permission group.</p>
+   */
+  permissionGroupId?: string;
+
+  /**
+   * <p>The name of the permission group.</p>
+   */
+  name?: string;
+
+  /**
+   * <p> A brief description for the permission group.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates the permissions that are granted to a specific group for accessing the FinSpace application.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateDataset</code> – Group members can create new datasets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ViewAuditData</code> – Group members can view audit data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p>
+   *             </li>
+   *          </ul>
+   */
+  applicationPermissions?: (ApplicationPermission | string)[];
+
+  /**
+   * <p>The timestamp at which the group was created in FinSpace. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  createTime?: number;
+
+  /**
+   * <p>Describes the last time the permission group was updated. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  lastModifiedTime?: number;
+}
+
+export namespace PermissionGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PermissionGroup): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListPermissionGroupsResponse {
+  /**
+   * <p>A list of all the permission groups.</p>
+   */
+  permissionGroups?: PermissionGroup[];
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListPermissionGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionGroupsResponse): any => ({
+    ...obj,
+    ...(obj.permissionGroups && {
+      permissionGroups: obj.permissionGroups.map((item) => PermissionGroup.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListUsersRequest {
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results per page.</p>
+   */
+  maxResults: number | undefined;
+}
+
+export namespace ListUsersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of the user account.</p>
+ */
+export interface User {
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>The current status of the user account. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – The user account creation is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user account is created and is currently active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user account is currently inactive.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: UserStatus | string;
+
+  /**
+   * <p>The first name of the user.</p>
+   */
+  firstName?: string;
+
+  /**
+   * <p> The last name of the user.</p>
+   */
+  lastName?: string;
+
+  /**
+   * <p>The email address of the user. The email address serves as a uniquer identifier for each user and cannot be changed after it's created.</p>
+   */
+  emailAddress?: string;
+
+  /**
+   * <p> Indicates the type of user.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUPER_USER</code> – A user with permission to all the functionality and data in FinSpace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *             </li>
+   *          </ul>
+   */
+  type?: UserType | string;
+
+  /**
+   * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user has permissions to use the APIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user does not have permissions to use any APIs.</p>
+   *             </li>
+   *          </ul>
+   */
+  apiAccess?: ApiAccess | string;
+
+  /**
+   * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
+   */
+  apiAccessPrincipalArn?: string;
+
+  /**
+   * <p>The timestamp at which the user account was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
+   */
+  createTime?: number;
+
+  /**
+   * <p> Describes the last time the user account was enabled. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  lastEnabledTime?: number;
+
+  /**
+   * <p>Describes the last time the user account was disabled. The value is determined as epoch time in milliseconds.</p>
+   */
+  lastDisabledTime?: number;
+
+  /**
+   * <p>Describes the last time the user account was updated. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  lastModifiedTime?: number;
+
+  /**
+   * <p>Describes the last time that the user logged into their account. The value is determined as epoch time in milliseconds.
+   *     </p>
+   */
+  lastLoginTime?: number;
+}
+
+export namespace User {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: User): any => ({
+    ...obj,
+    ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+    ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListUsersResponse {
+  /**
+   * <p>A list of all the user accounts.</p>
+   */
+  users?: User[];
+
+  /**
+   * <p>A token that indicates where a results page should begin.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListUsersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+    ...(obj.users && { users: obj.users.map((item) => User.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ResetUserPasswordRequest {
+  /**
+   * <p>The unique identifier of the user that a temporary password is requested for.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace ResetUserPasswordRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetUserPasswordRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetUserPasswordResponse {
+  /**
+   * <p>The unique identifier of the user that a new password is generated for.</p>
+   */
+  userId?: string;
+
+  /**
+   * <p>A randomly generated temporary password for the requested user account. This password expires in 7 days.</p>
+   */
+  temporaryPassword?: string;
+}
+
+export namespace ResetUserPasswordResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetUserPasswordResponse): any => ({
+    ...obj,
+    ...(obj.temporaryPassword && { temporaryPassword: SENSITIVE_STRING }),
   });
 }
 
@@ -1940,19 +2710,19 @@ export interface UpdateChangesetRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PARQUET</code> - Parquet source file format.</p>
+   *                   <code>PARQUET</code> – Parquet source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CSV</code> - CSV source file format.</p>
+   *                   <code>CSV</code> – CSV source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>JSON</code> - JSON source file format.</p>
+   *                   <code>JSON</code> – JSON source file format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>XML</code> - XML source file format.</p>
+   *                   <code>XML</code> – XML source file format.</p>
    *             </li>
    *          </ul>
    *
@@ -2039,11 +2809,11 @@ export interface UpdateDatasetRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABULAR</code> - Data is structured in a tabular format.</p>
+   *                   <code>TABULAR</code> – Data is structured in a tabular format.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NON_TABULAR</code> - Data is structured in a non-tabular format.</p>
+   *                   <code>NON_TABULAR</code> – Data is structured in a non-tabular format.</p>
    *             </li>
    *          </ul>
    */
@@ -2089,6 +2859,174 @@ export namespace UpdateDatasetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePermissionGroupRequest {
+  /**
+   * <p>The unique identifier for the permission group to update.</p>
+   */
+  permissionGroupId: string | undefined;
+
+  /**
+   * <p>The name of the permission group.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A brief description for the permission group.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The permissions that are granted to a specific group for accessing the FinSpace application.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CreateDataset</code> – Group members can create new datasets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageClusters</code> – Group members can manage Apache Spark clusters from FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageUsersAndGroups</code> – Group members can manage users and permission groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ManageAttributeSets</code> – Group members can manage attribute sets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ViewAuditData</code> – Group members can view audit data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessNotebooks</code> – Group members will have access to FinSpace notebooks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GetTemporaryCredentials</code> – Group members can get temporary API credentials.</p>
+   *             </li>
+   *          </ul>
+   */
+  applicationPermissions?: (ApplicationPermission | string)[];
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace UpdatePermissionGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePermissionGroupRequest): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdatePermissionGroupResponse {
+  /**
+   * <p>The unique identifier for the updated permission group.</p>
+   */
+  permissionGroupId?: string;
+}
+
+export namespace UpdatePermissionGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePermissionGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateUserRequest {
+  /**
+   * <p>The unique identifier for the user account to update.</p>
+   */
+  userId: string | undefined;
+
+  /**
+   * <p>The option to indicate the type of user.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUPER_USER</code>– A user with permission to all the functionality and data in FinSpace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APP_USER</code> – A user with specific permissions in FinSpace. The users are assigned permissions by adding them to a permissions group.</p>
+   *             </li>
+   *          </ul>
+   */
+  type?: UserType | string;
+
+  /**
+   * <p>The first name of the user.</p>
+   */
+  firstName?: string;
+
+  /**
+   * <p>The last name of the user.</p>
+   */
+  lastName?: string;
+
+  /**
+   * <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – The user has permissions to use the APIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – The user does not have permissions to use any APIs.</p>
+   *             </li>
+   *          </ul>
+   */
+  apiAccess?: ApiAccess | string;
+
+  /**
+   * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
+   */
+  apiAccessPrincipalArn?: string;
+
+  /**
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
+   */
+  clientToken?: string;
+}
+
+export namespace UpdateUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
+    ...obj,
+    ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+    ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateUserResponse {
+  /**
+   * <p>The unique identifier of the updated user account.</p>
+   */
+  userId?: string;
+}
+
+export namespace UpdateUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
     ...obj,
   });
 }

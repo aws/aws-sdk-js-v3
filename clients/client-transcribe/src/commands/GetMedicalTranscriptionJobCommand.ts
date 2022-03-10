@@ -22,9 +22,10 @@ export interface GetMedicalTranscriptionJobCommandInput extends GetMedicalTransc
 export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the job, check the
- *             <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished. You
- *             find the results of the completed job in the <code>TranscriptFileUri</code> field.</p>
+ * <p>Retrieves information about a medical transcription job.</p>
+ *         <p>To view the job's status, refer to the <code>TranscriptionJobStatus</code> field. If the
+ *             status is <code>COMPLETED</code>, the job is finished. You can then find your transcript at
+ *             the URI specified in the <code>TranscriptFileUri</code> field.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

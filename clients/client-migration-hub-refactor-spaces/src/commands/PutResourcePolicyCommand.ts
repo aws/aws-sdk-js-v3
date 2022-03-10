@@ -29,7 +29,8 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * <p>Attaches a resource-based permission policy to the Amazon Web Services Migration Hub Refactor Spaces environment. The policy
  *       must contain the same actions and condition statements as the
  *         <code>arn:aws:ram::aws:permission/AWSRAMDefaultPermissionRefactorSpacesEnvironment</code>
- *       permission in Resource Access Manager. The policy must not contain new lines or blank lines. </p>
+ *       permission in Resource Access Manager. The policy must not contain new lines or blank lines.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
