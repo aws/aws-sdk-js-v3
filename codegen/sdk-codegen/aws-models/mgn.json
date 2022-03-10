@@ -98,6 +98,21 @@
         }
       ]
     },
+    "com.amazonaws.mgn#BootMode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "LEGACY_BIOS",
+            "name": "LEGACY_BIOS"
+          },
+          {
+            "value": "UEFI",
+            "name": "UEFI"
+          }
+        ]
+      }
+    },
     "com.amazonaws.mgn#BoundedString": {
       "type": "string",
       "traits": {
@@ -223,13 +238,13 @@
         "resourceId": {
           "target": "com.amazonaws.mgn#LargeBoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>A conflict occured when prompting for the Resource ID.</p>"
+            "smithy.api#documentation": "<p>A conflict occurred when prompting for the Resource ID.</p>"
           }
         },
         "resourceType": {
           "target": "com.amazonaws.mgn#LargeBoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>A conflict occured when prompting for resource type.</p>"
+            "smithy.api#documentation": "<p>A conflict occurred when prompting for resource type.</p>"
           }
         }
       },
@@ -299,7 +314,7 @@
         "replicationServersSecurityGroupsIDs": {
           "target": "com.amazonaws.mgn#ReplicationServersSecurityGroupsIDs",
           "traits": {
-            "smithy.api#documentation": "<p>Request to configure the Replication Server Secuirity group ID during Replication Settings template creation.</p>",
+            "smithy.api#documentation": "<p>Request to configure the Replication Server Security group ID during Replication Settings template creation.</p>",
             "smithy.api#required": {}
           }
         },
@@ -320,21 +335,21 @@
         "defaultLargeStagingDiskType": {
           "target": "com.amazonaws.mgn#ReplicationConfigurationDefaultLargeStagingDiskType",
           "traits": {
-            "smithy.api#documentation": "<p>Request to configure the Staging Disk EBS volume type to \"gp2\" during Replication Settings template creation.</p>",
+            "smithy.api#documentation": "<p>Request to configure the default large staging disk EBS volume type during Replication Settings template creation.</p>",
             "smithy.api#required": {}
           }
         },
         "ebsEncryption": {
           "target": "com.amazonaws.mgn#ReplicationConfigurationEbsEncryption",
           "traits": {
-            "smithy.api#documentation": "<p>Request to configure EBS enryption during Replication Settings template creation.</p>",
+            "smithy.api#documentation": "<p>Request to configure EBS encryption during Replication Settings template creation.</p>",
             "smithy.api#required": {}
           }
         },
         "ebsEncryptionKeyArn": {
           "target": "com.amazonaws.mgn#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>Request to configure an EBS enryption key during Replication Settings template creation.</p>"
+            "smithy.api#documentation": "<p>Request to configure an EBS encryption key during Replication Settings template creation.</p>"
           }
         },
         "bandwidthThrottling": {
@@ -361,7 +376,7 @@
         "stagingAreaTags": {
           "target": "com.amazonaws.mgn#TagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>Request to configure Staiging Area tags during Replication Settings template creation.</p>",
+            "smithy.api#documentation": "<p>Request to configure Staging Area tags during Replication Settings template creation.</p>",
             "smithy.api#required": {}
           }
         },
@@ -470,7 +485,7 @@
         "lagDuration": {
           "target": "com.amazonaws.mgn#ISO8601DatetimeString",
           "traits": {
-            "smithy.api#documentation": "<p>Request to query data replication lag durating.</p>"
+            "smithy.api#documentation": "<p>Request to query data replication lag duration.</p>"
           }
         },
         "etaDateTime": {
@@ -607,7 +622,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Data replication intiation step.</p>"
+        "smithy.api#documentation": "<p>Data replication initiation step.</p>"
       }
     },
     "com.amazonaws.mgn#DataReplicationInitiationStepName": {
@@ -889,6 +904,9 @@
       "input": {
         "target": "com.amazonaws.mgn#DeleteVcenterClientRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "errors": [
         {
           "target": "com.amazonaws.mgn#ResourceNotFoundException"
@@ -901,7 +919,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a single vCenter client by ID.</p>",
+        "smithy.api#documentation": "<p>Deletes a given vCenter client by ID.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/DeleteVcenterClient",
@@ -939,7 +957,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves detailed Job log with paging.</p>",
+        "smithy.api#documentation": "<p>Retrieves detailed job log items with paging.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/DescribeJobLogItems",
@@ -1012,7 +1030,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normaly created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>",
+        "smithy.api#documentation": "<p>Returns a list of Jobs. Use the JobsID and fromDate and toData filters to limit which jobs are returned. The response is sorted by creationDataTime - latest date first. Jobs are normally created by the StartTest, StartCutover, and TerminateTargetInstances APIs. Jobs are also created by DiagnosticLaunch and TerminateDiagnosticInstances, which are APIs available only to *Support* and only used in response to relevant support tickets.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/DescribeJobs",
@@ -1040,13 +1058,13 @@
         "maxResults": {
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
-            "smithy.api#documentation": "<p>Request to describe Job log by max results.</p>"
+            "smithy.api#documentation": "<p>Request to describe job log items by max results.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.mgn#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>Request to describe Job logby next token.</p>"
+            "smithy.api#documentation": "<p>Request to describe job log items by next token.</p>"
           }
         }
       }
@@ -1069,7 +1087,7 @@
         "toDate": {
           "target": "com.amazonaws.mgn#ISO8601DatetimeString",
           "traits": {
-            "smithy.api#documentation": "<p>Request to describe Job log by last date.</p>"
+            "smithy.api#documentation": "<p>Request to describe job log items by last date.</p>"
           }
         }
       },
@@ -1319,7 +1337,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all vCenter clients.</p>",
+        "smithy.api#documentation": "<p>Returns a list of the installed vCenter clients.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/DescribeVcenterClients",
@@ -1390,7 +1408,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communciating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>",
+        "smithy.api#documentation": "<p>Disconnects specific Source Servers from Application Migration Service. Data replication is stopped immediately. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. If the agent on the source server has not been prevented from communicating with the Application Migration Service service, then it will receive a command to uninstall itself (within approximately 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/DisconnectFromService",
@@ -1484,7 +1502,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill be nullified.</p>",
+        "smithy.api#documentation": "<p>Finalizes the cutover immediately for specific Source Servers. All AWS resources created by Application Migration Service for enabling the replication of these source servers will be terminated / deleted within 90 minutes. Launched Test or Cutover instances will NOT be terminated. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). The following properties of the SourceServer will be changed immediately: dataReplicationInfo.dataReplicationState will be changed to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The totalStorageBytes property fo each of dataReplicationInfo.replicatedDisks will be set to zero; dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will be nullified.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/FinalizeCutover",
@@ -1498,7 +1516,7 @@
         "sourceServerID": {
           "target": "com.amazonaws.mgn#SourceServerID",
           "traits": {
-            "smithy.api#documentation": "<p>Request to finalize Cutover by Soure Server ID.</p>",
+            "smithy.api#documentation": "<p>Request to finalize Cutover by Source Server ID.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1597,7 +1615,7 @@
         "sourceServerID": {
           "target": "com.amazonaws.mgn#SourceServerID",
           "traits": {
-            "smithy.api#documentation": "<p>Request to get Replication Configuaration by Source Server ID.</p>",
+            "smithy.api#documentation": "<p>Request to get Replication Configuration by Source Server ID.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1791,7 +1809,7 @@
         "tags": {
           "target": "com.amazonaws.mgn#TagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>Tags associated with spcific Job.</p>"
+            "smithy.api#documentation": "<p>Tags associated with specific Job.</p>"
           }
         }
       },
@@ -2026,31 +2044,31 @@
         "sourceServerID": {
           "target": "com.amazonaws.mgn#SourceServerID",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launch configuration Source Server ID.</p>"
+            "smithy.api#documentation": "<p>Launch configuration Source Server ID.</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.mgn#SmallBoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launch configuration name.</p>"
+            "smithy.api#documentation": "<p>Launch configuration name.</p>"
           }
         },
         "ec2LaunchTemplateID": {
           "target": "com.amazonaws.mgn#BoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Configure EC2 lauch configuration template ID.</p>"
+            "smithy.api#documentation": "<p>Launch configuration EC2 Launch template ID.</p>"
           }
         },
         "launchDisposition": {
           "target": "com.amazonaws.mgn#LaunchDisposition",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launch dispostion for launch configuration.</p>"
+            "smithy.api#documentation": "<p>Launch disposition for launch configuration.</p>"
           }
         },
         "targetInstanceTypeRightSizingMethod": {
           "target": "com.amazonaws.mgn#TargetInstanceTypeRightSizingMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launch configuration Target instance type right sizing method.</p>"
+            "smithy.api#documentation": "<p>Launch configuration Target instance type right sizing method.</p>"
           }
         },
         "copyPrivateIp": {
@@ -2068,7 +2086,13 @@
         "licensing": {
           "target": "com.amazonaws.mgn#Licensing",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launch configuration OS licensing.</p>"
+            "smithy.api#documentation": "<p>Launch configuration OS licensing.</p>"
+          }
+        },
+        "bootMode": {
+          "target": "com.amazonaws.mgn#BootMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration boot mode.</p>"
           }
         }
       }
@@ -2121,24 +2145,24 @@
         "ec2InstanceID": {
           "target": "com.amazonaws.mgn#EC2InstanceID",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launced instance EC2 ID.</p>"
+            "smithy.api#documentation": "<p>Launched instance EC2 ID.</p>"
           }
         },
         "jobID": {
           "target": "com.amazonaws.mgn#JobID",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launced instance Job ID.</p>"
+            "smithy.api#documentation": "<p>Launched instance Job ID.</p>"
           }
         },
         "firstBoot": {
           "target": "com.amazonaws.mgn#FirstBoot",
           "traits": {
-            "smithy.api#documentation": "<p>Configure launced instance first boot.</p>"
+            "smithy.api#documentation": "<p>Launched instance first boot.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configure launced instance.</p>"
+        "smithy.api#documentation": "<p>Launched instance.</p>"
       }
     },
     "com.amazonaws.mgn#Licensing": {
@@ -2297,7 +2321,7 @@
         "finalized": {
           "target": "com.amazonaws.mgn#LifeCycleLastTestFinalized",
           "traits": {
-            "smithy.api#documentation": "<p>Lifecycle last Test finlized.</p>"
+            "smithy.api#documentation": "<p>Lifecycle last Test finalized.</p>"
           }
         }
       },
@@ -2316,7 +2340,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Lifecycle last Test finlized.</p>"
+        "smithy.api#documentation": "<p>Lifecycle last Test finalized.</p>"
       }
     },
     "com.amazonaws.mgn#LifeCycleLastTestInitiated": {
@@ -2487,7 +2511,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle.state which equals DISCONNECTED or CUTOVER.</p>",
+        "smithy.api#documentation": "<p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle. state which equals DISCONNECTED or CUTOVER.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/MarkAsArchived",
@@ -2723,6 +2747,10 @@
           {
             "value": "ST1",
             "name": "ST1"
+          },
+          {
+            "value": "GP3",
+            "name": "GP3"
           }
         ]
       }
@@ -2768,6 +2796,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Replication Configuration replicated disk IOPs.</p>"
           }
+        },
+        "throughput": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>Replication Configuration replicated disk throughput.</p>"
+          }
         }
       },
       "traits": {
@@ -2801,6 +2835,14 @@
           {
             "value": "STANDARD",
             "name": "STANDARD"
+          },
+          {
+            "value": "GP3",
+            "name": "GP3"
+          },
+          {
+            "value": "IO2",
+            "name": "IO2"
           }
         ]
       }
@@ -2823,7 +2865,7 @@
         "replicationConfigurationTemplateID": {
           "target": "com.amazonaws.mgn#ReplicationConfigurationTemplateID",
           "traits": {
-            "smithy.api#documentation": "<p>Replication Configuration template template ID.</p>",
+            "smithy.api#documentation": "<p>Replication Configuration template ID.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2866,7 +2908,7 @@
         "defaultLargeStagingDiskType": {
           "target": "com.amazonaws.mgn#ReplicationConfigurationDefaultLargeStagingDiskType",
           "traits": {
-            "smithy.api#documentation": "<p>Replication Configuration template use dedault large Staging Disk type.</p>"
+            "smithy.api#documentation": "<p>Replication Configuration template use default large Staging Disk type.</p>"
           }
         },
         "ebsEncryption": {
@@ -2884,7 +2926,7 @@
         "bandwidthThrottling": {
           "target": "com.amazonaws.mgn#PositiveInteger",
           "traits": {
-            "smithy.api#documentation": "<p>Replication Configuration template bandwidth throtting.</p>"
+            "smithy.api#documentation": "<p>Replication Configuration template bandwidth throttling.</p>"
           }
         },
         "dataPlaneRouting": {
@@ -3098,7 +3140,7 @@
         "resourceId": {
           "target": "com.amazonaws.mgn#LargeBoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Exceeded the service quota resource Id.</p>"
+            "smithy.api#documentation": "<p>Exceeded the service quota resource ID.</p>"
           }
         },
         "resourceType": {
@@ -3442,7 +3484,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts replication on source server by ID.</p>",
+        "smithy.api#documentation": "<p>Starts replication for SNAPSHOT_SHIPPING agents.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/StartReplication",
@@ -3482,7 +3524,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>",
+        "smithy.api#documentation": "<p>Launches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/StartTest",
@@ -3571,6 +3613,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.mgn#TagResourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -3770,7 +3815,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Unitialized account exception.</p>",
+        "smithy.api#documentation": "<p>Uninitialized account exception.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3779,6 +3824,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.mgn#UntagResourceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "errors": [
         {
@@ -3904,6 +3952,12 @@
           "target": "com.amazonaws.mgn#Licensing",
           "traits": {
             "smithy.api#documentation": "<p>Update Launch configuration licensing request.</p>"
+          }
+        },
+        "bootMode": {
+          "target": "com.amazonaws.mgn#BootMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Update Launch configuration boot mode request.</p>"
           }
         }
       }
@@ -4183,7 +4237,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates source server Replication Type by ID.</p>",
+        "smithy.api#documentation": "<p>Allows you to change between the AGENT_BASED replication type and the SNAPSHOT_SHIPPING replication type.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/UpdateSourceServerReplicationType",
