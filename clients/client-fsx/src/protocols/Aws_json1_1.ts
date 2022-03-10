@@ -181,6 +181,7 @@ import {
   DeleteFileSystemLustreConfiguration,
   DeleteFileSystemLustreResponse,
   DeleteFileSystemOpenZFSConfiguration,
+  DeleteFileSystemOpenZFSOption,
   DeleteFileSystemOpenZFSResponse,
   DeleteFileSystemRequest,
   DeleteFileSystemResponse,
@@ -3693,6 +3694,7 @@ const serializeAws_json1_1CreateOpenZFSVolumeConfiguration = (
     ...(input.ParentVolumeId !== undefined &&
       input.ParentVolumeId !== null && { ParentVolumeId: input.ParentVolumeId }),
     ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB !== undefined && input.RecordSizeKiB !== null && { RecordSizeKiB: input.RecordSizeKiB }),
     ...(input.StorageCapacityQuotaGiB !== undefined &&
       input.StorageCapacityQuotaGiB !== null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
     ...(input.StorageCapacityReservationGiB !== undefined &&
@@ -3883,9 +3885,27 @@ const serializeAws_json1_1DeleteFileSystemOpenZFSConfiguration = (
   return {
     ...(input.FinalBackupTags !== undefined &&
       input.FinalBackupTags !== null && { FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context) }),
+    ...(input.Options !== undefined &&
+      input.Options !== null && {
+        Options: serializeAws_json1_1DeleteFileSystemOpenZFSOptions(input.Options, context),
+      }),
     ...(input.SkipFinalBackup !== undefined &&
       input.SkipFinalBackup !== null && { SkipFinalBackup: input.SkipFinalBackup }),
   };
+};
+
+const serializeAws_json1_1DeleteFileSystemOpenZFSOptions = (
+  input: (DeleteFileSystemOpenZFSOption | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteFileSystemRequest = (input: DeleteFileSystemRequest, context: __SerdeContext): any => {
@@ -4245,6 +4265,7 @@ const serializeAws_json1_1OpenZFSCreateRootVolumeConfiguration = (
     ...(input.NfsExports !== undefined &&
       input.NfsExports !== null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
     ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB !== undefined && input.RecordSizeKiB !== null && { RecordSizeKiB: input.RecordSizeKiB }),
     ...(input.UserAndGroupQuotas !== undefined &&
       input.UserAndGroupQuotas !== null && {
         UserAndGroupQuotas: serializeAws_json1_1OpenZFSUserAndGroupQuotas(input.UserAndGroupQuotas, context),
@@ -4765,6 +4786,7 @@ const serializeAws_json1_1UpdateOpenZFSVolumeConfiguration = (
     ...(input.NfsExports !== undefined &&
       input.NfsExports !== null && { NfsExports: serializeAws_json1_1OpenZFSNfsExports(input.NfsExports, context) }),
     ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RecordSizeKiB !== undefined && input.RecordSizeKiB !== null && { RecordSizeKiB: input.RecordSizeKiB }),
     ...(input.StorageCapacityQuotaGiB !== undefined &&
       input.StorageCapacityQuotaGiB !== null && { StorageCapacityQuotaGiB: input.StorageCapacityQuotaGiB }),
     ...(input.StorageCapacityReservationGiB !== undefined &&
@@ -6177,6 +6199,7 @@ const deserializeAws_json1_1OpenZFSVolumeConfiguration = (
         : undefined,
     ParentVolumeId: __expectString(output.ParentVolumeId),
     ReadOnly: __expectBoolean(output.ReadOnly),
+    RecordSizeKiB: __expectInt32(output.RecordSizeKiB),
     StorageCapacityQuotaGiB: __expectInt32(output.StorageCapacityQuotaGiB),
     StorageCapacityReservationGiB: __expectInt32(output.StorageCapacityReservationGiB),
     UserAndGroupQuotas:
@@ -6288,6 +6311,10 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     Lifecycle: __expectString(output.Lifecycle),
+    LifecycleTransitionReason:
+      output.LifecycleTransitionReason !== undefined && output.LifecycleTransitionReason !== null
+        ? deserializeAws_json1_1LifecycleTransitionReason(output.LifecycleTransitionReason, context)
+        : undefined,
     Name: __expectString(output.Name),
     ResourceARN: __expectString(output.ResourceARN),
     SnapshotId: __expectString(output.SnapshotId),

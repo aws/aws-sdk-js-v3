@@ -22,11 +22,11 @@ export interface AssociateS3ResourcesCommandInput extends AssociateS3ResourcesRe
 export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesResult, __MetadataBearer {}
 
 /**
- * <p>Associates specified S3 resources with Amazon Macie Classic for monitoring and data
- *       classification. If memberAccountId isn't specified, the action associates specified S3
- *       resources with Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified,
- *       the action associates specified S3 resources with Macie Classic for the specified member
- *       account. </p>
+ * <p>(Discontinued) Associates specified S3 resources with Amazon Macie Classic for
+ *       monitoring and data classification. If <code>memberAccountId</code> isn't specified, the action associates
+ *       specified S3 resources with Macie Classic for the current Macie Classic administrator account.
+ *       If <code>memberAccountId</code> is specified, the action associates specified S3 resources with Macie
+ *       Classic for the specified member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

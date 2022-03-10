@@ -10069,7 +10069,7 @@
     "region": "us-gov-east-1",
     "useFipsEndpoint": true,
     "useDualstackEndpoint": false,
-    "hostname": "autoscaling-fips.us-gov-east-1.amazonaws.com"
+    "hostname": "autoscaling.us-gov-east-1.amazonaws.com"
   },
   {
     "endpointPrefix": "autoscaling",

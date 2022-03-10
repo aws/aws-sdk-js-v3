@@ -108,7 +108,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "autoscaling-fips.{region}.amazonaws.com",
+        hostname: "autoscaling.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {

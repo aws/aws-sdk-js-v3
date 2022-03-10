@@ -4566,6 +4566,8 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       }),
     ...(input.CaptionLanguageSetting !== undefined &&
       input.CaptionLanguageSetting !== null && { captionLanguageSetting: input.CaptionLanguageSetting }),
+    ...(input.CaptionSegmentLengthControl !== undefined &&
+      input.CaptionSegmentLengthControl !== null && { captionSegmentLengthControl: input.CaptionSegmentLengthControl }),
     ...(input.ClientCache !== undefined && input.ClientCache !== null && { clientCache: input.ClientCache }),
     ...(input.CodecSpecification !== undefined &&
       input.CodecSpecification !== null && { codecSpecification: input.CodecSpecification }),
@@ -5906,6 +5908,8 @@ const serializeAws_restJson1VideoSelector = (input: VideoSelector, context: __Se
     ...(input.ColorSpace !== undefined && input.ColorSpace !== null && { colorSpace: input.ColorSpace }),
     ...(input.ColorSpaceUsage !== undefined &&
       input.ColorSpaceUsage !== null && { colorSpaceUsage: input.ColorSpaceUsage }),
+    ...(input.EmbeddedTimecodeOverride !== undefined &&
+      input.EmbeddedTimecodeOverride !== null && { embeddedTimecodeOverride: input.EmbeddedTimecodeOverride }),
     ...(input.Hdr10Metadata !== undefined &&
       input.Hdr10Metadata !== null && {
         hdr10Metadata: serializeAws_restJson1Hdr10Metadata(input.Hdr10Metadata, context),
@@ -7773,6 +7777,7 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
         ? deserializeAws_restJson1__listOfHlsCaptionLanguageMapping(output.captionLanguageMappings, context)
         : undefined,
     CaptionLanguageSetting: __expectString(output.captionLanguageSetting),
+    CaptionSegmentLengthControl: __expectString(output.captionSegmentLengthControl),
     ClientCache: __expectString(output.clientCache),
     CodecSpecification: __expectString(output.codecSpecification),
     Destination: __expectString(output.destination),
@@ -9219,6 +9224,7 @@ const deserializeAws_restJson1VideoSelector = (output: any, context: __SerdeCont
     AlphaBehavior: __expectString(output.alphaBehavior),
     ColorSpace: __expectString(output.colorSpace),
     ColorSpaceUsage: __expectString(output.colorSpaceUsage),
+    EmbeddedTimecodeOverride: __expectString(output.embeddedTimecodeOverride),
     Hdr10Metadata:
       output.hdr10Metadata !== undefined && output.hdr10Metadata !== null
         ? deserializeAws_restJson1Hdr10Metadata(output.hdr10Metadata, context)

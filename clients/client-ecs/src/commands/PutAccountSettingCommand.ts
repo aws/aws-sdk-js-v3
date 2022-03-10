@@ -33,7 +33,7 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			the root user for an account is affected. The opt-in and opt-out account setting must be
  * 			set for each Amazon ECS resource separately. The ARN and resource ID format of a resource is
  * 			defined by the opt-in status of the IAM user or role that created the resource. You must
- * 			enable this setting to use Amazon ECS features such as resource tagging.</p>
+ * 			turn on this setting to use Amazon ECS features such as resource tagging.</p>
  * 		       <p>When <code>awsvpcTrunking</code> is specified, the elastic network interface (ENI)
  * 			limit for any new container instances that support the feature is changed. If
  * 				<code>awsvpcTrunking</code> is enabled, any new container instances that support the

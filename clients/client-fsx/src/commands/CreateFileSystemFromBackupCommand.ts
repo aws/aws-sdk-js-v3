@@ -26,8 +26,8 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *             Server, or Amazon FSx for OpenZFS file system from an existing Amazon FSx backup.</p>
  *
  *         <p>If a file system with the specified client request token exists and the parameters
- *             match, this operation returns the description of the file system. If a client request
- *             token with the specified by the file system exists and the parameters don't match, this
+ *             match, this operation returns the description of the file system. If a file system
+ *             with the specified client request token exists but the parameters don't match, this
  *             call returns <code>IncompatibleParameterError</code>. If a file system with the
  *             specified client request token doesn't exist, this operation does the following:</p>
  *

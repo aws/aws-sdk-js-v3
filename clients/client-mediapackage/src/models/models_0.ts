@@ -682,6 +682,7 @@ export enum ManifestLayout {
 
 export enum Profile {
   HBBTV_1_5 = "HBBTV_1_5",
+  HYBRIDCAST = "HYBRIDCAST",
   NONE = "NONE",
 }
 

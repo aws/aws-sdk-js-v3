@@ -53,8 +53,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  * 					replacement tasks are considered healthy. Tasks for services that do not use a
  * 					load balancer are considered healthy if they're in the <code>RUNNING</code>
  * 					state. Tasks for services that use a load balancer are considered healthy if
- * 					they're in the <code>RUNNING</code> state and the container instance they're
- * 					hosted on is reported as healthy by the load balancer.</p>
+ * 					they're in the <code>RUNNING</code> state and are reported as healthy by the load balancer..</p>
  * 			         </li>
  *             <li>
  * 				           <p>The <code>maximumPercent</code> parameter represents an upper limit on the

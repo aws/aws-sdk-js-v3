@@ -185,6 +185,7 @@ import {
   ConfluenceSpaceToIndexFieldMapping,
   ConnectionConfiguration,
   ContentSourceConfiguration,
+  Correction,
   CreateDataSourceRequest,
   CreateDataSourceResponse,
   CreateExperienceRequest,
@@ -338,6 +339,8 @@ import {
   SharePointConfiguration,
   SiteMapsConfiguration,
   SortingConfiguration,
+  SpellCorrectedQuery,
+  SpellCorrectionConfiguration,
   SqlConfiguration,
   StartDataSourceSyncJobRequest,
   StartDataSourceSyncJobResponse,
@@ -6139,6 +6142,13 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
       input.SortingConfiguration !== null && {
         SortingConfiguration: serializeAws_json1_1SortingConfiguration(input.SortingConfiguration, context),
       }),
+    ...(input.SpellCorrectionConfiguration !== undefined &&
+      input.SpellCorrectionConfiguration !== null && {
+        SpellCorrectionConfiguration: serializeAws_json1_1SpellCorrectionConfiguration(
+          input.SpellCorrectionConfiguration,
+          context
+        ),
+      }),
     ...(input.UserContext !== undefined &&
       input.UserContext !== null && { UserContext: serializeAws_json1_1UserContext(input.UserContext, context) }),
     ...(input.VisitorId !== undefined && input.VisitorId !== null && { VisitorId: input.VisitorId }),
@@ -6651,6 +6661,18 @@ const serializeAws_json1_1SortingConfiguration = (input: SortingConfiguration, c
     ...(input.DocumentAttributeKey !== undefined &&
       input.DocumentAttributeKey !== null && { DocumentAttributeKey: input.DocumentAttributeKey }),
     ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1SpellCorrectionConfiguration = (
+  input: SpellCorrectionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IncludeQuerySpellCheckSuggestions !== undefined &&
+      input.IncludeQuerySpellCheckSuggestions !== null && {
+        IncludeQuerySpellCheckSuggestions: input.IncludeQuerySpellCheckSuggestions,
+      }),
   };
 };
 
@@ -7578,6 +7600,27 @@ const deserializeAws_json1_1ContentSourceConfiguration = (
         ? deserializeAws_json1_1FaqIdsList(output.FaqIds, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Correction = (output: any, context: __SerdeContext): Correction => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    CorrectedTerm: __expectString(output.CorrectedTerm),
+    EndOffset: __expectInt32(output.EndOffset),
+    Term: __expectString(output.Term),
+  } as any;
+};
+
+const deserializeAws_json1_1CorrectionList = (output: any, context: __SerdeContext): Correction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Correction(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateDataSourceResponse = (
@@ -9052,6 +9095,10 @@ const deserializeAws_json1_1QueryResult = (output: any, context: __SerdeContext)
       output.ResultItems !== undefined && output.ResultItems !== null
         ? deserializeAws_json1_1QueryResultItemList(output.ResultItems, context)
         : undefined,
+    SpellCorrectedQueries:
+      output.SpellCorrectedQueries !== undefined && output.SpellCorrectedQueries !== null
+        ? deserializeAws_json1_1SpellCorrectedQueryList(output.SpellCorrectedQueries, context)
+        : undefined,
     TotalNumberOfResults: __expectInt32(output.TotalNumberOfResults),
     Warnings:
       output.Warnings !== undefined && output.Warnings !== null
@@ -9658,6 +9705,28 @@ const deserializeAws_json1_1SnapshotsDataRecords = (output: any, context: __Serd
         return null as any;
       }
       return deserializeAws_json1_1SnapshotsDataRecord(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SpellCorrectedQuery = (output: any, context: __SerdeContext): SpellCorrectedQuery => {
+  return {
+    Corrections:
+      output.Corrections !== undefined && output.Corrections !== null
+        ? deserializeAws_json1_1CorrectionList(output.Corrections, context)
+        : undefined,
+    SuggestedQueryText: __expectString(output.SuggestedQueryText),
+  } as any;
+};
+
+const deserializeAws_json1_1SpellCorrectedQueryList = (output: any, context: __SerdeContext): SpellCorrectedQuery[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SpellCorrectedQuery(entry, context);
     });
   return retVal;
 };

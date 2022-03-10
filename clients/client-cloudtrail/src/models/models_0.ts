@@ -751,6 +751,7 @@ export enum QueryStatus {
   FINISHED = "FINISHED",
   QUEUED = "QUEUED",
   RUNNING = "RUNNING",
+  TIMED_OUT = "TIMED_OUT",
 }
 
 export interface CancelQueryResponse {
@@ -800,7 +801,7 @@ export class EventDataStoreARNInvalidException extends __BaseException {
 }
 
 /**
- * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, or
+ * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
  *          <code>CANCELLED</code> state.</p>
  */
 export class InactiveQueryException extends __BaseException {
@@ -1998,6 +1999,12 @@ export interface QueryStatisticsForDescribeQuery {
   EventsScanned?: number;
 
   /**
+   * <p>The total bytes that the query scanned in the event data store. This value matches the number of
+   *       bytes for which your account is billed for the query, unless the query is still running.</p>
+   */
+  BytesScanned?: number;
+
+  /**
    * <p>The query's run time, in milliseconds.</p>
    */
   ExecutionTimeInMillis?: number;
@@ -2030,7 +2037,7 @@ export interface DescribeQueryResponse {
 
   /**
    * <p>The status of a query. Values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
-   *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>
+   *          <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>
    *          </p>
    */
   QueryStatus?: QueryStatus | string;
@@ -2771,6 +2778,12 @@ export interface QueryStatistics {
    * <p>The total number of results returned by a query.</p>
    */
   TotalResultsCount?: number;
+
+  /**
+   * <p>The total bytes that the query scanned in the event data store. This value matches the number of
+   *          bytes for which your account is billed for the query, unless the query is still running.</p>
+   */
+  BytesScanned?: number;
 }
 
 export namespace QueryStatistics {
@@ -2785,7 +2798,7 @@ export namespace QueryStatistics {
 export interface GetQueryResultsResponse {
   /**
    * <p>The status of the query. Values include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
-   *          or <code>CANCELLED</code>.</p>
+   *          <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
    */
   QueryStatus?: QueryStatus | string;
 
@@ -3368,7 +3381,7 @@ export interface ListQueriesRequest {
 
   /**
    * <p>The status of queries that you want to return in results. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
-   *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>.</p>
+   *          <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
    */
   QueryStatus?: QueryStatus | string;
 }
@@ -3393,7 +3406,7 @@ export interface Query {
 
   /**
    * <p>The status of the query. This can be <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
-   *          or <code>CANCELLED</code>.</p>
+   *          <code>TIMED_OUT</code>, or <code>CANCELLED</code>.</p>
    */
   QueryStatus?: QueryStatus | string;
 

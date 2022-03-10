@@ -24,6 +24,25 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * <p>Details about a beta appliance software update.</p>
+ */
+export interface AlternateSoftwareMetadata {
+  /**
+   * <p>The appliance software version.</p>
+   */
+  Version?: string;
+}
+
+export namespace AlternateSoftwareMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlternateSoftwareMetadata): any => ({
+    ...obj,
+  });
+}
+
 export enum ApplicationInstanceHealthStatus {
   ERROR = "ERROR",
   NOT_AVAILABLE = "NOT_AVAILABLE",
@@ -897,6 +916,7 @@ export namespace PackageImportJobInputConfig {
 }
 
 export enum PackageImportJobType {
+  MARKETPLACE_NODE_PACKAGE_VERSION = "MARKETPLACE_NODE_PACKAGE_VERSION",
   NODE_PACKAGE_VERSION = "NODE_PACKAGE_VERSION",
 }
 
@@ -1298,6 +1318,7 @@ export namespace DescribeDeviceRequest {
 
 export enum NetworkConnectionStatus {
   CONNECTED = "CONNECTED",
+  CONNECTING = "CONNECTING",
   NOT_CONNECTED = "NOT_CONNECTED",
 }
 
@@ -1331,6 +1352,35 @@ export namespace EthernetStatus {
 }
 
 /**
+ * <p>Details about an NTP server connection.</p>
+ */
+export interface NtpStatus {
+  /**
+   * <p>The connection's status.</p>
+   */
+  ConnectionStatus?: NetworkConnectionStatus | string;
+
+  /**
+   * <p>The IP address of the server.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The domain name of the server.</p>
+   */
+  NtpServerName?: string;
+}
+
+export namespace NtpStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NtpStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The network status of a device.</p>
  */
 export interface NetworkStatus {
@@ -1343,6 +1393,16 @@ export interface NetworkStatus {
    * <p>The status of Ethernet port 1.</p>
    */
   Ethernet1Status?: EthernetStatus;
+
+  /**
+   * <p>Details about a network time protocol (NTP) server connection.</p>
+   */
+  NtpStatus?: NtpStatus;
+
+  /**
+   * <p>When the network status changed.</p>
+   */
+  LastUpdatedTime?: Date;
 }
 
 export namespace NetworkStatus {
@@ -1421,6 +1481,26 @@ export namespace EthernetPayload {
 }
 
 /**
+ * <p>Network time protocol (NTP) server settings. Use this option to connect to local NTP
+ *             servers instead of <code>pool.ntp.org</code>.</p>
+ */
+export interface NtpPayload {
+  /**
+   * <p>NTP servers to use, in order of preference.</p>
+   */
+  NtpServers: string[] | undefined;
+}
+
+export namespace NtpPayload {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NtpPayload): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The network configuration for a device.</p>
  */
 export interface NetworkPayload {
@@ -1433,6 +1513,11 @@ export interface NetworkPayload {
    * <p>Settings for Ethernet port 1.</p>
    */
   Ethernet1?: EthernetPayload;
+
+  /**
+   * <p>Network time protocol (NTP) server settings.</p>
+   */
+  Ntp?: NtpPayload;
 }
 
 export namespace NetworkPayload {
@@ -1533,6 +1618,16 @@ export interface DescribeDeviceResponse {
    * <p>The device's lease expiration time.</p>
    */
   LeaseExpirationTime?: Date;
+
+  /**
+   * <p>Beta software releases available for the device.</p>
+   */
+  AlternateSoftwares?: AlternateSoftwareMetadata[];
+
+  /**
+   * <p>The most recent beta software release.</p>
+   */
+  LatestAlternateSoftware?: string;
 }
 
 export namespace DescribeDeviceResponse {

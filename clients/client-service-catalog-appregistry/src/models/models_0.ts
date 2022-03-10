@@ -1298,6 +1298,8 @@ export interface UpdateApplicationRequest {
   application: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
    */
   name?: string;
@@ -1340,6 +1342,8 @@ export interface UpdateAttributeGroupRequest {
   attributeGroup: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>The new name of the attribute group. The name must be unique in the region in which you are
    *        updating the attribute group.</p>
    */

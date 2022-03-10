@@ -33,8 +33,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
- * 			considered healthy if they're in the <code>RUNNING</code> state and the container
- * 			instance that they're hosted on is reported as healthy by the load balancer.</p>
+ * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as healthy by the load balancer.</p>
  * 		       <p>There are two service scheduler strategies available:</p>
  * 		       <ul>
  *             <li>

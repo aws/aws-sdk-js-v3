@@ -73,6 +73,7 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "../commands/UpdateDataCatalogCommand";
+import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "../commands/UpdateNamedQueryCommand";
 import {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
@@ -80,6 +81,7 @@ import {
 import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "../commands/UpdateWorkGroupCommand";
 import { AthenaServiceException as __BaseException } from "../models/AthenaServiceException";
 import {
+  AclConfiguration,
   AthenaError,
   BatchGetNamedQueryInput,
   BatchGetNamedQueryOutput,
@@ -174,6 +176,8 @@ import {
   UntagResourceOutput,
   UpdateDataCatalogInput,
   UpdateDataCatalogOutput,
+  UpdateNamedQueryInput,
+  UpdateNamedQueryOutput,
   UpdatePreparedStatementInput,
   UpdatePreparedStatementOutput,
   UpdateWorkGroupInput,
@@ -597,6 +601,19 @@ export const serializeAws_json1_1UpdateDataCatalogCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDataCatalogInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateNamedQueryCommand = async (
+  input: UpdateNamedQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonAthena.UpdateNamedQuery",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateNamedQueryInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2128,6 +2145,52 @@ const deserializeAws_json1_1UpdateDataCatalogCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateNamedQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNamedQueryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateNamedQueryCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateNamedQueryOutput(data, context);
+  const response: UpdateNamedQueryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateNamedQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNamedQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.athena#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.athena#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1UpdatePreparedStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2286,6 +2349,12 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
     ...deserialized,
   });
   return __decorateServiceException(exception, body);
+};
+
+const serializeAws_json1_1AclConfiguration = (input: AclConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.S3AclOption !== undefined && input.S3AclOption !== null && { S3AclOption: input.S3AclOption }),
+  };
 };
 
 const serializeAws_json1_1BatchGetNamedQueryInput = (input: BatchGetNamedQueryInput, context: __SerdeContext): any => {
@@ -2585,6 +2654,10 @@ const serializeAws_json1_1QueryExecutionIdList = (input: string[], context: __Se
 
 const serializeAws_json1_1ResultConfiguration = (input: ResultConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.AclConfiguration !== undefined &&
+      input.AclConfiguration !== null && {
+        AclConfiguration: serializeAws_json1_1AclConfiguration(input.AclConfiguration, context),
+      }),
     ...(input.EncryptionConfiguration !== undefined &&
       input.EncryptionConfiguration !== null && {
         EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
@@ -2601,6 +2674,10 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AclConfiguration !== undefined &&
+      input.AclConfiguration !== null && {
+        AclConfiguration: serializeAws_json1_1AclConfiguration(input.AclConfiguration, context),
+      }),
     ...(input.EncryptionConfiguration !== undefined &&
       input.EncryptionConfiguration !== null && {
         EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
@@ -2609,6 +2686,8 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
       input.ExpectedBucketOwner !== null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
     ...(input.OutputLocation !== undefined &&
       input.OutputLocation !== null && { OutputLocation: input.OutputLocation }),
+    ...(input.RemoveAclConfiguration !== undefined &&
+      input.RemoveAclConfiguration !== null && { RemoveAclConfiguration: input.RemoveAclConfiguration }),
     ...(input.RemoveEncryptionConfiguration !== undefined &&
       input.RemoveEncryptionConfiguration !== null && {
         RemoveEncryptionConfiguration: input.RemoveEncryptionConfiguration,
@@ -2699,6 +2778,15 @@ const serializeAws_json1_1UpdateDataCatalogInput = (input: UpdateDataCatalogInpu
   };
 };
 
+const serializeAws_json1_1UpdateNamedQueryInput = (input: UpdateNamedQueryInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NamedQueryId !== undefined && input.NamedQueryId !== null && { NamedQueryId: input.NamedQueryId }),
+    ...(input.QueryString !== undefined && input.QueryString !== null && { QueryString: input.QueryString }),
+  };
+};
+
 const serializeAws_json1_1UpdatePreparedStatementInput = (
   input: UpdatePreparedStatementInput,
   context: __SerdeContext
@@ -2782,6 +2870,12 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
         ),
       }),
   };
+};
+
+const deserializeAws_json1_1AclConfiguration = (output: any, context: __SerdeContext): AclConfiguration => {
+  return {
+    S3AclOption: __expectString(output.S3AclOption),
+  } as any;
 };
 
 const deserializeAws_json1_1AthenaError = (output: any, context: __SerdeContext): AthenaError => {
@@ -3421,6 +3515,10 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 
 const deserializeAws_json1_1ResultConfiguration = (output: any, context: __SerdeContext): ResultConfiguration => {
   return {
+    AclConfiguration:
+      output.AclConfiguration !== undefined && output.AclConfiguration !== null
+        ? deserializeAws_json1_1AclConfiguration(output.AclConfiguration, context)
+        : undefined,
     EncryptionConfiguration:
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
         ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
@@ -3621,6 +3719,10 @@ const deserializeAws_json1_1UpdateDataCatalogOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateDataCatalogOutput => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateNamedQueryOutput = (output: any, context: __SerdeContext): UpdateNamedQueryOutput => {
   return {} as any;
 };
 

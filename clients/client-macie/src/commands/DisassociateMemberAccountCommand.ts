@@ -22,7 +22,8 @@ export interface DisassociateMemberAccountCommandInput extends DisassociateMembe
 export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the specified member account from Amazon Macie Classic.</p>
+ * <p>(Discontinued) Removes the specified member account from Amazon Macie
+ *       Classic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

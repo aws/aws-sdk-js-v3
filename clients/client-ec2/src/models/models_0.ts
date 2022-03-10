@@ -2089,6 +2089,7 @@ export type ResourceType =
   | "spot-fleet-request"
   | "spot-instances-request"
   | "subnet"
+  | "subnet-cidr-reservation"
   | "traffic-mirror-filter"
   | "traffic-mirror-session"
   | "traffic-mirror-target"

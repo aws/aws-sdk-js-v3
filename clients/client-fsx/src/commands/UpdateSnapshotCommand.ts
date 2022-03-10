@@ -22,7 +22,7 @@ export interface UpdateSnapshotCommandInput extends UpdateSnapshotRequest {}
 export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of a snapshot. </p>
+ * <p>Updates the name of an Amazon FSx for OpenZFS snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

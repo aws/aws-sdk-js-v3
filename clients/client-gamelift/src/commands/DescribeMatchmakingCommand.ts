@@ -31,7 +31,7 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  *         <p>This operation is not designed to be continually called to track matchmaking ticket
  *             status. This practice can cause you to exceed your API limit, which results in errors.
  *             Instead, as a best practice, set up an Amazon Simple Notification Service to receive notifications, and provide
- *             the topic ARN in the matchmaking configuration. Continuously poling ticket status with
+ *             the topic ARN in the matchmaking configuration. Continuously polling ticket status with
  *                 <a>DescribeMatchmaking</a> should only be used for games in development
  *             with low matchmaking usage.</p>
  *         <p></p>

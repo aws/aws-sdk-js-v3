@@ -31,8 +31,6 @@ import {
   M3u8AudioDuration,
   M3u8DataPtsControl,
   M3u8NielsenId3,
-  M3u8PcrControl,
-  M3u8Scte35Source,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -41,6 +39,16 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum M3u8PcrControl {
+  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
+  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
+}
+
+export enum M3u8Scte35Source {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
 
 export enum TimedMetadata {
   NONE = "NONE",
@@ -127,12 +135,12 @@ export interface M3u8Settings {
   Scte35Source?: M3u8Scte35Source | string;
 
   /**
-   * Applies to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   * Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH) to include ID3 metadata in this output. This includes ID3 metadata from the following features: ID3 timestamp period (timedMetadataId3Period), and Custom ID3 metadata inserter (timedMetadataInsertion). To exclude this ID3 metadata in this output: set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: TimedMetadata | string;
 
   /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream.
+   * Packet Identifier (PID) of the ID3 metadata stream in the transport stream.
    */
   TimedMetadataPid?: number;
 
@@ -339,7 +347,7 @@ export interface MpdSettings {
   Scte35Source?: MpdScte35Source | string;
 
   /**
-   * Applies to DASH outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   * To include ID3 metadata in this output: Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: MpdTimedMetadata | string;
 }
@@ -3174,12 +3182,12 @@ export interface NoiseReducerTemporalFilterSettings {
   AggressiveMode?: number;
 
   /**
-   * When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), the sharpness of your output is reduced. You can optionally use Post temporal sharpening (PostTemporalSharpening) to apply sharpening to the edges of your output. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply sharpening, depending on your input type and quality. When you set Post temporal sharpening to Enabled (ENABLED), specify how much sharpening is applied using Post temporal sharpening strength (PostTemporalSharpeningStrength). Set Post temporal sharpening to Disabled (DISABLED) to not apply sharpening.
+   * When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), the bandwidth and sharpness of your output is reduced. You can optionally use Post temporal sharpening (postTemporalSharpening) to apply sharpening to the edges of your output. Note that Post temporal sharpening will also make the bandwidth reduction from the Noise reducer smaller. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply sharpening, depending on your input type and quality. When you set Post temporal sharpening to Enabled (ENABLED), specify how much sharpening is applied using Post temporal sharpening strength (postTemporalSharpeningStrength). Set Post temporal sharpening to Disabled (DISABLED) to not apply sharpening.
    */
   PostTemporalSharpening?: NoiseFilterPostTemporalSharpening | string;
 
   /**
-   * Use Post temporal sharpening strength (PostTemporalSharpeningStrength) to define the amount of sharpening the transcoder applies to your output. Set Post temporal sharpening strength to Low (LOW), or leave blank, to apply a low amount of sharpening. Set Post temporal sharpening strength to Medium (MEDIUM) to apply medium amount of sharpening. Set Post temporal sharpening strength to High (HIGH) to apply a high amount of sharpening.
+   * Use Post temporal sharpening strength (postTemporalSharpeningStrength) to define the amount of sharpening the transcoder applies to your output. Set Post temporal sharpening strength to Low (LOW), Medium (MEDIUM), or High (HIGH) to indicate the amount of sharpening.
    */
   PostTemporalSharpeningStrength?: NoiseFilterPostTemporalSharpeningStrength | string;
 
@@ -3616,7 +3624,7 @@ export namespace TimecodeConfig {
 }
 
 /**
- * Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
+ * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
  */
 export interface TimedMetadataInsertion {
   /**
@@ -3694,7 +3702,7 @@ export interface JobSettings {
   TimecodeConfig?: TimecodeConfig;
 
   /**
-   * Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
+   * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
    */
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
@@ -3967,7 +3975,7 @@ export interface JobTemplateSettings {
   TimecodeConfig?: TimecodeConfig;
 
   /**
-   * Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
+   * Insert user-defined custom ID3 metadata (id3) at timecodes (timecode) that you specify. In each output that you want to include this metadata, you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
    */
   TimedMetadataInsertion?: TimedMetadataInsertion;
 }
@@ -5480,38 +5488,6 @@ export namespace PutPolicyResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
-   */
-  Arn: string | undefined;
-
-  /**
-   * The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
-   */
-  Tags: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
 }

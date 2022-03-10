@@ -27,7 +27,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  *             not completed running before the cancellation request was issued. Because cancellation
  *             is an idempotent operation, subsequent cancellation requests will return a
  *                 <code>CancellationMessage</code>, indicating that the query has already been
- *             canceled. See <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/code-samples.cancel-query.html">code
+ *             canceled. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.cancel-query.html">code
  *                 sample</a> for details. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

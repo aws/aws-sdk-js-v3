@@ -103,6 +103,10 @@ import {
   DescribeSentimentDetectionJobCommandOutput,
 } from "../commands/DescribeSentimentDetectionJobCommand";
 import {
+  DescribeTargetedSentimentDetectionJobCommandInput,
+  DescribeTargetedSentimentDetectionJobCommandOutput,
+} from "../commands/DescribeTargetedSentimentDetectionJobCommand";
+import {
   DescribeTopicsDetectionJobCommandInput,
   DescribeTopicsDetectionJobCommandOutput,
 } from "../commands/DescribeTopicsDetectionJobCommand";
@@ -166,6 +170,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTargetedSentimentDetectionJobsCommandInput,
+  ListTargetedSentimentDetectionJobsCommandOutput,
+} from "../commands/ListTargetedSentimentDetectionJobsCommand";
+import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "../commands/ListTopicsDetectionJobsCommand";
@@ -199,6 +207,10 @@ import {
   StartSentimentDetectionJobCommandOutput,
 } from "../commands/StartSentimentDetectionJobCommand";
 import {
+  StartTargetedSentimentDetectionJobCommandInput,
+  StartTargetedSentimentDetectionJobCommandOutput,
+} from "../commands/StartTargetedSentimentDetectionJobCommand";
+import {
   StartTopicsDetectionJobCommandInput,
   StartTopicsDetectionJobCommandOutput,
 } from "../commands/StartTopicsDetectionJobCommand";
@@ -226,6 +238,10 @@ import {
   StopSentimentDetectionJobCommandInput,
   StopSentimentDetectionJobCommandOutput,
 } from "../commands/StopSentimentDetectionJobCommand";
+import {
+  StopTargetedSentimentDetectionJobCommandInput,
+  StopTargetedSentimentDetectionJobCommandOutput,
+} from "../commands/StopTargetedSentimentDetectionJobCommand";
 import {
   StopTrainingDocumentClassifierCommandInput,
   StopTrainingDocumentClassifierCommandOutput,
@@ -300,6 +316,8 @@ import {
   DescribeResourcePolicyResponse,
   DescribeSentimentDetectionJobRequest,
   DescribeSentimentDetectionJobResponse,
+  DescribeTargetedSentimentDetectionJobRequest,
+  DescribeTargetedSentimentDetectionJobResponse,
   DescribeTopicsDetectionJobRequest,
   DescribeTopicsDetectionJobResponse,
   DetectDominantLanguageRequest,
@@ -385,6 +403,8 @@ import {
   ListSentimentDetectionJobsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListTargetedSentimentDetectionJobsRequest,
+  ListTargetedSentimentDetectionJobsResponse,
   ListTopicsDetectionJobsRequest,
   ListTopicsDetectionJobsResponse,
   OutputDataConfig,
@@ -418,6 +438,8 @@ import {
   StartPiiEntitiesDetectionJobResponse,
   StartSentimentDetectionJobRequest,
   StartSentimentDetectionJobResponse,
+  StartTargetedSentimentDetectionJobRequest,
+  StartTargetedSentimentDetectionJobResponse,
   StartTopicsDetectionJobRequest,
   StartTopicsDetectionJobResponse,
   StopDominantLanguageDetectionJobRequest,
@@ -432,6 +454,8 @@ import {
   StopPiiEntitiesDetectionJobResponse,
   StopSentimentDetectionJobRequest,
   StopSentimentDetectionJobResponse,
+  StopTargetedSentimentDetectionJobRequest,
+  StopTargetedSentimentDetectionJobResponse,
   StopTrainingDocumentClassifierRequest,
   StopTrainingDocumentClassifierResponse,
   StopTrainingEntityRecognizerRequest,
@@ -440,6 +464,8 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TargetedSentimentDetectionJobFilter,
+  TargetedSentimentDetectionJobProperties,
   TextSizeLimitExceededException,
   TooManyRequestsException,
   TooManyTagKeysException,
@@ -779,6 +805,19 @@ export const serializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeTargetedSentimentDetectionJobCommand = async (
+  input: DescribeTargetedSentimentDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DescribeTargetedSentimentDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeTargetedSentimentDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   input: DescribeTopicsDetectionJobCommandInput,
   context: __SerdeContext
@@ -1052,6 +1091,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTargetedSentimentDetectionJobsCommand = async (
+  input: ListTargetedSentimentDetectionJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ListTargetedSentimentDetectionJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTargetedSentimentDetectionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   input: ListTopicsDetectionJobsCommandInput,
   context: __SerdeContext
@@ -1169,6 +1221,19 @@ export const serializeAws_json1_1StartSentimentDetectionJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartTargetedSentimentDetectionJobCommand = async (
+  input: StartTargetedSentimentDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.StartTargetedSentimentDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartTargetedSentimentDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartTopicsDetectionJobCommand = async (
   input: StartTopicsDetectionJobCommandInput,
   context: __SerdeContext
@@ -1257,6 +1322,19 @@ export const serializeAws_json1_1StopSentimentDetectionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopSentimentDetectionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopTargetedSentimentDetectionJobCommand = async (
+  input: StopTargetedSentimentDetectionJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.StopTargetedSentimentDetectionJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopTargetedSentimentDetectionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2682,6 +2760,58 @@ const deserializeAws_json1_1DescribeSentimentDetectionJobCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeTargetedSentimentDetectionJobResponse(data, context);
+  const response: DescribeTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "JobNotFoundException":
+    case "com.amazonaws.comprehend#JobNotFoundException":
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3777,6 +3907,58 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTargetedSentimentDetectionJobsResponse(data, context);
+  const response: ListTargetedSentimentDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidFilterException":
+    case "com.amazonaws.comprehend#InvalidFilterException":
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4275,6 +4457,61 @@ const deserializeAws_json1_1StartSentimentDetectionJobCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartTargetedSentimentDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartTargetedSentimentDetectionJobResponse(data, context);
+  const response: StartTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartTargetedSentimentDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "KmsKeyValidationException":
+    case "com.amazonaws.comprehend#KmsKeyValidationException":
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1StartTopicsDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4596,6 +4833,55 @@ const deserializeAws_json1_1StopSentimentDetectionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopSentimentDetectionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "JobNotFoundException":
+    case "com.amazonaws.comprehend#JobNotFoundException":
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopTargetedSentimentDetectionJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopTargetedSentimentDetectionJobResponse(data, context);
+  const response: StopTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopTargetedSentimentDetectionJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5424,6 +5710,15 @@ const serializeAws_json1_1DescribeSentimentDetectionJobRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeTargetedSentimentDetectionJobRequest = (
+  input: DescribeTargetedSentimentDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1DescribeTopicsDetectionJobRequest = (
   input: DescribeTopicsDetectionJobRequest,
   context: __SerdeContext
@@ -5936,6 +6231,20 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1ListTargetedSentimentDetectionJobsRequest = (
+  input: ListTargetedSentimentDetectionJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && {
+        Filter: serializeAws_json1_1TargetedSentimentDetectionJobFilter(input.Filter, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListTopicsDetectionJobsRequest = (
   input: ListTopicsDetectionJobsRequest,
   context: __SerdeContext
@@ -6203,6 +6512,32 @@ const serializeAws_json1_1StartSentimentDetectionJobRequest = (
   };
 };
 
+const serializeAws_json1_1StartTargetedSentimentDetectionJobRequest = (
+  input: StartTargetedSentimentDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig !== undefined &&
+      input.InputDataConfig !== null && {
+        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+      }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.OutputDataConfig !== undefined &&
+      input.OutputDataConfig !== null && {
+        OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VolumeKmsKeyId !== undefined &&
+      input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig !== undefined &&
+      input.VpcConfig !== null && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
+  };
+};
+
 const serializeAws_json1_1StartTopicsDetectionJobRequest = (
   input: StartTopicsDetectionJobRequest,
   context: __SerdeContext
@@ -6284,6 +6619,15 @@ const serializeAws_json1_1StopSentimentDetectionJobRequest = (
   };
 };
 
+const serializeAws_json1_1StopTargetedSentimentDetectionJobRequest = (
+  input: StopTargetedSentimentDetectionJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+  };
+};
+
 const serializeAws_json1_1StopTrainingDocumentClassifierRequest = (
   input: StopTrainingDocumentClassifierRequest,
   context: __SerdeContext
@@ -6348,6 +6692,20 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1TargetedSentimentDetectionJobFilter = (
+  input: TargetedSentimentDetectionJobFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
+    ...(input.SubmitTimeAfter !== undefined &&
+      input.SubmitTimeAfter !== null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
+    ...(input.SubmitTimeBefore !== undefined &&
+      input.SubmitTimeBefore !== null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
   };
 };
 
@@ -6863,6 +7221,22 @@ const deserializeAws_json1_1DescribeSentimentDetectionJobResponse = (
     SentimentDetectionJobProperties:
       output.SentimentDetectionJobProperties !== undefined && output.SentimentDetectionJobProperties !== null
         ? deserializeAws_json1_1SentimentDetectionJobProperties(output.SentimentDetectionJobProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeTargetedSentimentDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeTargetedSentimentDetectionJobResponse => {
+  return {
+    TargetedSentimentDetectionJobProperties:
+      output.TargetedSentimentDetectionJobProperties !== undefined &&
+      output.TargetedSentimentDetectionJobProperties !== null
+        ? deserializeAws_json1_1TargetedSentimentDetectionJobProperties(
+            output.TargetedSentimentDetectionJobProperties,
+            context
+          )
         : undefined,
   } as any;
 };
@@ -8119,6 +8493,23 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListTargetedSentimentDetectionJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTargetedSentimentDetectionJobsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    TargetedSentimentDetectionJobPropertiesList:
+      output.TargetedSentimentDetectionJobPropertiesList !== undefined &&
+      output.TargetedSentimentDetectionJobPropertiesList !== null
+        ? deserializeAws_json1_1TargetedSentimentDetectionJobPropertiesList(
+            output.TargetedSentimentDetectionJobPropertiesList,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTopicsDetectionJobsResponse = (
   output: any,
   context: __SerdeContext
@@ -8415,6 +8806,17 @@ const deserializeAws_json1_1StartSentimentDetectionJobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StartTargetedSentimentDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StartTargetedSentimentDetectionJobResponse => {
+  return {
+    JobArn: __expectString(output.JobArn),
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
+  } as any;
+};
+
 const deserializeAws_json1_1StartTopicsDetectionJobResponse = (
   output: any,
   context: __SerdeContext
@@ -8486,6 +8888,16 @@ const deserializeAws_json1_1StopSentimentDetectionJobResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1StopTargetedSentimentDetectionJobResponse = (
+  output: any,
+  context: __SerdeContext
+): StopTargetedSentimentDetectionJobResponse => {
+  return {
+    JobId: __expectString(output.JobId),
+    JobStatus: __expectString(output.JobStatus),
+  } as any;
+};
+
 const deserializeAws_json1_1StopTrainingDocumentClassifierResponse = (
   output: any,
   context: __SerdeContext
@@ -8546,6 +8958,57 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1TargetedSentimentDetectionJobProperties = (
+  output: any,
+  context: __SerdeContext
+): TargetedSentimentDetectionJobProperties => {
+  return {
+    DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
+    InputDataConfig:
+      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
+        : undefined,
+    JobArn: __expectString(output.JobArn),
+    JobId: __expectString(output.JobId),
+    JobName: __expectString(output.JobName),
+    JobStatus: __expectString(output.JobStatus),
+    LanguageCode: __expectString(output.LanguageCode),
+    Message: __expectString(output.Message),
+    OutputDataConfig:
+      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+        ? deserializeAws_json1_1OutputDataConfig(output.OutputDataConfig, context)
+        : undefined,
+    SubmitTime:
+      output.SubmitTime !== undefined && output.SubmitTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmitTime)))
+        : undefined,
+    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig:
+      output.VpcConfig !== undefined && output.VpcConfig !== null
+        ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TargetedSentimentDetectionJobPropertiesList = (
+  output: any,
+  context: __SerdeContext
+): TargetedSentimentDetectionJobProperties[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetedSentimentDetectionJobProperties(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TargetEventTypes = (output: any, context: __SerdeContext): string[] => {

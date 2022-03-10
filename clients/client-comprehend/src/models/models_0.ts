@@ -2374,7 +2374,7 @@ export enum JobStatus {
 }
 
 /**
- * <p>Provides configuration parameters for the output of topic detection jobs.</p>
+ * <p>Provides configuration parameters for the output of inference jobs.</p>
  *          <p></p>
  */
 export interface OutputDataConfig {
@@ -2387,6 +2387,10 @@ export interface OutputDataConfig {
    *       directory specific to the job. The <code>S3Uri</code> field contains the location of the
    *       output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the
    *       ouput of the operation.</p>
+   *          <p>
+   *       For a PII entity detection job, the output file is plain text, not a compressed archive.
+   *       The output file name is the same as the input file, with <code>.out</code> appended at the end.
+   *     </p>
    */
   S3Uri: string | undefined;
 
@@ -3265,7 +3269,10 @@ export interface EntityRecognizerEvaluationMetrics {
   /**
    * <p>A measure of how accurate the recognizer results are for the test data. It is derived from
    *       the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the
-   *       harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
+   *       harmonic average of the two scores. For plain text entity recognizer models, the range is 0 to 100,
+   *       where 100 is the best score. For PDF/Word entity recognizer models, the range is 0 to 1,
+   *       where 1 is the best score.
+   *     </p>
    */
   F1Score?: number;
 }
@@ -3747,6 +3754,10 @@ export interface PiiOutputDataConfig {
   /**
    * <p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations,
    *       you specify the Amazon S3 location where you want to write the output data. </p>
+   *          <p>
+   *       For a PII entity detection job, the output file is plain text, not a compressed archive.
+   *       The output file name is the same as the input file, with <code>.out</code> appended at the end.
+   *     </p>
    */
   S3Uri: string | undefined;
 
@@ -4097,6 +4108,145 @@ export namespace DescribeSentimentDetectionJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSentimentDetectionJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTargetedSentimentDetectionJobRequest {
+  /**
+   * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
+   *       response.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace DescribeTargetedSentimentDetectionJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTargetedSentimentDetectionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a targeted sentiment detection job.</p>
+ */
+export interface TargetedSentimentDetectionJobProperties {
+  /**
+   * <p>The identifier assigned to the targeted sentiment detection job.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the targeted sentiment detection job. It is a unique, fully
+   *       qualified identifier for the job. It includes the AWS account, Region, and the job ID. The
+   *       format of the ARN is as follows:</p>
+   *          <p>
+   *             <code>arn:<partition>:comprehend:<region>:<account-id>:targeted-sentiment-detection-job/<job-id></code>
+   *          </p>
+   *          <p>The following is an example job ARN:</p>
+   *          <p>
+   *             <code>arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code>
+   *          </p>
+   */
+  JobArn?: string;
+
+  /**
+   * <p>The name that you assigned to the targeted sentiment detection job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The current status of the targeted sentiment detection job. If the status is <code>FAILED</code>,
+   *       the <code>Messages</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>A description of the status of a job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The time that the targeted sentiment detection job was submitted for processing.</p>
+   */
+  SubmitTime?: Date;
+
+  /**
+   * <p>The time that the targeted sentiment detection job ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The input properties for an inference job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>Provides configuration parameters for the output of inference jobs.</p>
+   *          <p></p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>The language code of the input documents.</p>
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input
+   *       data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       data on the storage volume attached to the ML compute instance(s) that process the
+   *       targeted sentiment detection job. The VolumeKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *           <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeKmsKeyId?: string;
+
+  /**
+   * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
+   *       the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *         VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+}
+
+export namespace TargetedSentimentDetectionJobProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetedSentimentDetectionJobProperties): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTargetedSentimentDetectionJobResponse {
+  /**
+   * <p>An object that contains the properties associated with a targeted sentiment detection job.</p>
+   */
+  TargetedSentimentDetectionJobProperties?: TargetedSentimentDetectionJobProperties;
+}
+
+export namespace DescribeTargetedSentimentDetectionJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTargetedSentimentDetectionJobResponse): any => ({
     ...obj,
   });
 }
@@ -5742,6 +5892,94 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
+ * <p>Provides information for filtering a list of dominant language detection jobs. For more
+ *       information, see the  operation.</p>
+ */
+export interface TargetedSentimentDetectionJobFilter {
+  /**
+   * <p>Filters on the name of the job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
+   *       status.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
+   *       Returns only jobs submitted before the specified time. Jobs are returned in ascending order,
+   *       oldest to newest.</p>
+   */
+  SubmitTimeBefore?: Date;
+
+  /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing.
+   *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
+   *       newest to oldest.</p>
+   */
+  SubmitTimeAfter?: Date;
+}
+
+export namespace TargetedSentimentDetectionJobFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetedSentimentDetectionJobFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTargetedSentimentDetectionJobsRequest {
+  /**
+   * <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date
+   *       and time that they were submitted. You can only set one filter at a time.</p>
+   */
+  Filter?: TargetedSentimentDetectionJobFilter;
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListTargetedSentimentDetectionJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTargetedSentimentDetectionJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTargetedSentimentDetectionJobsResponse {
+  /**
+   * <p>A list containing the properties of each job that is returned.</p>
+   */
+  TargetedSentimentDetectionJobPropertiesList?: TargetedSentimentDetectionJobProperties[];
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTargetedSentimentDetectionJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTargetedSentimentDetectionJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides information for filtering topic detection jobs. For more information, see
  *         .</p>
  */
@@ -6724,6 +6962,132 @@ export namespace StartSentimentDetectionJobResponse {
   });
 }
 
+export interface StartTargetedSentimentDetectionJobRequest {
+  /**
+   * <p>The input properties for an inference job.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>Specifies where to send the output files. </p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based permissions</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>The identifier of the job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The language of the input documents. You can specify any of the primary languages
+   *       supported by Amazon Comprehend. All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon
+   *       Comprehend generates one.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>ID for the KMS key that Amazon Comprehend uses to encrypt
+   *       data on the storage volume attached to the ML compute instance(s) that process the analysis
+   *       job. The VolumeKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *           <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeKmsKeyId?: string;
+
+  /**
+   * <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing
+   *       the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *         VPC</a>. </p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Tags to be associated with the targeted sentiment detection job. A tag is a key-value pair that
+   *       adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the
+   *       key might be added to a resource to indicate its use by the sales department.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace StartTargetedSentimentDetectionJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartTargetedSentimentDetectionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartTargetedSentimentDetectionJobResponse {
+  /**
+   * <p>The identifier generated for the job. To get the status of a job, use this identifier with
+   *       the  operation.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the targeted sentiment detection job. It is a unique, fully
+   *       qualified identifier for the job. It includes the AWS account, Region, and the job ID. The
+   *       format of the ARN is as follows:</p>
+   *          <p>
+   *             <code>arn:<partition>:comprehend:<region>:<account-id>:targeted-sentiment-detection-job/<job-id></code>
+   *          </p>
+   *          <p>The following is an example job ARN:</p>
+   *          <p>
+   *             <code>arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code>
+   *          </p>
+   */
+  JobArn?: string;
+
+  /**
+   * <p>The status of the job. </p>
+   *          <ul>
+   *             <li>
+   *                <p>SUBMITTED - The job has been received and is queued for processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>IN_PROGRESS - Amazon Comprehend is processing the job.</p>
+   *             </li>
+   *             <li>
+   *                <p>COMPLETED - The job was successfully completed and the output is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>FAILED - The job did not complete. To get details, use the  operation.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobStatus?: JobStatus | string;
+}
+
+export namespace StartTargetedSentimentDetectionJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartTargetedSentimentDetectionJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartTopicsDetectionJobRequest {
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -7079,6 +7443,45 @@ export namespace StopSentimentDetectionJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopSentimentDetectionJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopTargetedSentimentDetectionJobRequest {
+  /**
+   * <p>The identifier of the targeted sentiment detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace StopTargetedSentimentDetectionJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopTargetedSentimentDetectionJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopTargetedSentimentDetectionJobResponse {
+  /**
+   * <p>The identifier of the targeted sentiment detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *       <code>STOPPED</code> if the job was previously stopped with the
+   *       <code>StopSentimentDetectionJob</code> operation.</p>
+   */
+  JobStatus?: JobStatus | string;
+}
+
+export namespace StopTargetedSentimentDetectionJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopTargetedSentimentDetectionJobResponse): any => ({
     ...obj,
   });
 }

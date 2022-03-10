@@ -15,6 +15,9 @@ request parameters and the response. Alternatively, you can use one of the Amazo
 access an API that is tailored to the programming language or platform that you're using. For
 more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
 
+<p>To share Refactor Spaces environments with other Amazon Web Services accounts or with Organizations
+and their OUs, use Resource Access Manager's <code>CreateResourceShare</code> API. See <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> in the <i>Amazon Web Services RAM API Reference</i>.</p>
+
 ## Installing
 
 To install the this package, simply type add or install @aws-sdk/client-migration-hub-refactor-spaces

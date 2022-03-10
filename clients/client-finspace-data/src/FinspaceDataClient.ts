@@ -54,7 +54,18 @@ import {
 import { CreateChangesetCommandInput, CreateChangesetCommandOutput } from "./commands/CreateChangesetCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateDataViewCommandInput, CreateDataViewCommandOutput } from "./commands/CreateDataViewCommand";
+import {
+  CreatePermissionGroupCommandInput,
+  CreatePermissionGroupCommandOutput,
+} from "./commands/CreatePermissionGroupCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import {
+  DeletePermissionGroupCommandInput,
+  DeletePermissionGroupCommandOutput,
+} from "./commands/DeletePermissionGroupCommand";
+import { DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand";
+import { EnableUserCommandInput, EnableUserCommandOutput } from "./commands/EnableUserCommand";
 import { GetChangesetCommandInput, GetChangesetCommandOutput } from "./commands/GetChangesetCommand";
 import { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import { GetDataViewCommandInput, GetDataViewCommandOutput } from "./commands/GetDataViewCommand";
@@ -62,45 +73,79 @@ import {
   GetProgrammaticAccessCredentialsCommandInput,
   GetProgrammaticAccessCredentialsCommandOutput,
 } from "./commands/GetProgrammaticAccessCredentialsCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput } from "./commands/GetWorkingLocationCommand";
 import { ListChangesetsCommandInput, ListChangesetsCommandOutput } from "./commands/ListChangesetsCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListDataViewsCommandInput, ListDataViewsCommandOutput } from "./commands/ListDataViewsCommand";
+import {
+  ListPermissionGroupsCommandInput,
+  ListPermissionGroupsCommandOutput,
+} from "./commands/ListPermissionGroupsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand";
 import { UpdateChangesetCommandInput, UpdateChangesetCommandOutput } from "./commands/UpdateChangesetCommand";
 import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import {
+  UpdatePermissionGroupCommandInput,
+  UpdatePermissionGroupCommandOutput,
+} from "./commands/UpdatePermissionGroupCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateChangesetCommandInput
   | CreateDataViewCommandInput
   | CreateDatasetCommandInput
+  | CreatePermissionGroupCommandInput
+  | CreateUserCommandInput
   | DeleteDatasetCommandInput
+  | DeletePermissionGroupCommandInput
+  | DisableUserCommandInput
+  | EnableUserCommandInput
   | GetChangesetCommandInput
   | GetDataViewCommandInput
   | GetDatasetCommandInput
   | GetProgrammaticAccessCredentialsCommandInput
+  | GetUserCommandInput
   | GetWorkingLocationCommandInput
   | ListChangesetsCommandInput
   | ListDataViewsCommandInput
   | ListDatasetsCommandInput
+  | ListPermissionGroupsCommandInput
+  | ListUsersCommandInput
+  | ResetUserPasswordCommandInput
   | UpdateChangesetCommandInput
-  | UpdateDatasetCommandInput;
+  | UpdateDatasetCommandInput
+  | UpdatePermissionGroupCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
   | CreateChangesetCommandOutput
   | CreateDataViewCommandOutput
   | CreateDatasetCommandOutput
+  | CreatePermissionGroupCommandOutput
+  | CreateUserCommandOutput
   | DeleteDatasetCommandOutput
+  | DeletePermissionGroupCommandOutput
+  | DisableUserCommandOutput
+  | EnableUserCommandOutput
   | GetChangesetCommandOutput
   | GetDataViewCommandOutput
   | GetDatasetCommandOutput
   | GetProgrammaticAccessCredentialsCommandOutput
+  | GetUserCommandOutput
   | GetWorkingLocationCommandOutput
   | ListChangesetsCommandOutput
   | ListDataViewsCommandOutput
   | ListDatasetsCommandOutput
+  | ListPermissionGroupsCommandOutput
+  | ListUsersCommandOutput
+  | ResetUserPasswordCommandOutput
   | UpdateChangesetCommandOutput
-  | UpdateDatasetCommandOutput;
+  | UpdateDatasetCommandOutput
+  | UpdatePermissionGroupCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -22,11 +22,12 @@ export interface GetCallAnalyticsJobCommandInput extends GetCallAnalyticsJobRequ
 export interface GetCallAnalyticsJobCommandOutput extends GetCallAnalyticsJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a call analytics job. To see the status of the job, check the
- *             <code>CallAnalyticsJobStatus</code> field. If the status is <code>COMPLETED</code>, the job
- *             is finished and you can find the results at the location specified in the <code>TranscriptFileUri</code>
- *             field. If you enable personally identifiable information (PII) redaction, the redacted transcript appears
- *             in the <code>RedactedTranscriptFileUri</code> field.</p>
+ * <p>Retrieves information about a call analytics job.</p>
+ *         <p>To view the job's status, refer to the <code>CallAnalyticsJobStatus</code> field. If the
+ *             status is <code>COMPLETED</code>, the job is finished. You can then find your transcript at
+ *             the URI specified in the <code>TranscriptFileUri</code> field. If you enabled personally
+ *             identifiable information (PII) redaction, the redacted transcript appears in the
+ *             <code>RedactedTranscriptFileUri</code> field.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

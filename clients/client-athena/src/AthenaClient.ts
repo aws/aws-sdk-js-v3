@@ -107,6 +107,7 @@ import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
+import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
 import {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
@@ -147,6 +148,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataCatalogCommandInput
+  | UpdateNamedQueryCommandInput
   | UpdatePreparedStatementCommandInput
   | UpdateWorkGroupCommandInput;
 
@@ -183,6 +185,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataCatalogCommandOutput
+  | UpdateNamedQueryCommandOutput
   | UpdatePreparedStatementCommandOutput
   | UpdateWorkGroupCommandOutput;
 

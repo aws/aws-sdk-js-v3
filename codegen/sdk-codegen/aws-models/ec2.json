@@ -10901,7 +10901,7 @@
         "Type": {
           "target": "com.amazonaws.ec2#FleetType",
           "traits": {
-            "smithy.api#documentation": "<p>The fleet type. The default value is <code>maintain</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired\n               capacity, and continues to maintain your desired Spot capacity by replenishing\n               interrupted Spot Instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>request</code> - The EC2 Fleet places an asynchronous one-time request for your\n               desired capacity, but does submit Spot requests in alternative capacity pools if Spot\n               capacity is unavailable, and does not maintain Spot capacity if Spot Instances are\n               interrupted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instant</code> - The EC2 Fleet places a synchronous one-time request for your\n               desired capacity, and returns errors for any instances that could not be\n               launched.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html\">EC2 Fleet\n            request types</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The fleet type. The default value is <code>maintain</code>.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired\n               capacity, and continues to maintain your desired Spot capacity by replenishing\n               interrupted Spot Instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>request</code> - The EC2 Fleet places an asynchronous one-time request for your\n               desired capacity, but does submit Spot requests in alternative capacity pools if Spot\n               capacity is unavailable, and does not maintain Spot capacity if Spot Instances are\n               interrupted.</p>\n            </li>\n            <li>\n               <p>\n                  <code>instant</code> - The EC2 Fleet places a synchronous one-time request for your\n               desired capacity, and returns errors for any instances that could not be\n               launched.</p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html\">EC2 Fleet\n            request types</a> in the <i>Amazon EC2 User Guide</i>.</p>"
           }
         },
         "ValidFrom": {
@@ -11504,7 +11504,8 @@
         "AddressFamily": {
           "target": "com.amazonaws.ec2#AddressFamily",
           "traits": {
-            "smithy.api#documentation": "<p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>"
+            "smithy.api#documentation": "<p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>",
+            "smithy.api#required": {}
           }
         },
         "AutoImport": {
@@ -40699,7 +40700,16 @@
           "target": "com.amazonaws.ec2#AttributeValue",
           "traits": {
             "aws.protocols#ec2QueryName": "BootMode",
+            "smithy.api#documentation": "<p>The boot mode.</p>",
             "smithy.api#xmlName": "bootMode"
+          }
+        },
+        "LastLaunchedTime": {
+          "target": "com.amazonaws.ec2#AttributeValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LastLaunchedTime",
+            "smithy.api#documentation": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time\n        format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used,\n      there is a 24-hour delay before that usage is reported.</p>\n         <note>\n            <p>\n               <code>lastLaunchedTime</code> data is available starting April 2017.</p>\n         </note>",
+            "smithy.api#xmlName": "lastLaunchedTime"
           }
         }
       },
@@ -40742,6 +40752,10 @@
           {
             "value": "bootMode",
             "name": "bootMode"
+          },
+          {
+            "value": "lastLaunchedTime",
+            "name": "lastLaunchedTime"
           }
         ]
       }
@@ -44381,7 +44395,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "SpotMaxPricePercentageOverLowestPrice",
-            "smithy.api#documentation": "<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <p>Default: <code>100</code>\n         </p>",
+            "smithy.api#documentation": "<p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n               <code>memory-mib</code>, the price protection threshold is applied based on the\n            per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>",
             "smithy.api#xmlName": "spotMaxPricePercentageOverLowestPrice"
           }
         },
@@ -44389,7 +44403,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "OnDemandMaxPricePercentageOverLowestPrice",
-            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <p>Default: <code>20</code>\n         </p>",
+            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>",
             "smithy.api#xmlName": "onDemandMaxPricePercentageOverLowestPrice"
           }
         },
@@ -44549,13 +44563,13 @@
         "SpotMaxPricePercentageOverLowestPrice": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <p>Default: <code>100</code>\n         </p>"
+            "smithy.api#documentation": "<p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>100</code>\n         </p>"
           }
         },
         "OnDemandMaxPricePercentageOverLowestPrice": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <p>Default: <code>20</code>\n         </p>"
+            "smithy.api#documentation": "<p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,\n         expressed as a percentage above the cheapest M, C, or R instance type with your specified\n         attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance\n         types priced above your threshold.</p>\n         <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>\n         <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>\n         <p>This parameter is not supported for <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html\">GetSpotPlacementScores</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html\">GetInstanceTypesFromInstanceRequirements</a>.</p>\n         <note>\n            <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or\n         <code>memory-mib</code>, the price protection threshold is applied based on the\n         per-vCPU or per-memory price instead of the per-instance price.</p>\n         </note>\n         <p>Default: <code>20</code>\n         </p>"
           }
         },
         "BareMetal": {
@@ -65381,6 +65395,10 @@
           {
             "value": "subnet",
             "name": "subnet"
+          },
+          {
+            "value": "subnet-cidr-reservation",
+            "name": "subnet_cidr_reservation"
           },
           {
             "value": "traffic-mirror-filter",

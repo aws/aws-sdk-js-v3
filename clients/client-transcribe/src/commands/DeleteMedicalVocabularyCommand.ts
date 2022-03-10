@@ -22,7 +22,8 @@ export interface DeleteMedicalVocabularyCommandInput extends DeleteMedicalVocabu
 export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a vocabulary from Amazon Transcribe Medical.</p>
+ * <p>Deletes a custom medical vocabulary. To use this operation, specify the name of the
+ *             vocabulary you want to delete using <code>VocabularyName</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

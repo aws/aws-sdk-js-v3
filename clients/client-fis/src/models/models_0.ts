@@ -181,6 +181,78 @@ export namespace CreateExperimentTemplateActionInput {
 }
 
 /**
+ * <p>Specifies the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ */
+export interface ExperimentTemplateCloudWatchLogsLogConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   */
+  logGroupArn: string | undefined;
+}
+
+export namespace ExperimentTemplateCloudWatchLogsLogConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentTemplateCloudWatchLogsLogConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for experiment logging to Amazon S3.</p>
+ */
+export interface ExperimentTemplateS3LogConfigurationInput {
+  /**
+   * <p>The name of the destination bucket.</p>
+   */
+  bucketName: string | undefined;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
+  prefix?: string;
+}
+
+export namespace ExperimentTemplateS3LogConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentTemplateS3LogConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for experiment logging.</p>
+ */
+export interface CreateExperimentTemplateLogConfigurationInput {
+  /**
+   * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   */
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
+
+  /**
+   * <p>The configuration for experiment logging to Amazon S3.</p>
+   */
+  s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
+
+  /**
+   * <p>The schema version.</p>
+   */
+  logSchemaVersion: number | undefined;
+}
+
+export namespace CreateExperimentTemplateLogConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExperimentTemplateLogConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies a stop condition for an experiment template.</p>
  */
 export interface CreateExperimentTemplateStopConditionInput {
@@ -328,6 +400,11 @@ export interface CreateExperimentTemplateRequest {
    * <p>The tags to apply to the experiment template.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The configuration for experiment logging.</p>
+   */
+  logConfiguration?: CreateExperimentTemplateLogConfigurationInput;
 }
 
 export namespace CreateExperimentTemplateRequest {
@@ -374,6 +451,78 @@ export namespace ExperimentTemplateAction {
    * @internal
    */
   export const filterSensitiveLog = (obj: ExperimentTemplateAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ */
+export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   */
+  logGroupArn?: string;
+}
+
+export namespace ExperimentTemplateCloudWatchLogsLogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentTemplateCloudWatchLogsLogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for experiment logging to Amazon S3.</p>
+ */
+export interface ExperimentTemplateS3LogConfiguration {
+  /**
+   * <p>The name of the destination bucket.</p>
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
+  prefix?: string;
+}
+
+export namespace ExperimentTemplateS3LogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentTemplateS3LogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for experiment logging.</p>
+ */
+export interface ExperimentTemplateLogConfiguration {
+  /**
+   * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   */
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfiguration;
+
+  /**
+   * <p>The configuration for experiment logging to Amazon S3.</p>
+   */
+  s3Configuration?: ExperimentTemplateS3LogConfiguration;
+
+  /**
+   * <p>The schema version.</p>
+   */
+  logSchemaVersion?: number;
+}
+
+export namespace ExperimentTemplateLogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentTemplateLogConfiguration): any => ({
     ...obj,
   });
 }
@@ -518,6 +667,11 @@ export interface ExperimentTemplate {
    * <p>The tags for the experiment template.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The configuration for experiment logging.</p>
+   */
+  logConfiguration?: ExperimentTemplateLogConfiguration;
 }
 
 export namespace ExperimentTemplate {
@@ -723,6 +877,78 @@ export namespace ExperimentAction {
   });
 }
 
+/**
+ * <p>Describes the configuration for experiment logging to Amazon CloudWatch Logs.</p>
+ */
+export interface ExperimentCloudWatchLogsLogConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
+   */
+  logGroupArn?: string;
+}
+
+export namespace ExperimentCloudWatchLogsLogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentCloudWatchLogsLogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for experiment logging to Amazon S3.</p>
+ */
+export interface ExperimentS3LogConfiguration {
+  /**
+   * <p>The name of the destination bucket.</p>
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
+  prefix?: string;
+}
+
+export namespace ExperimentS3LogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentS3LogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration for experiment logging.</p>
+ */
+export interface ExperimentLogConfiguration {
+  /**
+   * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   */
+  cloudWatchLogsConfiguration?: ExperimentCloudWatchLogsLogConfiguration;
+
+  /**
+   * <p>The configuration for experiment logging to Amazon S3.</p>
+   */
+  s3Configuration?: ExperimentS3LogConfiguration;
+
+  /**
+   * <p>The schema version.</p>
+   */
+  logSchemaVersion?: number;
+}
+
+export namespace ExperimentLogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExperimentLogConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum ExperimentStatus {
   completed = "completed",
   failed = "failed",
@@ -907,6 +1133,11 @@ export interface Experiment {
    * <p>The tags for the experiment.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The configuration for experiment logging.</p>
+   */
+  logConfiguration?: ExperimentLogConfiguration;
 }
 
 export namespace Experiment {
@@ -1580,6 +1811,35 @@ export namespace UpdateExperimentTemplateActionInputItem {
 }
 
 /**
+ * <p>Specifies the configuration for experiment logging.</p>
+ */
+export interface UpdateExperimentTemplateLogConfigurationInput {
+  /**
+   * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
+   */
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
+
+  /**
+   * <p>The configuration for experiment logging to Amazon S3.</p>
+   */
+  s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
+
+  /**
+   * <p>The schema version.</p>
+   */
+  logSchemaVersion?: number;
+}
+
+export namespace UpdateExperimentTemplateLogConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExperimentTemplateLogConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies a stop condition for an experiment. You can define a stop condition as a CloudWatch alarm.</p>
  */
 export interface UpdateExperimentTemplateStopConditionInput {
@@ -1679,6 +1939,11 @@ export interface UpdateExperimentTemplateRequest {
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The configuration for experiment logging.</p>
+   */
+  logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
 }
 
 export namespace UpdateExperimentTemplateRequest {

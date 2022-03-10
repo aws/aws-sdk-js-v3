@@ -1158,9 +1158,6 @@ export class RDS extends RDSClient {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *         <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *         </note>
    */
   public copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -1411,9 +1408,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -1515,9 +1509,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -1557,9 +1548,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -2126,9 +2114,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -2204,9 +2189,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -2251,9 +2233,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -2934,9 +2913,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -2977,9 +2953,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -3020,9 +2993,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    *          <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
    */
   public describeDBClusters(
@@ -3103,9 +3073,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -4210,9 +4177,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -4516,9 +4480,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -4614,9 +4575,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -5229,8 +5187,7 @@ export class RDS extends RDSClient {
    *           cluster results in a momentary outage, during which the DB cluster status is set to rebooting.
    *       </p>
    *
-   *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.
-   *           The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
+   *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p>
    *
    *          <p>For more information on Multi-AZ DB clusters, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
@@ -5394,9 +5351,6 @@ export class RDS extends RDSClient {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *         <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *         </note>
    */
   public removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
@@ -5550,9 +5504,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -5694,9 +5645,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -5749,9 +5697,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   public restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,

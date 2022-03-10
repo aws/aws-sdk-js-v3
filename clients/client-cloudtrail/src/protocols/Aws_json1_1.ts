@@ -4912,6 +4912,7 @@ const deserializeAws_json1_1QueryResultRows = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
   return {
+    BytesScanned: __expectLong(output.BytesScanned),
     ResultsCount: __expectInt32(output.ResultsCount),
     TotalResultsCount: __expectInt32(output.TotalResultsCount),
   } as any;
@@ -4922,6 +4923,7 @@ const deserializeAws_json1_1QueryStatisticsForDescribeQuery = (
   context: __SerdeContext
 ): QueryStatisticsForDescribeQuery => {
   return {
+    BytesScanned: __expectLong(output.BytesScanned),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))

@@ -2,6 +2,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -64,11 +65,15 @@ import {
   ActionTarget,
   ConflictException,
   CreateExperimentTemplateActionInput,
+  CreateExperimentTemplateLogConfigurationInput,
   CreateExperimentTemplateStopConditionInput,
   CreateExperimentTemplateTargetInput,
   Experiment,
   ExperimentAction,
   ExperimentActionState,
+  ExperimentCloudWatchLogsLogConfiguration,
+  ExperimentLogConfiguration,
+  ExperimentS3LogConfiguration,
   ExperimentState,
   ExperimentStopCondition,
   ExperimentSummary,
@@ -76,6 +81,11 @@ import {
   ExperimentTargetFilter,
   ExperimentTemplate,
   ExperimentTemplateAction,
+  ExperimentTemplateCloudWatchLogsLogConfiguration,
+  ExperimentTemplateCloudWatchLogsLogConfigurationInput,
+  ExperimentTemplateLogConfiguration,
+  ExperimentTemplateS3LogConfiguration,
+  ExperimentTemplateS3LogConfigurationInput,
   ExperimentTemplateStopCondition,
   ExperimentTemplateSummary,
   ExperimentTemplateTarget,
@@ -87,6 +97,7 @@ import {
   TargetResourceTypeParameter,
   TargetResourceTypeSummary,
   UpdateExperimentTemplateActionInputItem,
+  UpdateExperimentTemplateLogConfigurationInput,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
   ValidationException,
@@ -109,6 +120,13 @@ export const serializeAws_restJson1CreateExperimentTemplateCommand = async (
       }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.logConfiguration !== undefined &&
+      input.logConfiguration !== null && {
+        logConfiguration: serializeAws_restJson1CreateExperimentTemplateLogConfigurationInput(
+          input.logConfiguration,
+          context
+        ),
+      }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
     ...(input.stopConditions !== undefined &&
       input.stopConditions !== null && {
@@ -547,6 +565,13 @@ export const serializeAws_restJson1UpdateExperimentTemplateCommand = async (
         actions: serializeAws_restJson1UpdateExperimentTemplateActionInputMap(input.actions, context),
       }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.logConfiguration !== undefined &&
+      input.logConfiguration !== null && {
+        logConfiguration: serializeAws_restJson1UpdateExperimentTemplateLogConfigurationInput(
+          input.logConfiguration,
+          context
+        ),
+      }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
     ...(input.stopConditions !== undefined &&
       input.stopConditions !== null && {
@@ -1423,6 +1448,30 @@ const serializeAws_restJson1CreateExperimentTemplateActionInputMap = (
   }, {});
 };
 
+const serializeAws_restJson1CreateExperimentTemplateLogConfigurationInput = (
+  input: CreateExperimentTemplateLogConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cloudWatchLogsConfiguration !== undefined &&
+      input.cloudWatchLogsConfiguration !== null && {
+        cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
+          input.cloudWatchLogsConfiguration,
+          context
+        ),
+      }),
+    ...(input.logSchemaVersion !== undefined &&
+      input.logSchemaVersion !== null && { logSchemaVersion: input.logSchemaVersion }),
+    ...(input.s3Configuration !== undefined &&
+      input.s3Configuration !== null && {
+        s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(
+          input.s3Configuration,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_restJson1CreateExperimentTemplateStopConditionInput = (
   input: CreateExperimentTemplateStopConditionInput,
   context: __SerdeContext
@@ -1528,6 +1577,25 @@ const serializeAws_restJson1ExperimentTemplateActionTargetMap = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput = (
+  input: ExperimentTemplateCloudWatchLogsLogConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.logGroupArn !== undefined && input.logGroupArn !== null && { logGroupArn: input.logGroupArn }),
+  };
+};
+
+const serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput = (
+  input: ExperimentTemplateS3LogConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+  };
 };
 
 const serializeAws_restJson1ExperimentTemplateTargetFilterInputList = (
@@ -1641,6 +1709,30 @@ const serializeAws_restJson1UpdateExperimentTemplateActionInputMap = (
       [key]: serializeAws_restJson1UpdateExperimentTemplateActionInputItem(value, context),
     };
   }, {});
+};
+
+const serializeAws_restJson1UpdateExperimentTemplateLogConfigurationInput = (
+  input: UpdateExperimentTemplateLogConfigurationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cloudWatchLogsConfiguration !== undefined &&
+      input.cloudWatchLogsConfiguration !== null && {
+        cloudWatchLogsConfiguration: serializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfigurationInput(
+          input.cloudWatchLogsConfiguration,
+          context
+        ),
+      }),
+    ...(input.logSchemaVersion !== undefined &&
+      input.logSchemaVersion !== null && { logSchemaVersion: input.logSchemaVersion }),
+    ...(input.s3Configuration !== undefined &&
+      input.s3Configuration !== null && {
+        s3Configuration: serializeAws_restJson1ExperimentTemplateS3LogConfigurationInput(
+          input.s3Configuration,
+          context
+        ),
+      }),
+  };
 };
 
 const serializeAws_restJson1UpdateExperimentTemplateStopConditionInput = (
@@ -1811,6 +1903,10 @@ const deserializeAws_restJson1Experiment = (output: any, context: __SerdeContext
         : undefined,
     experimentTemplateId: __expectString(output.experimentTemplateId),
     id: __expectString(output.id),
+    logConfiguration:
+      output.logConfiguration !== undefined && output.logConfiguration !== null
+        ? deserializeAws_restJson1ExperimentLogConfiguration(output.logConfiguration, context)
+        : undefined,
     roleArn: __expectString(output.roleArn),
     startTime:
       output.startTime !== undefined && output.startTime !== null
@@ -1928,6 +2024,42 @@ const deserializeAws_restJson1ExperimentActionTargetMap = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ExperimentCloudWatchLogsLogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentCloudWatchLogsLogConfiguration => {
+  return {
+    logGroupArn: __expectString(output.logGroupArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ExperimentLogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentLogConfiguration => {
+  return {
+    cloudWatchLogsConfiguration:
+      output.cloudWatchLogsConfiguration !== undefined && output.cloudWatchLogsConfiguration !== null
+        ? deserializeAws_restJson1ExperimentCloudWatchLogsLogConfiguration(output.cloudWatchLogsConfiguration, context)
+        : undefined,
+    logSchemaVersion: __expectInt32(output.logSchemaVersion),
+    s3Configuration:
+      output.s3Configuration !== undefined && output.s3Configuration !== null
+        ? deserializeAws_restJson1ExperimentS3LogConfiguration(output.s3Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ExperimentS3LogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentS3LogConfiguration => {
+  return {
+    bucketName: __expectString(output.bucketName),
+    prefix: __expectString(output.prefix),
+  } as any;
 };
 
 const deserializeAws_restJson1ExperimentState = (output: any, context: __SerdeContext): ExperimentState => {
@@ -2102,6 +2234,10 @@ const deserializeAws_restJson1ExperimentTemplate = (output: any, context: __Serd
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdateTime)))
         : undefined,
+    logConfiguration:
+      output.logConfiguration !== undefined && output.logConfiguration !== null
+        ? deserializeAws_restJson1ExperimentTemplateLogConfiguration(output.logConfiguration, context)
+        : undefined,
     roleArn: __expectString(output.roleArn),
     stopConditions:
       output.stopConditions !== undefined && output.stopConditions !== null
@@ -2201,6 +2337,45 @@ const deserializeAws_restJson1ExperimentTemplateActionTargetMap = (
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentTemplateCloudWatchLogsLogConfiguration => {
+  return {
+    logGroupArn: __expectString(output.logGroupArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ExperimentTemplateLogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentTemplateLogConfiguration => {
+  return {
+    cloudWatchLogsConfiguration:
+      output.cloudWatchLogsConfiguration !== undefined && output.cloudWatchLogsConfiguration !== null
+        ? deserializeAws_restJson1ExperimentTemplateCloudWatchLogsLogConfiguration(
+            output.cloudWatchLogsConfiguration,
+            context
+          )
+        : undefined,
+    logSchemaVersion: __expectInt32(output.logSchemaVersion),
+    s3Configuration:
+      output.s3Configuration !== undefined && output.s3Configuration !== null
+        ? deserializeAws_restJson1ExperimentTemplateS3LogConfiguration(output.s3Configuration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ExperimentTemplateS3LogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ExperimentTemplateS3LogConfiguration => {
+  return {
+    bucketName: __expectString(output.bucketName),
+    prefix: __expectString(output.prefix),
+  } as any;
 };
 
 const deserializeAws_restJson1ExperimentTemplateStopCondition = (

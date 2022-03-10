@@ -54,7 +54,8 @@ export interface ApiGatewayProxyConfig {
   NlbArn?: string;
 
   /**
-   * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy. </p>
+   * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy.
+   *     </p>
    */
   NlbName?: string;
 
@@ -132,7 +133,8 @@ export interface ApiGatewayProxySummary {
   NlbArn?: string;
 
   /**
-   * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy. </p>
+   * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy.
+   *     </p>
    */
   NlbName?: string;
 
@@ -259,12 +261,13 @@ export interface ApplicationSummary {
   Name?: string;
 
   /**
-   * <p>he Amazon Resource Name (ARN) of the application. </p>
+   * <p>The Amazon Resource Name (ARN) of the application. </p>
    */
   Arn?: string;
 
   /**
-   * <p>The Amazon Web Services account ID of the application owner.</p>
+   * <p>The Amazon Web Services account ID of the application owner (which is always the same as
+   *       the environment owner account ID).</p>
    */
   OwnerAccountId?: string;
 
@@ -432,7 +435,8 @@ export interface CreateApplicationResponse {
   Arn?: string;
 
   /**
-   * <p>The Amazon Web Services account ID of the application owner.</p>
+   * <p>The Amazon Web Services account ID of the application owner (which is always the same as
+   *       the environment owner account ID).</p>
    */
   OwnerAccountId?: string;
 
@@ -638,7 +642,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Service. </p>
+ * <p>The input does not satisfy the constraints specified by an Amazon Web Service.
+ *     </p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -799,7 +804,8 @@ export interface UriPathRouteInput {
   SourcePath: string | undefined;
 
   /**
-   * <p>Indicates whether traffic is forwarded to this route’s service after the route is created. </p>
+   * <p>Indicates whether traffic is forwarded to this route’s service after the route is created.
+   *     </p>
    */
   ActivationState: RouteActivationState | string | undefined;
 
@@ -919,7 +925,7 @@ export interface CreateRouteResponse {
   RouteType?: RouteType | string;
 
   /**
-   * <p>The ID of service in which the rute iscreated. Traffic that matches this route is
+   * <p>The ID of service in which the route is created. Traffic that matches this route is
    *       forwarded to this service.</p>
    */
   ServiceId?: string;
@@ -935,7 +941,7 @@ export interface CreateRouteResponse {
   UriPathRoute?: UriPathRouteInput;
 
   /**
-   * <p>he current state of the route. </p>
+   * <p>The current state of the route. </p>
    */
   State?: RouteState | string;
 
@@ -1364,7 +1370,7 @@ export interface DeleteRouteResponse {
   ServiceId?: string;
 
   /**
-   * <p>he ID of the application that the route belongs to.</p>
+   * <p>The ID of the application that the route belongs to.</p>
    */
   ApplicationId?: string;
 
@@ -1466,7 +1472,8 @@ export namespace DeleteServiceResponse {
 }
 
 /**
- * <p>The summary information for environments as a response to <code>ListEnvironments</code>. </p>
+ * <p>The summary information for environments as a response to <code>ListEnvironments</code>.
+ *     </p>
  */
 export interface EnvironmentSummary {
   /**
@@ -1623,7 +1630,8 @@ export interface GetApplicationResponse {
   Arn?: string;
 
   /**
-   * <p>The Amazon Web Services account ID of the application owner.</p>
+   * <p>The Amazon Web Services account ID of the application owner (which is always the same as
+   *       the environment owner account ID).</p>
    */
   OwnerAccountId?: string;
 

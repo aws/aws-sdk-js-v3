@@ -43,25 +43,29 @@ export interface CreateRouteCommandOutput extends CreateRouteResponse, __Metadat
  *           Refactor Spaces routes traffic over the public internet.</p>
  *             </li>
  *             <li>
- *                <p>If the service has an Lambda function endpoint, then Refactor Spaces uses
- *           the API Gateway
- *           Lambda integration.</p>
+ *                <p>If the service has an Lambda function endpoint, then Refactor Spaces
+ *           configures the Lambda function's resource policy to allow the application's
+ *             API Gateway to invoke the function.</p>
  *             </li>
  *          </ul>
- *          <p>A health check is performed on the service when the route is created. If the health check
- *       fails, the route transitions to <code>FAILED</code>, and no traffic is sent to the service.</p>
- *          <p>For Lambda functions, the Lambda function state is checked. If
- *       the function is not active, the function configuration is updated so that Lambda
+ *          <p>A one-time health check is performed on the service when the route is created. If the
+ *       health check fails, the route transitions to <code>FAILED</code>, and no traffic is sent to
+ *       the service.</p>
+ *          <p>For Lambda functions, the Lambda function state is checked. If the
+ *       function is not active, the function configuration is updated so that Lambda
  *       resources are provisioned. If the Lambda state is <code>Failed</code>, then the
  *       route creation fails. For more information, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html#SSS-GetFunctionConfiguration-response-State">GetFunctionConfiguration's State response parameter</a> in the <i>Lambda Developer Guide</i>.</p>
- *          <p>For public URLs, a connection is opened to the public endpoint. If the URL is not reachable,
- *       the health check fails. For private URLs, a target group is created and the target group
- *       health check is run.</p>
+ *          <p>For public URLs, a connection is opened to the public endpoint. If the URL is not
+ *       reachable, the health check fails. For private URLs, a target group is created and the target
+ *       group health check is run.</p>
  *          <p>The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>, and
  *         <code>HealthCheckPath</code> are the same protocol, port, and path specified in the URL or
  *       health URL, if used. All other settings use the default values, as described in <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html">Health checks
  *         for your target groups</a>. The health check is considered successful if at least one
  *       target within the target group transitions to a healthy state.</p>
+ *          <p>Services can have HTTP or HTTPS URL endpoints. For HTTPS URLs, publicly-signed
+ *       certificates are supported. Private Certificate Authorities (CAs) are permitted only if the
+ *       CA's domain is publicly resolvable.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

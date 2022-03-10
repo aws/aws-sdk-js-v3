@@ -23,9 +23,9 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
 
 /**
  * <p>Returns a set of temporary security credentials for users who have been authenticated in
- *          a mobile or web application with a web identity provider. Example providers include Amazon Cognito,
- *          Login with Amazon, Facebook, Google, or any OpenID Connect-compatible identity
- *          provider.</p>
+ *          a mobile or web application with a web identity provider. Example providers include the
+ *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
+ *          identity provider such as Google or <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito federated identities</a>.</p>
  *          <note>
  *             <p>For mobile applications, we recommend that you use Amazon Cognito. You can use Amazon Cognito with the
  *                <a href="http://aws.amazon.com/sdkforios/">Amazon Web Services SDK for iOS Developer Guide</a> and the <a href="http://aws.amazon.com/sdkforandroid/">Amazon Web Services SDK for Android Developer Guide</a> to uniquely

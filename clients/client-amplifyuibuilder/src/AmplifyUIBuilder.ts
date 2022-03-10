@@ -53,16 +53,15 @@ import {
 import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
 
 /**
- * <p>The Amplify UI Builder API provides a programmatic interface for creating and configuring
- *       user interface (UI) component libraries and themes for use in your Amplify applications. You
- *       can then connect these UI components to an application's backend Amazon Web Services
- *       resources.</p>
- *          <p>You can also use the Amplify Studio visual designer to create UI components and model data
- *       for an app. For more information, see <a href="https://docs.amplify.aws/console/adminui/intro">Introduction</a> in the
+ * <p>The Amplify UI Builder API provides a programmatic interface for creating
+ *       and configuring user interface (UI) component libraries and themes for use in your Amplify applications. You can then connect these UI components to an application's
+ *       backend Amazon Web Services resources.</p>
+ *          <p>You can also use the Amplify Studio visual designer to create UI components
+ *       and model data for an app. For more information, see <a href="https://docs.amplify.aws/console/adminui/intro">Introduction</a> in the
  *         <i>Amplify Docs</i>.</p>
- *          <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and documentation
- *       for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework</a>. For more information about
- *       deploying an Amplify application to Amazon Web Services, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify Console User Guide</a>.</p>
+ *          <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
+ *       documentation for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework</a>. For more information about
+ *       deploying an Amplify application to Amazon Web Services, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify User Guide</a>.</p>
  */
 export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   /**
@@ -214,8 +213,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
-   * <p>Exports component configurations to code that is ready to integrate into an Amplify
-   *       app.</p>
+   * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportComponents(
     args: ExportComponentsCommandInput,
@@ -247,8 +245,7 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
-   * <p>Exports theme configurations to code that is ready to integrate into an Amplify
-   *       app.</p>
+   * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
    */
   public exportThemes(
     args: ExportThemesCommandInput,
@@ -332,7 +329,8 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
-   * <p>Retrieves a list of components for a specified Amplify app and backend environment.</p>
+   * <p>Retrieves a list of components for a specified Amplify app and backend
+   *       environment.</p>
    */
   public listComponents(
     args: ListComponentsCommandInput,
@@ -364,7 +362,8 @@ export class AmplifyUIBuilder extends AmplifyUIBuilderClient {
   }
 
   /**
-   * <p>Retrieves a list of themes for a specified Amplify app and backend environment.</p>
+   * <p>Retrieves a list of themes for a specified Amplify app and backend
+   *       environment.</p>
    */
   public listThemes(args: ListThemesCommandInput, options?: __HttpHandlerOptions): Promise<ListThemesCommandOutput>;
   public listThemes(args: ListThemesCommandInput, cb: (err: any, data?: ListThemesCommandOutput) => void): void;

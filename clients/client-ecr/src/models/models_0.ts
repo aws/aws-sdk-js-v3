@@ -951,9 +951,8 @@ export enum ImageTagMutability {
 }
 
 /**
- * <p>The metadata that you apply to a resource to help you categorize and organize them.
- *             Each tag consists of a key and an optional value, both of which you define.
- *             Tag keys can have a maximum character length of 128 characters, and tag values can have
+ * <p>The metadata to apply to a resource to help you categorize and organize them. Each tag
+ *             consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have
  *             a maximum length of 256 characters.</p>
  */
 export interface Tag {
@@ -964,8 +963,7 @@ export interface Tag {
   Key?: string;
 
   /**
-   * <p>The optional part of a key-value pair that make up a tag. A <code>value</code> acts as
-   *             a descriptor within a tag category (key).</p>
+   * <p>A <code>value</code> acts as a descriptor within a tag category (key).</p>
    */
   Value?: string;
 }
@@ -1825,6 +1823,20 @@ export interface ImageDetail {
    * <p>The artifact media type of the image.</p>
    */
   artifactMediaType?: string;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, when Amazon ECR recorded
+   *             the last image pull.</p>
+   *         <note>
+   *             <p>Amazon ECR refreshes the last image pull timestamp at least once every 24 hours. For
+   *                 example, if you pull an image once a day then the <code>lastRecordedPullTime</code>
+   *                 timestamp will indicate the exact time that the image was last pulled. However, if
+   *                 you pull an image once an hour, because Amazon ECR refreshes the
+   *                     <code>lastRecordedPullTime</code> timestamp at least once every 24 hours, the
+   *                 result may not be the exact time that the image was last pulled.</p>
+   *         </note>
+   */
+  lastRecordedPullTime?: Date;
 }
 
 export namespace ImageDetail {
@@ -3373,7 +3385,11 @@ export namespace GetRegistryScanningConfigurationRequest {
  */
 export interface RegistryScanningRule {
   /**
-   * <p>The frequency that scans are performed at for a private registry.</p>
+   * <p>The frequency that scans are performed at for a private registry. When the
+   *                 <code>ENHANCED</code> scan type is specified, the supported scan frequencies are
+   *                 <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the
+   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and
+   *                 <code>MANUAL</code> scan frequencies are supported.</p>
    */
   scanFrequency: ScanFrequency | string | undefined;
 
@@ -4016,12 +4032,15 @@ export namespace PutRegistryPolicyResponse {
 export interface PutRegistryScanningConfigurationRequest {
   /**
    * <p>The scanning type to set for the registry.</p>
-   *         <p>By default, the <code>BASIC</code> scan type is used. When basic scanning is set, you
-   *             may specify filters to determine which individual repositories, or all repositories, are
-   *             scanned when new images are pushed. Alternatively, you can do manual scans of images
-   *             with basic scanning.</p>
-   *         <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated, continuous
-   *             scanning of all repositories in your registry.</p>
+   *         <p>When a registry scanning configuration is not defined, by default the
+   *                 <code>BASIC</code> scan type is used. When basic scanning is used, you may specify
+   *             filters to determine which individual repositories, or all repositories, are scanned
+   *             when new images are pushed to those repositories. Alternatively, you can do manual scans
+   *             of images with basic scanning.</p>
+   *         <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
+   *             vulnerability scanning. You may choose between continuous scanning or scan on push and
+   *             you may specify filters to determine which individual repositories, or all repositories,
+   *             are scanned.</p>
    */
   scanType?: ScanType | string;
 

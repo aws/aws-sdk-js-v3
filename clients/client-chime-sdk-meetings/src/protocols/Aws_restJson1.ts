@@ -1287,13 +1287,19 @@ const serializeAws_restJson1EngineTranscribeSettings = (
       input.EnablePartialResultsStabilization !== null && {
         EnablePartialResultsStabilization: input.EnablePartialResultsStabilization,
       }),
+    ...(input.IdentifyLanguage !== undefined &&
+      input.IdentifyLanguage !== null && { IdentifyLanguage: input.IdentifyLanguage }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.LanguageModelName !== undefined &&
       input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.LanguageOptions !== undefined &&
+      input.LanguageOptions !== null && { LanguageOptions: input.LanguageOptions }),
     ...(input.PartialResultsStability !== undefined &&
       input.PartialResultsStability !== null && { PartialResultsStability: input.PartialResultsStability }),
     ...(input.PiiEntityTypes !== undefined &&
       input.PiiEntityTypes !== null && { PiiEntityTypes: input.PiiEntityTypes }),
+    ...(input.PreferredLanguage !== undefined &&
+      input.PreferredLanguage !== null && { PreferredLanguage: input.PreferredLanguage }),
     ...(input.Region !== undefined && input.Region !== null && { Region: input.Region }),
     ...(input.VocabularyFilterMethod !== undefined &&
       input.VocabularyFilterMethod !== null && { VocabularyFilterMethod: input.VocabularyFilterMethod }),

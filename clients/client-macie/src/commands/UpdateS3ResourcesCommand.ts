@@ -22,11 +22,11 @@ export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest 
 export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}
 
 /**
- * <p>Updates the classification types for the specified S3 resources. If memberAccountId
- *       isn't specified, the action updates the classification types of the S3 resources associated
- *       with Amazon Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified, the
- *       action updates the classification types of the S3 resources associated with Macie
- *       Classic for the specified member account. </p>
+ * <p>(Discontinued) Updates the classification types for the specified S3 resources. If
+ *       <code>memberAccountId</code> isn't specified, the action updates the classification types of the S3
+ *       resources associated with Amazon Macie Classic for the current Macie Classic administrator
+ *       account. If <code>memberAccountId</code> is specified, the action updates the classification types of the
+ *       S3 resources associated with Macie Classic for the specified member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

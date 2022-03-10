@@ -110,6 +110,7 @@ import {
 } from "../commands/UpdateDeviceMetadataCommand";
 import {
   AccessDeniedException,
+  AlternateSoftwareMetadata,
   ApplicationInstance,
   ConflictException,
   ConflictExceptionErrorArgument,
@@ -131,6 +132,8 @@ import {
   NodeInstance,
   NodeInterface,
   NodeOutputPort,
+  NtpPayload,
+  NtpStatus,
   OTAJobConfig,
   OutPutS3Location,
   PackageImportJob,
@@ -1844,6 +1847,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AlternateSoftwares: undefined,
     Arn: undefined,
     CreatedTime: undefined,
     CurrentNetworkingStatus: undefined,
@@ -1851,6 +1855,7 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     Description: undefined,
     DeviceConnectionStatus: undefined,
     DeviceId: undefined,
+    LatestAlternateSoftware: undefined,
     LatestSoftware: undefined,
     LeaseExpirationTime: undefined,
     Name: undefined,
@@ -1861,6 +1866,9 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
     Type: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AlternateSoftwares !== undefined && data.AlternateSoftwares !== null) {
+    contents.AlternateSoftwares = deserializeAws_restJson1AlternateSoftwares(data.AlternateSoftwares, context);
+  }
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
   }
@@ -1881,6 +1889,9 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   if (data.DeviceId !== undefined && data.DeviceId !== null) {
     contents.DeviceId = __expectString(data.DeviceId);
+  }
+  if (data.LatestAlternateSoftware !== undefined && data.LatestAlternateSoftware !== null) {
+    contents.LatestAlternateSoftware = __expectString(data.LatestAlternateSoftware);
   }
   if (data.LatestSoftware !== undefined && data.LatestSoftware !== null) {
     contents.LatestSoftware = __expectString(data.LatestSoftware);
@@ -3599,7 +3610,26 @@ const serializeAws_restJson1NetworkPayload = (input: NetworkPayload, context: __
       input.Ethernet0 !== null && { Ethernet0: serializeAws_restJson1EthernetPayload(input.Ethernet0, context) }),
     ...(input.Ethernet1 !== undefined &&
       input.Ethernet1 !== null && { Ethernet1: serializeAws_restJson1EthernetPayload(input.Ethernet1, context) }),
+    ...(input.Ntp !== undefined && input.Ntp !== null && { Ntp: serializeAws_restJson1NtpPayload(input.Ntp, context) }),
   };
+};
+
+const serializeAws_restJson1NtpPayload = (input: NtpPayload, context: __SerdeContext): any => {
+  return {
+    ...(input.NtpServers !== undefined &&
+      input.NtpServers !== null && { NtpServers: serializeAws_restJson1NtpServerList(input.NtpServers, context) }),
+  };
+};
+
+const serializeAws_restJson1NtpServerList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OTAJobConfig = (input: OTAJobConfig, context: __SerdeContext): any => {
@@ -3703,6 +3733,30 @@ const serializeAws_restJson1TemplateParametersMap = (
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1AlternateSoftwareMetadata = (
+  output: any,
+  context: __SerdeContext
+): AlternateSoftwareMetadata => {
+  return {
+    Version: __expectString(output.Version),
+  } as any;
+};
+
+const deserializeAws_restJson1AlternateSoftwares = (
+  output: any,
+  context: __SerdeContext
+): AlternateSoftwareMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AlternateSoftwareMetadata(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApplicationInstance = (output: any, context: __SerdeContext): ApplicationInstance => {
@@ -3930,6 +3984,10 @@ const deserializeAws_restJson1NetworkPayload = (output: any, context: __SerdeCon
       output.Ethernet1 !== undefined && output.Ethernet1 !== null
         ? deserializeAws_restJson1EthernetPayload(output.Ethernet1, context)
         : undefined,
+    Ntp:
+      output.Ntp !== undefined && output.Ntp !== null
+        ? deserializeAws_restJson1NtpPayload(output.Ntp, context)
+        : undefined,
   } as any;
 };
 
@@ -3942,6 +4000,14 @@ const deserializeAws_restJson1NetworkStatus = (output: any, context: __SerdeCont
     Ethernet1Status:
       output.Ethernet1Status !== undefined && output.Ethernet1Status !== null
         ? deserializeAws_restJson1EthernetStatus(output.Ethernet1Status, context)
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    NtpStatus:
+      output.NtpStatus !== undefined && output.NtpStatus !== null
+        ? deserializeAws_restJson1NtpStatus(output.NtpStatus, context)
         : undefined,
   } as any;
 };
@@ -4059,6 +4125,35 @@ const deserializeAws_restJson1NodesList = (output: any, context: __SerdeContext)
       return deserializeAws_restJson1Node(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1NtpPayload = (output: any, context: __SerdeContext): NtpPayload => {
+  return {
+    NtpServers:
+      output.NtpServers !== undefined && output.NtpServers !== null
+        ? deserializeAws_restJson1NtpServerList(output.NtpServers, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NtpServerList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1NtpStatus = (output: any, context: __SerdeContext): NtpStatus => {
+  return {
+    ConnectionStatus: __expectString(output.ConnectionStatus),
+    IpAddress: __expectString(output.IpAddress),
+    NtpServerName: __expectString(output.NtpServerName),
+  } as any;
 };
 
 const deserializeAws_restJson1OutputPortList = (output: any, context: __SerdeContext): NodeOutputPort[] => {

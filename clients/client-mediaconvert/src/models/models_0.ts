@@ -1784,7 +1784,7 @@ export enum ImscStylePassthrough {
  */
 export interface ImscDestinationSettings {
   /**
-   * Specify whether to flag this caption track as accessibility in your HLS/CMAF parent manifest. When you choose ENABLED, MediaConvert includes the parameters CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES" in the EXT-X-MEDIA entry for this track. When you keep the default choice, DISABLED, MediaConvert leaves this parameter out.
+   * Set Accessibility subtitles (Accessibility) to Enabled (ENABLED) if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled (DISABLED), if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
    */
   Accessibility?: ImscAccessibilitySubs | string;
 
@@ -1925,7 +1925,7 @@ export enum WebvttStylePassthrough {
  */
 export interface WebvttDestinationSettings {
   /**
-   * Specify whether to flag this caption track as accessibility in your HLS/CMAF parent manifest. When you choose ENABLED, MediaConvert includes the parameters CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES" in the EXT-X-MEDIA entry for this track. When you keep the default choice, DISABLED, MediaConvert leaves this parameter out.
+   * Set Accessibility subtitles (Accessibility) to Enabled (ENABLED) if the ISMC or WebVTT captions track is intended to provide accessibility for people who are deaf or hard of hearing. When you enable this feature, MediaConvert adds the following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for this track: CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES". Keep the default value, Disabled (DISABLED), if the captions track is not intended to provide such accessibility. MediaConvert will not add the above attributes.
    */
   Accessibility?: WebvttAccessibilitySubs | string;
 
@@ -2245,7 +2245,7 @@ export namespace HopDestination {
  */
 export interface Id3Insertion {
   /**
-   * Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+   * Use ID3 tag (Id3) to provide a fully formed ID3 tag in base64-encode format.
    */
   Id3?: string;
 
@@ -2971,6 +2971,11 @@ export enum ColorSpaceUsage {
   FORCE = "FORCE",
 }
 
+export enum EmbeddedTimecodeOverride {
+  NONE = "NONE",
+  USE_MDPM = "USE_MDPM",
+}
+
 /**
  * Use these settings to specify static color calibration metadata, as defined by SMPTE ST 2086. These values don't affect the pixel values that are encoded in the video stream. They are intended to help the downstream video player display content in a way that reflects the intentions of the the content creator.
  */
@@ -3077,6 +3082,11 @@ export interface VideoSelector {
    * There are two sources for color metadata, the input file and the job input settings Color space (ColorSpace) and HDR master display information settings(Hdr10Metadata). The Color space usage setting determines which takes precedence. Choose Force (FORCE) to use color metadata from the input job settings. If you don't specify values for those settings, the service defaults to using metadata from your input. FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the source when it is present. If there's no color metadata in your input file, the service defaults to using values you specify in the input settings.
    */
   ColorSpaceUsage?: ColorSpaceUsage | string;
+
+  /**
+   * Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM (USE_MDPM) when your AVCHD input contains timecode tag data in the Modified Digital Video Pack Metadata (MDPM). When you do, we recommend you also set Timecode source (inputTimecodeSource) to Embedded (EMBEDDED). Leave Embedded timecode override blank, or set to None (NONE), when your input does not contain MDPM timecode.
+   */
+  EmbeddedTimecodeOverride?: EmbeddedTimecodeOverride | string;
 
   /**
    * Use these settings to provide HDR 10 metadata that is missing or inaccurate in your input video. Appropriate values vary depending on the input video and must be provided by a color grader. The color grader generates these values during the HDR 10 mastering process. The valid range for each of these settings is 0 to 50,000. Each increment represents 0.00002 in CIE1931 color coordinate. Related settings - When you specify these values, you must also set Color space (ColorSpace) to HDR 10 (HDR10). To specify whether the the values you specify here take precedence over the values in the metadata of your input file, set Color space usage (ColorSpaceUsage). To specify whether color metadata is included in an output, set Color metadata (ColorMetadata). For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
@@ -4743,6 +4753,11 @@ export enum HlsCaptionLanguageSetting {
   OMIT = "OMIT",
 }
 
+export enum HlsCaptionSegmentLengthControl {
+  LARGE_SEGMENTS = "LARGE_SEGMENTS",
+  MATCH_VIDEO = "MATCH_VIDEO",
+}
+
 export enum HlsClientCache {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -4964,6 +4979,11 @@ export interface HlsGroupSettings {
   CaptionLanguageSetting?: HlsCaptionLanguageSetting | string;
 
   /**
+   * Set Caption segment length control (CaptionSegmentLengthControl) to Match video (MATCH_VIDEO) to create caption segments that align with the video segments from the first video output in this output group. For example, if the video segments are 2 seconds long, your WebVTT segments will also be 2 seconds long. Keep the default setting, Large segments (LARGE_SEGMENTS) to create caption segments that are 300 seconds long.
+   */
+  CaptionSegmentLengthControl?: HlsCaptionSegmentLengthControl | string;
+
+  /**
    * Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
    */
   ClientCache?: HlsClientCache | string;
@@ -5069,12 +5089,12 @@ export interface HlsGroupSettings {
   TargetDurationCompatibilityMode?: HlsTargetDurationCompatibilityMode | string;
 
   /**
-   * Indicates ID3 frame that has the timecode.
+   * Specify the type of the ID3 frame (timedMetadataId3Frame) to use for ID3 timestamps (timedMetadataId3Period) in your output. To include ID3 timestamps: Specify PRIV (PRIV) or TDRL (TDRL) and set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). To exclude ID3 timestamps: Set ID3 timestamp frame type to None (NONE).
    */
   TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | string;
 
   /**
-   * Timed Metadata interval in seconds.
+   * Specify the interval in seconds to write ID3 timestamps in your output. The first timestamp starts at the output timecode and date, and increases incrementally with each ID3 timestamp. To use the default interval of 10 seconds: Leave blank. To include this metadata in your output: Set ID3 timestamp frame type (timedMetadataId3Frame) to PRIV (PRIV) or TDRL (TDRL), and set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
    */
   TimedMetadataId3Period?: number;
 
@@ -5338,7 +5358,7 @@ export interface CmfcSettings {
   Scte35Source?: CmfcScte35Source | string;
 
   /**
-   * Applies to CMAF outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   * To include ID3 metadata in this output: Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: CmfcTimedMetadata | string;
 }
@@ -5789,14 +5809,4 @@ export enum M3u8DataPtsControl {
 export enum M3u8NielsenId3 {
   INSERT = "INSERT",
   NONE = "NONE",
-}
-
-export enum M3u8PcrControl {
-  CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
-}
-
-export enum M3u8Scte35Source {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
 }

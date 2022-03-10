@@ -22,7 +22,7 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of specific Amazon FSx snapshots, if a
+ * <p>Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
  *                 <code>SnapshotIds</code> value is provided. Otherwise, this operation returns all
  *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
  *             the endpoint that you're calling.</p>

@@ -642,6 +642,12 @@ export interface OntapFileSystemConfiguration {
   /**
    * <p>The IP address range in which the endpoints to access your file system
    *             are created.</p>
+   *         <important>
+   *             <p>The Endpoint IP address range you select for your file system
+   *             must exist outside the VPC's CIDR range and must be at least /30 or larger.
+   *             If you do not specify this optional parameter, Amazon FSx will automatically
+   *             select a CIDR block for you.</p>
+   *          </important>
    */
   EndpointIpAddressRange?: string;
 
@@ -752,7 +758,7 @@ export interface OpenZFSFileSystemConfiguration {
 
   /**
    * <p>The throughput of an Amazon FSx file system, measured in megabytes per second
-   *             (MBps), in 2 to the nth increments, between 2^3 (8) and 2^11 (2048). </p>
+   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
    */
   ThroughputCapacity?: number;
 
@@ -1182,16 +1188,6 @@ export enum SnapshotLifecycle {
   PENDING = "PENDING",
 }
 
-export enum VolumeLifecycle {
-  AVAILABLE = "AVAILABLE",
-  CREATED = "CREATED",
-  CREATING = "CREATING",
-  DELETING = "DELETING",
-  FAILED = "FAILED",
-  MISCONFIGURED = "MISCONFIGURED",
-  PENDING = "PENDING",
-}
-
 /**
  * <p>Describes why a resource lifecycle state changed.</p>
  */
@@ -1209,6 +1205,16 @@ export namespace LifecycleTransitionReason {
   export const filterSensitiveLog = (obj: LifecycleTransitionReason): any => ({
     ...obj,
   });
+}
+
+export enum VolumeLifecycle {
+  AVAILABLE = "AVAILABLE",
+  CREATED = "CREATED",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  MISCONFIGURED = "MISCONFIGURED",
+  PENDING = "PENDING",
 }
 
 export enum FlexCacheEndpointType {
@@ -1423,6 +1429,7 @@ export namespace OntapVolumeConfiguration {
 }
 
 export enum OpenZFSDataCompressionType {
+  LZ4 = "LZ4",
   NONE = "NONE",
   ZSTD = "ZSTD",
 }
@@ -1435,7 +1442,7 @@ export interface OpenZFSClientConfiguration {
   /**
    * <p>A value that specifies who can mount the file system. You can provide a wildcard
    *             character (<code>*</code>), an IP address (<code>0.0.0.0</code>), or a CIDR address
-   *                 (<code>192.0.2.0/24</code>. By default, Amazon FSx uses the wildcard
+   *                 (<code>192.0.2.0/24</code>). By default, Amazon FSx uses the wildcard
    *             character when specifying the client. </p>
    */
   Clients: string | undefined;
@@ -1447,8 +1454,8 @@ export interface OpenZFSClientConfiguration {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>crossmount</code> is used by default. If you don't specify
-   *                         <code>crossmount</code> when changing the client configuration, you won't be
+   *                   <code>crossmnt</code> is used by default. If you don't specify
+   *                     <code>crossmnt</code> when changing the client configuration, you won't be
    *                     able to see or access snapshots in your file system's snapshot directory.</p>
    *             </li>
    *             <li>
@@ -1473,7 +1480,7 @@ export namespace OpenZFSClientConfiguration {
 }
 
 /**
- * <p>The Network File System NFS) configurations for mounting an Amazon FSx for
+ * <p>The Network File System (NFS) configurations for mounting an Amazon FSx for
  *             OpenZFS file system. </p>
  */
 export interface OpenZFSNfsExport {
@@ -1602,19 +1609,34 @@ export interface OpenZFSVolumeConfiguration {
   StorageCapacityQuotaGiB?: number;
 
   /**
-   * <p>The method used to compress the data on the volume. Unless a compression type is
-   *             specified, volumes inherit the <code>DataCompressionType</code> value of their parent
-   *             volume.</p>
+   * <p>The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are 4, 8,
+   *             16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB.
+   *             Most workloads should use the default record size. For guidance on when
+   *             to set a custom record size, see the
+   *             <i>Amazon FSx for OpenZFS User Guide</i>.</p>
+   */
+  RecordSizeKiB?: number;
+
+  /**
+   * <p>Specifies the method used to compress the data on the volume. The compression
+   *             type is <code>NONE</code> by default.</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>NONE</code> - Doesn't compress the data on the volume.</p>
+   *                   <code>NONE</code> - Doesn't compress the data on the volume.
+   *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
-   *                     (ZSTD) compression algorithm. This algorithm reduces the amount of space used on
-   *                     your volume and has very little impact on compute resources.</p>
+   *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
+   *                     compression ratio to minimize on-disk storage utilization.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
+   *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
+   *                     and delivers higher write throughput speeds.</p>
    *             </li>
    *          </ul>
    */
@@ -1626,7 +1648,7 @@ export interface OpenZFSVolumeConfiguration {
    *             for the volume are copied to snapshots where the user doesn't specify tags. If this
    *             value is <code>true</code> and you specify one or more tags, only the specified tags are
    *             copied to snapshots. If you specify one or more tags when creating the snapshot, no tags
-   *             are copied from the volume, regardless of this value. </p>
+   *             are copied from the volume, regardless of this value.</p>
    */
   CopyTagsToSnapshots?: boolean;
 
@@ -1642,13 +1664,13 @@ export interface OpenZFSVolumeConfiguration {
   ReadOnly?: boolean;
 
   /**
-   * <p>The configuration object for mounting a Network File System (NFS) file
-   *             system.</p>
+   * <p>The configuration object for mounting a Network File System (NFS)
+   *             file system.</p>
    */
   NfsExports?: OpenZFSNfsExport[];
 
   /**
-   * <p>An object specifying how much storage users or groups can use on the volume. </p>
+   * <p>An object specifying how much storage users or groups can use on the volume.</p>
    */
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 }
@@ -2451,7 +2473,7 @@ export namespace CreateBackupRequest {
 }
 
 /**
- * <p>No Amazon FSx for NetApp ONTAP volumes were found based upon the supplied parameters.</p>
+ * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
  */
 export class VolumeNotFound extends __BaseException {
   readonly name: "VolumeNotFound" = "VolumeNotFound";
@@ -2528,6 +2550,11 @@ export interface CreateDataRepositoryAssociationRequest {
    *         <p>This path specifies where in your file system files will be exported
    *             from or imported to. This file system directory can be linked to only one
    *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
+   *         <note>
+   *             <p>If you specify only a forward slash (<code>/</code>) as the file system
+   *             path, you can link only 1 data repository to the file system. You can only specify
+   *             "/" as the file system path for the first data repository associated with a file system.</p>
+   *          </note>
    */
   FileSystemPath: string | undefined;
 
@@ -2690,7 +2717,12 @@ export interface DataRepositoryAssociation {
    *             path <code>/ns1/ns2</code>.</p>
    *         <p>This path specifies where in your file system files will be exported
    *             from or imported to. This file system directory can be linked to only one
-   *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory. </p>
+   *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
+   *         <note>
+   *             <p>If you specify only a forward slash (<code>/</code>) as the file system
+   *             path, you can link only 1 data repository to the file system. You can only specify
+   *             "/" as the file system path for the first data repository associated with a file system.</p>
+   *          </note>
    */
   FileSystemPath?: string;
 
@@ -3348,11 +3380,11 @@ export interface CreateFileSystemLustreConfiguration {
    *                 in the S3 bucket.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3">
    *             Automatically import updates from your S3 bucket</a>.</p>
    *         <note>
    *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
-   *             Instead, use <code>CreateDataRepositoryAssociation"</code> to create
+   *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
    *             a data repository association to link your Lustre file system to a data repository.</p>
    *          </note>
    */
@@ -3485,6 +3517,10 @@ export interface CreateFileSystemOntapConfiguration {
    * <p>Specifies the IP address range in which the endpoints to access your file system
    *             will be created. By default, Amazon FSx selects an unused IP address range for you
    *             from the 198.19.* range.</p>
+   *         <important>
+   *             <p>The Endpoint IP address range you select for your file system
+   *             must exist outside the VPC's CIDR range and must be at least /30 or larger.</p>
+   *         </important>
    */
   EndpointIpAddressRange?: string;
 
@@ -3547,19 +3583,36 @@ export namespace CreateFileSystemOntapConfiguration {
  */
 export interface OpenZFSCreateRootVolumeConfiguration {
   /**
-   * <p>Specifies the method used to compress the data on the volume. Unless the compression
-   *             type is specified, volumes inherit the <code>DataCompressionType</code> value of their
-   *             parent volume.</p>
+   * <p>Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are 4, 8,
+   *         16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB. Most workloads should use the
+   *         default record size. Database workflows can benefit from a smaller record size, while streaming
+   *         workflows can benefit from a larger record size. For additional guidance on setting a custom record
+   *         size, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
+   *         Tips for maximizing performance</a> in the
+   *         <i>Amazon FSx for OpenZFS User Guide</i>.</p>
+   */
+  RecordSizeKiB?: number;
+
+  /**
+   * <p>Specifies the method used to compress the data on the volume. The compression
+   *             type is <code>NONE</code> by default.</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>NONE</code> - Doesn't compress the data on the volume.</p>
+   *                   <code>NONE</code> - Doesn't compress the data on the volume.
+   *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ZSTD</code> - Compresses the data in the volume using the ZStandard
-   *                     (ZSTD) compression algorithm. This algorithm reduces the amount of space used on
-   *                     your volume and has very little impact on compute resources.</p>
+   *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
+   *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
+   *                     compression ratio to minimize on-disk storage utilization.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
+   *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
+   *                     and delivers higher write throughput speeds.</p>
    *             </li>
    *          </ul>
    */
@@ -3576,9 +3629,9 @@ export interface OpenZFSCreateRootVolumeConfiguration {
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 
   /**
-   * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots.
-   *             This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-   *             for the volume are copied to snapshots where the user doesn't specify tags. If this
+   * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots
+   *             of the volume. This value defaults to <code>false</code>. If it's set to <code>true</code>,
+   *             all tags for the volume are copied to snapshots where the user doesn't specify tags. If this
    *             value is <code>true</code> and you specify one or more tags, only the specified tags are
    *             copied to snapshots. If you specify one or more tags when creating the snapshot, no tags
    *             are copied from the volume, regardless of this value. </p>
@@ -3603,7 +3656,7 @@ export namespace OpenZFSCreateRootVolumeConfiguration {
 }
 
 /**
- * <p>The OpenZFS configuration properties for the file system that you are creating.</p>
+ * <p>The Amazon FSx for OpenZFS configuration properties for the file system that you are creating.</p>
  */
 export interface CreateFileSystemOpenZFSConfiguration {
   /**
@@ -3643,8 +3696,8 @@ export interface CreateFileSystemOpenZFSConfiguration {
 
   /**
    * <p>Specifies the file system deployment type. Amazon FSx for OpenZFS supports
-   *                 <code>SINGLE_AZ_1</code>. <code>SINGLE_AZ_1</code> is a file system configured for a
-   *             single Availability Zone (AZ) of redundancy.</p>
+   *             <code>SINGLE_AZ_1</code>. <code>SINGLE_AZ_1</code> deployment type is configured for redundancy
+   *             within a single Availability Zone.</p>
    */
   DeploymentType: OpenZFSDeploymentType | string | undefined;
 
@@ -5017,42 +5070,77 @@ export namespace CreateOpenZFSOriginSnapshotConfiguration {
 }
 
 /**
- * <p>Specifies the configuration of the OpenZFS volume that you are creating.</p>
+ * <p>Specifies the configuration of the Amazon FSx for OpenZFS volume that you are creating.</p>
  */
 export interface CreateOpenZFSVolumeConfiguration {
   /**
-   * <p>The ID of the volume to use as the parent volume. </p>
+   * <p>The ID of the volume to use as the parent volume of the volume that you are creating.</p>
    */
   ParentVolumeId: string | undefined;
 
   /**
-   * <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't
-   *             reserve more storage than the parent volume has reserved.</p>
+   * <p>Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting
+   *             <code>StorageCapacityReservationGiB</code> guarantees that the specified amount of storage space
+   *             on the parent volume will always be available for the volume.
+   *             You can't reserve more storage than the parent volume has. To <i>not</i> specify a storage capacity
+   *             reservation, set this to <code>0</code> or <code>-1</code>. For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties">Volume properties</a>
+   *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
   StorageCapacityReservationGiB?: number;
 
   /**
-   * <p>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
-   *             parent. You can specify a quota larger than the storage on the parent volume.</p>
+   * <p>Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify
+   *             a quota that is larger than the storage on the parent volume. A volume quota limits
+   *             the amount of storage that the volume can consume to the configured amount, but does not
+   *             guarantee the space will be available on the parent volume. To guarantee quota space, you must also set
+   *             <code>StorageCapacityReservationGiB</code>. To <i>not</i> specify a storage capacity quota, set this to <code>-1</code>.
+   *         </p>
+   *         <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties">Volume properties</a>
+   *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
   StorageCapacityQuotaGiB?: number;
 
   /**
-   * <p>Specifies the method used to compress the data on the volume. Unless the compression
-   *             type is specified, volumes inherit the <code>DataCompressionType</code> value of their
-   *             parent volume.</p>
+   * <p>Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). Valid values are 4, 8,
+   *             16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB.
+   *             We recommend using the default setting for the majority of use cases.
+   *             Generally, workloads that write in fixed small or large record sizes
+   *             may benefit from setting a custom record size, like database workloads
+   *             (small record size) or media streaming workloads (large record size).
+   *             For additional guidance on when
+   *             to set a custom record size, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance">
+   *             ZFS Record size</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
+   */
+  RecordSizeKiB?: number;
+
+  /**
+   * <p>Specifies the method used to compress the data on the volume. The compression
+   *             type is <code>NONE</code> by default.</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>NONE</code> - Doesn't compress the data on the volume.</p>
+   *                   <code>NONE</code> - Doesn't compress the data on the volume.
+   *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
-   *                     (ZSTD) compression algorithm. This algorithm reduces the amount of space used on
-   *                     your volume and has very little impact on compute resources.</p>
+   *                     (ZSTD) compression algorithm. ZSTD compression provides a higher level of
+   *                     data compression and higher read throughput performance than LZ4 compression.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
+   *                     compression algorithm. LZ4 compression provides a lower level of compression
+   *                     and higher write throughput performance than ZSTD compression.</p>
    *             </li>
    *          </ul>
+   *         <p>For more information about volume compression types and the performance of your Amazon FSx for OpenZFS file system,
+   *             see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
+   *                 Tips for maximizing performance</a> File system and volume settings in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
   DataCompressionType?: OpenZFSDataCompressionType | string;
 
@@ -5062,7 +5150,7 @@ export interface CreateOpenZFSVolumeConfiguration {
    *             for the volume are copied to snapshots where the user doesn't specify tags. If this
    *             value is <code>true</code>, and you specify one or more tags, only the specified tags
    *             are copied to snapshots. If you specify one or more tags when creating the snapshot, no
-   *             tags are copied from the volume, regardless of this value. </p>
+   *             tags are copied from the volume, regardless of this value.</p>
    */
   CopyTagsToSnapshots?: boolean;
 
@@ -5073,17 +5161,17 @@ export interface CreateOpenZFSVolumeConfiguration {
   OriginSnapshot?: CreateOpenZFSOriginSnapshotConfiguration;
 
   /**
-   * <p>A Boolean value indicating whether the volume is read-only. </p>
+   * <p>A Boolean value indicating whether the volume is read-only.</p>
    */
   ReadOnly?: boolean;
 
   /**
-   * <p>The configuration object for mounting a Network File System (NFS) file system. </p>
+   * <p>The configuration object for mounting a Network File System (NFS) file system.</p>
    */
   NfsExports?: OpenZFSNfsExport[];
 
   /**
-   * <p>An object specifying how much storage users or groups can use on the volume. </p>
+   * <p>An object specifying how much storage users or groups can use on the volume.</p>
    */
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 }
@@ -5166,7 +5254,7 @@ export class MissingVolumeConfiguration extends __BaseException {
 }
 
 /**
- * <p>No Amazon FSx for NetApp ONTAP SVMs were found based upon the supplied parameters.</p>
+ * <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  */
 export class StorageVirtualMachineNotFound extends __BaseException {
   readonly name: "StorageVirtualMachineNotFound" = "StorageVirtualMachineNotFound";
@@ -5452,8 +5540,12 @@ export namespace DeleteFileSystemLustreConfiguration {
   });
 }
 
+export enum DeleteFileSystemOpenZFSOption {
+  DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
+}
+
 /**
- * <p>The configuration object for the OpenZFS file system used in the
+ * <p>The configuration object for the Amazon FSx for OpenZFS file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
  */
 export interface DeleteFileSystemOpenZFSConfiguration {
@@ -5461,16 +5553,21 @@ export interface DeleteFileSystemOpenZFSConfiguration {
    * <p>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when
    *             the <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you
    *             from data loss, and we highly recommend taking the final backup. If you want to skip
-   *             this backup, use this
-   *             value
-   *             to do so. </p>
+   *             taking a final backup, set this value to <code>true</code>.</p>
    */
   SkipFinalBackup?: boolean;
 
   /**
-   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * <p>A list of tags to apply to the file system's final backup.</p>
    */
   FinalBackupTags?: Tag[];
+
+  /**
+   * <p>To delete a file system if there are child volumes present below the root volume,
+   *             use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>. If your file system
+   *             has child volumes and you don't use this option, the delete request will fail.</p>
+   */
+  Options?: (DeleteFileSystemOpenZFSOption | string)[];
 }
 
 export namespace DeleteFileSystemOpenZFSConfiguration {
@@ -7122,7 +7219,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    *             where the user doesn't specify tags. If this value is <code>true</code> and you specify
    *             one or more tags, only the specified tags are copied to backups. If you specify one or
    *             more tags when creating a user-initiated backup, no tags are copied from the file
-   *             system, regardless of this value. </p>
+   *             system, regardless of this value.</p>
    */
   CopyTagsToBackups?: boolean;
 
@@ -7132,7 +7229,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    *             for the volume are copied to snapshots where the user doesn't specify tags. If this
    *             value is <code>true</code> and you specify one or more tags, only the specified tags are
    *             copied to snapshots. If you specify one or more tags when creating the snapshot, no tags
-   *             are copied from the volume, regardless of this value. </p>
+   *             are copied from the volume, regardless of this value.</p>
    */
   CopyTagsToVolumes?: boolean;
 
@@ -7145,7 +7242,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
 
   /**
    * <p>The throughput of an Amazon FSx file system, measured in megabytes per second
-   *             (MBps), in 2 to the nth increments, between 2^3 (8) and 2^12 (4096). </p>
+   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
    */
   ThroughputCapacity?: number;
 
@@ -7376,7 +7473,7 @@ export interface UpdateSnapshotRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The name of the snapshot to update. </p>
+   * <p>The name of the snapshot to update.</p>
    */
   Name: string | undefined;
 
@@ -7520,38 +7617,55 @@ export namespace UpdateOntapVolumeConfiguration {
 }
 
 /**
- * <p>Used to specify changes to the OpenZFS configuration for the volume that you are
- *             updating.</p>
+ * <p>Used to specify changes to the OpenZFS configuration for the volume
+ *             that you are updating.</p>
  */
 export interface UpdateOpenZFSVolumeConfiguration {
   /**
-   * <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume. You can't
-   *             reserve more storage than the parent volume has reserved.</p>
+   * <p>The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+   *             You can't reserve more storage than the parent volume has reserved. You can specify
+   *             a value of <code>-1</code> to unset a volume's storage capacity reservation.</p>
    */
   StorageCapacityReservationGiB?: number;
 
   /**
-   * <p></p>
-   *         <p>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
-   *             parent. You can specify a quota larger than the storage on the parent volume.</p>
+   * <p>The maximum amount of storage in gibibytes (GiB) that the volume can use from its
+   *             parent. You can specify a quota larger than the storage on the parent volume. You
+   *             can specify a value of <code>-1</code> to unset a volume's storage capacity quota.</p>
    */
   StorageCapacityQuotaGiB?: number;
 
   /**
-   * <p></p>
-   *         <p>Specifies the method used to compress the data on the volume. Unless the compression
-   *             type is specified, volumes inherit the <code>DataCompressionType</code> value of their
-   *             parent volume.</p>
+   * <p>Specifies the record size of an OpenZFS volume, in kibibytes (KiB). Valid values are 4, 8,
+   *             16, 32, 64, 128, 256, 512, or 1024 KiB. The default is 128 KiB.
+   *             Most workloads should use the default record size. Database workflows can benefit from a smaller
+   *             record size, while streaming workflows can benefit from a larger record size. For additional guidance on when
+   *             to set a custom record size, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
+   *                 Tips for maximizing performance</a> in the
+   *             <i>Amazon FSx for OpenZFS User Guide</i>.</p>
+   */
+  RecordSizeKiB?: number;
+
+  /**
+   * <p>Specifies the method used to compress the data on the volume. The compression
+   *             type is <code>NONE</code> by default.</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>NONE</code> - Doesn't compress the data on the volume.</p>
+   *                   <code>NONE</code> - Doesn't compress the data on the volume.
+   *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
-   *                     (ZSTD) compression algorithm. This algorithm reduces the amount of space used on
-   *                     your volume and has very little impact on compute resources.</p>
+   *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
+   *                     compression ratio to minimize on-disk storage utilization.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
+   *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
+   *                     and delivers higher write throughput speeds.</p>
    *             </li>
    *          </ul>
    */
@@ -8011,6 +8125,11 @@ export interface Snapshot {
    *          </ul>
    */
   Lifecycle?: SnapshotLifecycle | string;
+
+  /**
+   * <p>Describes why a resource lifecycle state changed.</p>
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason;
 
   /**
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>

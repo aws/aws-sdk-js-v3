@@ -261,6 +261,11 @@ export interface InstanceRequirementsRequest {
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
    *          <p>Default: <code>100</code>
    *          </p>
    */
@@ -274,6 +279,11 @@ export interface InstanceRequirementsRequest {
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
    *          <p>Default: <code>20</code>
    *          </p>
    */
@@ -1065,7 +1075,7 @@ export interface CreateFleetRequest {
    *                launched.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html">EC2 Fleet
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2 Fleet
    *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   Type?: FleetType | string;
@@ -1400,6 +1410,11 @@ export interface InstanceRequirements {
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *                <code>memory-mib</code>, the price protection threshold is applied based on the
+   *             per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
    *          <p>Default: <code>100</code>
    *          </p>
    */
@@ -1413,6 +1428,11 @@ export interface InstanceRequirements {
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
    *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <note>
+   *             <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
+   *          <code>memory-mib</code>, the price protection threshold is applied based on the
+   *          per-vCPU or per-memory price instead of the per-instance price.</p>
+   *          </note>
    *          <p>Default: <code>20</code>
    *          </p>
    */
@@ -3000,7 +3020,7 @@ export interface CreateIpamPoolRequest {
   /**
    * <p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>
    */
-  AddressFamily?: AddressFamily | string;
+  AddressFamily: AddressFamily | string | undefined;
 
   /**
    * <p>If selected, IPAM will continuously look for resources within the CIDR range of this pool

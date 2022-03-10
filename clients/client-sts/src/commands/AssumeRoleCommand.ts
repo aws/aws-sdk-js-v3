@@ -48,8 +48,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
  *          <p>When you create a role, you create two policies: A role trust policy that specifies
- *          <i>who</i> can assume the role and a permissions policy that specifies
- *          <i>what</i> can be done with the role. You specify the trusted principal
+ *             <i>who</i> can assume the role and a permissions policy that specifies
+ *             <i>what</i> can be done with the role. You specify the trusted principal
  *          who is allowed to assume the role in the role trust policy.</p>
  *          <p>To assume a role from a different account, your Amazon Web Services account must be trusted by the
  *          role. The trust relationship is defined in the role's trust policy when the role is
@@ -63,8 +63,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          following:</p>
  *          <ul>
  *             <li>
- *                <p>Attach a policy to the user that allows the user to call
- *                <code>AssumeRole</code> (as long as the role's trust policy trusts the account).</p>
+ *                <p>Attach a policy to the user that allows the user to call <code>AssumeRole</code>
+ *                (as long as the role's trust policy trusts the account).</p>
  *             </li>
  *             <li>
  *                <p>Add the user as a principal directly in the role's trust policy.</p>

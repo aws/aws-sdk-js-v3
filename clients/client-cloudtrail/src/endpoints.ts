@@ -22,19 +22,17 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "cloudtrail.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
-    signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     variants: [
       {
         hostname: "cloudtrail.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
-    signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
     variants: [
@@ -155,7 +153,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     variants: [
       {

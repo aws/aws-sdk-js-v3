@@ -29,7 +29,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *                 <i>it is not recommended that you use this API unless</i>:</p>
  *         <ul>
  *             <li>
- *                 <p>You are using <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/VPCEndpoints">VPC endpoints (Amazon Web Services PrivateLink) with Timestream
+ *                 <p>You are using <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints">VPC endpoints (Amazon Web Services PrivateLink) with Timestream
  *                     </a>
  *                </p>
  *             </li>
@@ -42,7 +42,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *             </li>
  *          </ul>
  *         <p>For detailed information on how and when to use and implement DescribeEndpoints, see
- *                 <a href="https://docs.aws.amazon.com/Timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery">The Endpoint Discovery Pattern</a>.</p>
+ *                 <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/Using.API.html#Using-API.endpoint-discovery">The Endpoint Discovery Pattern</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

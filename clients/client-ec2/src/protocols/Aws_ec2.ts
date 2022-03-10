@@ -65878,6 +65878,7 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
     RamdiskId: undefined,
     SriovNetSupport: undefined,
     BootMode: undefined,
+    LastLaunchedTime: undefined,
   };
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
@@ -65923,6 +65924,9 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
   }
   if (output["bootMode"] !== undefined) {
     contents.BootMode = deserializeAws_ec2AttributeValue(output["bootMode"], context);
+  }
+  if (output["lastLaunchedTime"] !== undefined) {
+    contents.LastLaunchedTime = deserializeAws_ec2AttributeValue(output["lastLaunchedTime"], context);
   }
   return contents;
 };

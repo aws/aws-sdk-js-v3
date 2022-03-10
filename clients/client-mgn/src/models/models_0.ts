@@ -118,12 +118,12 @@ export class ConflictException extends __BaseException {
   readonly $fault: "client" = "client";
   code?: string;
   /**
-   * <p>A conflict occured when prompting for the Resource ID.</p>
+   * <p>A conflict occurred when prompting for the Resource ID.</p>
    */
   resourceId?: string;
 
   /**
-   * <p>A conflict occured when prompting for resource type.</p>
+   * <p>A conflict occurred when prompting for resource type.</p>
    */
   resourceType?: string;
 
@@ -204,7 +204,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Unitialized account exception.</p>
+ * <p>Uninitialized account exception.</p>
  */
 export class UninitializedAccountException extends __BaseException {
   readonly name: "UninitializedAccountException" = "UninitializedAccountException";
@@ -368,7 +368,7 @@ export interface DescribeJobsRequestFilters {
   fromDate?: string;
 
   /**
-   * <p>Request to describe Job log by last date.</p>
+   * <p>Request to describe job log items by last date.</p>
    */
   toDate?: string;
 }
@@ -389,12 +389,12 @@ export interface DescribeJobsRequest {
   filters: DescribeJobsRequestFilters | undefined;
 
   /**
-   * <p>Request to describe Job log by max results.</p>
+   * <p>Request to describe job log items by max results.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>Request to describe Job logby next token.</p>
+   * <p>Request to describe job log items by next token.</p>
    */
   nextToken?: string;
 }
@@ -503,7 +503,7 @@ export interface Job {
   participatingServers?: ParticipatingServer[];
 
   /**
-   * <p>Tags associated with spcific Job.</p>
+   * <p>Tags associated with specific Job.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -642,6 +642,7 @@ export enum ReplicationConfigurationDataPlaneRouting {
 
 export enum ReplicationConfigurationDefaultLargeStagingDiskType {
   GP2 = "GP2",
+  GP3 = "GP3",
   ST1 = "ST1",
 }
 
@@ -662,7 +663,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   associateDefaultSecurityGroup: boolean | undefined;
 
   /**
-   * <p>Request to configure the Replication Server Secuirity group ID during Replication Settings template creation.</p>
+   * <p>Request to configure the Replication Server Security group ID during Replication Settings template creation.</p>
    */
   replicationServersSecurityGroupsIDs: string[] | undefined;
 
@@ -677,17 +678,17 @@ export interface CreateReplicationConfigurationTemplateRequest {
   useDedicatedReplicationServer: boolean | undefined;
 
   /**
-   * <p>Request to configure the Staging Disk EBS volume type to "gp2" during Replication Settings template creation.</p>
+   * <p>Request to configure the default large staging disk EBS volume type during Replication Settings template creation.</p>
    */
   defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
 
   /**
-   * <p>Request to configure EBS enryption during Replication Settings template creation.</p>
+   * <p>Request to configure EBS encryption during Replication Settings template creation.</p>
    */
   ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
 
   /**
-   * <p>Request to configure an EBS enryption key during Replication Settings template creation.</p>
+   * <p>Request to configure an EBS encryption key during Replication Settings template creation.</p>
    */
   ebsEncryptionKeyArn?: string;
 
@@ -707,7 +708,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
   createPublicIP: boolean | undefined;
 
   /**
-   * <p>Request to configure Staiging Area tags during Replication Settings template creation.</p>
+   * <p>Request to configure Staging Area tags during Replication Settings template creation.</p>
    */
   stagingAreaTags: { [key: string]: string } | undefined;
 
@@ -730,7 +731,7 @@ export namespace CreateReplicationConfigurationTemplateRequest {
 
 export interface ReplicationConfigurationTemplate {
   /**
-   * <p>Replication Configuration template template ID.</p>
+   * <p>Replication Configuration template ID.</p>
    */
   replicationConfigurationTemplateID: string | undefined;
 
@@ -765,7 +766,7 @@ export interface ReplicationConfigurationTemplate {
   useDedicatedReplicationServer?: boolean;
 
   /**
-   * <p>Replication Configuration template use dedault large Staging Disk type.</p>
+   * <p>Replication Configuration template use default large Staging Disk type.</p>
    */
   defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
 
@@ -780,7 +781,7 @@ export interface ReplicationConfigurationTemplate {
   ebsEncryptionKeyArn?: string;
 
   /**
-   * <p>Replication Configuration template bandwidth throtting.</p>
+   * <p>Replication Configuration template bandwidth throttling.</p>
    */
   bandwidthThrottling?: number;
 
@@ -1085,7 +1086,7 @@ export enum DataReplicationInitiationStepStatus {
 }
 
 /**
- * <p>Data replication intiation step.</p>
+ * <p>Data replication initiation step.</p>
  */
 export interface DataReplicationInitiationStep {
   /**
@@ -1196,7 +1197,7 @@ export namespace DataReplicationInfoReplicatedDisk {
  */
 export interface DataReplicationInfo {
   /**
-   * <p>Request to query data replication lag durating.</p>
+   * <p>Request to query data replication lag duration.</p>
    */
   lagDuration?: string;
 
@@ -1248,21 +1249,21 @@ export enum FirstBoot {
 }
 
 /**
- * <p>Configure launced instance.</p>
+ * <p>Launched instance.</p>
  */
 export interface LaunchedInstance {
   /**
-   * <p>Configure launced instance EC2 ID.</p>
+   * <p>Launched instance EC2 ID.</p>
    */
   ec2InstanceID?: string;
 
   /**
-   * <p>Configure launced instance Job ID.</p>
+   * <p>Launched instance Job ID.</p>
    */
   jobID?: string;
 
   /**
-   * <p>Configure launced instance first boot.</p>
+   * <p>Launched instance first boot.</p>
    */
   firstBoot?: FirstBoot | string;
 }
@@ -1368,7 +1369,7 @@ export namespace LifeCycleLastCutover {
 }
 
 /**
- * <p>Lifecycle last Test finlized.</p>
+ * <p>Lifecycle last Test finalized.</p>
  */
 export interface LifeCycleLastTestFinalized {
   /**
@@ -1444,7 +1445,7 @@ export interface LifeCycleLastTest {
   reverted?: LifeCycleLastTestReverted;
 
   /**
-   * <p>Lifecycle last Test finlized.</p>
+   * <p>Lifecycle last Test finalized.</p>
    */
   finalized?: LifeCycleLastTestFinalized;
 }
@@ -1902,7 +1903,7 @@ export namespace DisconnectFromServiceRequest {
 
 export interface FinalizeCutoverRequest {
   /**
-   * <p>Request to finalize Cutover by Soure Server ID.</p>
+   * <p>Request to finalize Cutover by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
 }
@@ -1930,6 +1931,11 @@ export namespace GetLaunchConfigurationRequest {
   export const filterSensitiveLog = (obj: GetLaunchConfigurationRequest): any => ({
     ...obj,
   });
+}
+
+export enum BootMode {
+  LEGACY_BIOS = "LEGACY_BIOS",
+  UEFI = "UEFI",
 }
 
 export enum LaunchDisposition {
@@ -1963,27 +1969,27 @@ export enum TargetInstanceTypeRightSizingMethod {
 
 export interface LaunchConfiguration {
   /**
-   * <p>Configure launch configuration Source Server ID.</p>
+   * <p>Launch configuration Source Server ID.</p>
    */
   sourceServerID?: string;
 
   /**
-   * <p>Configure launch configuration name.</p>
+   * <p>Launch configuration name.</p>
    */
   name?: string;
 
   /**
-   * <p>Configure EC2 lauch configuration template ID.</p>
+   * <p>Launch configuration EC2 Launch template ID.</p>
    */
   ec2LaunchTemplateID?: string;
 
   /**
-   * <p>Configure launch dispostion for launch configuration.</p>
+   * <p>Launch disposition for launch configuration.</p>
    */
   launchDisposition?: LaunchDisposition | string;
 
   /**
-   * <p>Configure launch configuration Target instance type right sizing method.</p>
+   * <p>Launch configuration Target instance type right sizing method.</p>
    */
   targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
 
@@ -1998,9 +2004,14 @@ export interface LaunchConfiguration {
   copyTags?: boolean;
 
   /**
-   * <p>Configure launch configuration OS licensing.</p>
+   * <p>Launch configuration OS licensing.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * <p>Launch configuration boot mode.</p>
+   */
+  bootMode?: BootMode | string;
 }
 
 export namespace LaunchConfiguration {
@@ -2014,7 +2025,7 @@ export namespace LaunchConfiguration {
 
 export interface GetReplicationConfigurationRequest {
   /**
-   * <p>Request to get Replication Configuaration by Source Server ID.</p>
+   * <p>Request to get Replication Configuration by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
 }
@@ -2031,7 +2042,9 @@ export namespace GetReplicationConfigurationRequest {
 export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
   AUTO = "AUTO",
   GP2 = "GP2",
+  GP3 = "GP3",
   IO1 = "IO1",
+  IO2 = "IO2",
   SC1 = "SC1",
   ST1 = "ST1",
   STANDARD = "STANDARD",
@@ -2060,6 +2073,11 @@ export interface ReplicationConfigurationReplicatedDisk {
    * <p>Replication Configuration replicated disk IOPs.</p>
    */
   iops?: number;
+
+  /**
+   * <p>Replication Configuration replicated disk throughput.</p>
+   */
+  throughput?: number;
 }
 
 export namespace ReplicationConfigurationReplicatedDisk {
@@ -2237,7 +2255,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   code?: string;
   /**
-   * <p>Exceeded the service quota resource Id.</p>
+   * <p>Exceeded the service quota resource ID.</p>
    */
   resourceId?: string;
 
@@ -2403,6 +2421,11 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>Update Launch configuration licensing request.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * <p>Update Launch configuration boot mode request.</p>
+   */
+  bootMode?: BootMode | string;
 }
 
 export namespace UpdateLaunchConfigurationRequest {

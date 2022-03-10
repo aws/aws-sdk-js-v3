@@ -22,8 +22,7 @@ export interface ExportComponentsCommandInput extends ExportComponentsRequest {}
 export interface ExportComponentsCommandOutput extends ExportComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Exports component configurations to code that is ready to integrate into an Amplify
- *       app.</p>
+ * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

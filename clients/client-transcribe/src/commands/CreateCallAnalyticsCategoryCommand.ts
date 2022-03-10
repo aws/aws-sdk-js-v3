@@ -24,11 +24,13 @@ export interface CreateCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your
- *             analytics categories to your call analytics jobs. For each analytics category, you specify one
- *             or more rules. For example, you can specify a rule that the customer sentiment was neutral
- *             or negative within that category. If you start a call analytics job, Amazon Transcribe applies the
- *             category to the analytics job that you've specified.</p>
+ * <p>Creates a call analytics category. Amazon Transcribe applies the conditions specified by your
+ *             call analytics categories to your call analytics jobs. For each analytics category, you
+ *             must create between 1 and 20 rules. For example, you can create a 'greeting'
+ *             category with a rule that flags calls in which your agent does not use a specified
+ *             phrase (for example: "Please note this call may be recorded.") in the first 15 seconds
+ *             of the call. When you start a call analytics job, Amazon Transcribe applies all your existing call
+ *             analytics categories to that job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

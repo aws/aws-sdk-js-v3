@@ -23,6 +23,7 @@ import {
   CreateWorkerConfigurationCommandOutput,
 } from "../commands/CreateWorkerConfigurationCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "../commands/DeleteConnectorCommand";
+import { DeleteCustomPluginCommandInput, DeleteCustomPluginCommandOutput } from "../commands/DeleteCustomPluginCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import {
   DescribeCustomPluginCommandInput,
@@ -90,6 +91,7 @@ import {
   ScaleOutPolicyDescription,
   ScaleOutPolicyUpdate,
   ServiceUnavailableException,
+  StateDescription,
   TooManyRequestsException,
   UnauthorizedException,
   Vpc,
@@ -248,6 +250,35 @@ export const serializeAws_restJson1DeleteConnectorCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteCustomPluginCommand = async (
+  input: DeleteCustomPluginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/custom-plugins/{customPluginArn}";
+  if (input.customPluginArn !== undefined) {
+    const labelValue: string = input.customPluginArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: customPluginArn.");
+    }
+    resolvedPath = resolvedPath.replace("{customPluginArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: customPluginArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -746,6 +777,72 @@ const deserializeAws_restJson1DeleteConnectorCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteCustomPluginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomPluginCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCustomPluginCommandError(output, context);
+  }
+  const contents: DeleteCustomPluginCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    customPluginArn: undefined,
+    customPluginState: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.customPluginArn !== undefined && data.customPluginArn !== null) {
+    contents.customPluginArn = __expectString(data.customPluginArn);
+  }
+  if (data.customPluginState !== undefined && data.customPluginState !== null) {
+    contents.customPluginState = __expectString(data.customPluginState);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCustomPluginCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomPluginCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafkaconnect#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafkaconnect#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafkaconnect#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafkaconnect#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafkaconnect#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafkaconnect#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafkaconnect#UnauthorizedException":
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DescribeConnectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -770,6 +867,7 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
     logDelivery: undefined,
     plugins: undefined,
     serviceExecutionRoleArn: undefined,
+    stateDescription: undefined,
     workerConfiguration: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -823,6 +921,9 @@ export const deserializeAws_restJson1DescribeConnectorCommand = async (
   }
   if (data.serviceExecutionRoleArn !== undefined && data.serviceExecutionRoleArn !== null) {
     contents.serviceExecutionRoleArn = __expectString(data.serviceExecutionRoleArn);
+  }
+  if (data.stateDescription !== undefined && data.stateDescription !== null) {
+    contents.stateDescription = deserializeAws_restJson1StateDescription(data.stateDescription, context);
   }
   if (data.workerConfiguration !== undefined && data.workerConfiguration !== null) {
     contents.workerConfiguration = deserializeAws_restJson1WorkerConfigurationDescription(
@@ -892,6 +993,7 @@ export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
     description: undefined,
     latestRevision: undefined,
     name: undefined,
+    stateDescription: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.creationTime !== undefined && data.creationTime !== null) {
@@ -911,6 +1013,9 @@ export const deserializeAws_restJson1DescribeCustomPluginCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = __expectString(data.name);
+  }
+  if (data.stateDescription !== undefined && data.stateDescription !== null) {
+    contents.stateDescription = deserializeAws_restJson1StateDescription(data.stateDescription, context);
   }
   return Promise.resolve(contents);
 };
@@ -2070,6 +2175,13 @@ const deserializeAws_restJson1ScaleOutPolicyDescription = (
 ): ScaleOutPolicyDescription => {
   return {
     cpuUtilizationPercentage: __expectInt32(output.cpuUtilizationPercentage),
+  } as any;
+};
+
+const deserializeAws_restJson1StateDescription = (output: any, context: __SerdeContext): StateDescription => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 

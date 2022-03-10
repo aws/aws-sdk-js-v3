@@ -21,6 +21,11 @@ import {
   DeleteConnectorCommandOutput,
 } from "./commands/DeleteConnectorCommand";
 import {
+  DeleteCustomPluginCommand,
+  DeleteCustomPluginCommandInput,
+  DeleteCustomPluginCommandOutput,
+} from "./commands/DeleteCustomPluginCommand";
+import {
   DescribeConnectorCommand,
   DescribeConnectorCommandInput,
   DescribeConnectorCommandOutput,
@@ -190,6 +195,38 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
+   * <p>Deletes a custom plugin.</p>
+   */
+  public deleteCustomPlugin(
+    args: DeleteCustomPluginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomPluginCommandOutput>;
+  public deleteCustomPlugin(
+    args: DeleteCustomPluginCommandInput,
+    cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
+  ): void;
+  public deleteCustomPlugin(
+    args: DeleteCustomPluginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
+  ): void;
+  public deleteCustomPlugin(
+    args: DeleteCustomPluginCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomPluginCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomPluginCommandOutput) => void
+  ): Promise<DeleteCustomPluginCommandOutput> | void {
+    const command = new DeleteCustomPluginCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns summary information about the connector.</p>
    */
   public describeConnector(
@@ -286,7 +323,9 @@ export class KafkaConnect extends KafkaConnectClient {
   }
 
   /**
-   * <p>Returns a list of all the connectors in this account and Region. The list is limited to connectors whose name starts with the specified prefix. The response also includes a description of each of the listed connectors.</p>
+   * <p>Returns a list of all the connectors in this account and Region. The list is limited to
+   *          connectors whose name starts with the specified prefix. The response also includes a
+   *          description of each of the listed connectors.</p>
    */
   public listConnectors(
     args: ListConnectorsCommandInput,

@@ -356,6 +356,10 @@ export class Panorama extends PanoramaClient {
 
   /**
    * <p>Deletes a package.</p>
+   *         <note>
+   *             <p>To delete a package, you need permission to call <code>s3:DeleteObject</code>
+   *                 in addition to permissions for the AWS Panorama API.</p>
+   *         </note>
    */
   public deletePackage(
     args: DeletePackageCommandInput,

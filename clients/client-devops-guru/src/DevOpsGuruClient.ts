@@ -64,6 +64,10 @@ import {
   DescribeAccountOverviewCommandOutput,
 } from "./commands/DescribeAccountOverviewCommand";
 import { DescribeAnomalyCommandInput, DescribeAnomalyCommandOutput } from "./commands/DescribeAnomalyCommand";
+import {
+  DescribeEventSourcesConfigCommandInput,
+  DescribeEventSourcesConfigCommandOutput,
+} from "./commands/DescribeEventSourcesConfigCommand";
 import { DescribeFeedbackCommandInput, DescribeFeedbackCommandOutput } from "./commands/DescribeFeedbackCommand";
 import { DescribeInsightCommandInput, DescribeInsightCommandOutput } from "./commands/DescribeInsightCommand";
 import {
@@ -124,6 +128,10 @@ import {
   StartCostEstimationCommandOutput,
 } from "./commands/StartCostEstimationCommand";
 import {
+  UpdateEventSourcesConfigCommandInput,
+  UpdateEventSourcesConfigCommandOutput,
+} from "./commands/UpdateEventSourcesConfigCommand";
+import {
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,
 } from "./commands/UpdateResourceCollectionCommand";
@@ -138,6 +146,7 @@ export type ServiceInputTypes =
   | DescribeAccountHealthCommandInput
   | DescribeAccountOverviewCommandInput
   | DescribeAnomalyCommandInput
+  | DescribeEventSourcesConfigCommandInput
   | DescribeFeedbackCommandInput
   | DescribeInsightCommandInput
   | DescribeOrganizationHealthCommandInput
@@ -158,6 +167,7 @@ export type ServiceInputTypes =
   | SearchInsightsCommandInput
   | SearchOrganizationInsightsCommandInput
   | StartCostEstimationCommandInput
+  | UpdateEventSourcesConfigCommandInput
   | UpdateResourceCollectionCommandInput
   | UpdateServiceIntegrationCommandInput;
 
@@ -166,6 +176,7 @@ export type ServiceOutputTypes =
   | DescribeAccountHealthCommandOutput
   | DescribeAccountOverviewCommandOutput
   | DescribeAnomalyCommandOutput
+  | DescribeEventSourcesConfigCommandOutput
   | DescribeFeedbackCommandOutput
   | DescribeInsightCommandOutput
   | DescribeOrganizationHealthCommandOutput
@@ -186,6 +197,7 @@ export type ServiceOutputTypes =
   | SearchInsightsCommandOutput
   | SearchOrganizationInsightsCommandOutput
   | StartCostEstimationCommandOutput
+  | UpdateEventSourcesConfigCommandOutput
   | UpdateResourceCollectionCommandOutput
   | UpdateServiceIntegrationCommandOutput;
 

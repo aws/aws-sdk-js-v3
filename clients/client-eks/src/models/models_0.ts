@@ -2235,6 +2235,7 @@ export enum NodegroupIssueCode {
   EC2_SECURITY_GROUP_DELETION_FAILURE = "Ec2SecurityGroupDeletionFailure",
   EC2_SECURITY_GROUP_NOT_FOUND = "Ec2SecurityGroupNotFound",
   EC2_SUBNET_INVALID_CONFIGURATION = "Ec2SubnetInvalidConfiguration",
+  EC2_SUBNET_MISSING_IPV6_ASSIGNMENT = "Ec2SubnetMissingIpv6Assignment",
   EC2_SUBNET_NOT_FOUND = "Ec2SubnetNotFound",
   IAM_INSTANCE_PROFILE_NOT_FOUND = "IamInstanceProfileNotFound",
   IAM_LIMIT_EXCEEDED = "IamLimitExceeded",

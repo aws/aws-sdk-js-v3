@@ -22,7 +22,7 @@ export interface DeleteVcenterClientCommandInput extends DeleteVcenterClientRequ
 export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a single vCenter client by ID.</p>
+ * <p>Deletes a given vCenter client by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

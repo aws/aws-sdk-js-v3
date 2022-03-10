@@ -31,7 +31,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       Services have either a URL endpoint in a virtual private cloud (VPC), or a Lambda
  *       function endpoint.</p>
  *          <important>
- *             <p>If an Amazon Web Services resourceis launched in a service VPC, and you want it to be
+ *             <p>If an Amazon Web Services resource is launched in a service VPC, and you want it to be
  *         accessible to all of an environment’s services with VPCs and routes, apply the
  *           <code>RefactorSpacesSecurityGroup</code> to the resource. Alternatively, to add more
  *         cross-account constraints, apply your own security group.</p>

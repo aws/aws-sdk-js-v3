@@ -3,6 +3,39 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { AthenaServiceException as __BaseException } from "./AthenaServiceException";
 
+export enum S3AclOption {
+  BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
+}
+
+/**
+ * <p>Indicates that an Amazon S3 canned ACL should be set to control ownership of
+ *             stored query results. When Athena stores query results in Amazon S3,
+ *             the canned ACL is set with the <code>x-amz-acl</code> request header. For more
+ *             information about S3 Object Ownership, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html#object-ownership-overview">Object Ownership settings</a> in the <i>Amazon S3 User
+ *                 Guide</i>.</p>
+ */
+export interface AclConfiguration {
+  /**
+   * <p>The Amazon S3 canned ACL that Athena should specify when storing
+   *             query results. Currently the only supported canned ACL is
+   *                 <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query runs in a workgroup and the
+   *             workgroup overrides client-side settings, then the Amazon S3 canned ACL
+   *             specified in the workgroup's settings is used for all queries that run in the workgroup.
+   *             For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned ACL</a> in the <i>Amazon S3 User
+   *                 Guide</i>.</p>
+   */
+  S3AclOption: S3AclOption | string | undefined;
+}
+
+export namespace AclConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AclConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface BatchGetNamedQueryInput {
   /**
    * <p>An array of query IDs.</p>
@@ -20,8 +53,8 @@ export namespace BatchGetNamedQueryInput {
 }
 
 /**
- * <p>A query, where <code>QueryString</code> is the list of SQL query statements that
- *             comprise the query.</p>
+ * <p>A query, where <code>QueryString</code> contains the SQL statements that
+ *             make up the query.</p>
  */
 export interface NamedQuery {
   /**
@@ -40,7 +73,7 @@ export interface NamedQuery {
   Database: string | undefined;
 
   /**
-   * <p>The SQL query statements that comprise the query.</p>
+   * <p>The SQL statements that make up the query.</p>
    */
   QueryString: string | undefined;
 
@@ -317,6 +350,16 @@ export interface ResultConfiguration {
    *             and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Indicates that an Amazon S3 canned ACL should be set to control ownership of
+   *             stored query results. Currently the only supported canned ACL is
+   *                 <code>BUCKET_OWNER_FULL_CONTROL</code>. This is a client-side setting. If workgroup
+   *             settings override client-side settings, then the query uses the ACL configuration that
+   *             is specified for the workgroup, and also uses the location for storing query results
+   *             specified in the workgroup. For more information, see <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
+   */
+  AclConfiguration?: AclConfiguration;
 }
 
 export namespace ResultConfiguration {
@@ -401,7 +444,7 @@ export namespace QueryExecutionStatistics {
  *                 <code>AthenaError</code> feature provides standardized error information to help you
  *             understand failed queries and take steps after a query failure occurs.
  *                 <code>AthenaError</code> includes an <code>ErrorCategory</code> field that specifies
- *             whether the cause of the failed query is due to system error, user error, or unknown
+ *             whether the cause of the failed query is due to system error, user error, or other
  *             error.</p>
  */
 export interface AthenaError {
@@ -413,7 +456,7 @@ export interface AthenaError {
    *         <p>
    *             <b>2</b> - User</p>
    *         <p>
-   *             <b>3</b> - Unknown</p>
+   *             <b>3</b> - Other</p>
    */
   ErrorCategory?: number;
 
@@ -1645,7 +1688,7 @@ export namespace Datum {
 }
 
 /**
- * <p>The rows that comprise a query result table.</p>
+ * <p>The rows that make up a query result table.</p>
  */
 export interface Row {
   /**
@@ -1664,7 +1707,7 @@ export namespace Row {
 }
 
 /**
- * <p>The metadata and rows that comprise a query result set. The metadata describes the
+ * <p>The metadata and rows that make up a query result set. The metadata describes the
  *             column structure and data types. To return a <code>ResultSet</code> object, use <a>GetQueryResults</a>.</p>
  */
 export interface ResultSet {
@@ -2751,6 +2794,48 @@ export namespace UpdateDataCatalogOutput {
   });
 }
 
+export interface UpdateNamedQueryInput {
+  /**
+   * <p>The unique identifier (UUID) of the query.</p>
+   */
+  NamedQueryId: string | undefined;
+
+  /**
+   * <p>The name of the query.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The query description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The contents of the query with all query statements.</p>
+   */
+  QueryString: string | undefined;
+}
+
+export namespace UpdateNamedQueryInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNamedQueryInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNamedQueryOutput {}
+
+export namespace UpdateNamedQueryOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNamedQueryOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdatePreparedStatementInput {
   /**
    * <p>The name of the prepared statement.</p>
@@ -2862,6 +2947,22 @@ export interface ResultConfigurationUpdates {
    *                 Client-Side Settings</a>.</p>
    */
   RemoveExpectedBucketOwner?: boolean;
+
+  /**
+   * <p>The ACL configuration for the query results.</p>
+   */
+  AclConfiguration?: AclConfiguration;
+
+  /**
+   * <p>If set to <code>true</code>, indicates that the previously-specified ACL configuration
+   *             for queries in this workgroup should be ignored and set to null. If set to
+   *                 <code>false</code> or not set, and a value is present in the
+   *                 <code>AclConfiguration</code> of <code>ResultConfigurationUpdates</code>, the
+   *                 <code>AclConfiguration</code> in the workgroup's <code>ResultConfiguration</code> is
+   *             updated with the new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
+   *                 Client-Side Settings</a>.</p>
+   */
+  RemoveAclConfiguration?: boolean;
 }
 
 export namespace ResultConfigurationUpdates {

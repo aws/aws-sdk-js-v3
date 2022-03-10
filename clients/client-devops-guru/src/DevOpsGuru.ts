@@ -21,6 +21,11 @@ import {
   DescribeAnomalyCommandOutput,
 } from "./commands/DescribeAnomalyCommand";
 import {
+  DescribeEventSourcesConfigCommand,
+  DescribeEventSourcesConfigCommandInput,
+  DescribeEventSourcesConfigCommandOutput,
+} from "./commands/DescribeEventSourcesConfigCommand";
+import {
   DescribeFeedbackCommand,
   DescribeFeedbackCommandInput,
   DescribeFeedbackCommandOutput,
@@ -112,6 +117,11 @@ import {
   StartCostEstimationCommandInput,
   StartCostEstimationCommandOutput,
 } from "./commands/StartCostEstimationCommand";
+import {
+  UpdateEventSourcesConfigCommand,
+  UpdateEventSourcesConfigCommandInput,
+  UpdateEventSourcesConfigCommandOutput,
+} from "./commands/UpdateEventSourcesConfigCommand";
 import {
   UpdateResourceCollectionCommand,
   UpdateResourceCollectionCommandInput,
@@ -271,6 +281,38 @@ export class DevOpsGuru extends DevOpsGuruClient {
     cb?: (err: any, data?: DescribeAnomalyCommandOutput) => void
   ): Promise<DescribeAnomalyCommandOutput> | void {
     const command = new DescribeAnomalyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists details about a DevOps Guru event source that is shared with your  account.</p>
+   */
+  public describeEventSourcesConfig(
+    args: DescribeEventSourcesConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEventSourcesConfigCommandOutput>;
+  public describeEventSourcesConfig(
+    args: DescribeEventSourcesConfigCommandInput,
+    cb: (err: any, data?: DescribeEventSourcesConfigCommandOutput) => void
+  ): void;
+  public describeEventSourcesConfig(
+    args: DescribeEventSourcesConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEventSourcesConfigCommandOutput) => void
+  ): void;
+  public describeEventSourcesConfig(
+    args: DescribeEventSourcesConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventSourcesConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEventSourcesConfigCommandOutput) => void
+  ): Promise<DescribeEventSourcesConfigCommandOutput> | void {
+    const command = new DescribeEventSourcesConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -882,12 +924,12 @@ export class DevOpsGuru extends DevOpsGuruClient {
   /**
    * <p> Returns a list of insights in your organization. You can specify which insights are
    * 			returned by their start time, one or more statuses (<code>ONGOING</code>,
-   * 			<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
-   * 			(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
-   * 			(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
+   * 				<code>CLOSED</code>, and <code>CLOSED</code>), one or more severities
+   * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
+   * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
    * 		       <p> Use the <code>Filters</code> parameter to specify status and severity search
    * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
-   * 			<code>PROACTIVE</code> in your search. </p>
+   * 				<code>PROACTIVE</code> in your search. </p>
    */
   public searchOrganizationInsights(
     args: SearchOrganizationInsightsCommandInput,
@@ -941,6 +983,38 @@ export class DevOpsGuru extends DevOpsGuruClient {
     cb?: (err: any, data?: StartCostEstimationCommandOutput) => void
   ): Promise<StartCostEstimationCommandOutput> | void {
     const command = new StartCostEstimationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the event source configuration.</p>
+   */
+  public updateEventSourcesConfig(
+    args: UpdateEventSourcesConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventSourcesConfigCommandOutput>;
+  public updateEventSourcesConfig(
+    args: UpdateEventSourcesConfigCommandInput,
+    cb: (err: any, data?: UpdateEventSourcesConfigCommandOutput) => void
+  ): void;
+  public updateEventSourcesConfig(
+    args: UpdateEventSourcesConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventSourcesConfigCommandOutput) => void
+  ): void;
+  public updateEventSourcesConfig(
+    args: UpdateEventSourcesConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventSourcesConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEventSourcesConfigCommandOutput) => void
+  ): Promise<UpdateEventSourcesConfigCommandOutput> | void {
+    const command = new UpdateEventSourcesConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

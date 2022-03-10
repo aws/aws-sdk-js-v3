@@ -22,7 +22,8 @@ export interface ListMemberAccountsCommandInput extends ListMemberAccountsReques
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResult, __MetadataBearer {}
 
 /**
- * <p>Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator account.</p>
+ * <p>(Discontinued) Lists all Amazon Macie Classic member accounts for the current Macie
+ *       Classic administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

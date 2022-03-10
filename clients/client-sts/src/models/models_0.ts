@@ -219,7 +219,7 @@ export interface AssumeRoleRequest {
    *          <p>Additionally, if you used temporary credentials to perform this operation, the new
    *          session inherits any transitive session tags from the calling session. If you pass a
    *          session tag with the same key as an inherited tag, the operation fails. To view the
-   *          inherited tags for a session, see the CloudTrail logs. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs">Viewing Session Tags in CloudTrail</a> in the
+   *          inherited tags for a session, see the CloudTrail logs. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_ctlogs">Viewing Session Tags in CloudTrail</a> in the
    *          <i>IAM User Guide</i>.</p>
    */
   Tags?: Tag[];
@@ -775,11 +775,11 @@ export interface AssumeRoleWithWebIdentityRequest {
   WebIdentityToken: string | undefined;
 
   /**
-   * <p>The fully qualified host component of the domain name of the identity provider.</p>
-   *          <p>Specify this value only for OAuth 2.0 access tokens. Currently
-   *             <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only supported
-   *          identity providers for OAuth 2.0 access tokens. Do not include URL schemes and port
-   *          numbers.</p>
+   * <p>The fully qualified host component of the domain name of the OAuth 2.0 identity
+   *          provider. Do not specify this value for an OpenID Connect identity provider.</p>
+   *          <p>Currently <code>www.amazon.com</code> and <code>graph.facebook.com</code> are the only
+   *          supported identity providers for OAuth 2.0 access tokens. Do not include URL schemes and
+   *          port numbers.</p>
    *          <p>Do not specify this value for OpenID Connect ID tokens.</p>
    */
   ProviderId?: string;

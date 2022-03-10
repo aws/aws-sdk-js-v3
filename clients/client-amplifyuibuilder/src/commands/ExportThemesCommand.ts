@@ -22,8 +22,7 @@ export interface ExportThemesCommandInput extends ExportThemesRequest {}
 export interface ExportThemesCommandOutput extends ExportThemesResponse, __MetadataBearer {}
 
 /**
- * <p>Exports theme configurations to code that is ready to integrate into an Amplify
- *       app.</p>
+ * <p>Exports theme configurations to code that is ready to integrate into an Amplify app.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

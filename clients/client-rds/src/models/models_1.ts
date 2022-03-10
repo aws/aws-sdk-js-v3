@@ -2243,7 +2243,6 @@ export interface OrderableDBInstanceOption {
 
   /**
    * <p>Whether DB instances can be configured as a Multi-AZ DB cluster.</p>
-   *         <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
    *         <p>For more information on Multi-AZ DB clusters, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *                Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
@@ -3305,9 +3304,6 @@ export interface FailoverDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -3928,8 +3924,28 @@ export interface ModifyDBClusterMessage {
   BacktrackWindow?: number;
 
   /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB cluster. The values
+   *             in the list depend on the DB engine being used.</p>
+   *             <p>
+   *                 <b>RDS for MySQL</b>
+   *             </p>
+   *             <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *             <p>
+   *                 <b>RDS for PostgreSQL</b>
+   *             </p>
+   *             <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
+   *             <p>
+   *                 <b>Aurora MySQL</b>
+   *             </p>
+   *             <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *             <p>
+   *                 <b>Aurora PostgreSQL</b>
+   *             </p>
+   *             <p>Possible value is <code>postgresql</code>.</p>
+   *             <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database
+   *                     Service User Guide</i>.</p>
+   *             <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
@@ -4039,7 +4055,7 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster.
    *             The default is not to copy them.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -4182,9 +4198,6 @@ export interface ModifyDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -6120,9 +6133,6 @@ export interface PromoteReadReplicaDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -6277,9 +6287,6 @@ export interface RebootDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -7038,8 +7045,16 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *             in the list depend on the DB engine being used.</p>
+   *         <p>
+   *             <b>Aurora MySQL</b>
+   *         </p>
+   *         <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *         <p>
+   *             <b>Aurora PostgreSQL</b>
+   *         </p>
+   *         <p>Possible value is <code>postgresql</code>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -7104,9 +7119,6 @@ export interface RestoreDBClusterFromS3Result {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -7360,9 +7372,26 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
    *             The values in the list depend on the DB engine being used.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon
-   *                     Aurora User Guide</i>.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   *         <p>
+   *             <b>RDS for MySQL</b>
+   *         </p>
+   *         <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *         <p>
+   *             <b>RDS for PostgreSQL</b>
+   *         </p>
+   *         <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
+   *         <p>
+   *             <b>Aurora MySQL</b>
+   *         </p>
+   *         <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *         <p>
+   *             <b>Aurora PostgreSQL</b>
+   *         </p>
+   *         <p>Possible value is <code>postgresql</code>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database
+   *                 Service User Guide</i>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -7414,7 +7443,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
   /**
    * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -7530,9 +7559,6 @@ export interface RestoreDBClusterFromSnapshotResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -7724,8 +7750,26 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values
    *             in the list depend on the DB engine being used.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   *         <p>
+   *             <b>RDS for MySQL</b>
+   *         </p>
+   *         <p>Possible values are <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *         <p>
+   *             <b>RDS for PostgreSQL</b>
+   *         </p>
+   *         <p>Possible values are <code>postgresql</code> and <code>upgrade</code>.</p>
+   *         <p>
+   *             <b>Aurora MySQL</b>
+   *         </p>
+   *         <p>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>, and <code>slowquery</code>.</p>
+   *         <p>
+   *             <b>Aurora PostgreSQL</b>
+   *         </p>
+   *         <p>Possible value is <code>postgresql</code>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon RDS, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database
+   *                 Service User Guide</i>.</p>
+   *         <p>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
@@ -7761,7 +7805,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
-   *         <p>Valid for: Aurora DB clusters only</p>
+   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -7898,9 +7942,6 @@ export interface RestoreDBClusterToPointInTimeResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -9505,9 +9546,6 @@ export interface StartDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }
@@ -9906,9 +9944,6 @@ export interface StopDBClusterResult {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
    *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <note>
-   *             <p>The Multi-AZ DB clusters feature is in preview and is subject to change.</p>
-   *          </note>
    */
   DBCluster?: DBCluster;
 }

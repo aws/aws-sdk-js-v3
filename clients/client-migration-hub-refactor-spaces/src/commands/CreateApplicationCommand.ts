@@ -28,8 +28,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
 /**
  * <p>Creates an Amazon Web Services Migration Hub Refactor Spaces application. The account that owns the environment also owns the
  *       applications created inside the environment, regardless of the account that creates the
- *       application. Refactor Spaces provisions the Amazon API Gateway and Network Load Balancer for
- *       the application proxy inside your account.</p>
+ *       application. Refactor Spaces provisions an Amazon API Gateway, API Gateway VPC link, and
+ *         Network Load Balancer for the application proxy inside your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
