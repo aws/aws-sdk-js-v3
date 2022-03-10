@@ -317,6 +317,19 @@ describe("SignatureV4", () => {
         expect(query[SIGNATURE_QUERY_PARAM]).toBe("6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849");
       });
 
+      it("should normalize relative path by default", async () => {
+        const { query = {} } = await signer.presign(
+          { ...minimalRequest, path: "/abc/../foo%3Dbar" },
+          presigningOptions
+        );
+        expect(query[SIGNATURE_QUERY_PARAM]).toBe("6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849");
+      });
+
+      it("should normalize path with consecutive slashes by default", async () => {
+        const { query = {} } = await signer.presign({ ...minimalRequest, path: "//foo%3Dbar" }, presigningOptions);
+        expect(query[SIGNATURE_QUERY_PARAM]).toBe("6267d8b6f44d165d2b9f4d2c2b45fd6971de0962820243669bf685818c9c7849");
+      });
+
       it("should not URI-encode the path if URI path escaping was disabled on the signer", async () => {
         // Setting `uriEscapePath` to `false` creates an
         // S3-compatible signer. The expected signature included
@@ -573,12 +586,28 @@ describe("SignatureV4", () => {
         hostname: "foo.us-bar-1.amazonaws.com",
       });
 
+      const signingOptions = {
+        signingDate: new Date("2000-01-01T00:00:00.000Z"),
+      };
+
       it("should URI-encode the path by default", async () => {
-        const { headers } = await signer.sign(minimalRequest, {
-          signingDate: new Date("2000-01-01T00:00:00.000Z"),
-        });
+        const { headers } = await signer.sign(minimalRequest, signingOptions);
         expect(headers[AUTH_HEADER]).toBe(
           "AWS4-HMAC-SHA256 Credential=foo/20000101/us-bar-1/foo/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=fb4948cab44a9c47ce3b1a2489d01ec939fea9e79eccdb4593c11a94f207e075"
+        );
+      });
+
+      it("should normalize relative path by default", async () => {
+        const { headers } = await signer.sign({ ...minimalRequest, path: "/abc/../foo%3Dbar" }, signingOptions);
+        expect(headers[AUTH_HEADER]).toEqual(
+          expect.stringContaining("Signature=fb4948cab44a9c47ce3b1a2489d01ec939fea9e79eccdb4593c11a94f207e075")
+        );
+      });
+
+      it("should normalize path with consecutive slashes by default", async () => {
+        const { headers } = await signer.sign({ ...minimalRequest, path: "//foo%3Dbar" }, signingOptions);
+        expect(headers[AUTH_HEADER]).toEqual(
+          expect.stringContaining("Signature=fb4948cab44a9c47ce3b1a2489d01ec939fea9e79eccdb4593c11a94f207e075")
         );
       });
 
