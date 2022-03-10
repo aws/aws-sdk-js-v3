@@ -1,7 +1,14 @@
 import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
-import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
-import { options } from "yargs";
+import {
+  Credentials,
+  HashConstructor,
+  Logger,
+  Provider,
+  RegionInfo,
+  RegionInfoProvider,
+  RequestSigner,
+} from "@aws-sdk/types";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
@@ -83,6 +90,7 @@ interface SigV4PreviouslyResolved {
   region: string | Provider<string>;
   signingName: string;
   sha256: HashConstructor;
+  logger?: Logger;
 }
 
 export interface AwsAuthResolvedConfig {
