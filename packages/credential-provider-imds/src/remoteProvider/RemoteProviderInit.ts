@@ -1,3 +1,5 @@
+import { Logger } from "@aws-sdk/types";
+
 export const DEFAULT_TIMEOUT = 1000;
 
 // The default in AWS SDK for Python and CLI (botocore) is no retry or one attempt
@@ -16,7 +18,9 @@ export interface RemoteProviderConfig {
   maxRetries: number;
 }
 
-export type RemoteProviderInit = Partial<RemoteProviderConfig>;
+export interface RemoteProviderInit extends Partial<RemoteProviderConfig> {
+  logger?: Logger;
+}
 
 export const providerConfigFromInit = ({
   maxRetries = DEFAULT_MAX_RETRIES,

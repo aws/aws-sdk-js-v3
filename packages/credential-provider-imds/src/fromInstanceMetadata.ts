@@ -18,7 +18,7 @@ const IMDS_TOKEN_PATH = "/latest/api/token";
  * Instance Metadata Service
  */
 export const fromInstanceMetadata = (init: RemoteProviderInit = {}): Provider<InstanceMetadataCredentials> =>
-  staticStabilityProvider(getInstanceImdsProvider(init));
+  staticStabilityProvider(getInstanceImdsProvider(init), { logger: init.logger });
 
 const getInstanceImdsProvider = (init: RemoteProviderInit) => {
   // when set to true, metadata service will not fetch token
