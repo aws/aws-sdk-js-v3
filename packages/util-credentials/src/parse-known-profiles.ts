@@ -1,9 +1,5 @@
-import {
-  loadSharedConfigFiles,
-  ParsedIniData,
-  SharedConfigFiles,
-  SharedConfigInit,
-} from "@aws-sdk/shared-ini-file-loader";
+import { loadSharedConfigFiles, SharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
+import { ParsedIniData, SharedConfigFiles } from "@aws-sdk/types";
 
 export interface SourceProfileInit extends SharedConfigInit {
   /**
