@@ -1,5 +1,6 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles, ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
+import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { ParsedIniData, Profile } from "@aws-sdk/types";
 
 import { ENV_PROFILE, fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
 
