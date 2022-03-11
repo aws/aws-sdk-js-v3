@@ -1,6 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { Credentials, ParsedIniData } from "@aws-sdk/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 
