@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
+import { ParsedIniData, Profile } from "@aws-sdk/types";
 import { getMasterProfileName } from "@aws-sdk/util-credentials";
 
 import { FromIniInit } from "./fromIni";

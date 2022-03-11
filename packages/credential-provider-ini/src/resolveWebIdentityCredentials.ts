@@ -1,6 +1,5 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { Profile } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
+import { Credentials, Profile } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 
