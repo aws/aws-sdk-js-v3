@@ -1,4 +1,4 @@
-import { ParsedIniData } from "./types";
+import { ParsedIniData } from "@aws-sdk/types";
 
 const profileNameBlockList = ["__proto__", "profile __proto__"];
 

@@ -1,4 +1,4 @@
-import { ParsedIniData } from "./types";
+import { ParsedIniData } from "@aws-sdk/types";
 
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 
