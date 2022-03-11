@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
+
+
+### Bug Fixes
+
+* **hash-stream-node:** do not create copy of file stream ([#3380](https://github.com/aws/aws-sdk-js-v3/issues/3380)) ([89a70ae](https://github.com/aws/aws-sdk-js-v3/commit/89a70aeecba1905f9b596438b15437995056a896))
+* **signature-v4:** normalized the path before double encoding it ([#3408](https://github.com/aws/aws-sdk-js-v3/issues/3408)) ([b20d431](https://github.com/aws/aws-sdk-js-v3/commit/b20d431b3c06a04bc8621a582c527a06d22c8680))
+* **util-body-length-node:** fs.ReadStream with path of Buffer type ([#3384](https://github.com/aws/aws-sdk-js-v3/issues/3384)) ([d220242](https://github.com/aws/aws-sdk-js-v3/commit/d220242b3ab1075e6a7ea16987ed15bbfec2e6fd))
+* **util-body-length-node:** support fd.createReadStream ([#3385](https://github.com/aws/aws-sdk-js-v3/issues/3385)) ([88f8cc2](https://github.com/aws/aws-sdk-js-v3/commit/88f8cc2d3d33f4dc6d06312e75f70725c89d1f17))
+
+
+### Features
+
+* **clients:** update clients as of 2022/03/10 ([#3411](https://github.com/aws/aws-sdk-js-v3/issues/3411)) ([8fa517a](https://github.com/aws/aws-sdk-js-v3/commit/8fa517a2c56d2f98a2e4a9c4ea6fd99b6ce61a71))
+* **credential-provider-imds:** accept custom logger ([#3409](https://github.com/aws/aws-sdk-js-v3/issues/3409)) ([11c4a7b](https://github.com/aws/aws-sdk-js-v3/commit/11c4a7b5ac00763139f130595a37e182d34d9a72))
+* **credential-provider-imds:** support static stability ([#3402](https://github.com/aws/aws-sdk-js-v3/issues/3402)) ([a4beeba](https://github.com/aws/aws-sdk-js-v3/commit/a4beebae5b2a967a0c7b6bc91fa8312867dd7079))
+
+
+
+
+
 ## [3.53.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.0...v3.53.1) (2022-02-25)
 
 

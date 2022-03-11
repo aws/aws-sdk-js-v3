@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
+
+
+### Bug Fixes
+
+* **signature-v4:** normalized the path before double encoding it ([#3408](https://github.com/aws/aws-sdk-js-v3/issues/3408)) ([b20d431](https://github.com/aws/aws-sdk-js-v3/commit/b20d431b3c06a04bc8621a582c527a06d22c8680))
+
+
+
+
+
 # [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4

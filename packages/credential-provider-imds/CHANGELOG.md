@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
+
+
+### Features
+
+* **credential-provider-imds:** accept custom logger ([#3409](https://github.com/aws/aws-sdk-js-v3/issues/3409)) ([11c4a7b](https://github.com/aws/aws-sdk-js-v3/commit/11c4a7b5ac00763139f130595a37e182d34d9a72))
+* **credential-provider-imds:** support static stability ([#3402](https://github.com/aws/aws-sdk-js-v3/issues/3402)) ([a4beeba](https://github.com/aws/aws-sdk-js-v3/commit/a4beebae5b2a967a0c7b6bc91fa8312867dd7079))
+
+
+
+
+
 # [3.53.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.52.0...v3.53.0) (2022-02-24)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-imds

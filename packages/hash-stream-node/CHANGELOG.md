@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.54.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.1...v3.54.0) (2022-03-11)
+
+
+### Bug Fixes
+
+* **hash-stream-node:** do not create copy of file stream ([#3380](https://github.com/aws/aws-sdk-js-v3/issues/3380)) ([89a70ae](https://github.com/aws/aws-sdk-js-v3/commit/89a70aeecba1905f9b596438b15437995056a896))
+
+
+
+
+
 ## [3.53.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.53.0...v3.53.1) (2022-02-25)
 
 
