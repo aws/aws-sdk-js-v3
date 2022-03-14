@@ -42,10 +42,12 @@ describe(resolveSSOCredentials.name, () => {
     jest.clearAllMocks();
   });
 
-  it("re-throws error if getSSOTokenFromFile fails", async () => {
-    const mockError = new Error("error");
-    const expectedError = new CredentialsProviderError(mockError.message, SHOULD_FAIL_CREDENTIAL_CHAIN);
-    (getSSOTokenFromFile as jest.Mock).mockRejectedValue(mockError);
+  it("throws error if getSSOTokenFromFile fails", async () => {
+    const expectedError = new CredentialsProviderError(
+      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
+      SHOULD_FAIL_CREDENTIAL_CHAIN
+    );
+    (getSSOTokenFromFile as jest.Mock).mockRejectedValue(new Error("error"));
 
     try {
       await resolveSSOCredentials(mockOptions);

@@ -23,16 +23,19 @@ export const resolveSSOCredentials = async ({
   ssoClient,
 }: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
   let token: SSOToken;
+  const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
   try {
     token = await getSSOTokenFromFile(ssoStartUrl);
-  } catch (error) {
-    throw new CredentialsProviderError(error.message, SHOULD_FAIL_CREDENTIAL_CHAIN);
+  } catch (e) {
+    throw new CredentialsProviderError(
+      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
+      SHOULD_FAIL_CREDENTIAL_CHAIN
+    );
   }
 
   if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
     throw new CredentialsProviderError(
-      `The SSO session associated with this profile has expired.` +
-        ` To refresh this SSO session run aws sso login with the corresponding profile.`,
+      `The SSO session associated with this profile has expired. ${refreshMessage}`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
     );
   }
