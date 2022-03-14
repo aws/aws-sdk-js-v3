@@ -15,6 +15,11 @@ export interface FetchHttpHandlerOptions {
    * terminated.
    */
   requestTimeout?: number;
+
+  /**
+   * Whether to allow the request to outlive the page. Default value is true
+   */
+  keepAlive?: boolean;
 }
 
 type FetchHttpHandlerConfig = FetchHttpHandlerOptions;
@@ -40,7 +45,7 @@ export class FetchHttpHandler implements HttpHandler {
       this.config = await this.configProvider();
     }
     const requestTimeoutInMs = this.config!.requestTimeout;
-
+    const keepAlive = this.config!.keepAlive ?? true;
     // if the request was already aborted, prevent doing extra work
     if (abortSignal?.aborted) {
       const abortError = new Error("Request aborted");
@@ -65,6 +70,7 @@ export class FetchHttpHandler implements HttpHandler {
       body,
       headers: new Headers(request.headers),
       method: method,
+      keepalive: keepAlive,
     };
 
     // some browsers support abort signal

@@ -189,6 +189,46 @@ describe.skip(FetchHttpHandler.name, () => {
     expect(mockFetch.mock.calls.length).toBe(1);
   });
 
+  it("will pass keepalive as true by default to request", async () => {
+    const mockResponse = {
+      headers: {
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"],
+        ]),
+      },
+      blob: jest.fn().mockResolvedValue(new Blob()),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+    (global as any).fetch = mockFetch;
+
+    const fetchHttpHandler = new FetchHttpHandler();
+
+    await fetchHttpHandler.handle({} as any, {});
+
+    expect(mockRequest.mock.calls[0][1].keepalive).toBe(true);
+  });
+
+  it("will pass keepalive to request", async () => {
+    const mockResponse = {
+      headers: {
+        entries: jest.fn().mockReturnValue([
+          ["foo", "bar"],
+          ["bizz", "bazz"],
+        ]),
+      },
+      blob: jest.fn().mockResolvedValue(new Blob()),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+    (global as any).fetch = mockFetch;
+
+    const fetchHttpHandler = new FetchHttpHandler({ keepAlive: false });
+
+    await fetchHttpHandler.handle({} as any, {});
+
+    expect(mockRequest.mock.calls[0][1].keepalive).toBe(false);
+  });
+
   it("will pass timeout to request timeout", async () => {
     const mockResponse = {
       headers: {
