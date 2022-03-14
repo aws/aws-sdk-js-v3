@@ -1,12 +1,10 @@
-import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
-import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/util-credentials";
+import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
+import { Credentials } from "@aws-sdk/types";
 
 import { fromIni } from "./fromIni";
-import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@aws-sdk/util-credentials");
+jest.mock("@aws-sdk/shared-ini-file-loader");
 jest.mock("./resolveProfileData");
 
 describe(fromIni.name, () => {
@@ -17,7 +15,7 @@ describe(fromIni.name, () => {
 
   beforeEach(() => {
     (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-    (getMasterProfileName as jest.Mock).mockReturnValue(mockMasterProfileName);
+    (getProfileName as jest.Mock).mockReturnValue(mockMasterProfileName);
   });
 
   afterEach(() => {
@@ -34,7 +32,7 @@ describe(fromIni.name, () => {
       expect(error).toStrictEqual(expectedError);
     }
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).not.toHaveBeenCalled();
+    expect(getProfileName).not.toHaveBeenCalled();
     expect(resolveProfileData).not.toHaveBeenCalled();
   });
 
@@ -48,7 +46,7 @@ describe(fromIni.name, () => {
       expect(error).toStrictEqual(expectedError);
     }
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).toHaveBeenCalledWith(mockInit);
+    expect(getProfileName).toHaveBeenCalledWith(mockInit);
     expect(resolveProfileData).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, mockInit);
   });
 
@@ -61,7 +59,7 @@ describe(fromIni.name, () => {
     const receivedCreds = await fromIni(mockInit)();
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).toHaveBeenCalledWith(mockInit);
+    expect(getProfileName).toHaveBeenCalledWith(mockInit);
     expect(resolveProfileData).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles, mockInit);
   });
 });

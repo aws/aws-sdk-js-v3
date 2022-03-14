@@ -1,6 +1,6 @@
 import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
+import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
-import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
@@ -43,5 +43,5 @@ export const fromIni =
   (init: FromIniInit = {}): CredentialProvider =>
   async () => {
     const profiles = await parseKnownFiles(init);
-    return resolveProfileData(getMasterProfileName(init), profiles, init);
+    return resolveProfileData(getProfileName(init), profiles, init);
   };

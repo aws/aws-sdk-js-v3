@@ -1,13 +1,13 @@
 import { SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/util-credentials";
+import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
 
 import { fromSSO } from "./fromSSO";
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
-jest.mock("@aws-sdk/util-credentials");
+jest.mock("@aws-sdk/shared-ini-file-loader");
 jest.mock("./isSsoProfile");
 jest.mock("./resolveSSOCredentials");
 jest.mock("./validateSsoProfile");
@@ -42,13 +42,13 @@ describe(fromSSO.name, () => {
 
     beforeEach(() => {
       (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-      (getMasterProfileName as jest.Mock).mockReturnValue(mockProfileName);
+      (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
       (isSsoProfile as unknown as jest.Mock).mockReturnValue(true);
     });
 
     afterEach(() => {
       expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-      expect(getMasterProfileName).toHaveBeenCalledWith(mockInit);
+      expect(getProfileName).toHaveBeenCalledWith(mockInit);
       expect(isSsoProfile).toHaveBeenCalledWith(mockSsoProfile);
     });
 

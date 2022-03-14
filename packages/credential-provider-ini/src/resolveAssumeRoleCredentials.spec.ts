@@ -1,11 +1,11 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getMasterProfileName } from "@aws-sdk/util-credentials";
+import { getProfileName } from "@aws-sdk/shared-ini-file-loader";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
 import { resolveCredentialSource } from "./resolveCredentialSource";
 import { resolveProfileData } from "./resolveProfileData";
 
-jest.mock("@aws-sdk/util-credentials");
+jest.mock("@aws-sdk/shared-ini-file-loader");
 jest.mock("./resolveCredentialSource");
 jest.mock("./resolveProfileData");
 
@@ -112,7 +112,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
   });
 
   beforeEach(() => {
-    (getMasterProfileName as jest.Mock).mockReturnValue(mockProfileName);
+    (getProfileName as jest.Mock).mockReturnValue(mockProfileName);
     (resolveProfileData as jest.Mock).mockResolvedValue(mockSourceCredsFromProfile);
     (resolveCredentialSource as jest.Mock).mockReturnValue(() => Promise.resolve(mockSourceCredsFromCredential));
   });

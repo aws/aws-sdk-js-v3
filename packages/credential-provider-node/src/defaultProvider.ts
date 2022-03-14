@@ -5,9 +5,8 @@ import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-proce
 import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider } from "@aws-sdk/types";
-import { ENV_PROFILE } from "@aws-sdk/util-credentials";
 
 import { remoteProvider } from "./remoteProvider";
 

@@ -30,7 +30,6 @@
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/shared-ini-file-loader": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-credentials": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

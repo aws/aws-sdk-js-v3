@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { getProfileName } from "@aws-sdk/shared-ini-file-loader";
 import { ParsedIniData, Profile } from "@aws-sdk/types";
-import { getMasterProfileName } from "@aws-sdk/util-credentials";
 
 import { FromIniInit } from "./fromIni";
 import { resolveCredentialSource } from "./resolveCredentialSource";
@@ -83,7 +83,7 @@ export const resolveAssumeRoleCredentials = async (
   if (source_profile && source_profile in visitedProfiles) {
     throw new CredentialsProviderError(
       `Detected a cycle attempting to resolve credentials for profile` +
-        ` ${getMasterProfileName(options)}. Profiles visited: ` +
+        ` ${getProfileName(options)}. Profiles visited: ` +
         Object.keys(visitedProfiles).join(", "),
       false
     );

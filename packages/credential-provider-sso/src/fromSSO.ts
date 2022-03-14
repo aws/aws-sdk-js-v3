@@ -1,7 +1,7 @@
 import { SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
+import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider } from "@aws-sdk/types";
-import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
@@ -44,7 +44,7 @@ export const fromSSO =
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName) {
       // Load the SSO config from shared AWS config file.
       const profiles = await parseKnownFiles(init);
-      const profileName = getMasterProfileName(init);
+      const profileName = getProfileName(init);
       const profile = profiles[profileName];
 
       if (!isSsoProfile(profile)) {
