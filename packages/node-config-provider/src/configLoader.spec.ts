@@ -1,5 +1,5 @@
 import { chain, fromStatic, memoize } from "@aws-sdk/property-provider";
-import { Profile } from "@aws-sdk/shared-ini-file-loader/src";
+import { Profile } from "@aws-sdk/types";
 
 import { loadConfig } from "./configLoader";
 import { fromEnv } from "./fromEnv";

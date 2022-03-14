@@ -1,4 +1,4 @@
-import { Profile } from "@aws-sdk/shared-ini-file-loader";
+import { Profile } from "@aws-sdk/types";
 
 /**
  * Cached SSO token retrieved from SSO login flow.

@@ -8,6 +8,7 @@ export * from "./http";
 export * from "./logger";
 export * from "./middleware";
 export * from "./pagination";
+export * from "./profile";
 export * from "./response";
 export * from "./serde";
 export * from "./shapes";

@@ -1,11 +1,6 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import {
-  loadSharedConfigFiles,
-  Profile,
-  SharedConfigFiles,
-  SharedConfigInit as BaseSharedConfigInit,
-} from "@aws-sdk/shared-ini-file-loader";
-import { Provider } from "@aws-sdk/types";
+import { loadSharedConfigFiles, SharedConfigInit as BaseSharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
+import { Profile, Provider, SharedConfigFiles } from "@aws-sdk/types";
 
 const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";

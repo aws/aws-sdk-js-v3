@@ -1,12 +1,20 @@
-export interface Profile {
-  [key: string]: string | undefined;
-}
+import {
+  ParsedIniData as __ParsedIniData,
+  Profile as __Profile,
+  SharedConfigFiles as __SharedConfigFiles,
+} from "@aws-sdk/types";
 
-export interface ParsedIniData {
-  [key: string]: Profile;
-}
+/**
+ * @deprecated Use Profile from "@aws-sdk/types" instead
+ */
+export type Profile = __Profile;
 
-export interface SharedConfigFiles {
-  credentialsFile: ParsedIniData;
-  configFile: ParsedIniData;
-}
+/**
+ * @deprecated Use ParsedIniData from "@aws-sdk/types" instead
+ */
+export type ParsedIniData = __ParsedIniData;
+
+/**
+ * @deprecated Use SharedConfigFiles from "@aws-sdk/types" instead
+ */
+export type SharedConfigFiles = __SharedConfigFiles;
