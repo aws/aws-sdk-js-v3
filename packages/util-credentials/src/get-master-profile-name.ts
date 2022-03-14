@@ -1,5 +1,6 @@
-export const ENV_PROFILE = "AWS_PROFILE";
-export const DEFAULT_PROFILE = "default";
+import { getProfileName } from "@aws-sdk/shared-ini-file-loader";
 
-export const getMasterProfileName = (init: { profile?: string }): string =>
-  init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
+/**
+ * @deprecated Use getProfileName from "@aws-sdk/shared-ini-file-loader" instead.
+ */
+export const getMasterProfileName = getProfileName;
