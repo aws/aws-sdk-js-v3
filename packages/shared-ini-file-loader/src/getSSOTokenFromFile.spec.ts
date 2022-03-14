@@ -1,4 +1,3 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { createHash } from "crypto";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises } from "fs";
@@ -38,29 +37,28 @@ describe(getSSOTokenFromFile.name, () => {
     jest.clearAllMocks();
   });
 
-  describe("throws error for invalid token", () => {
-    afterEach(async () => {
-      const expectedError = new CredentialsProviderError(
-        `The SSO session associated with this profile is invalid.` +
-          ` To refresh this SSO session run aws sso login with the corresponding profile.`,
-        false
-      );
+  it("re-throws if readFile fails", async () => {
+    const expectedError = new Error("error");
+    (promises.readFile as jest.Mock).mockRejectedValue(expectedError);
 
-      try {
-        await getSSOTokenFromFile(mockSsoStartUrl);
-        fail(`expected ${expectedError}`);
-      } catch (error) {
-        expect(error).toStrictEqual(expectedError);
-      }
-    });
+    try {
+      await getSSOTokenFromFile(mockSsoStartUrl);
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
+  });
 
-    it("throws error if readFile fails", async () => {
-      (promises.readFile as jest.Mock).mockRejectedValue(new Error("error"));
-    });
+  it("re-throws if token is not a valid JSON", async () => {
+    const errMsg = "Unexpected token";
+    (promises.readFile as jest.Mock).mockReturnValue("invalid JSON");
 
-    it("throws error if token is not a valid JSON", async () => {
-      (promises.readFile as jest.Mock).mockReturnValue("invalid JSON");
-    });
+    try {
+      await getSSOTokenFromFile(mockSsoStartUrl);
+      fail(`expected '${errMsg}'`);
+    } catch (error) {
+      expect(error.message).toContain(errMsg);
+    }
   });
 
   it("returns token when it's valid", async () => {

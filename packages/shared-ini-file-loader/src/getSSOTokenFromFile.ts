@@ -1,4 +1,3 @@
-import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { createHash } from "crypto";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises as fsPromises } from "fs";
@@ -60,14 +59,6 @@ export const getSSOTokenFromFile = async (ssoStartUrl: string) => {
   const cacheName = hasher.update(ssoStartUrl).digest("hex");
   const tokenFile = join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
 
-  try {
-    const token = JSON.parse(await readFile(tokenFile, "utf8"));
-    return token as SSOToken;
-  } catch (e) {
-    throw new CredentialsProviderError(
-      `The SSO session associated with this profile is invalid.` +
-        ` To refresh this SSO session run aws sso login with the corresponding profile.`,
-      false
-    );
-  }
+  const tokenText = await readFile(tokenFile, "utf8");
+  return JSON.parse(tokenText) as SSOToken;
 };
