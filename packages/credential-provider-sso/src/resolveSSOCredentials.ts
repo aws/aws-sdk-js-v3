@@ -1,6 +1,6 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getSSOTokenFromFile } from "@aws-sdk/shared-ini-file-loader";
+import { getSSOTokenFromFile, SSOToken } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
@@ -22,7 +22,12 @@ export const resolveSSOCredentials = async ({
   ssoRoleName,
   ssoClient,
 }: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
-  const token = await getSSOTokenFromFile(ssoStartUrl);
+  let token: SSOToken;
+  try {
+    token = await getSSOTokenFromFile(ssoStartUrl);
+  } catch (error) {
+    throw new CredentialsProviderError(error.message, SHOULD_FAIL_CREDENTIAL_CHAIN);
+  }
 
   if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
     throw new CredentialsProviderError(
