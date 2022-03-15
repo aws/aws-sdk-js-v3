@@ -1,10 +1,10 @@
+import { getProfileName, parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
-import { getMasterProfileName, parseKnownFiles } from "@aws-sdk/util-credentials";
 
 import { fromProcess } from "./fromProcess";
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
-jest.mock("@aws-sdk/util-credentials");
+jest.mock("@aws-sdk/shared-ini-file-loader");
 jest.mock("./resolveProcessCredentials");
 
 describe(fromProcess.name, () => {
@@ -15,7 +15,7 @@ describe(fromProcess.name, () => {
 
   beforeEach(() => {
     (parseKnownFiles as jest.Mock).mockResolvedValue(mockProfiles);
-    (getMasterProfileName as jest.Mock).mockReturnValue(mockMasterProfileName);
+    (getProfileName as jest.Mock).mockReturnValue(mockMasterProfileName);
   });
 
   afterEach(() => {
@@ -32,7 +32,7 @@ describe(fromProcess.name, () => {
       expect(error).toStrictEqual(expectedError);
     }
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).not.toHaveBeenCalled();
+    expect(getProfileName).not.toHaveBeenCalled();
     expect(resolveProcessCredentials).not.toHaveBeenCalled();
   });
 
@@ -46,7 +46,7 @@ describe(fromProcess.name, () => {
       expect(error).toStrictEqual(expectedError);
     }
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).toHaveBeenCalledWith(mockInit);
+    expect(getProfileName).toHaveBeenCalledWith(mockInit);
     expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles);
   });
 
@@ -59,7 +59,7 @@ describe(fromProcess.name, () => {
     const receivedCreds = await fromProcess(mockInit)();
     expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(parseKnownFiles).toHaveBeenCalledWith(mockInit);
-    expect(getMasterProfileName).toHaveBeenCalledWith(mockInit);
+    expect(getProfileName).toHaveBeenCalledWith(mockInit);
     expect(resolveProcessCredentials).toHaveBeenCalledWith(mockMasterProfileName, mockProfiles);
   });
 });
