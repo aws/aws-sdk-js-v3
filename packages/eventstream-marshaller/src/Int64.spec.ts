@@ -42,10 +42,12 @@ describe("Int64", () => {
   });
 
   it("should throw when a number larger than 2^63 -1 is provided", () => {
+    // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
     expect(() => Int64.fromNumber(9323372036854775807)).toThrow();
   });
 
   it("should throw when a number smaller than -1 * 2^63 is provided", () => {
+    // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
     expect(() => Int64.fromNumber(-9323372036854775807)).toThrow();
   });
 });
