@@ -11,7 +11,6 @@ import {
 } from "@aws-sdk/types";
 
 const CONTENT_LENGTH_HEADER = "content-length";
-const TRANSFER_ENCODING_HEADER = "transfer-encoding";
 
 export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
@@ -32,10 +31,8 @@ export function contentLengthMiddleware(bodyLengthChecker: BodyLengthCalculator)
               [CONTENT_LENGTH_HEADER]: String(length),
             };
           } catch (error) {
-            request.headers = {
-              ...request.headers,
-              [TRANSFER_ENCODING_HEADER]: "chunked",
-            };
+            // ToDo: Add 'transfer-encoding' as chunked only for HTTP/1.1 request
+            // Refs: https://github.com/aws/aws-sdk-js-v3/pull/3403
           }
         }
       }
