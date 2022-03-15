@@ -1,14 +1,9 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getHomeDir } from "@aws-sdk/shared-ini-file-loader";
+import { getSSOTokenFromFile, SSOToken } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
-import { createHash } from "crypto";
-// ToDo: Change to "fs/promises" when supporting nodejs>=14
-import { promises as fsPromises } from "fs";
-import { join } from "path";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
-import { SSOToken } from "./types";
 
 /**
  * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
@@ -20,8 +15,6 @@ const EXPIRE_WINDOW_MS = 15 * 60 * 1000;
 
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
-const { readFile } = fsPromises;
-
 export const resolveSSOCredentials = async ({
   ssoStartUrl,
   ssoAccountId,
@@ -29,14 +22,10 @@ export const resolveSSOCredentials = async ({
   ssoRoleName,
   ssoClient,
 }: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
-  const hasher = createHash("sha1");
-  const cacheName = hasher.update(ssoStartUrl).digest("hex");
-  const tokenFile = join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
-
   let token: SSOToken;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
   try {
-    token = JSON.parse(await readFile(tokenFile, "utf8"));
+    token = await getSSOTokenFromFile(ssoStartUrl);
   } catch (e) {
     throw new CredentialsProviderError(
       `The SSO session associated with this profile is invalid. ${refreshMessage}`,
