@@ -63,7 +63,7 @@ describe("deserializerMiddleware", () => {
     expect(mockDeserializer).toHaveBeenCalledWith(mockNextResponse.response, mockOptions);
   });
 
-  it("injects $response reference to deserializing exceptions", async () => {
+  it("injects non-enumerable $response reference to deserializing exceptions", async () => {
     const exception = Object.assign(new Error("MockException"), mockNextResponse.response);
     mockDeserializer.mockReset();
     mockDeserializer.mockRejectedValueOnce(exception);
@@ -73,6 +73,7 @@ describe("deserializerMiddleware", () => {
     } catch (e) {
       expect(e).toMatchObject(exception);
       expect(e.$response).toEqual(mockNextResponse.response);
+      expect(Object.keys(e)).not.toContain("$response");
     }
   });
 });

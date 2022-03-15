@@ -22,6 +22,10 @@ export const deserializerMiddleware =
         output: parsed as Output,
       };
     } catch (error) {
-      throw Object.assign(error, { $response: response });
+      Object.defineProperty(error, "$response", {
+        // configurable and enumerable defaults to `false` in Object.defineProperty
+        value: response,
+      });
+      throw error;
     }
   };
