@@ -70,12 +70,15 @@ export class FetchHttpHandler implements HttpHandler {
       body,
       headers: new Headers(request.headers),
       method: method,
-      keepalive: keepAlive,
     };
 
     // some browsers support abort signal
     if (typeof AbortController !== "undefined") {
       (requestOptions as any)["signal"] = abortSignal;
+    }
+    // some browsers support abort signal
+    if (Boolean(typeof Request !== "undefined" && "keepalive" in new Request(""))) {
+      (requestOptions as any)["keepalive"] = keepAlive;
     }
 
     const fetchRequest = new Request(url, requestOptions);
