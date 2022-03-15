@@ -1,4 +1,4 @@
-import { decorateServiceException, ServiceException } from "./exceptions";
+import { decorateServiceException, ExceptionOptionType, ServiceException } from "./exceptions";
 
 it("ServiceException extends from Error", () => {
   expect(
@@ -9,6 +9,23 @@ it("ServiceException extends from Error", () => {
       $metadata: {},
     })
   ).toBeInstanceOf(Error);
+});
+
+it("ExceptionOptionType allows specifying message", () => {
+  class SomeException extends ServiceException {
+    constructor(opts: ExceptionOptionType<SomeException, ServiceException>) {
+      super({
+        name: "SomeException",
+        $fault: "client",
+        ...opts,
+      });
+    }
+  }
+  const exception = new SomeException({
+    message: "message",
+    $metadata: {},
+  });
+  expect(exception.message).toBe("message");
 });
 
 describe("decorateServiceException", () => {
