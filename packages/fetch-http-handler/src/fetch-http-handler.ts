@@ -76,7 +76,7 @@ export class FetchHttpHandler implements HttpHandler {
     if (typeof AbortController !== "undefined") {
       (requestOptions as any)["signal"] = abortSignal;
     }
-    // some browsers support abort signal
+    // some browsers support keepalive
     if (Boolean(typeof Request !== "undefined" && "keepalive" in new Request(""))) {
       (requestOptions as any)["keepalive"] = keepAlive;
     }
