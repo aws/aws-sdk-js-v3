@@ -13,19 +13,23 @@ it("ServiceException extends from Error", () => {
 
 it("ExceptionOptionType allows specifying message", () => {
   class SomeException extends ServiceException {
+    readonly code: string;
     constructor(opts: ExceptionOptionType<SomeException, ServiceException>) {
       super({
         name: "SomeException",
         $fault: "client",
         ...opts,
       });
+      this.code = opts.code;
     }
   }
   const exception = new SomeException({
     message: "message",
+    code: "code",
     $metadata: {},
   });
   expect(exception.message).toBe("message");
+  expect(exception.code).toBe("code");
 });
 
 describe("decorateServiceException", () => {
