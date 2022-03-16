@@ -63,7 +63,7 @@ describe(defaultProvider.name, () => {
       await errorFn();
       fail(`expected ${expectedError}`);
     } catch (error) {
-      expect(error).toStrictEqual(expectedError);
+      expect(error.toString()).toStrictEqual(expectedError.toString());
     }
 
     expect(memoize).toHaveBeenCalledWith(mockChainFn, expect.any(Function), expect.any(Function));
