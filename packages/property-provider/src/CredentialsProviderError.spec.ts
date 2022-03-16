@@ -1,5 +1,4 @@
 import { CredentialsProviderError } from "./CredentialsProviderError";
-// import { ProviderError } from "./ProviderError";
 
 describe(CredentialsProviderError.name, () => {
   it("should be named as CredentialsProviderError", () => {
