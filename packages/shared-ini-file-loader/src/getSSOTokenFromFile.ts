@@ -1,9 +1,9 @@
-import { createHash } from "crypto";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises as fsPromises } from "fs";
-import { join } from "path";
 
-import { getHomeDir } from "./getHomeDir";
+import { getSSOTokenFilepath } from "./getSSOTokenFilepath";
+
+const { readFile } = fsPromises;
 
 /**
  * Cached SSO token retrieved from SSO login flow.
@@ -52,13 +52,11 @@ export interface SSOToken {
   startUrl?: string;
 }
 
-const { readFile } = fsPromises;
-
+/**
+ * Returns the SSO token from the file system.
+ */
 export const getSSOTokenFromFile = async (ssoStartUrl: string) => {
-  const hasher = createHash("sha1");
-  const cacheName = hasher.update(ssoStartUrl).digest("hex");
-  const tokenFile = join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
-
-  const tokenText = await readFile(tokenFile, "utf8");
-  return JSON.parse(tokenText) as SSOToken;
+  const ssoTokenFilepath = getSSOTokenFilepath(ssoStartUrl);
+  const ssoTokenText = await readFile(ssoTokenFilepath, "utf8");
+  return JSON.parse(ssoTokenText) as SSOToken;
 };
