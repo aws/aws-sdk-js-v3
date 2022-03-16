@@ -99,7 +99,7 @@
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
     "prettier": "2.5.1",
-    "puppeteer": "^5.1.0",
+    "puppeteer": "^13.5.1",
     "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
     "ts-jest": "27.1.2",
