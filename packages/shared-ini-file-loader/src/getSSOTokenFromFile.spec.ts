@@ -1,21 +1,15 @@
-import { createHash } from "crypto";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises } from "fs";
-import { join } from "path";
 
-import { getHomeDir } from "./getHomeDir";
+import { getSSOTokenFilepath } from "./getSSOTokenFilepath";
 import { getSSOTokenFromFile } from "./getSSOTokenFromFile";
 
-jest.mock("crypto");
 jest.mock("fs", () => ({ promises: { readFile: jest.fn() } }));
-jest.mock("./getHomeDir");
+jest.mock("./getSSOTokenFilepath");
 
 describe(getSSOTokenFromFile.name, () => {
-  const mockCacheName = "mockCacheName";
-  const mockDigest = jest.fn().mockReturnValue(mockCacheName);
-  const mockUpdate = jest.fn().mockReturnValue({ digest: mockDigest });
-  const mockHomeDir = "/home/dir";
   const mockSsoStartUrl = "mock_sso_start_url";
+  const mockSsoTokenFilepath = "/home/dir/.aws/sso/cache/mockCacheName.json";
 
   const mockToken = {
     accessToken: "mockAccessToken",
@@ -23,18 +17,27 @@ describe(getSSOTokenFromFile.name, () => {
   };
 
   beforeEach(() => {
-    (createHash as jest.Mock).mockReturnValue({ update: mockUpdate });
-    (getHomeDir as jest.Mock).mockReturnValue(mockHomeDir);
+    (getSSOTokenFilepath as jest.Mock).mockReturnValue(mockSsoTokenFilepath);
     (promises.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockToken));
   });
 
   afterEach(() => {
-    expect(createHash).toHaveBeenCalledWith("sha1");
-    expect(promises.readFile).toHaveBeenCalledWith(
-      join(mockHomeDir, ".aws", "sso", "cache", `${mockCacheName}.json`),
-      "utf8"
-    );
     jest.clearAllMocks();
+  });
+
+  it("re-throws if getting SSO Token filepath fails", async () => {
+    const expectedError = new Error("error");
+    (getSSOTokenFilepath as jest.Mock).mockImplementationOnce(() => {
+      throw expectedError;
+    });
+
+    try {
+      await getSSOTokenFromFile(mockSsoStartUrl);
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
+    expect(promises.readFile).not.toHaveBeenCalled();
   });
 
   it("re-throws if readFile fails", async () => {
@@ -47,6 +50,7 @@ describe(getSSOTokenFromFile.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
+    expect(promises.readFile).toHaveBeenCalledWith(mockSsoTokenFilepath, "utf8");
   });
 
   it("re-throws if token is not a valid JSON", async () => {
@@ -59,10 +63,12 @@ describe(getSSOTokenFromFile.name, () => {
     } catch (error) {
       expect(error.message).toContain(errMsg);
     }
+    expect(promises.readFile).toHaveBeenCalledWith(mockSsoTokenFilepath, "utf8");
   });
 
   it("returns token when it's valid", async () => {
     const token = await getSSOTokenFromFile(mockSsoStartUrl);
     expect(token).toStrictEqual(mockToken);
+    expect(promises.readFile).toHaveBeenCalledWith(mockSsoTokenFilepath, "utf8");
   });
 });
