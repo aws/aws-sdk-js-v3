@@ -4,6 +4,7 @@ import {
   Credentials,
   HashConstructor,
   Logger,
+  MemoizedProvider,
   Provider,
   RegionInfo,
   RegionInfoProvider,
@@ -75,7 +76,7 @@ export interface SigV4AuthInputConfig {
 }
 
 interface PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => Provider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
   region: string | Provider<string>;
   regionInfoProvider: RegionInfoProvider;
   signingName?: string;
@@ -86,7 +87,7 @@ interface PreviouslyResolved {
 }
 
 interface SigV4PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => Provider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
   region: string | Provider<string>;
   signingName: string;
   sha256: HashConstructor;
@@ -96,8 +97,10 @@ interface SigV4PreviouslyResolved {
 export interface AwsAuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
+   * This provider MAY memoize the loaded credentials for certain period.
+   * See {@link MemoizedProvider} for more information.
    */
-  credentials: Provider<Credentials>;
+  credentials: MemoizedProvider<Credentials>;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
@@ -211,7 +214,9 @@ const normalizeProvider = <T>(input: T | Provider<T>): Provider<T> => {
   return input as Provider<T>;
 };
 
-const normalizeCredentialProvider = (credentials: Credentials | Provider<Credentials>): Provider<Credentials> => {
+const normalizeCredentialProvider = (
+  credentials: Credentials | Provider<Credentials>
+): MemoizedProvider<Credentials> => {
   if (typeof credentials === "function") {
     return memoize(
       credentials,

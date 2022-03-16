@@ -1,4 +1,4 @@
-import { Provider } from "@aws-sdk/types";
+import { MemoizedProvider, Provider } from "@aws-sdk/types";
 
 interface MemoizeOverload {
   /**
@@ -12,7 +12,7 @@ interface MemoizeOverload {
    *
    * @param provider The provider whose result should be cached indefinitely.
    */
-  <T>(provider: Provider<T>): Provider<T>;
+  <T>(provider: Provider<T>): MemoizedProvider<T>;
 
   /**
    * Decorates a provider function with refreshing memoization.
@@ -37,17 +37,18 @@ interface MemoizeOverload {
     provider: Provider<T>,
     isExpired: (resolved: T) => boolean,
     requiresRefresh?: (resolved: T) => boolean
-  ): Provider<T>;
+  ): MemoizedProvider<T>;
 }
 
 export const memoize: MemoizeOverload = <T>(
   provider: Provider<T>,
   isExpired?: (resolved: T) => boolean,
   requiresRefresh?: (resolved: T) => boolean
-): Provider<T> => {
+): MemoizedProvider<T> => {
   let resolved: T;
   let pending: Promise<T> | undefined;
   let hasResult: boolean;
+  let isConstant = false;
   // Wrapper over supplied provider with side effect to handle concurrent invocation.
   const coalesceProvider: Provider<T> = async () => {
     if (!pending) {
@@ -56,6 +57,7 @@ export const memoize: MemoizeOverload = <T>(
     try {
       resolved = await pending;
       hasResult = true;
+      isConstant = false;
     } finally {
       pending = undefined;
     }
@@ -63,19 +65,17 @@ export const memoize: MemoizeOverload = <T>(
   };
 
   if (isExpired === undefined) {
-    // This is a static memoization; no need to incorporate refreshing
-    return async () => {
-      if (!hasResult) {
+    // This is a static memoization; no need to incorporate refreshing unless using forceRefresh;
+    return async (options) => {
+      if (!hasResult || options?.forceRefresh) {
         resolved = await coalesceProvider();
       }
       return resolved;
     };
   }
 
-  let isConstant = false;
-
-  return async () => {
-    if (!hasResult) {
+  return async (options) => {
+    if (!hasResult || options?.forceRefresh) {
       resolved = await coalesceProvider();
     }
     if (isConstant) {

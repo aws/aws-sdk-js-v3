@@ -6,7 +6,7 @@ import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import { chain, CredentialsProviderError, memoize } from "@aws-sdk/property-provider";
 import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
-import { CredentialProvider } from "@aws-sdk/types";
+import { Credentials, MemoizedProvider } from "@aws-sdk/types";
 
 import { remoteProvider } from "./remoteProvider";
 
@@ -46,7 +46,7 @@ import { remoteProvider } from "./remoteProvider";
  */
 export const defaultProvider = (
   init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit = {}
-): CredentialProvider => {
+): MemoizedProvider<Credentials> => {
   const options = {
     profile: process.env[ENV_PROFILE],
     ...init,

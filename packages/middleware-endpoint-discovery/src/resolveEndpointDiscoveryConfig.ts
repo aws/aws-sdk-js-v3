@@ -1,11 +1,11 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { Credentials, Provider } from "@aws-sdk/types";
+import { Credentials, MemoizedProvider, Provider } from "@aws-sdk/types";
 
 export interface EndpointDiscoveryInputConfig {}
 
 export interface PreviouslyResolved {
   isCustomEndpoint: boolean;
-  credentials: Provider<Credentials>;
+  credentials: MemoizedProvider<Credentials>;
   endpointDiscoveryEnabledProvider: Provider<boolean | undefined>;
 }
 

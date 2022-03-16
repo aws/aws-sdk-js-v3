@@ -9,6 +9,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
+  MemoizedProvider,
   MetadataBearer,
   Pluggable,
   Provider,
@@ -28,7 +29,7 @@ const sourceIdToCommandKeyMap: { [key: string]: string } = {
 const version = "2014-10-31";
 
 interface PreviouslyResolved {
-  credentials: Provider<Credentials>;
+  credentials: MemoizedProvider<Credentials>;
   endpoint: Provider<Endpoint>;
   region: Provider<string>;
   sha256: HashConstructor;
