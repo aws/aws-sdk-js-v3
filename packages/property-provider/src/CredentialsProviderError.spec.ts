@@ -11,8 +11,7 @@ describe(CredentialsProviderError.name, () => {
     });
 
     it("when created using from()", () => {
-      // ToDo: set instanceof to be CredentialsProviderError
-      expect(CredentialsProviderError.from(new Error("PANIC"))).toBeInstanceOf(Error);
+      expect(CredentialsProviderError.from(new Error("PANIC"))).toBeInstanceOf(CredentialsProviderError);
     });
   });
 });
