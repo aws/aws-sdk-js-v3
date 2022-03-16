@@ -13,6 +13,6 @@ export class ProviderError extends Error {
     super(message);
   }
   static from(error: Error, tryNextLink = true): ProviderError {
-    return Object.assign(new ProviderError(error.message, tryNextLink), error);
+    return Object.assign(new this(error.message, tryNextLink), error);
   }
 }
