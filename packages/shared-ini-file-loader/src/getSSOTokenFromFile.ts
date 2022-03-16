@@ -57,6 +57,6 @@ export interface SSOToken {
  */
 export const getSSOTokenFromFile = async (ssoStartUrl: string) => {
   const ssoTokenFilepath = getSSOTokenFilepath(ssoStartUrl);
-  const tokenText = await readFile(ssoTokenFilepath, "utf8");
-  return JSON.parse(tokenText) as SSOToken;
+  const ssoTokenText = await readFile(ssoTokenFilepath, "utf8");
+  return JSON.parse(ssoTokenText) as SSOToken;
 };
