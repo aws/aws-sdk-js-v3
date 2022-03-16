@@ -13,14 +13,13 @@ describe(ProviderError.name, () => {
     expect(new ProviderError("PANIC", false).tryNextLink).toBe(false);
   });
 
-  describe("should be instanceof ProviderError", () => {
+  describe.each([Error, ProviderError])("should be instanceof %p", (classConstructor) => {
     it("when created using constructor", () => {
-      expect(new ProviderError("PANIC")).toBeInstanceOf(ProviderError);
+      expect(new ProviderError("PANIC")).toBeInstanceOf(classConstructor);
     });
 
     it("when created using from()", () => {
-      // ToDo: set instanceof to be CredentialsProviderError
-      expect(ProviderError.from(new Error("PANIC"))).toBeInstanceOf(Error);
+      expect(ProviderError.from(new Error("PANIC"))).toBeInstanceOf(classConstructor);
     });
   });
 
