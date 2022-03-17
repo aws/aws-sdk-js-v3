@@ -4,17 +4,14 @@ import { promises } from "fs";
 jest.mock("fs", () => ({ promises: { readFile: jest.fn() } }));
 
 describe("slurpFile", () => {
-  let slurpFile;
-
   const UTF8 = "utf8";
   const getMockFileContents = (path: string, options = UTF8) => JSON.stringify({ path, options });
+  const getSlurpFileImport = () => import("./slurpFile");
 
-  beforeEach(async () => {
+  beforeEach(() => {
     (promises.readFile as jest.Mock).mockImplementation((path, options) =>
       Promise.resolve(getMockFileContents(path, options))
     );
-
-    slurpFile = ((await import("./slurpFile")) as any).slurpFile;
   });
 
   afterEach(() => {
@@ -22,6 +19,7 @@ describe("slurpFile", () => {
   });
 
   it("makes one readFile call for a filepath irrepsective of slurpFile calls", async () => {
+    const { slurpFile } = await getSlurpFileImport();
     const mockPath = "/mock/path";
     const mockPathContent = getMockFileContents(mockPath);
 
@@ -41,6 +39,8 @@ describe("slurpFile", () => {
   });
 
   it("makes multiple readFile calls with based on filepaths", async () => {
+    const { slurpFile } = await getSlurpFileImport();
+
     const mockPath1 = "/mock/path/1";
     const mockPathContent1 = getMockFileContents(mockPath1);
 
