@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1PutRestApiCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface PutRestApiCommandInput extends PutRestApiRequest {}
+type PutRestApiCommandInputType = Omit<PutRestApiRequest, "body"> & {
+  /**
+   * For *`PutRestApiRequest["body"]`*, see {@link PutRestApiRequest.body}.
+   */
+  body: PutRestApiRequest["body"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `PutRestApiRequest` interface. There are more parameters than `body` defined in {@link PutRestApiRequest}
+ */
+export interface PutRestApiCommandInput extends PutRestApiCommandInputType {}
 export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**

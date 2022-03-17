@@ -18,7 +18,16 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface TestPayloadBlobCommandInput extends TestPayloadBlobInputOutput {}
+type TestPayloadBlobCommandInputType = Omit<TestPayloadBlobInputOutput, "data"> & {
+  /**
+   * For *`TestPayloadBlobInputOutput["data"]`*, see {@link TestPayloadBlobInputOutput.data}.
+   */
+  data?: TestPayloadBlobInputOutput["data"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `TestPayloadBlobInputOutput` interface. There are more parameters than `data` defined in {@link TestPayloadBlobInputOutput}
+ */
+export interface TestPayloadBlobCommandInput extends TestPayloadBlobCommandInputType {}
 export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput, __MetadataBearer {}
 
 /**

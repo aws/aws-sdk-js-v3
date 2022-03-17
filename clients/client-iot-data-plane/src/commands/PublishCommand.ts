@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1PublishCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface PublishCommandInput extends PublishRequest {}
+type PublishCommandInputType = Omit<PublishRequest, "payload"> & {
+  /**
+   * For *`PublishRequest["payload"]`*, see {@link PublishRequest.payload}.
+   */
+  payload?: PublishRequest["payload"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `PublishRequest` interface. There are more parameters than `payload` defined in {@link PublishRequest}
+ */
+export interface PublishCommandInput extends PublishCommandInputType {}
 export interface PublishCommandOutput extends __MetadataBearer {}
 
 /**

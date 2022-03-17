@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1UpdateProjectCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdateProjectCommandInput extends UpdateProjectRequest {}
+type UpdateProjectCommandInputType = Omit<UpdateProjectRequest, "contents"> & {
+  /**
+   * For *`UpdateProjectRequest["contents"]`*, see {@link UpdateProjectRequest.contents}.
+   */
+  contents?: UpdateProjectRequest["contents"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `UpdateProjectRequest` interface. There are more parameters than `contents` defined in {@link UpdateProjectRequest}
+ */
+export interface UpdateProjectCommandInput extends UpdateProjectCommandInputType {}
 export interface UpdateProjectCommandOutput extends UpdateProjectResult, __MetadataBearer {}
 
 /**

@@ -18,7 +18,16 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsInputOutput {}
+type HttpPayloadTraitsCommandInputType = Omit<HttpPayloadTraitsInputOutput, "blob"> & {
+  /**
+   * For *`HttpPayloadTraitsInputOutput["blob"]`*, see {@link HttpPayloadTraitsInputOutput.blob}.
+   */
+  blob?: HttpPayloadTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `HttpPayloadTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link HttpPayloadTraitsInputOutput}
+ */
+export interface HttpPayloadTraitsCommandInput extends HttpPayloadTraitsCommandInputType {}
 export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOutput, __MetadataBearer {}
 
 /**

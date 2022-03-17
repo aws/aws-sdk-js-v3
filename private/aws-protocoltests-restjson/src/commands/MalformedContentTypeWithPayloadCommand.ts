@@ -18,7 +18,16 @@ import {
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadInput {}
+type MalformedContentTypeWithPayloadCommandInputType = Omit<MalformedContentTypeWithPayloadInput, "payload"> & {
+  /**
+   * For *`MalformedContentTypeWithPayloadInput["payload"]`*, see {@link MalformedContentTypeWithPayloadInput.payload}.
+   */
+  payload?: MalformedContentTypeWithPayloadInput["payload"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `MalformedContentTypeWithPayloadInput` interface. There are more parameters than `payload` defined in {@link MalformedContentTypeWithPayloadInput}
+ */
+export interface MalformedContentTypeWithPayloadCommandInput extends MalformedContentTypeWithPayloadCommandInputType {}
 export interface MalformedContentTypeWithPayloadCommandOutput extends __MetadataBearer {}
 
 export class MalformedContentTypeWithPayloadCommand extends $Command<

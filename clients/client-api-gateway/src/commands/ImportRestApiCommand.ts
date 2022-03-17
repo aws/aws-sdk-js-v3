@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1ImportRestApiCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ImportRestApiCommandInput extends ImportRestApiRequest {}
+type ImportRestApiCommandInputType = Omit<ImportRestApiRequest, "body"> & {
+  /**
+   * For *`ImportRestApiRequest["body"]`*, see {@link ImportRestApiRequest.body}.
+   */
+  body: ImportRestApiRequest["body"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `ImportRestApiRequest` interface. There are more parameters than `body` defined in {@link ImportRestApiRequest}
+ */
+export interface ImportRestApiCommandInput extends ImportRestApiCommandInputType {}
 export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**

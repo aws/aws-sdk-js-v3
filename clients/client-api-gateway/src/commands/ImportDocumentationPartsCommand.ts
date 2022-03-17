@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1ImportDocumentationPartsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ImportDocumentationPartsCommandInput extends ImportDocumentationPartsRequest {}
+type ImportDocumentationPartsCommandInputType = Omit<ImportDocumentationPartsRequest, "body"> & {
+  /**
+   * For *`ImportDocumentationPartsRequest["body"]`*, see {@link ImportDocumentationPartsRequest.body}.
+   */
+  body: ImportDocumentationPartsRequest["body"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `ImportDocumentationPartsRequest` interface. There are more parameters than `body` defined in {@link ImportDocumentationPartsRequest}
+ */
+export interface ImportDocumentationPartsCommandInput extends ImportDocumentationPartsCommandInputType {}
 export interface ImportDocumentationPartsCommandOutput extends DocumentationPartIds, __MetadataBearer {}
 
 export class ImportDocumentationPartsCommand extends $Command<

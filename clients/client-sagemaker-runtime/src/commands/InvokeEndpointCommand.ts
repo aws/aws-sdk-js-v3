@@ -18,7 +18,16 @@ import {
 } from "../protocols/Aws_restJson1";
 import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerRuntimeClient";
 
-export interface InvokeEndpointCommandInput extends InvokeEndpointInput {}
+type InvokeEndpointCommandInputType = Omit<InvokeEndpointInput, "Body"> & {
+  /**
+   * For *`InvokeEndpointInput["Body"]`*, see {@link InvokeEndpointInput.Body}.
+   */
+  Body: InvokeEndpointInput["Body"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `InvokeEndpointInput` interface. There are more parameters than `Body` defined in {@link InvokeEndpointInput}
+ */
+export interface InvokeEndpointCommandInput extends InvokeEndpointCommandInputType {}
 export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __MetadataBearer {}
 
 /**

@@ -15,7 +15,16 @@ import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import { InvocationRequest, InvocationResponse } from "../models/models_0";
 import { deserializeAws_restJson1InvokeCommand, serializeAws_restJson1InvokeCommand } from "../protocols/Aws_restJson1";
 
-export interface InvokeCommandInput extends InvocationRequest {}
+type InvokeCommandInputType = Omit<InvocationRequest, "Payload"> & {
+  /**
+   * For *`InvocationRequest["Payload"]`*, see {@link InvocationRequest.Payload}.
+   */
+  Payload?: InvocationRequest["Payload"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `InvocationRequest` interface. There are more parameters than `Payload` defined in {@link InvocationRequest}
+ */
+export interface InvokeCommandInput extends InvokeCommandInputType {}
 export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
 
 /**

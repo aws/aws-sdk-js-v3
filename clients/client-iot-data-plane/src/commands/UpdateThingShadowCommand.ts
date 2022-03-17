@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1UpdateThingShadowCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdateThingShadowCommandInput extends UpdateThingShadowRequest {}
+type UpdateThingShadowCommandInputType = Omit<UpdateThingShadowRequest, "payload"> & {
+  /**
+   * For *`UpdateThingShadowRequest["payload"]`*, see {@link UpdateThingShadowRequest.payload}.
+   */
+  payload: UpdateThingShadowRequest["payload"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `UpdateThingShadowRequest` interface. There are more parameters than `payload` defined in {@link UpdateThingShadowRequest}
+ */
+export interface UpdateThingShadowCommandInput extends UpdateThingShadowCommandInputType {}
 export interface UpdateThingShadowCommandOutput extends UpdateThingShadowResponse, __MetadataBearer {}
 
 /**

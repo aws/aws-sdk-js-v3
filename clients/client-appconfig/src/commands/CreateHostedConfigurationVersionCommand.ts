@@ -18,7 +18,17 @@ import {
   serializeAws_restJson1CreateHostedConfigurationVersionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateHostedConfigurationVersionCommandInput extends CreateHostedConfigurationVersionRequest {}
+type CreateHostedConfigurationVersionCommandInputType = Omit<CreateHostedConfigurationVersionRequest, "Content"> & {
+  /**
+   * For *`CreateHostedConfigurationVersionRequest["Content"]`*, see {@link CreateHostedConfigurationVersionRequest.Content}.
+   */
+  Content: CreateHostedConfigurationVersionRequest["Content"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `CreateHostedConfigurationVersionRequest` interface. There are more parameters than `Content` defined in {@link CreateHostedConfigurationVersionRequest}
+ */
+export interface CreateHostedConfigurationVersionCommandInput
+  extends CreateHostedConfigurationVersionCommandInputType {}
 export interface CreateHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**

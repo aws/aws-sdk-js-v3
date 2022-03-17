@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1PostAgentProfileCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface PostAgentProfileCommandInput extends PostAgentProfileRequest {}
+type PostAgentProfileCommandInputType = Omit<PostAgentProfileRequest, "agentProfile"> & {
+  /**
+   * For *`PostAgentProfileRequest["agentProfile"]`*, see {@link PostAgentProfileRequest.agentProfile}.
+   */
+  agentProfile: PostAgentProfileRequest["agentProfile"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `PostAgentProfileRequest` interface. There are more parameters than `agentProfile` defined in {@link PostAgentProfileRequest}
+ */
+export interface PostAgentProfileCommandInput extends PostAgentProfileCommandInputType {}
 export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse, __MetadataBearer {}
 
 /**

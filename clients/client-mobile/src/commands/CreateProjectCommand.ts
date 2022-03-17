@@ -18,7 +18,16 @@ import {
   serializeAws_restJson1CreateProjectCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface CreateProjectCommandInput extends CreateProjectRequest {}
+type CreateProjectCommandInputType = Omit<CreateProjectRequest, "contents"> & {
+  /**
+   * For *`CreateProjectRequest["contents"]`*, see {@link CreateProjectRequest.contents}.
+   */
+  contents?: CreateProjectRequest["contents"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `CreateProjectRequest` interface. There are more parameters than `contents` defined in {@link CreateProjectRequest}
+ */
+export interface CreateProjectCommandInput extends CreateProjectCommandInputType {}
 export interface CreateProjectCommandOutput extends CreateProjectResult, __MetadataBearer {}
 
 /**

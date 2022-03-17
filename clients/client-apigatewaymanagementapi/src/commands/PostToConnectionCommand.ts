@@ -22,7 +22,16 @@ import {
   serializeAws_restJson1PostToConnectionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface PostToConnectionCommandInput extends PostToConnectionRequest {}
+type PostToConnectionCommandInputType = Omit<PostToConnectionRequest, "Data"> & {
+  /**
+   * For *`PostToConnectionRequest["Data"]`*, see {@link PostToConnectionRequest.Data}.
+   */
+  Data: PostToConnectionRequest["Data"] | string | Uint8Array | Buffer;
+};
+/**
+ * This interface extends from `PostToConnectionRequest` interface. There are more parameters than `Data` defined in {@link PostToConnectionRequest}
+ */
+export interface PostToConnectionCommandInput extends PostToConnectionCommandInputType {}
 export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
