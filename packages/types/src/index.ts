@@ -15,6 +15,7 @@ export * from "./serde";
 export * from "./shapes";
 export * from "./signature";
 export * from "./stream";
+export * from "./token";
 export * from "./transfer";
 export * from "./util";
 export * from "./waiter";
