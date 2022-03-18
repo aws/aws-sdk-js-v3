@@ -32,7 +32,7 @@
     "@aws-sdk/endpoint-cache": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "engines": {
     "node": ">= 12.0.0"

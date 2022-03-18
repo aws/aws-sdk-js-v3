@@ -3,7 +3,7 @@
   "version": "3.52.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

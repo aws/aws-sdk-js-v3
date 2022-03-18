@@ -27,7 +27,7 @@
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

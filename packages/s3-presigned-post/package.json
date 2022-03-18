@@ -23,7 +23,7 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
     "@aws-sdk/util-hex-encoding": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "*",

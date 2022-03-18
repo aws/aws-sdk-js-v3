@@ -20,7 +20,7 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "mnemonist": "0.38.3",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

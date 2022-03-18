@@ -25,7 +25,7 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

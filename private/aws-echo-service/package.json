@@ -46,7 +46,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "@aws-sdk/util-utf8-node": "*",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
