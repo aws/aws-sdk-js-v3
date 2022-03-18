@@ -93,7 +93,7 @@
     "karma-jasmine": "^3.3.1",
     "karma-mocha": "^2.0.1",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-typescript": "^5.0.3",
+    "karma-typescript": "5.5.3",
     "karma-webpack": "^4.0.2",
     "lerna": "3.22.1",
     "lint-staged": "^10.0.1",
