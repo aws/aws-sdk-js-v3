@@ -91,38 +91,12 @@ function parseDate(date?: string): Date | undefined {
   return parsedDate instanceof Date ? parsedDate : undefined;
 }
 
-export function signUrl(args: CloudfrontSignInput): string {
+function sign(args: CloudfrontSignInput) {
   const dateLessThan = parseDate(args.dateLessThan);
   if (!dateLessThan) {
     throw new Error("dateLessThan argument is invalid");
   }
   const dateGreaterThan = parseDate(args.dateGreaterThan);
-  const privateKeyBuffer = readFileSync(args.privateKey);
-  const policy = JSON.stringify(
-    buildPolicy({
-      ...args,
-      dateLessThan,
-      dateGreaterThan,
-      resource: args.url,
-    })
-  );
-  const signature = signData(policy, privateKeyBuffer);
-  const normalizedBase64Signature = normalizeBase64(signature);
-  const queryParam = buildQueryString({
-    Expires: String(epochTime(dateLessThan)),
-    "Key-Pair-Id": args.keyPairId,
-    Signature: normalizedBase64Signature,
-  });
-  return `${args.url}?${queryParam}`;
-}
-
-export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
-  const dateLessThan = parseDate(args.dateLessThan);
-  if (!dateLessThan) {
-    throw new Error("dateLessThan argument is invalid");
-  }
-  const dateGreaterThan = parseDate(args.dateGreaterThan);
-  const usingACustomPolicy = dateGreaterThan || args.ipAddress;
   const privateKeyBuffer = readFileSync(args.privateKey);
   const policy = JSON.stringify(
     buildPolicy({
@@ -135,8 +109,29 @@ export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesO
   const signature = signData(policy, privateKeyBuffer);
   const normalizedBase64Signature = normalizeBase64(signature);
   return {
+    dateLessThan,
+    policy,
+    signature: normalizedBase64Signature,
+  };
+}
+
+export function signUrl(args: CloudfrontSignInput): string {
+  const { dateLessThan, signature } = sign(args);
+  const queryParam = buildQueryString({
+    Expires: String(epochTime(dateLessThan)),
+    "Key-Pair-Id": args.keyPairId,
+    Signature: signature,
+  });
+  return `${args.url}?${queryParam}`;
+}
+
+export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
+  const { dateLessThan, signature, policy } = sign(args);
+  const dateGreaterThan = parseDate(args.dateGreaterThan);
+  const usingACustomPolicy = dateGreaterThan || args.ipAddress;
+  return {
     "CloudFront-Key-Pair-Id": args.keyPairId,
-    "CloudFront-Signature": normalizedBase64Signature,
+    "CloudFront-Signature": signature,
     "CloudFront-Expires": !usingACustomPolicy ? epochTime(dateLessThan) : undefined,
     "CloudFront-Policy": usingACustomPolicy ? normalizeBase64(policy) : undefined,
   };
