@@ -77,9 +77,18 @@ describe("signUrl", () => {
       dateLessThan,
       privateKey: privateKeyPath,
     });
-    const policyStr = `{"Statement":[{"Resource":"${url}","Condition":{"DateLessThan":{"AWS:EpochTime":${epochTime(
-      dateLessThan
-    )}}}}]}`;
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+          },
+        },
+      ],
+    });
     const signature = createSignature(policyStr);
     const normalizedBase64Signature = normalizeBase64(signature);
     const expected = createUrl(url, {
@@ -155,9 +164,18 @@ describe("signCookies", () => {
       dateLessThan,
       privateKey: privateKeyPath,
     });
-    const policyStr = `{"Statement":[{"Resource":"${url}","Condition":{"DateLessThan":{"AWS:EpochTime":${epochTime(
-      dateLessThan
-    )}}}}]}`;
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+          },
+        },
+      ],
+    });
     const signature = createSignature(policyStr);
     const normalizedBase64Signature = normalizeBase64(signature);
     const expected = {
