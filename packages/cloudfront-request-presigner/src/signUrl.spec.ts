@@ -7,6 +7,11 @@ import { resolve } from "path";
 
 import { signCookies, signUrl } from "./index";
 
+const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
+const keyPairId = "APKAEIBAERJR2EXAMPLE";
+const dateLessThan = "2020-01-01";
+const dateGreaterThan = "2019-12-01";
+const ipAddress = "10.0.0.0";
 const privateKeyBuffer = Buffer.from(`
 -----BEGIN RSA PRIVATE KEY-----
 MIIEowIBAAKCAQEAuHfxvylv0IgfsJkualzZtCqwLyg19Gcsy+jVAAioVtWBOgxE
@@ -68,9 +73,6 @@ describe("signUrl", () => {
     rmdirSync(tmpDir, { recursive: true });
   });
   it("should sign a URL with a canned policy", () => {
-    const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
-    const keyPairId = "APKAEIBAERJR2EXAMPLE";
-    const dateLessThan = "2020-01-01";
     const result = signUrl({
       url,
       keyPairId,
@@ -100,11 +102,6 @@ describe("signUrl", () => {
     expect(verifySignature(signature, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy", () => {
-    const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
-    const keyPairId = "APKAEIBAERJR2EXAMPLE";
-    const dateLessThan = "2020-01-01";
-    const dateGreaterThan = "2019-12-01";
-    const ipAddress = "10.0.0.0";
     const result = signUrl({
       url,
       keyPairId,
@@ -155,9 +152,6 @@ describe("signCookies", () => {
     rmdirSync(tmpDir, { recursive: true });
   });
   it("should sign cookies with a canned policy", () => {
-    const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
-    const keyPairId = "APKAEIBAERJR2EXAMPLE";
-    const dateLessThan = "2020-01-01";
     const result = signCookies({
       url,
       keyPairId,
@@ -189,11 +183,6 @@ describe("signCookies", () => {
     expect(verifySignature(signature, policyStr)).toBeTruthy();
   });
   it("should sign cookies with a custom policy", () => {
-    const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
-    const keyPairId = "APKAEIBAERJR2EXAMPLE";
-    const dateLessThan = "2020-01-01";
-    const dateGreaterThan = "2019-12-01";
-    const ipAddress = "10.0.0.0";
     const result = signCookies({
       url,
       keyPairId,
