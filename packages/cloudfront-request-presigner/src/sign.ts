@@ -2,13 +2,25 @@ import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { createSign } from "crypto";
 import { readFileSync } from "fs";
 
+interface PolicyDates {
+  dateLessThan: number;
+  dateGreaterThan?: number;
+}
+
 interface CloudfrontSignInput {
   url: string;
   keyPairId: string;
   privateKey: string;
   dateLessThan: string;
-  dateGreaterThan?: string;
   ipAddress?: string;
+  dateGreaterThan?: string;
+}
+
+interface SignInput extends Pick<CloudfrontSignInput, "url" | "keyPairId" | "privateKey">, PolicyDates {}
+
+interface SignOutput {
+  policy: string;
+  signature: string;
 }
 
 interface CloudfrontSignedCookiesOutput {
@@ -35,11 +47,8 @@ interface Policy {
   }>;
 }
 
-interface BuildPolicyInput {
+interface BuildPolicyInput extends PolicyDates, Pick<CloudfrontSignInput, "ipAddress"> {
   resource: string;
-  dateLessThan: Date;
-  dateGreaterThan?: Date;
-  ipAddress?: string;
 }
 
 function epochTime(date: Date): number {
@@ -57,7 +66,7 @@ function buildPolicy(args: BuildPolicyInput): Policy {
         Resource: args.resource,
         Condition: {
           DateLessThan: {
-            "AWS:EpochTime": epochTime(args.dateLessThan),
+            "AWS:EpochTime": args.dateLessThan,
           },
         },
       },
@@ -65,7 +74,7 @@ function buildPolicy(args: BuildPolicyInput): Policy {
   };
   if (args.dateGreaterThan) {
     policy.Statement[0].Condition["DateGreaterThan"] = {
-      "AWS:EpochTime": epochTime(args.dateGreaterThan),
+      "AWS:EpochTime": args.dateGreaterThan,
     };
   }
   if (args.ipAddress) {
@@ -83,42 +92,50 @@ function signData(data: string, privateKeyBuffer: Buffer): string {
   return sign.sign(privateKeyBuffer, "base64");
 }
 
-function parseDate(date?: string): Date | undefined {
+function parseDate(date?: string): number | undefined {
   if (!date) {
     return undefined;
   }
   const parsedDate = new Date(date);
-  return parsedDate instanceof Date ? parsedDate : undefined;
+  return parsedDate instanceof Date ? epochTime(parsedDate) : undefined;
 }
 
-function sign(args: CloudfrontSignInput) {
-  const dateLessThan = parseDate(args.dateLessThan);
+function parseDateWindow(expiration: string, start?: string): PolicyDates {
+  const dateLessThan = parseDate(expiration);
   if (!dateLessThan) {
-    throw new Error("dateLessThan argument is invalid");
+    throw new Error("dateLessThan is invalid. Ensure a valid date string is provided.");
   }
-  const dateGreaterThan = parseDate(args.dateGreaterThan);
+  return {
+    dateLessThan,
+    dateGreaterThan: parseDate(start),
+  };
+}
+
+function sign(args: SignInput): SignOutput {
   const privateKeyBuffer = readFileSync(args.privateKey);
   const policy = JSON.stringify(
     buildPolicy({
       ...args,
-      dateLessThan,
-      dateGreaterThan,
       resource: args.url,
     })
   );
   const signature = signData(policy, privateKeyBuffer);
   const normalizedBase64Signature = normalizeBase64(signature);
   return {
-    dateLessThan,
     policy,
     signature: normalizedBase64Signature,
   };
 }
 
 export function signUrl(args: CloudfrontSignInput): string {
-  const { dateLessThan, signature } = sign(args);
+  const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
+  const { signature } = sign({
+    ...args,
+    dateLessThan,
+    dateGreaterThan,
+  });
   const queryParam = buildQueryString({
-    Expires: String(epochTime(dateLessThan)),
+    Expires: String(dateLessThan),
     "Key-Pair-Id": args.keyPairId,
     Signature: signature,
   });
@@ -126,13 +143,17 @@ export function signUrl(args: CloudfrontSignInput): string {
 }
 
 export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
-  const { dateLessThan, signature, policy } = sign(args);
-  const dateGreaterThan = parseDate(args.dateGreaterThan);
+  const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
+  const { signature, policy } = sign({
+    ...args,
+    dateLessThan,
+    dateGreaterThan,
+  });
   const usingACustomPolicy = dateGreaterThan || args.ipAddress;
   return {
     "CloudFront-Key-Pair-Id": args.keyPairId,
     "CloudFront-Signature": signature,
-    "CloudFront-Expires": !usingACustomPolicy ? epochTime(dateLessThan) : undefined,
+    "CloudFront-Expires": !usingACustomPolicy ? dateLessThan : undefined,
     "CloudFront-Policy": usingACustomPolicy ? normalizeBase64(policy) : undefined,
   };
 }
