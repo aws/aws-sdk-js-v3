@@ -1,0 +1,43 @@
+# @aws-sdk/cloudfront-request-presigner
+
+This package provides a presigner based on a CloudFront trusted key group key pair to generate signed urls and cookies for accessing private content on CloudFront.
+
+> Please note the process for creating a pre-signed URL with Cloudfront is very different than the process for S3. For more information, please visit the documentation for [restricting CloudFront content with signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+
+### Get a Signed Canned URL
+
+JavaScript Example:
+
+```javascript
+const { signUrl } = require("@aws-sdk/cloudfront-request-presigner");
+const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
+const s3ObjectKey = "private-content/private.jpeg";
+const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
+const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
+const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
+const dateLessThan = "2022-01-01";
+const signedUrl = signUrl({
+  url,
+  keyPairId,
+  dateLessThan,
+  privateKey,
+});
+```
+
+ES6 Example
+
+```javascript
+import { signUrl } from "@aws-sdk/cloudfront-request-presigner";
+const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
+const s3ObjectKey = "private-content/private.jpeg";
+const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
+const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
+const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
+const dateLessThan = "2022-01-01";
+const signedUrl = signUrl({
+  url,
+  keyPairId,
+  dateLessThan,
+  privateKey,
+});
+```
