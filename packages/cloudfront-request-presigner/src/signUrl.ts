@@ -11,6 +11,13 @@ interface CloudfrontSignInput {
   ipAddress?: string;
 }
 
+interface CloudfrontSignedCookiesOutput {
+  "CloudFront-Key-Pair-Id": string;
+  "CloudFront-Signature": string;
+  "CloudFront-Expires"?: number;
+  "CloudFront-Policy"?: string;
+}
+
 interface Policy {
   Statement: Array<{
     Resource: string;
@@ -107,4 +114,30 @@ export function signUrl(args: CloudfrontSignInput): string {
     Signature: normalizedBase64Signature,
   });
   return `${args.url}?${queryParam}`;
+}
+
+export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
+  const dateLessThan = parseDate(args.dateLessThan);
+  if (!dateLessThan) {
+    throw new Error("dateLessThan argument is invalid");
+  }
+  const dateGreaterThan = parseDate(args.dateGreaterThan);
+  const usingACustomPolicy = dateGreaterThan || args.ipAddress;
+  const privateKeyBuffer = readFileSync(args.privateKey);
+  const policy = JSON.stringify(
+    buildPolicy({
+      ...args,
+      dateLessThan,
+      dateGreaterThan,
+      resource: args.url,
+    })
+  );
+  const signature = signData(policy, privateKeyBuffer);
+  const normalizedBase64Signature = normalizeBase64(signature);
+  return {
+    "CloudFront-Key-Pair-Id": args.keyPairId,
+    "CloudFront-Signature": normalizedBase64Signature,
+    "CloudFront-Expires": !usingACustomPolicy ? epochTime(dateLessThan) : undefined,
+    "CloudFront-Policy": usingACustomPolicy ? normalizeBase64(policy) : undefined,
+  };
 }
