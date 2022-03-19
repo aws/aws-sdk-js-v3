@@ -67,7 +67,7 @@ describe("signUrl", () => {
   afterAll(() => {
     rmdirSync(tmpDir, { recursive: true });
   });
-  it("should sign a canned URL", () => {
+  it("should sign a URL with a canned policy", () => {
     const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
     const keyPairId = "APKAEIBAERJR2EXAMPLE";
     const dateLessThan = "2020-01-01";
