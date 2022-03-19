@@ -90,4 +90,46 @@ describe("signUrl", () => {
     expect(result).toBe(expected);
     expect(verifySignature(signature, policyStr)).toBeTruthy();
   });
+  it("should sign a URL with a custom policy", () => {
+    const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
+    const keyPairId = "APKAEIBAERJR2EXAMPLE";
+    const dateLessThan = "2020-01-01";
+    const dateGreaterThan = "2019-12-01";
+    const ipAddress = "10.0.0.0";
+    const result = signUrl({
+      url,
+      keyPairId,
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": epochTime(dateGreaterThan),
+            },
+            IpAddress: {
+              "AWS:SourceIp": `${ipAddress}/32`,
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    const normalizedBase64Signature = normalizeBase64(signature);
+    const expected = createUrl(url, {
+      Expires: String(epochTime(dateLessThan)),
+      "Key-Pair-Id": keyPairId,
+      Signature: normalizedBase64Signature,
+    });
+    expect(result).toBe(expected);
+    expect(verifySignature(signature, policyStr)).toBeTruthy();
+  });
 });
