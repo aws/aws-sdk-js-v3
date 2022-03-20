@@ -161,9 +161,10 @@ function sign(args: SignInput): SignOutput {
     })
   );
   const signature = signData(policy, privateKeyBuffer);
+  const normalizedBase64Policy = normalizeBase64(policy);
   const normalizedBase64Signature = normalizeBase64(signature);
   return {
-    policy,
+    policy: normalizedBase64Policy,
     signature: normalizedBase64Signature,
   };
 }
@@ -171,15 +172,17 @@ function sign(args: SignInput): SignOutput {
 export function signUrl(args: CloudfrontSignInput): string {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
   const url = parseUrl(args.url);
-  const { signature } = sign({
+  const { signature, policy } = sign({
     ...args,
     dateLessThan,
     dateGreaterThan,
   });
+  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
   return formatUrl({
     ...url,
     query: {
       ...url.query,
+      ...(usingACustomPolicy ? { Policy: policy } : {}),
       Expires: String(dateLessThan),
       "Key-Pair-Id": args.keyPairId,
       Signature: signature,
@@ -194,11 +197,11 @@ export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesO
     dateLessThan,
     dateGreaterThan,
   });
-  const usingACustomPolicy = dateGreaterThan || args.ipAddress;
+  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
   return {
     "CloudFront-Key-Pair-Id": args.keyPairId,
     "CloudFront-Signature": signature,
     "CloudFront-Expires": !usingACustomPolicy ? dateLessThan : undefined,
-    "CloudFront-Policy": usingACustomPolicy ? normalizeBase64(policy) : undefined,
+    "CloudFront-Policy": usingACustomPolicy ? policy : undefined,
   };
 }

@@ -194,6 +194,7 @@ describe("signUrl", () => {
       Expires: String(epochTime(dateLessThan)),
       "Key-Pair-Id": keyPairId,
       Signature: normalizedBase64Signature,
+      Policy: normalizeBase64(policyStr),
     });
     expect(result).toBe(expected);
     const parsedUrl = parseUrl(result);
