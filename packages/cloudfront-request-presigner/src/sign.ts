@@ -60,6 +60,46 @@ function normalizeBase64(str: string): string {
   return str.replace(/\+/g, "-").replace(/=/g, "_").replace(/\//g, "~");
 }
 
+function validateIP(ipStr: string): void {
+  const octets = ipStr.split(".");
+  if (octets.length !== 4) {
+    throw new Error(`IP does not contain four octets.`);
+  }
+  const isValid = octets.every((octet: string) => {
+    const num = Number(octet);
+    return Number.isInteger(num) && num >= 0 && num <= 255;
+  });
+  if (!isValid) {
+    throw new Error("invalid IP octets");
+  }
+}
+
+function validateMask(maskStr: string): void {
+  const mask = Number(maskStr);
+  const isValid = Number.isInteger(mask) && mask >= 0 && mask <= 32;
+  if (!isValid) {
+    throw new Error("invalid mask");
+  }
+}
+
+function parseCIDR(cidrStr: string): string {
+  try {
+    const cidrParts = cidrStr.split("/");
+    if (cidrParts.some((part: string) => part.length === 0)) {
+      throw new Error("missing ip or mask part of CIDR");
+    }
+    validateIP(cidrParts[0]);
+    let mask = "32";
+    if (cidrParts.length === 2) {
+      validateMask(cidrParts[1]);
+      mask = cidrParts[1];
+    }
+    return `${cidrParts[0]}/${mask}`;
+  } catch (error) {
+    throw new Error(`IP address "${cidrStr}" is invalid due to ${error.message}.`);
+  }
+}
+
 function buildPolicy(args: BuildPolicyInput): Policy {
   const policy: Policy = {
     Statement: [
@@ -79,7 +119,7 @@ function buildPolicy(args: BuildPolicyInput): Policy {
     };
   }
   if (args.ipAddress) {
-    const cidr = !args.ipAddress.endsWith("/32") ? `${args.ipAddress}/32` : args.ipAddress;
+    const cidr = parseCIDR(args.ipAddress);
     policy.Statement[0].Condition["IpAddress"] = {
       "AWS:SourceIp": cidr,
     };

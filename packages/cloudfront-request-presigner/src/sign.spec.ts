@@ -203,6 +203,50 @@ describe("signUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+  it("should throw an error when the ip address is invalid", () => {
+    const baseArgs = {
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey: privateKeyPath,
+    };
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/",
+      })
+    ).toThrow('IP address "10.0.0.0/" is invalid due to missing ip or mask part of CIDR.');
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "/32",
+      })
+    ).toThrow('IP address "/32" is invalid due to missing ip or mask part of CIDR.');
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/-1",
+      })
+    ).toThrow('IP address "10.0.0.0/-1" is invalid due to invalid mask.');
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/33",
+      })
+    ).toThrow('IP address "10.0.0.0/33" is invalid due to invalid mask.');
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.-1",
+      })
+    ).toThrow('IP address "10.0.0.-1" is invalid due to invalid IP octets.');
+    expect(() =>
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.256",
+      })
+    ).toThrow('IP address "10.0.0.256" is invalid due to invalid IP octets.');
+  });
 });
 
 describe("signCookies", () => {
