@@ -154,7 +154,12 @@ describe("signUrl", () => {
       Signature: normalizedBase64Signature,
     });
     expect(result).toBe(expected);
-    expect(verifySignature(signature, policyStr)).toBeTruthy();
+    const parsedUrl = parseUrl(result);
+    if (!parsedUrl.query) {
+      throw new Error("query parameter is undefined");
+    }
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy", () => {
     const result = signUrl({
@@ -191,7 +196,12 @@ describe("signUrl", () => {
       Signature: normalizedBase64Signature,
     });
     expect(result).toBe(expected);
-    expect(verifySignature(signature, policyStr)).toBeTruthy();
+    const parsedUrl = parseUrl(result);
+    if (!parsedUrl.query) {
+      throw new Error("query parameter is undefined");
+    }
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
 });
 
@@ -235,7 +245,7 @@ describe("signCookies", () => {
     expect(result["CloudFront-Expires"]).toBe(expected["CloudFront-Expires"]);
     expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
-    expect(verifySignature(signature, policyStr)).toBeTruthy();
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
   it("should sign cookies with a custom policy", () => {
     const result = signCookies({
@@ -274,6 +284,6 @@ describe("signCookies", () => {
     expect(result["CloudFront-Policy"]).toBe(expected["CloudFront-Policy"]);
     expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
-    expect(verifySignature(signature, policyStr)).toBeTruthy();
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
 });
