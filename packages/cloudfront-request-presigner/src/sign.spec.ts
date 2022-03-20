@@ -1,5 +1,6 @@
-import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { QueryParameterBag } from "@aws-sdk/types";
+import { parseUrl } from "@aws-sdk/url-parser";
+import { formatUrl } from "@aws-sdk/util-format-url";
 import { createSign, createVerify } from "crypto";
 import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
@@ -58,7 +59,14 @@ function epochTime(date: string): number {
   return new Date(date).getTime() / 1000;
 }
 function createUrl(url: string, queryParams: QueryParameterBag): string {
-  return `${url}?${buildQueryString(queryParams)}`;
+  const parsedUrl = parseUrl(url);
+  return formatUrl({
+    ...parsedUrl,
+    query: {
+      ...parsedUrl.query,
+      ...queryParams,
+    },
+  });
 }
 
 describe("signUrl", () => {
@@ -71,6 +79,21 @@ describe("signUrl", () => {
   });
   afterAll(() => {
     rmdirSync(tmpDir, { recursive: true });
+  });
+  it("should maintain query params after signing a URL", () => {
+    const url = "https://example.com/private.jpeg?foo=bar";
+    const result = parseUrl(
+      signUrl({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey: privateKeyPath,
+      })
+    );
+    if (!result.query) {
+      throw new Error("query parameter is undefined");
+    }
+    expect(result.query["foo"]).toBe("bar");
   });
   it("should sign a URL with a canned policy", () => {
     const result = signUrl({

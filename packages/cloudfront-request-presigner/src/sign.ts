@@ -1,4 +1,5 @@
-import { buildQueryString } from "@aws-sdk/querystring-builder";
+import { parseUrl } from "@aws-sdk/url-parser";
+import { formatUrl } from "@aws-sdk/util-format-url";
 import { createSign } from "crypto";
 import { readFileSync } from "fs";
 
@@ -129,17 +130,21 @@ function sign(args: SignInput): SignOutput {
 
 export function signUrl(args: CloudfrontSignInput): string {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
+  const url = parseUrl(args.url);
   const { signature } = sign({
     ...args,
     dateLessThan,
     dateGreaterThan,
   });
-  const queryParam = buildQueryString({
-    Expires: String(dateLessThan),
-    "Key-Pair-Id": args.keyPairId,
-    Signature: signature,
+  return formatUrl({
+    ...url,
+    query: {
+      ...url.query,
+      Expires: String(dateLessThan),
+      "Key-Pair-Id": args.keyPairId,
+      Signature: signature,
+    },
   });
-  return `${args.url}?${queryParam}`;
 }
 
 export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
