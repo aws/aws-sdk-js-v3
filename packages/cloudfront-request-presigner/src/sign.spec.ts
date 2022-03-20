@@ -1,6 +1,4 @@
-import { QueryParameterBag } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
-import { formatUrl } from "@aws-sdk/util-format-url";
 import { createSign, createVerify } from "crypto";
 import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
@@ -66,16 +64,6 @@ function denormalizeBase64(str: string): string {
 }
 function epochTime(date: string): number {
   return new Date(date).getTime() / 1000;
-}
-function createUrl(url: string, queryParams: QueryParameterBag): string {
-  const parsedUrl = parseUrl(url);
-  return formatUrl({
-    ...parsedUrl,
-    query: {
-      ...parsedUrl.query,
-      ...queryParams,
-    },
-  });
 }
 
 describe("signUrl", () => {

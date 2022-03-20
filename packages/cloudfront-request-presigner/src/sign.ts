@@ -1,5 +1,4 @@
 import { parseUrl } from "@aws-sdk/url-parser";
-import { formatUrl } from "@aws-sdk/util-format-url";
 import { createSign } from "crypto";
 import { readFileSync } from "fs";
 
@@ -15,15 +14,6 @@ interface CloudfrontSignInput {
   dateLessThan: string;
   ipAddress?: string;
   dateGreaterThan?: string;
-}
-
-interface SignInput extends Pick<CloudfrontSignInput, "url" | "keyPairId" | "privateKey">, PolicyDates {
-  customPolicy?: boolean;
-}
-
-interface SignOutput {
-  policy: string;
-  signature: string;
 }
 
 interface CloudfrontSignedCookiesOutput {
@@ -158,59 +148,31 @@ function parseDateWindow(expiration: string, start?: string): PolicyDates {
   };
 }
 
-function sign(args: SignInput): SignOutput {
-  return args.customPolicy ? signWithCustomPolicy(args) : signWithCannedPolicy(args);
-}
-
-function signWithCannedPolicy(args: SignInput): SignOutput {
-  const privateKeyBuffer = readFileSync(args.privateKey);
-  const policy = JSON.stringify(
-    buildPolicy({
-      ...args,
-      resource: args.url,
-    })
-  );
-  const signature = signData(policy, privateKeyBuffer);
-  const base64Signature = normalizeBase64(signature);
-  return {
-    policy,
-    signature: base64Signature,
-  };
-}
-
-function signWithCustomPolicy(args: SignInput): SignOutput {
-  const privateKeyBuffer = readFileSync(args.privateKey);
-  const policy = JSON.stringify(
-    buildPolicy({
-      ...args,
-      resource: args.url,
-    })
-  );
-  const signature = signData(policy, privateKeyBuffer);
-  const base64Policy = encodeToBase64(policy);
-  const base64Signature = normalizeBase64(signature);
-  return {
-    policy: base64Policy,
-    signature: base64Signature,
-  };
+function signPolicy(policy: string, privateKey: string): string {
+  const privateKeyBuffer = readFileSync(privateKey);
+  return normalizeBase64(signData(policy, privateKeyBuffer));
 }
 
 export function signUrl(args: CloudfrontSignInput): string {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
   const url = parseUrl(args.url);
-  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
-  const { signature, policy } = sign({
-    ...args,
-    dateLessThan,
-    dateGreaterThan,
-    customPolicy: usingACustomPolicy,
-  });
+  const policy = JSON.stringify(
+    buildPolicy({
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress: args.ipAddress,
+      resource: args.url,
+    })
+  );
+  const signature = signPolicy(policy, args.privateKey);
   const cloudfrontQueryParams = [];
   for (const key in url.query) {
     cloudfrontQueryParams.push(`${key}=${url.query[key]}`);
   }
+  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
   if (usingACustomPolicy) {
-    cloudfrontQueryParams.push(`Policy=${policy}`);
+    const base64EncodedPolicy = encodeToBase64(policy);
+    cloudfrontQueryParams.push(`Policy=${base64EncodedPolicy}`);
   } else {
     cloudfrontQueryParams.push(`Expires=${dateLessThan}`);
   }
@@ -222,16 +184,20 @@ export function signUrl(args: CloudfrontSignInput): string {
 export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
   const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
-  const { signature, policy } = sign({
-    ...args,
-    dateLessThan,
-    dateGreaterThan,
-    customPolicy: usingACustomPolicy,
-  });
+  const policy = JSON.stringify(
+    buildPolicy({
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress: args.ipAddress,
+      resource: args.url,
+    })
+  );
+  const signature = signPolicy(policy, args.privateKey);
+  const base64EncodedPolicy = encodeToBase64(policy);
   return {
     "CloudFront-Key-Pair-Id": args.keyPairId,
     "CloudFront-Signature": signature,
     "CloudFront-Expires": !usingACustomPolicy ? dateLessThan : undefined,
-    "CloudFront-Policy": usingACustomPolicy ? policy : undefined,
+    "CloudFront-Policy": usingACustomPolicy ? base64EncodedPolicy : undefined,
   };
 }
