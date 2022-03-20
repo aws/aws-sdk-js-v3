@@ -20,9 +20,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/url-parser": "3.4.1",
-    "@aws-sdk/util-format-url": "3.4.1",
-    "@aws-sdk/types": "3.4.1",
-    "@aws-sdk/querystring-builder": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
