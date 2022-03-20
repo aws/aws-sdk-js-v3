@@ -55,6 +55,9 @@ function verifySignature(signature: string, data: string): boolean {
 function normalizeBase64(str: string): string {
   return str.replace(/\+/g, "-").replace(/=/g, "_").replace(/\//g, "~");
 }
+function denormalizeBase64(str: string): string {
+  return str.replace(/\-/g, "+").replace(/_/g, "=").replace(/~/g, "/");
+}
 function epochTime(date: string): number {
   return new Date(date).getTime() / 1000;
 }
@@ -94,6 +97,35 @@ describe("signUrl", () => {
       throw new Error("query parameter is undefined");
     }
     expect(result.query["foo"]).toBe("bar");
+  });
+  it("should include url path in policy of signed URL", () => {
+    const url = "https://example.com/private.jpeg?foo=bar";
+    const result = parseUrl(
+      signUrl({
+        url,
+        keyPairId,
+        dateLessThan,
+        privateKey: privateKeyPath,
+      })
+    );
+    if (!result.query) {
+      throw new Error("query parameter is undefined");
+    }
+    expect(result.query["Signature"]).toBeDefined();
+    const signatureQueryParam = denormalizeBase64(result.query["Signature"] as string);
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+          },
+        },
+      ],
+    });
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a canned policy", () => {
     const result = signUrl({
