@@ -216,6 +216,28 @@ describe("signCookies", () => {
   afterAll(() => {
     rmdirSync(tmpDir, { recursive: true });
   });
+  it("should be able sign cookies that contain a URL with wildcards", () => {
+    const url = "https://example.com/private-content/*";
+    const result = signCookies({
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+          },
+        },
+      ],
+    });
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
+  });
   it("should sign cookies with a canned policy", () => {
     const result = signCookies({
       url,
