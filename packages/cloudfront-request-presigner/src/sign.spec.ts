@@ -203,6 +203,26 @@ describe("signUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
+  it("should allow an ip address with and without a mask", () => {
+    const baseArgs = {
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey: privateKeyPath,
+    };
+    expect(
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/32",
+      })
+    ).toBeTruthy();
+    expect(
+      signUrl({
+        ...baseArgs,
+        ipAddress: "10.0.0.0",
+      })
+    ).toBeTruthy();
+  });
   it("should throw an error when the ip address is invalid", () => {
     const baseArgs = {
       url,
@@ -259,6 +279,70 @@ describe("signCookies", () => {
   });
   afterAll(() => {
     rmdirSync(tmpDir, { recursive: true });
+  });
+  it("should allow an ip address with and without a mask", () => {
+    const baseArgs = {
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey: privateKeyPath,
+    };
+    expect(
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/32",
+      })
+    ).toBeTruthy();
+    expect(
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.0",
+      })
+    ).toBeTruthy();
+  });
+  it("should throw an error when the ip address is invalid", () => {
+    const baseArgs = {
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey: privateKeyPath,
+    };
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/",
+      })
+    ).toThrow('IP address "10.0.0.0/" is invalid due to missing ip or mask part of CIDR.');
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "/32",
+      })
+    ).toThrow('IP address "/32" is invalid due to missing ip or mask part of CIDR.');
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/-1",
+      })
+    ).toThrow('IP address "10.0.0.0/-1" is invalid due to invalid mask.');
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.0/33",
+      })
+    ).toThrow('IP address "10.0.0.0/33" is invalid due to invalid mask.');
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.-1",
+      })
+    ).toThrow('IP address "10.0.0.-1" is invalid due to invalid IP octets.');
+    expect(() =>
+      signCookies({
+        ...baseArgs,
+        ipAddress: "10.0.0.256",
+      })
+    ).toThrow('IP address "10.0.0.256" is invalid due to invalid IP octets.');
   });
   it("should be able sign cookies that contain a URL with wildcards", () => {
     const url = "https://example.com/private-content/*";
