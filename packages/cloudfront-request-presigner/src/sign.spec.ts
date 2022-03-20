@@ -45,15 +45,21 @@ aoCHJ9c5Pnu6FwMAjP8aaKLQDvoHZKVWL2Ml6A6V3Ed95Itp/g2J
 function createSignature(data: string): string {
   const signer = createSign("RSA-SHA1");
   signer.update(data);
-  return signer.sign(privateKeyBuffer, "base64");
+  return normalizeBase64(signer.sign(privateKeyBuffer, "base64"));
 }
 function verifySignature(signature: string, data: string): boolean {
   const verifier = createVerify("RSA-SHA1");
   verifier.update(data);
   return verifier.verify(privateKeyBuffer, signature, "base64");
 }
+function encodeToBase64(str: string): string {
+  return normalizeBase64(Buffer.from(str).toString("base64"));
+}
 function normalizeBase64(str: string): string {
   return str.replace(/\+/g, "-").replace(/=/g, "_").replace(/\//g, "~");
+}
+function decodeToUTF8(str: string): string {
+  return Buffer.from(denormalizeBase64(str), "base64").toString("utf-8");
 }
 function denormalizeBase64(str: string): string {
   return str.replace(/\-/g, "+").replace(/_/g, "=").replace(/~/g, "/");
@@ -147,13 +153,7 @@ describe("signUrl", () => {
       ],
     });
     const signature = createSignature(policyStr);
-    const normalizedBase64Signature = normalizeBase64(signature);
-    const expected = createUrl(url, {
-      Expires: String(epochTime(dateLessThan)),
-      "Key-Pair-Id": keyPairId,
-      Signature: normalizedBase64Signature,
-    });
-    expect(result).toBe(expected);
+    expect(result).toBe(`${url}?Expires=${epochTime(dateLessThan)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     if (!parsedUrl.query) {
       throw new Error("query parameter is undefined");
@@ -189,14 +189,7 @@ describe("signUrl", () => {
       ],
     });
     const signature = createSignature(policyStr);
-    const normalizedBase64Signature = normalizeBase64(signature);
-    const expected = createUrl(url, {
-      Expires: String(epochTime(dateLessThan)),
-      "Key-Pair-Id": keyPairId,
-      Signature: normalizedBase64Signature,
-      Policy: normalizeBase64(policyStr),
-    });
-    expect(result).toBe(expected);
+    expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     if (!parsedUrl.query) {
       throw new Error("query parameter is undefined");
@@ -387,11 +380,10 @@ describe("signCookies", () => {
       ],
     });
     const signature = createSignature(policyStr);
-    const normalizedBase64Signature = normalizeBase64(signature);
     const expected = {
       "CloudFront-Expires": epochTime(dateLessThan),
       "CloudFront-Key-Pair-Id": keyPairId,
-      "CloudFront-Signature": normalizedBase64Signature,
+      "CloudFront-Signature": signature,
     };
     expect(result["CloudFront-Expires"]).toBe(expected["CloudFront-Expires"]);
     expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
@@ -426,11 +418,10 @@ describe("signCookies", () => {
       ],
     });
     const signature = createSignature(policyStr);
-    const normalizedBase64Signature = normalizeBase64(signature);
     const expected = {
-      "CloudFront-Policy": normalizeBase64(policyStr),
+      "CloudFront-Policy": encodeToBase64(policyStr),
       "CloudFront-Key-Pair-Id": keyPairId,
-      "CloudFront-Signature": normalizedBase64Signature,
+      "CloudFront-Signature": signature,
     };
     expect(result["CloudFront-Policy"]).toBe(expected["CloudFront-Policy"]);
     expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
