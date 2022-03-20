@@ -149,7 +149,71 @@ describe("signUrl", () => {
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
-  it("should sign a URL with a custom policy", () => {
+  it("should sign a URL with a custom policy containing a start date", () => {
+    const result = signUrl({
+      url,
+      keyPairId,
+      dateLessThan,
+      dateGreaterThan,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": epochTime(dateGreaterThan),
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
+    const parsedUrl = parseUrl(result);
+    if (!parsedUrl.query) {
+      throw new Error("query parameter is undefined");
+    }
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+  it("should sign a URL with a custom policy containing an ip address", () => {
+    const result = signUrl({
+      url,
+      keyPairId,
+      dateLessThan,
+      ipAddress,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+            IpAddress: {
+              "AWS:SourceIp": `${ipAddress}/32`,
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
+    const parsedUrl = parseUrl(result);
+    if (!parsedUrl.query) {
+      throw new Error("query parameter is undefined");
+    }
+    const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
+    expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
+  });
+  it("should sign a URL with a custom policy containing a start date and ip address", () => {
     const result = signUrl({
       url,
       keyPairId,
@@ -378,7 +442,75 @@ describe("signCookies", () => {
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
-  it("should sign cookies with a custom policy", () => {
+  it("should sign cookies with a custom policy containing a start date", () => {
+    const result = signCookies({
+      url,
+      keyPairId,
+      dateLessThan,
+      dateGreaterThan,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+            DateGreaterThan: {
+              "AWS:EpochTime": epochTime(dateGreaterThan),
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    const expected = {
+      "CloudFront-Policy": encodeToBase64(policyStr),
+      "CloudFront-Key-Pair-Id": keyPairId,
+      "CloudFront-Signature": signature,
+    };
+    expect(result["CloudFront-Policy"]).toBe(expected["CloudFront-Policy"]);
+    expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
+    expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
+  });
+  it("should sign cookies with a custom policy containing an ip address", () => {
+    const result = signCookies({
+      url,
+      keyPairId,
+      dateLessThan,
+      ipAddress,
+      privateKey: privateKeyPath,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: url,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochTime(dateLessThan),
+            },
+            IpAddress: {
+              "AWS:SourceIp": `${ipAddress}/32`,
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    const expected = {
+      "CloudFront-Policy": encodeToBase64(policyStr),
+      "CloudFront-Key-Pair-Id": keyPairId,
+      "CloudFront-Signature": signature,
+    };
+    expect(result["CloudFront-Policy"]).toBe(expected["CloudFront-Policy"]);
+    expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
+    expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
+  });
+  it("should sign cookies with a custom policy containing a start date and ip address", () => {
     const result = signCookies({
       url,
       keyPairId,
