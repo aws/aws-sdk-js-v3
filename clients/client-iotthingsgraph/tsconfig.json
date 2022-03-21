@@ -6,7 +6,8 @@
     "incremental": true,
     "removeComments": true,
     "resolveJsonModule": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "useUnknownInCatchVariables": false
   },
   "exclude": ["test/"]
 }

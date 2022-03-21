@@ -29,13 +29,13 @@
     "hash-test-vectors": "^1.3.2",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.2"
   },
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-utf8-browser": "*",
     "@aws-sdk/util-utf8-node": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "browser": {
     "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser",

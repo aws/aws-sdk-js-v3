@@ -23,7 +23,7 @@
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@aws-sdk/smithy-client": "*",
@@ -33,7 +33,7 @@
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.2"
   },
   "engines": {
     "node": ">= 10.0.0"

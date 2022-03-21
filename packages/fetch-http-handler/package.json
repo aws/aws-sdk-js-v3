@@ -24,7 +24,7 @@
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-base64-browser": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@aws-sdk/abort-controller": "*",
@@ -33,7 +33,7 @@
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.2"
   },
   "typesVersions": {
     "<4.0": {

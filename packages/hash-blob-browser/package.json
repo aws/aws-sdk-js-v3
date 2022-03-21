@@ -22,7 +22,7 @@
     "@aws-sdk/chunked-blob-reader": "*",
     "@aws-sdk/chunked-blob-reader-native": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "2.0.0",
@@ -32,7 +32,7 @@
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.2"
   },
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"

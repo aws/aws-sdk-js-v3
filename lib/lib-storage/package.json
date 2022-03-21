@@ -26,7 +26,7 @@
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
     "@aws-sdk/abort-controller": "^3.0.0",
@@ -41,7 +41,7 @@
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5",
+    "typescript": "~4.6.2",
     "web-streams-polyfill": "^3.0.0"
   },
   "typesVersions": {

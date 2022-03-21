@@ -2,7 +2,7 @@
   "name": "@aws-sdk/shared-ini-file-loader",
   "version": "3.54.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@aws-sdk/types": "*",
@@ -12,7 +12,7 @@
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.6.2"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
