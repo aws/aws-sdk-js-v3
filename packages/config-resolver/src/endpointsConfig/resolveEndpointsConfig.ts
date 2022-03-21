@@ -2,7 +2,6 @@ import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "@aws-sdk/type
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
-import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 export interface EndpointsInputConfig {
   /**
@@ -50,12 +49,12 @@ export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig => {
   const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint!);
-  const { endpoint, useFipsEndpoint } = input;
+  const { endpoint, useFipsEndpoint, urlParser } = input;
   return {
     ...input,
     tls: input.tls ?? true,
     endpoint: endpoint
-      ? normalizeEndpoint({ ...input, endpoint })
+      ? normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
       : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
     isCustomEndpoint: endpoint ? true : false,
     useDualstackEndpoint,
