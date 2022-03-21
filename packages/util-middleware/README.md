@@ -5,7 +5,7 @@
 
 > An internal package
 
-This package provides shared utilities for all credential providers.
+This package provides shared utilities for middleware.
 
 ## Usage
 
