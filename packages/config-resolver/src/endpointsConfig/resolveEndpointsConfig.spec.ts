@@ -1,9 +1,12 @@
+import { normalizeProvider } from "@aws-sdk/util-middleware";
+
 import { resolveEndpointsConfig } from "./resolveEndpointsConfig";
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 jest.mock("./utils/getEndpointFromRegion");
 jest.mock("./utils/normalizeEndpoint");
+jest.mock("@aws-sdk/util-middleware");
 
 describe(resolveEndpointsConfig.name, () => {
   const mockEndpoint = {
@@ -12,14 +15,20 @@ describe(resolveEndpointsConfig.name, () => {
     path: "/",
   };
 
-  const mockInput = { endpoint: mockEndpoint } as any;
+  const mockInput = {
+    endpoint: mockEndpoint,
+    useDualstackEndpoint: () => Promise.resolve(false),
+    useFipsEndpoint: () => Promise.resolve(false),
+  } as any;
 
   beforeEach(() => {
     (getEndpointFromRegion as jest.Mock).mockResolvedValueOnce(mockEndpoint);
     (normalizeEndpoint as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
+    (normalizeProvider as jest.Mock).mockImplementation((value) => value);
   });
 
   afterEach(() => {
+    // expect(normalizeProvider).toHaveBeenCalledWith(mockInput.useDualstackEndpoint);
     jest.clearAllMocks();
   });
 
@@ -39,7 +48,8 @@ describe(resolveEndpointsConfig.name, () => {
     });
 
     it("returns false when endpoint is not defined", () => {
-      expect(resolveEndpointsConfig({} as any).isCustomEndpoint).toStrictEqual(false);
+      const { endpoint, ...mockInputWithoutEndpoint } = mockInput;
+      expect(resolveEndpointsConfig(mockInputWithoutEndpoint).isCustomEndpoint).toStrictEqual(false);
     });
   });
 
@@ -53,11 +63,12 @@ describe(resolveEndpointsConfig.name, () => {
     });
 
     it("returns from getEndpointFromRegion when endpoint is not defined", async () => {
-      const endpoint = await resolveEndpointsConfig({} as any).endpoint();
-      expect(endpoint).toStrictEqual(mockEndpoint);
+      const { endpoint, ...mockInputWithoutEndpoint } = mockInput;
+      const returnedEndpoint = await resolveEndpointsConfig(mockInputWithoutEndpoint).endpoint();
+      expect(returnedEndpoint).toStrictEqual(mockEndpoint);
       expect(normalizeEndpoint).not.toHaveBeenCalled();
       expect(getEndpointFromRegion).toHaveBeenCalledTimes(1);
-      expect(getEndpointFromRegion).toHaveBeenCalledWith({});
+      expect(getEndpointFromRegion).toHaveBeenCalledWith(mockInputWithoutEndpoint);
     });
   });
 });
