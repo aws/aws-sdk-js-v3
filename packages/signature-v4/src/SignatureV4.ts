@@ -16,6 +16,7 @@ import {
   StringSigner,
 } from "@aws-sdk/types";
 import { toHex } from "@aws-sdk/util-hex-encoding";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -39,7 +40,6 @@ import { getCanonicalQuery } from "./getCanonicalQuery";
 import { getPayloadHash } from "./getPayloadHash";
 import { hasHeader } from "./headerUtil";
 import { moveHeadersToQuery } from "./moveHeadersToQuery";
-import { normalizeCredentialsProvider, normalizeRegionProvider } from "./normalizeProvider";
 import { prepareRequest } from "./prepareRequest";
 import { iso8601 } from "./utilDate";
 
@@ -112,8 +112,8 @@ export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigne
     this.uriEscapePath = uriEscapePath;
     // default to true if applyChecksum isn't set
     this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
-    this.regionProvider = normalizeRegionProvider(region);
-    this.credentialProvider = normalizeCredentialsProvider(credentials);
+    this.regionProvider = normalizeProvider(region);
+    this.credentialProvider = normalizeProvider(credentials);
   }
 
   public async presign(originalRequest: HttpRequest, options: RequestPresigningArguments = {}): Promise<HttpRequest> {
