@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-config-provider",
-  "version": "3.52.0",
+  "version": "3.55.0",
   "description": "Utilities package for configuration providers",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

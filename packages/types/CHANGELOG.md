@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **types:** remove [@internal](https://github.com/internal) jsdoc tag from profile types ([#3452](https://github.com/aws/aws-sdk-js-v3/issues/3452)) ([2d7c151](https://github.com/aws/aws-sdk-js-v3/commit/2d7c151bb6d9ccfdd1eb3bd8b007e4ebcdd5daa3))
+
+
+### Features
+
+* **property-provider:** memoize() supports force refresh ([#3413](https://github.com/aws/aws-sdk-js-v3/issues/3413)) ([a79f962](https://github.com/aws/aws-sdk-js-v3/commit/a79f962873ff11a3d6f98199224155bd2ddc0b1e))
+
+
+
+
+
 ## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
 
 **Note:** Version bump only for package @aws-sdk/types

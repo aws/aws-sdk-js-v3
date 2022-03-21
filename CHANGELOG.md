@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **middleware-serde:** mark  error entry non-enumerable ([#3426](https://github.com/aws/aws-sdk-js-v3/issues/3426)) ([c7cceb5](https://github.com/aws/aws-sdk-js-v3/commit/c7cceb51ec3c49d7e54f9e05f1e2bb037a010854))
+* **property-provider:** copy error properties to ProviderError in from() ([#3440](https://github.com/aws/aws-sdk-js-v3/issues/3440)) ([4377e44](https://github.com/aws/aws-sdk-js-v3/commit/4377e4488ce4ae3746dd34349ab3d95d5780fa91))
+* **property-provider:** manually adjust the prototype of *ProviderError ([#3445](https://github.com/aws/aws-sdk-js-v3/issues/3445)) ([134f769](https://github.com/aws/aws-sdk-js-v3/commit/134f7693b339a791379e12873632458c892f375b))
+* **scripts:** update typescript version in generate-clients ([#3454](https://github.com/aws/aws-sdk-js-v3/issues/3454)) ([f90992a](https://github.com/aws/aws-sdk-js-v3/commit/f90992af53fdb38634f75d06d820792387fd4e35))
+* **types:** remove [@internal](https://github.com/internal) jsdoc tag from profile types ([#3452](https://github.com/aws/aws-sdk-js-v3/issues/3452)) ([2d7c151](https://github.com/aws/aws-sdk-js-v3/commit/2d7c151bb6d9ccfdd1eb3bd8b007e4ebcdd5daa3))
+
+
+### Features
+
+* **clients:** update clients as of 03/21/2022 ([#3455](https://github.com/aws/aws-sdk-js-v3/issues/3455)) ([7cd40a5](https://github.com/aws/aws-sdk-js-v3/commit/7cd40a5aeaddf03b8d27e814b3a2b441c1217dfb))
+* **property-provider:** memoize() supports force refresh ([#3413](https://github.com/aws/aws-sdk-js-v3/issues/3413)) ([a79f962](https://github.com/aws/aws-sdk-js-v3/commit/a79f962873ff11a3d6f98199224155bd2ddc0b1e))
+* **util-middleware:** add normalizeProvider ([#3456](https://github.com/aws/aws-sdk-js-v3/issues/3456)) ([e15b0f5](https://github.com/aws/aws-sdk-js-v3/commit/e15b0f523614935ee047e08c75caa124d90b96b1))
+
+
+
+
+
 ## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
 
 

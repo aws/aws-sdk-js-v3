@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **middleware-serde:** mark  error entry non-enumerable ([#3426](https://github.com/aws/aws-sdk-js-v3/issues/3426)) ([c7cceb5](https://github.com/aws/aws-sdk-js-v3/commit/c7cceb51ec3c49d7e54f9e05f1e2bb037a010854))
+
+
+
+
+
 ## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
 
 **Note:** Version bump only for package @aws-sdk/middleware-serde

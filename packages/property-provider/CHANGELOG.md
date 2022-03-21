@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
+
+
+### Bug Fixes
+
+* **property-provider:** copy error properties to ProviderError in from() ([#3440](https://github.com/aws/aws-sdk-js-v3/issues/3440)) ([4377e44](https://github.com/aws/aws-sdk-js-v3/commit/4377e4488ce4ae3746dd34349ab3d95d5780fa91))
+* **property-provider:** manually adjust the prototype of *ProviderError ([#3445](https://github.com/aws/aws-sdk-js-v3/issues/3445)) ([134f769](https://github.com/aws/aws-sdk-js-v3/commit/134f7693b339a791379e12873632458c892f375b))
+
+
+### Features
+
+* **property-provider:** memoize() supports force refresh ([#3413](https://github.com/aws/aws-sdk-js-v3/issues/3413)) ([a79f962](https://github.com/aws/aws-sdk-js-v3/commit/a79f962873ff11a3d6f98199224155bd2ddc0b1e))
+
+
+
+
+
 ## [3.54.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.0...v3.54.1) (2022-03-15)
 
 **Note:** Version bump only for package @aws-sdk/property-provider
