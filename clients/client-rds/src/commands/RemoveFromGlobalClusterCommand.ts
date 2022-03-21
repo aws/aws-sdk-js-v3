@@ -22,14 +22,12 @@ export interface RemoveFromGlobalClusterCommandInput extends RemoveFromGlobalClu
 export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>
- *         Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
+ * <p>Detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster becomes a
  *         standalone cluster with read-write capability instead of being read-only and receiving data from a
- *         primary cluster in a different Region.
- *       </p>
- *          <note>
- *            <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ *         primary cluster in a different Region.</p>
+ *         <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

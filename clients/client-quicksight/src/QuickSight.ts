@@ -221,6 +221,11 @@ import {
   DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
+  DescribeGroupMembershipCommand,
+  DescribeGroupMembershipCommandInput,
+  DescribeGroupMembershipCommandOutput,
+} from "./commands/DescribeGroupMembershipCommand";
+import {
   DescribeIAMPolicyAssignmentCommand,
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput,
@@ -414,6 +419,11 @@ import {
   SearchFoldersCommandInput,
   SearchFoldersCommandOutput,
 } from "./commands/SearchFoldersCommand";
+import {
+  SearchGroupsCommand,
+  SearchGroupsCommandInput,
+  SearchGroupsCommandOutput,
+} from "./commands/SearchGroupsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -820,7 +830,7 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Creates an Amazon QuickSight group.</p>
    * 		       <p>The permissions resource is
-   * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
+   * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
    *             </code>.</p>
    * 		       <p>The response is a group object.</p>
    */
@@ -2163,6 +2173,40 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
+   * 			member of the specified group. If the user exists and is a member of the specified
+   * 			group, an associated <code>GroupMember</code> object is returned.</p>
+   */
+  public describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGroupMembershipCommandOutput>;
+  public describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
+  ): void;
+  public describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
+  ): void;
+  public describeGroupMembership(
+    args: DescribeGroupMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGroupMembershipCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
+  ): Promise<DescribeGroupMembershipCommandOutput> | void {
+    const command = new DescribeGroupMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3565,6 +3609,35 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: SearchFoldersCommandOutput) => void
   ): Promise<SearchFoldersCommandOutput> | void {
     const command = new SearchFoldersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>SearchGroups</code> operation to search groups in a specified Amazon QuickSight namespace using the supplied filters.</p>
+   */
+  public searchGroups(
+    args: SearchGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchGroupsCommandOutput>;
+  public searchGroups(args: SearchGroupsCommandInput, cb: (err: any, data?: SearchGroupsCommandOutput) => void): void;
+  public searchGroups(
+    args: SearchGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): void;
+  public searchGroups(
+    args: SearchGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchGroupsCommandOutput) => void),
+    cb?: (err: any, data?: SearchGroupsCommandOutput) => void
+  ): Promise<SearchGroupsCommandOutput> | void {
+    const command = new SearchGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

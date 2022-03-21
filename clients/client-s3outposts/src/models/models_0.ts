@@ -52,13 +52,13 @@ export enum EndpointAccessType {
 
 export interface CreateEndpointRequest {
   /**
-   * <p>The ID of the AWS Outposts. </p>
+   * <p>The ID of the Outposts. </p>
    */
   OutpostId: string | undefined;
 
   /**
-   * <p>The ID of the subnet in the selected VPC. The endpoint subnet
-   *             must belong to the Outpost that has the Amazon S3 on Outposts provisioned.</p>
+   * <p>The ID of the subnet in the selected VPC. The endpoint subnet must belong to the Outpost
+   *             that has Amazon S3 on Outposts provisioned.</p>
    */
   SubnetId: string | undefined;
 
@@ -68,15 +68,21 @@ export interface CreateEndpointRequest {
   SecurityGroupId: string | undefined;
 
   /**
-   * <p>The type of access for the on-premise network connectivity for the
-   *             Outpost endpoint. To access the endpoint from an on-premises network, you must
-   *             specify the access type and provide the customer owned IPv4 pool.</p>
+   * <p>The type of access for the network connectivity for the Amazon S3 on Outposts endpoint. To use
+   *             the Amazon Web Services VPC, choose <code>Private</code>. To use the endpoint with an on-premises
+   *             network, choose <code>CustomerOwnedIp</code>.  If you choose
+   *                 <code>CustomerOwnedIp</code>, you must also provide the customer-owned IP address
+   *             pool (CoIP pool).</p>
+   *         <note>
+   *             <p>
+   *                <code>Private</code> is the default access type value.</p>
+   *          </note>
    */
   AccessType?: EndpointAccessType | string;
 
   /**
-   * <p>The ID of the customer-owned IPv4 pool for the endpoint.
-   *             IP addresses will be allocated from this pool for the endpoint.</p>
+   * <p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses
+   *             are allocated from this pool for the endpoint.</p>
    */
   CustomerOwnedIpv4Pool?: string;
 }
@@ -176,7 +182,7 @@ export interface DeleteEndpointRequest {
   EndpointId: string | undefined;
 
   /**
-   * <p>The ID of the AWS Outposts. </p>
+   * <p>The ID of the Outposts. </p>
    */
   OutpostId: string | undefined;
 }
@@ -218,8 +224,8 @@ export enum EndpointStatus {
 /**
  * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
  *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
- *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
- *         Accessing S3 on Outposts using VPC only access points</a>.</p>
+ *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WorkingWithS3Outposts.html">
+ *         Accessing S3 on Outposts using VPC-only access points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  */
 export interface Endpoint {
   /**
@@ -228,7 +234,7 @@ export interface Endpoint {
   EndpointArn?: string;
 
   /**
-   * <p>The ID of the AWS Outposts.</p>
+   * <p>The ID of the Outposts.</p>
    */
   OutpostsId?: string;
 
@@ -268,12 +274,12 @@ export interface Endpoint {
   SecurityGroupId?: string;
 
   /**
-   * <p></p>
+   * <p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>
    */
   AccessType?: EndpointAccessType | string;
 
   /**
-   * <p>The ID of the customer-owned IPv4 pool used for the endpoint.</p>
+   * <p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>
    */
   CustomerOwnedIpv4Pool?: string;
 }
@@ -289,12 +295,13 @@ export namespace Endpoint {
 
 export interface ListEndpointsRequest {
   /**
-   * <p>The next endpoint requested in the list.</p>
+   * <p>If a previous response from this operation included a <code>NextToken</code> value,
+   *             provide that value here to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The max number of endpoints that can be returned on the request.</p>
+   * <p>The maximum number of endpoints that will be returned in the response.</p>
    */
   MaxResults?: number;
 }
@@ -310,12 +317,13 @@ export namespace ListEndpointsRequest {
 
 export interface ListEndpointsResult {
   /**
-   * <p>Returns an array of endpoints associated with AWS Outposts.</p>
+   * <p>The list of endpoints associated with the specified Outpost.</p>
    */
   Endpoints?: Endpoint[];
 
   /**
-   * <p>The next endpoint returned in the list.</p>
+   * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
+   *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    */
   NextToken?: string;
 }
@@ -325,6 +333,55 @@ export namespace ListEndpointsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListEndpointsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSharedEndpointsRequest {
+  /**
+   * <p>If a previous response from this operation included a <code>NextToken</code> value, you
+   *             can provide that value here to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of endpoints that will be returned in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The ID of the Amazon Web Services Outpost.</p>
+   */
+  OutpostId: string | undefined;
+}
+
+export namespace ListSharedEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSharedEndpointsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSharedEndpointsResult {
+  /**
+   * <p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>
+   */
+  Endpoints?: Endpoint[];
+
+  /**
+   * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
+   *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSharedEndpointsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSharedEndpointsResult): any => ({
     ...obj,
   });
 }

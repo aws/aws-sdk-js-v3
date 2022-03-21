@@ -36915,6 +36915,9 @@ const serializeAws_ec2DeleteIpamRequest = (input: DeleteIpamRequest, context: __
   if (input.IpamId !== undefined && input.IpamId !== null) {
     entries["IpamId"] = input.IpamId;
   }
+  if (input.Cascade !== undefined && input.Cascade !== null) {
+    entries["Cascade"] = input.Cascade;
+  }
   return entries;
 };
 

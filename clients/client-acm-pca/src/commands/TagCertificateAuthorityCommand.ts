@@ -23,7 +23,7 @@ export interface TagCertificateAuthorityCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Adds one or more tags to your private CA. Tags are labels that you can use to identify
- * 			and organize your AWS resources. Each tag consists of a key and an optional value. You
+ * 			and organize your Amazon Web Services resources. Each tag consists of a key and an optional value. You
  * 			specify the private CA on input by its Amazon Resource Name (ARN). You specify the tag
  * 			by using a key-value pair. You can apply a tag to just one private CA if you want to
  * 			identify a specific characteristic of that CA, or you can apply the same tag to multiple

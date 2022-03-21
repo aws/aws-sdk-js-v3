@@ -338,6 +338,8 @@ import {
   ServiceQuotaExceededException,
   SharePointConfiguration,
   SiteMapsConfiguration,
+  SlackConfiguration,
+  SlackEntity,
   SortingConfiguration,
   SpellCorrectedQuery,
   SpellCorrectionConfiguration,
@@ -5060,6 +5062,10 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
       input.SharePointConfiguration !== null && {
         SharePointConfiguration: serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context),
       }),
+    ...(input.SlackConfiguration !== undefined &&
+      input.SlackConfiguration !== null && {
+        SlackConfiguration: serializeAws_json1_1SlackConfiguration(input.SlackConfiguration, context),
+      }),
     ...(input.WebCrawlerConfiguration !== undefined &&
       input.WebCrawlerConfiguration !== null && {
         WebCrawlerConfiguration: serializeAws_json1_1WebCrawlerConfiguration(input.WebCrawlerConfiguration, context),
@@ -6087,12 +6093,34 @@ const serializeAws_json1_1PrincipalList = (input: Principal[], context: __SerdeC
     });
 };
 
+const serializeAws_json1_1PrivateChannelFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ProxyConfiguration = (input: ProxyConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Credentials !== undefined && input.Credentials !== null && { Credentials: input.Credentials }),
     ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
     ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
   };
+};
+
+const serializeAws_json1_1PublicChannelFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutPrincipalMappingRequest = (
@@ -6646,6 +6674,61 @@ const serializeAws_json1_1SiteMapsConfiguration = (input: SiteMapsConfiguration,
 };
 
 const serializeAws_json1_1SiteMapsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1SlackConfiguration = (input: SlackConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.CrawlBotMessage !== undefined &&
+      input.CrawlBotMessage !== null && { CrawlBotMessage: input.CrawlBotMessage }),
+    ...(input.ExcludeArchived !== undefined &&
+      input.ExcludeArchived !== null && { ExcludeArchived: input.ExcludeArchived }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.LookBackPeriod !== undefined &&
+      input.LookBackPeriod !== null && { LookBackPeriod: input.LookBackPeriod }),
+    ...(input.PrivateChannelFilter !== undefined &&
+      input.PrivateChannelFilter !== null && {
+        PrivateChannelFilter: serializeAws_json1_1PrivateChannelFilter(input.PrivateChannelFilter, context),
+      }),
+    ...(input.PublicChannelFilter !== undefined &&
+      input.PublicChannelFilter !== null && {
+        PublicChannelFilter: serializeAws_json1_1PublicChannelFilter(input.PublicChannelFilter, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.SinceCrawlDate !== undefined &&
+      input.SinceCrawlDate !== null && { SinceCrawlDate: input.SinceCrawlDate }),
+    ...(input.SlackEntityList !== undefined &&
+      input.SlackEntityList !== null && {
+        SlackEntityList: serializeAws_json1_1SlackEntityList(input.SlackEntityList, context),
+      }),
+    ...(input.TeamId !== undefined && input.TeamId !== null && { TeamId: input.TeamId }),
+    ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1SlackEntityList = (input: (SlackEntity | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -7758,6 +7841,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
     SharePointConfiguration:
       output.SharePointConfiguration !== undefined && output.SharePointConfiguration !== null
         ? deserializeAws_json1_1SharePointConfiguration(output.SharePointConfiguration, context)
+        : undefined,
+    SlackConfiguration:
+      output.SlackConfiguration !== undefined && output.SlackConfiguration !== null
+        ? deserializeAws_json1_1SlackConfiguration(output.SlackConfiguration, context)
         : undefined,
     WebCrawlerConfiguration:
       output.WebCrawlerConfiguration !== undefined && output.WebCrawlerConfiguration !== null
@@ -9076,12 +9163,36 @@ const deserializeAws_json1_1PersonasSummaryList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_json1_1PrivateChannelFilter = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ProxyConfiguration = (output: any, context: __SerdeContext): ProxyConfiguration => {
   return {
     Credentials: __expectString(output.Credentials),
     Host: __expectString(output.Host),
     Port: __expectInt32(output.Port),
   } as any;
+};
+
+const deserializeAws_json1_1PublicChannelFilter = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1QueryResult = (output: any, context: __SerdeContext): QueryResult => {
@@ -9662,6 +9773,58 @@ const deserializeAws_json1_1SiteMapsConfiguration = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1SiteMapsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SlackConfiguration = (output: any, context: __SerdeContext): SlackConfiguration => {
+  return {
+    CrawlBotMessage: __expectBoolean(output.CrawlBotMessage),
+    ExcludeArchived: __expectBoolean(output.ExcludeArchived),
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    LookBackPeriod: __expectInt32(output.LookBackPeriod),
+    PrivateChannelFilter:
+      output.PrivateChannelFilter !== undefined && output.PrivateChannelFilter !== null
+        ? deserializeAws_json1_1PrivateChannelFilter(output.PrivateChannelFilter, context)
+        : undefined,
+    PublicChannelFilter:
+      output.PublicChannelFilter !== undefined && output.PublicChannelFilter !== null
+        ? deserializeAws_json1_1PublicChannelFilter(output.PublicChannelFilter, context)
+        : undefined,
+    SecretArn: __expectString(output.SecretArn),
+    SinceCrawlDate: __expectString(output.SinceCrawlDate),
+    SlackEntityList:
+      output.SlackEntityList !== undefined && output.SlackEntityList !== null
+        ? deserializeAws_json1_1SlackEntityList(output.SlackEntityList, context)
+        : undefined,
+    TeamId: __expectString(output.TeamId),
+    UseChangeLog: __expectBoolean(output.UseChangeLog),
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SlackEntityList = (output: any, context: __SerdeContext): (SlackEntity | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -23,9 +23,9 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a DB security group.</p>
- *          <note>
+ *         <note>
  *             <p>The specified DB security group must not be associated with any DB instances.</p>
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

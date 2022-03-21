@@ -69,7 +69,8 @@ export interface AccountTakeoverActionType {
   Notify: boolean | undefined;
 
   /**
-   * <p>The event action.</p>
+   * <p>The action to take in response to the account takeover action. Valid values
+   *             are:</p>
    *
    *          <ul>
    *             <li>
@@ -556,14 +557,17 @@ export interface AdminConfirmSignUpRequest {
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-   *         <p>If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the Lambda function that is specified
-   *             for the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a
-   *             JSON
-   *             payload, which the function receives as input. In this payload, the <code>clientMetadata</code> attribute provides the data that you assigned
-   *             to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in Lambda, you can process the ClientMetadata value
-   *             to enhance your workflow for your specific needs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows
-   *             with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>If your user pool configuration includes triggers, the AdminConfirmSignUp API action
+   *             invokes the Lambda function that is specified for the <i>post
+   *                 confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON
+   *             payload, which the function receives as input. In this payload, the
+   *                 <code>clientMetadata</code> attribute provides the data that you assigned to the
+   *             ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in
+   *             Lambda, you can process the ClientMetadata value to enhance your workflow for your
+   *             specific needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -824,9 +828,10 @@ export interface AdminCreateUserRequest {
    *             it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute,
    *             which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code
    *             in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
    *         <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
    *             <ul>
@@ -865,8 +870,9 @@ export namespace AdminCreateUserRequest {
 
 /**
  * <p>
- *             <i>This data type is no longer supported.</i> You can use it
- *             only for SMS multi-factor authentication (MFA) configurations. You can't use it for time-based one-time password (TOTP) software token MFA configurations.</p>
+ *             <i>This data type is no longer supported.</i> Applies only to SMS
+ *             multi-factor authentication (MFA) configurations. Does not apply to time-based one-time
+ *             password (TOTP) software token MFA configurations.</p>
  */
 export interface MFAOptionType {
   /**
@@ -940,9 +946,6 @@ export interface UserType {
    *             </li>
    *             <li>
    *                <p>ARCHIVED - User is no longer active.</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPROMISED - User is disabled due to a potential security threat.</p>
    *             </li>
    *             <li>
    *                <p>UNKNOWN - User status isn't known.</p>
@@ -1092,8 +1095,7 @@ export class PreconditionNotMetException extends __BaseException {
 }
 
 /**
- * <p>The request failed because the user is in an unsupported
- *     state.</p>
+ * <p>The request failed because the user is in an unsupported state.</p>
  */
 export class UnsupportedUserStateException extends __BaseException {
   readonly name: "UnsupportedUserStateException" = "UnsupportedUserStateException";
@@ -1633,9 +1635,6 @@ export interface AdminGetUserResponse {
    *                <p>ARCHIVED - User is no longer active.</p>
    *             </li>
    *             <li>
-   *                <p>COMPROMISED - User is disabled due to a potential security threat.</p>
-   *             </li>
-   *             <li>
    *                <p>UNKNOWN - User status isn't known.</p>
    *             </li>
    *             <li>
@@ -1684,7 +1683,9 @@ export namespace AdminGetUserResponse {
  * <p>An Amazon Pinpoint analytics endpoint.</p>
  *         <p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>
  *          <note>
- *             <p>Amazon Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the Region in which the user pool resides.</p>
+ *             <p>Amazon Cognito user pools only support sending events to Amazon Pinpoint projects in the US East (N.
+ *                 Virginia) us-east-1 Region, regardless of the Region where the user pool
+ *                 resides.</p>
  *          </note>
  */
 export interface AnalyticsMetadataType {
@@ -1874,10 +1875,12 @@ export interface AdminInitiateAuthRequest {
    *                <p>User migration</p>
    *             </li>
    *          </ul>
-   *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON
-   *             payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the
-   *             ClientMetadata parameter in your AdminInitiateAuth request. In your function code in Lambda, you can process the <code>validationData</code> value to enhance
-   *             your workflow for your specific needs.</p>
+   *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which
+   *             the function receives as input. This payload contains a <code>validationData</code>
+   *             attribute, which provides the data that you assigned to the ClientMetadata parameter in
+   *             your AdminInitiateAuth request. In your function code in Lambda, you can process the
+   *                 <code>validationData</code> value to enhance your workflow for your specific
+   *             needs.</p>
    *         <p>When you use the AdminInitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it doesn't provide the ClientMetadata value as input:</p>
    *          <ul>
    *             <li>
@@ -1899,8 +1902,9 @@ export interface AdminInitiateAuthRequest {
    *                <p>Verify auth challenge</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with
-   *             Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *         <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -2187,9 +2191,11 @@ export interface AdminLinkProviderForUserRequest {
   UserPoolId: string | undefined;
 
   /**
-   * <p>The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Amazon Cognito User Pools user or a federated user
-   *             (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider
-   *             attribute) signs in.</p>
+   * <p>The existing user in the user pool that you want to assign to the external identity
+   *             provider user account. This user can be a native (Username + Password) Amazon Cognito user pools
+   *             user or a federated user (for example, a SAML or Facebook user). If the user doesn't
+   *             exist, Amazon Cognito generates an exception. Amazon Cognito returns this user when the new user (with the
+   *             linked identity provider attribute) signs in.</p>
    *         <p>For a native username + password user, the <code>ProviderAttributeValue</code> for the <code>DestinationUser</code> should be the username in the user pool. For a federated user,
    *             it should be the provider-specific <code>user_id</code>.</p>
    *         <p>The <code>ProviderAttributeName</code> of the <code>DestinationUser</code> is ignored.</p>
@@ -2738,8 +2744,9 @@ export interface AdminResetUserPasswordRequest {
    *             ClientMetadata parameter in your AdminResetUserPassword request. In your function code in Lambda, you can process the <code>clientMetadata</code>
    *             value to enhance your workflow for your specific needs.
    *         </p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool
-   *             Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -2878,16 +2885,44 @@ export interface AdminRespondToAuthChallengeRequest {
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito
-   *             invokes any functions that are assigned to the
-   *             following triggers: <i>pre sign-up</i>, <i>custom message</i>, <i>post authentication</i>,
-   *             <i>user migration</i>, <i>pre token generation</i>, <i>define auth challenge</i>, <i>create auth
-   *             challenge</i>, and <i>verify auth challenge response</i>. When Amazon Cognito invokes any of these functions, it passes a JSON
-   *             payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned
-   *             to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in Lambda, you can process the
-   *             <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with
-   *             Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *             When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions
+   *             that you have assigned to the  following triggers: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>pre sign-up</p>
+   *             </li>
+   *             <li>
+   *                 <p>custom message</p>
+   *             </li>
+   *             <li>
+   *                 <p>post authentication</p>
+   *             </li>
+   *             <li>
+   *                 <p>user migration</p>
+   *             </li>
+   *             <li>
+   *                 <p>pre token generation</p>
+   *             </li>
+   *             <li>
+   *                 <p>define auth challenge</p>
+   *             </li>
+   *             <li>
+   *                 <p>create auth challenge</p>
+   *             </li>
+   *             <li>
+   *                 <p>verify auth challenge response</p>
+   *             </li>
+   *          </ul>
+   *         <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the
+   *             function receives as input. This payload contains a <code>clientMetadata</code>
+   *             attribute that provides the data that you assigned to the ClientMetadata parameter in
+   *             your AdminRespondToAuthChallenge request. In your function code in Lambda, you can
+   *             process the <code>clientMetadata</code> value to enhance your workflow for your specific
+   *             needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -3324,9 +3359,9 @@ export interface AdminUpdateUserAttributesRequest {
    *             as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your
    *             AdminUpdateUserAttributes request. In your function code in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for
    *             your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *         <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -3428,8 +3463,9 @@ export enum AliasAttributeType {
 /**
  * <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p>
  *          <note>
- *             <p>In Regions where Pinpoint isn't available,  User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available,  User Pools will support
- *         sending events to Amazon Pinpoint projects within that same Region. </p>
+ *             <p>In Regions where Amazon Pinpointisn't available, user pools only support sending events to Amazon Pinpoint
+ *                 projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support
+ *                 sending events to Amazon Pinpoint projects within that same Region.</p>
  *          </note>
  */
 export interface AnalyticsConfigurationType {
@@ -3439,8 +3475,9 @@ export interface AnalyticsConfigurationType {
   ApplicationId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen User Pool Client. Amazon Cognito publishes events to the Amazon Pinpointproject
-   *             declared by the app ARN.</p>
+   * <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project
+   *             to integrate with the chosen user pool Client. Amazon Cognito publishes events to the
+   *             Amazon Pinpointproject declared by the app ARN.</p>
    */
   ApplicationArn?: string;
 
@@ -3717,15 +3754,17 @@ export interface ConfirmForgotPasswordRequest {
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the ConfirmForgotPassword API action, Amazon Cognito
-   *             invokes the function that is assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a
-   *             JSON payload,
-   *             which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned
-   *             to the ClientMetadata parameter in your ConfirmForgotPassword request. In your function code in Lambda, you can process the
-   *             <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *             When you use the ConfirmForgotPassword API action, Amazon Cognito invokes the function that is
+   *             assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this
+   *             function, it passes a JSON payload, which the function receives as input. This payload
+   *             contains a <code>clientMetadata</code> attribute, which provides the data that you
+   *             assigned to the ClientMetadata parameter in your ConfirmForgotPassword request. In your
+   *             function code in Lambda, you can process the <code>clientMetadata</code> value to
+   *             enhance your workflow for your specific needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -3823,9 +3862,9 @@ export interface ConfirmSignUpRequest {
    *             function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which
    *             provides the data that you assigned to the ClientMetadata parameter in your ConfirmSignUp request. In your function code in Lambda,
    *             you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -4620,11 +4659,14 @@ export enum EmailSendingAccountType {
 }
 
 /**
- * <p>The email configuration type.</p>
- *          <note>
- *             <p>Amazon Cognito has specific Regions for use with Amazon Simple Email Service. For more information on the supported Regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email
- *         settings for Amazon Cognito user pools</a>.</p>
- *          </note>
+ * <p>The email configuration of your user pool. The email configuration type sets your
+ *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
+ *             pool.</p>
+ *         <note>
+ *             <p>Amazon Cognito can send email messages with Amazon Simple Email Service resources in the Amazon Web Services Region where you
+ *                 created your user pool, and in alternate Regions in some cases. For more information
+ *                 on the supported Regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email settings for Amazon Cognito user pools</a>.</p>
+ *         </note>
  */
 export interface EmailConfigurationType {
   /**
@@ -4638,6 +4680,10 @@ export interface EmailConfigurationType {
    *                <p>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.</p>
    *             </li>
    *          </ul>
+   *         <p>The Region value of the <code>SourceArn</code> parameter must indicate a supported
+   *             Amazon Web Services Region of your user pool. Typically, the Region in the <code>SourceArn</code> and
+   *             the user pool Region are the same. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html#user-pool-email-developer-region-mapping">Amazon SES email configuration regions</a> in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito Developer
+   *                 Guide</a>.</p>
    */
   SourceArn?: string;
 
@@ -4647,7 +4693,9 @@ export interface EmailConfigurationType {
   ReplyToEmailAddress?: string;
 
   /**
-   * <p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon Simple Email Service email configuration. Specify one of the following values:</p>
+   * <p>Specifies whether Amazon Cognito uses its built-in functionality to send your users email
+   *             messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following
+   *             values:</p>
    *          <dl>
    *             <dt>COGNITO_DEFAULT</dt>
    *             <dd>
@@ -4713,20 +4761,26 @@ export interface EmailConfigurationType {
   From?: string;
 
   /**
-   * <p>The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration
-   *             set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following
+   * <p>The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A
+   *             configuration set is applied to an email by including a reference to the configuration
+   *             set in the headers of the email. Once applied, all of the rules in that configuration
+   *             set are applied to the email. Configuration sets can be used to apply the following
    *             types of rules to emails: </p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>Event publishing – Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing
-   *             to send information about these events to other Amazon Web Services services such as  and Amazon CloudWatch.</p>
-   *             </li>
-   *             <li>
-   *                <p>IP pool management – When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then
-   *             associate the dedicated IP pools with configuration sets.</p>
-   *             </li>
-   *          </ul>
+   *         <dl>
+   *             <dt>Event publishing</dt>
+   *             <dd>
+   *                     <p>Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and
+   *                         complaint events for each email sent. Use event publishing to send
+   *                         information about these events to other Amazon Web Services services such as and
+   *                         Amazon CloudWatch</p>
+   *                 </dd>
+   *             <dt>IP pool management</dt>
+   *             <dd>
+   *                     <p>When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups
+   *                         of IP addresses, called dedicated IP pools. You can then associate the
+   *                         dedicated IP pools with configuration sets.</p>
+   *                 </dd>
+   *          </dl>
    */
   ConfigurationSet?: string;
 }
@@ -4949,8 +5003,10 @@ export namespace UserPoolPolicyType {
 }
 
 /**
- * <p>The SMS configuration type that includes the settings the Amazon Cognito User Pool must call for the Amazon Simple Notification Service service to send an SMS message from your Amazon Web Services account. The
- *             Amazon Cognito User Pool makes the request to the Amazon SNS Service by using an Identity and Access Management role that you provide for your Amazon Web Services account.</p>
+ * <p>The SMS configuration type is the settings that your Amazon Cognito user pool must use to send
+ *             an SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS
+ *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
+ *             Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
  */
 export interface SmsConfigurationType {
   /**
@@ -4960,15 +5016,31 @@ export interface SmsConfigurationType {
   SnsCallerArn: string | undefined;
 
   /**
-   * <p>The external ID is a value that you should use to add security to your IAM role that is used to call Amazon SNS to send SMS messages for your user pool. If you provide an <code>ExternalId</code>,
-   *             the Amazon Cognito User Pool will include it when attempting to assume your IAM role so that you can set your roles trust policy to require the <code>ExternalID</code>. If you use the Amazon Cognito Management
-   *             Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito will create a role with the required permissions and a trust policy that demonstrates use of the <code>ExternalId</code>.</p>
+   * <p>The external ID provides additional security for your IAM role. You can use an
+   *                 <code>ExternalId</code> with the IAM role that you use with Amazon SNS to send SMS
+   *             messages for your user pool. If you provide an <code>ExternalId</code>, your Amazon Cognito user
+   *             pool includes it in the request to assume your IAM role. You can configure the role
+   *             trust policy to require that Amazon Cognito, and any principal, provide the
+   *                 <code>ExternalID</code>. If you use the Amazon Cognito Management Console to create a role
+   *             for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required
+   *             permissions and a trust policy that demonstrates use of the
+   *             <code>ExternalId</code>.</p>
    *         <p>For more information about the <code>ExternalId</code> of a role,
    *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How to use an external ID when granting access to your Amazon Web Services resources to a
    *                 third party</a>
    *          </p>
    */
   ExternalId?: string;
+
+  /**
+   * <p>The Amazon Web Services Region to use with Amazon SNS integration. You can choose the same Region as your
+   *             user pool, or a supported <b>Legacy Amazon SNS alternate
+   *             Region</b>. </p>
+   *         <p>
+   *             Amazon Cognito resources in the Asia Pacific (Seoul) Amazon Web Services Region must use your Amazon SNS
+   *             configuration in the Asia Pacific (Tokyo) Region. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings for Amazon Cognito user pools</a>.</p>
+   */
+  SnsRegion?: string;
 }
 
 export namespace SmsConfigurationType {
@@ -4990,26 +5062,25 @@ export enum UsernameAttributeType {
  */
 export interface UsernameConfigurationType {
   /**
-   * <p>Specifies whether username case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs.</p>
+   * <p>Specifies whether username case sensitivity will be applied for all users in the user
+   *             pool through Amazon Cognito APIs.</p>
    *         <p>Valid values include:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>True</code>
-   *                   </b>: Enables case sensitivity for all username input. When this option is set to <code>True</code>,
-   *             users must sign in using the exact capitalization of their given username, such as “UserName”. This is the default value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>False</code>
-   *                   </b>: Enables case insensitivity for all username input. For example, when this option is set to
-   *             <code>False</code>, users can sign in using either "username" or "Username". This option also enables both <code>preferred_username</code> and <code>email</code>
-   *             alias to be case insensitive, in addition to the <code>username</code> attribute.</p>
-   *             </li>
-   *          </ul>
+   *         <dl>
+   *             <dt>True</dt>
+   *             <dd>
+   *                     <p>Enables case sensitivity for all username input. When this option is set
+   *                         to <code>True</code>, users must sign in using the exact capitalization of
+   *                         their given username, such as “UserName”. This is the default value.</p>
+   *                 </dd>
+   *             <dt>False</dt>
+   *             <dd>
+   *                     <p>Enables case insensitivity for all username input. For example, when this
+   *                         option is set to <code>False</code>, users can sign in using either
+   *                         "username" or "Username". This option also enables both
+   *                             <code>preferred_username</code> and <code>email</code> alias to be case
+   *                         insensitive, in addition to the <code>username</code> attribute.</p>
+   *                 </dd>
+   *          </dl>
    */
   CaseSensitive: boolean | undefined;
 }
@@ -5176,12 +5247,17 @@ export interface CreateUserPoolRequest {
   DeviceConfiguration?: DeviceConfigurationType;
 
   /**
-   * <p>The email configuration.</p>
+   * <p>The email configuration of your user pool. The email configuration type sets your
+   *             preferred sending method, Amazon Web Services Region, and sender for messages from your user
+   *             pool.</p>
    */
   EmailConfiguration?: EmailConfigurationType;
 
   /**
-   * <p>The SMS configuration.</p>
+   * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
+   *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS messages
+   *             with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management
+   *             (IAM) role in your Amazon Web Services account.</p>
    */
   SmsConfiguration?: SmsConfigurationType;
 
@@ -5351,12 +5427,17 @@ export interface UserPoolType {
   EstimatedNumberOfUsers?: number;
 
   /**
-   * <p>The email configuration.</p>
+   * <p>The email configuration of your user pool. The email configuration type sets your
+   *             preferred sending method, Amazon Web Services Region, and sender for messages tfrom your user
+   *             pool.</p>
    */
   EmailConfiguration?: EmailConfigurationType;
 
   /**
-   * <p>The SMS configuration.</p>
+   * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
+   *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS messages
+   *             with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management
+   *             (IAM) role in your Amazon Web Services account.</p>
    */
   SmsConfiguration?: SmsConfigurationType;
 
@@ -5368,26 +5449,31 @@ export interface UserPoolType {
 
   /**
    * <p>The reason why the SMS configuration can't send the messages to your users.</p>
-   *         <p>This message might include comma-separated values to describe why your SMS configuration can't send messages to user pool end users.</p>
-   *
-   *
-   *          <ul>
-   *             <li>
-   *                <p>InvalidSmsRoleAccessPolicyException - The Identity and Access Management role that Amazon Cognito uses to send SMS messages isn't properly configured. For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html">SmsConfigurationType</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>SNSSandbox -
-   *             The Amazon Web Services account is in SNS Sandbox and messages will only reach verified end users. This parameter won’t get populated with SNSSandbox if the IAM user creating the user pool
-   *             doesn’t have SNS permissions. To learn how to move your Amazon Web Services account out of the sandbox,
-   *             see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out of the SMS sandbox</a>.</p>
-   *             </li>
-   *          </ul>
+   *         <p>This message might include comma-separated values to describe why your SMS
+   *             configuration can't send messages to user pool end users.</p>
+   *         <dl>
+   *             <dt>InvalidSmsRoleAccessPolicyException</dt>
+   *             <dd>
+   *                     <p>The Identity and Access Management role that Amazon Cognito uses to send SMS messages isn't properly
+   *                         configured. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html">SmsConfigurationType</a>.</p>
+   *                 </dd>
+   *             <dt>SNSSandbox</dt>
+   *             <dd>
+   *                     <p>The Amazon Web Services account is in the SNS SMS Sandbox and messages will
+   *                         only reach verified end users. This parameter won’t get populated with
+   *                         SNSSandbox if the IAM user creating the user pool doesn’t have SNS
+   *                         permissions. To learn how to move your Amazon Web Services account out of the
+   *                         sandbox, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out
+   *                             of the SMS sandbox</a>.</p>
+   *                 </dd>
+   *          </dl>
    */
   SmsConfigurationFailure?: string;
 
   /**
-   * <p>The reason why the email configuration can't send the messages to your users.</p>
+   * <p>Deprecated. Review error codes from API requests with
+   *             <code>EventSource:cognito-idp.amazonaws.com</code> in CloudTrail for
+   *             information about problems with user pool email configuration.</p>
    */
   EmailConfigurationFailure?: string;
 
@@ -5588,43 +5674,53 @@ export interface CreateUserPoolClientRequest {
 
   /**
    * <p>The user pool attributes that the app client can write to.</p>
-   *         <p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity
-   *             provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client
-   *             lacks write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see
-   *             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity
-   *             Provider Attribute Mappings for Your User Pool</a>.</p>
+   *         <p>If your app client allows users to sign in through an identity provider, this array
+   *             must include all attributes that you have mapped to identity provider attributes. Amazon Cognito
+   *             updates mapped attributes when users sign in to your application through an identity
+   *             provider. If your app client does not have write access to a mapped attribute, Amazon Cognito
+   *             throws an error when it tries to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your user
+   *                 pool</a>.</p>
    */
   WriteAttributes?: string[];
 
   /**
-   * <p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are no longer supported,
-   *             in favor of new names with the <code>ALLOW_</code> prefix.
-   *             Note that values with <code>ALLOW_</code> prefix must be used only along with the <code>ALLOW_</code> prefix.</p>
+   * <p>The authentication flows that are supported by the user pool clients. Flow names
+   *             without the <code>ALLOW_</code> prefix are no longer supported, in favor of new names
+   *             with the <code>ALLOW_</code> prefix.</p>
+   *         <note>
+   *             <p>Values with <code>ALLOW_</code> prefix must be used only along with the
+   *                     <code>ALLOW_</code> prefix.</p>
+   *         </note>
    *         <p>Valid values include:</p>
    *
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the
-   *             <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito receives the password in the request instead of using the Secure Remote Password (SRP) protocol to
-   *             verify passwords.</p>
+   *                 <p>
+   *                   <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password
+   *                     authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces
+   *                     the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Amazon Cognito
+   *                     receives the password in the request instead of using the Secure Remote Password
+   *                     (SRP) protocol to verify passwords.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p>
+   *                 <p>
+   *                   <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based
+   *                     authentication.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP
-   *             protocol to verify passwords.</p>
+   *                 <p>
+   *                   <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based
+   *                     authentication. In this flow, Amazon Cognito receives the password in the request instead
+   *                     of using the SRP protocol to verify passwords.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p>
+   *                 <p>
+   *                   <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh
+   *                     tokens.</p>
    *             </li>
    *          </ul>
    */
@@ -5704,11 +5800,14 @@ export interface CreateUserPoolClientRequest {
   AllowedOAuthFlowsUserPoolClient?: boolean;
 
   /**
-   * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>
-   *          <note>
-   *             <p>In Amazon Web Services Regions where  isn't available,  User Pools only supports sending events to Amazon Pinpoint projects in Amazon Web Services Region us-east-1. In Regions where  is available,  User Pools will support
-   *         sending events to Amazon Pinpoint projects within that same Region. </p>
-   *          </note>
+   * <p>The user pool analytics configuration for collecting metrics and sending them to your
+   *             Amazon Pinpoint campaign.</p>
+   *         <note>
+   *             <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending
+   *                 events to Amazon Pinpoint projects in Amazon Web Services Region us-east-1. In Regions where Amazon Pinpoint is
+   *                 available, user pools support sending events to Amazon Pinpoint projects within that same
+   *                 Region.</p>
+   *         </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
 
@@ -5922,7 +6021,9 @@ export interface UserPoolClientType {
   /**
    * <p>The Amazon Pinpoint analytics configuration for the user pool client.</p>
    *          <note>
-   *             <p>Amazon Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the Region in which the user pool resides.</p>
+   *             <p>Amazon Cognito user pools only support sending events to Amazon Pinpoint projects in the US East (N.
+   *                 Virginia) us-east-1 Region, regardless of the Region where the user pool
+   *                 resides.</p>
    *          </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
@@ -6029,7 +6130,8 @@ export class ScopeDoesNotExistException extends __BaseException {
  */
 export interface CustomDomainConfigType {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
+   * <p>The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use
+   *             this certificate for the subdomain of your custom domain.</p>
    */
   CertificateArn: string | undefined;
 }
@@ -6817,20 +6919,26 @@ export interface ForgotPasswordRequest {
   Username: string | undefined;
 
   /**
-   * <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ForgotPassword</code> calls.</p>
+   * <p>The Amazon Pinpoint analytics metadata for collecting metrics for <code>ForgotPassword</code>
+   *             calls.</p>
    */
   AnalyticsMetadata?: AnalyticsMetadataType;
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the ForgotPassword API action,
-   *             Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>,
-   *             and <i>user migration</i>. When Amazon Cognito invokes any of these functions, it passes a JSON
-   *             payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned
-   *             to the ClientMetadata parameter in your ForgotPassword request. In your function code in Lambda, you can process the
-   *             <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows
-   *             with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool
+   *             triggers. When you use the ForgotPassword API action, Amazon Cognito invokes any
+   *             functions that are assigned to the following triggers: <i>pre sign-up</i>,
+   *                 <i>custom message</i>, and <i>user migration</i>. When
+   *             Amazon Cognito invokes any of these functions, it passes a JSON payload, which the
+   *             function receives as input. This payload contains a <code>clientMetadata</code>
+   *             attribute, which provides the data that you assigned to the ClientMetadata parameter in
+   *             your ForgotPassword request. In your function code in Lambda, you can
+   *             process the <code>clientMetadata</code> value to enhance your workflow for your specific
+   *             needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -7289,9 +7397,9 @@ export interface GetUserAttributeVerificationCodeRequest {
    *             passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data
    *             that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in Lambda,
    *             you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -7368,7 +7476,10 @@ export interface SmsMfaConfigType {
   SmsAuthenticationMessage?: string;
 
   /**
-   * <p>The SMS configuration.</p>
+   * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
+   *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To request Amazon SNS in
+   *             the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management (IAM) role that
+   *             you provide for your Amazon Web Services account.</p>
    */
   SmsConfiguration?: SmsConfigurationType;
 }
@@ -7557,9 +7668,12 @@ export interface InitiateAuthRequest {
    *                <p>User migration</p>
    *             </li>
    *          </ul>
-   *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON
-   *             payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your
-   *             InitiateAuth request. In your function code in Lambda, you can process the <code>validationData</code> value to enhance your workflow for your specific needs.</p>
+   *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which
+   *             the function receives as input. This payload contains a <code>validationData</code>
+   *             attribute, which provides the data that you assigned to the ClientMetadata parameter in
+   *             your InitiateAuth request. In your function code in Lambda, you can process the
+   *                 <code>validationData</code> value to enhance your workflow for your specific
+   *             needs.</p>
    *         <p>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it doesn't provide the ClientMetadata value as input:</p>
    *          <ul>
    *             <li>
@@ -7581,8 +7695,10 @@ export interface InitiateAuthRequest {
    *                <p>Verify auth challenge</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with
-   *             Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
    *
    *         <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -7634,45 +7750,65 @@ export namespace InitiateAuthRequest {
  */
 export interface InitiateAuthResponse {
   /**
-   * <p>The name of the challenge that you're responding to with this call. This name is returned in the <code>AdminInitiateAuth</code> response if you must pass another challenge.</p>
-   *         <p>Valid values include the following. Note that all of these challenges require
-   *             <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable) in the parameters.</p>
+   * <p>The name of the challenge that you're responding to with this call. This name is
+   *             returned in the <code>AdminInitiateAuth</code> response if you must pass another
+   *             challenge.</p>
+   *         <p>Valid values include the following:</p>
+   *         <note>
+   *             <p>All of the following challenges require <code>USERNAME</code> and
+   *                     <code>SECRET_HASH</code> (if applicable) in the parameters.</p>
+   *         </note>
    *
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p>
+   *                 <p>
+   *                   <code>SMS_MFA</code>: Next challenge is to supply an
+   *                     <code>SMS_MFA_CODE</code>, delivered via SMS.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the
-   *             client-side SRP calculations.</p>
+   *                 <p>
+   *                   <code>PASSWORD_VERIFIER</code>: Next challenge is to supply
+   *                         <code>PASSWORD_CLAIM_SIGNATURE</code>,
+   *                         <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after
+   *                     the client-side SRP calculations.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p>
+   *                 <p>
+   *                   <code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication
+   *                     flow determines that the user should pass another challenge before tokens are
+   *                     issued.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>DEVICE_SRP_AUTH</code>: If device tracking was activated on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking
-   *             this device.</p>
+   *                 <p>
+   *                   <code>DEVICE_SRP_AUTH</code>: If device tracking was activated on your user
+   *                     pool and the previous challenges were passed, this challenge is returned so that
+   *                     Amazon Cognito can start tracking this device.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p>
+   *                 <p>
+   *                   <code>DEVICE_PASSWORD_VERIFIER</code>: Similar to
+   *                         <code>PASSWORD_VERIFIER</code>, but for devices only.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code>
-   *             and any other required attributes.</p>
+   *                 <p>
+   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their
+   *                     passwords after successful first login. This challenge should be passed with
+   *                         <code>NEW_PASSWORD</code> and any other required attributes.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>MFA_SETUP</code>: For users who are required to setup an MFA factor before they can sign in. The MFA types activated for the user pool will be listed in the challenge parameters
-   *             <code>MFA_CAN_SETUP</code> value. </p>
-   *                    <p> To set up software token MFA, use the session returned here from <code>InitiateAuth</code> as an input to <code>AssociateSoftwareToken</code>. Use the session returned by
-   *                        <code>VerifySoftwareToken</code> as an input to <code>RespondToAuthChallenge</code> with challenge name <code>MFA_SETUP</code> to complete sign-in. To set up SMS MFA, an
-   *                        administrator should help the user to add a phone number to their account, and then the user should call <code>InitiateAuth</code> again to restart sign-in.</p>
+   *                 <p>
+   *                   <code>MFA_SETUP</code>: For users who are required to setup an MFA factor
+   *                     before they can sign in. The MFA types activated for the user pool will be
+   *                     listed in the challenge parameters <code>MFA_CAN_SETUP</code> value. </p>
+   *                 <p> To set up software token MFA, use the session returned here from
+   *                         <code>InitiateAuth</code> as an input to
+   *                     <code>AssociateSoftwareToken</code>. Use the session returned by
+   *                         <code>VerifySoftwareToken</code> as an input to
+   *                         <code>RespondToAuthChallenge</code> with challenge name
+   *                         <code>MFA_SETUP</code> to complete sign-in. To set up SMS MFA, an
+   *                     administrator should help the user to add a phone number to their account, and
+   *                     then the user should call <code>InitiateAuth</code> again to restart
+   *                     sign-in.</p>
    *             </li>
    *          </ul>
    */
@@ -8437,15 +8573,17 @@ export interface ResendConfirmationCodeRequest {
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.</p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito
-   *             invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a
-   *             JSON
-   *             payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned
-   *             to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in Lambda, you can process the <code>clientMetadata</code>
-   *             value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers.
+   *             When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is
+   *             assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this
+   *             function, it passes a JSON payload, which the function receives as input. This payload
+   *             contains a <code>clientMetadata</code> attribute, which provides the data that you
+   *             assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your
+   *             function code in Lambda, you can process the <code>clientMetadata</code> value to enhance
+   *             your workflow for your specific needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -8581,8 +8719,9 @@ export interface RespondToAuthChallengeRequest {
    *             invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code>
    *             attribute, which provides the data that you assigned to the ClientMetadata parameter in your RespondToAuthChallenge request. In your function code in
    *             Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing
-   *             User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -8910,8 +9049,9 @@ export interface SetUserPoolMfaConfigRequest {
   SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
 
   /**
-   * <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users with an MFA factor set up can sign in. To learn more,
-   *             see <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor Authentication (MFA) to a User Pool</a>. Valid values include:</p>
+   * <p>The MFA configuration. If you set the MfaConfiguration value to ‘ON’, only users who
+   *             have set up an MFA factor can sign in. To learn more, see <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor
+   *                 Authentication (MFA) to a user pool</a>. Valid values include:</p>
    *
    *          <ul>
    *             <li>
@@ -9073,9 +9213,9 @@ export interface SignUpRequest {
    *             receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the
    *             ClientMetadata parameter in your SignUp request. In your function code in Lambda, you can process the <code>clientMetadata</code>
    *             value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information,
-   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a>
-   *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *         <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>

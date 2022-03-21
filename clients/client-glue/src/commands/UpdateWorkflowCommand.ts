@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_1";
+import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateWorkflowCommand,
   serializeAws_json1_1UpdateWorkflowCommand,

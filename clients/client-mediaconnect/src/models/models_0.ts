@@ -707,6 +707,50 @@ export namespace ListedEntitlement {
   });
 }
 
+export enum MaintenanceDay {
+  Friday = "Friday",
+  Monday = "Monday",
+  Saturday = "Saturday",
+  Sunday = "Sunday",
+  Thursday = "Thursday",
+  Tuesday = "Tuesday",
+  Wednesday = "Wednesday",
+}
+
+/**
+ * The maintenance setting of a flow
+ */
+export interface Maintenance {
+  /**
+   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   */
+  MaintenanceDay?: MaintenanceDay | string;
+
+  /**
+   * The Maintenance has to be performed before this deadline in ISO UTC format. Example: 2021-01-30T08:30:00Z.
+   */
+  MaintenanceDeadline?: string;
+
+  /**
+   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   */
+  MaintenanceScheduledDate?: string;
+
+  /**
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   */
+  MaintenanceStartHour?: string;
+}
+
+export namespace Maintenance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Maintenance): any => ({
+    ...obj,
+  });
+}
+
 export enum SourceType {
   ENTITLED = "ENTITLED",
   OWNED = "OWNED",
@@ -755,6 +799,11 @@ export interface ListedFlow {
    * The current status of the flow.
    */
   Status: Status | string | undefined;
+
+  /**
+   * The maintenance setting of a flow
+   */
+  Maintenance?: Maintenance;
 }
 
 export namespace ListedFlow {
@@ -1948,6 +1997,30 @@ export namespace AddFlowVpcInterfacesResponse {
 }
 
 /**
+ * Create maintenance setting for a flow
+ */
+export interface AddMaintenance {
+  /**
+   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   */
+  MaintenanceDay: MaintenanceDay | string | undefined;
+
+  /**
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   */
+  MaintenanceStartHour: string | undefined;
+}
+
+export namespace AddMaintenance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddMaintenance): any => ({
+    ...obj,
+  });
+}
+
+/**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
 export class CreateFlow420Exception extends __BaseException {
@@ -2075,6 +2148,11 @@ export interface CreateFlowRequest {
    * The VPC interfaces you want on the flow.
    */
   VpcInterfaces?: VpcInterfaceRequest[];
+
+  /**
+   * Create maintenance setting for a flow
+   */
+  Maintenance?: AddMaintenance;
 }
 
 export namespace CreateFlowRequest {
@@ -2150,6 +2228,11 @@ export interface Flow {
    * The VPC Interfaces for this flow.
    */
   VpcInterfaces?: VpcInterface[];
+
+  /**
+   * The maintenance setting of a flow
+   */
+  Maintenance?: Maintenance;
 }
 
 export namespace Flow {
@@ -2983,6 +3066,35 @@ export namespace UntagResourceRequest {
 }
 
 /**
+ * Update maintenance setting for a flow
+ */
+export interface UpdateMaintenance {
+  /**
+   * A day of a week when the maintenance will happen. use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   */
+  MaintenanceDay?: MaintenanceDay | string;
+
+  /**
+   * A scheduled date in ISO UTC format when the maintenance will happen. Use YYYY-MM-DD format. Example: 2021-01-30.
+   */
+  MaintenanceScheduledDate?: string;
+
+  /**
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   */
+  MaintenanceStartHour?: string;
+}
+
+export namespace UpdateMaintenance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMaintenance): any => ({
+    ...obj,
+  });
+}
+
+/**
  * The settings for source failover.
  */
 export interface UpdateFailoverConfig {
@@ -3026,6 +3138,11 @@ export interface UpdateFlowRequest {
    * The settings for source failover.
    */
   SourceFailoverConfig?: UpdateFailoverConfig;
+
+  /**
+   * Update maintenance setting for a flow
+   */
+  Maintenance?: UpdateMaintenance;
 }
 
 export namespace UpdateFlowRequest {

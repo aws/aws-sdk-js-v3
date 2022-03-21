@@ -22,10 +22,8 @@ export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParamet
 export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * <p>
- *         Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
- *             the list will contain only the description of the specified DB parameter group.
- *         </p>
+ * <p>Returns a list of <code>DBParameterGroup</code> descriptions. If a <code>DBParameterGroupName</code> is specified,
+ *             the list will contain only the description of the specified DB parameter group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

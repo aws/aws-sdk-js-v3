@@ -278,9 +278,14 @@ export enum SimulationJobErrorCode {
  */
 export interface LoggingConfig {
   /**
+   * @deprecated
+   *
    * <p>A boolean indicating whether to record all ROS topics.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
-  recordAllRosTopics: boolean | undefined;
+  recordAllRosTopics?: boolean;
 }
 
 export namespace LoggingConfig {
@@ -575,10 +580,15 @@ export interface RobotApplicationConfig {
   uploadConfigurations?: UploadConfiguration[];
 
   /**
+   * @deprecated
+   *
    * <p>A Boolean indicating whether to use default upload configurations. By default,
    *             <code>.ros</code> and <code>.gazebo</code> files are uploaded when the application
    *          terminates and all ROS topics will be recorded.</p>
-   *          <p>If you set this value, you must specify an <code>outputLocation</code>. </p>
+   *          <p>If you set this value, you must specify an <code>outputLocation</code>.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   useDefaultUploadConfigurations?: boolean;
 
@@ -588,8 +598,13 @@ export interface RobotApplicationConfig {
   tools?: Tool[];
 
   /**
+   * @deprecated
+   *
    * <p>A Boolean indicating whether to use default robot application tools. The default tools
-   *          are rviz, rqt, terminal and rosbag record. The default is <code>False</code>. </p>
+   *          are rviz, rqt, terminal and rosbag record. The default is <code>False</code>.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   useDefaultTools?: boolean;
 }
@@ -652,10 +667,15 @@ export interface SimulationApplicationConfig {
   worldConfigs?: WorldConfig[];
 
   /**
+   * @deprecated
+   *
    * <p>A Boolean indicating whether to use default upload configurations. By default,
    *             <code>.ros</code> and <code>.gazebo</code> files are uploaded when the application
    *          terminates and all ROS topics will be recorded.</p>
-   *          <p>If you set this value, you must specify an <code>outputLocation</code>. </p>
+   *          <p>If you set this value, you must specify an <code>outputLocation</code>.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   useDefaultUploadConfigurations?: boolean;
 
@@ -665,8 +685,13 @@ export interface SimulationApplicationConfig {
   tools?: Tool[];
 
   /**
+   * @deprecated
+   *
    * <p>A Boolean indicating whether to use default simulation application tools. The default
-   *          tools are rviz, rqt, terminal and rosbag record. The default is <code>False</code>. </p>
+   *          tools are rviz, rqt, terminal and rosbag record. The default is <code>False</code>.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   useDefaultTools?: boolean;
 }
@@ -5779,6 +5804,11 @@ export interface WorldExportJobSummary {
    * <p>A list of worlds.</p>
    */
   worlds?: string[];
+
+  /**
+   * <p>The output location.</p>
+   */
+  outputLocation?: OutputLocation;
 }
 
 export namespace WorldExportJobSummary {

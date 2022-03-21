@@ -6447,8 +6447,7 @@ export interface CacheEngineVersion {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.0</code> |
-   *             <code>redis6.2</code>
+   *       <code>redis6.x</code>
    *          </p>
    */
   CacheParameterGroupFamily?: string;
@@ -7052,7 +7051,7 @@ export interface EngineDefaults {
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
    *       <code>redis6.0</code> |
-   *             <code>redis6.2</code>
+   *             <code>redis6.x</code>
    *          </p>
    */
   CacheParameterGroupFamily?: string;

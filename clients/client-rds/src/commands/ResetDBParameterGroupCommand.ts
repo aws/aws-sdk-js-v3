@@ -29,7 +29,7 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *                 <code>ResetAllParameters</code> parameters. When resetting the entire group, dynamic
  *             parameters are updated immediately and static parameters are set to
  *                 <code>pending-reboot</code> to take effect on the next DB instance restart or
- *                 <code>RebootDBInstance</code> request. </p>
+ *                 <code>RebootDBInstance</code> request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

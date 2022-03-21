@@ -23,10 +23,10 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
 
 /**
  * <p>Promotes a read replica DB instance to a standalone DB instance.</p>
- *          <note>
+ *         <note>
  *             <ul>
  *                <li>
- *                   <p>Backup duration is a function of the amount of changes to the database since the previous
+ *                     <p>Backup duration is a function of the amount of changes to the database since the previous
  *                         backup. If you plan to promote a read replica to a standalone instance, we
  *                         recommend that you enable backups and complete at least one backup prior to
  *                         promotion. In addition, a read replica cannot be promoted to a standalone
@@ -34,13 +34,12 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *                         enabled backups on your read replica, configure the automated backup window
  *                         so that daily backups do not interfere with read replica
  *                         promotion.</p>
- *                </li>
+ *                 </li>
  *                <li>
- *                   <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p>
- *                </li>
+ *                     <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p>
+ *                 </li>
  *             </ul>
- *
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

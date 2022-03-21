@@ -25,11 +25,11 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
  *         <ul>
  *             <li>
- *                <p>The CEV must not be the default for RDS Custom. If it is, change the default
+ *                 <p>The CEV must not be the default for RDS Custom. If it is, change the default
  *                 before running this command.</p>
  *             </li>
  *             <li>
- *                <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot,
+ *                 <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot,
  *                 or automated backup of your RDS Custom instance.</p>
  *             </li>
  *          </ul>
@@ -40,7 +40,7 @@ export interface DeleteCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *             <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
  *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
- *          </note>
+ *         </note>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">
  *             Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example

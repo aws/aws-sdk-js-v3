@@ -26,8 +26,7 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  *         <p>For more information on backtracking, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
  *                 Backtracking an Aurora DB Cluster</a> in the
- *             <i>Amazon Aurora User Guide.</i>
- *         </p>
+ *             <i>Amazon Aurora User Guide</i>.</p>
  *         <note>
  *             <p>This action only applies to Aurora MySQL DB clusters.</p>
  *         </note>

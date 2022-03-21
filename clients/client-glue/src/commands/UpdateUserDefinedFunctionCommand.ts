@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateUserDefinedFunctionRequest, UpdateUserDefinedFunctionResponse } from "../models/models_1";
+import { UpdateUserDefinedFunctionRequest, UpdateUserDefinedFunctionResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateUserDefinedFunctionCommand,
   serializeAws_json1_1UpdateUserDefinedFunctionCommand,

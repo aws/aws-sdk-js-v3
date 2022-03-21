@@ -439,8 +439,8 @@ export interface DevicePositionUpdate {
   SampleTime: Date | undefined;
 
   /**
-   * <p>The latest device position defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
-   *                 <code>[X or longitude, Y or latitude]</code>.</p>
+   * <p>The latest device position defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">WGS 84</a> format:
+   *             <code>[X or longitude, Y or latitude]</code>.</p>
    */
   Position: number[] | undefined;
 
@@ -1044,7 +1044,7 @@ export interface CalculateRouteTruckModeOptions {
   AvoidFerries?: boolean;
 
   /**
-   * <p>Avoids ferries when calculating routes.</p>
+   * <p>Avoids tolls when calculating routes.</p>
    *         <p>Default Value: <code>false</code>
    *          </p>
    *         <p>Valid Values: <code>false</code> | <code>true</code>
@@ -1761,8 +1761,8 @@ export namespace RouteMatrixEntryError {
 }
 
 /**
- * <p>The result for one <code>SnappedDeparturePosition</code>
- *             <code>SnappedDestinationPosition</code> pair.</p>
+ * <p>The result for the calculated route of one <code>DeparturePosition</code>
+ *             <code>DestinationPosition</code> pair.</p>
  */
 export interface RouteMatrixEntry {
   /**
@@ -2061,12 +2061,19 @@ export interface MapConfiguration {
    *                 <p>
    *                   <code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast
    *                     detailed base map of the world that blends 3D and 2D rendering.</p>
-   *                 <note>
-   *                     <p>When using HERE as your data provider, and selecting the Style
-   *                             <code>VectorHereBerlin</code>, you may not use HERE Technologies maps
-   *                         for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
-   *                         for Amazon Location Service.</p>
-   *                 </note>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorHereExplore</code> – A default HERE map style containing a
+   *                     neutral, global map and its features including roads, buildings, landmarks,
+   *                     and water features. It also now includes a fully designed map of Japan.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>VectorHereExploreTruck</code> – A global map containing truck
+   *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
+   *                     highlighted segments and icons on top of HERE Explore to support use cases
+   *                     within transport and logistics.</p>
    *             </li>
    *          </ul>
    */
@@ -4099,8 +4106,15 @@ export interface GetMapGlyphsRequest {
    *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
    *         <ul>
    *             <li>
-   *                 <p>VectorHereBerlin – <code>Fira GO Regular</code> | <code>Fira GO
-   *                         Bold</code>
+   *                 <p>VectorHereBerlin – <code>Fira
+   *                     GO Regular</code> | <code>Fira GO Bold</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>VectorHereExplore, VectorHereExploreTruck – <code>Firo GO Italic</code> |
+   *                     <code>Fira GO Map</code> | <code>Fira GO Map Bold</code> | <code>Noto Sans CJK
+   *                     JP Bold</code> | <code>Noto Sans CJK JP Light</code> | <code>Noto Sans CJK
+   *                     JP Regular</code>
    *                </p>
    *             </li>
    *          </ul>

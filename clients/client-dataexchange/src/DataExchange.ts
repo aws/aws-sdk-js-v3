@@ -69,6 +69,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RevokeRevisionCommand,
+  RevokeRevisionCommandInput,
+  RevokeRevisionCommandOutput,
+} from "./commands/RevokeRevisionCommand";
+import {
   SendApiAssetCommand,
   SendApiAssetCommandInput,
   SendApiAssetCommandOutput,
@@ -681,6 +686,38 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation revokes subscribers' access to a revision.</p>
+   */
+  public revokeRevision(
+    args: RevokeRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeRevisionCommandOutput>;
+  public revokeRevision(
+    args: RevokeRevisionCommandInput,
+    cb: (err: any, data?: RevokeRevisionCommandOutput) => void
+  ): void;
+  public revokeRevision(
+    args: RevokeRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeRevisionCommandOutput) => void
+  ): void;
+  public revokeRevision(
+    args: RevokeRevisionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeRevisionCommandOutput) => void),
+    cb?: (err: any, data?: RevokeRevisionCommandOutput) => void
+  ): Promise<RevokeRevisionCommandOutput> | void {
+    const command = new RevokeRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

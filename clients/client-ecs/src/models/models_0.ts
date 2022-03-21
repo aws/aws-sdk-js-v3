@@ -765,8 +765,7 @@ export interface CreateClusterRequest {
   settings?: ClusterSetting[];
 
   /**
-   * <p>The
-   * 			execute command configuration for the cluster.</p>
+   * <p>The <code>execute</code> command configuration for the cluster.</p>
    */
   configuration?: ClusterConfiguration;
 
@@ -1848,11 +1847,9 @@ export interface CreateServiceRequest {
   enableECSManagedTags?: boolean;
 
   /**
-   * <p>Specifies whether to propagate the tags from the task definition or the service to the
-   * 			tasks in the service. If no value is specified, the tags aren't propagated. Tags can
-   * 			only be propagated to the tasks within the service during service creation. To add tags
-   * 			to a task after service creation or task creation, use the <a>TagResource</a>
-   * 			API action.</p>
+   * <p>Specifies whether to propagate the tags from the task definition to the task. If no
+   * 			value is specified, the tags aren't propagated. Tags can only be propagated to the task
+   * 			during task creation. To add tags to a task after task creation, use the <a>TagResource</a> API action.</p>
    */
   propagateTags?: PropagateTags | string;
 
@@ -3908,6 +3905,14 @@ export namespace FirelensConfiguration {
  * 			specified in a container definition override any Docker health checks that exist in the
  * 			container image (such as those specified in a parent image or from the image's
  * 			Dockerfile).</p>
+ * 		       <note>
+ * 			         <p>The Amazon ECS container agent only monitors and reports on the health
+ * 				checks specified in the task definition. Amazon ECS does not monitor
+ * 				Docker health checks that are embedded in a container image and not
+ * 				specified in the container definition. Health check parameters that
+ * 				are specified in a container definition override any Docker health
+ * 				checks that exist in the container image.</p>
+ * 		       </note>
  * 		       <p>You can view the health status of both individual containers and a task with the
  * 			DescribeTasks API operation or when viewing the task details in the console.</p>
  * 		       <p>The following describes the possible <code>healthStatus</code> values for a
@@ -7684,8 +7689,22 @@ export namespace ExecuteCommandResponse {
 }
 
 /**
- * <p>The target container isn't properly configured with the execute command agent or the
- * 			container is no longer active or running.</p>
+ * <p>The execute command cannot run. This error can be caused by any of the following
+ * 			configuration issues:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>Incorrect IAM permissions</p>
+ *             </li>
+ *             <li>
+ *                <p>The SSM agent is not installed or is not running</p>
+ *             </li>
+ *             <li>
+ *                <p> There is an interface Amazon VPC endpoint for  Amazon ECS, but there is not one for for Systems Manager Session Manager</p>
+ *             </li>
+ *          </ul>
+ * 			      <p>For information about how to troubleshoot the
+ * 			issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS Exec</a> in the
+ * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export class TargetNotConnectedException extends __BaseException {
   readonly name: "TargetNotConnectedException" = "TargetNotConnectedException";
@@ -9225,6 +9244,8 @@ export interface RunTaskRequest {
    * <p>Determines whether to use the execute command functionality for the containers in
    * 			this task. If <code>true</code>, this enables execute command functionality on all
    * 			containers in the task.</p>
+   * 		       <p>If <code>true</code>, then the task definition must have a task role, or you must
+   * 			provide one as an override.</p>
    */
   enableExecuteCommand?: boolean;
 
@@ -9368,12 +9389,22 @@ export interface RunTaskRequest {
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    * 			full ARN of the task definition to run. If a <code>revision</code> isn't specified,
    * 			the latest <code>ACTIVE</code> revision is used.</p>
-   * 		       <p>The full ARN value must match the value that you specified as the
-   * 				<code>Resource</code> of the IAM principal's permissions policy. For example, if the
-   * 				<code>Resource</code> is
-   * 			arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*, the
-   * 				<code>taskDefinition</code> ARN value must be
+   * 		       <p>When you create an IAM policy for run-task, you can set the resource to be the latest task definition revision, or a specific revision.</p>
+   * 		       <p>The full ARN value must match the value that you specified as the <code>Resource</code> of
+   * 			the IAM principal's permissions policy.</p>
+   * 		       <p>When you specify the policy resource as the latest task definition version (by setting the
+   * 				<code>Resource</code> in the policy to
+   * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
+   * 			then set this value to
    * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</p>
+   * 		       <p>When you specify the policy resource as a specific task definition version (by setting the
+   * 				<code>Resource</code> in the policy to
+   * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code> or
+   * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</code>),
+   * 			then set this value to
+   * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy Resources for Amazon ECS</a> in the Amazon Elastic Container Service
+   * 			developer Guide.</p>
    */
   taskDefinition: string | undefined;
 }

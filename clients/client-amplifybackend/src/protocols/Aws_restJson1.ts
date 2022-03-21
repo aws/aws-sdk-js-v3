@@ -93,6 +93,7 @@ import {
   CreateBackendAuthPasswordPolicyConfig,
   CreateBackendAuthResourceConfig,
   CreateBackendAuthUserPoolConfig,
+  CreateBackendAuthVerificationMessageConfig,
   CreateBackendStorageResourceConfig,
   EmailSettings,
   GatewayTimeoutException,
@@ -116,6 +117,7 @@ import {
   UpdateBackendAuthPasswordPolicyConfig,
   UpdateBackendAuthResourceConfig,
   UpdateBackendAuthUserPoolConfig,
+  UpdateBackendAuthVerificationMessageConfig,
   UpdateBackendStorageResourceConfig,
 } from "../models/models_0";
 
@@ -3813,6 +3815,29 @@ const serializeAws_restJson1CreateBackendAuthUserPoolConfig = (
       }),
     ...(input.SignInMethod !== undefined && input.SignInMethod !== null && { signInMethod: input.SignInMethod }),
     ...(input.UserPoolName !== undefined && input.UserPoolName !== null && { userPoolName: input.UserPoolName }),
+    ...(input.VerificationMessage !== undefined &&
+      input.VerificationMessage !== null && {
+        verificationMessage: serializeAws_restJson1CreateBackendAuthVerificationMessageConfig(
+          input.VerificationMessage,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
+  input: CreateBackendAuthVerificationMessageConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeliveryMethod !== undefined &&
+      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings !== undefined &&
+      input.EmailSettings !== null && {
+        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+      }),
+    ...(input.SmsSettings !== undefined &&
+      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
   };
 };
 
@@ -4114,6 +4139,29 @@ const serializeAws_restJson1UpdateBackendAuthUserPoolConfig = (
       input.PasswordPolicy !== null && {
         passwordPolicy: serializeAws_restJson1UpdateBackendAuthPasswordPolicyConfig(input.PasswordPolicy, context),
       }),
+    ...(input.VerificationMessage !== undefined &&
+      input.VerificationMessage !== null && {
+        verificationMessage: serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig(
+          input.VerificationMessage,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1UpdateBackendAuthVerificationMessageConfig = (
+  input: UpdateBackendAuthVerificationMessageConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeliveryMethod !== undefined &&
+      input.DeliveryMethod !== null && { deliveryMethod: input.DeliveryMethod }),
+    ...(input.EmailSettings !== undefined &&
+      input.EmailSettings !== null && {
+        emailSettings: serializeAws_restJson1EmailSettings(input.EmailSettings, context),
+      }),
+    ...(input.SmsSettings !== undefined &&
+      input.SmsSettings !== null && { smsSettings: serializeAws_restJson1SmsSettings(input.SmsSettings, context) }),
   };
 };
 
@@ -4363,6 +4411,27 @@ const deserializeAws_restJson1CreateBackendAuthUserPoolConfig = (
         : undefined,
     SignInMethod: __expectString(output.signInMethod),
     UserPoolName: __expectString(output.userPoolName),
+    VerificationMessage:
+      output.verificationMessage !== undefined && output.verificationMessage !== null
+        ? deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig(output.verificationMessage, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CreateBackendAuthVerificationMessageConfig = (
+  output: any,
+  context: __SerdeContext
+): CreateBackendAuthVerificationMessageConfig => {
+  return {
+    DeliveryMethod: __expectString(output.deliveryMethod),
+    EmailSettings:
+      output.emailSettings !== undefined && output.emailSettings !== null
+        ? deserializeAws_restJson1EmailSettings(output.emailSettings, context)
+        : undefined,
+    SmsSettings:
+      output.smsSettings !== undefined && output.smsSettings !== null
+        ? deserializeAws_restJson1SmsSettings(output.smsSettings, context)
+        : undefined,
   } as any;
 };
 

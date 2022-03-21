@@ -22,22 +22,16 @@ export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
 export interface ListEndpointsCommandOutput extends ListEndpointsResult, __MetadataBearer {}
 
 /**
- * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
- *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
- *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
- *         Accessing S3 on Outposts using VPC only access points</a>.</p>
- *         <p>This action lists endpoints associated with the Outposts.
- *             </p>
- *         <p></p>
+ * <p>Lists endpoints associated with the specified Outpost. </p>
  *         <p>Related actions include:</p>
  *         <ul>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
  *                </p>
  *             </li>

@@ -4638,7 +4638,7 @@ export interface CreateGroupRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace that you want the group to be a part of.</p>
    */
   Namespace: string | undefined;
 }
@@ -4760,7 +4760,7 @@ export interface CreateGroupMembershipRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace that you want the user to be a part of.</p>
    */
   Namespace: string | undefined;
 }
@@ -6912,7 +6912,7 @@ export interface DeleteGroupRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace of the group that you want to delete.</p>
    */
   Namespace: string | undefined;
 }
@@ -6965,7 +6965,7 @@ export interface DeleteGroupMembershipRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace of the group that you want to remove a user from.</p>
    */
   Namespace: string | undefined;
 }
@@ -8247,7 +8247,7 @@ export interface DescribeGroupRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace of the group that you want described.</p>
    */
   Namespace: string | undefined;
 }
@@ -8283,6 +8283,65 @@ export namespace DescribeGroupResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeGroupMembershipRequest {
+  /**
+   * <p>The user name of the user that you want to search for.</p>
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The name of the group that you want to search.</p>
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *          Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that includes the group you are searching within.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace DescribeGroupMembershipRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeGroupMembershipResponse {
+  /**
+   * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
+   *             can't be members of another group. .</p>
+   */
+  GroupMember?: GroupMember;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace DescribeGroupMembershipResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
     ...obj,
   });
 }
@@ -9468,36 +9527,4 @@ export namespace DescribeThemePermissionsResponse {
   export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
     ...obj,
   });
-}
-
-export interface DescribeUserRequest {
-  /**
-   * <p>The name of the user that you want to describe.</p>
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum IdentityType {
-  IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT",
 }

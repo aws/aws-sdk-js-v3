@@ -84,6 +84,7 @@ import {
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
+import { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand";
 import {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
@@ -108,6 +109,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
 import {
@@ -150,6 +152,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
@@ -230,6 +233,8 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
@@ -276,6 +281,8 @@ import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./c
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
+import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -305,6 +312,7 @@ import {
 } from "./commands/RemoveSchemaVersionMetadataCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "./commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "./commands/ResumeWorkflowRunCommand";
+import { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "./commands/StartBlueprintRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
@@ -336,6 +344,7 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import { StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "./commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -388,6 +397,7 @@ export type ServiceInputTypes =
   | BatchStopJobRunCommandInput
   | BatchUpdatePartitionCommandInput
   | CancelMLTaskRunCommandInput
+  | CancelStatementCommandInput
   | CheckSchemaVersionValidityCommandInput
   | CreateBlueprintCommandInput
   | CreateClassifierCommandInput
@@ -403,6 +413,7 @@ export type ServiceInputTypes =
   | CreateSchemaCommandInput
   | CreateScriptCommandInput
   | CreateSecurityConfigurationCommandInput
+  | CreateSessionCommandInput
   | CreateTableCommandInput
   | CreateTriggerCommandInput
   | CreateUserDefinedFunctionCommandInput
@@ -424,6 +435,7 @@ export type ServiceInputTypes =
   | DeleteSchemaCommandInput
   | DeleteSchemaVersionsCommandInput
   | DeleteSecurityConfigurationCommandInput
+  | DeleteSessionCommandInput
   | DeleteTableCommandInput
   | DeleteTableVersionCommandInput
   | DeleteTriggerCommandInput
@@ -471,6 +483,8 @@ export type ServiceInputTypes =
   | GetSchemaVersionsDiffCommandInput
   | GetSecurityConfigurationCommandInput
   | GetSecurityConfigurationsCommandInput
+  | GetSessionCommandInput
+  | GetStatementCommandInput
   | GetTableCommandInput
   | GetTableVersionCommandInput
   | GetTableVersionsCommandInput
@@ -496,6 +510,8 @@ export type ServiceInputTypes =
   | ListRegistriesCommandInput
   | ListSchemaVersionsCommandInput
   | ListSchemasCommandInput
+  | ListSessionsCommandInput
+  | ListStatementsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
@@ -507,6 +523,7 @@ export type ServiceInputTypes =
   | RemoveSchemaVersionMetadataCommandInput
   | ResetJobBookmarkCommandInput
   | ResumeWorkflowRunCommandInput
+  | RunStatementCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
   | StartCrawlerCommandInput
@@ -520,6 +537,7 @@ export type ServiceInputTypes =
   | StartWorkflowRunCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
+  | StopSessionCommandInput
   | StopTriggerCommandInput
   | StopWorkflowRunCommandInput
   | TagResourceCommandInput
@@ -559,6 +577,7 @@ export type ServiceOutputTypes =
   | BatchStopJobRunCommandOutput
   | BatchUpdatePartitionCommandOutput
   | CancelMLTaskRunCommandOutput
+  | CancelStatementCommandOutput
   | CheckSchemaVersionValidityCommandOutput
   | CreateBlueprintCommandOutput
   | CreateClassifierCommandOutput
@@ -574,6 +593,7 @@ export type ServiceOutputTypes =
   | CreateSchemaCommandOutput
   | CreateScriptCommandOutput
   | CreateSecurityConfigurationCommandOutput
+  | CreateSessionCommandOutput
   | CreateTableCommandOutput
   | CreateTriggerCommandOutput
   | CreateUserDefinedFunctionCommandOutput
@@ -595,6 +615,7 @@ export type ServiceOutputTypes =
   | DeleteSchemaCommandOutput
   | DeleteSchemaVersionsCommandOutput
   | DeleteSecurityConfigurationCommandOutput
+  | DeleteSessionCommandOutput
   | DeleteTableCommandOutput
   | DeleteTableVersionCommandOutput
   | DeleteTriggerCommandOutput
@@ -642,6 +663,8 @@ export type ServiceOutputTypes =
   | GetSchemaVersionsDiffCommandOutput
   | GetSecurityConfigurationCommandOutput
   | GetSecurityConfigurationsCommandOutput
+  | GetSessionCommandOutput
+  | GetStatementCommandOutput
   | GetTableCommandOutput
   | GetTableVersionCommandOutput
   | GetTableVersionsCommandOutput
@@ -667,6 +690,8 @@ export type ServiceOutputTypes =
   | ListRegistriesCommandOutput
   | ListSchemaVersionsCommandOutput
   | ListSchemasCommandOutput
+  | ListSessionsCommandOutput
+  | ListStatementsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
@@ -678,6 +703,7 @@ export type ServiceOutputTypes =
   | RemoveSchemaVersionMetadataCommandOutput
   | ResetJobBookmarkCommandOutput
   | ResumeWorkflowRunCommandOutput
+  | RunStatementCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
   | StartCrawlerCommandOutput
@@ -691,6 +717,7 @@ export type ServiceOutputTypes =
   | StartWorkflowRunCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
+  | StopSessionCommandOutput
   | StopTriggerCommandOutput
   | StopWorkflowRunCommandOutput
   | TagResourceCommandOutput

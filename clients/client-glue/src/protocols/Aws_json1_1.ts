@@ -51,6 +51,7 @@ import {
   BatchUpdatePartitionCommandOutput,
 } from "../commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "../commands/CancelMLTaskRunCommand";
+import { CancelStatementCommandInput, CancelStatementCommandOutput } from "../commands/CancelStatementCommand";
 import {
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
@@ -75,6 +76,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "../commands/CreateSecurityConfigurationCommand";
+import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "../commands/CreateTriggerCommand";
 import {
@@ -117,6 +119,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "../commands/DeleteSecurityConfigurationCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "../commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "../commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "../commands/DeleteTriggerCommand";
@@ -197,6 +200,8 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
 } from "../commands/GetSecurityConfigurationsCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
+import { GetStatementCommandInput, GetStatementCommandOutput } from "../commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "../commands/GetTableCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "../commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "../commands/GetTableVersionCommand";
@@ -243,6 +248,8 @@ import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "../
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "../commands/ListRegistriesCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "../commands/ListSchemaVersionsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "../commands/ListSessionsCommand";
+import { ListStatementsCommandInput, ListStatementsCommandOutput } from "../commands/ListStatementsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "../commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
@@ -272,6 +279,7 @@ import {
 } from "../commands/RemoveSchemaVersionMetadataCommand";
 import { ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput } from "../commands/ResetJobBookmarkCommand";
 import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from "../commands/ResumeWorkflowRunCommand";
+import { RunStatementCommandInput, RunStatementCommandOutput } from "../commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "../commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "../commands/StartBlueprintRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "../commands/StartCrawlerCommand";
@@ -303,6 +311,7 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "../commands/StopCrawlerScheduleCommand";
+import { StopSessionCommandInput, StopSessionCommandOutput } from "../commands/StopSessionCommand";
 import { StopTriggerCommandInput, StopTriggerCommandOutput } from "../commands/StopTriggerCommand";
 import { StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput } from "../commands/StopWorkflowRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -382,6 +391,8 @@ import {
   BooleanColumnStatisticsData,
   CancelMLTaskRunRequest,
   CancelMLTaskRunResponse,
+  CancelStatementRequest,
+  CancelStatementResponse,
   CatalogImportStatus,
   CatalogTarget,
   CheckSchemaVersionValidityInput,
@@ -399,13 +410,11 @@ import {
   Condition,
   ConditionCheckFailureException,
   ConflictException,
-  Connection,
   ConnectionInput,
   ConnectionPropertyKey,
   ConnectionsList,
   Crawl,
   Crawler,
-  CrawlerMetrics,
   CrawlerNodeDetails,
   CrawlerRunningException,
   CrawlerTargets,
@@ -440,6 +449,8 @@ import {
   CreateScriptResponse,
   CreateSecurityConfigurationRequest,
   CreateSecurityConfigurationResponse,
+  CreateSessionRequest,
+  CreateSessionResponse,
   CreateTableRequest,
   CreateTableResponse,
   CreateTriggerRequest,
@@ -490,6 +501,8 @@ import {
   DeleteSchemaVersionsResponse,
   DeleteSecurityConfigurationRequest,
   DeleteSecurityConfigurationResponse,
+  DeleteSessionRequest,
+  DeleteSessionResponse,
   DeleteTableRequest,
   DeleteTableResponse,
   DeleteTableVersionRequest,
@@ -528,18 +541,11 @@ import {
   GetColumnStatisticsForPartitionResponse,
   GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
-  GetConnectionRequest,
-  GetConnectionResponse,
-  GetConnectionsFilter,
-  GetConnectionsRequest,
-  GetConnectionsResponse,
-  GetCrawlerMetricsRequest,
-  GetCrawlerRequest,
-  GetCrawlerResponse,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
   IdempotentParameterMismatchException,
+  IllegalSessionStateException,
   InternalServiceException,
   InvalidInputException,
   InvalidStateException,
@@ -585,6 +591,8 @@ import {
   SchemaReference,
   SchemaVersionErrorItem,
   SerDeInfo,
+  Session,
+  SessionCommand,
   SkewedInfo,
   StartingEventBatchCondition,
   StorageDescriptor,
@@ -613,7 +621,9 @@ import {
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConfusionMatrix,
+  Connection,
   ConnectionPasswordEncryption,
+  CrawlerMetrics,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   Database,
@@ -624,7 +634,15 @@ import {
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetConnectionRequest,
+  GetConnectionResponse,
+  GetConnectionsFilter,
+  GetConnectionsRequest,
+  GetConnectionsResponse,
+  GetCrawlerMetricsRequest,
   GetCrawlerMetricsResponse,
+  GetCrawlerRequest,
+  GetCrawlerResponse,
   GetCrawlersRequest,
   GetCrawlersResponse,
   GetDatabaseRequest,
@@ -685,6 +703,10 @@ import {
   GetSecurityConfigurationResponse,
   GetSecurityConfigurationsRequest,
   GetSecurityConfigurationsResponse,
+  GetSessionRequest,
+  GetSessionResponse,
+  GetStatementRequest,
+  GetStatementResponse,
   GetTableRequest,
   GetTableResponse,
   GetTablesRequest,
@@ -743,6 +765,10 @@ import {
   ListSchemasResponse,
   ListSchemaVersionsInput,
   ListSchemaVersionsResponse,
+  ListSessionsRequest,
+  ListSessionsResponse,
+  ListStatementsRequest,
+  ListStatementsResponse,
   ListTriggersRequest,
   ListTriggersResponse,
   ListWorkflowsRequest,
@@ -778,6 +804,8 @@ import {
   ResetJobBookmarkResponse,
   ResumeWorkflowRunRequest,
   ResumeWorkflowRunResponse,
+  RunStatementRequest,
+  RunStatementResponse,
   SchedulerNotRunningException,
   SchedulerRunningException,
   SchemaColumn,
@@ -809,10 +837,15 @@ import {
   StartTriggerResponse,
   StartWorkflowRunRequest,
   StartWorkflowRunResponse,
+  Statement,
+  StatementOutput,
+  StatementOutputData,
   StopCrawlerRequest,
   StopCrawlerResponse,
   StopCrawlerScheduleRequest,
   StopCrawlerScheduleResponse,
+  StopSessionRequest,
+  StopSessionResponse,
   StopTriggerRequest,
   StopTriggerResponse,
   StopWorkflowRunRequest,
@@ -827,7 +860,6 @@ import {
   TaskRunSortCriteria,
   TransformFilterCriteria,
   TransformSortCriteria,
-  TriggerUpdate,
   UnfilteredPartition,
   UntagResourceRequest,
   UntagResourceResponse,
@@ -864,16 +896,19 @@ import {
   UpdateSchemaResponse,
   UpdateTableRequest,
   UpdateTableResponse,
+  UpdateXMLClassifierRequest,
+  UserDefinedFunction,
+  VersionMismatchException,
+} from "../models/models_1";
+import {
+  TriggerUpdate,
   UpdateTriggerRequest,
   UpdateTriggerResponse,
   UpdateUserDefinedFunctionRequest,
   UpdateUserDefinedFunctionResponse,
   UpdateWorkflowRequest,
   UpdateWorkflowResponse,
-  UpdateXMLClassifierRequest,
-  UserDefinedFunction,
-  VersionMismatchException,
-} from "../models/models_1";
+} from "../models/models_2";
 
 export const serializeAws_json1_1BatchCreatePartitionCommand = async (
   input: BatchCreatePartitionCommandInput,
@@ -1070,6 +1105,19 @@ export const serializeAws_json1_1CancelMLTaskRunCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CancelStatementCommand = async (
+  input: CancelStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.CancelStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CancelStatementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CheckSchemaVersionValidityCommand = async (
   input: CheckSchemaVersionValidityCommandInput,
   context: __SerdeContext
@@ -1262,6 +1310,19 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSecurityConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateSessionCommand = async (
+  input: CreateSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.CreateSession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1535,6 +1596,19 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteSessionCommand = async (
+  input: DeleteSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.DeleteSession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2149,6 +2223,32 @@ export const serializeAws_json1_1GetSecurityConfigurationsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetSessionCommand = async (
+  input: GetSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetSession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetSessionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetStatementCommand = async (
+  input: GetStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetStatementRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetTableCommand = async (
   input: GetTableCommandInput,
   context: __SerdeContext
@@ -2474,6 +2574,32 @@ export const serializeAws_json1_1ListSchemaVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListSessionsCommand = async (
+  input: ListSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.ListSessions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSessionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListStatementsCommand = async (
+  input: ListStatementsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.ListStatements",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListStatementsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListTriggersCommand = async (
   input: ListTriggersCommandInput,
   context: __SerdeContext
@@ -2614,6 +2740,19 @@ export const serializeAws_json1_1ResumeWorkflowRunCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResumeWorkflowRunRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RunStatementCommand = async (
+  input: RunStatementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.RunStatement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RunStatementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2783,6 +2922,19 @@ export const serializeAws_json1_1StopCrawlerScheduleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopCrawlerScheduleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopSessionCommand = async (
+  input: StopSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.StopSession",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3849,6 +4001,64 @@ const deserializeAws_json1_1CancelMLTaskRunCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CancelStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CancelStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelStatementResponse(data, context);
+  const response: CancelStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CancelStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1CheckSchemaVersionValidityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4690,6 +4900,70 @@ const deserializeAws_json1_1CreateSecurityConfigurationCommandError = async (
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.glue#ResourceNumberLimitExceededException":
       throw await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateSessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateSessionResponse(data, context);
+  const response: CreateSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.glue#IdempotentParameterMismatchException":
+      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      throw await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.glue#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -5815,6 +6089,64 @@ const deserializeAws_json1_1DeleteSecurityConfigurationCommandError = async (
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteSessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteSessionResponse(data, context);
+  const response: DeleteSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.glue#InternalServiceException":
       throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
@@ -8255,6 +8587,119 @@ const deserializeAws_json1_1GetSecurityConfigurationsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetSessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSessionResponse(data, context);
+  const response: GetSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GetStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetStatementResponse(data, context);
+  const response: GetStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1GetTableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9573,6 +10018,116 @@ const deserializeAws_json1_1ListSchemaVersionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSessionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSessionsResponse(data, context);
+  const response: ListSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSessionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSessionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListStatementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStatementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListStatementsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListStatementsResponse(data, context);
+  const response: ListStatementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListStatementsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStatementsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListTriggersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -10149,6 +10704,70 @@ const deserializeAws_json1_1ResumeWorkflowRunCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1RunStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RunStatementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RunStatementResponse(data, context);
+  const response: RunStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RunStatementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunStatementCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      throw await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.glue#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -10858,6 +11477,64 @@ const deserializeAws_json1_1StopCrawlerScheduleCommandError = async (
     case "SchedulerTransitioningException":
     case "com.amazonaws.glue#SchedulerTransitioningException":
       throw await deserializeAws_json1_1SchedulerTransitioningExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StopSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopSessionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopSessionResponse(data, context);
+  const response: StopSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await deserializeAws_json1_1IllegalSessionStateExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -12251,6 +12928,19 @@ const deserializeAws_json1_1IllegalBlueprintStateExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1IllegalSessionStateExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IllegalSessionStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1IllegalSessionStateException(body, context);
+  const exception = new IllegalSessionStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1IllegalWorkflowStateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12488,10 +13178,27 @@ const serializeAws_json1_1AdditionalPlanOptionsMap = (
   }, {});
 };
 
+const serializeAws_json1_1AuditColumnNamesList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1AuditContext = (input: AuditContext, context: __SerdeContext): any => {
   return {
     ...(input.AdditionalAuditContext !== undefined &&
       input.AdditionalAuditContext !== null && { AdditionalAuditContext: input.AdditionalAuditContext }),
+    ...(input.AllColumnsRequested !== undefined &&
+      input.AllColumnsRequested !== null && { AllColumnsRequested: input.AllColumnsRequested }),
+    ...(input.RequestedColumns !== undefined &&
+      input.RequestedColumns !== null && {
+        RequestedColumns: serializeAws_json1_1AuditColumnNamesList(input.RequestedColumns, context),
+      }),
   };
 };
 
@@ -12805,6 +13512,14 @@ const serializeAws_json1_1CancelMLTaskRunRequest = (input: CancelMLTaskRunReques
   return {
     ...(input.TaskRunId !== undefined && input.TaskRunId !== null && { TaskRunId: input.TaskRunId }),
     ...(input.TransformId !== undefined && input.TransformId !== null && { TransformId: input.TransformId }),
+  };
+};
+
+const serializeAws_json1_1CancelStatementRequest = (input: CancelStatementRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
   };
 };
 
@@ -13452,6 +14167,34 @@ const serializeAws_json1_1CreateSecurityConfigurationRequest = (
   };
 };
 
+const serializeAws_json1_1CreateSessionRequest = (input: CreateSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Command !== undefined &&
+      input.Command !== null && { Command: serializeAws_json1_1SessionCommand(input.Command, context) }),
+    ...(input.Connections !== undefined &&
+      input.Connections !== null && { Connections: serializeAws_json1_1ConnectionsList(input.Connections, context) }),
+    ...(input.DefaultArguments !== undefined &&
+      input.DefaultArguments !== null && {
+        DefaultArguments: serializeAws_json1_1OrchestrationArgumentsMap(input.DefaultArguments, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.GlueVersion !== undefined && input.GlueVersion !== null && { GlueVersion: input.GlueVersion }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IdleTimeout !== undefined && input.IdleTimeout !== null && { IdleTimeout: input.IdleTimeout }),
+    ...(input.MaxCapacity !== undefined &&
+      input.MaxCapacity !== null && { MaxCapacity: __serializeFloat(input.MaxCapacity) }),
+    ...(input.NumberOfWorkers !== undefined &&
+      input.NumberOfWorkers !== null && { NumberOfWorkers: input.NumberOfWorkers }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
+    ...(input.SecurityConfiguration !== undefined &&
+      input.SecurityConfiguration !== null && { SecurityConfiguration: input.SecurityConfiguration }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+    ...(input.Timeout !== undefined && input.Timeout !== null && { Timeout: input.Timeout }),
+    ...(input.WorkerType !== undefined && input.WorkerType !== null && { WorkerType: input.WorkerType }),
+  };
+};
+
 const serializeAws_json1_1CreateTableRequest = (input: CreateTableRequest, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
@@ -13814,6 +14557,13 @@ const serializeAws_json1_1DeleteSecurityConfigurationRequest = (
 ): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeleteSessionRequest = (input: DeleteSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
   };
 };
 
@@ -14441,6 +15191,21 @@ const serializeAws_json1_1GetSecurityConfigurationsRequest = (
   };
 };
 
+const serializeAws_json1_1GetSessionRequest = (input: GetSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+  };
+};
+
+const serializeAws_json1_1GetStatementRequest = (input: GetStatementRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
+  };
+};
+
 const serializeAws_json1_1GetTableRequest = (input: GetTableRequest, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
@@ -14840,6 +15605,23 @@ const serializeAws_json1_1ListSchemaVersionsInput = (input: ListSchemaVersionsIn
   };
 };
 
+const serializeAws_json1_1ListSessionsRequest = (input: ListSessionsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1ListStatementsRequest = (input: ListStatementsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
+  };
+};
+
 const serializeAws_json1_1ListTriggersRequest = (input: ListTriggersRequest, context: __SerdeContext): any => {
   return {
     ...(input.DependentJobName !== undefined &&
@@ -15021,6 +15803,21 @@ const serializeAws_json1_1NotificationProperty = (input: NotificationProperty, c
     ...(input.NotifyDelayAfter !== undefined &&
       input.NotifyDelayAfter !== null && { NotifyDelayAfter: input.NotifyDelayAfter }),
   };
+};
+
+const serializeAws_json1_1OrchestrationArgumentsMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_json1_1OrchestrationStringList = (input: string[], context: __SerdeContext): any => {
@@ -15380,6 +16177,14 @@ const serializeAws_json1_1ResumeWorkflowRunRequest = (
   };
 };
 
+const serializeAws_json1_1RunStatementRequest = (input: RunStatementRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Code !== undefined && input.Code !== null && { Code: input.Code }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
+    ...(input.SessionId !== undefined && input.SessionId !== null && { SessionId: input.SessionId }),
+  };
+};
+
 const serializeAws_json1_1S3Encryption = (input: S3Encryption, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
@@ -15517,6 +16322,13 @@ const serializeAws_json1_1SerDeInfo = (input: SerDeInfo, context: __SerdeContext
       input.Parameters !== null && { Parameters: serializeAws_json1_1ParametersMap(input.Parameters, context) }),
     ...(input.SerializationLibrary !== undefined &&
       input.SerializationLibrary !== null && { SerializationLibrary: input.SerializationLibrary }),
+  };
+};
+
+const serializeAws_json1_1SessionCommand = (input: SessionCommand, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PythonVersion !== undefined && input.PythonVersion !== null && { PythonVersion: input.PythonVersion }),
   };
 };
 
@@ -15673,6 +16485,13 @@ const serializeAws_json1_1StopCrawlerScheduleRequest = (
 ): any => {
   return {
     ...(input.CrawlerName !== undefined && input.CrawlerName !== null && { CrawlerName: input.CrawlerName }),
+  };
+};
+
+const serializeAws_json1_1StopSessionRequest = (input: StopSessionRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.RequestOrigin !== undefined && input.RequestOrigin !== null && { RequestOrigin: input.RequestOrigin }),
   };
 };
 
@@ -16840,6 +17659,13 @@ const deserializeAws_json1_1CancelMLTaskRunResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CancelStatementResponse = (
+  output: any,
+  context: __SerdeContext
+): CancelStatementResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1CatalogImportStatus = (output: any, context: __SerdeContext): CatalogImportStatus => {
   return {
     ImportCompleted: __expectBoolean(output.ImportCompleted),
@@ -17663,6 +18489,15 @@ const deserializeAws_json1_1CreateSecurityConfigurationResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateSessionResponse = (output: any, context: __SerdeContext): CreateSessionResponse => {
+  return {
+    Session:
+      output.Session !== undefined && output.Session !== null
+        ? deserializeAws_json1_1Session(output.Session, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateTableResponse = (output: any, context: __SerdeContext): CreateTableResponse => {
   return {} as any;
 };
@@ -17979,6 +18814,12 @@ const deserializeAws_json1_1DeleteSecurityConfigurationResponse = (
   context: __SerdeContext
 ): DeleteSecurityConfigurationResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteSessionResponse = (output: any, context: __SerdeContext): DeleteSessionResponse => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTableResponse = (output: any, context: __SerdeContext): DeleteTableResponse => {
@@ -18847,6 +19688,24 @@ const deserializeAws_json1_1GetSecurityConfigurationsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetSessionResponse = (output: any, context: __SerdeContext): GetSessionResponse => {
+  return {
+    Session:
+      output.Session !== undefined && output.Session !== null
+        ? deserializeAws_json1_1Session(output.Session, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetStatementResponse = (output: any, context: __SerdeContext): GetStatementResponse => {
+  return {
+    Statement:
+      output.Statement !== undefined && output.Statement !== null
+        ? deserializeAws_json1_1Statement(output.Statement, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetTableResponse = (output: any, context: __SerdeContext): GetTableResponse => {
   return {
     Table:
@@ -19126,6 +19985,15 @@ const deserializeAws_json1_1IllegalBlueprintStateException = (
   output: any,
   context: __SerdeContext
 ): IllegalBlueprintStateException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1IllegalSessionStateException = (
+  output: any,
+  context: __SerdeContext
+): IllegalSessionStateException => {
   return {
     Message: __expectString(output.Message),
   } as any;
@@ -19543,6 +20411,30 @@ const deserializeAws_json1_1ListSchemaVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListSessionsResponse = (output: any, context: __SerdeContext): ListSessionsResponse => {
+  return {
+    Ids:
+      output.Ids !== undefined && output.Ids !== null
+        ? deserializeAws_json1_1SessionIdList(output.Ids, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+    Sessions:
+      output.Sessions !== undefined && output.Sessions !== null
+        ? deserializeAws_json1_1SessionList(output.Sessions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListStatementsResponse = (output: any, context: __SerdeContext): ListStatementsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Statements:
+      output.Statements !== undefined && output.Statements !== null
+        ? deserializeAws_json1_1StatementList(output.Statements, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTriggersResponse = (output: any, context: __SerdeContext): ListTriggersResponse => {
   return {
     NextToken: __expectString(output.NextToken),
@@ -19828,6 +20720,21 @@ const deserializeAws_json1_1OperationTimeoutException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1OrchestrationArgumentsMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1OrchestrationStringList = (output: any, context: __SerdeContext): string[] => {
@@ -20296,6 +21203,12 @@ const deserializeAws_json1_1ResumeWorkflowRunResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RunStatementResponse = (output: any, context: __SerdeContext): RunStatementResponse => {
+  return {
+    Id: __expectInt32(output.Id),
+  } as any;
+};
+
 const deserializeAws_json1_1S3Encryption = (output: any, context: __SerdeContext): S3Encryption => {
   return {
     KmsKeyArn: __expectString(output.KmsKeyArn),
@@ -20541,6 +21454,67 @@ const deserializeAws_json1_1SerDeInfo = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Session => {
+  return {
+    Command:
+      output.Command !== undefined && output.Command !== null
+        ? deserializeAws_json1_1SessionCommand(output.Command, context)
+        : undefined,
+    Connections:
+      output.Connections !== undefined && output.Connections !== null
+        ? deserializeAws_json1_1ConnectionsList(output.Connections, context)
+        : undefined,
+    CreatedOn:
+      output.CreatedOn !== undefined && output.CreatedOn !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedOn)))
+        : undefined,
+    DefaultArguments:
+      output.DefaultArguments !== undefined && output.DefaultArguments !== null
+        ? deserializeAws_json1_1OrchestrationArgumentsMap(output.DefaultArguments, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    GlueVersion: __expectString(output.GlueVersion),
+    Id: __expectString(output.Id),
+    MaxCapacity: __limitedParseDouble(output.MaxCapacity),
+    Progress: __limitedParseDouble(output.Progress),
+    Role: __expectString(output.Role),
+    SecurityConfiguration: __expectString(output.SecurityConfiguration),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_1SessionCommand = (output: any, context: __SerdeContext): SessionCommand => {
+  return {
+    Name: __expectString(output.Name),
+    PythonVersion: __expectString(output.PythonVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1SessionIdList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1SessionList = (output: any, context: __SerdeContext): Session[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Session(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1SkewedInfo = (output: any, context: __SerdeContext): SkewedInfo => {
   return {
     SkewedColumnNames:
@@ -20645,6 +21619,56 @@ const deserializeAws_json1_1StartWorkflowRunResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1Statement = (output: any, context: __SerdeContext): Statement => {
+  return {
+    Code: __expectString(output.Code),
+    CompletedOn: __expectLong(output.CompletedOn),
+    Id: __expectInt32(output.Id),
+    Output:
+      output.Output !== undefined && output.Output !== null
+        ? deserializeAws_json1_1StatementOutput(output.Output, context)
+        : undefined,
+    Progress: __limitedParseDouble(output.Progress),
+    StartedOn: __expectLong(output.StartedOn),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_json1_1StatementList = (output: any, context: __SerdeContext): Statement[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Statement(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1StatementOutput = (output: any, context: __SerdeContext): StatementOutput => {
+  return {
+    Data:
+      output.Data !== undefined && output.Data !== null
+        ? deserializeAws_json1_1StatementOutputData(output.Data, context)
+        : undefined,
+    ErrorName: __expectString(output.ErrorName),
+    ErrorValue: __expectString(output.ErrorValue),
+    ExecutionCount: __expectInt32(output.ExecutionCount),
+    Status: __expectString(output.Status),
+    Traceback:
+      output.Traceback !== undefined && output.Traceback !== null
+        ? deserializeAws_json1_1OrchestrationStringList(output.Traceback, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StatementOutputData = (output: any, context: __SerdeContext): StatementOutputData => {
+  return {
+    TextPlain: __expectString(output.TextPlain),
+  } as any;
+};
+
 const deserializeAws_json1_1StopCrawlerResponse = (output: any, context: __SerdeContext): StopCrawlerResponse => {
   return {} as any;
 };
@@ -20654,6 +21678,12 @@ const deserializeAws_json1_1StopCrawlerScheduleResponse = (
   context: __SerdeContext
 ): StopCrawlerScheduleResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1StopSessionResponse = (output: any, context: __SerdeContext): StopSessionResponse => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
 };
 
 const deserializeAws_json1_1StopTriggerResponse = (output: any, context: __SerdeContext): StopTriggerResponse => {

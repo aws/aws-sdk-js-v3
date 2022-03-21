@@ -22,10 +22,8 @@ export interface DescribeDBSecurityGroupsCommandInput extends DescribeDBSecurity
 export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMessage, __MetadataBearer {}
 
 /**
- * <p>
- *         Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
- *             the list will contain only the descriptions of the specified DB security group.
- *         </p>
+ * <p>Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
+ *             the list will contain only the descriptions of the specified DB security group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

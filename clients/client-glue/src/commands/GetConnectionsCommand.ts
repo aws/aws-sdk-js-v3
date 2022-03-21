@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_0";
+import { GetConnectionsRequest, GetConnectionsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetConnectionsCommand,
   serializeAws_json1_1GetConnectionsCommand,

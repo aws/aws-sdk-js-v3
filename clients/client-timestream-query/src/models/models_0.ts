@@ -361,6 +361,7 @@ export enum ScalarMeasureValueType {
   BIGINT = "BIGINT",
   BOOLEAN = "BOOLEAN",
   DOUBLE = "DOUBLE",
+  TIMESTAMP = "TIMESTAMP",
   VARCHAR = "VARCHAR",
 }
 

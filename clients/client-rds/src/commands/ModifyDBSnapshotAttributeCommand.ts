@@ -23,7 +23,7 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
- *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
+ *         <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
  *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
  *             a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual DB snapshot.
  *             Uses the value <code>all</code> to make the manual DB snapshot public, which means it
@@ -36,7 +36,7 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *         <p>If the manual DB snapshot is encrypted, it can be shared, but only by specifying a
  *             list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You
  *             can't use <code>all</code> as a value for that parameter in this case.</p>
- *          <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB snapshot, or
+ *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB snapshot, or
  *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
  *             values for the <code>restore</code> attribute.</p>
  * @example

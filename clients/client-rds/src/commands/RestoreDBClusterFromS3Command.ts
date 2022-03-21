@@ -27,7 +27,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *             created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the
  *                 <i>Amazon Aurora User Guide</i>.</p>
  *         <note>
- *               <p>This action only restores the DB cluster, not the DB instances for that DB
+ *             <p>This action only restores the DB cluster, not the DB instances for that DB
  *                   cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
  *                   instances for the restored DB cluster, specifying the identifier of the restored DB
  *                   cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
@@ -36,8 +36,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *         </note>
  *         <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
- *         </p>
+ *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *         <note>
  *             <p>This action only applies to Aurora DB clusters. The source DB engine must be
  *                 MySQL.</p>

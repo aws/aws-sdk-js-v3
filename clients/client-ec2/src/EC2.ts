@@ -19203,6 +19203,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.</p>
+   *          <p>If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are bringing a new IP address to Amazon Web Services for the first time, complete the steps in <a href="/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial: BYOIP address CIDRs to IPAM</a>.</p>
    */
   public moveByoipCidrToIpam(
     args: MoveByoipCidrToIpamCommandInput,
@@ -19277,7 +19278,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Provision a CIDR to an IPAM pool. You can use thsi action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>
+   * <p>Provision a CIDR to an IPAM pool. You can use this action to provision new CIDRs to a top-level pool or to transfer a CIDR from a top-level pool to a pool within it.</p>
    *          <p>For more information, see <a href="/vpc/latest/ipam/prov-cidr-ipam.html">Provision CIDRs to pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -19312,8 +19313,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Provision a CIDR to a public IPv4 pool.</p>
-   *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
-   *       </p>
+   *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
   public provisionPublicIpv4PoolCidr(
     args: ProvisionPublicIpv4PoolCidrCommandInput,

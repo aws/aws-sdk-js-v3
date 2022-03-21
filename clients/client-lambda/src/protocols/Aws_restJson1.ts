@@ -340,6 +340,8 @@ export const serializeAws_restJson1AddPermissionCommand = async (
     ...(input.EventSourceToken !== undefined &&
       input.EventSourceToken !== null && { EventSourceToken: input.EventSourceToken }),
     ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
+    ...(input.PrincipalOrgID !== undefined &&
+      input.PrincipalOrgID !== null && { PrincipalOrgID: input.PrincipalOrgID }),
     ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
     ...(input.SourceAccount !== undefined && input.SourceAccount !== null && { SourceAccount: input.SourceAccount }),
     ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),

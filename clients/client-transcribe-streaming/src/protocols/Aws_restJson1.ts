@@ -155,6 +155,12 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     ...(isSerializableHeaderValue(input.PreferredLanguage) && {
       "x-amzn-transcribe-preferred-language": input.PreferredLanguage!,
     }),
+    ...(isSerializableHeaderValue(input.VocabularyNames) && {
+      "x-amzn-transcribe-vocabulary-names": input.VocabularyNames!,
+    }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterNames) && {
+      "x-amzn-transcribe-vocabulary-filter-names": input.VocabularyFilterNames!,
+    }),
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
@@ -321,7 +327,9 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     TranscriptResultStream: undefined,
     VocabularyFilterMethod: undefined,
     VocabularyFilterName: undefined,
+    VocabularyFilterNames: undefined,
     VocabularyName: undefined,
+    VocabularyNames: undefined,
   };
   if (output.headers["x-amzn-request-id"] !== undefined) {
     contents.RequestId = output.headers["x-amzn-request-id"];
@@ -386,6 +394,12 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-preferred-language"] !== undefined) {
     contents.PreferredLanguage = output.headers["x-amzn-transcribe-preferred-language"];
+  }
+  if (output.headers["x-amzn-transcribe-vocabulary-names"] !== undefined) {
+    contents.VocabularyNames = output.headers["x-amzn-transcribe-vocabulary-names"];
+  }
+  if (output.headers["x-amzn-transcribe-vocabulary-filter-names"] !== undefined) {
+    contents.VocabularyFilterNames = output.headers["x-amzn-transcribe-vocabulary-filter-names"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];

@@ -289,7 +289,7 @@ export enum AssetType {
 }
 
 /**
- * <p>An asset in AWS Data Exchange is a piece of data (S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API). The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare (Preview). When you create an import job for your files, API Gateway APIs, or Amazon Redshift datashares, you create an asset in AWS Data Exchange.</p>
+ * <p>An asset in AWS Data Exchange is a piece of data (S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API). The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare. When you create an import job for your files, API Gateway APIs, or Amazon Redshift datashares, you create an asset in AWS Data Exchange.</p>
  */
 export interface AssetEntry {
   /**
@@ -1792,6 +1792,21 @@ export interface CreateRevisionResponse {
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment?: string;
+
+  /**
+   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   */
+  Revoked?: boolean;
+
+  /**
+   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   */
+  RevokedAt?: Date;
 }
 
 export namespace CreateRevisionResponse {
@@ -2241,6 +2256,21 @@ export interface GetRevisionResponse {
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment?: string;
+
+  /**
+   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   */
+  Revoked?: boolean;
+
+  /**
+   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   */
+  RevokedAt?: Date;
 }
 
 export namespace GetRevisionResponse {
@@ -2321,6 +2351,21 @@ export interface RevisionEntry {
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt: Date | undefined;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment?: string;
+
+  /**
+   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   */
+  Revoked?: boolean;
+
+  /**
+   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   */
+  RevokedAt?: Date;
 }
 
 export namespace RevisionEntry {
@@ -2741,6 +2786,101 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for RevokeRevision.</p>
+ */
+export interface RevokeRevisionRequest {
+  /**
+   * <p>The unique identifier for a data set.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The unique identifier for a revision.</p>
+   */
+  RevisionId: string | undefined;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment: string | undefined;
+}
+
+export namespace RevokeRevisionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeRevisionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeRevisionResponse {
+  /**
+   * <p>The ARN for the revision.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>An optional comment about the revision.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>The date and time that the revision was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The unique identifier for the data set associated with this revision.</p>
+   */
+  DataSetId?: string;
+
+  /**
+   * <p>To publish a revision to a data set in a product, the revision must first be finalized. Finalizing a revision tells AWS Data Exchange that changes to the assets in the revision are complete. After it's in this read-only state, you can publish the revision to your products.</p> <p>Finalized revisions can be published through the AWS Data Exchange console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API action. When using the API, revisions are uniquely identified by their ARN.</p>
+   */
+  Finalized?: boolean;
+
+  /**
+   * <p>The unique identifier for the revision.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The revision ID of the owned revision corresponding to the entitled revision being viewed. This parameter is returned when a revision owner is viewing the entitled copy of its owned revision.</p>
+   */
+  SourceId?: string;
+
+  /**
+   * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment?: string;
+
+  /**
+   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   */
+  Revoked?: boolean;
+
+  /**
+   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   */
+  RevokedAt?: Date;
+}
+
+export namespace RevokeRevisionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeRevisionResponse): any => ({
     ...obj,
   });
 }
@@ -3216,6 +3356,21 @@ export interface UpdateRevisionResponse {
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>A required comment to inform subscribers of the reason their access to the revision was revoked.</p>
+   */
+  RevocationComment?: string;
+
+  /**
+   * <p>A status indicating that subscribers' access to the revision was revoked.</p>
+   */
+  Revoked?: boolean;
+
+  /**
+   * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
+   */
+  RevokedAt?: Date;
 }
 
 export namespace UpdateRevisionResponse {

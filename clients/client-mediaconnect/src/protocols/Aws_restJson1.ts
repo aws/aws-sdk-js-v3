@@ -78,6 +78,7 @@ import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "../
 import { MediaConnectServiceException as __BaseException } from "../models/MediaConnectServiceException";
 import {
   AddFlowOutputs420Exception,
+  AddMaintenance,
   AddMediaStreamRequest,
   AddOutputRequest,
   BadRequestException,
@@ -102,6 +103,7 @@ import {
   InternalServerErrorException,
   ListedEntitlement,
   ListedFlow,
+  Maintenance,
   MediaStream,
   MediaStreamAttributes,
   MediaStreamAttributesRequest,
@@ -123,6 +125,7 @@ import {
   Transport,
   UpdateEncryption,
   UpdateFailoverConfig,
+  UpdateMaintenance,
   VpcInterface,
   VpcInterfaceAttachment,
   VpcInterfaceRequest,
@@ -289,6 +292,8 @@ export const serializeAws_restJson1CreateFlowCommand = async (
       input.Entitlements !== null && {
         entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
       }),
+    ...(input.Maintenance !== undefined &&
+      input.Maintenance !== null && { maintenance: serializeAws_restJson1AddMaintenance(input.Maintenance, context) }),
     ...(input.MediaStreams !== undefined &&
       input.MediaStreams !== null && {
         mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
@@ -967,6 +972,10 @@ export const serializeAws_restJson1UpdateFlowCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Maintenance !== undefined &&
+      input.Maintenance !== null && {
+        maintenance: serializeAws_restJson1UpdateMaintenance(input.Maintenance, context),
+      }),
     ...(input.SourceFailoverConfig !== undefined &&
       input.SourceFailoverConfig !== null && {
         sourceFailoverConfig: serializeAws_restJson1UpdateFailoverConfig(input.SourceFailoverConfig, context),
@@ -3321,6 +3330,15 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
   }, {});
 };
 
+const serializeAws_restJson1AddMaintenance = (input: AddMaintenance, context: __SerdeContext): any => {
+  return {
+    ...(input.MaintenanceDay !== undefined &&
+      input.MaintenanceDay !== null && { maintenanceDay: input.MaintenanceDay }),
+    ...(input.MaintenanceStartHour !== undefined &&
+      input.MaintenanceStartHour !== null && { maintenanceStartHour: input.MaintenanceStartHour }),
+  };
+};
+
 const serializeAws_restJson1AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __SerdeContext): any => {
   return {
     ...(input.Attributes !== undefined &&
@@ -3596,6 +3614,17 @@ const serializeAws_restJson1UpdateFailoverConfig = (input: UpdateFailoverConfig,
         sourcePriority: serializeAws_restJson1SourcePriority(input.SourcePriority, context),
       }),
     ...(input.State !== undefined && input.State !== null && { state: input.State }),
+  };
+};
+
+const serializeAws_restJson1UpdateMaintenance = (input: UpdateMaintenance, context: __SerdeContext): any => {
+  return {
+    ...(input.MaintenanceDay !== undefined &&
+      input.MaintenanceDay !== null && { maintenanceDay: input.MaintenanceDay }),
+    ...(input.MaintenanceScheduledDate !== undefined &&
+      input.MaintenanceScheduledDate !== null && { maintenanceScheduledDate: input.MaintenanceScheduledDate }),
+    ...(input.MaintenanceStartHour !== undefined &&
+      input.MaintenanceStartHour !== null && { maintenanceStartHour: input.MaintenanceStartHour }),
   };
 };
 
@@ -3891,6 +3920,10 @@ const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flo
         ? deserializeAws_restJson1__listOfEntitlement(output.entitlements, context)
         : undefined,
     FlowArn: __expectString(output.flowArn),
+    Maintenance:
+      output.maintenance !== undefined && output.maintenance !== null
+        ? deserializeAws_restJson1Maintenance(output.maintenance, context)
+        : undefined,
     MediaStreams:
       output.mediaStreams !== undefined && output.mediaStreams !== null
         ? deserializeAws_restJson1__listOfMediaStream(output.mediaStreams, context)
@@ -3962,9 +3995,22 @@ const deserializeAws_restJson1ListedFlow = (output: any, context: __SerdeContext
     AvailabilityZone: __expectString(output.availabilityZone),
     Description: __expectString(output.description),
     FlowArn: __expectString(output.flowArn),
+    Maintenance:
+      output.maintenance !== undefined && output.maintenance !== null
+        ? deserializeAws_restJson1Maintenance(output.maintenance, context)
+        : undefined,
     Name: __expectString(output.name),
     SourceType: __expectString(output.sourceType),
     Status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1Maintenance = (output: any, context: __SerdeContext): Maintenance => {
+  return {
+    MaintenanceDay: __expectString(output.maintenanceDay),
+    MaintenanceDeadline: __expectString(output.maintenanceDeadline),
+    MaintenanceScheduledDate: __expectString(output.maintenanceScheduledDate),
+    MaintenanceStartHour: __expectString(output.maintenanceStartHour),
   } as any;
 };
 

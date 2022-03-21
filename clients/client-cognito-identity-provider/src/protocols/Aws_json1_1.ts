@@ -5401,9 +5401,6 @@ const deserializeAws_json1_1ForgotPasswordCommandError = async (
     case "UserLambdaValidationException":
     case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
       throw await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
       throw await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
@@ -10663,6 +10660,7 @@ const serializeAws_json1_1SmsConfigurationType = (input: SmsConfigurationType, c
   return {
     ...(input.ExternalId !== undefined && input.ExternalId !== null && { ExternalId: input.ExternalId }),
     ...(input.SnsCallerArn !== undefined && input.SnsCallerArn !== null && { SnsCallerArn: input.SnsCallerArn }),
+    ...(input.SnsRegion !== undefined && input.SnsRegion !== null && { SnsRegion: input.SnsRegion }),
   };
 };
 
@@ -12998,6 +12996,7 @@ const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __Serd
   return {
     ExternalId: __expectString(output.ExternalId),
     SnsCallerArn: __expectString(output.SnsCallerArn),
+    SnsRegion: __expectString(output.SnsRegion),
   } as any;
 };
 

@@ -23,7 +23,7 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
 
 /**
  * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
- *             pagination. </p>
+ *             pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

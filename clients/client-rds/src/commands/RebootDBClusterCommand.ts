@@ -25,16 +25,11 @@ export interface RebootDBClusterCommandOutput extends RebootDBClusterResult, __M
  * <p>You might need to reboot your DB cluster, usually for maintenance reasons.
  *           For example, if you make certain modifications,
  *           or if you change the DB cluster parameter group associated with the DB cluster,
- *           reboot the DB cluster for the changes to take effect.
- *       </p>
- *
- *          <p>Rebooting a DB cluster restarts the database engine service. Rebooting a DB
- *           cluster results in a momentary outage, during which the DB cluster status is set to rebooting.
- *       </p>
- *
- *          <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p>
- *
- *          <p>For more information on Multi-AZ DB clusters, see
+ *           reboot the DB cluster for the changes to take effect.</p>
+ *         <p>Rebooting a DB cluster restarts the database engine service. Rebooting a DB
+ *           cluster results in a momentary outage, during which the DB cluster status is set to rebooting.</p>
+ *         <p>Use this operation only for a non-Aurora Multi-AZ DB cluster.</p>
+ *         <p>For more information on Multi-AZ DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
  *               Multi-AZ deployments with two readable standby DB instances</a> in the
  *           <i>Amazon RDS User Guide.</i>

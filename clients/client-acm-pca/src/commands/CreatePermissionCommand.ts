@@ -22,9 +22,9 @@ export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
 export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Grants one or more permissions on a private CA to the AWS Certificate Manager (ACM) service
+ * <p>Grants one or more permissions on a private CA to the Certificate Manager (ACM) service
  * 			principal (<code>acm.amazonaws.com</code>). These permissions allow ACM to issue and
- * 			renew ACM certificates that reside in the same AWS account as the CA.</p>
+ * 			renew ACM certificates that reside in the same Amazon Web Services account as the CA.</p>
  * 		       <p>You can list current permissions with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html">ListPermissions</a> action and
  * 			revoke them with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html">DeletePermission</a> action.</p>
  * 		       <p class="title">
@@ -46,7 +46,7 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * 			the ACM certificate owner must set up a resource-based policy to enable
  * 			cross-account issuance and renewals. For more information, see
  * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
- * 			Based Policy with ACM Private CA</a>.</p>
+ * 			Based Policy with Amazon Web Services Private CA</a>.</p>
  * 		          </li>
  *          </ul>
  * @example

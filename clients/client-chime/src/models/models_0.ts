@@ -2443,7 +2443,7 @@ export interface CreateAppInstanceRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>Tags assigned to the <code>AppInstanceUser</code>.</p>
+   * <p>Tags assigned to the <code>AppInstance</code>.</p>
    */
   Tags?: Tag[];
 }
@@ -3205,7 +3205,7 @@ export interface MediaPlacement {
   TurnControlUrl?: string;
 
   /**
-   * <p>The event ingestion URL.</p>
+   * <p>The event ingestion URL to which you send client meeting events.</p>
    */
   EventIngestionUrl?: string;
 }
@@ -6046,7 +6046,7 @@ export interface EngineTranscribeSettings {
   PartialResultsStability?: TranscribePartialResultsStability | string;
 
   /**
-   * <p>Set this field to <code>PII</code> to identify personal health information in the transcription output.</p>
+   * <p>Set this field to <code>PII</code> to identify personally identifiable information in the transcription output.</p>
    */
   ContentIdentificationType?: TranscribeContentIdentificationType | string;
 

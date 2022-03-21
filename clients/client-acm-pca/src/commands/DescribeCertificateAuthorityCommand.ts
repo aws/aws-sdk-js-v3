@@ -30,14 +30,14 @@ export interface DescribeCertificateAuthorityCommandOutput
  * 		       <ul>
  *             <li>
  * 				           <p>
- *                   <code>CREATING</code> - ACM Private CA is creating your private certificate
+ *                   <code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
  * 					authority.</p>
  * 			         </li>
  *             <li>
  * 				           <p>
  *                   <code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use
- * 					your ACM Private CA-hosted or on-premises root or subordinate CA to sign your private CA
- * 					CSR and then import it into PCA. </p>
+ * 					your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign your
+ * 					private CA CSR and then import it into PCA. </p>
  * 			         </li>
  *             <li>
  * 				           <p>
@@ -54,7 +54,7 @@ export interface DescribeCertificateAuthorityCommandOutput
  *             <li>
  * 				           <p>
  *                   <code>FAILED</code> - Your private CA has failed. Your CA can fail because of
- * 					problems such a network outage or back-end AWS failure or other errors. A
+ * 					problems such a network outage or back-end Amazon Web Services failure or other errors. A
  * 					failed CA can never return to the pending state. You must create a new CA.
  * 				</p>
  * 			         </li>

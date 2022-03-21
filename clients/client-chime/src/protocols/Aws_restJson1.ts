@@ -9268,6 +9268,9 @@ const deserializeAws_restJson1CreateMeetingDialOutCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chime#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.chime#BadRequestException":
       throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
@@ -20146,6 +20149,8 @@ const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __
 
 const serializeAws_restJson1LoggingConfiguration = (input: LoggingConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.EnableMediaMetricLogs !== undefined &&
+      input.EnableMediaMetricLogs !== null && { EnableMediaMetricLogs: input.EnableMediaMetricLogs }),
     ...(input.EnableSIPLogs !== undefined && input.EnableSIPLogs !== null && { EnableSIPLogs: input.EnableSIPLogs }),
   };
 };
@@ -21556,6 +21561,7 @@ const deserializeAws_restJson1LicenseList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
+    EnableMediaMetricLogs: __expectBoolean(output.EnableMediaMetricLogs),
     EnableSIPLogs: __expectBoolean(output.EnableSIPLogs),
   } as any;
 };

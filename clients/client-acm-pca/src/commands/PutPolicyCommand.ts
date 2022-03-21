@@ -20,33 +20,33 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a resource-based policy to a private CA. </p>
- * 		       <p>A policy can also be applied by sharing a private CA through AWS Resource Access
+ * 		       <p>A policy can also be applied by sharing a private CA through Amazon Web Services Resource Access
  * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
  * 			Access</a>.</p>
  * 		       <p>The policy can be displayed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
- *          <p class="title">
+ * 		       <p class="title">
  *             <b>About Policies</b>
  *          </p>
  *          <ul>
  *             <li>
- * 			            <p>A policy grants access on a private CA to an AWS customer account, to AWS Organizations, or to
- * 			an AWS Organizations unit. Policies are under the control of a CA administrator. For more information,
- * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
+ * 			            <p>A policy grants access on a private CA to an Amazon Web Services customer account, to Amazon Web Services Organizations, or to
+ * 			an Amazon Web Services Organizations unit. Policies are under the control of a CA administrator. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with Amazon Web Services Private CA</a>.</p>
  * 		          </li>
  *             <li>
- * 			            <p>A policy permits a user of AWS Certificate Manager (ACM) to issue ACM certificates
+ * 			            <p>A policy permits a user of Certificate Manager (ACM) to issue ACM certificates
  * 			signed by a CA in another account.</p>
  * 		          </li>
  *             <li>
  * 			            <p>For ACM to manage automatic renewal of these certificates,
  * 			the ACM user must configure a Service Linked Role (SLR). The SLR allows
  * 			the ACM service to assume the identity of the user, subject to confirmation against the
- * 			ACM Private CA policy. For more information, see
+ * 			Amazon Web Services Private CA policy. For more information, see
  * 			<a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html">Using a
  *             Service Linked Role with ACM</a>.</p>
  * 		          </li>
  *             <li>
- * 			            <p>Updates made in AWS Resource Manager (RAM) are reflected in policies. For more information,
+ * 			            <p>Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies. For more information,
  * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
  * 			Access</a>.</p>
  * 		          </li>

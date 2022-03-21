@@ -22,11 +22,9 @@ export interface CreateDBProxyEndpointCommandInput extends CreateDBProxyEndpoint
 export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>
- *         Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
+ * <p>Creates a <code>DBProxyEndpoint</code>. Only applies to proxies that are associated with Aurora DB clusters.
  *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
- *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.
- *       </p>
+ *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

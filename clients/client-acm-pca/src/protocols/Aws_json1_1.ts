@@ -95,6 +95,8 @@ import {
   CreatePermissionRequest,
   CrlConfiguration,
   CsrExtensions,
+  CustomAttribute,
+  CustomExtension,
   DeleteCertificateAuthorityRequest,
   DeletePermissionRequest,
   DeletePolicyRequest,
@@ -1976,6 +1978,10 @@ const serializeAws_json1_1ASN1Subject = (input: ASN1Subject, context: __SerdeCon
   return {
     ...(input.CommonName !== undefined && input.CommonName !== null && { CommonName: input.CommonName }),
     ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
+    ...(input.CustomAttributes !== undefined &&
+      input.CustomAttributes !== null && {
+        CustomAttributes: serializeAws_json1_1CustomAttributeList(input.CustomAttributes, context),
+      }),
     ...(input.DistinguishedNameQualifier !== undefined &&
       input.DistinguishedNameQualifier !== null && { DistinguishedNameQualifier: input.DistinguishedNameQualifier }),
     ...(input.GenerationQualifier !== undefined &&
@@ -2094,6 +2100,45 @@ const serializeAws_json1_1CsrExtensions = (input: CsrExtensions, context: __Serd
   };
 };
 
+const serializeAws_json1_1CustomAttribute = (input: CustomAttribute, context: __SerdeContext): any => {
+  return {
+    ...(input.ObjectIdentifier !== undefined &&
+      input.ObjectIdentifier !== null && { ObjectIdentifier: input.ObjectIdentifier }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1CustomAttributeList = (input: CustomAttribute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CustomAttribute(entry, context);
+    });
+};
+
+const serializeAws_json1_1CustomExtension = (input: CustomExtension, context: __SerdeContext): any => {
+  return {
+    ...(input.Critical !== undefined && input.Critical !== null && { Critical: input.Critical }),
+    ...(input.ObjectIdentifier !== undefined &&
+      input.ObjectIdentifier !== null && { ObjectIdentifier: input.ObjectIdentifier }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1CustomExtensionList = (input: CustomExtension[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CustomExtension(entry, context);
+    });
+};
+
 const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
   input: DeleteCertificateAuthorityRequest,
   context: __SerdeContext
@@ -2176,6 +2221,10 @@ const serializeAws_json1_1Extensions = (input: Extensions, context: __SerdeConte
     ...(input.CertificatePolicies !== undefined &&
       input.CertificatePolicies !== null && {
         CertificatePolicies: serializeAws_json1_1CertificatePolicyList(input.CertificatePolicies, context),
+      }),
+    ...(input.CustomExtensions !== undefined &&
+      input.CustomExtensions !== null && {
+        CustomExtensions: serializeAws_json1_1CustomExtensionList(input.CustomExtensions, context),
       }),
     ...(input.ExtendedKeyUsage !== undefined &&
       input.ExtendedKeyUsage !== null && {
@@ -2542,6 +2591,10 @@ const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext)
   return {
     CommonName: __expectString(output.CommonName),
     Country: __expectString(output.Country),
+    CustomAttributes:
+      output.CustomAttributes !== undefined && output.CustomAttributes !== null
+        ? deserializeAws_json1_1CustomAttributeList(output.CustomAttributes, context)
+        : undefined,
     DistinguishedNameQualifier: __expectString(output.DistinguishedNameQualifier),
     GenerationQualifier: __expectString(output.GenerationQualifier),
     GivenName: __expectString(output.GivenName),
@@ -2685,6 +2738,25 @@ const deserializeAws_json1_1CsrExtensions = (output: any, context: __SerdeContex
         ? deserializeAws_json1_1AccessDescriptionList(output.SubjectInformationAccess, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CustomAttribute = (output: any, context: __SerdeContext): CustomAttribute => {
+  return {
+    ObjectIdentifier: __expectString(output.ObjectIdentifier),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1CustomAttributeList = (output: any, context: __SerdeContext): CustomAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomAttribute(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (

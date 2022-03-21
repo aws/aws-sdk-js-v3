@@ -28,7 +28,6 @@ import {
   FolderType,
   Group,
   GroupMember,
-  IdentityType,
   Ingestion,
   LinkSharingConfiguration,
   LogicalTable,
@@ -48,6 +47,38 @@ import {
   VpcConnectionProperties,
 } from "./models_0";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+export interface DescribeUserRequest {
+  /**
+   * <p>The name of the user that you want to describe.</p>
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
+}
+
+export namespace DescribeUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum IdentityType {
+  IAM = "IAM",
+  QUICKSIGHT = "QUICKSIGHT",
+}
 
 export enum UserRole {
   ADMIN = "ADMIN",
@@ -993,6 +1024,47 @@ export namespace GetSessionEmbedUrlResponse {
   });
 }
 
+export enum GroupFilterAttribute {
+  GROUP_NAME = "GROUP_NAME",
+}
+
+export enum GroupFilterOperator {
+  StartsWith = "StartsWith",
+}
+
+/**
+ * <p>A <code>GroupSearchFilter</code> object that you want to apply to your search.</p>
+ */
+export interface GroupSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator":
+   *                 "StartsWith"</code>. Currently, the only supported operator is
+   *                 <code>StartsWith</code>.</p>
+   */
+  Operator: GroupFilterOperator | string | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "GROUP_NAME"</code>. Currently, the only supported name is
+   *             <code>GROUP_NAME</code>.</p>
+   */
+  Name: GroupFilterAttribute | string | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>GROUP_NAME</code>, that you want to use as a filter.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace GroupSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GroupSearchFilter): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>IAM policy assignment summary.</p>
  */
@@ -1453,7 +1525,7 @@ export interface ListGroupMembershipsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace of the group that you want a list of users from.</p>
    */
   Namespace: string | undefined;
 }
@@ -1516,7 +1588,7 @@ export interface ListGroupsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace that you want a list of groups from.</p>
    */
   Namespace: string | undefined;
 }
@@ -2651,7 +2723,7 @@ export interface RegisterUserRequest {
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
    *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a QuickSight user. </p>
+   *             permissions to a Amazon QuickSight user. </p>
    *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
    *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
    *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>
@@ -2970,6 +3042,74 @@ export namespace SearchFoldersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: SearchFoldersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchGroupsRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *           Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The namespace that you want to search.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The structure for the search filters that you want to apply to your search.</p>
+   */
+  Filters: GroupSearchFilter[] | undefined;
+}
+
+export namespace SearchGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchGroupsResponse {
+  /**
+   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
+   */
+  GroupList?: Group[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace SearchGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchGroupsResponse): any => ({
     ...obj,
   });
 }
@@ -4105,7 +4245,7 @@ export interface UpdateGroupRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * <p>The namespace of the group that you want to update.</p>
    */
   Namespace: string | undefined;
 }
@@ -4810,7 +4950,7 @@ export interface UpdateUserRequest {
    *         <p>A set of custom permissions includes any combination of these restrictions. Currently,
    *             you need to create the profile names for custom permission sets by using the Amazon QuickSight
    *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
-   *             permissions to a QuickSight user. </p>
+   *             permissions to a Amazon QuickSight user. </p>
    *         <p>Amazon QuickSight custom permissions are applied through IAM policies. Therefore, they
    *             override the permissions typically granted by assigning Amazon QuickSight users to one of the
    *             default security cohorts in Amazon QuickSight (admin, author, reader).</p>

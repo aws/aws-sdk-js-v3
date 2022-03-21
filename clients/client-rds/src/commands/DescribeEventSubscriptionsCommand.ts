@@ -24,7 +24,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
 /**
  * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes
  *           <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
- *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
+ *         <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

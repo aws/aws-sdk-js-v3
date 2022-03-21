@@ -28,7 +28,7 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * 			specifying the ARN. </p>
  * 		       <note>
  * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
- * 				certificates that you issue by using ACM Private CA.</p>
+ * 				certificates that you issue by using Amazon Web Services Private CA.</p>
  * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -505,7 +505,8 @@ export class SecretsManager extends SecretsManagerClient {
   }
 
   /**
-   * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account. </p>
+   * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
+   *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
    *          <p>To list the versions of a secret, use <a>ListSecretVersionIds</a>.</p>
    *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
    *       call <a>GetSecretValue</a>.</p>

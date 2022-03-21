@@ -24,8 +24,7 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
 
 /**
  * <p>Starts an export of a snapshot to Amazon S3.
- *             The provided IAM role must have access to the S3 bucket.
- *         </p>
+ *             The provided IAM role must have access to the S3 bucket.</p>
  *         <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

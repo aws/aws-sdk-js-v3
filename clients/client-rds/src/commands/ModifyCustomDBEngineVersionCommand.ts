@@ -31,8 +31,8 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *                 <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
  *                 API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *                 the <code>ModifyCustomDbEngineVersion</code> event.</p>
- *          </note>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a>
+ *         </note>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.modify">Modifying CEV status</a>
  *             in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

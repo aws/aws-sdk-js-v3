@@ -22,23 +22,19 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>
- *         Creates an Aurora global database
+ * <p>Creates an Aurora global database
  *         spread across multiple Amazon Web Services Regions. The global database
  *         contains a single primary cluster with read-write capability,
  *         and a read-only secondary cluster that receives
  *         data from the primary cluster through high-speed replication
- *         performed by the Aurora storage subsystem.
- *       </p>
- *          <p>
- *         You can create a global database that is initially empty, and then
+ *         performed by the Aurora storage subsystem.</p>
+ *         <p>You can create a global database that is initially empty, and then
  *         add a primary cluster and a secondary cluster to it.
  *         Or you can specify an existing Aurora cluster during the create operation,
- *         and this cluster becomes the primary cluster of the global database.
- *       </p>
- *          <note>
- *            <p>This action only applies to Aurora DB clusters.</p>
- *          </note>
+ *         and this cluster becomes the primary cluster of the global database.</p>
+ *         <note>
+ *             <p>This action only applies to Aurora DB clusters.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

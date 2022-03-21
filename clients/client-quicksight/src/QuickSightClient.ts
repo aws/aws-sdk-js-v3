@@ -157,6 +157,10 @@ import {
 } from "./commands/DescribeFolderResolvedPermissionsCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
+  DescribeGroupMembershipCommandInput,
+  DescribeGroupMembershipCommandOutput,
+} from "./commands/DescribeGroupMembershipCommand";
+import {
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
@@ -243,6 +247,7 @@ import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./com
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
+import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -358,6 +363,7 @@ export type ServiceInputTypes =
   | DescribeFolderPermissionsCommandInput
   | DescribeFolderResolvedPermissionsCommandInput
   | DescribeGroupCommandInput
+  | DescribeGroupMembershipCommandInput
   | DescribeIAMPolicyAssignmentCommandInput
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
@@ -400,6 +406,7 @@ export type ServiceInputTypes =
   | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
   | SearchFoldersCommandInput
+  | SearchGroupsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
@@ -475,6 +482,7 @@ export type ServiceOutputTypes =
   | DescribeFolderPermissionsCommandOutput
   | DescribeFolderResolvedPermissionsCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeGroupMembershipCommandOutput
   | DescribeIAMPolicyAssignmentCommandOutput
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
@@ -517,6 +525,7 @@ export type ServiceOutputTypes =
   | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
   | SearchFoldersCommandOutput
+  | SearchGroupsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput

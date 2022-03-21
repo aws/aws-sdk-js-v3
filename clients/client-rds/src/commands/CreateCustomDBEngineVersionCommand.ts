@@ -26,10 +26,10 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *             AMI. The supported engines are the following:</p>
  *         <ul>
  *             <li>
- *                <p> Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR</p>
+ *                 <p>Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR</p>
  *             </li>
  *             <li>
- *                <p> Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR</p>
+ *                 <p>Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR</p>
  *             </li>
  *          </ul>
  *         <p>Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI) and database software.
@@ -50,7 +50,7 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *             <code>CreateCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
  *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
  *             the <code>CreateCustomDbEngineVersion</code> event.</p>
- *          </note>
+ *         </note>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create">
  *                 Creating a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example

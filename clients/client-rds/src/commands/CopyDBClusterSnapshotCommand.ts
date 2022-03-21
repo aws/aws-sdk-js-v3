@@ -24,80 +24,75 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
 
 /**
  * <p>Copies a snapshot of a DB cluster.</p>
- *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
+ *         <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
  *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
- *
- *          <p>You can copy an encrypted DB cluster snapshot from another Amazon Web Services Region. In that case, the Amazon Web Services Region where you call the <code>CopyDBClusterSnapshot</code> action
+ *         <p>You can copy an encrypted DB cluster snapshot from another Amazon Web Services Region. In that case, the Amazon Web Services Region where you call the <code>CopyDBClusterSnapshot</code> action
  *           is the destination Amazon Web Services Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another Amazon Web Services Region,
  *           you must provide the following values:</p>
- *
- *          <ul>
+ *         <ul>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>KmsKeyId</code> - The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to
  *               encrypt the copy of the DB cluster snapshot in the destination Amazon Web Services Region.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>PreSignedUrl</code> -  A URL that contains a Signature Version 4 signed request for the
  *               <code>CopyDBClusterSnapshot</code> action to be called in the source Amazon Web Services Region where the DB cluster snapshot is copied from.
  *               The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the
  *               source Amazon Web Services Region that contains the encrypted DB cluster snapshot to be copied.</p>
- *               <p>The pre-signed URL request must contain the following parameter values:</p>
- *               <ul>
+ *                 <p>The pre-signed URL request must contain the following parameter values:</p>
+ *                 <ul>
  *                   <li>
- *                      <p>
+ *                         <p>
  *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB
  *                       cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
  *                       action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
- *                   </li>
+ *                     </li>
  *                   <li>
- *                      <p>
+ *                         <p>
  *                         <code>DestinationRegion</code> - The name of the Amazon Web Services Region that the DB cluster snapshot is to be created in.</p>
- *                   </li>
+ *                     </li>
  *                   <li>
- *                      <p>
+ *                         <p>
  *                         <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster
  *                       snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example,
  *                       if you are copying an encrypted DB cluster snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
  *                       looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>
- *                   </li>
+ *                     </li>
  *                </ul>
- *               <p>To learn how to generate a Signature Version 4 signed request, see
+ *                 <p>To learn how to generate a Signature Version 4 signed request, see
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
  *                       Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
  *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
  *                       Signature Version 4 Signing Process</a>.</p>
- *               <note>
- *                   <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
+ *                 <note>
+ *                     <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
  *                       instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
  *                       request for the operation that can be executed in the source Amazon Web Services Region.</p>
- *               </note>
+ *                 </note>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination Amazon Web Services Region.</p>
  *             </li>
  *             <li>
- *                <p>
+ *                 <p>
  *                   <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied.
- *               This identifier must be in the ARN format for the source Amazon Web Services Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p>
+ *               This identifier must be in the ARN format for the source Amazon Web Services Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL.</p>
  *             </li>
  *          </ul>
- *          <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified
+ *         <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified
  *           by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in "copying" status.</p>
- *          <p>For more information on copying encrypted Amazon Aurora DB cluster snapshots from one Amazon Web Services Region to another, see
+ *         <p>For more information on copying encrypted Amazon Aurora DB cluster snapshots from one Amazon Web Services Region to another, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html">
- *               Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i>
- *          </p>
+ *               Copying a Snapshot</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *         <p>For more information on Amazon Aurora DB clusters, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
- *          </p>
+ *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *         <p>For more information on Multi-AZ DB clusters, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
- *          </p>
+ *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
