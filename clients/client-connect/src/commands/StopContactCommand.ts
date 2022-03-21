@@ -22,7 +22,21 @@ export interface StopContactCommandInput extends StopContactRequest {}
 export interface StopContactCommandOutput extends StopContactResponse, __MetadataBearer {}
 
 /**
- * <p>Ends the specified contact.</p>
+ * <p>Ends the specified contact. This call does not work for the following initiation methods:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CALLBACK</p>
+ *             </li>
+ *             <li>
+ *                <p>DISCONNECT</p>
+ *             </li>
+ *             <li>
+ *                <p>TRANSFER</p>
+ *             </li>
+ *             <li>
+ *                <p>QUEUE_TRANSFER</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

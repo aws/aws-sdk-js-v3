@@ -23,8 +23,7 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
 
 /**
  * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
- *             Any data that has already been written to the S3 bucket isn't removed.
- *         </p>
+ *             Any data that has already been written to the S3 bucket isn't removed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

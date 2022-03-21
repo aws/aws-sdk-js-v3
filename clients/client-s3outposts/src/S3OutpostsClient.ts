@@ -54,11 +54,23 @@ import {
 import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
+import {
+  ListSharedEndpointsCommandInput,
+  ListSharedEndpointsCommandOutput,
+} from "./commands/ListSharedEndpointsCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = CreateEndpointCommandInput | DeleteEndpointCommandInput | ListEndpointsCommandInput;
+export type ServiceInputTypes =
+  | CreateEndpointCommandInput
+  | DeleteEndpointCommandInput
+  | ListEndpointsCommandInput
+  | ListSharedEndpointsCommandInput;
 
-export type ServiceOutputTypes = CreateEndpointCommandOutput | DeleteEndpointCommandOutput | ListEndpointsCommandOutput;
+export type ServiceOutputTypes =
+  | CreateEndpointCommandOutput
+  | DeleteEndpointCommandOutput
+  | ListEndpointsCommandOutput
+  | ListSharedEndpointsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -634,6 +634,7 @@ export enum ResourceType {
   DBSubnetGroup = "AWS::RDS::DBSubnetGroup",
   Distribution = "AWS::CloudFront::Distribution",
   Domain = "AWS::Elasticsearch::Domain",
+  ECRPublicRepository = "AWS::ECR::PublicRepository",
   ECRRepository = "AWS::ECR::Repository",
   ECSCluster = "AWS::ECS::Cluster",
   ECSService = "AWS::ECS::Service",
@@ -658,6 +659,7 @@ export enum ResourceType {
   KinesisStream = "AWS::Kinesis::Stream",
   KinesisStreamConsumer = "AWS::Kinesis::StreamConsumer",
   LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
+  LaunchTemplate = "AWS::EC2::LaunchTemplate",
   LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
   LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
   ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
@@ -8413,7 +8415,7 @@ export interface PutConformancePackRequest {
   /**
    * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    * 		       <note>
-   *             <p>You can only use a YAML template with one resource type, that is, config rule and a remediation action. </p>
+   *             <p>You can only use a YAML template with two resource types: config rule (<code>AWS::Config::ConfigRule</code>) and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
    */
   TemplateBody?: string;

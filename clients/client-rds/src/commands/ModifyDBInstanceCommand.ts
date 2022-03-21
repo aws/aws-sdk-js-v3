@@ -26,8 +26,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *           You can change one or more database configuration parameters by specifying these parameters and the new values in the request.
  *             To learn what modifications you can make to your DB instance,
  *             call <code>DescribeValidDBInstanceModifications</code>
- *             before you call <code>ModifyDBInstance</code>.
- *       </p>
+ *             before you call <code>ModifyDBInstance</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

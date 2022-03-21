@@ -485,9 +485,14 @@ export namespace GetVoiceConnectorLoggingConfigurationRequest {
  */
 export interface LoggingConfiguration {
   /**
-   * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
+   * <p>Boolean that enables SIP message logs to CloudWatch logs.</p>
    */
   EnableSIPLogs?: boolean;
+
+  /**
+   * <p>Boolean that enables logging of detailed media metrics for Voice Connectors to CloudWatch logs.</p>
+   */
+  EnableMediaMetricLogs?: boolean;
 }
 
 export namespace LoggingConfiguration {

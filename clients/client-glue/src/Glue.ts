@@ -76,6 +76,11 @@ import {
   CancelMLTaskRunCommandOutput,
 } from "./commands/CancelMLTaskRunCommand";
 import {
+  CancelStatementCommand,
+  CancelStatementCommandInput,
+  CancelStatementCommandOutput,
+} from "./commands/CancelStatementCommand";
+import {
   CheckSchemaVersionValidityCommand,
   CheckSchemaVersionValidityCommandInput,
   CheckSchemaVersionValidityCommandOutput,
@@ -146,6 +151,11 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand";
+import {
+  CreateSessionCommand,
+  CreateSessionCommandInput,
+  CreateSessionCommandOutput,
+} from "./commands/CreateSessionCommand";
 import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
   CreateTriggerCommand,
@@ -243,6 +253,11 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand";
+import {
+  DeleteSessionCommand,
+  DeleteSessionCommandInput,
+  DeleteSessionCommandOutput,
+} from "./commands/DeleteSessionCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
   DeleteTableVersionCommand,
@@ -430,6 +445,12 @@ import {
   GetSecurityConfigurationsCommandInput,
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import {
+  GetStatementCommand,
+  GetStatementCommandInput,
+  GetStatementCommandOutput,
+} from "./commands/GetStatementCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
 import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import {
@@ -524,6 +545,16 @@ import {
   ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
 import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
+import {
+  ListStatementsCommand,
+  ListStatementsCommandInput,
+  ListStatementsCommandOutput,
+} from "./commands/ListStatementsCommand";
+import {
   ListTriggersCommand,
   ListTriggersCommandInput,
   ListTriggersCommandOutput,
@@ -578,6 +609,11 @@ import {
   ResumeWorkflowRunCommandInput,
   ResumeWorkflowRunCommandOutput,
 } from "./commands/ResumeWorkflowRunCommand";
+import {
+  RunStatementCommand,
+  RunStatementCommandInput,
+  RunStatementCommandOutput,
+} from "./commands/RunStatementCommand";
 import {
   SearchTablesCommand,
   SearchTablesCommandInput,
@@ -635,6 +671,7 @@ import {
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand";
+import { StopSessionCommand, StopSessionCommandInput, StopSessionCommandOutput } from "./commands/StopSessionCommand";
 import { StopTriggerCommand, StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand";
 import {
   StopWorkflowRunCommand,
@@ -1230,6 +1267,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Cancels the statement..</p>
+   */
+  public cancelStatement(
+    args: CancelStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelStatementCommandOutput>;
+  public cancelStatement(
+    args: CancelStatementCommandInput,
+    cb: (err: any, data?: CancelStatementCommandOutput) => void
+  ): void;
+  public cancelStatement(
+    args: CancelStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelStatementCommandOutput) => void
+  ): void;
+  public cancelStatement(
+    args: CancelStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelStatementCommandOutput) => void),
+    cb?: (err: any, data?: CancelStatementCommandOutput) => void
+  ): Promise<CancelStatementCommandOutput> | void {
+    const command = new CancelStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Validates the supplied schema. This call has no side effects, it simply validates using the supplied schema using <code>DataFormat</code> as the format. Since it does not take a schema set name, no compatibility checks are performed.</p>
    */
   public checkSchemaVersionValidity(
@@ -1705,6 +1774,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): Promise<CreateSecurityConfigurationCommandOutput> | void {
     const command = new CreateSecurityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new session.</p>
+   */
+  public createSession(
+    args: CreateSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSessionCommandOutput>;
+  public createSession(
+    args: CreateSessionCommandInput,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
+  public createSession(
+    args: CreateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
+  public createSession(
+    args: CreateSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSessionCommandOutput) => void),
+    cb?: (err: any, data?: CreateSessionCommandOutput) => void
+  ): Promise<CreateSessionCommandOutput> | void {
+    const command = new CreateSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2388,6 +2489,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
   ): Promise<DeleteSecurityConfigurationCommandOutput> | void {
     const command = new DeleteSecurityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the session.</p>
+   */
+  public deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  public deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
+  public deleteSession(
+    args: DeleteSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
+  public deleteSession(
+    args: DeleteSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSessionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): Promise<DeleteSessionCommandOutput> | void {
+    const command = new DeleteSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3869,6 +4002,61 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieves the session.</p>
+   */
+  public getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  public getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+  public getSession(
+    args: GetSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetSessionCommandOutput) => void
+  ): Promise<GetSessionCommandOutput> | void {
+    const command = new GetSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the statement.</p>
+   */
+  public getStatement(
+    args: GetStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStatementCommandOutput>;
+  public getStatement(args: GetStatementCommandInput, cb: (err: any, data?: GetStatementCommandOutput) => void): void;
+  public getStatement(
+    args: GetStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStatementCommandOutput) => void
+  ): void;
+  public getStatement(
+    args: GetStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStatementCommandOutput) => void),
+    cb?: (err: any, data?: GetStatementCommandOutput) => void
+  ): Promise<GetStatementCommandOutput> | void {
+    const command = new GetStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
    *       a specified table.</p>
    */
@@ -4633,6 +4821,67 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieve a session..</p>
+   */
+  public listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  public listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  public listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  public listSessions(
+    args: ListSessionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSessionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSessionsCommandOutput) => void
+  ): Promise<ListSessionsCommandOutput> | void {
+    const command = new ListSessionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists statements for the session.</p>
+   */
+  public listStatements(
+    args: ListStatementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStatementsCommandOutput>;
+  public listStatements(
+    args: ListStatementsCommandInput,
+    cb: (err: any, data?: ListStatementsCommandOutput) => void
+  ): void;
+  public listStatements(
+    args: ListStatementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStatementsCommandOutput) => void
+  ): void;
+  public listStatements(
+    args: ListStatementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStatementsCommandOutput) => void),
+    cb?: (err: any, data?: ListStatementsCommandOutput) => void
+  ): Promise<ListStatementsCommandOutput> | void {
+    const command = new ListStatementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
    *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
@@ -4978,6 +5227,35 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: ResumeWorkflowRunCommandOutput) => void
   ): Promise<ResumeWorkflowRunCommandOutput> | void {
     const command = new ResumeWorkflowRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Executes the statement.</p>
+   */
+  public runStatement(
+    args: RunStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RunStatementCommandOutput>;
+  public runStatement(args: RunStatementCommandInput, cb: (err: any, data?: RunStatementCommandOutput) => void): void;
+  public runStatement(
+    args: RunStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RunStatementCommandOutput) => void
+  ): void;
+  public runStatement(
+    args: RunStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunStatementCommandOutput) => void),
+    cb?: (err: any, data?: RunStatementCommandOutput) => void
+  ): Promise<RunStatementCommandOutput> | void {
+    const command = new RunStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5434,6 +5712,32 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: StopCrawlerScheduleCommandOutput) => void
   ): Promise<StopCrawlerScheduleCommandOutput> | void {
     const command = new StopCrawlerScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops the session.</p>
+   */
+  public stopSession(args: StopSessionCommandInput, options?: __HttpHandlerOptions): Promise<StopSessionCommandOutput>;
+  public stopSession(args: StopSessionCommandInput, cb: (err: any, data?: StopSessionCommandOutput) => void): void;
+  public stopSession(
+    args: StopSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSessionCommandOutput) => void
+  ): void;
+  public stopSession(
+    args: StopSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSessionCommandOutput) => void),
+    cb?: (err: any, data?: StopSessionCommandOutput) => void
+  ): Promise<StopSessionCommandOutput> | void {
+    const command = new StopSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

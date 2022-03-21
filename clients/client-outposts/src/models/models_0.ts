@@ -1654,6 +1654,32 @@ export interface ListSitesInput {
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p> A filter for the country code of the Outpost site. </p>
+   *          <p>Filter values are case sensitive. If you specify multiple
+   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
+   *          all results that match any of the specified values.</p>
+   */
+  OperatingAddressCountryCodeFilter?: string[];
+
+  /**
+   * <p> A filter for the state/region of the Outpost site. </p>
+   *          <p>Filter values are case sensitive. If you specify multiple
+   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
+   *          all results that match any of the specified values.</p>
+   */
+  OperatingAddressStateOrRegionFilter?: string[];
+
+  /**
+   * <p>
+   *       A filter for the city of the Outpost site.
+   *     </p>
+   *          <p>Filter values are case sensitive. If you specify multiple
+   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
+   *          all results that match any of the specified values.</p>
+   */
+  OperatingAddressCityFilter?: string[];
 }
 
 export namespace ListSitesInput {

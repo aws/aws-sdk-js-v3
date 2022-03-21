@@ -222,7 +222,7 @@ export interface CreateBackendRequest {
   BackendEnvironmentName: string | undefined;
 
   /**
-   * <p>The resource configuration for creating backend storage.</p>
+   * <p>The resource configuration for creating a backend.</p>
    */
   ResourceConfig?: ResourceConfig;
 
@@ -555,12 +555,12 @@ export enum DeliveryMethod {
  */
 export interface EmailSettings {
   /**
-   * <p>The body of the email.</p>
+   * <p>The contents of the email message.</p>
    */
   EmailMessage?: string;
 
   /**
-   * <p>The subject of the email.</p>
+   * <p>The contents of the subject line of the email message.</p>
    */
   EmailSubject?: string;
 }
@@ -579,7 +579,7 @@ export namespace EmailSettings {
  */
 export interface SmsSettings {
   /**
-   * <p>The body of the SMS message.</p>
+   * <p>The contents of the SMS message.</p>
    */
   SmsMessage?: string;
 }
@@ -594,21 +594,21 @@ export namespace SmsSettings {
 }
 
 /**
- * <p>Describes the forgot password policy for authenticating into the Amplify app.</p>
+ * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
  */
 export interface CreateBackendAuthForgotPasswordConfig {
   /**
-   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
+   * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users who want to recover their password.</p>
    */
   DeliveryMethod: DeliveryMethod | string | undefined;
 
   /**
-   * <p>The configuration for the email sent when an app user forgets their password.</p>
+   * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * <p>The configuration for the SMS message sent when an app user forgets their password.</p>
+   * <p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an app user forgets their password.</p>
    */
   SmsSettings?: SmsSettings;
 }
@@ -882,11 +882,40 @@ export enum SignInMethod {
 }
 
 /**
+ * <p>Creates an email or SMS verification message for the auth resource configured for your Amplify project.</p>
+ */
+export interface CreateBackendAuthVerificationMessageConfig {
+  /**
+   * <p>The type of verification message to send.</p>
+   */
+  DeliveryMethod: DeliveryMethod | string | undefined;
+
+  /**
+   * <p>The settings for the email message.</p>
+   */
+  EmailSettings?: EmailSettings;
+
+  /**
+   * <p>The settings for the SMS message.</p>
+   */
+  SmsSettings?: SmsSettings;
+}
+
+export namespace CreateBackendAuthVerificationMessageConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBackendAuthVerificationMessageConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the Amazon Cognito user pool configuration for the auth resource to be configured for your Amplify project.</p>
  */
 export interface CreateBackendAuthUserPoolConfig {
   /**
-   * <p>Describes the forgotten password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * <p><b>(DEPRECATED)</b> Describes the forgotten password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
   ForgotPassword?: CreateBackendAuthForgotPasswordConfig;
 
@@ -919,6 +948,11 @@ export interface CreateBackendAuthUserPoolConfig {
    * <p>The Amazon Cognito user pool name.</p>
    */
   UserPoolName: string | undefined;
+
+  /**
+   * <p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   */
+  VerificationMessage?: CreateBackendAuthVerificationMessageConfig;
 }
 
 export namespace CreateBackendAuthUserPoolConfig {
@@ -2662,21 +2696,21 @@ export namespace UpdateBackendAuthIdentityPoolConfig {
 }
 
 /**
- * <p>Describes the forgot password policy for authenticating into the Amplify app.</p>
+ * <p><b>(DEPRECATED)</b> Describes the forgot password policy for authenticating into the Amplify app.</p>
  */
 export interface UpdateBackendAuthForgotPasswordConfig {
   /**
-   * <p>Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
+   * <p><b>(DEPRECATED)</b> Describes which mode to use (either SMS or email) to deliver messages to app users that want to recover their password.</p>
    */
   DeliveryMethod?: DeliveryMethod | string;
 
   /**
-   * <p>The configuration for the email sent when an app user forgets their password.</p>
+   * <p><b>(DEPRECATED)</b> The configuration for the email sent when an app user forgets their password.</p>
    */
   EmailSettings?: EmailSettings;
 
   /**
-   * <p>The configuration for the SMS message sent when an Amplify app user forgets their password.</p>
+   * <p><b>(DEPRECATED)</b> The configuration for the SMS message sent when an Amplify app user forgets their password.</p>
    */
   SmsSettings?: SmsSettings;
 }
@@ -2783,11 +2817,40 @@ export namespace UpdateBackendAuthPasswordPolicyConfig {
 }
 
 /**
+ * <p>Updates the configuration of the email or SMS message for the auth resource configured for your Amplify project.</p>
+ */
+export interface UpdateBackendAuthVerificationMessageConfig {
+  /**
+   * <p>The type of verification message to send.</p>
+   */
+  DeliveryMethod: DeliveryMethod | string | undefined;
+
+  /**
+   * <p>The settings for the email message.</p>
+   */
+  EmailSettings?: EmailSettings;
+
+  /**
+   * <p>The settings for the SMS message.</p>
+   */
+  SmsSettings?: SmsSettings;
+}
+
+export namespace UpdateBackendAuthVerificationMessageConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateBackendAuthVerificationMessageConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the Amazon Cognito user pool configuration for the authorization resource to be configured for your Amplify project on an update.</p>
  */
 export interface UpdateBackendAuthUserPoolConfig {
   /**
-   * <p>Describes the forgot password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   * <p><b>(DEPRECATED)</b> Describes the forgot password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
   ForgotPassword?: UpdateBackendAuthForgotPasswordConfig;
 
@@ -2805,6 +2868,11 @@ export interface UpdateBackendAuthUserPoolConfig {
    * <p>Describes the password policy for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
    */
   PasswordPolicy?: UpdateBackendAuthPasswordPolicyConfig;
+
+  /**
+   * <p>Describes the email or SMS verification message for your Amazon Cognito user pool, configured as a part of your Amplify project.</p>
+   */
+  VerificationMessage?: UpdateBackendAuthVerificationMessageConfig;
 }
 
 export namespace UpdateBackendAuthUserPoolConfig {

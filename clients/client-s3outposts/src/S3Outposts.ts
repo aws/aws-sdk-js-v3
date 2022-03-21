@@ -15,6 +15,11 @@ import {
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "./commands/ListEndpointsCommand";
+import {
+  ListSharedEndpointsCommand,
+  ListSharedEndpointsCommandInput,
+  ListSharedEndpointsCommandOutput,
+} from "./commands/ListSharedEndpointsCommand";
 import { S3OutpostsClient } from "./S3OutpostsClient";
 
 /**
@@ -22,13 +27,9 @@ import { S3OutpostsClient } from "./S3OutpostsClient";
  */
 export class S3Outposts extends S3OutpostsClient {
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action creates an endpoint and associates it with the specified Outposts.</p>
+   * <p>Creates an endpoint and associates it with the specified Outpost.</p>
    *         <note>
-   *             <p>It can take up to 5 minutes for this action to complete.</p>
+   *             <p>It can take up to 5 minutes for this action to finish.</p>
    *          </note>
    *         <p></p>
    *         <p>Related actions include:</p>
@@ -75,13 +76,9 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action deletes an endpoint.</p>
+   * <p>Deletes an endpoint.</p>
    *             <note>
-   *             <p>It can take up to 5 minutes for this action to complete.</p>
+   *             <p>It can take up to 5 minutes for this action to finish.</p>
    *          </note>
    *         <p></p>
    *         <p>Related actions include:</p>
@@ -128,22 +125,16 @@ export class S3Outposts extends S3OutpostsClient {
   }
 
   /**
-   * <p>Amazon S3 on Outposts Access Points simplify managing data access at scale for shared datasets in S3 on Outposts.
-   *             S3 on Outposts uses endpoints to connect to Outposts buckets so that you can perform actions within your
-   *                virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html">
-   *         Accessing S3 on Outposts using VPC only access points</a>.</p>
-   *         <p>This action lists endpoints associated with the Outposts.
-   *             </p>
-   *         <p></p>
+   * <p>Lists endpoints associated with the specified Outpost. </p>
    *         <p>Related actions include:</p>
    *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
    *                </p>
    *             </li>
@@ -168,6 +159,51 @@ export class S3Outposts extends S3OutpostsClient {
     cb?: (err: any, data?: ListEndpointsCommandOutput) => void
   ): Promise<ListEndpointsCommandOutput> | void {
     const command = new ListEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all endpoints associated with an Outpost that has been shared by Amazon Web Services Resource Access Manager (RAM).</p>
+   *         <p>Related actions include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_CreateEndpoint.html">CreateEndpoint</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3outposts_DeleteEndpoint.html">DeleteEndpoint</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharedEndpointsCommandOutput>;
+  public listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
+  ): void;
+  public listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharedEndpointsCommandOutput) => void
+  ): void;
+  public listSharedEndpoints(
+    args: ListSharedEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSharedEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: ListSharedEndpointsCommandOutput) => void
+  ): Promise<ListSharedEndpointsCommandOutput> | void {
+    const command = new ListSharedEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

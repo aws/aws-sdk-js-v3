@@ -3,7 +3,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 import {
-  Action,
   AuditContext,
   CodeGenEdge,
   CodeGenNode,
@@ -13,8 +12,8 @@ import {
   Compatibility,
   ConnectionInput,
   ConnectionsList,
+  ConnectionType,
   Crawler,
-  CrawlerMetrics,
   CrawlerTargets,
   CsvHeaderOption,
   DatabaseIdentifier,
@@ -23,7 +22,6 @@ import {
   DevEndpoint,
   EncryptionConfiguration,
   ErrorDetail,
-  EventBatchingCondition,
   ExecutionProperty,
   GlueTable,
   Job,
@@ -36,7 +34,7 @@ import {
   Partition,
   PartitionInput,
   PartitionValueList,
-  Predicate,
+  PhysicalConnectionRequirements,
   PrincipalPermissions,
   PrincipalType,
   RecrawlPolicy,
@@ -47,6 +45,7 @@ import {
   SchemaId,
   SchemaStatus,
   SchemaVersionStatus,
+  Session,
   StorageDescriptor,
   TableIdentifier,
   TableInput,
@@ -55,11 +54,449 @@ import {
   TransformParameters,
   TransformType,
   Trigger,
-  UserDefinedFunctionInput,
   WorkerType,
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export interface GetConnectionRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the connection resides. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the connection definition to retrieve.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Allows you to retrieve the connection metadata without returning the password. For
+   *       instance, the AWS Glue console uses this flag to retrieve the connection, and does not display
+   *       the password. Set this parameter when the caller might not have permission to use the KMS
+   *       key to decrypt the password, but it does have permission to access the rest of the connection
+   *       properties.</p>
+   */
+  HidePassword?: boolean;
+}
+
+export namespace GetConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines a connection to a data source.</p>
+ */
+export interface Connection {
+  /**
+   * <p>The name of the connection definition.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the connection.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of the connection. Currently, SFTP is not supported.</p>
+   */
+  ConnectionType?: ConnectionType | string;
+
+  /**
+   * <p>A list of criteria that can be used in selecting this connection.</p>
+   */
+  MatchCriteria?: string[];
+
+  /**
+   * <p>These key-value pairs define parameters for the connection:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HOST</code> - The host URI: either the
+   *         fully qualified domain name (FQDN) or the IPv4 address of
+   *         the database host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PORT</code> - The port number, between
+   *         1024 and 65535, of the port on which the database host is
+   *         listening for database connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>USER_NAME</code> -  The name under which
+   *         to log in to the database. The value string for <code>USER_NAME</code> is "<code>USERNAME</code>".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PASSWORD</code> - A password,
+   *         if one is used, for the user name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTED_PASSWORD</code> - When you enable connection password protection by setting <code>ConnectionPasswordEncryption</code> in the Data Catalog encryption settings, this field stores the encrypted password.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_DRIVER_JAR_URI</code> - The Amazon Simple Storage Service (Amazon S3) path of the
+   *           JAR file that contains the JDBC driver to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_DRIVER_CLASS_NAME</code> - The class name of the JDBC driver to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_ENGINE</code> - The name of the JDBC engine to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_ENGINE_VERSION</code> - The version of the JDBC engine to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONFIG_FILES</code> - (Reserved for future use.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSTANCE_ID</code> - The instance ID to use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_CONNECTION_URL</code> - The URL for connecting to a JDBC data source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC_ENFORCE_SSL</code> - A Boolean string (true, false) specifying whether Secure
+   *           Sockets Layer (SSL) with hostname matching is enforced for the JDBC connection on the
+   *           client. The default is false.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_JDBC_CERT</code> - An Amazon S3 location specifying the customer's root certificate. Glue uses this root certificate to validate the customer’s certificate when connecting to the customer database. Glue only handles X.509 certificates. The certificate provided must be DER-encoded and supplied in Base64 encoding PEM format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code> - By default, this is <code>false</code>. Glue validates the Signature algorithm and Subject Public Key Algorithm for the customer certificate. The only permitted algorithms for the Signature algorithm are SHA256withRSA, SHA384withRSA or SHA512withRSA. For the Subject Public Key Algorithm, the key length must be at least 2048. You can set the value of this property to <code>true</code> to skip Glue’s validation of the customer certificate.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_JDBC_CERT_STRING</code> - A custom JDBC certificate string which is used for domain match or distinguished name match to prevent a man-in-the-middle attack. In Oracle database, this is used as the <code>SSL_SERVER_CERT_DN</code>; in Microsoft SQL Server, this is used as the <code>hostNameInCertificate</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTION_URL</code> - The URL for connecting to a general (non-JDBC) data source.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_BOOTSTRAP_SERVERS</code> - A comma-separated list of host and port pairs that are the addresses of the Apache Kafka brokers in a Kafka cluster to which a Kafka client will connect to and bootstrap itself.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_SSL_ENABLED</code> - Whether to enable or disable SSL on an Apache Kafka connection. Default value is "true".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CUSTOM_CERT</code> - The Amazon S3 URL for the private CA cert file (.pem format). The default is an empty string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code> - Whether to skip the validation of the CA cert file or not. Glue validates for three algorithms: SHA256withRSA, SHA384withRSA and SHA512withRSA. Default value is "false".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SECRET_ID</code> - The secret ID used for the secret manager of credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_URL</code> - The connector URL for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_TYPE</code> - The connector type for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTOR_CLASS_NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEYSTORE</code> - The Amazon S3 location of the client keystore file for Kafka client side authentication (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The password to access the provided keystore (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEY_PASSWORD</code> - A keystore can consist of multiple keys, so this is the password to access the client key to be used with the Kafka server side key (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The encrypted version of the Kafka client keystore password (if the user has the Glue encrypt passwords setting selected).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code> - The encrypted version of the Kafka client key password (if the user has the Glue encrypt passwords setting selected).</p>
+   *             </li>
+   *          </ul>
+   */
+  ConnectionProperties?: { [key: string]: string };
+
+  /**
+   * <p>A map of physical connection requirements, such as virtual private cloud (VPC) and
+   *         <code>SecurityGroup</code>, that are needed to make this connection successfully.</p>
+   */
+  PhysicalConnectionRequirements?: PhysicalConnectionRequirements;
+
+  /**
+   * <p>The time that this connection definition was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time that this connection definition was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The user, group, or role that last updated this connection definition.</p>
+   */
+  LastUpdatedBy?: string;
+}
+
+export namespace Connection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Connection): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectionResponse {
+  /**
+   * <p>The requested connection definition.</p>
+   */
+  Connection?: Connection;
+}
+
+export namespace GetConnectionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Filters the connection definitions that are returned by the <code>GetConnections</code>
+ *       API operation.</p>
+ */
+export interface GetConnectionsFilter {
+  /**
+   * <p>A criteria string that must match the criteria recorded in the
+   *        connection definition for that connection definition to be returned.</p>
+   */
+  MatchCriteria?: string[];
+
+  /**
+   * <p>The type of connections to return. Currently, SFTP is not supported.</p>
+   */
+  ConnectionType?: ConnectionType | string;
+}
+
+export namespace GetConnectionsFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionsFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectionsRequest {
+  /**
+   * <p>The ID of the Data Catalog in which the connections reside. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A filter that controls which connections are returned.</p>
+   */
+  Filter?: GetConnectionsFilter;
+
+  /**
+   * <p>Allows you to retrieve the connection metadata without returning the password. For
+   *       instance, the AWS Glue console uses this flag to retrieve the connection, and does not display
+   *       the password. Set this parameter when the caller might not have permission to use the KMS
+   *       key to decrypt the password, but it does have permission to access the rest of the connection
+   *       properties.</p>
+   */
+  HidePassword?: boolean;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of connections to return in one response.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace GetConnectionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectionsResponse {
+  /**
+   * <p>A list of requested connection definitions.</p>
+   */
+  ConnectionList?: Connection[];
+
+  /**
+   * <p>A continuation token, if the list of connections returned does not
+   *       include the last of the filtered connections.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetConnectionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCrawlerRequest {
+  /**
+   * <p>The name of the crawler to retrieve metadata for.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetCrawlerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCrawlerResponse {
+  /**
+   * <p>The metadata for the specified crawler.</p>
+   */
+  Crawler?: Crawler;
+}
+
+export namespace GetCrawlerResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCrawlerMetricsRequest {
+  /**
+   * <p>A list of the names of crawlers about which to retrieve metrics.</p>
+   */
+  CrawlerNameList?: string[];
+
+  /**
+   * <p>The maximum size of a list to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlerMetricsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlerMetricsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metrics for a specified crawler.</p>
+ */
+export interface CrawlerMetrics {
+  /**
+   * <p>The name of the crawler.</p>
+   */
+  CrawlerName?: string;
+
+  /**
+   * <p>The estimated time left to complete a running crawl.</p>
+   */
+  TimeLeftSeconds?: number;
+
+  /**
+   * <p>True if the crawler is still estimating how long it will take to complete this run.</p>
+   */
+  StillEstimating?: boolean;
+
+  /**
+   * <p>The duration of the crawler's most recent run, in seconds.</p>
+   */
+  LastRuntimeSeconds?: number;
+
+  /**
+   * <p>The median duration of this crawler's runs, in seconds.</p>
+   */
+  MedianRuntimeSeconds?: number;
+
+  /**
+   * <p>The number of tables created by this crawler.</p>
+   */
+  TablesCreated?: number;
+
+  /**
+   * <p>The number of tables updated by this crawler.</p>
+   */
+  TablesUpdated?: number;
+
+  /**
+   * <p>The number of tables deleted by this crawler.</p>
+   */
+  TablesDeleted?: number;
+}
+
+export namespace CrawlerMetrics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CrawlerMetrics): any => ({
+    ...obj,
+  });
+}
 
 export interface GetCrawlerMetricsResponse {
   /**
@@ -3122,6 +3559,206 @@ export namespace GetSecurityConfigurationsResponse {
   });
 }
 
+export interface GetSessionRequest {
+  /**
+   * <p>The ID of the session. </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The origin of the request. </p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace GetSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSessionResponse {
+  /**
+   * <p>The session object is returned in the response.</p>
+   */
+  Session?: Session;
+}
+
+export namespace GetSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetStatementRequest {
+  /**
+   * <p>The Session ID of the statement.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The Id of the statement.</p>
+   */
+  Id: number | undefined;
+
+  /**
+   * <p>The origin of the request.</p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace GetStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The code execution output in JSON format.</p>
+ */
+export interface StatementOutputData {
+  /**
+   * <p>The code execution output in text format.</p>
+   */
+  TextPlain?: string;
+}
+
+export namespace StatementOutputData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatementOutputData): any => ({
+    ...obj,
+  });
+}
+
+export enum StatementState {
+  AVAILABLE = "AVAILABLE",
+  CANCELLED = "CANCELLED",
+  CANCELLING = "CANCELLING",
+  ERROR = "ERROR",
+  RUNNING = "RUNNING",
+  WAITING = "WAITING",
+}
+
+/**
+ * <p>The code execution output in JSON format.</p>
+ */
+export interface StatementOutput {
+  /**
+   * <p>The code execution output.</p>
+   */
+  Data?: StatementOutputData;
+
+  /**
+   * <p>The execution count of the output.</p>
+   */
+  ExecutionCount?: number;
+
+  /**
+   * <p>The status of the code execution output.</p>
+   */
+  Status?: StatementState | string;
+
+  /**
+   * <p>The name of the error in the output.</p>
+   */
+  ErrorName?: string;
+
+  /**
+   * <p>The error value of the output.</p>
+   */
+  ErrorValue?: string;
+
+  /**
+   * <p>The traceback of the output.</p>
+   */
+  Traceback?: string[];
+}
+
+export namespace StatementOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatementOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The statement or request for a particular action to occur in a session.</p>
+ */
+export interface Statement {
+  /**
+   * <p>The ID of the statement.</p>
+   */
+  Id?: number;
+
+  /**
+   * <p>The execution code of the statement.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The state while request is actioned.</p>
+   */
+  State?: StatementState | string;
+
+  /**
+   * <p>The output in JSON.</p>
+   */
+  Output?: StatementOutput;
+
+  /**
+   * <p>The code execution progress.</p>
+   */
+  Progress?: number;
+
+  /**
+   * <p>The unix time and date that the job definition was started.</p>
+   */
+  StartedOn?: number;
+
+  /**
+   * <p>The unix time and date that the job definition was completed.</p>
+   */
+  CompletedOn?: number;
+}
+
+export namespace Statement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Statement): any => ({
+    ...obj,
+  });
+}
+
+export interface GetStatementResponse {
+  /**
+   * <p>Returns the statement.</p>
+   */
+  Statement?: Statement;
+}
+
+export namespace GetStatementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetStatementResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetTableRequest {
   /**
    * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
@@ -3629,7 +4266,11 @@ export interface GetUnfilteredPartitionMetadataRequest {
   DatabaseName: string | undefined;
   TableName: string | undefined;
   PartitionValues: string[] | undefined;
+  /**
+   * <p>A structure containing information for audit.</p>
+   */
   AuditContext?: AuditContext;
+
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
@@ -3684,7 +4325,11 @@ export interface GetUnfilteredPartitionsMetadataRequest {
   DatabaseName: string | undefined;
   TableName: string | undefined;
   Expression?: string;
+  /**
+   * <p>A structure containing information for audit.</p>
+   */
   AuditContext?: AuditContext;
+
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
   NextToken?: string;
   /**
@@ -3742,7 +4387,11 @@ export interface GetUnfilteredTableMetadataRequest {
   CatalogId: string | undefined;
   DatabaseName: string | undefined;
   Name: string | undefined;
+  /**
+   * <p>A structure containing information for audit.</p>
+   */
   AuditContext?: AuditContext;
+
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
@@ -4670,6 +5319,104 @@ export namespace ListSchemaVersionsResponse {
   });
 }
 
+export interface ListSessionsRequest {
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Tags belonging to the session. </p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The origin of the request. </p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace ListSessionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSessionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSessionsResponse {
+  /**
+   * <p>Returns the Id of the session. </p>
+   */
+  Ids?: string[];
+
+  /**
+   * <p>Returns the session object. </p>
+   */
+  Sessions?: Session[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more result. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSessionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSessionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStatementsRequest {
+  /**
+   * <p>The Session ID of the statements.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The origin of the request to list statements.</p>
+   */
+  RequestOrigin?: string;
+
+  NextToken?: string;
+}
+
+export namespace ListStatementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStatementsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStatementsResponse {
+  /**
+   * <p>Returns the list of statements.</p>
+   */
+  Statements?: Statement[];
+
+  NextToken?: string;
+}
+
+export namespace ListStatementsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStatementsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTriggersRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -5408,6 +6155,48 @@ export namespace ResumeWorkflowRunResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResumeWorkflowRunResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RunStatementRequest {
+  /**
+   * <p>The Session Id of the statement to be run.</p>
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The statement code to be run.</p>
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The origin of the request.</p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace RunStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RunStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RunStatementResponse {
+  /**
+   * <p>Returns the Id of the statement that was run.</p>
+   */
+  Id?: number;
+}
+
+export namespace RunStatementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RunStatementResponse): any => ({
     ...obj,
   });
 }
@@ -6208,6 +6997,43 @@ export namespace StopCrawlerScheduleResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopCrawlerScheduleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSessionRequest {
+  /**
+   * <p>The ID of the session to be stopped.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The origin of the request.</p>
+   */
+  RequestOrigin?: string;
+}
+
+export namespace StopSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSessionResponse {
+  /**
+   * <p>Returns the Id of the stopped session.</p>
+   */
+  Id?: string;
+}
+
+export namespace StopSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSessionResponse): any => ({
     ...obj,
   });
 }
@@ -7537,184 +8363,6 @@ export namespace UpdateTableResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A structure used to provide information used to update a trigger. This object updates the
- *       previous trigger definition by overwriting it completely.</p>
- */
-export interface TriggerUpdate {
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of this trigger.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
-   *       Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
-   */
-  Schedule?: string;
-
-  /**
-   * <p>The actions initiated by this trigger.</p>
-   */
-  Actions?: Action[];
-
-  /**
-   * <p>The predicate of this trigger, which defines when it will fire.</p>
-   */
-  Predicate?: Predicate;
-
-  /**
-   * <p>Batch condition that must be met (specified number of events received or batch time window expired)
-   *       before EventBridge event trigger fires.</p>
-   */
-  EventBatchingCondition?: EventBatchingCondition;
-}
-
-export namespace TriggerUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerUpdate): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTriggerRequest {
-  /**
-   * <p>The name of the trigger to update.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The new values with which to update the trigger.</p>
-   */
-  TriggerUpdate: TriggerUpdate | undefined;
-}
-
-export namespace UpdateTriggerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTriggerRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTriggerResponse {
-  /**
-   * <p>The resulting trigger definition.</p>
-   */
-  Trigger?: Trigger;
-}
-
-export namespace UpdateTriggerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTriggerResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserDefinedFunctionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the function to be updated is located. If none is
-   *       provided, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the function to be updated is
-   *       located.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A <code>FunctionInput</code> object that redefines the function in the Data
-   *       Catalog.</p>
-   */
-  FunctionInput: UserDefinedFunctionInput | undefined;
-}
-
-export namespace UpdateUserDefinedFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserDefinedFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserDefinedFunctionResponse {}
-
-export namespace UpdateUserDefinedFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserDefinedFunctionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWorkflowRequest {
-  /**
-   * <p>Name of the workflow to be updated.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the workflow.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   */
-  DefaultRunProperties?: { [key: string]: string };
-
-  /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   */
-  MaxConcurrentRuns?: number;
-}
-
-export namespace UpdateWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateWorkflowResponse {
-  /**
-   * <p>The name of the workflow which was specified in input.</p>
-   */
-  Name?: string;
-}
-
-export namespace UpdateWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkflowResponse): any => ({
     ...obj,
   });
 }

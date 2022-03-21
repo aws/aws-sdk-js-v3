@@ -25,9 +25,9 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
  *           Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
  *           obtained by providing the name as a parameter.</p>
- *          <note>
+ *         <note>
  *             <p>By default, RDS returns events that were generated in the past hour.</p>
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,8 +23,7 @@ export interface ProvisionPublicIpv4PoolCidrCommandOutput extends ProvisionPubli
 
 /**
  * <p>Provision a CIDR to a public IPv4 pool.</p>
- *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ *          <p>For more information about IPAM, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

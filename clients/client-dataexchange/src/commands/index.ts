@@ -18,6 +18,7 @@ export * from "./ListEventActionsCommand";
 export * from "./ListJobsCommand";
 export * from "./ListRevisionAssetsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./RevokeRevisionCommand";
 export * from "./SendApiAssetCommand";
 export * from "./StartJobCommand";
 export * from "./TagResourceCommand";

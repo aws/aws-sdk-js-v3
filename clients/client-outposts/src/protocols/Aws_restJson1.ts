@@ -538,6 +538,17 @@ export const serializeAws_restJson1ListSitesCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.OperatingAddressCountryCodeFilter !== undefined && {
+      OperatingAddressCountryCodeFilter: (input.OperatingAddressCountryCodeFilter || []).map((_entry) => _entry as any),
+    }),
+    ...(input.OperatingAddressStateOrRegionFilter !== undefined && {
+      OperatingAddressStateOrRegionFilter: (input.OperatingAddressStateOrRegionFilter || []).map(
+        (_entry) => _entry as any
+      ),
+    }),
+    ...(input.OperatingAddressCityFilter !== undefined && {
+      OperatingAddressCityFilter: (input.OperatingAddressCityFilter || []).map((_entry) => _entry as any),
+    }),
   };
   let body: any;
   return new __HttpRequest({

@@ -4051,6 +4051,13 @@ export const serializeAws_restJson1StartChatContactCommand = async (
       input.ParticipantDetails !== null && {
         ParticipantDetails: serializeAws_restJson1ParticipantDetails(input.ParticipantDetails, context),
       }),
+    ...(input.SupportedMessagingContentTypes !== undefined &&
+      input.SupportedMessagingContentTypes !== null && {
+        SupportedMessagingContentTypes: serializeAws_restJson1SupportedMessagingContentTypes(
+          input.SupportedMessagingContentTypes,
+          context
+        ),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -14103,6 +14110,17 @@ const serializeAws_restJson1S3Config = (input: S3Config, context: __SerdeContext
 };
 
 const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SupportedMessagingContentTypes = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

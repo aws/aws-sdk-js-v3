@@ -851,7 +851,9 @@ export interface StartMedicalStreamTranscriptionRequest {
   LanguageCode: LanguageCode | string | undefined;
 
   /**
-   * <p>The sample rate of the input audio in Hertz.</p>
+   * <p>The sample rate of the input audio (in Hertz). Amazon Transcribe medical supports a range from
+   *             16,000 Hz to 48,000 Hz. Note that the sample rate you specify must match that of your
+   *             audio.</p>
    */
   MediaSampleRateHertz: number | undefined;
 
@@ -941,7 +943,7 @@ export interface StartMedicalStreamTranscriptionResponse {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate of the input audio in Hertz.</p>
+   * <p>The sample rate of the input audio, in Hertz (Hz).</p>
    */
   MediaSampleRateHertz?: number;
 
@@ -1021,8 +1023,9 @@ export interface StartStreamTranscriptionRequest {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate, in Hertz (Hz), of the input audio. We suggest that you use 8,000 Hz
-   *       for low quality audio and 16,000 Hz or higher for high quality audio.</p>
+   * <p>The sample rate of the input audio (in Hertz). Low-quality audio, such as telephone
+   *       audio, is typically around 8,000 Hz. High-quality audio typically ranges from 16,000 Hz to
+   *       48,000 Hz. Note that the sample rate you specify must match that of your audio.</p>
    */
   MediaSampleRateHertz: number | undefined;
 
@@ -1032,7 +1035,11 @@ export interface StartStreamTranscriptionRequest {
   MediaEncoding: MediaEncoding | string | undefined;
 
   /**
-   * <p>The name of the vocabulary to use when processing the transcription job.</p>
+   * <p>The name of the custom vocabulary you want to use with your transcription.</p>
+   *          <p>This operation is not intended for use in conjunction with the
+   *       <code>IdentifyLanguage</code> operation. If you're using <code>IdentifyLanguage</code>
+   *       in your request and want to use one or more custom vocabularies with your transcription, use the
+   *       <code>VocabularyNames</code> operation instead.</p>
    */
   VocabularyName?: string;
 
@@ -1050,8 +1057,11 @@ export interface StartStreamTranscriptionRequest {
   AudioStream: AsyncIterable<AudioStream> | undefined;
 
   /**
-   * <p>The name of the vocabulary filter you've created that is unique to your account.
-   *       Provide the name in this field to successfully use it in a stream.</p>
+   * <p>The name of the vocabulary filter you want to use with your transcription.</p>
+   *          <p>This operation is not intended for use in conjunction with the
+   *       <code>IdentifyLanguage</code> operation. If you're using <code>IdentifyLanguage</code>
+   *       in your request and want to use one or more vocabulary filters with your transcription, use the
+   *       <code>VocabularyFilterNames</code> operation instead.</p>
    */
   VocabularyFilterName?: string;
 
@@ -1075,9 +1085,6 @@ export interface StartStreamTranscriptionRequest {
    *       then merges the transcription output of each channel into a single transcription.</p>
    *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end
    *       time, and any alternative transcriptions.</p>
-   *          <p>You can't set both <code>ShowSpeakerLabel</code> and
-   *       <code>EnableChannelIdentification</code> in the same request. If you set both, your request
-   *       returns a <code>BadRequestException</code>.</p>
    */
   EnableChannelIdentification?: boolean;
 
@@ -1168,6 +1175,28 @@ export interface StartStreamTranscriptionRequest {
    *       <code>true</code>in your request.</p>
    */
   PreferredLanguage?: LanguageCode | string;
+
+  /**
+   * <p>The names of the custom vocabularies you want to use with your transcription.</p>
+   *          <p>Note that if the custom vocabularies you specify are in languages that don't match the
+   *       language identified in your media, your job fails.</p>
+   *          <p>This operation is only intended for use in conjunction with the
+   *       <code>IdentifyLanguage</code> operation. If you're not using <code>IdentifyLanguage</code>
+   *       in your request and want to use a custom vocabulary with your transcription, use the
+   *       <code>VocabularyName</code> operation instead.</p>
+   */
+  VocabularyNames?: string;
+
+  /**
+   * <p>The names of the vocabulary filters you want to use with your transcription.</p>
+   *          <p>Note that if the vocabulary filters you specify are in languages that don't match the
+   *        language identified in your media, your job fails.</p>
+   *          <p>This operation is only intended for use in conjunction with the
+   *        <code>IdentifyLanguage</code> operation. If you're not using <code>IdentifyLanguage</code>
+   *        in your request and want to use a vocabulary filter with your transcription, use the
+   *        <code>VocabularyFilterName</code> operation instead.</p>
+   */
+  VocabularyFilterNames?: string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1368,7 +1397,7 @@ export namespace TranscriptResultStream {
 
 export interface StartStreamTranscriptionResponse {
   /**
-   * <p>An identifier for the streaming transcription.</p>
+   * <p>An identifier for the transcription.</p>
    */
   RequestId?: string;
 
@@ -1378,8 +1407,7 @@ export interface StartStreamTranscriptionResponse {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate, in Hertz (Hz), for the input audio stream. Use 8,000 Hz for low quality
-   *       audio and 16,000 Hz or higher for high quality audio.</p>
+   * <p>The sample rate, in Hertz (Hz), for the input audio stream.</p>
    */
   MediaSampleRateHertz?: number;
 
@@ -1389,7 +1417,7 @@ export interface StartStreamTranscriptionResponse {
   MediaEncoding?: MediaEncoding | string;
 
   /**
-   * <p>The name of the vocabulary used when processing the stream.</p>
+   * <p>The name of the custom vocabulary used when processing the stream.</p>
    */
   VocabularyName?: string;
 
@@ -1404,22 +1432,22 @@ export interface StartStreamTranscriptionResponse {
   TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
 
   /**
-   * <p>The name of the vocabulary filter used in your media stream.</p>
+   * <p>The name of the vocabulary filter used when processing the stream.</p>
    */
   VocabularyFilterName?: string;
 
   /**
-   * <p>The vocabulary filtering method used in the media stream.</p>
+   * <p>The vocabulary filtering method used when processing the stream.</p>
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
-   * <p>Shows whether speaker identification was enabled in the stream.</p>
+   * <p>Shows whether speaker identification was enabled in the transcription.</p>
    */
   ShowSpeakerLabel?: boolean;
 
   /**
-   * <p>Shows whether channel identification has been enabled in the stream.</p>
+   * <p>Shows whether channel identification was enabled in the stream.</p>
    */
   EnableChannelIdentification?: boolean;
 
@@ -1429,7 +1457,7 @@ export interface StartStreamTranscriptionResponse {
   NumberOfChannels?: number;
 
   /**
-   * <p>Shows whether partial results stabilization has been enabled in the stream.</p>
+   * <p>Shows whether partial results stabilization was enabled in the transcription.</p>
    */
   EnablePartialResultsStabilization?: boolean;
 
@@ -1455,7 +1483,7 @@ export interface StartStreamTranscriptionResponse {
   PiiEntityTypes?: string;
 
   /**
-   * <p>The name of the language model used in your media stream.</p>
+   * <p>The name of the custom language model used in the transcription.</p>
    */
   LanguageModelName?: string;
 
@@ -1474,6 +1502,16 @@ export interface StartStreamTranscriptionResponse {
    * <p>The preferred language you specified in your request.</p>
    */
   PreferredLanguage?: LanguageCode | string;
+
+  /**
+   * <p>The name of the custom vocabulary used when processing the stream.</p>
+   */
+  VocabularyNames?: string;
+
+  /**
+   * <p>The name of the vocabulary filter used when processing the stream.</p>
+   */
+  VocabularyFilterNames?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {

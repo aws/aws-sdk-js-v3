@@ -23,14 +23,12 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
 
 /**
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be deleted can't be associated with any DB clusters.</p>
- *          <p>For more information on Amazon Aurora, see
+ *         <p>For more information on Amazon Aurora, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
- *          </p>
- *          <p>For more information on Multi-AZ DB clusters, see
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *         <p>For more information on Multi-AZ DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
- *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
- *          </p>
+ *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

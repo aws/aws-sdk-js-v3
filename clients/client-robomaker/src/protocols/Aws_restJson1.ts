@@ -7694,6 +7694,10 @@ const deserializeAws_restJson1WorldExportJobSummary = (output: any, context: __S
       output.createdAt !== undefined && output.createdAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
+    outputLocation:
+      output.outputLocation !== undefined && output.outputLocation !== null
+        ? deserializeAws_restJson1OutputLocation(output.outputLocation, context)
+        : undefined,
     status: __expectString(output.status),
     worlds:
       output.worlds !== undefined && output.worlds !== null

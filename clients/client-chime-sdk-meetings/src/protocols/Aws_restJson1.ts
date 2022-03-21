@@ -161,6 +161,8 @@ export const serializeAws_restJson1CreateMeetingCommand = async (
           context
         ),
       }),
+    ...(input.PrimaryMeetingId !== undefined &&
+      input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
   });
   return new __HttpRequest({
     protocol,
@@ -207,6 +209,8 @@ export const serializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
           context
         ),
       }),
+    ...(input.PrimaryMeetingId !== undefined &&
+      input.PrimaryMeetingId !== null && { PrimaryMeetingId: input.PrimaryMeetingId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1430,6 +1434,7 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
         : undefined,
     MeetingHostId: __expectString(output.MeetingHostId),
     MeetingId: __expectString(output.MeetingId),
+    PrimaryMeetingId: __expectString(output.PrimaryMeetingId),
   } as any;
 };
 

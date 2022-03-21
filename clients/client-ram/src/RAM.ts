@@ -724,7 +724,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   * <p>Lists the resources that you added to a resource shares or the resources that are shared with
+   * <p>Lists the resources that you added to a resource share or the resources that are shared with
    *             you.</p>
    */
   public listResources(
@@ -822,8 +822,8 @@ export class RAM extends RAMClient {
 
   /**
    * <p>When you attach a resource-based permission policy to a resource, it automatically
-   *             creates a resource share. However, resource shares created this way are visible only to the resource share
-   *             owner, and the resource share can't be modified in RAM.</p>
+   *             creates a resource share. However, resource shares created this way are visible only to the resource share owner, and
+   *             the resource share can't be modified in RAM.</p>
    *         <p>You can use this operation to promote the resource share to a full RAM resource share. When you promote
    *             a resource share, you can then manage the resource share in RAM and it becomes visible to all of the
    *             principals you shared it with.</p>

@@ -1629,15 +1629,15 @@ export interface GetResourceSharesRequest {
    *                 <p>
    *                   <b>
    *                      <code>SELF</code>
-   *                   </b> – resources that you
-   *                     are sharing</p>
+   *                   </b> – resource shares that your
+   *                     account shares with other accounts</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
-   *                   </b> –
-   *                     resources that other accounts share with you</p>
+   *                   </b> – resource shares
+   *                     that other accounts share with your account</p>
    *             </li>
    *          </ul>
    */
@@ -2115,15 +2115,15 @@ export interface ListPrincipalsRequest {
    *                 <p>
    *                   <b>
    *                      <code>SELF</code>
-   *                   </b> – resources that you
-   *                     are sharing</p>
+   *                   </b> – principals that
+   *                     your account is sharing resources with</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
    *                   </b> –
-   *                     resources that other accounts share with you</p>
+   *                     principals that are sharing resources with your account</p>
    *             </li>
    *          </ul>
    */
@@ -2175,7 +2175,8 @@ export interface ListPrincipalsRequest {
   /**
    * <p>Specifies that you want to list information for only principals associated with resource shares
    *             that include the specified resource type.</p>
-   *         <p>For a list of valid values, query the <a>ListResourceTypes</a> operation.</p>
+   *         <p>For a list of valid values, query the <a>ListResourceTypes</a>
+   *             operation.</p>
    */
   resourceType?: string;
 
@@ -2309,15 +2310,15 @@ export interface ListResourcesRequest {
    *                 <p>
    *                   <b>
    *                      <code>SELF</code>
-   *                   </b> – resources that you
-   *                     are sharing</p>
+   *                   </b> – resources that
+   *                     your account shares with other accounts</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <b>
    *                      <code>OTHER-ACCOUNTS</code>
    *                   </b> –
-   *                     resources that other accounts share with you</p>
+   *                     resources that other accounts share with your account</p>
    *             </li>
    *          </ul>
    */

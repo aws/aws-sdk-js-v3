@@ -23,7 +23,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
 
 /**
  * <p>Returns a list of DB log files for the DB instance.</p>
- *          <p>This command doesn't apply to RDS Custom.</p>
+ *         <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

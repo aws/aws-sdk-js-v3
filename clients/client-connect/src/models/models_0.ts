@@ -7747,7 +7747,7 @@ export namespace SearchVocabulariesResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are text and plain.</p>
+   * <p>The type of the content. Supported types are <code>text/plain</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -7831,6 +7831,11 @@ export interface StartChatContactRequest {
    *    The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
    */
   ChatDurationInMinutes?: number;
+
+  /**
+   * <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
+   */
+  SupportedMessagingContentTypes?: string[];
 }
 
 export namespace StartChatContactRequest {

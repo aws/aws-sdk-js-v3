@@ -23,9 +23,9 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
 
 /**
  * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
- *          <note>
+ *         <note>
  *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

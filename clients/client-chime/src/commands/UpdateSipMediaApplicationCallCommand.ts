@@ -24,7 +24,7 @@ export interface UpdateSipMediaApplicationCallCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Allows you to trigger a Lambda function at any time while a call is active, and replace the current actions with new actions returned by the invocation.</p>
+ * <p>Invokes the AWS Lambda function associated with the SIP media application and transaction ID in an update request. The Lambda function can then return a new set of actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

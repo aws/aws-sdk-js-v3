@@ -26,13 +26,13 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
  * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
  * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
- *          <note>
+ * 		       <note>
  *                         <p>Both PCA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is
- *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
- *                         Access to ACM Private CA</a>.</p>
- *                 </note>
+ *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
+ * 						policies for CRLs in Amazon S3</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -394,6 +394,12 @@ export interface AddPermissionRequest {
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
+
+  /**
+   * <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services
+   *       accounts under this organization.</p>
+   */
+  PrincipalOrgID?: string;
 }
 
 export namespace AddPermissionRequest {

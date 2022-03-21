@@ -512,6 +512,11 @@ export interface CreateMeetingRequest {
    * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
    */
   MeetingFeatures?: MeetingFeaturesConfiguration;
+
+  /**
+   * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
+   */
+  PrimaryMeetingId?: string;
 }
 
 export namespace CreateMeetingRequest {
@@ -622,6 +627,11 @@ export interface Meeting {
    * <p>The features available to a meeting, such as Amazon Voice Focus.</p>
    */
   MeetingFeatures?: MeetingFeaturesConfiguration;
+
+  /**
+   * <p>When specified, replicates the media from the primary meeting to this meeting.</p>
+   */
+  PrimaryMeetingId?: string;
 }
 
 export namespace Meeting {
@@ -711,6 +721,11 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
    */
   Attendees: CreateAttendeeRequestItem[] | undefined;
+
+  /**
+   * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
+   */
+  PrimaryMeetingId?: string;
 }
 
 export namespace CreateMeetingWithAttendeesRequest {

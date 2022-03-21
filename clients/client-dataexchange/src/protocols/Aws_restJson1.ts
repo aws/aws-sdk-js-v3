@@ -45,6 +45,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { RevokeRevisionCommandInput, RevokeRevisionCommandOutput } from "../commands/RevokeRevisionCommand";
 import { SendApiAssetCommandInput, SendApiAssetCommandOutput } from "../commands/SendApiAssetCommand";
 import { StartJobCommandInput, StartJobCommandOutput } from "../commands/StartJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -748,6 +749,51 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1RevokeRevisionCommand = async (
+  input: RevokeRevisionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/revoke";
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.RevocationComment !== undefined &&
+      input.RevocationComment !== null && { RevocationComment: input.RevocationComment }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SendApiAssetCommand = async (
   input: SendApiAssetCommandInput,
   context: __SerdeContext
@@ -1343,6 +1389,9 @@ const deserializeAws_restJson1CreateJobCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.dataexchange#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1381,6 +1430,9 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
     DataSetId: undefined,
     Finalized: undefined,
     Id: undefined,
+    RevocationComment: undefined,
+    Revoked: undefined,
+    RevokedAt: undefined,
     SourceId: undefined,
     Tags: undefined,
     UpdatedAt: undefined,
@@ -1403,6 +1455,15 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = __expectString(data.Id);
+  }
+  if (data.RevocationComment !== undefined && data.RevocationComment !== null) {
+    contents.RevocationComment = __expectString(data.RevocationComment);
+  }
+  if (data.Revoked !== undefined && data.Revoked !== null) {
+    contents.Revoked = __expectBoolean(data.Revoked);
+  }
+  if (data.RevokedAt !== undefined && data.RevokedAt !== null) {
+    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTime(data.RevokedAt));
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
     contents.SourceId = __expectString(data.SourceId);
@@ -2019,6 +2080,9 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
     DataSetId: undefined,
     Finalized: undefined,
     Id: undefined,
+    RevocationComment: undefined,
+    Revoked: undefined,
+    RevokedAt: undefined,
     SourceId: undefined,
     Tags: undefined,
     UpdatedAt: undefined,
@@ -2041,6 +2105,15 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = __expectString(data.Id);
+  }
+  if (data.RevocationComment !== undefined && data.RevocationComment !== null) {
+    contents.RevocationComment = __expectString(data.RevocationComment);
+  }
+  if (data.Revoked !== undefined && data.Revoked !== null) {
+    contents.Revoked = __expectBoolean(data.Revoked);
+  }
+  if (data.RevokedAt !== undefined && data.RevokedAt !== null) {
+    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTime(data.RevokedAt));
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
     contents.SourceId = __expectString(data.SourceId);
@@ -2404,6 +2477,105 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1RevokeRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeRevisionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RevokeRevisionCommandError(output, context);
+  }
+  const contents: RevokeRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Comment: undefined,
+    CreatedAt: undefined,
+    DataSetId: undefined,
+    Finalized: undefined,
+    Id: undefined,
+    RevocationComment: undefined,
+    Revoked: undefined,
+    RevokedAt: undefined,
+    SourceId: undefined,
+    UpdatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Comment !== undefined && data.Comment !== null) {
+    contents.Comment = __expectString(data.Comment);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+  }
+  if (data.DataSetId !== undefined && data.DataSetId !== null) {
+    contents.DataSetId = __expectString(data.DataSetId);
+  }
+  if (data.Finalized !== undefined && data.Finalized !== null) {
+    contents.Finalized = __expectBoolean(data.Finalized);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.RevocationComment !== undefined && data.RevocationComment !== null) {
+    contents.RevocationComment = __expectString(data.RevocationComment);
+  }
+  if (data.Revoked !== undefined && data.Revoked !== null) {
+    contents.Revoked = __expectBoolean(data.Revoked);
+  }
+  if (data.RevokedAt !== undefined && data.RevokedAt !== null) {
+    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTime(data.RevokedAt));
+  }
+  if (data.SourceId !== undefined && data.SourceId !== null) {
+    contents.SourceId = __expectString(data.SourceId);
+  }
+  if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RevokeRevisionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeRevisionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.dataexchange#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -2885,6 +3057,9 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
     DataSetId: undefined,
     Finalized: undefined,
     Id: undefined,
+    RevocationComment: undefined,
+    Revoked: undefined,
+    RevokedAt: undefined,
     SourceId: undefined,
     UpdatedAt: undefined,
   };
@@ -2906,6 +3081,15 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
   }
   if (data.Id !== undefined && data.Id !== null) {
     contents.Id = __expectString(data.Id);
+  }
+  if (data.RevocationComment !== undefined && data.RevocationComment !== null) {
+    contents.RevocationComment = __expectString(data.RevocationComment);
+  }
+  if (data.Revoked !== undefined && data.Revoked !== null) {
+    contents.Revoked = __expectBoolean(data.Revoked);
+  }
+  if (data.RevokedAt !== undefined && data.RevokedAt !== null) {
+    contents.RevokedAt = __expectNonNull(__parseRfc3339DateTime(data.RevokedAt));
   }
   if (data.SourceId !== undefined && data.SourceId !== null) {
     contents.SourceId = __expectString(data.SourceId);
@@ -3994,6 +4178,12 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
     DataSetId: __expectString(output.DataSetId),
     Finalized: __expectBoolean(output.Finalized),
     Id: __expectString(output.Id),
+    RevocationComment: __expectString(output.RevocationComment),
+    Revoked: __expectBoolean(output.Revoked),
+    RevokedAt:
+      output.RevokedAt !== undefined && output.RevokedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.RevokedAt))
+        : undefined,
     SourceId: __expectString(output.SourceId),
     UpdatedAt:
       output.UpdatedAt !== undefined && output.UpdatedAt !== null

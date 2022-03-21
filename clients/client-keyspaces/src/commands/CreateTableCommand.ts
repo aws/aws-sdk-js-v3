@@ -23,11 +23,11 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
 
 /**
  * <p>The <code>CreateTable</code> operation adds a new table to the specified keyspace. Within a keyspace, table names
- *          must be unique. </p>
+ *          must be unique.</p>
  *          <p>
  *             <code>CreateTable</code> is an asynchronous operation. When the request is received, the status of the table is set to <code>CREATING</code>.
  *          You can monitor the creation status of the new table by using the <code>GetTable</code>
- *          operation, which returns the current <code>status</code> of the table. You can start using a table when the status is <code>ACTIVE</code>. </p>
+ *          operation, which returns the current <code>status</code> of the table. You can start using a table when the status is <code>ACTIVE</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html#tables-create">Creating tables</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
  * @example

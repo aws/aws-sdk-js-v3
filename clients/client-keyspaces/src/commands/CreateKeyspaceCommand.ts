@@ -23,10 +23,10 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
 
 /**
  * <p>The <code>CreateKeyspace</code> operation adds a new keyspace to your account. In an Amazon Web Services account, keyspace names
- *       must be unique within each Region. </p>
+ *       must be unique within each Region.</p>
  *          <p>
  *             <code>CreateKeyspace</code> is an asynchronous operation. You can monitor the creation status of the new keyspace
- *           by using the <code>GetKeyspace</code> operation. </p>
+ *           by using the <code>GetKeyspace</code> operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-keyspaces.html#keyspaces-create">Creating keyspaces</a> in the <i>Amazon Keyspaces Developer
  *              Guide</i>.</p>
  * @example

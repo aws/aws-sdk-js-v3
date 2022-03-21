@@ -9,7 +9,8 @@ AWS SDK for JavaScript RDS Client for Node.js, Browser and React Native.
 
 <fullname>Amazon Relational Database Service</fullname>
 
-<p> </p>
+<p></p>
+
 <p>Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and
 scale a relational database in the cloud. It provides cost-efficient, resizeable capacity for an industry-standard relational
 database and manages common database administration tasks, freeing up developers to focus on what makes their applications
@@ -27,11 +28,9 @@ require techniques such as polling or callback functions to determine when a com
 reference, the parameter descriptions indicate whether a command is applied immediately, on the next instance reboot,
 or during the maintenance window. The reference structure is as follows, and we list following some related topics
 from the user guide.</p>
-
 <p>
 <b>Amazon RDS API Reference</b>
 </p>
-
 <ul>
 <li>
 <p>For the alphabetical list of API actions, see
@@ -50,11 +49,9 @@ from the user guide.</p>
 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
 </li>
 </ul>
-
 <p>
 <b>Amazon RDS User Guide</b>
 </p>
-
 <ul>
 <li>
 <p>For a summary of the Amazon RDS interfaces, see

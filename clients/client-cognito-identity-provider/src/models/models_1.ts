@@ -421,14 +421,17 @@ export interface UpdateUserAttributesRequest {
 
   /**
    * <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action initiates. </p>
-   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the
-   *             function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a
-   *             JSON
-   *             payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you
-   *             assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in Lambda, you can process the <code>clientMetadata</code>
-   *             value to enhance your workflow for your specific needs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool
-   *             Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *         <p>You create custom workflows by assigning Lambda functions to user pool triggers. When
+   *             you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned
+   *             to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it
+   *             passes a JSON payload, which the function receives as input. This payload contains a
+   *                 <code>clientMetadata</code> attribute, which provides the data that you assigned to
+   *             the ClientMetadata parameter in your UpdateUserAttributes request. In your function code
+   *             in Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow
+   *             for your specific needs.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">
+   * Customizing user pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
    *
    *          <note>
    *             <p>When you use the ClientMetadata parameter, remember that Amazon Cognito won't do the following:</p>
@@ -558,12 +561,17 @@ export interface UpdateUserPoolRequest {
   DeviceConfiguration?: DeviceConfigurationType;
 
   /**
-   * <p>Email configuration.</p>
+   * <p>The email configuration of your user pool. The email configuration type sets your
+   *             preferred sending method, Amazon Web Services Region, and sender for email invitation and verification
+   *             messages from your user pool.</p>
    */
   EmailConfiguration?: EmailConfigurationType;
 
   /**
-   * <p>SMS configuration.</p>
+   * <p>The SMS configuration with the settings that your Amazon Cognito user pool must use to send an
+   *             SMS message from your Amazon Web Services account through Amazon Simple Notification Service. To send SMS messages
+   *             with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an Identity and Access Management
+   *             (IAM) role in your Amazon Web Services account.</p>
    */
   SmsConfiguration?: SmsConfigurationType;
 
@@ -772,8 +780,9 @@ export interface UpdateUserPoolClientRequest {
   /**
    * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>
    *          <note>
-   *             <p>In Amazon Web Services Regions where  isn't available,  User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available,  User Pools will support
-   *         sending events to Amazon Pinpoint projects within that same Region. </p>
+   *             <p>In Amazon Web Services Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint
+   *                 projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support
+   *                 sending events to Amazon Pinpoint projects within that same Region.</p>
    *          </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;

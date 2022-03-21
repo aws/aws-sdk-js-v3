@@ -27,46 +27,31 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
  *             Time window for PITR continuous backups</a> in the <i>Amazon Keyspaces Developer Guide</i>.
  *       </p>
- *          <p>
- *          Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.</p>
- *          <p>When you restore using point in time recovery, Amazon Keyspaces restores your source table's schema and data to the state
+ *          <p>Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.</p>
+ *          <p>When you restore using point in time recovery,
+ *          Amazon Keyspaces restores your source table's schema and data to the state
  *          based on the selected timestamp <code>(day:hour:minute:second)</code> to a new table. The Time to Live (TTL) settings
  *       are also restored to the state based on the selected timestamp.</p>
- *          <p>In addition to the table's schema, data, and TTL settings, <code>RestoreTable</code> restores the capacity mode, encryption, and
+ *          <p>In addition to the table's schema, data, and TTL settings,
+ *          <code>RestoreTable</code> restores the capacity mode, encryption, and
  *          point-in-time recovery settings from the source table.
  *          Unlike the table's schema data and TTL settings, which are restored based on the selected timestamp,
  *          these settings are always restored based on the table's settings as of the current time or when the table was deleted.</p>
- *          <p>You can also overwrite these settings during restore:</p>
- *          <ul>
- *             <li>
- *                <p>Read/write capacity mode</p>
- *             </li>
- *             <li>
- *                <p>Provisioned throughput capacity settings</p>
- *             </li>
- *             <li>
- *                <p>Point-in-time (PITR) settings</p>
- *             </li>
- *             <li>
- *                <p>Tags</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings">PITR restore settings</a> in the <i>Amazon Keyspaces Developer
+ *          <p>You can also overwrite
+ *             these settings during restore:</p>
+ *          <p>• Read/write capacity mode</p>
+ *          <p>• Provisioned throughput capacity settings</p>
+ *          <p>• Point-in-time (PITR) settings</p>
+ *          <p>• Tags</p>
+ *          <p>For more
+ *                information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings">PITR restore settings</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
- *          <p>The following settings are not restored, and you must configure them manually for the
- *          new table. </p>
- *          <ul>
- *             <li>
- *                <p>Automatic scaling policies (for tables that use provisioned capacity
+ *          <p>Note that the following settings are not restored, and you must configure them manually for
+ *          the new table:</p>
+ *          <p>• Automatic scaling policies (for tables that use provisioned capacity
  *                mode)</p>
- *             </li>
- *             <li>
- *                <p>Identity and Access Management (IAM) policies</p>
- *             </li>
- *             <li>
- *                <p>Amazon CloudWatch metrics and alarms</p>
- *             </li>
- *          </ul>
+ *          <p>• Identity and Access Management (IAM) policies</p>
+ *          <p>• Amazon CloudWatch metrics and alarms</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

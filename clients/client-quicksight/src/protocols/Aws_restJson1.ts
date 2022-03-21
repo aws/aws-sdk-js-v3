@@ -125,6 +125,10 @@ import {
 } from "../commands/DescribeFolderResolvedPermissionsCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
+  DescribeGroupMembershipCommandInput,
+  DescribeGroupMembershipCommandOutput,
+} from "../commands/DescribeGroupMembershipCommand";
+import {
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "../commands/DescribeIAMPolicyAssignmentCommand";
@@ -211,6 +215,7 @@ import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../co
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "../commands/SearchDashboardsCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
+import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "../commands/SearchGroupsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -426,6 +431,7 @@ import {
   DomainNotWhitelistedException,
   FolderSearchFilter,
   FolderSummary,
+  GroupSearchFilter,
   IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
   MemberIdArnPair,
@@ -2683,6 +2689,63 @@ export const serializeAws_restJson1DescribeGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeGroupMembershipCommand = async (
+  input: DescribeGroupMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
+  if (input.MemberName !== undefined) {
+    const labelValue: string = input.MemberName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberName.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberName.");
+  }
+  if (input.GroupName !== undefined) {
+    const labelValue: string = input.GroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupName.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeIAMPolicyAssignmentCommand = async (
   input: DescribeIAMPolicyAssignmentCommandInput,
   context: __SerdeContext
@@ -4457,6 +4520,56 @@ export const serializeAws_restJson1SearchFoldersCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchGroupsCommand = async (
+  input: SearchGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups-search";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1GroupSearchFilterList(input.Filters, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -9275,6 +9388,76 @@ const deserializeAws_restJson1DescribeGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DescribeGroupMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGroupMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeGroupMembershipCommandError(output, context);
+  }
+  const contents: DescribeGroupMembershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    GroupMember: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.GroupMember !== undefined && data.GroupMember !== null) {
+    contents.GroupMember = deserializeAws_restJson1GroupMember(data.GroupMember, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeGroupMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGroupMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DescribeIAMPolicyAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12310,6 +12493,83 @@ const deserializeAws_restJson1SearchFoldersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SearchGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchGroupsCommandError(output, context);
+  }
+  const contents: SearchGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    GroupList: undefined,
+    NextToken: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.GroupList !== undefined && data.GroupList !== null) {
+    contents.GroupList = deserializeAws_restJson1GroupList(data.GroupList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -15168,6 +15428,25 @@ const serializeAws_restJson1GeoSpatialColumnGroup = (input: GeoSpatialColumnGrou
     ...(input.CountryCode !== undefined && input.CountryCode !== null && { CountryCode: input.CountryCode }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
+};
+
+const serializeAws_restJson1GroupSearchFilter = (input: GroupSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1GroupSearchFilterList = (input: GroupSearchFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1GroupSearchFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1GutterStyle = (input: GutterStyle, context: __SerdeContext): any => {

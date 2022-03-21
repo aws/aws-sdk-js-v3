@@ -23,17 +23,15 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
 
 /**
  * <p>Creates a new DB parameter group.</p>
- *          <p>
- *             A DB parameter group is initially created with the default parameters for the
+ *         <p>A DB parameter group is initially created with the default parameters for the
  *             database engine used by the DB instance. To provide custom values for any of the
  *             parameters, you must modify the group after creating it using
  *             <code>ModifyDBParameterGroup</code>. Once you've created a DB parameter group, you need to
  *             associate it with your DB instance using <code>ModifyDBInstance</code>. When you associate
  *             a new DB parameter group with a running DB instance, you need to reboot the DB
- *             instance without failover for the new DB parameter group and associated settings to take effect.
- *       </p>
- *          <p>This command doesn't apply to RDS Custom.</p>
- *          <important>
+ *             instance without failover for the new DB parameter group and associated settings to take effect.</p>
+ *         <p>This command doesn't apply to RDS Custom.</p>
+ *         <important>
  *             <p>After you create a DB parameter group, you should wait at least 5 minutes
  *                 before creating your first DB instance that uses that DB parameter group as the default parameter
  *                 group. This allows Amazon RDS to fully complete the create action before the parameter
@@ -43,7 +41,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
  *                 <i>DescribeDBParameters</i> command to verify
  *                 that your DB parameter group has been created or modified.</p>
- *          </important>
+ *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,7 +24,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
 /**
  * <p>Creates an Amazon QuickSight group.</p>
  * 		       <p>The permissions resource is
- * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
+ * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
  *             </code>.</p>
  * 		       <p>The response is a group object.</p>
  * @example

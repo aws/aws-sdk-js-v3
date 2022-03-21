@@ -23,9 +23,8 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
 
 /**
  * <p>Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is specified, the list will contain only the descriptions of the specified DBSubnetGroup.</p>
- *          <p>For an overview of CIDR ranges, go to the
- *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.
- *         </p>
+ *         <p>For an overview of CIDR ranges, go to the
+ *             <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,12 +24,10 @@ export interface ModifyDBClusterParameterGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *             Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
+ * <p>Modifies the parameters of a DB cluster parameter group. To modify more than one parameter,
  *             submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>,
  *             and <code>ApplyMethod</code>. A maximum of 20
- *             parameters can be modified in a single request.
- *         </p>
+ *             parameters can be modified in a single request.</p>
  *         <important>
  *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
  *                 before creating your first DB cluster that uses that DB cluster parameter group as the default parameter
@@ -40,16 +38,15 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
  *                 <code>DescribeDBClusterParameters</code> action to verify
  *                 that your DB cluster parameter group has been created or modified.</p>
- *             <p>If the modified DB cluster parameter group is used by an Aurora Serverless cluster, Aurora
+ *             <p>If the modified DB cluster parameter group is used by an Aurora Serverless v1 cluster, Aurora
  *                applies the update immediately. The cluster restart might interrupt your workload. In that case,
  *                your application must reopen any connections and retry any transactions that were active
  *                when the parameter changes took effect.</p>
  *         </important>
- *          <p>For more information on Amazon Aurora DB clusters, see
+ *         <p>For more information on Amazon Aurora DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
- *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
- *          </p>
- *          <p>For more information on Multi-AZ DB clusters, see
+ *               What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ *         <p>For more information on Multi-AZ DB clusters, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
  *               Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>

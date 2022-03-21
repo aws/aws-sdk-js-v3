@@ -8830,7 +8830,7 @@ export interface ReleaseIpamPoolAllocationRequest {
   /**
    * <p>The ID of the allocation.</p>
    */
-  IpamPoolAllocationId?: string;
+  IpamPoolAllocationId: string | undefined;
 }
 
 export namespace ReleaseIpamPoolAllocationRequest {

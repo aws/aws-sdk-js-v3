@@ -23,7 +23,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds metadata tags to an Amazon RDS resource. These tags can also be used with cost allocation reporting to track cost associated with Amazon RDS resources, or used in a Condition statement in an IAM policy for Amazon RDS.</p>
- *          <p>For an overview on tagging Amazon RDS resources,
+ *         <p>For an overview on tagging Amazon RDS resources,
  *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
