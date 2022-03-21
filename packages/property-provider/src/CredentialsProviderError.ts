@@ -11,4 +11,9 @@ import { ProviderError } from "./ProviderError";
  */
 export class CredentialsProviderError extends ProviderError {
   name = "CredentialsProviderError";
+  constructor(message: string, public readonly tryNextLink: boolean = true) {
+    super(message, tryNextLink);
+    // Remove once we stop targetting ES5.
+    Object.setPrototypeOf(this, CredentialsProviderError.prototype);
+  }
 }
