@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["es5", "es2015.promise", "es2015.collection"],
+    "outDir": "dist-es",
+    "rootDir": "src"
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
+}
