@@ -1,1 +1,1 @@
-export * from "./normalizeProvider";
+export * from "./normalizeBoolean";
