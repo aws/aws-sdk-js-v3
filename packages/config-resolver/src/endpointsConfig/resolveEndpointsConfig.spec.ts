@@ -4,9 +4,9 @@ import { resolveEndpointsConfig } from "./resolveEndpointsConfig";
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
 import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
+jest.mock("@aws-sdk/util-middleware");
 jest.mock("./utils/getEndpointFromRegion");
 jest.mock("./utils/normalizeEndpoint");
-jest.mock("@aws-sdk/util-middleware");
 
 describe(resolveEndpointsConfig.name, () => {
   const mockEndpoint = {
