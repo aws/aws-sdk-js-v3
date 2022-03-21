@@ -70,20 +70,13 @@ export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInput
       if (input.retryStrategy) {
         return input.retryStrategy;
       }
-      const retryMode = await getRetryMode(input.retryMode);
+      const retryMode = await normalizeProvider(input.retryMode)();
       if (retryMode === RETRY_MODES.ADAPTIVE) {
         return new AdaptiveRetryStrategy(maxAttempts);
       }
       return new StandardRetryStrategy(maxAttempts);
     },
   };
-};
-
-const getRetryMode = async (retryMode: string | Provider<string>): Promise<string> => {
-  if (typeof retryMode === "string") {
-    return retryMode;
-  }
-  return await retryMode();
 };
 
 export const ENV_RETRY_MODE = "AWS_RETRY_MODE";

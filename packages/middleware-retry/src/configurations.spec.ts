@@ -18,7 +18,9 @@ describe(resolveRetryConfig.name, () => {
   const retryMode = jest.fn() as any;
 
   beforeEach(() => {
-    (normalizeProvider as jest.Mock).mockImplementation((value) => () => Promise.resolve(value));
+    (normalizeProvider as jest.Mock).mockImplementation((input) =>
+      typeof input === "function" ? input : () => Promise.resolve(input)
+    );
   });
 
   afterEach(() => {
