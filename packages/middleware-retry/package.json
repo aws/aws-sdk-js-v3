@@ -21,6 +21,7 @@
   "dependencies": {
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/service-error-classification": "*",
+    "@aws-sdk/util-middleware": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.3.1",
     "uuid": "^8.3.2"

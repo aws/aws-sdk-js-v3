@@ -1,5 +1,6 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
 import { Provider, RetryStrategy } from "@aws-sdk/types";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE, RETRY_MODES } from "./config";
@@ -61,7 +62,7 @@ export interface RetryResolvedConfig {
 }
 
 export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInputConfig): T & RetryResolvedConfig => {
-  const maxAttempts = normalizeMaxAttempts(input.maxAttempts);
+  const maxAttempts = normalizeProvider(input.maxAttempts ?? DEFAULT_MAX_ATTEMPTS);
   return {
     ...input,
     maxAttempts,
@@ -69,28 +70,13 @@ export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInput
       if (input.retryStrategy) {
         return input.retryStrategy;
       }
-      const retryMode = await getRetryMode(input.retryMode);
+      const retryMode = await normalizeProvider(input.retryMode)();
       if (retryMode === RETRY_MODES.ADAPTIVE) {
         return new AdaptiveRetryStrategy(maxAttempts);
       }
       return new StandardRetryStrategy(maxAttempts);
     },
   };
-};
-
-const getRetryMode = async (retryMode: string | Provider<string>): Promise<string> => {
-  if (typeof retryMode === "string") {
-    return retryMode;
-  }
-  return await retryMode();
-};
-
-const normalizeMaxAttempts = (maxAttempts: number | Provider<number> = DEFAULT_MAX_ATTEMPTS): Provider<number> => {
-  if (typeof maxAttempts === "number") {
-    const promisified = Promise.resolve(maxAttempts);
-    return () => promisified;
-  }
-  return maxAttempts;
 };
 
 export const ENV_RETRY_MODE = "AWS_RETRY_MODE";

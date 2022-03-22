@@ -1,3 +1,5 @@
+import { normalizeProvider } from "@aws-sdk/util-middleware";
+
 import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
 import { DEFAULT_MAX_ATTEMPTS } from "./config";
 import {
@@ -10,19 +12,30 @@ import { StandardRetryStrategy } from "./StandardRetryStrategy";
 
 jest.mock("./AdaptiveRetryStrategy");
 jest.mock("./StandardRetryStrategy");
+jest.mock("@aws-sdk/util-middleware");
 
 describe(resolveRetryConfig.name, () => {
   const retryMode = jest.fn() as any;
+
+  beforeEach(() => {
+    (normalizeProvider as jest.Mock).mockImplementation((input) =>
+      typeof input === "function" ? input : () => Promise.resolve(input)
+    );
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   describe("maxAttempts", () => {
-    it("assigns maxAttempts value if present", async () => {
-      for (const maxAttempts of [1, 2, 3]) {
-        const output = await resolveRetryConfig({ maxAttempts, retryMode }).maxAttempts();
-        expect(output).toStrictEqual(maxAttempts);
-      }
+    it.each([1, 2, 3])("assigns provided value %s", async (maxAttempts) => {
+      const output = await resolveRetryConfig({ maxAttempts, retryMode }).maxAttempts();
+      expect(output).toStrictEqual(maxAttempts);
+    });
+
+    it(`assigns default ${DEFAULT_MAX_ATTEMPTS} is value not provided`, async () => {
+      const output = await resolveRetryConfig({ retryMode }).maxAttempts();
+      expect(output).toStrictEqual(DEFAULT_MAX_ATTEMPTS);
     });
   });
 
