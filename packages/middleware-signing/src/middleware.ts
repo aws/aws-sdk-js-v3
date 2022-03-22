@@ -5,7 +5,6 @@ import {
   FinalizeHandlerOutput,
   FinalizeRequestMiddleware,
   HandlerExecutionContext,
-  Pluggable,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
 
@@ -54,11 +53,3 @@ export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
   toMiddleware: "retryMiddleware",
   override: true,
 };
-
-export const getAwsAuthPlugin = (options: AwsAuthResolvedConfig): Pluggable<any, any> => ({
-  applyToStack: (clientStack) => {
-    clientStack.addRelativeTo(awsAuthMiddleware(options), awsAuthMiddlewareOptions);
-  },
-});
-
-export const getSigV4AuthPlugin = getAwsAuthPlugin;
