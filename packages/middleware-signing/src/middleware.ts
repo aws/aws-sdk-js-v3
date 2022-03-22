@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -9,8 +9,17 @@ import {
 } from "@aws-sdk/types";
 
 import { AwsAuthResolvedConfig } from "./configurations";
+import { getDateHeader } from "./utils/getDateHeader";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
+
+export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "awsAuthMiddleware",
+  tags: ["SIGNATURE", "AWSAUTH"],
+  relation: "after",
+  toMiddleware: "retryMiddleware",
+  override: true,
+};
 
 export const awsAuthMiddleware =
   <Input extends object, Output extends object>(
@@ -42,14 +51,3 @@ export const awsAuthMiddleware =
 
       return output;
     };
-
-const getDateHeader = (response: unknown): string | undefined =>
-  HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
-
-export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
-  name: "awsAuthMiddleware",
-  tags: ["SIGNATURE", "AWSAUTH"],
-  relation: "after",
-  toMiddleware: "retryMiddleware",
-  override: true,
-};
