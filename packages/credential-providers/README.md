@@ -115,7 +115,7 @@ import { fromTemporaryCredentials } from "@aws-sdk/credential-providers"; // ES6
 
 const client = new FooClient({
   region,
-  credentials: fromTemporaryCredentials(
+  credentials: fromTemporaryCredentials({
     // Optional. The master credentials used to get and refresh temporary credentials from AWS STS.
     // If skipped, it uses the default credential resolved by internal STS client.
     masterCredentials: fromTemporaryCredentials({
@@ -139,7 +139,7 @@ const client = new FooClient({
     mfaCodeProvider: async mfaSerial => {
       return "token"
     }
-  ),
+  }),
 });
 ```
 
