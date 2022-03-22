@@ -19,8 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/url-parser": "3.4.1",
-    "tslib": "^1.8.0"
+    "@aws-sdk/url-parser": "3.4.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
