@@ -1,9 +1,10 @@
+import { normalizeProvider } from "@aws-sdk/util-middleware";
+
 import { resolveEndpointsConfig } from "./resolveEndpointsConfig";
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
-import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
+jest.mock("@aws-sdk/util-middleware");
 jest.mock("./utils/getEndpointFromRegion");
-jest.mock("./utils/normalizeEndpoint");
 
 describe(resolveEndpointsConfig.name, () => {
   const mockEndpoint = {
@@ -12,14 +13,22 @@ describe(resolveEndpointsConfig.name, () => {
     path: "/",
   };
 
-  const mockInput = { endpoint: mockEndpoint } as any;
+  const mockInput = {
+    endpoint: mockEndpoint,
+    urlParser: jest.fn(() => mockEndpoint),
+    useDualstackEndpoint: () => Promise.resolve(false),
+    useFipsEndpoint: () => Promise.resolve(false),
+  } as any;
 
   beforeEach(() => {
     (getEndpointFromRegion as jest.Mock).mockResolvedValueOnce(mockEndpoint);
-    (normalizeEndpoint as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
+    (normalizeProvider as jest.Mock).mockImplementation((input) =>
+      typeof input === "function" ? input : () => Promise.resolve(input)
+    );
   });
 
   afterEach(() => {
+    expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.useDualstackEndpoint);
     jest.clearAllMocks();
   });
 
@@ -39,25 +48,40 @@ describe(resolveEndpointsConfig.name, () => {
     });
 
     it("returns false when endpoint is not defined", () => {
-      expect(resolveEndpointsConfig({} as any).isCustomEndpoint).toStrictEqual(false);
+      const { endpoint, ...mockInputWithoutEndpoint } = mockInput;
+      expect(resolveEndpointsConfig(mockInputWithoutEndpoint).isCustomEndpoint).toStrictEqual(false);
     });
   });
 
   describe("endpoint", () => {
-    it("returns from normalizeEndpoint when endpoint is defined", async () => {
-      const endpoint = await resolveEndpointsConfig(mockInput).endpoint();
-      expect(endpoint).toStrictEqual(mockEndpoint);
-      expect(normalizeEndpoint).toHaveBeenCalledTimes(1);
-      expect(normalizeEndpoint).toHaveBeenCalledWith(mockInput);
-      expect(getEndpointFromRegion).not.toHaveBeenCalled();
+    describe("returns from normalizeProvider when endpoint is defined", () => {
+      afterEach(() => {
+        expect(normalizeProvider).toHaveBeenCalledTimes(2);
+        expect(normalizeProvider).toHaveBeenNthCalledWith(2, mockInput.endpoint);
+        expect(getEndpointFromRegion).not.toHaveBeenCalled();
+      });
+
+      it("calls urlParser endpoint is of type string", async () => {
+        const mockEndpointString = "http://localhost/";
+        const endpoint = await resolveEndpointsConfig({ ...mockInput, endpoint: mockEndpointString }).endpoint();
+        expect(endpoint).toStrictEqual(mockEndpoint);
+        expect(mockInput.urlParser).toHaveBeenCalledWith(mockEndpointString);
+      });
+
+      it("passes endpoint to normalize if not string", async () => {
+        const endpoint = await resolveEndpointsConfig(mockInput).endpoint();
+        expect(endpoint).toStrictEqual(mockEndpoint);
+        expect(mockInput.urlParser).not.toHaveBeenCalled();
+      });
     });
 
     it("returns from getEndpointFromRegion when endpoint is not defined", async () => {
-      const endpoint = await resolveEndpointsConfig({} as any).endpoint();
-      expect(endpoint).toStrictEqual(mockEndpoint);
-      expect(normalizeEndpoint).not.toHaveBeenCalled();
+      const { endpoint, ...mockInputWithoutEndpoint } = mockInput;
+      const returnedEndpoint = await resolveEndpointsConfig(mockInputWithoutEndpoint).endpoint();
+      expect(returnedEndpoint).toStrictEqual(mockEndpoint);
+      expect(normalizeProvider).toHaveBeenCalledTimes(1);
       expect(getEndpointFromRegion).toHaveBeenCalledTimes(1);
-      expect(getEndpointFromRegion).toHaveBeenCalledWith({});
+      expect(getEndpointFromRegion).toHaveBeenCalledWith(mockInputWithoutEndpoint);
     });
   });
 });

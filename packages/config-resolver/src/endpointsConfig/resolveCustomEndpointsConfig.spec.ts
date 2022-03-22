@@ -1,7 +1,8 @@
-import { resolveCustomEndpointsConfig } from "./resolveCustomEndpointsConfig";
-import { normalizeEndpoint } from "./utils/normalizeEndpoint";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 
-jest.mock("./utils/normalizeEndpoint");
+import { resolveCustomEndpointsConfig } from "./resolveCustomEndpointsConfig";
+
+jest.mock("@aws-sdk/util-middleware");
 
 describe(resolveCustomEndpointsConfig.name, () => {
   const mockEndpoint = {
@@ -10,18 +11,26 @@ describe(resolveCustomEndpointsConfig.name, () => {
     path: "/",
   };
 
-  const mockInput = { endpoint: mockEndpoint } as any;
+  const mockInput = {
+    endpoint: mockEndpoint,
+    urlParser: jest.fn(() => mockEndpoint),
+    useDualstackEndpoint: () => Promise.resolve(false),
+  } as any;
 
   beforeEach(() => {
-    (normalizeEndpoint as jest.Mock).mockReturnValueOnce(() => Promise.resolve(mockEndpoint));
+    (normalizeProvider as jest.Mock).mockImplementation((input) =>
+      typeof input === "function" ? input : () => Promise.resolve(input)
+    );
   });
 
   afterEach(() => {
+    expect(normalizeProvider).toHaveBeenCalledTimes(2);
+    expect(normalizeProvider).toHaveBeenNthCalledWith(2, mockInput.useDualstackEndpoint);
     jest.clearAllMocks();
   });
 
   describe("tls", () => {
-    it.each([true, false])("returns %s when it's %s", (tls) => {
+    it.each([true, false])("returns %s when the value is passed", (tls) => {
       expect(resolveCustomEndpointsConfig({ ...mockInput, tls }).tls).toStrictEqual(tls);
     });
 
@@ -34,10 +43,22 @@ describe(resolveCustomEndpointsConfig.name, () => {
     expect(resolveCustomEndpointsConfig(mockInput).isCustomEndpoint).toStrictEqual(true);
   });
 
-  it("returns normalized endpoint", async () => {
-    const endpoint = await resolveCustomEndpointsConfig(mockInput).endpoint();
-    expect(endpoint).toStrictEqual(mockEndpoint);
-    expect(normalizeEndpoint).toHaveBeenCalledTimes(1);
-    expect(normalizeEndpoint).toHaveBeenCalledWith(mockInput);
+  describe("returns normalized endpoint", () => {
+    afterEach(() => {
+      expect(normalizeProvider).toHaveBeenNthCalledWith(1, mockInput.endpoint);
+    });
+
+    it("calls urlParser endpoint is of type string", async () => {
+      const mockEndpointString = "http://localhost/";
+      const endpoint = await resolveCustomEndpointsConfig({ ...mockInput, endpoint: mockEndpointString }).endpoint();
+      expect(endpoint).toStrictEqual(mockEndpoint);
+      expect(mockInput.urlParser).toHaveBeenCalledWith(mockEndpointString);
+    });
+
+    it("passes endpoint to normalize if not string", async () => {
+      const endpoint = await resolveCustomEndpointsConfig(mockInput).endpoint();
+      expect(endpoint).toStrictEqual(mockEndpoint);
+      expect(mockInput.urlParser).not.toHaveBeenCalled();
+    });
   });
 });
