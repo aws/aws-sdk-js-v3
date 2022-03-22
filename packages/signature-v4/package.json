@@ -23,6 +23,7 @@
     "@aws-sdk/is-array-buffer": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-hex-encoding": "*",
+    "@aws-sdk/util-middleware": "*",
     "@aws-sdk/util-uri-escape": "*",
     "tslib": "^2.3.1"
   },

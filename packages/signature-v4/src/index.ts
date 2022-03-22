@@ -4,5 +4,4 @@ export { getCanonicalQuery } from "./getCanonicalQuery";
 export { getPayloadHash } from "./getPayloadHash";
 export { moveHeadersToQuery } from "./moveHeadersToQuery";
 export { prepareRequest } from "./prepareRequest";
-export { normalizeCredentialsProvider, normalizeRegionProvider } from "./normalizeProvider";
 export * from "./credentialDerivation";

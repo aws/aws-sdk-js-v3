@@ -3,8 +3,6 @@ import {
   getCanonicalQuery,
   getPayloadHash,
   moveHeadersToQuery,
-  normalizeCredentialsProvider,
-  normalizeRegionProvider,
   prepareRequest,
   SignatureV4CryptoInit,
   SignatureV4Init,
@@ -19,6 +17,7 @@ import {
   RequestSigner,
   RequestSigningArguments,
 } from "@aws-sdk/types";
+import { normalizeProvider } from "@aws-sdk/util-middleware";
 import { auth as crtAuth, http as crtHttp, io as crtIO } from "aws-crt";
 
 import { MAX_PRESIGNED_TTL, SHA256_HEADER } from "./constants";
@@ -82,8 +81,8 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
     this.uriEscapePath = uriEscapePath;
     this.signingAlgorithm = signingAlgorithm;
     this.applyChecksum = applyChecksum;
-    this.regionProvider = normalizeRegionProvider(region);
-    this.credentialProvider = normalizeCredentialsProvider(credentials);
+    this.regionProvider = normalizeProvider(region);
+    this.credentialProvider = normalizeProvider(credentials);
     crtIO.enable_logging(crtIO.LogLevel.ERROR);
   }
 
