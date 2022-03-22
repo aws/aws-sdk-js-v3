@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "declarationDir": "./types",
     "rootDir": "./src",
-    "outDir": "./dist/cjs",
+    "outDir": "./dist-cjs",
     "baseUrl": "."
   },
   "extends": "../../tsconfig.cjs.json",
