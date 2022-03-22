@@ -9,11 +9,7 @@ import {
   RequestSigner,
 } from "@aws-sdk/types";
 
-// AwsAuth v/s SigV4Auth
-// AwsAuth: specific to SigV4 auth for AWS services
-// SigV4Auth: SigV4 auth for non-AWS services
-
-export interface AwsAuthInputConfig {
+interface AuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
@@ -33,7 +29,10 @@ export interface AwsAuthInputConfig {
    * An offset value in milliseconds to apply to all signing times.
    */
   systemClockOffset?: number;
+}
 
+// AwsAuth: specific to SigV4 auth for AWS services
+export interface AwsAuthInputConfig extends AuthInputConfig {
   /**
    * The region where you want to sign your request against. This
    * can be different to the region in the endpoint.
@@ -48,48 +47,29 @@ export interface AwsAuthInputConfig {
   signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
-export interface SigV4AuthInputConfig {
-  /**
-   * The credentials used to sign requests.
-   */
-  credentials?: Credentials | Provider<Credentials>;
+// SigV4Auth: SigV4 auth for non-AWS services
+export interface SigV4AuthInputConfig extends AuthInputConfig {}
 
-  /**
-   * The signer to use when signing requests.
-   */
-  signer?: RequestSigner | Provider<RequestSigner>;
-
-  /**
-   * Whether to escape request path when signing the request.
-   */
-  signingEscapePath?: boolean;
-
-  /**
-   * An offset value in milliseconds to apply to all signing times.
-   */
-  systemClockOffset?: number;
-}
-
-export interface AwsAuthPreviouslyResolved {
+interface AuthPreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
   region: string | Provider<string>;
+  sha256: HashConstructor;
+}
+
+export interface AwsAuthPreviouslyResolved extends AuthPreviouslyResolved {
   regionInfoProvider: RegionInfoProvider;
   signingName?: string;
   serviceId: string;
-  sha256: HashConstructor;
   useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
 
-export interface SigV4AuthPreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
-  region: string | Provider<string>;
+export interface SigV4AuthPreviouslyResolved extends AuthPreviouslyResolved {
   signingName: string;
-  sha256: HashConstructor;
   logger?: Logger;
 }
 
-export interface AwsAuthResolvedConfig {
+interface AuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
@@ -110,4 +90,6 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 
-export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
+export interface AwsAuthResolvedConfig extends AuthResolvedConfig {}
+
+export interface SigV4AuthResolvedConfig extends AuthResolvedConfig {}
