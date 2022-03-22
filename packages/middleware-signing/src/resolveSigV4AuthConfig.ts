@@ -1,8 +1,7 @@
-import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { Provider, RequestSigner } from "@aws-sdk/types";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
 
 import { SigV4AuthInputConfig, SigV4AuthPreviouslyResolved, SigV4AuthResolvedConfig } from "./configurations";
+import { getSigV4Signer } from "./utils/getSigV4Signer";
 import { normalizeCredentialProvider } from "./utils/normalizeCredentialProvider";
 
 // TODO: reduce code duplication
@@ -12,28 +11,21 @@ export const resolveSigV4AuthConfig = <T>(
   const normalizedCreds = input.credentials
     ? normalizeCredentialProvider(input.credentials)
     : input.credentialDefaultProvider(input as any);
-  const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
-  let signer: Provider<RequestSigner>;
-  if (input.signer) {
-    //if signer is supplied by user, normalize it to a function returning a promise for signer.
-    signer = normalizeProvider(input.signer);
-  } else {
-    signer = normalizeProvider(
-      new SignatureV4({
-        credentials: normalizedCreds,
-        region: input.region,
-        service: input.signingName,
-        sha256,
-        uriEscapePath: signingEscapePath,
-      })
-    );
-  }
+  const { signingEscapePath = true, systemClockOffset = 0 } = input;
 
   return {
     ...input,
     systemClockOffset,
     signingEscapePath,
     credentials: normalizedCreds,
-    signer,
+    signer: input.signer
+      ? // if signer is supplied by user, normalize it to a function returning a promise for signer.
+        normalizeProvider(input.signer)
+      : getSigV4Signer(normalizedCreds, {
+          region: input.region,
+          service: input.signingName,
+          sha256: input.sha256,
+          uriEscapePath: signingEscapePath,
+        }),
   };
 };
