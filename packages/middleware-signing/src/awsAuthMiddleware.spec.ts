@@ -1,7 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { RequestSigner } from "@aws-sdk/types";
 
-import { awsAuthMiddleware } from "./middleware";
+import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
