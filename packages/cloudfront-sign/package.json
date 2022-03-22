@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/cloudfront-request-presigner",
+  "name": "@aws-sdk/cloudfront-sign",
   "version": "0.0.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
@@ -38,10 +38,10 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/cloudfront-request-presigner",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/cloudfront-sign",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/cloudfront-request-presigner"
+    "directory": "packages/cloudfront-sign"
   }
 }

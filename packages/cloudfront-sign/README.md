@@ -1,6 +1,6 @@
-# @aws-sdk/cloudfront-request-presigner
+# @aws-sdk/cloudfront-sign
 
-This package provides a presigner based on a CloudFront trusted key group key pair to generate signed urls and cookies for accessing private content on CloudFront.
+This package provides functions to generate signed urls and cookies for accessing private content on CloudFront based on a CloudFront trusted key group key pair.
 
 > Please note the process for creating a pre-signed URL with Cloudfront is very different than the process for S3. For more information, please visit the documentation for [restricting CloudFront content with signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
 
@@ -9,7 +9,7 @@ This package provides a presigner based on a CloudFront trusted key group key pa
 JavaScript Example:
 
 ```javascript
-const { signUrl } = require("@aws-sdk/cloudfront-request-presigner");
+const { signUrl } = require("@aws-sdk/cloudfront-sign");
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
@@ -27,7 +27,7 @@ const signedUrl = signUrl({
 ES6 Example
 
 ```javascript
-import { signUrl } from "@aws-sdk/cloudfront-request-presigner";
+import { signUrl } from "@aws-sdk/cloudfront-sign";
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
