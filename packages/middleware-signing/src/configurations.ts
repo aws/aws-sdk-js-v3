@@ -9,7 +9,7 @@ import {
   RequestSigner,
 } from "@aws-sdk/types";
 
-interface AuthInputConfig {
+export interface AuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
@@ -50,7 +50,7 @@ export interface AwsAuthInputConfig extends AuthInputConfig {
 // SigV4Auth: SigV4 auth for non-AWS services
 export interface SigV4AuthInputConfig extends AuthInputConfig {}
 
-interface AuthPreviouslyResolved {
+export interface AuthPreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
   region: string | Provider<string>;
   sha256: HashConstructor;
@@ -69,21 +69,24 @@ export interface SigV4AuthPreviouslyResolved extends AuthPreviouslyResolved {
   logger?: Logger;
 }
 
-interface AuthResolvedConfig {
+export interface AuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
    * This provider MAY memoize the loaded credentials for certain period.
    * See {@link MemoizedProvider} for more information.
    */
   credentials: MemoizedProvider<Credentials>;
+
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
   signer: Provider<RequestSigner>;
+
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signingEscapePath}
    */
   signingEscapePath: boolean;
+
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.systemClockOffset}
    */
