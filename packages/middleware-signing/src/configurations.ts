@@ -119,7 +119,7 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 
-export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
+export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig { }
 
 export const resolveAwsAuthConfig = <T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
