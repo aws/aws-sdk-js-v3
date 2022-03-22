@@ -58,7 +58,8 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
       } catch (e) {
         e.message =
           `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. \n` +
-          "For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues";
+          "For more information please go to " +
+          "https://github.com/aws/aws-sdk-js-v3##functionality-requiring-aws-common-runtime-crt";
         throw e;
       }
       this.sigv4aSigner = new CrtSignerV4({

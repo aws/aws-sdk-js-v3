@@ -43,6 +43,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Known Issues](#known-issues)
+   1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
 
 ## Getting Started
 
@@ -467,5 +468,42 @@ client.middlewareStack.add(middleware, {
 For a full middleware stack deep dive please check out our [blog post](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
 ## Known Issues
+
+### Functionality requiring AWS Common Runtime (CRT)
+
+This SDK has optional functionality that requires the [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html)
+bindings to be included as a dependency with your application. This functionality includes:
+
+- [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
+- [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
+
+If the required AWS Common Runtime components are not installed you will receive an error like:
+
+```console
+Cannot find module '@aws-sdk/signature-v4-crt'
+...
+Please check if you have installed "@aws-sdk/signature-v4-crt" package explicitly.
+For more information please go to https://github.com/aws/aws-sdk-js-v3#known-issues
+```
+
+indicating that the required dependency is missing to use the associated functionality. To install this dependency follow
+the provided [instructions](#installing-the-aws-common-runtime-crt-dependency).
+
+#### Installing the AWS Common Runtime (CRT) Dependency
+
+You can install the CRT dependency with different commands depending on the package management tool you are using.
+If you are using NPM:
+
+```console
+npm install @aws-sdk/signature-v4-crt
+```
+
+If you are using Yarn:
+
+```console
+yarn add @aws-sdk/signature-v4-crt
+```
+
+#### Related issues
 
 1. [S3 Multi-Region Access Point(MRAP) is not available unless with additional dependency](https://github.com/aws/aws-sdk-js-v3/issues/2822)
