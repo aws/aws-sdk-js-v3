@@ -64,10 +64,10 @@
   "files": [
     "dist-*"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-ini",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-providers",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-provider-ini"
+    "directory": "packages/credential-providers"
   }
 }
