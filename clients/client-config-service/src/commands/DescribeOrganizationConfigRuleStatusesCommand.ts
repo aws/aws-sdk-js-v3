@@ -28,14 +28,14 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides organization config rule deployment status for an organization.</p>
+ * <p>Provides organization Config rule deployment status for an organization.</p>
  *
  * 		       <note>
- *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member
+ *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
  * 			accounts with an exception of excluded accounts.</p>
  * 			         <p>When you specify the limit and the next token, you receive a paginated response.
- * 			Limit and next token are not applicable if you specify organization config rule names.
- * 			It is only applicable, when you request all the organization config rules.</p>
+ * 			Limit and next token are not applicable if you specify organization Config rule names.
+ * 			It is only applicable, when you request all the organization Config rules.</p>
  * 			      </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

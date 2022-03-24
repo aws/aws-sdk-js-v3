@@ -227,6 +227,10 @@ import {
   GetConformancePackComplianceSummaryCommandOutput,
 } from "../commands/GetConformancePackComplianceSummaryCommand";
 import {
+  GetCustomRulePolicyCommandInput,
+  GetCustomRulePolicyCommandOutput,
+} from "../commands/GetCustomRulePolicyCommand";
+import {
   GetDiscoveredResourceCountsCommandInput,
   GetDiscoveredResourceCountsCommandOutput,
 } from "../commands/GetDiscoveredResourceCountsCommand";
@@ -238,6 +242,10 @@ import {
   GetOrganizationConformancePackDetailedStatusCommandInput,
   GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "../commands/GetOrganizationConformancePackDetailedStatusCommand";
+import {
+  GetOrganizationCustomRulePolicyCommandInput,
+  GetOrganizationCustomRulePolicyCommandOutput,
+} from "../commands/GetOrganizationCustomRulePolicyCommand";
 import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
@@ -372,6 +380,7 @@ import {
   ConformancePackRuleCompliance,
   ConformancePackStatusDetail,
   ConformancePackTemplateValidationException,
+  CustomPolicyDetails,
   DeleteAggregationAuthorizationRequest,
   DeleteConfigRuleRequest,
   DeleteConfigurationAggregatorRequest,
@@ -476,12 +485,16 @@ import {
   GetConformancePackComplianceDetailsResponse,
   GetConformancePackComplianceSummaryRequest,
   GetConformancePackComplianceSummaryResponse,
+  GetCustomRulePolicyRequest,
+  GetCustomRulePolicyResponse,
   GetDiscoveredResourceCountsRequest,
   GetDiscoveredResourceCountsResponse,
   GetOrganizationConfigRuleDetailedStatusRequest,
   GetOrganizationConfigRuleDetailedStatusResponse,
   GetOrganizationConformancePackDetailedStatusRequest,
   GetOrganizationConformancePackDetailedStatusResponse,
+  GetOrganizationCustomRulePolicyRequest,
+  GetOrganizationCustomRulePolicyResponse,
   GetResourceConfigHistoryRequest,
   GetResourceConfigHistoryResponse,
   GetStoredQueryRequest,
@@ -543,10 +556,13 @@ import {
   OrganizationConfigRule,
   OrganizationConfigRuleStatus,
   OrganizationConfigRuleTriggerType,
+  OrganizationConfigRuleTriggerTypeNoSN,
   OrganizationConformancePack,
   OrganizationConformancePackDetailedStatus,
   OrganizationConformancePackStatus,
   OrganizationConformancePackTemplateValidationException,
+  OrganizationCustomPolicyRuleMetadata,
+  OrganizationCustomPolicyRuleMetadataNoPolicy,
   OrganizationCustomRuleMetadata,
   OrganizationManagedRuleMetadata,
   OrganizationResourceDetailedStatusFilters,
@@ -565,14 +581,6 @@ import {
   PutEvaluationsResponse,
   PutExternalEvaluationRequest,
   PutExternalEvaluationResponse,
-  PutOrganizationConfigRuleRequest,
-  PutOrganizationConfigRuleResponse,
-  PutOrganizationConformancePackRequest,
-  PutOrganizationConformancePackResponse,
-  PutRemediationConfigurationsRequest,
-  PutRemediationConfigurationsResponse,
-  PutRemediationExceptionsRequest,
-  PutRemediationExceptionsResponse,
   RecordingGroup,
   Relationship,
   RemediationConfiguration,
@@ -605,6 +613,14 @@ import {
   ValidationException,
 } from "../models/models_0";
 import {
+  PutOrganizationConfigRuleRequest,
+  PutOrganizationConfigRuleResponse,
+  PutOrganizationConformancePackRequest,
+  PutOrganizationConformancePackResponse,
+  PutRemediationConfigurationsRequest,
+  PutRemediationConfigurationsResponse,
+  PutRemediationExceptionsRequest,
+  PutRemediationExceptionsResponse,
   PutResourceConfigRequest,
   PutRetentionConfigurationRequest,
   PutRetentionConfigurationResponse,
@@ -1328,6 +1344,19 @@ export const serializeAws_json1_1GetConformancePackComplianceSummaryCommand = as
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetCustomRulePolicyCommand = async (
+  input: GetCustomRulePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.GetCustomRulePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetCustomRulePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetDiscoveredResourceCountsCommand = async (
   input: GetDiscoveredResourceCountsCommandInput,
   context: __SerdeContext
@@ -1364,6 +1393,19 @@ export const serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCom
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetOrganizationCustomRulePolicyCommand = async (
+  input: GetOrganizationCustomRulePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.GetOrganizationCustomRulePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetOrganizationCustomRulePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4294,6 +4336,49 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
   }
 };
 
+export const deserializeAws_json1_1GetCustomRulePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomRulePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetCustomRulePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCustomRulePolicyResponse(data, context);
+  const response: GetCustomRulePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetCustomRulePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomRulePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
+      throw await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1GetDiscoveredResourceCountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4433,6 +4518,52 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
     case "NoSuchOrganizationConformancePackException":
     case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
       throw await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(parsedOutput, context);
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
+      throw await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationCustomRulePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetOrganizationCustomRulePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetOrganizationCustomRulePolicyResponse(data, context);
+  const response: GetOrganizationCustomRulePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetOrganizationCustomRulePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationCustomRulePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
+      throw await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(parsedOutput, context);
     case "OrganizationAccessDeniedException":
     case "com.amazonaws.configservice#OrganizationAccessDeniedException":
       throw await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(parsedOutput, context);
@@ -6961,6 +7092,26 @@ const serializeAws_json1_1ConformancePackNamesToSummarizeList = (input: string[]
     });
 };
 
+const serializeAws_json1_1CustomPolicyDetails = (input: CustomPolicyDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.EnableDebugLogDelivery !== undefined &&
+      input.EnableDebugLogDelivery !== null && { EnableDebugLogDelivery: input.EnableDebugLogDelivery }),
+    ...(input.PolicyRuntime !== undefined && input.PolicyRuntime !== null && { PolicyRuntime: input.PolicyRuntime }),
+    ...(input.PolicyText !== undefined && input.PolicyText !== null && { PolicyText: input.PolicyText }),
+  };
+};
+
+const serializeAws_json1_1DebugLogDeliveryAccounts = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1DeleteAggregationAuthorizationRequest = (
   input: DeleteAggregationAuthorizationRequest,
   context: __SerdeContext
@@ -7737,6 +7888,16 @@ const serializeAws_json1_1GetConformancePackComplianceSummaryRequest = (
   };
 };
 
+const serializeAws_json1_1GetCustomRulePolicyRequest = (
+  input: GetCustomRulePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConfigRuleName !== undefined &&
+      input.ConfigRuleName !== null && { ConfigRuleName: input.ConfigRuleName }),
+  };
+};
+
 const serializeAws_json1_1GetDiscoveredResourceCountsRequest = (
   input: GetDiscoveredResourceCountsRequest,
   context: __SerdeContext
@@ -7780,6 +7941,16 @@ const serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest = 
       input.OrganizationConformancePackName !== null && {
         OrganizationConformancePackName: input.OrganizationConformancePackName,
       }),
+  };
+};
+
+const serializeAws_json1_1GetOrganizationCustomRulePolicyRequest = (
+  input: GetOrganizationCustomRulePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OrganizationConfigRuleName !== undefined &&
+      input.OrganizationConfigRuleName !== null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
   };
 };
 
@@ -7882,6 +8053,20 @@ const serializeAws_json1_1OrganizationConfigRuleNames = (input: string[], contex
     });
 };
 
+const serializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
+  input: (OrganizationConfigRuleTriggerTypeNoSN | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
   input: (OrganizationConfigRuleTriggerType | string)[],
   context: __SerdeContext
@@ -7905,6 +8090,40 @@ const serializeAws_json1_1OrganizationConformancePackNames = (input: string[], c
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1OrganizationCustomPolicyRuleMetadata = (
+  input: OrganizationCustomPolicyRuleMetadata,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DebugLogDeliveryAccounts !== undefined &&
+      input.DebugLogDeliveryAccounts !== null && {
+        DebugLogDeliveryAccounts: serializeAws_json1_1DebugLogDeliveryAccounts(input.DebugLogDeliveryAccounts, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.InputParameters !== undefined &&
+      input.InputParameters !== null && { InputParameters: input.InputParameters }),
+    ...(input.MaximumExecutionFrequency !== undefined &&
+      input.MaximumExecutionFrequency !== null && { MaximumExecutionFrequency: input.MaximumExecutionFrequency }),
+    ...(input.OrganizationConfigRuleTriggerTypes !== undefined &&
+      input.OrganizationConfigRuleTriggerTypes !== null && {
+        OrganizationConfigRuleTriggerTypes: serializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs(
+          input.OrganizationConfigRuleTriggerTypes,
+          context
+        ),
+      }),
+    ...(input.PolicyRuntime !== undefined && input.PolicyRuntime !== null && { PolicyRuntime: input.PolicyRuntime }),
+    ...(input.PolicyText !== undefined && input.PolicyText !== null && { PolicyText: input.PolicyText }),
+    ...(input.ResourceIdScope !== undefined &&
+      input.ResourceIdScope !== null && { ResourceIdScope: input.ResourceIdScope }),
+    ...(input.ResourceTypesScope !== undefined &&
+      input.ResourceTypesScope !== null && {
+        ResourceTypesScope: serializeAws_json1_1ResourceTypesScope(input.ResourceTypesScope, context),
+      }),
+    ...(input.TagKeyScope !== undefined && input.TagKeyScope !== null && { TagKeyScope: input.TagKeyScope }),
+    ...(input.TagValueScope !== undefined && input.TagValueScope !== null && { TagValueScope: input.TagValueScope }),
+  };
 };
 
 const serializeAws_json1_1OrganizationCustomRuleMetadata = (
@@ -8097,6 +8316,13 @@ const serializeAws_json1_1PutOrganizationConfigRuleRequest = (
       }),
     ...(input.OrganizationConfigRuleName !== undefined &&
       input.OrganizationConfigRuleName !== null && { OrganizationConfigRuleName: input.OrganizationConfigRuleName }),
+    ...(input.OrganizationCustomPolicyRuleMetadata !== undefined &&
+      input.OrganizationCustomPolicyRuleMetadata !== null && {
+        OrganizationCustomPolicyRuleMetadata: serializeAws_json1_1OrganizationCustomPolicyRuleMetadata(
+          input.OrganizationCustomPolicyRuleMetadata,
+          context
+        ),
+      }),
     ...(input.OrganizationCustomRuleMetadata !== undefined &&
       input.OrganizationCustomRuleMetadata !== null && {
         OrganizationCustomRuleMetadata: serializeAws_json1_1OrganizationCustomRuleMetadata(
@@ -8478,6 +8704,10 @@ const serializeAws_json1_1SelectResourceConfigRequest = (
 
 const serializeAws_json1_1Source = (input: Source, context: __SerdeContext): any => {
   return {
+    ...(input.CustomPolicyDetails !== undefined &&
+      input.CustomPolicyDetails !== null && {
+        CustomPolicyDetails: serializeAws_json1_1CustomPolicyDetails(input.CustomPolicyDetails, context),
+      }),
     ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
     ...(input.SourceDetails !== undefined &&
       input.SourceDetails !== null && {
@@ -9233,6 +9463,12 @@ const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
       output.LastDeactivatedTime !== undefined && output.LastDeactivatedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDeactivatedTime)))
         : undefined,
+    LastDebugLogDeliveryStatus: __expectString(output.LastDebugLogDeliveryStatus),
+    LastDebugLogDeliveryStatusReason: __expectString(output.LastDebugLogDeliveryStatusReason),
+    LastDebugLogDeliveryTime:
+      output.LastDebugLogDeliveryTime !== undefined && output.LastDebugLogDeliveryTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastDebugLogDeliveryTime)))
+        : undefined,
     LastErrorCode: __expectString(output.LastErrorCode),
     LastErrorMessage: __expectString(output.LastErrorMessage),
     LastFailedEvaluationTime:
@@ -9661,6 +9897,26 @@ const deserializeAws_json1_1ConformancePackTemplateValidationException = (
 };
 
 const deserializeAws_json1_1ControlsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1CustomPolicyDetails = (output: any, context: __SerdeContext): CustomPolicyDetails => {
+  return {
+    EnableDebugLogDelivery: __expectBoolean(output.EnableDebugLogDelivery),
+    PolicyRuntime: __expectString(output.PolicyRuntime),
+    PolicyText: __expectString(output.PolicyText),
+  } as any;
+};
+
+const deserializeAws_json1_1DebugLogDeliveryAccounts = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -10472,6 +10728,15 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetCustomRulePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCustomRulePolicyResponse => {
+  return {
+    PolicyText: __expectString(output.PolicyText),
+  } as any;
+};
+
 const deserializeAws_json1_1GetDiscoveredResourceCountsResponse = (
   output: any,
   context: __SerdeContext
@@ -10516,6 +10781,15 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse
             context
           )
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetOrganizationCustomRulePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): GetOrganizationCustomRulePolicyResponse => {
+  return {
+    PolicyText: __expectString(output.PolicyText),
   } as any;
 };
 
@@ -11030,6 +11304,13 @@ const deserializeAws_json1_1OrganizationConfigRule = (output: any, context: __Se
         : undefined,
     OrganizationConfigRuleArn: __expectString(output.OrganizationConfigRuleArn),
     OrganizationConfigRuleName: __expectString(output.OrganizationConfigRuleName),
+    OrganizationCustomPolicyRuleMetadata:
+      output.OrganizationCustomPolicyRuleMetadata !== undefined && output.OrganizationCustomPolicyRuleMetadata !== null
+        ? deserializeAws_json1_1OrganizationCustomPolicyRuleMetadataNoPolicy(
+            output.OrganizationCustomPolicyRuleMetadata,
+            context
+          )
+        : undefined,
     OrganizationCustomRuleMetadata:
       output.OrganizationCustomRuleMetadata !== undefined && output.OrganizationCustomRuleMetadata !== null
         ? deserializeAws_json1_1OrganizationCustomRuleMetadata(output.OrganizationCustomRuleMetadata, context)
@@ -11098,6 +11379,21 @@ const deserializeAws_json1_1OrganizationConfigRuleStatuses = (
         return null as any;
       }
       return deserializeAws_json1_1OrganizationConfigRuleStatus(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs = (
+  output: any,
+  context: __SerdeContext
+): (OrganizationConfigRuleTriggerTypeNoSN | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -11225,6 +11521,36 @@ const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExcepti
 ): OrganizationConformancePackTemplateValidationException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1OrganizationCustomPolicyRuleMetadataNoPolicy = (
+  output: any,
+  context: __SerdeContext
+): OrganizationCustomPolicyRuleMetadataNoPolicy => {
+  return {
+    DebugLogDeliveryAccounts:
+      output.DebugLogDeliveryAccounts !== undefined && output.DebugLogDeliveryAccounts !== null
+        ? deserializeAws_json1_1DebugLogDeliveryAccounts(output.DebugLogDeliveryAccounts, context)
+        : undefined,
+    Description: __expectString(output.Description),
+    InputParameters: __expectString(output.InputParameters),
+    MaximumExecutionFrequency: __expectString(output.MaximumExecutionFrequency),
+    OrganizationConfigRuleTriggerTypes:
+      output.OrganizationConfigRuleTriggerTypes !== undefined && output.OrganizationConfigRuleTriggerTypes !== null
+        ? deserializeAws_json1_1OrganizationConfigRuleTriggerTypeNoSNs(
+            output.OrganizationConfigRuleTriggerTypes,
+            context
+          )
+        : undefined,
+    PolicyRuntime: __expectString(output.PolicyRuntime),
+    ResourceIdScope: __expectString(output.ResourceIdScope),
+    ResourceTypesScope:
+      output.ResourceTypesScope !== undefined && output.ResourceTypesScope !== null
+        ? deserializeAws_json1_1ResourceTypesScope(output.ResourceTypesScope, context)
+        : undefined,
+    TagKeyScope: __expectString(output.TagKeyScope),
+    TagValueScope: __expectString(output.TagValueScope),
   } as any;
 };
 
@@ -11881,6 +12207,10 @@ const deserializeAws_json1_1SelectResourceConfigResponse = (
 
 const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Source => {
   return {
+    CustomPolicyDetails:
+      output.CustomPolicyDetails !== undefined && output.CustomPolicyDetails !== null
+        ? deserializeAws_json1_1CustomPolicyDetails(output.CustomPolicyDetails, context)
+        : undefined,
     Owner: __expectString(output.Owner),
     SourceDetails:
       output.SourceDetails !== undefined && output.SourceDetails !== null

@@ -271,6 +271,11 @@ import {
   GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
+  GetCustomRulePolicyCommand,
+  GetCustomRulePolicyCommandInput,
+  GetCustomRulePolicyCommandOutput,
+} from "./commands/GetCustomRulePolicyCommand";
+import {
   GetDiscoveredResourceCountsCommand,
   GetDiscoveredResourceCountsCommandInput,
   GetDiscoveredResourceCountsCommandOutput,
@@ -285,6 +290,11 @@ import {
   GetOrganizationConformancePackDetailedStatusCommandInput,
   GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
+import {
+  GetOrganizationCustomRulePolicyCommand,
+  GetOrganizationCustomRulePolicyCommandInput,
+  GetOrganizationCustomRulePolicyCommandOutput,
+} from "./commands/GetOrganizationCustomRulePolicyCommand";
 import {
   GetResourceConfigHistoryCommand,
   GetResourceConfigHistoryCommandInput,
@@ -800,8 +810,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>
-   * 	        <p>Only a master account and a delegated administrator account can delete an organization config rule.
+   * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
+   * 	        <p>Only a master account and a delegated administrator account can delete an organization Config rule.
    * 		When calling this API with a delegated administrator, you must ensure Organizations
    * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
    * 		       <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
@@ -837,7 +847,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from
+   * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
    * 			all member accounts in that organization. </p>
    *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
    * 	When calling this API with a delegated administrator, you must ensure Organizations
@@ -1753,12 +1763,12 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of organization config rules. </p>
+   * <p>Returns a list of organization Config rules. </p>
    *
    * 		       <note>
    *             <p>When you specify the limit and the next token, you receive a paginated response.
-   * 			Limit and next token are not applicable if you specify organization config rule names.
-   * 			It is only applicable, when you request all the organization config rules.</p>
+   * 			Limit and next token are not applicable if you specify organization Config rule names.
+   * 			It is only applicable, when you request all the organization Config rules.</p>
    *          </note>
    */
   public describeOrganizationConfigRules(
@@ -1791,14 +1801,14 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Provides organization config rule deployment status for an organization.</p>
+   * <p>Provides organization Config rule deployment status for an organization.</p>
    *
    * 		       <note>
-   *             <p>The status is not considered successful until organization config rule is successfully deployed in all the member
+   *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
    * 			accounts with an exception of excluded accounts.</p>
    * 			         <p>When you specify the limit and the next token, you receive a paginated response.
-   * 			Limit and next token are not applicable if you specify organization config rule names.
-   * 			It is only applicable, when you request all the organization config rules.</p>
+   * 			Limit and next token are not applicable if you specify organization Config rule names.
+   * 			It is only applicable, when you request all the organization Config rules.</p>
    * 			      </note>
    */
   public describeOrganizationConfigRuleStatuses(
@@ -2473,6 +2483,38 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns the policy definition containing the logic for your Config Custom Policy rule.</p>
+   */
+  public getCustomRulePolicy(
+    args: GetCustomRulePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomRulePolicyCommandOutput>;
+  public getCustomRulePolicy(
+    args: GetCustomRulePolicyCommandInput,
+    cb: (err: any, data?: GetCustomRulePolicyCommandOutput) => void
+  ): void;
+  public getCustomRulePolicy(
+    args: GetCustomRulePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomRulePolicyCommandOutput) => void
+  ): void;
+  public getCustomRulePolicy(
+    args: GetCustomRulePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCustomRulePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetCustomRulePolicyCommandOutput) => void
+  ): Promise<GetCustomRulePolicyCommandOutput> | void {
+    const command = new GetCustomRulePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the resource types, the number of each resource type,
    * 			and the total number of resources that Config is recording in
    * 			this region for your Amazon Web Services account. </p>
@@ -2568,7 +2610,7 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
+   * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
    */
   public getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
@@ -2625,6 +2667,38 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> | void {
     const command = new GetOrganizationConformancePackDetailedStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   */
+  public getOrganizationCustomRulePolicy(
+    args: GetOrganizationCustomRulePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOrganizationCustomRulePolicyCommandOutput>;
+  public getOrganizationCustomRulePolicy(
+    args: GetOrganizationCustomRulePolicyCommandInput,
+    cb: (err: any, data?: GetOrganizationCustomRulePolicyCommandOutput) => void
+  ): void;
+  public getOrganizationCustomRulePolicy(
+    args: GetOrganizationCustomRulePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOrganizationCustomRulePolicyCommandOutput) => void
+  ): void;
+  public getOrganizationCustomRulePolicy(
+    args: GetOrganizationCustomRulePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOrganizationCustomRulePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetOrganizationCustomRulePolicyCommandOutput) => void
+  ): Promise<GetOrganizationCustomRulePolicyCommandOutput> | void {
+    const command = new GetOrganizationCustomRulePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3210,9 +3284,9 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Adds or updates organization config rule for your entire organization evaluating whether your Amazon Web Services resources comply with your
+   * <p>Adds or updates organization Config rule for your entire organization evaluating whether your Amazon Web Services resources comply with your
    * 			desired configurations.</p>
-   * 	        <p> Only a master account and a delegated administrator can create or update an organization config rule.
+   * 	        <p> Only a master account and a delegated administrator can create or update an organization Config rule.
    * 		When calling this API with a delegated administrator, you must ensure Organizations
    * 		<code>ListDelegatedAdministrator</code> permissions are added. </p>
    * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked
@@ -3227,7 +3301,7 @@ export class ConfigService extends ConfigServiceClient {
    * 			When you use the <code>PutOrganizationConfigRule</code> action to add the rule to Config, you must
    * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.
    * 			If you are adding an Config managed rule, specify the rule's identifier for the <code>RuleIdentifier</code> key.</p>
-   * 		       <p>The maximum number of organization config rules that Config supports is 150 and 3 delegated administrator per organization. </p>
+   * 		       <p>The maximum number of organization Config rules that Config supports is 150 and 3 delegated administrator per organization. </p>
    * 		       <note>
    *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
    * 			         <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>

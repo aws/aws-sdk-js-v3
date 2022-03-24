@@ -22,7 +22,7 @@ export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrg
 export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from
+ * <p>Deletes the specified organization conformance pack and all of the Config rules and remediation actions from
  * 			all member accounts in that organization. </p>
  *          <p> Only a master account or a delegated administrator account can delete an organization conformance pack.
  * 	When calling this API with a delegated administrator, you must ensure Organizations

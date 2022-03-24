@@ -24,12 +24,12 @@ export interface DescribeOrganizationConfigRulesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of organization config rules. </p>
+ * <p>Returns a list of organization Config rules. </p>
  *
  * 		       <note>
  *             <p>When you specify the limit and the next token, you receive a paginated response.
- * 			Limit and next token are not applicable if you specify organization config rule names.
- * 			It is only applicable, when you request all the organization config rules.</p>
+ * 			Limit and next token are not applicable if you specify organization Config rule names.
+ * 			It is only applicable, when you request all the organization Config rules.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

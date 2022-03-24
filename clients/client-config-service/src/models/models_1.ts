@@ -2,7 +2,227 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
-import { FieldInfo, ResourceKey, RetentionConfiguration, StoredQuery, Tag } from "./models_0";
+import {
+  ConformancePackInputParameter,
+  FailedRemediationBatch,
+  FailedRemediationExceptionBatch,
+  FieldInfo,
+  OrganizationCustomPolicyRuleMetadata,
+  OrganizationCustomRuleMetadata,
+  OrganizationManagedRuleMetadata,
+  RemediationConfiguration,
+  RemediationExceptionResourceKey,
+  ResourceKey,
+  RetentionConfiguration,
+  StoredQuery,
+  Tag,
+} from "./models_0";
+
+export interface PutOrganizationConfigRuleRequest {
+  /**
+   * <p>The name that you assign to an organization Config rule.</p>
+   */
+  OrganizationConfigRuleName: string | undefined;
+
+  /**
+   * <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
+   */
+  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
+
+  /**
+   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
+   */
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
+
+  /**
+   * <p>A comma-separated list of accounts that you want to exclude from an organization Config rule.</p>
+   */
+  ExcludedAccounts?: string[];
+
+  /**
+   * <p>An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
+   * 			logging enabled, and other custom rule metadata, such as resource type, resource ID of
+   * 				Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   */
+  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
+}
+
+export namespace PutOrganizationConfigRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutOrganizationConfigRuleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
+   */
+  OrganizationConfigRuleArn?: string;
+}
+
+export namespace PutOrganizationConfigRuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutOrganizationConformancePackRequest {
+  /**
+   * <p>Name of the organization conformance pack you want to create.</p>
+   */
+  OrganizationConformancePackName: string | undefined;
+
+  /**
+   * <p>Location of file containing the template body. The uri must point to the conformance pack template
+   * 			(max size: 300 KB).</p>
+   * 		       <note>
+   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *          </note>
+   */
+  TemplateS3Uri?: string;
+
+  /**
+   * <p>A string containing full conformance pack template body. Structure containing the template body
+   * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
+   */
+  TemplateBody?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
+   * 		       <note>
+   *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
+   *          </note>
+   */
+  DeliveryS3Bucket?: string;
+
+  /**
+   * <p>The prefix for the Amazon S3 bucket.</p>
+   * 		       <note>
+   *             <p>This field is optional.</p>
+   *          </note>
+   */
+  DeliveryS3KeyPrefix?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
+   */
+  ConformancePackInputParameters?: ConformancePackInputParameter[];
+
+  /**
+   * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
+   */
+  ExcludedAccounts?: string[];
+}
+
+export namespace PutOrganizationConformancePackRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutOrganizationConformancePackRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutOrganizationConformancePackResponse {
+  /**
+   * <p>ARN of the organization conformance pack.</p>
+   */
+  OrganizationConformancePackArn?: string;
+}
+
+export namespace PutOrganizationConformancePackResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutOrganizationConformancePackResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRemediationConfigurationsRequest {
+  /**
+   * <p>A list of remediation configuration objects.</p>
+   */
+  RemediationConfigurations: RemediationConfiguration[] | undefined;
+}
+
+export namespace PutRemediationConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRemediationConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRemediationConfigurationsResponse {
+  /**
+   * <p>Returns a list of failed remediation batch objects.</p>
+   */
+  FailedBatches?: FailedRemediationBatch[];
+}
+
+export namespace PutRemediationConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRemediationConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRemediationExceptionsRequest {
+  /**
+   * <p>The name of the Config rule for which you want to create remediation exception.</p>
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
+   */
+  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
+
+  /**
+   * <p>The message contains an explanation of the exception.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The exception is automatically deleted after the expiration date.</p>
+   */
+  ExpirationTime?: Date;
+}
+
+export namespace PutRemediationExceptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutRemediationExceptionsResponse {
+  /**
+   * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
+   */
+  FailedBatches?: FailedRemediationExceptionBatch[];
+}
+
+export namespace PutRemediationExceptionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface PutResourceConfigRequest {
   /**

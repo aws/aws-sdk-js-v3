@@ -12,47 +12,43 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { GetOrganizationCustomRulePolicyRequest, GetOrganizationCustomRulePolicyResponse } from "../models/models_0";
 import {
-  GetOrganizationConfigRuleDetailedStatusRequest,
-  GetOrganizationConfigRuleDetailedStatusResponse,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
-  serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand,
+  deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
+  serializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetOrganizationConfigRuleDetailedStatusCommandInput
-  extends GetOrganizationConfigRuleDetailedStatusRequest {}
-export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
-  extends GetOrganizationConfigRuleDetailedStatusResponse,
+export interface GetOrganizationCustomRulePolicyCommandInput extends GetOrganizationCustomRulePolicyRequest {}
+export interface GetOrganizationCustomRulePolicyCommandOutput
+  extends GetOrganizationCustomRulePolicyResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns detailed status for each member account within an organization for a given organization Config rule.</p>
+ * <p>Returns the policy definition containing the logic for your organization Config Custom Policy rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetOrganizationConfigRuleDetailedStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetOrganizationCustomRulePolicyCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const command = new GetOrganizationConfigRuleDetailedStatusCommand(input);
+ * const command = new GetOrganizationCustomRulePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetOrganizationConfigRuleDetailedStatusCommandInput} for command's `input` shape.
- * @see {@link GetOrganizationConfigRuleDetailedStatusCommandOutput} for command's `response` shape.
+ * @see {@link GetOrganizationCustomRulePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetOrganizationCustomRulePolicyCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
-export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
-  GetOrganizationConfigRuleDetailedStatusCommandInput,
-  GetOrganizationConfigRuleDetailedStatusCommandOutput,
+export class GetOrganizationCustomRulePolicyCommand extends $Command<
+  GetOrganizationCustomRulePolicyCommandInput,
+  GetOrganizationCustomRulePolicyCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetOrganizationConfigRuleDetailedStatusCommandInput) {
+  constructor(readonly input: GetOrganizationCustomRulePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -65,23 +61,20 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOrganizationConfigRuleDetailedStatusCommandInput,
-    GetOrganizationConfigRuleDetailedStatusCommandOutput
-  > {
+  ): Handler<GetOrganizationCustomRulePolicyCommandInput, GetOrganizationCustomRulePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConfigServiceClient";
-    const commandName = "GetOrganizationConfigRuleDetailedStatusCommand";
+    const commandName = "GetOrganizationCustomRulePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationConfigRuleDetailedStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationCustomRulePolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationCustomRulePolicyResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,17 +85,17 @@ export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
   }
 
   private serialize(
-    input: GetOrganizationConfigRuleDetailedStatusCommandInput,
+    input: GetOrganizationCustomRulePolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(input, context);
+    return serializeAws_json1_1GetOrganizationCustomRulePolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(output, context);
+  ): Promise<GetOrganizationCustomRulePolicyCommandOutput> {
+    return deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -262,6 +262,10 @@ import {
   GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
+  GetCustomRulePolicyCommandInput,
+  GetCustomRulePolicyCommandOutput,
+} from "./commands/GetCustomRulePolicyCommand";
+import {
   GetDiscoveredResourceCountsCommandInput,
   GetDiscoveredResourceCountsCommandOutput,
 } from "./commands/GetDiscoveredResourceCountsCommand";
@@ -273,6 +277,10 @@ import {
   GetOrganizationConformancePackDetailedStatusCommandInput,
   GetOrganizationConformancePackDetailedStatusCommandOutput,
 } from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
+import {
+  GetOrganizationCustomRulePolicyCommandInput,
+  GetOrganizationCustomRulePolicyCommandOutput,
+} from "./commands/GetOrganizationCustomRulePolicyCommand";
 import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
@@ -416,9 +424,11 @@ export type ServiceInputTypes =
   | GetComplianceSummaryByResourceTypeCommandInput
   | GetConformancePackComplianceDetailsCommandInput
   | GetConformancePackComplianceSummaryCommandInput
+  | GetCustomRulePolicyCommandInput
   | GetDiscoveredResourceCountsCommandInput
   | GetOrganizationConfigRuleDetailedStatusCommandInput
   | GetOrganizationConformancePackDetailedStatusCommandInput
+  | GetOrganizationCustomRulePolicyCommandInput
   | GetResourceConfigHistoryCommandInput
   | GetStoredQueryCommandInput
   | ListAggregateDiscoveredResourcesCommandInput
@@ -504,9 +514,11 @@ export type ServiceOutputTypes =
   | GetComplianceSummaryByResourceTypeCommandOutput
   | GetConformancePackComplianceDetailsCommandOutput
   | GetConformancePackComplianceSummaryCommandOutput
+  | GetCustomRulePolicyCommandOutput
   | GetDiscoveredResourceCountsCommandOutput
   | GetOrganizationConfigRuleDetailedStatusCommandOutput
   | GetOrganizationConformancePackDetailedStatusCommandOutput
+  | GetOrganizationCustomRulePolicyCommandOutput
   | GetResourceConfigHistoryCommandOutput
   | GetStoredQueryCommandOutput
   | ListAggregateDiscoveredResourcesCommandOutput

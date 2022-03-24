@@ -22,8 +22,8 @@ export interface DeleteOrganizationConfigRuleCommandInput extends DeleteOrganiza
 export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. </p>
- * 	        <p>Only a master account and a delegated administrator account can delete an organization config rule.
+ * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
+ * 	        <p>Only a master account and a delegated administrator account can delete an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
  * 		       <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.

@@ -651,6 +651,7 @@ export enum ResourceType {
   FlowLog = "AWS::EC2::FlowLog",
   Function = "AWS::Lambda::Function",
   Group = "AWS::IAM::Group",
+  GuardDutyDetector = "AWS::GuardDuty::Detector",
   Host = "AWS::EC2::Host",
   IPSetV2 = "AWS::WAFv2::IPSet",
   Instance = "AWS::EC2::Instance",
@@ -1297,9 +1298,43 @@ export namespace Scope {
   });
 }
 
+/**
+ * <p>Provides the runtime system, policy definition, and whether debug logging enabled. You can
+ * 			specify the following CustomPolicyDetails parameter values
+ * 			only
+ * 			for Config Custom Policy rules.</p>
+ */
+export interface CustomPolicyDetails {
+  /**
+   * <p>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+   * 					Repository</a>.</p>
+   */
+  PolicyRuntime: string | undefined;
+
+  /**
+   * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
+   */
+  PolicyText: string | undefined;
+
+  /**
+   * <p>The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is <code>false</code>.</p>
+   */
+  EnableDebugLogDelivery?: boolean;
+}
+
+export namespace CustomPolicyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomPolicyDetails): any => ({
+    ...obj,
+  });
+}
+
 export enum Owner {
   Aws = "AWS",
   Custom_Lambda = "CUSTOM_LAMBDA",
+  Custom_Policy = "CUSTOM_POLICY",
 }
 
 export enum EventSource {
@@ -1380,7 +1415,6 @@ export interface SourceDetail {
    *
    *
    *
-   *
    * 		       <note>
    * 			         <p>By default, rules with a periodic trigger are evaluated
    * 				every 24 hours. To change the frequency, specify a valid value
@@ -1406,30 +1440,43 @@ export namespace SourceDetail {
 }
 
 /**
- * <p>Provides the Config rule owner (Amazon Web Services or customer), the rule
- * 			identifier, and the events that trigger the evaluation of your Amazon Web Services
+ * <p>Provides the CustomPolicyDetails, the rule owner (Amazon Web Services or customer), the rule
+ * 			identifier, and the events that cause the evaluation of your Amazon Web Services
  * 			resources.</p>
  */
 export interface Source {
   /**
    * <p>Indicates whether Amazon Web Services or the customer owns and manages the Config rule.</p>
+   *
+   * 		       <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the Config developer guide.</p>
+   *
+   * 		       <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the Config developer guide.</p>
    */
   Owner: Owner | string | undefined;
 
   /**
-   * <p>For Config managed rules, a predefined identifier from a
+   * <p>For Config Managed rules, a predefined identifier from a
    * 			list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed
-   * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using Config managed rules</a>.</p>
-   * 		       <p>For custom rules, the identifier is the Amazon Resource Name
+   * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config Managed Rules</a>.</p>
+   * 		       <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name
    * 			(ARN) of the rule's Lambda function, such as
-   * 				<code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
+   * 			<code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
+   *
+   * 		       <p>For Config Custom Policy rules, this field will be ignored.</p>
    */
-  SourceIdentifier: string | undefined;
+  SourceIdentifier?: string;
 
   /**
-   * <p>Provides the source and type of the event that causes Config to evaluate your Amazon Web Services resources.</p>
+   * <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
+   *
+   * 		       <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
    */
   SourceDetails?: SourceDetail[];
+
+  /**
+   * <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
+   */
+  CustomPolicyDetails?: CustomPolicyDetails;
 }
 
 export namespace Source {
@@ -1652,11 +1699,11 @@ export enum ConfigRuleComplianceSummaryGroupKey {
 }
 
 /**
- * <p>Status information for your Config managed rules. The
+ * <p>Status information for your Config Managed rules and Config Custom Policy rules. The
  * 			status includes information such as the last time the rule ran, the
  * 			last time it failed, and the related error for the last
  * 			failure.</p>
- * 		       <p>This action does not return status information about custom Config rules.</p>
+ * 		       <p>This action does not return status information about Config Custom Lambda rules.</p>
  */
 export interface ConfigRuleEvaluationStatus {
   /**
@@ -1732,12 +1779,29 @@ export interface ConfigRuleEvaluationStatus {
    * 			         </li>
    *             <li>
    * 				           <p>
-   * 					             <code>false</code> - Config has not once finished
-   * 					evaluating your Amazon Web Services resources against the rule.</p>
+   * 					             <code>false</code> - Config has not finished evaluating your Amazon Web Services resources against the
+   * 					rule
+   * 					at least once.</p>
    * 			         </li>
    *          </ul>
    */
   FirstEvaluationStarted?: boolean;
+
+  /**
+   * <p>The status of the last attempted delivery of a debug log for your Config Custom Policy rules. Either <code>Successful</code> or <code>Failed</code>.</p>
+   */
+  LastDebugLogDeliveryStatus?: string;
+
+  /**
+   * <p>The reason Config was not able to deliver a debug log. This is for the last
+   * 			failed attempt to retrieve a debug log for your Config Custom Policy rules.</p>
+   */
+  LastDebugLogDeliveryStatusReason?: string;
+
+  /**
+   * <p>The time Config last attempted to deliver a debug log for your Config Custom Policy rules.</p>
+   */
+  LastDebugLogDeliveryTime?: Date;
 }
 
 export namespace ConfigRuleEvaluationStatus {
@@ -2536,7 +2600,7 @@ export namespace ConformancePackEvaluationResult {
  */
 export interface ConformancePackRuleCompliance {
   /**
-   * <p>Name of the config rule.</p>
+   * <p>Name of the Config rule.</p>
    */
   ConfigRuleName?: string;
 
@@ -2724,8 +2788,7 @@ export namespace DeleteConfigRuleRequest {
 }
 
 /**
- * <p>One or more Config rules in the request are invalid. Verify
- * 			that the rule names are correct and try again.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchConfigRuleException extends __BaseException {
   readonly name: "NoSuchConfigRuleException" = "NoSuchConfigRuleException";
@@ -2756,10 +2819,10 @@ export class NoSuchConfigRuleException extends __BaseException {
  *                <p>For DeleteConfigRule, a remediation action is associated with the rule and Config cannot delete this rule. Delete the remediation action associated with the rule before deleting the rule and try your request again later.</p>
  *             </li>
  *             <li>
- *                <p>For PutConfigOrganizationRule, organization config rule deletion is in progress. Try your request again later.</p>
+ *                <p>For PutConfigOrganizationRule, organization Config rule deletion is in progress. Try your request again later.</p>
  *             </li>
  *             <li>
- *                <p>For DeleteOrganizationConfigRule, organization config rule creation is in progress. Try your request again later.</p>
+ *                <p>For DeleteOrganizationConfigRule, organization Config rule creation is in progress. Try your request again later.</p>
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack creation, update, and deletion is in progress. Try your request again later.</p>
@@ -2976,7 +3039,7 @@ export namespace DeleteEvaluationResultsResponse {
 
 export interface DeleteOrganizationConfigRuleRequest {
   /**
-   * <p>The name of organization config rule that you want to delete.</p>
+   * <p>The name of organization Config rule that you want to delete.</p>
    */
   OrganizationConfigRuleName: string | undefined;
 }
@@ -2991,7 +3054,7 @@ export namespace DeleteOrganizationConfigRuleRequest {
 }
 
 /**
- * <p>You specified one or more organization config rules that do not exist.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchOrganizationConfigRuleException extends __BaseException {
   readonly name: "NoSuchOrganizationConfigRuleException" = "NoSuchOrganizationConfigRuleException";
@@ -3146,7 +3209,7 @@ export namespace DeleteRemediationConfigurationResponse {
  *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
  *             </li>
  *             <li>
- *                <p>For PutOrganizationConfigRule, organization config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service linked role.</p>
+ *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service linked role.</p>
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have permissions: </p>
@@ -4492,12 +4555,12 @@ export namespace DescribeDeliveryChannelStatusResponse {
 
 export interface DescribeOrganizationConfigRulesRequest {
   /**
-   * <p>The names of organization config rules for which you want details. If you do not specify any names, Config returns details for all your organization config rules.</p>
+   * <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
    */
   OrganizationConfigRuleNames?: string[];
 
   /**
-   * <p>The maximum number of organization config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
+   * <p>The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
    */
   Limit?: number;
 
@@ -4516,6 +4579,95 @@ export namespace DescribeOrganizationConfigRulesRequest {
   });
 }
 
+export enum OrganizationConfigRuleTriggerTypeNoSN {
+  CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
+  OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
+}
+
+/**
+ * <p>An object that specifies metadata for your organization Config Custom Policy rule including the runtime system in use, which accounts have debug logging enabled, and
+ * 			other custom rule metadata such as resource type, resource ID of Amazon Web Services
+ * 			resource, and organization trigger types that trigger Config to evaluate
+ * 				Amazon Web Services resources against a rule.</p>
+ */
+export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
+  /**
+   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of notification that triggers Config to run an evaluation for a rule.
+   * 			For Config Custom Policy rules, Config supports change
+   * 			triggered notification types:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers an oversized configuration item.
+   * 				Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.</p>
+   *             </li>
+   *          </ul>
+   */
+  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+
+  /**
+   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   */
+  InputParameters?: string;
+
+  /**
+   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
+   * 			Config Custom Policy rule is triggered when Config delivers
+   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   */
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceTypesScope?: string[];
+
+  /**
+   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceIdScope?: string;
+
+  /**
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  TagKeyScope?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  TagValueScope?: string;
+
+  /**
+   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+   * 			Repository</a>.</p>
+   */
+  PolicyRuntime?: string;
+
+  /**
+   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   */
+  DebugLogDeliveryAccounts?: string[];
+}
+
+export namespace OrganizationCustomPolicyRuleMetadataNoPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationCustomPolicyRuleMetadataNoPolicy): any => ({
+    ...obj,
+  });
+}
+
 export enum OrganizationConfigRuleTriggerType {
   CONFIGURATION_ITEM_CHANGE_NOTIFICATION = "ConfigurationItemChangeNotification",
   OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION = "OversizedConfigurationItemChangeNotification",
@@ -4529,7 +4681,7 @@ export enum OrganizationConfigRuleTriggerType {
  */
 export interface OrganizationCustomRuleMetadata {
   /**
-   * <p>The description that you provide for organization config rule.</p>
+   * <p>The description that you provide for your organization Config rule.</p>
    */
   Description?: string;
 
@@ -4560,7 +4712,7 @@ export interface OrganizationCustomRuleMetadata {
   OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
+   * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
    */
   InputParameters?: string;
 
@@ -4612,7 +4764,7 @@ export namespace OrganizationCustomRuleMetadata {
  */
 export interface OrganizationManagedRuleMetadata {
   /**
-   * <p>The description that you provide for organization config rule.</p>
+   * <p>The description that you provide for your organization Config rule.</p>
    */
   Description?: string;
 
@@ -4624,7 +4776,7 @@ export interface OrganizationManagedRuleMetadata {
   RuleIdentifier: string | undefined;
 
   /**
-   * <p>A string, in JSON format, that is passed to organization config rule Lambda function.</p>
+   * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
    */
   InputParameters?: string;
 
@@ -4670,16 +4822,16 @@ export namespace OrganizationManagedRuleMetadata {
 }
 
 /**
- * <p>An organization config rule that has information about config rules that Config creates in member accounts.</p>
+ * <p>An organization Config rule that has information about Config rules that Config creates in member accounts.</p>
  */
 export interface OrganizationConfigRule {
   /**
-   * <p>The name that you assign to organization config rule.</p>
+   * <p>The name that you assign to organization Config rule.</p>
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of organization config rule.</p>
+   * <p>Amazon Resource Name (ARN) of organization Config rule.</p>
    */
   OrganizationConfigRuleArn: string | undefined;
 
@@ -4694,7 +4846,7 @@ export interface OrganizationConfigRule {
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
   /**
-   * <p>A comma-separated list of accounts excluded from organization config rule.</p>
+   * <p>A comma-separated list of accounts excluded from organization Config rule.</p>
    */
   ExcludedAccounts?: string[];
 
@@ -4702,6 +4854,14 @@ export interface OrganizationConfigRule {
    * <p>The timestamp of the last update.</p>
    */
   LastUpdateTime?: Date;
+
+  /**
+   * <p>An
+   * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
+   * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
+   * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   */
+  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadataNoPolicy;
 }
 
 export namespace OrganizationConfigRule {
@@ -4736,7 +4896,7 @@ export namespace DescribeOrganizationConfigRulesResponse {
 
 export interface DescribeOrganizationConfigRuleStatusesRequest {
   /**
-   * <p>The names of organization config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
+   * <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
    */
   OrganizationConfigRuleNames?: string[];
 
@@ -4773,68 +4933,68 @@ export enum OrganizationRuleStatus {
 }
 
 /**
- * <p>Returns the status for an organization config rule in an organization.</p>
+ * <p>Returns the status for an organization Config rule in an organization.</p>
  */
 export interface OrganizationConfigRuleStatus {
   /**
-   * <p>The name that you assign to organization config rule.</p>
+   * <p>The name that you assign to organization Config rule.</p>
    */
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>Indicates deployment status of an organization config rule.
-   * 			When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts.
-   * 			When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization.
+   * <p>Indicates deployment status of an organization Config rule.
+   * 			When master account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts.
+   * 			When master account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization.
    * 			Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
    * 			      <p>Config sets the state of the rule to:</p>
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when an organization config rule has been successfully created in all the member accounts. </p>
+   *                   <code>CREATE_SUCCESSFUL</code> when an organization Config rule has been successfully created in all the member accounts. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when an organization config rule creation is in progress.</p>
+   *                   <code>CREATE_IN_PROGRESS</code> when an organization Config rule creation is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> when an organization config rule creation failed in one or more member accounts within that organization.</p>
+   *                   <code>CREATE_FAILED</code> when an organization Config rule creation failed in one or more member accounts within that organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_FAILED</code> when an organization config rule deletion failed in one or more member accounts within that organization.</p>
+   *                   <code>DELETE_FAILED</code> when an organization Config rule deletion failed in one or more member accounts within that organization.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when an organization config rule deletion is in progress.</p>
+   *                   <code>DELETE_IN_PROGRESS</code> when an organization Config rule deletion is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when an organization config rule has been successfully deleted from all the member accounts.</p>
+   *                   <code>DELETE_SUCCESSFUL</code> when an organization Config rule has been successfully deleted from all the member accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when an organization config rule has been successfully updated in all the member accounts.</p>
+   *                   <code>UPDATE_SUCCESSFUL</code> when an organization Config rule has been successfully updated in all the member accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when an organization config rule update is in progress.</p>
+   *                   <code>UPDATE_IN_PROGRESS</code> when an organization Config rule update is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_FAILED</code> when an organization config rule update failed in one or more member accounts within that organization.</p>
+   *                   <code>UPDATE_FAILED</code> when an organization Config rule update failed in one or more member accounts within that organization.</p>
    *             </li>
    *          </ul>
    */
   OrganizationRuleStatus: OrganizationRuleStatus | string | undefined;
 
   /**
-   * <p>An error code that is returned when organization config rule creation or deletion has failed.</p>
+   * <p>An error code that is returned when organization Config rule creation or deletion has failed.</p>
    */
   ErrorCode?: string;
 
   /**
-   * <p>An error message indicating that organization config rule creation or deletion failed due to an error.</p>
+   * <p>An error message indicating that organization Config rule creation or deletion failed due to an error.</p>
    */
   ErrorMessage?: string;
 
@@ -6679,6 +6839,38 @@ export namespace GetConformancePackComplianceSummaryResponse {
   });
 }
 
+export interface GetCustomRulePolicyRequest {
+  /**
+   * <p>The name of your Config Custom Policy rule.</p>
+   */
+  ConfigRuleName?: string;
+}
+
+export namespace GetCustomRulePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomRulePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCustomRulePolicyResponse {
+  /**
+   * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
+   */
+  PolicyText?: string;
+}
+
+export namespace GetCustomRulePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomRulePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDiscoveredResourceCountsRequest {
   /**
    * <p>The comma-separated list that specifies the resource types that
@@ -6817,7 +7009,7 @@ export enum MemberAccountRuleStatus {
 }
 
 /**
- * <p>Status filter object to filter results based on specific member account ID or status type for an organization config rule. </p>
+ * <p>Status filter object to filter results based on specific member account ID or status type for an organization Config rule. </p>
  */
 export interface StatusDetailFilters {
   /**
@@ -6826,48 +7018,48 @@ export interface StatusDetailFilters {
   AccountId?: string;
 
   /**
-   * <p>Indicates deployment status for config rule in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, config rule status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, config rule status is updated in the member account.
+   * <p>Indicates deployment status for Config rule in the member account.
+   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
+   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
    * 			Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 			</p>
    * 		       <p>Config sets the state of the rule to:</p>
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when config rule has been created in the member account.</p>
+   *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when config rule is being created in the member account.</p>
+   *                   <code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> when config rule creation has failed in the member account.</p>
+   *                   <code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_FAILED</code> when config rule deletion has failed in the member account.</p>
+   *                   <code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when config rule is being deleted in the member account.</p>
+   *                   <code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when config rule has been deleted in the member account.</p>
+   *                   <code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when config rule has been updated in the member account.</p>
+   *                   <code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when config rule is being updated in the member account.</p>
+   *                   <code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_FAILED</code> when config rule deletion has failed in the member account.</p>
+   *                   <code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p>
    *             </li>
    *          </ul>
    */
@@ -6885,7 +7077,7 @@ export namespace StatusDetailFilters {
 
 export interface GetOrganizationConfigRuleDetailedStatusRequest {
   /**
-   * <p>The name of organization config rule for which you want status details for member accounts.</p>
+   * <p>The name of your organization Config rule for which you want status details for member accounts.</p>
    */
   OrganizationConfigRuleName: string | undefined;
 
@@ -6915,7 +7107,7 @@ export namespace GetOrganizationConfigRuleDetailedStatusRequest {
 }
 
 /**
- * <p>Organization config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.</p>
+ * <p>Organization Config rule creation or deletion status in each member account. This includes the name of the rule, the status, error code and error message when the rule creation or deletion failed.</p>
  */
 export interface MemberAccountStatus {
   /**
@@ -6924,65 +7116,65 @@ export interface MemberAccountStatus {
   AccountId: string | undefined;
 
   /**
-   * <p>The name of config rule deployed in the member account.</p>
+   * <p>The name of Config rule deployed in the member account.</p>
    */
   ConfigRuleName: string | undefined;
 
   /**
-   * <p>Indicates deployment status for config rule in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, config rule status is created in the member account.
-   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, config rule status is updated in the member account.
+   * <p>Indicates deployment status for Config rule in the member account.
+   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule status is created in the member account.
+   * 			When master account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
    * 			Config rule status is deleted when the master account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
    * 		       <p> Config sets the state of the rule to:</p>
    * 		       <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_SUCCESSFUL</code> when config rule has been created in the member account. </p>
+   *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> when config rule is being created in the member account.</p>
+   *                   <code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> when config rule creation has failed in the member account.</p>
+   *                   <code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_FAILED</code> when config rule deletion has failed in the member account.</p>
+   *                   <code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_IN_PROGRESS</code> when config rule is being deleted in the member account.</p>
+   *                   <code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETE_SUCCESSFUL</code> when config rule has been deleted in the member account. </p>
+   *                   <code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code> when config rule has been updated in the member account.</p>
+   *                   <code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code> when config rule is being updated in the member account.</p>
+   *                   <code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATE_FAILED</code> when config rule deletion has failed in the member account.</p>
+   *                   <code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</p>
    *             </li>
    *          </ul>
    */
   MemberAccountRuleStatus: MemberAccountRuleStatus | string | undefined;
 
   /**
-   * <p>An error code that is returned when config rule creation or deletion failed in the member account.</p>
+   * <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
    */
   ErrorCode?: string;
 
   /**
-   * <p>An error message indicating that config rule account creation or deletion has failed due to an error in the member account.</p>
+   * <p>An error message indicating that Config rule account creation or deletion has failed due to an error in the member account.</p>
    */
   ErrorMessage?: string;
 
@@ -7241,6 +7433,38 @@ export namespace GetOrganizationConformancePackDetailedStatusResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetOrganizationConformancePackDetailedStatusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOrganizationCustomRulePolicyRequest {
+  /**
+   * <p>The name of your organization Config Custom Policy rule. </p>
+   */
+  OrganizationConfigRuleName: string | undefined;
+}
+
+export namespace GetOrganizationCustomRulePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOrganizationCustomRulePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOrganizationCustomRulePolicyResponse {
+  /**
+   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   */
+  PolicyText?: string;
+}
+
+export namespace GetOrganizationCustomRulePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOrganizationCustomRulePolicyResponse): any => ({
     ...obj,
   });
 }
@@ -8107,7 +8331,7 @@ export class MaxNumberOfDeliveryChannelsExceededException extends __BaseExceptio
 }
 
 /**
- * <p>You have reached the limit of the number of organization config rules you can create.</p>
+ * <p>You have reached the limit of the number of organization Config rules you can create.</p>
  */
 export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
   readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
@@ -8263,6 +8487,96 @@ export class OrganizationConformancePackTemplateValidationException extends __Ba
   }
 }
 
+/**
+ * <p>An
+ * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
+ * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
+ * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+ */
+export interface OrganizationCustomPolicyRuleMetadata {
+  /**
+   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of notification that initiates Config to run an evaluation for a rule.
+   * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
+   * 					change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when
+   * 						Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the
+   * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
+   *             </li>
+   *          </ul>
+   */
+  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+
+  /**
+   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   */
+  InputParameters?: string;
+
+  /**
+   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
+   * 			Config Custom Policy rule is triggered when Config delivers
+   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   */
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceTypesScope?: string[];
+
+  /**
+   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceIdScope?: string;
+
+  /**
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  TagKeyScope?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  TagValueScope?: string;
+
+  /**
+   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+   * 			Repository</a>.</p>
+   */
+  PolicyRuntime: string | undefined;
+
+  /**
+   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   */
+  PolicyText: string | undefined;
+
+  /**
+   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   */
+  DebugLogDeliveryAccounts?: string[];
+}
+
+export namespace OrganizationCustomPolicyRuleMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationCustomPolicyRuleMetadata): any => ({
+    ...obj,
+  });
+}
+
 export interface PutAggregationAuthorizationRequest {
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
@@ -8415,7 +8729,7 @@ export interface PutConformancePackRequest {
   /**
    * <p>A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
    * 		       <note>
-   *             <p>You can only use a YAML template with two resource types: config rule (<code>AWS::Config::ConfigRule</code>) and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
+   *             <p>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and a remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
    */
   TemplateBody?: string;
@@ -8580,205 +8894,6 @@ export namespace PutExternalEvaluationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutOrganizationConfigRuleRequest {
-  /**
-   * <p>The name that you assign to an organization config rule.</p>
-   */
-  OrganizationConfigRuleName: string | undefined;
-
-  /**
-   * <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
-   */
-  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
-
-  /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-   */
-  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
-
-  /**
-   * <p>A comma-separated list of accounts that you want to exclude from an organization config rule.</p>
-   */
-  ExcludedAccounts?: string[];
-}
-
-export namespace PutOrganizationConfigRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutOrganizationConfigRuleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of an organization config rule.</p>
-   */
-  OrganizationConfigRuleArn?: string;
-}
-
-export namespace PutOrganizationConfigRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConfigRuleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutOrganizationConformancePackRequest {
-  /**
-   * <p>Name of the organization conformance pack you want to create.</p>
-   */
-  OrganizationConformancePackName: string | undefined;
-
-  /**
-   * <p>Location of file containing the template body. The uri must point to the conformance pack template
-   * 			(max size: 300 KB).</p>
-   * 		       <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
-   *          </note>
-   */
-  TemplateS3Uri?: string;
-
-  /**
-   * <p>A string containing full conformance pack template body. Structure containing the template body
-   * 			with a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
-   *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
-   *          </note>
-   */
-  DeliveryS3Bucket?: string;
-
-  /**
-   * <p>The prefix for the Amazon S3 bucket.</p>
-   * 		       <note>
-   *             <p>This field is optional.</p>
-   *          </note>
-   */
-  DeliveryS3KeyPrefix?: string;
-
-  /**
-   * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-   */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
-
-  /**
-   * <p>A list of Amazon Web Services accounts to be excluded from an organization conformance pack while deploying a conformance pack.</p>
-   */
-  ExcludedAccounts?: string[];
-}
-
-export namespace PutOrganizationConformancePackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConformancePackRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutOrganizationConformancePackResponse {
-  /**
-   * <p>ARN of the organization conformance pack.</p>
-   */
-  OrganizationConformancePackArn?: string;
-}
-
-export namespace PutOrganizationConformancePackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOrganizationConformancePackResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutRemediationConfigurationsRequest {
-  /**
-   * <p>A list of remediation configuration objects.</p>
-   */
-  RemediationConfigurations: RemediationConfiguration[] | undefined;
-}
-
-export namespace PutRemediationConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutRemediationConfigurationsResponse {
-  /**
-   * <p>Returns a list of failed remediation batch objects.</p>
-   */
-  FailedBatches?: FailedRemediationBatch[];
-}
-
-export namespace PutRemediationConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutRemediationExceptionsRequest {
-  /**
-   * <p>The name of the Config rule for which you want to create remediation exception.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
-   * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
-   */
-  ResourceKeys: RemediationExceptionResourceKey[] | undefined;
-
-  /**
-   * <p>The message contains an explanation of the exception.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The exception is automatically deleted after the expiration date.</p>
-   */
-  ExpirationTime?: Date;
-}
-
-export namespace PutRemediationExceptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationExceptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutRemediationExceptionsResponse {
-  /**
-   * <p>Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-   */
-  FailedBatches?: FailedRemediationExceptionBatch[];
-}
-
-export namespace PutRemediationExceptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRemediationExceptionsResponse): any => ({
     ...obj,
   });
 }

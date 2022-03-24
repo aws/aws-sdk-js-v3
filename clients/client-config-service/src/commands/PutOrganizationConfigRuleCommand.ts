@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_0";
+import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1PutOrganizationConfigRuleCommand,
   serializeAws_json1_1PutOrganizationConfigRuleCommand,
@@ -22,9 +22,9 @@ export interface PutOrganizationConfigRuleCommandInput extends PutOrganizationCo
 export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationConfigRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates organization config rule for your entire organization evaluating whether your Amazon Web Services resources comply with your
+ * <p>Adds or updates organization Config rule for your entire organization evaluating whether your Amazon Web Services resources comply with your
  * 			desired configurations.</p>
- * 	        <p> Only a master account and a delegated administrator can create or update an organization config rule.
+ * 	        <p> Only a master account and a delegated administrator can create or update an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
  * 		<code>ListDelegatedAdministrator</code> permissions are added. </p>
  * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service linked
@@ -39,7 +39,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * 			When you use the <code>PutOrganizationConfigRule</code> action to add the rule to Config, you must
  * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.
  * 			If you are adding an Config managed rule, specify the rule's identifier for the <code>RuleIdentifier</code> key.</p>
- * 		       <p>The maximum number of organization config rules that Config supports is 150 and 3 delegated administrator per organization. </p>
+ * 		       <p>The maximum number of organization Config rules that Config supports is 150 and 3 delegated administrator per organization. </p>
  * 		       <note>
  *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
  * 			         <p>Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.</p>
