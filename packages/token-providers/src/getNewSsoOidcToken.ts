@@ -9,10 +9,11 @@ import { getSsoOidcClient } from "./getSsoOidcClient";
 export const getNewSsoOidcToken = (ssoToken: SSOToken, ssoRegion: string) => {
   const ssoOidcClient = getSsoOidcClient(ssoRegion);
   return ssoOidcClient.send(
+    // @ts-ignore: Property 'deviceCode' is missing. Remove when deviceCode is made optional.
     new CreateTokenCommand({
       clientId: ssoToken.clientId,
       clientSecret: ssoToken.clientSecret,
-      deviceCode: ssoToken.refreshToken,
+      refreshToken: ssoToken.refreshToken,
       grantType: "refresh_token",
     })
   );

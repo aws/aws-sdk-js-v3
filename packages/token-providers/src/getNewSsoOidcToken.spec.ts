@@ -20,7 +20,7 @@ describe(getNewSsoOidcToken.name, () => {
   const mockCreateTokenArgs = {
     clientId: mockSsoToken.clientId,
     clientSecret: mockSsoToken.clientSecret,
-    deviceCode: mockSsoToken.refreshToken,
+    refreshToken: mockSsoToken.refreshToken,
     grantType: "refresh_token",
   };
 
