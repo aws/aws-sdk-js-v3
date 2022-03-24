@@ -10,10 +10,6 @@ jest.mock("./fromSharedConfigFiles");
 jest.mock("@aws-sdk/property-provider");
 
 describe("loadConfig", () => {
-  const configuration: SharedConfigInit = {
-    profile: "profile",
-  };
-
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -28,18 +24,15 @@ describe("loadConfig", () => {
     const envVarSelector = (env: NodeJS.ProcessEnv) => env["AWS_CONFIG_FOO"];
     const configKey = (profile: Profile) => profile["aws_config_foo"];
     const defaultValue = "foo-value";
-    loadConfig(
-      {
-        environmentVariableSelector: envVarSelector,
-        configFileSelector: configKey,
-        default: defaultValue,
-      },
-      configuration
-    );
+    loadConfig({
+      environmentVariableSelector: envVarSelector,
+      configFileSelector: configKey,
+      default: defaultValue,
+    });
     expect(fromEnv).toHaveBeenCalledTimes(1);
     expect(fromEnv).toHaveBeenCalledWith(envVarSelector);
     expect(fromSharedConfigFiles).toHaveBeenCalledTimes(1);
-    expect(fromSharedConfigFiles).toHaveBeenCalledWith(configKey, configuration);
+    expect(fromSharedConfigFiles).toHaveBeenCalledWith(configKey, {});
     expect(fromStatic).toHaveBeenCalledTimes(1);
     expect(fromStatic).toHaveBeenCalledWith(defaultValue);
     expect(chain).toHaveBeenCalledTimes(1);
