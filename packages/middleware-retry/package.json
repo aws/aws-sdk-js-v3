@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-retry",
-  "version": "3.55.0",
+  "version": "3.56.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -21,8 +21,8 @@
   "dependencies": {
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/service-error-classification": "*",
-    "@aws-sdk/util-middleware": "*",
     "@aws-sdk/types": "*",
+    "@aws-sdk/util-middleware": "*",
     "tslib": "^2.3.1",
     "uuid": "^8.3.2"
   },

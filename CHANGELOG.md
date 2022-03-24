@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.56.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.55.0...v3.56.0) (2022-03-24)
+
+
+### Features
+
+* **client-config-service:** Added new APIs GetCustomRulePolicy and GetOrganizationCustomRulePolicy, and updated existing APIs PutConfigRule, DescribeConfigRule, DescribeConfigRuleEvaluationStatus, PutOrganizationConfigRule, DescribeConfigRule to support a new feature for building AWS Config rules with AWS CloudFormation Guard ([da33251](https://github.com/aws/aws-sdk-js-v3/commit/da332519e1e5aa13a90b2c10371780da0733e21e))
+* **client-lambda:** Adds support for increased ephemeral storage (/tmp) up to 10GB for Lambda functions. Customers can now provision up to 10 GB of ephemeral storage per function instance, a 20x increase over the previous limit of 512 MB. ([d77b86b](https://github.com/aws/aws-sdk-js-v3/commit/d77b86b6fa2e3bd9c9226f107a6a476dd16a7d81))
+* **client-transcribe:** This release adds an additional parameter for subtitling with Amazon Transcribe batch jobs: outputStartIndex. ([8419c39](https://github.com/aws/aws-sdk-js-v3/commit/8419c399cdb580fa608d4df09f588fe67664ab47))
+* **clients:** update client endpoints to latest ([523b0fd](https://github.com/aws/aws-sdk-js-v3/commit/523b0fdf831d3d2f8b49fc33b45cb8d0b1520653))
+
+
+
+
+
 # [3.55.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.54.1...v3.55.0) (2022-03-21)
 
 
