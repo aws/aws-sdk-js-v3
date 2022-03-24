@@ -9,29 +9,11 @@ import { slurpFile } from "./slurpFile";
 export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
 
-export interface SharedConfigInit {
-  /**
-   * The path at which to locate the ini credentials file. Defaults to the
-   * value of the `AWS_SHARED_CREDENTIALS_FILE` environment variable (if
-   * defined) or `~/.aws/credentials` otherwise.
-   */
-  filepath?: string;
-
-  /**
-   * The path at which to locate the ini config file. Defaults to the value of
-   * the `AWS_CONFIG_FILE` environment variable (if defined) or
-   * `~/.aws/config` otherwise.
-   */
-  configFilepath?: string;
-}
-
 const swallowError = () => ({});
 
-export const loadSharedConfigFiles = async (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
-  const {
-    filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
-    configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
-  } = init;
+export const loadSharedConfigFiles = async (): Promise<SharedConfigFiles> => {
+  const filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials");
+  const configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config");
 
   const parsedFiles = await Promise.all([
     slurpFile(configFilepath).then(parseIni).then(normalizeConfigFile).catch(swallowError),

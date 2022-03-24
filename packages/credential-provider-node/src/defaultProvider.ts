@@ -50,7 +50,7 @@ export const defaultProvider = (
   const options = {
     profile: process.env[ENV_PROFILE],
     ...init,
-    ...(!init.loadedConfig && { loadedConfig: loadSharedConfigFiles(init) }),
+    ...(!init.loadedConfig && { loadedConfig: loadSharedConfigFiles() }),
   };
 
   const providerChain = chain(

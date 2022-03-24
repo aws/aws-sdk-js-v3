@@ -1,8 +1,8 @@
 import { ParsedIniData, SharedConfigFiles } from "@aws-sdk/types";
 
-import { loadSharedConfigFiles, SharedConfigInit } from "./loadSharedConfigFiles";
+import { loadSharedConfigFiles } from "./loadSharedConfigFiles";
 
-export interface SourceProfileInit extends SharedConfigInit {
+export interface SourceProfileInit {
   /**
    * The configuration profile to use.
    */
@@ -24,7 +24,7 @@ export interface SourceProfileInit extends SharedConfigInit {
  * @internal
  */
 export const parseKnownFiles = async (init: SourceProfileInit): Promise<ParsedIniData> => {
-  const { loadedConfig = loadSharedConfigFiles(init) } = init;
+  const { loadedConfig = loadSharedConfigFiles() } = init;
 
   const parsedFiles = await loadedConfig;
   return {
