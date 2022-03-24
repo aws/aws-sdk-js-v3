@@ -63,7 +63,8 @@ describe(fromSso.name, () => {
     it("when profile is not found", async () => {
       (parseKnownFiles as jest.Mock).mockReturnValue({});
       const expectedError = new TokenProviderError(
-        `Profile '${mockProfileName}' could not be found in shared credentials file.`
+        `Profile '${mockProfileName}' could not be found in shared credentials file.`,
+        false
       );
       await expect(fromSso(mockInit)()).rejects.toStrictEqual(expectedError);
     });

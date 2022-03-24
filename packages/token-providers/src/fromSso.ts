@@ -32,8 +32,8 @@ export const fromSso =
     const profile = profiles[profileName];
 
     if (!profile) {
-      // Profile not found. Not a terminal error.
-      throw new TokenProviderError(`Profile '${profileName}' could not be found in shared credentials file.`);
+      // Profile not found. This is a terminal error.
+      throw new TokenProviderError(`Profile '${profileName}' could not be found in shared credentials file.`, false);
     } else if (!profile["sso_start_url"]) {
       // Profile found but it does not contain sso_start_url. Not a terminal error.
       throw new TokenProviderError(`Profile '${profileName}' is missing required property 'sso_start_url'.`);
