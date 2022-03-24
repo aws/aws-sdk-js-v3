@@ -207,6 +207,7 @@ import {
   Environment,
   EnvironmentError,
   EnvironmentResponse,
+  EphemeralStorage,
   EventSourceMappingConfiguration,
   FileSystemConfig,
   Filter,
@@ -536,6 +537,10 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Environment !== undefined &&
       input.Environment !== null && { Environment: serializeAws_restJson1Environment(input.Environment, context) }),
+    ...(input.EphemeralStorage !== undefined &&
+      input.EphemeralStorage !== null && {
+        EphemeralStorage: serializeAws_restJson1EphemeralStorage(input.EphemeralStorage, context),
+      }),
     ...(input.FileSystemConfigs !== undefined &&
       input.FileSystemConfigs !== null && {
         FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
@@ -2390,6 +2395,10 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Environment !== undefined &&
       input.Environment !== null && { Environment: serializeAws_restJson1Environment(input.Environment, context) }),
+    ...(input.EphemeralStorage !== undefined &&
+      input.EphemeralStorage !== null && {
+        EphemeralStorage: serializeAws_restJson1EphemeralStorage(input.EphemeralStorage, context),
+      }),
     ...(input.FileSystemConfigs !== undefined &&
       input.FileSystemConfigs !== null && {
         FileSystemConfigs: serializeAws_restJson1FileSystemConfigList(input.FileSystemConfigs, context),
@@ -2890,6 +2899,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    EphemeralStorage: undefined,
     FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
@@ -2935,6 +2945,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
   }
   if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
@@ -4142,6 +4155,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    EphemeralStorage: undefined,
     FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
@@ -4187,6 +4201,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
   }
   if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
@@ -5657,6 +5674,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    EphemeralStorage: undefined,
     FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
@@ -5702,6 +5720,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
   }
   if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
@@ -6614,6 +6635,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    EphemeralStorage: undefined,
     FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
@@ -6659,6 +6681,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
   }
   if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
@@ -6809,6 +6834,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     DeadLetterConfig: undefined,
     Description: undefined,
     Environment: undefined,
+    EphemeralStorage: undefined,
     FileSystemConfigs: undefined,
     FunctionArn: undefined,
     FunctionName: undefined,
@@ -6854,6 +6880,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   if (data.Environment !== undefined && data.Environment !== null) {
     contents.Environment = deserializeAws_restJson1EnvironmentResponse(data.Environment, context);
+  }
+  if (data.EphemeralStorage !== undefined && data.EphemeralStorage !== null) {
+    contents.EphemeralStorage = deserializeAws_restJson1EphemeralStorage(data.EphemeralStorage, context);
   }
   if (data.FileSystemConfigs !== undefined && data.FileSystemConfigs !== null) {
     contents.FileSystemConfigs = deserializeAws_restJson1FileSystemConfigList(data.FileSystemConfigs, context);
@@ -7857,6 +7886,12 @@ const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: stri
   }, {});
 };
 
+const serializeAws_restJson1EphemeralStorage = (input: EphemeralStorage, context: __SerdeContext): any => {
+  return {
+    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
+  };
+};
+
 const serializeAws_restJson1FileSystemConfig = (input: FileSystemConfig, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
@@ -8338,6 +8373,12 @@ const deserializeAws_restJson1EnvironmentVariables = (
   }, {});
 };
 
+const deserializeAws_restJson1EphemeralStorage = (output: any, context: __SerdeContext): EphemeralStorage => {
+  return {
+    Size: __expectInt32(output.Size),
+  } as any;
+};
+
 const deserializeAws_restJson1EventSourceMappingConfiguration = (
   output: any,
   context: __SerdeContext
@@ -8494,6 +8535,10 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     Environment:
       output.Environment !== undefined && output.Environment !== null
         ? deserializeAws_restJson1EnvironmentResponse(output.Environment, context)
+        : undefined,
+    EphemeralStorage:
+      output.EphemeralStorage !== undefined && output.EphemeralStorage !== null
+        ? deserializeAws_restJson1EphemeralStorage(output.EphemeralStorage, context)
         : undefined,
     FileSystemConfigs:
       output.FileSystemConfigs !== undefined && output.FileSystemConfigs !== null

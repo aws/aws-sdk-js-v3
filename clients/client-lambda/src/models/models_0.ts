@@ -1386,6 +1386,25 @@ export namespace Environment {
 }
 
 /**
+ * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+ */
+export interface EphemeralStorage {
+  /**
+   * <p>The size of the function’s /tmp directory.</p>
+   */
+  Size: number | undefined;
+}
+
+export namespace EphemeralStorage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EphemeralStorage): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about the connection between a Lambda function and an
  *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
@@ -1664,6 +1683,11 @@ export interface CreateFunctionRequest {
    *      The default value is <code>x86_64</code>.</p>
    */
   Architectures?: (Architecture | string)[];
+
+  /**
+   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   */
+  EphemeralStorage?: EphemeralStorage;
 }
 
 export namespace CreateFunctionRequest {
@@ -2073,6 +2097,11 @@ export interface FunctionConfiguration {
    *       valid values. The default architecture value is <code>x86_64</code>.</p>
    */
   Architectures?: (Architecture | string)[];
+
+  /**
+   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   */
+  EphemeralStorage?: EphemeralStorage;
 }
 
 export namespace FunctionConfiguration {
@@ -5821,6 +5850,11 @@ export interface UpdateFunctionConfigurationRequest {
    *         values</a> that override the values in the container image Docker file.</p>
    */
   ImageConfig?: ImageConfig;
+
+  /**
+   * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
+   */
+  EphemeralStorage?: EphemeralStorage;
 }
 
 export namespace UpdateFunctionConfigurationRequest {
