@@ -39,6 +39,7 @@ describe("fromSharedConfigFiles", () => {
     } & SharedConfigInit;
 
     const loadedConfigResolves: (LoadedConfigTestData & {
+      profile?: string;
       configValueToVerify: string;
     })[] = [
       {
@@ -97,7 +98,9 @@ describe("fromSharedConfigFiles", () => {
       },
     ];
 
-    const loadedConfigRejects: LoadedConfigTestData[] = [
+    const loadedConfigRejects: (LoadedConfigTestData & {
+      profile?: string;
+    })[] = [
       {
         message: "rejects if default profile is not present and profile value is not passed",
         iniDataInConfig: {
@@ -123,9 +126,8 @@ describe("fromSharedConfigFiles", () => {
               configFile: iniDataInConfig,
               credentialsFile: iniDataInCredentials,
             });
-            return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).resolves.toBe(
-              configValueToVerify
-            );
+            if (profile) process.env[ENV_PROFILE] = profile;
+            return expect(fromSharedConfigFiles(configGetter, { preferredFile })()).resolves.toBe(configValueToVerify);
           });
         }
       );
@@ -136,37 +138,10 @@ describe("fromSharedConfigFiles", () => {
             configFile: iniDataInConfig,
             credentialsFile: iniDataInCredentials,
           });
-          return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).rejects.toMatchObject(
+          if (profile) process.env[ENV_PROFILE] = profile;
+          return expect(fromSharedConfigFiles(configGetter, { preferredFile })()).rejects.toMatchObject(
             getCredentialsProviderError(profile ?? "default", configGetter)
           );
-        });
-      });
-    });
-
-    describe("uses pre-loaded config if supplied", () => {
-      loadedConfigResolves.forEach(
-        ({ message, iniDataInConfig, iniDataInCredentials, configValueToVerify, profile, preferredFile }) => {
-          it(`${message} from config file`, () => {
-            const loadedConfig = Promise.resolve({
-              configFile: iniDataInConfig,
-              credentialsFile: iniDataInCredentials,
-            });
-            return expect(
-              fromSharedConfigFiles(configGetter, { loadedConfig, profile, preferredFile })()
-            ).resolves.toBe(configValueToVerify);
-          });
-        }
-      );
-
-      loadedConfigRejects.forEach(({ message, iniDataInConfig, iniDataInCredentials, profile, preferredFile }) => {
-        it(message, () => {
-          const loadedConfig = Promise.resolve({
-            configFile: iniDataInConfig,
-            credentialsFile: iniDataInCredentials,
-          });
-          return expect(
-            fromSharedConfigFiles(configGetter, { loadedConfig, profile, preferredFile })()
-          ).rejects.toMatchObject(getCredentialsProviderError(profile ?? "default", configGetter));
         });
       });
     });
@@ -194,19 +169,22 @@ describe("fromSharedConfigFiles", () => {
         default: { [configKey]: "credentialsFileDefault" },
       },
     };
-    const loadedConfig = Promise.resolve(loadedConfigData);
 
     describe("when profile is not defined", () => {
+      beforeEach(() => {
+        (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce(loadedConfigData);
+      });
+
       it(`returns configValue from value in '${ENV_PROFILE}' env var if it is set`, () => {
         const profile = "foo";
         process.env[ENV_PROFILE] = profile;
-        return expect(fromSharedConfigFiles(configGetter, { loadedConfig })()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter, {})()).resolves.toBe(
           loadedConfigData.configFile[profile][configKey]
         );
       });
 
       it(`returns configValue from default profile if '${ENV_PROFILE}' env var is not set`, () => {
-        return expect(fromSharedConfigFiles(configGetter, { loadedConfig })()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter, {})()).resolves.toBe(
           loadedConfigData.configFile.default[configKey]
         );
       });

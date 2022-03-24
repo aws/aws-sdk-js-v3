@@ -1,30 +1,17 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles, SharedConfigInit as BaseSharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
-import { Profile, Provider, SharedConfigFiles } from "@aws-sdk/types";
+import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { Profile, Provider } from "@aws-sdk/types";
 
 const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";
 
-export interface SharedConfigInit extends BaseSharedConfigInit {
-  /**
-   * The configuration profile to use.
-   */
-  profile?: string;
-
+export interface SharedConfigInit {
   /**
    * The preferred shared ini file to load the config. "config" option refers to
    * the shared config file(defaults to `~/.aws/config`). "credentials" option
    * refers to the shared credentials file(defaults to `~/.aws/credentials`)
    */
   preferredFile?: "config" | "credentials";
-
-  /**
-   * A promise that will be resolved with loaded and parsed credentials files.
-   * Used to avoid loading shared config files multiple times.
-   *
-   * @internal
-   */
-  loadedConfig?: Promise<SharedConfigFiles>;
 }
 
 export type GetterFromConfig<T> = (profile: Profile) => T | undefined;
@@ -33,12 +20,10 @@ export type GetterFromConfig<T> = (profile: Profile) => T | undefined;
  * Get config value from the shared config files with inferred profile name.
  */
 export const fromSharedConfigFiles =
-  <T = string>(
-    configSelector: GetterFromConfig<T>,
-    { preferredFile = "config", ...init }: SharedConfigInit = {}
-  ): Provider<T> =>
+  <T = string>(configSelector: GetterFromConfig<T>, { preferredFile = "config" }: SharedConfigInit = {}): Provider<T> =>
   async () => {
-    const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
+    const loadedConfig = loadSharedConfigFiles();
+    const profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE;
 
     const { configFile, credentialsFile } = await loadedConfig;
 
