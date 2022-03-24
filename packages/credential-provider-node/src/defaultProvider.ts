@@ -57,7 +57,7 @@ export const defaultProvider = (
     ...(options.profile ? [] : [fromEnv()]),
     fromSSO(options),
     fromIni(options),
-    fromProcess(options),
+    fromProcess(),
     fromTokenFile(options),
     remoteProvider(options),
     async () => {

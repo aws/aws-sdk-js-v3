@@ -1,12 +1,4 @@
-import {
-  parseKnownFiles as __parseKnownFiles,
-  SourceProfileInit as __SourceProfileInit,
-} from "@aws-sdk/shared-ini-file-loader";
-
-/**
- * @deprecated Use SourceProfileInit from "@aws-sdk/shared-ini-file-loader" instead.
- */
-export interface SourceProfileInit extends __SourceProfileInit {}
+import { parseKnownFiles as __parseKnownFiles } from "@aws-sdk/shared-ini-file-loader";
 
 /**
  * @deprecated Use parseKnownFiles from "@aws-sdk/shared-ini-file-loader" instead.

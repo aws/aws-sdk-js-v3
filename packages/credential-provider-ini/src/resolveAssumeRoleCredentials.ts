@@ -83,7 +83,7 @@ export const resolveAssumeRoleCredentials = async (
   if (source_profile && source_profile in visitedProfiles) {
     throw new CredentialsProviderError(
       `Detected a cycle attempting to resolve credentials for profile` +
-        ` ${getProfileName(options)}. Profiles visited: ` +
+        ` ${getProfileName()}. Profiles visited: ` +
         Object.keys(visitedProfiles).join(", "),
       false
     );
