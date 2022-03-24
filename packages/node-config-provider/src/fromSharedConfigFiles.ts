@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, SharedConfigInit as BaseSharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
-import { Profile, Provider, SharedConfigFiles } from "@aws-sdk/types";
+import { Profile, Provider } from "@aws-sdk/types";
 
 const DEFAULT_PROFILE = "default";
 export const ENV_PROFILE = "AWS_PROFILE";
@@ -17,14 +17,6 @@ export interface SharedConfigInit extends BaseSharedConfigInit {
    * refers to the shared credentials file(defaults to `~/.aws/credentials`)
    */
   preferredFile?: "config" | "credentials";
-
-  /**
-   * A promise that will be resolved with loaded and parsed credentials files.
-   * Used to avoid loading shared config files multiple times.
-   *
-   * @internal
-   */
-  loadedConfig?: Promise<SharedConfigFiles>;
 }
 
 export type GetterFromConfig<T> = (profile: Profile) => T | undefined;
@@ -38,9 +30,9 @@ export const fromSharedConfigFiles =
     { preferredFile = "config", ...init }: SharedConfigInit = {}
   ): Provider<T> =>
   async () => {
-    const { loadedConfig = loadSharedConfigFiles(init), profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
+    const { profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
 
-    const { configFile, credentialsFile } = await loadedConfig;
+    const { configFile, credentialsFile } = await loadSharedConfigFiles(init);
 
     const profileFromCredentials = credentialsFile[profile] || {};
     const profileFromConfig = configFile[profile] || {};
