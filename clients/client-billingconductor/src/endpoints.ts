@@ -1,7 +1,17 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "aws-global": {
+    variants: [
+      {
+        hostname: "billingconductor.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -15,6 +25,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "ap-southeast-3",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -48,6 +59,7 @@ const partitionHash: PartitionHash = {
         tags: ["dualstack"],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],

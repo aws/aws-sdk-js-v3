@@ -10,6 +10,22 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "meetings-chime-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "meetings-chime-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-2": {
     variants: [
       {
@@ -119,7 +135,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["us-gov-east-1", "us-gov-east-1-fips", "us-gov-west-1", "us-gov-west-1-fips"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     variants: [
       {
