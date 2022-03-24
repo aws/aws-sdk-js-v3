@@ -447,7 +447,7 @@ export interface CallAnalyticsJob {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate, in Hertz, of the audio.</p>
+   * <p>The sample rate, in Hertz, of the input audio.</p>
    */
   MediaSampleRateHertz?: number;
 
@@ -2433,13 +2433,14 @@ export enum SubtitleFormat {
 }
 
 /**
- * <p>Choose the output format for your subtitle file and the S3 location where you want
- *             your file saved.</p>
+ * <p>The S3 location where your subtitle files are located. Note that your subtitle files are
+ *             placed in the same location as your transcription output. Refer to
+ *             <code>TranscriptFileUri</code> to download your files.</p>
  */
 export interface SubtitlesOutput {
   /**
-   * <p>Specify the output format for your subtitle file; if you select both SRT and VTT formats,
-   *             two output files are generated.</p>
+   * <p>The format of your subtitle files. If your request specified both <code>srt</code> and
+   *             <code>vtt</code> formats, both formats are shown.</p>
    */
   Formats?: (SubtitleFormat | string)[];
 
@@ -2448,6 +2449,12 @@ export interface SubtitlesOutput {
    *             bucket.</p>
    */
   SubtitleFileUris?: string[];
+
+  /**
+   * <p>Shows the output start index value for your subtitle files. If you did not specify a value
+   *             in your request, the default value of <code>0</code> is used.</p>
+   */
+  OutputStartIndex?: number;
 }
 
 export namespace SubtitlesOutput {
@@ -3831,13 +3838,24 @@ export namespace StartMedicalTranscriptionJobResponse {
 }
 
 /**
- * <p>Generate subtitles for your batch transcription job.</p>
+ * <p>Generate subtitles for your batch transcription job. Note that your subtitle files are
+ *             placed in the same location as your transcription output.</p>
  */
 export interface Subtitles {
   /**
-   * <p>Specify the output format for your subtitle file.</p>
+   * <p>Specify the output format for your subtitle file; if you select both <code>srt</code> and
+   *             <code>vtt</code> formats, two output files are generated.</p>
    */
   Formats?: (SubtitleFormat | string)[];
+
+  /**
+   * <p>Defines the starting value that is assigned to the first subtitle segment.</p>
+   *         <p>The default start index for Amazon Transcribe is <code>0</code>, which differs from
+   *             the more widely used standard of <code>1</code>. If you're uncertain which value to use,
+   *             we recommend choosing <code>1</code>, as this may improve compatibility with other
+   *             services.</p>
+   */
+  OutputStartIndex?: number;
 }
 
 export namespace Subtitles {
@@ -3859,7 +3877,9 @@ export interface StartTranscriptionJobRequest {
   TranscriptionJobName: string | undefined;
 
   /**
-   * <p>The language code for the language used in the input media file.</p>
+   * <p>The language code for the language used in the input media file. You must include
+   *             either <code>LanguageCode</code> or <code>IdentifyLanguage</code> in your
+   *             request.</p>
    *         <p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
    *             be encoded at a sample rate of 16,000 Hz or higher.</p>
    */
@@ -3989,6 +4009,8 @@ export interface StartTranscriptionJobRequest {
    *             Automatic language identification is disabled by default. You receive a
    *             <code>BadRequestException</code> error if you enter a value for a
    *             <code>LanguageCode</code>.</p>
+   *         <p>You must include either <code>LanguageCode</code> or
+   *             <code>IdentifyLanguage</code> in your request.</p>
    */
   IdentifyLanguage?: boolean;
 
@@ -4030,7 +4052,7 @@ export namespace StartTranscriptionJobRequest {
 
 export interface StartTranscriptionJobResponse {
   /**
-   * <p>An object containing details of the asynchronous transcription job.</p>
+   * <p>Provides information about your asynchronous transcription job.</p>
    */
   TranscriptionJob?: TranscriptionJob;
 }

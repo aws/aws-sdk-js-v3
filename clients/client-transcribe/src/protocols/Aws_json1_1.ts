@@ -3595,6 +3595,8 @@ const serializeAws_json1_1Subtitles = (input: Subtitles, context: __SerdeContext
   return {
     ...(input.Formats !== undefined &&
       input.Formats !== null && { Formats: serializeAws_json1_1SubtitleFormats(input.Formats, context) }),
+    ...(input.OutputStartIndex !== undefined &&
+      input.OutputStartIndex !== null && { OutputStartIndex: input.OutputStartIndex }),
   };
 };
 
@@ -4667,6 +4669,7 @@ const deserializeAws_json1_1SubtitlesOutput = (output: any, context: __SerdeCont
       output.Formats !== undefined && output.Formats !== null
         ? deserializeAws_json1_1SubtitleFormats(output.Formats, context)
         : undefined,
+    OutputStartIndex: __expectInt32(output.OutputStartIndex),
     SubtitleFileUris:
       output.SubtitleFileUris !== undefined && output.SubtitleFileUris !== null
         ? deserializeAws_json1_1SubtitleFileUris(output.SubtitleFileUris, context)
