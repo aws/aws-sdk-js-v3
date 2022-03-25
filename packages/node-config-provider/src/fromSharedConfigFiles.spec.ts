@@ -173,13 +173,13 @@ describe("fromSharedConfigFiles", () => {
       it(`returns configValue from value in '${ENV_PROFILE}' env var if it is set`, () => {
         const profile = "foo";
         process.env[ENV_PROFILE] = profile;
-        return expect(fromSharedConfigFiles(configGetter, {})()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter)()).resolves.toBe(
           loadedConfigData.configFile[profile][configKey]
         );
       });
 
       it(`returns configValue from default profile if '${ENV_PROFILE}' env var is not set`, () => {
-        return expect(fromSharedConfigFiles(configGetter, {})()).resolves.toBe(
+        return expect(fromSharedConfigFiles(configGetter)()).resolves.toBe(
           loadedConfigData.configFile.default[configKey]
         );
       });
