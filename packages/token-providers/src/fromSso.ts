@@ -60,7 +60,7 @@ export const fromSso =
 
     const { accessToken, expiresAt } = ssoToken;
     const existingToken: Token = { token: accessToken, expiration: new Date(expiresAt) };
-    if (existingToken.expiration.getTime() - Date.now() > EXPIRE_WINDOW_MS) {
+    if (existingToken.expiration!.getTime() - Date.now() > EXPIRE_WINDOW_MS) {
       // Token is valid and not expired.
       return existingToken;
     }
