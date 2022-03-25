@@ -46,27 +46,19 @@ import { remoteProvider } from "./remoteProvider";
  */
 export const defaultProvider = (
   init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit = {}
-): MemoizedProvider<Credentials> => {
-  const options = {
-    profile: process.env[ENV_PROFILE],
-    ...init,
-  };
-
-  const providerChain = chain(
-    ...(options.profile ? [] : [fromEnv()]),
-    fromSSO(options),
-    fromIni(options),
-    fromProcess(options),
-    fromTokenFile(options),
-    remoteProvider(options),
-    async () => {
-      throw new CredentialsProviderError("Could not load credentials from any providers", false);
-    }
-  );
-
-  return memoize(
-    providerChain,
+): MemoizedProvider<Credentials> =>
+  memoize(
+    chain(
+      ...(init.profile || process.env[ENV_PROFILE] ? [] : [fromEnv()]),
+      fromSSO(init),
+      fromIni(init),
+      fromProcess(init),
+      fromTokenFile(init),
+      remoteProvider(init),
+      async () => {
+        throw new CredentialsProviderError("Could not load credentials from any providers", false);
+      }
+    ),
     (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000,
     (credentials) => credentials.expiration !== undefined
   );
-};
