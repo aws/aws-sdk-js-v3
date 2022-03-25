@@ -27,7 +27,6 @@ describe(defaultProvider.name, () => {
 
   const mockInit = {
     profile: "mockProfile",
-    loadedConfig: Promise.resolve({ configFile: {}, credentialsFile: {} }),
   };
 
   const mockEnvFn = jest.fn();
@@ -112,25 +111,6 @@ describe(defaultProvider.name, () => {
       }
 
       process.env = ORIGINAL_ENV;
-    });
-
-    it(`gets loadedConfig from loadSharedConfigFiles, if not provided in init`, async () => {
-      const mockSharedConfigFiles = Promise.resolve({
-        configFile: { key: "value" },
-        credentialsFile: { key: "value" },
-      });
-      (loadSharedConfigFiles as jest.Mock).mockReturnValue(mockSharedConfigFiles);
-
-      const { loadedConfig, ...mockInitWithoutLoadedConfig } = mockInit;
-      const receivedCreds = await defaultProvider(mockInitWithoutLoadedConfig)();
-      expect(receivedCreds).toStrictEqual(mockCreds);
-
-      expect(loadSharedConfigFiles).toHaveBeenCalledWith(mockInitWithoutLoadedConfig);
-
-      expect(fromEnv).not.toHaveBeenCalled();
-      for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
-        expect(fromFn).toHaveBeenCalledWith({ ...mockInit, loadedConfig: mockSharedConfigFiles });
-      }
     });
   });
 

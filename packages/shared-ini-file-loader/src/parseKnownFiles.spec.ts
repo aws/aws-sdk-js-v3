@@ -17,22 +17,7 @@ describe(parseKnownFiles.name, () => {
     jest.clearAllMocks();
   });
 
-  it("gets parsedFiles from loadedConfig if provided in init", async () => {
-    const parsedFiles = await parseKnownFiles({
-      loadedConfig: Promise.resolve({
-        configFile: mockConfigFile,
-        credentialsFile: mockCredentialsFile,
-      }),
-    });
-
-    expect(loadSharedConfigFiles).not.toHaveBeenCalled();
-    expect(parsedFiles).toEqual({
-      ...mockConfigFile,
-      ...mockCredentialsFile,
-    });
-  });
-
-  it("gets parsedFiles from loadSharedConfigFiles if not provided in init", async () => {
+  it("gets parsedFiles from loadSharedConfigFiles", async () => {
     (loadSharedConfigFiles as jest.Mock).mockReturnValue(
       Promise.resolve({
         configFile: mockConfigFile,
