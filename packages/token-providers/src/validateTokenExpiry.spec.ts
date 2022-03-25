@@ -4,20 +4,19 @@ import { REFRESH_MESSAGE } from "./constants";
 import { validateTokenExpiry } from "./validateTokenExpiry";
 
 describe(validateTokenExpiry.name, () => {
-  const mockSsoToken = {
-    accessToken: "mockAccessToken",
-    expiresAt: new Date().toISOString(),
-  };
+  const mockToken = "mockToken";
 
-  it("throws TokenProviderError if ssoToken is expired", () => {
-    expect(() =>
-      validateTokenExpiry({ ...mockSsoToken, expiresAt: new Date(Date.now() - 1000).toISOString() })
-    ).toThrow(new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false));
+  it("throws TokenProviderError if token is expired", () => {
+    expect(() => validateTokenExpiry({ token: mockToken, expiration: new Date(Date.now() - 1000) })).toThrow(
+      new TokenProviderError(`Token is expired. ${REFRESH_MESSAGE}`, false)
+    );
   });
 
-  it("does nothing if ssoToken is not expired", () => {
-    expect(() =>
-      validateTokenExpiry({ ...mockSsoToken, expiresAt: new Date(Date.now() + 1000).toISOString() })
-    ).not.toThrow();
+  it("does not throw if token is not expired", () => {
+    expect(() => validateTokenExpiry({ token: mockToken, expiration: new Date(Date.now() + 1000) })).not.toThrow();
+  });
+
+  it("does not throw if expiration is not provided", () => {
+    expect(() => validateTokenExpiry({ token: mockToken })).not.toThrow();
   });
 });

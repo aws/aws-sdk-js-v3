@@ -6,7 +6,7 @@ import {
   SourceProfileInit,
   SSOToken,
 } from "@aws-sdk/shared-ini-file-loader";
-import { TokenProvider } from "@aws-sdk/types";
+import { Token, TokenProvider } from "@aws-sdk/types";
 
 import { EXPIRE_WINDOW_MS, REFRESH_MESSAGE } from "./constants";
 import { getNewSsoOidcToken } from "./getNewSsoOidcToken";
@@ -59,7 +59,7 @@ export const fromSso =
     validateTokenKey("expiresAt", ssoToken.expiresAt);
 
     const { accessToken, expiresAt } = ssoToken;
-    const existingToken = { token: accessToken, expiration: new Date(expiresAt) };
+    const existingToken: Token = { token: accessToken, expiration: new Date(expiresAt) };
     if (existingToken.expiration.getTime() - Date.now() > EXPIRE_WINDOW_MS) {
       // Token is valid and not expired.
       return existingToken;
@@ -68,7 +68,7 @@ export const fromSso =
     // Skip new refresh, if last refresh was done within 30 seconds.
     if (Date.now() - lastRefreshAttemptTime.getTime() < 30 * 1000) {
       /// return existing token if it's still valid.
-      validateTokenExpiry(ssoToken);
+      validateTokenExpiry(existingToken);
       return existingToken;
     }
 
@@ -100,7 +100,7 @@ export const fromSso =
       };
     } catch (error) {
       // return existing token if it's still valid.
-      validateTokenExpiry(ssoToken);
+      validateTokenExpiry(existingToken);
       return existingToken;
     }
   };
