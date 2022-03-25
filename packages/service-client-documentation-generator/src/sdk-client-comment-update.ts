@@ -31,7 +31,7 @@ export class SdkClientCommentUpdatePlugin extends ConverterComponent {
     return comment.startsWith("/*") && comment.endsWith("*/")
       ? comment
           .split("\n")
-          .filter((line) => line.substr(line.indexOf("*") + 1).trim().length !== 0)
+          .filter((line) => line.slice(line.indexOf("*") + 1).trim().length !== 0)
           .join("\n")
       : comment;
   }

@@ -49,7 +49,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
       expect(mockGet).toHaveBeenCalledTimes(1);
 
       expect(options.endpointDiscoveryCommandCtor).toHaveBeenCalledWith({
-        Operation: options.commandName.substr(0, options.commandName.length - 7),
+        Operation: options.commandName.slice(0, -7),
         Identifiers: options.identifiers,
       });
       expect(mockHandler).toHaveBeenCalledTimes(1);
@@ -88,7 +88,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
       expect(mockGet).toHaveBeenCalledTimes(3);
 
       expect(options.endpointDiscoveryCommandCtor).toHaveBeenCalledWith({
-        Operation: options.commandName.substr(0, options.commandName.length - 7),
+        Operation: options.commandName.slice(0, -7),
         Identifiers: options.identifiers,
       });
       expect(mockHandler).toHaveBeenCalledTimes(1);

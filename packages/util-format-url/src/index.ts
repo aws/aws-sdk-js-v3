@@ -4,7 +4,7 @@ import { HttpRequest } from "@aws-sdk/types";
 export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): string {
   const { port, query } = request;
   let { protocol, path, hostname } = request;
-  if (protocol && protocol.substr(-1) !== ":") {
+  if (protocol && protocol.slice(-1) !== ":") {
     protocol += ":";
   }
   if (port) {

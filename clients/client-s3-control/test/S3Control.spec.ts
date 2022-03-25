@@ -16,7 +16,7 @@ describe("S3Control Client", () => {
   s3Control.middlewareStack.add(interceptionMiddleware, { step: "finalizeRequest", name: "interceptionMiddleware" });
   const HEADER_OUTPOST_ID = "x-amz-outpost-id";
   const HEADER_ACCOUNT_ID = "x-amz-account-id";
-  const dateStr = new Date().toISOString().substr(0, 10).replace(/[\-:]/g, "");
+  const dateStr = new Date().toISOString().slice(0, 10).replace(/[\-:]/g, "");
 
   describe("CreateBucket", () => {
     it("should populate correct endpoint and signing region", async () => {
