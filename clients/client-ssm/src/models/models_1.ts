@@ -4104,7 +4104,8 @@ export interface GetPatchBaselineForPatchGroupRequest {
   PatchGroup: string | undefined;
 
   /**
-   * <p>Returns he operating system rule specified for patch groups using the patch baseline.</p>
+   * <p>Returns the operating system rule specified for patch groups using the patch
+   *    baseline.</p>
    */
   OperatingSystem?: OperatingSystem | string;
 }
@@ -4476,7 +4477,10 @@ export interface Association {
   AssociationVersion?: string;
 
   /**
-   * <p>The version of the document used in the association.</p>
+   * <p>The version of the document used in the association. If you change a document version for a
+   *    State Manager association, Systems Manager immediately runs the association unless you previously specifed
+   *    the <code>apply-only-at-cron-interval</code> parameter.</p>
+   *
    *          <important>
    *             <p>State Manager doesn't support running associations that use a new version of a document if
    *     that document is shared from another account. State Manager always runs the <code>default</code>
@@ -8268,13 +8272,10 @@ export interface PutParameterRequest {
    *          </ul>
    *          <p>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html">Creating Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
-   *             <p>The maximum length constraint listed below includes capacity for additional system
-   *     attributes that aren't part of the name. The maximum length for a parameter name, including the
-   *     full length of the parameter ARN, is 1011 characters. For example, the length of the following
-   *     parameter name is 65 characters, not 20 characters:</p>
-   *             <p>
-   *                <code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code>
-   *             </p>
+   *             <p>The maximum length constraint of 2048 characters listed below includes 1037 characters
+   *     reserved for internal use by Systems Manager. The maximum length for a parameter name that you create is
+   *     1011 characters. This includes the characters in the ARN that precede the name you specify, such
+   *     as <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.</p>
    *          </note>
    */
   Name: string | undefined;
@@ -9895,7 +9896,8 @@ export interface StartSessionRequest {
   Reason?: string;
 
   /**
-   * <p>Reserved for future use.</p>
+   * <p>The values you want to specify for the parameters defined in the Session
+   *    document.</p>
    */
   Parameters?: { [key: string]: string[] };
 }
@@ -10283,10 +10285,18 @@ export interface UpdateAssociationRequest {
    *    updated and then according to the schedule you specified. Specify this option if you don't want
    *    an association to run immediately after you update it. This parameter isn't supported for rate
    *    expressions.</p>
-   *          <p>Also, if you specified this option when you created the association, you can reset it. To do
-   *    so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the
-   *    association from the command line. This parameter forces the association to run immediately after
-   *    updating it and according to the interval specified.</p>
+   *
+   *          <p>If you chose this option when you created an association and later you edit that association
+   *    or you make changes to the SSM document on which that association is based (by using the
+   *    Documents page in the console), State Manager applies the association at the next specified cron
+   *    interval. For example, if you chose the <code>Latest</code> version of an SSM document when you
+   *    created an association and you edit the association by choosing a different document version on
+   *    the Documents page, State Manager applies the association at the next specified cron interval if
+   *    you previously selected this option. If this option wasn't selected, State Manager immediately
+   *    runs the association.</p>
+   *          <p>You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>
+   *    parameter when you update the association from the command line. This parameter forces the
+   *    association to run immediately after updating it and according to the interval specified.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
 
@@ -10499,6 +10509,11 @@ export interface UpdateDocumentRequest {
    * <p>The version of the document that you want to update. Currently, Systems Manager supports updating only
    *    the latest version of the document. You can specify the version number of the latest version or
    *    use the <code>$LATEST</code> variable.</p>
+   *          <note>
+   *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
+   *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+   *     parameter.</p>
+   *          </note>
    */
   DocumentVersion?: string;
 

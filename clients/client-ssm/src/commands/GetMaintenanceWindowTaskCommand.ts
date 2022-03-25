@@ -22,13 +22,14 @@ export interface GetMaintenanceWindowTaskCommandInput extends GetMaintenanceWind
 export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
- * <p>Lists the tasks in a maintenance window.</p>
- *          <note>
- *             <p>For maintenance window tasks without a specified target, you can't supply values for
- *      <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
- *     placeholder value of <code>1</code>, which may be reported in the response to this command.
- *     These values don't affect the running of your task and can be ignored.</p>
- *          </note>
+ * <p>Retrieves the details of a maintenance window task.</p>
+ *  	       <note>
+ *  		         <p>For maintenance window tasks without a specified target, you can't supply values for
+ *  			<code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a
+ *  			placeholder value of <code>1</code>, which may be reported in the response to this command.
+ *  			These values don't affect the running of your task and can be ignored.</p>
+ *  	       </note>
+ *  	       <p>To retrieve a list of tasks in a maintenance window, instead use the <a>DescribeMaintenanceWindowTasks</a> command.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

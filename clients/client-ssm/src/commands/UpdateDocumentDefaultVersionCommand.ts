@@ -25,6 +25,11 @@ export interface UpdateDocumentDefaultVersionCommandOutput
 
 /**
  * <p>Set the default version of a document. </p>
+ *          <note>
+ *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
+ *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+ *     parameter.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

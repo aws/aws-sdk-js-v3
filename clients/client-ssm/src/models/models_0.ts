@@ -122,6 +122,7 @@ export namespace Activation {
 }
 
 export enum ResourceTypeForTagging {
+  AUTOMATION = "Automation",
   DOCUMENT = "Document",
   MAINTENANCE_WINDOW = "MaintenanceWindow",
   MANAGED_INSTANCE = "ManagedInstance",
@@ -3265,6 +3266,7 @@ export enum OperatingSystem {
   OracleLinux = "ORACLE_LINUX",
   Raspbian = "RASPBIAN",
   RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
+  Rocky_Linux = "ROCKY_LINUX",
   Suse = "SUSE",
   Ubuntu = "UBUNTU",
   Windows = "WINDOWS",
