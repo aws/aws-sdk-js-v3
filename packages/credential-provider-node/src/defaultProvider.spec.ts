@@ -94,7 +94,7 @@ describe(defaultProvider.name, () => {
       expect(loadSharedConfigFiles).not.toHaveBeenCalled();
     });
 
-    it(`reads profile from env['${ENV_PROFILE}'], if not provided in init`, async () => {
+    it(`if env['${ENV_PROFILE}'] is set`, async () => {
       const ORIGINAL_ENV = process.env;
       process.env = {
         ...ORIGINAL_ENV,
@@ -107,7 +107,7 @@ describe(defaultProvider.name, () => {
 
       expect(fromEnv).not.toHaveBeenCalled();
       for (const fromFn of [fromSSO, fromIni, fromProcess, fromTokenFile, remoteProvider]) {
-        expect(fromFn).toHaveBeenCalledWith({ ...mockInit, profile: process.env[ENV_PROFILE] });
+        expect(fromFn).toHaveBeenCalledWith(mockInitWithoutProfile);
       }
 
       process.env = ORIGINAL_ENV;
