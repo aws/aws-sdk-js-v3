@@ -853,6 +853,39 @@
         "smithy.api#documentation": "<p>An entry for a prefix list.</p>"
       }
     },
+    "com.amazonaws.ec2#AdditionalDetail": {
+      "type": "structure",
+      "members": {
+        "AdditionalDetailType": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AdditionalDetailType",
+            "smithy.api#documentation": "<p>The information type.</p>",
+            "smithy.api#xmlName": "additionalDetailType"
+          }
+        },
+        "Component": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Component",
+            "smithy.api#documentation": "<p>The path component.</p>",
+            "smithy.api#xmlName": "component"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an additional detail for a path analysis.</p>"
+      }
+    },
+    "com.amazonaws.ec2#AdditionalDetailList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#AdditionalDetail",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#Address": {
       "type": "structure",
       "members": {
@@ -3445,7 +3478,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "Origin",
-            "smithy.api#documentation": "<p>Describes how the route was created. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CreateRoute</code> - The route was manually added to the route table.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Describes how the route was created. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>CreateRouteTable - The route was automatically created when the route table was created.</p>\n            </li>\n            <li>\n               <p>CreateRoute - The route was manually added to the route table.</p>\n            </li>\n            <li>\n               <p>EnableVgwRoutePropagation - The route was propagated by route propagation.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "origin"
           }
         },
@@ -3485,7 +3518,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "Direction",
-            "smithy.api#documentation": "<p>The direction. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The direction. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "direction"
           }
         },
@@ -9052,7 +9085,7 @@
       "type": "structure",
       "members": {
         "PoolId": {
-          "target": "com.amazonaws.ec2#CoipPoolId",
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
           "traits": {
             "aws.protocols#ec2QueryName": "PoolId",
             "smithy.api#documentation": "<p>The ID of the address pool.</p>",
@@ -9102,7 +9135,7 @@
     "com.amazonaws.ec2#CoipPoolIdSet": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.ec2#CoipPoolId",
+        "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
         "traits": {
           "smithy.api#xmlName": "item"
         }
@@ -25062,7 +25095,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>\n            </li>\n            <li>\n               <p>Status - The status of the analysis (running | succeeded | failed).</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>\n            </li>\n            <li>\n               <p>Status - The status of the analysis (running | succeeded | failed).</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -25138,7 +25171,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>Destination - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>DestinationPort - The destination port.</p>\n            </li>\n            <li>\n               <p>Name - The path name.</p>\n            </li>\n            <li>\n               <p>Protocol - The protocol.</p>\n            </li>\n            <li>\n               <p>Source - The ID of the resource.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>Destination - The ID of the resource.</p>\n            </li>\n            <li>\n               <p>DestinationPort - The destination port.</p>\n            </li>\n            <li>\n               <p>Name - The path name.</p>\n            </li>\n            <li>\n               <p>Protocol - The protocol.</p>\n            </li>\n            <li>\n               <p>Source - The ID of the resource.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -34194,7 +34227,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "Direction",
-            "smithy.api#documentation": "<p>The direction. The following are possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The direction. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>egress</p>\n            </li>\n            <li>\n               <p>ingress</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "direction"
           }
         },
@@ -34460,6 +34493,38 @@
             "aws.protocols#ec2QueryName": "VpnGateway",
             "smithy.api#documentation": "<p>The VPN gateway.</p>",
             "smithy.api#xmlName": "vpnGateway"
+          }
+        },
+        "TransitGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGateway",
+            "smithy.api#documentation": "<p>The transit gateway.</p>",
+            "smithy.api#xmlName": "transitGateway"
+          }
+        },
+        "TransitGatewayRouteTable": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayRouteTable",
+            "smithy.api#documentation": "<p>The transit gateway route table.</p>",
+            "smithy.api#xmlName": "transitGatewayRouteTable"
+          }
+        },
+        "TransitGatewayRouteTableRoute": {
+          "target": "com.amazonaws.ec2#TransitGatewayRouteTableRoute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayRouteTableRoute",
+            "smithy.api#documentation": "<p>The transit gateway route table route.</p>",
+            "smithy.api#xmlName": "transitGatewayRouteTableRoute"
+          }
+        },
+        "TransitGatewayAttachment": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayAttachment",
+            "smithy.api#documentation": "<p>The transit gateway attachment.</p>",
+            "smithy.api#xmlName": "transitGatewayAttachment"
           }
         }
       },
@@ -37118,7 +37183,7 @@
       "type": "structure",
       "members": {
         "PoolId": {
-          "target": "com.amazonaws.ec2#CoipPoolId",
+          "target": "com.amazonaws.ec2#Ipv4PoolCoipId",
           "traits": {
             "smithy.api#documentation": "<p>The ID of the address pool.</p>",
             "smithy.api#required": {}
@@ -48940,6 +49005,9 @@
         ]
       }
     },
+    "com.amazonaws.ec2#Ipv4PoolCoipId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#Ipv4PoolEc2Id": {
       "type": "string"
     },
@@ -59206,6 +59274,29 @@
             "aws.protocols#ec2QueryName": "Vpc",
             "smithy.api#documentation": "<p>The component VPC.</p>",
             "smithy.api#xmlName": "vpc"
+          }
+        },
+        "AdditionalDetails": {
+          "target": "com.amazonaws.ec2#AdditionalDetailList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AdditionalDetailSet",
+            "smithy.api#documentation": "<p>The additional details.</p>",
+            "smithy.api#xmlName": "additionalDetailSet"
+          }
+        },
+        "TransitGateway": {
+          "target": "com.amazonaws.ec2#AnalysisComponent",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGateway",
+            "smithy.api#xmlName": "transitGateway"
+          }
+        },
+        "TransitGatewayRouteTableRoute": {
+          "target": "com.amazonaws.ec2#TransitGatewayRouteTableRoute",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TransitGatewayRouteTableRoute",
+            "smithy.api#documentation": "<p>The route in a transit gateway route table.</p>",
+            "smithy.api#xmlName": "transitGatewayRouteTableRoute"
           }
         }
       },
@@ -75530,6 +75621,70 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#TransitGatewayRouteTableRoute": {
+      "type": "structure",
+      "members": {
+        "DestinationCidr": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "DestinationCidr",
+            "smithy.api#documentation": "<p>The CIDR block used for destination matches.</p>",
+            "smithy.api#xmlName": "destinationCidr"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The state of the route.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "RouteOrigin": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RouteOrigin",
+            "smithy.api#documentation": "<p>The route origin. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>static</p>\n            </li>\n            <li>\n               <p>propagated</p>\n            </li>\n         </ul>",
+            "smithy.api#xmlName": "routeOrigin"
+          }
+        },
+        "PrefixListId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PrefixListId",
+            "smithy.api#documentation": "<p>The ID of the prefix list.</p>",
+            "smithy.api#xmlName": "prefixListId"
+          }
+        },
+        "AttachmentId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "AttachmentId",
+            "smithy.api#documentation": "<p>The ID of the route attachment.</p>",
+            "smithy.api#xmlName": "attachmentId"
+          }
+        },
+        "ResourceId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceId",
+            "smithy.api#documentation": "<p>The ID of the resource for the route attachment.</p>",
+            "smithy.api#xmlName": "resourceId"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceType",
+            "smithy.api#documentation": "<p>The resource type for the route attachment.</p>",
+            "smithy.api#xmlName": "resourceType"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a route in a transit gateway route table.</p>"
       }
     },
     "com.amazonaws.ec2#TransitGatewayRouteTableState": {

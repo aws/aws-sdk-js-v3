@@ -847,7 +847,7 @@
         "DocumentVersion": {
           "target": "com.amazonaws.ssm#DocumentVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the document used in the association.</p>\n         <important>\n            <p>State Manager doesn't support running associations that use a new version of a document if\n    that document is shared from another account. State Manager always runs the <code>default</code>\n    version of a document if shared from another account, even though the Systems Manager console shows that a\n    new version was processed. If you want to run an association using a new version of a document\n    shared form another account, you must set the document version to <code>default</code>.</p>\n         </important>"
+            "smithy.api#documentation": "<p>The version of the document used in the association. If you change a document version for a\n   State Manager association, Systems Manager immediately runs the association unless you previously specifed\n   the <code>apply-only-at-cron-interval</code> parameter.</p>\n\n         <important>\n            <p>State Manager doesn't support running associations that use a new version of a document if\n    that document is shared from another account. State Manager always runs the <code>default</code>\n    version of a document if shared from another account, even though the Systems Manager console shows that a\n    new version was processed. If you want to run an association using a new version of a document\n    shared form another account, you must set the document version to <code>default</code>.</p>\n         </important>"
           }
         },
         "Targets": {
@@ -11033,7 +11033,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the tasks in a maintenance window.</p>\n         <note>\n            <p>For maintenance window tasks without a specified target, you can't supply values for\n     <code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a\n    placeholder value of <code>1</code>, which may be reported in the response to this command.\n    These values don't affect the running of your task and can be ignored.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Retrieves the details of a maintenance window task.</p>\n \t       <note>\n \t\t         <p>For maintenance window tasks without a specified target, you can't supply values for\n \t\t\t<code>--max-errors</code> and <code>--max-concurrency</code>. Instead, the system inserts a\n \t\t\tplaceholder value of <code>1</code>, which may be reported in the response to this command.\n \t\t\tThese values don't affect the running of your task and can be ignored.</p>\n \t       </note>\n \t       <p>To retrieve a list of tasks in a maintenance window, instead use the <a>DescribeMaintenanceWindowTasks</a> command.</p>"
       }
     },
     "com.amazonaws.ssm#GetMaintenanceWindowTaskRequest": {
@@ -11723,7 +11723,7 @@
         "OperatingSystem": {
           "target": "com.amazonaws.ssm#OperatingSystem",
           "traits": {
-            "smithy.api#documentation": "<p>Returns he operating system rule specified for patch groups using the patch baseline.</p>"
+            "smithy.api#documentation": "<p>Returns the operating system rule specified for patch groups using the patch\n   baseline.</p>"
           }
         }
       }
@@ -17118,6 +17118,10 @@
           {
             "value": "RASPBIAN",
             "name": "Raspbian"
+          },
+          {
+            "value": "ROCKY_LINUX",
+            "name": "Rocky_Linux"
           }
         ]
       }
@@ -20919,7 +20923,7 @@
         "Name": {
           "target": "com.amazonaws.ssm#PSParameterName",
           "traits": {
-            "smithy.api#documentation": "<p>The fully qualified name of the parameter that you want to add to the system. The fully\n   qualified name includes the complete hierarchy of the parameter path and name. For parameters in\n   a hierarchy, you must include a leading forward slash character (/) when you create or reference\n   a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code>\n         </p>\n         <p>Naming Constraints:</p>\n         <ul>\n            <li>\n               <p>Parameter names are case sensitive.</p>\n            </li>\n            <li>\n               <p>A parameter name must be unique within an Amazon Web Services Region</p>\n            </li>\n            <li>\n               <p>A parameter name can't be prefixed with \"<code>aws</code>\" or \"<code>ssm</code>\"\n     (case-insensitive).</p>\n            </li>\n            <li>\n               <p>Parameter names can include only the following symbols and letters:\n      <code>a-zA-Z0-9_.-</code>\n               </p>\n               <p>In addition, the slash character ( / ) is used to delineate hierarchies in parameter\n     names. For example: <code>/Dev/Production/East/Project-ABC/MyParameter</code>\n               </p>\n            </li>\n            <li>\n               <p>A parameter name can't include spaces.</p>\n            </li>\n            <li>\n               <p>Parameter hierarchies are limited to a maximum depth of fifteen levels.</p>\n            </li>\n         </ul>\n         <p>For additional information about valid values for parameter names, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html\">Creating Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>\n         <note>\n            <p>The maximum length constraint listed below includes capacity for additional system\n    attributes that aren't part of the name. The maximum length for a parameter name, including the\n    full length of the parameter ARN, is 1011 characters. For example, the length of the following\n    parameter name is 65 characters, not 20 characters:</p>\n            <p>\n               <code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code>\n            </p>\n         </note>",
+            "smithy.api#documentation": "<p>The fully qualified name of the parameter that you want to add to the system. The fully\n   qualified name includes the complete hierarchy of the parameter path and name. For parameters in\n   a hierarchy, you must include a leading forward slash character (/) when you create or reference\n   a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code>\n         </p>\n         <p>Naming Constraints:</p>\n         <ul>\n            <li>\n               <p>Parameter names are case sensitive.</p>\n            </li>\n            <li>\n               <p>A parameter name must be unique within an Amazon Web Services Region</p>\n            </li>\n            <li>\n               <p>A parameter name can't be prefixed with \"<code>aws</code>\" or \"<code>ssm</code>\"\n     (case-insensitive).</p>\n            </li>\n            <li>\n               <p>Parameter names can include only the following symbols and letters:\n      <code>a-zA-Z0-9_.-</code>\n               </p>\n               <p>In addition, the slash character ( / ) is used to delineate hierarchies in parameter\n     names. For example: <code>/Dev/Production/East/Project-ABC/MyParameter</code>\n               </p>\n            </li>\n            <li>\n               <p>A parameter name can't include spaces.</p>\n            </li>\n            <li>\n               <p>Parameter hierarchies are limited to a maximum depth of fifteen levels.</p>\n            </li>\n         </ul>\n         <p>For additional information about valid values for parameter names, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html\">Creating Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>\n         <note>\n            <p>The maximum length constraint of 2048 characters listed below includes 1037 characters\n    reserved for internal use by Systems Manager. The maximum length for a parameter name that you create is\n    1011 characters. This includes the characters in the ARN that precede the name you specify, such\n    as <code>arn:aws:ssm:us-east-2:111122223333:parameter/</code>.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -22238,6 +22242,10 @@
           {
             "value": "OpsMetadata",
             "name": "OPSMETADATA"
+          },
+          {
+            "value": "Automation",
+            "name": "AUTOMATION"
           }
         ]
       }
@@ -23678,7 +23686,7 @@
         "Parameters": {
           "target": "com.amazonaws.ssm#SessionManagerParameters",
           "traits": {
-            "smithy.api#documentation": "<p>Reserved for future use.</p>"
+            "smithy.api#documentation": "<p>The values you want to specify for the parameters defined in the Session\n   document.</p>"
           }
         }
       }
@@ -24784,7 +24792,7 @@
         "ApplyOnlyAtCronInterval": {
           "target": "com.amazonaws.ssm#ApplyOnlyAtCronInterval",
           "traits": {
-            "smithy.api#documentation": "<p>By default, when you update an association, the system runs it immediately after it is\n   updated and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you update it. This parameter isn't supported for rate\n   expressions.</p>\n         <p>Also, if you specified this option when you created the association, you can reset it. To do\n   so, specify the <code>no-apply-only-at-cron-interval</code> parameter when you update the\n   association from the command line. This parameter forces the association to run immediately after\n   updating it and according to the interval specified.</p>"
+            "smithy.api#documentation": "<p>By default, when you update an association, the system runs it immediately after it is\n   updated and then according to the schedule you specified. Specify this option if you don't want\n   an association to run immediately after you update it. This parameter isn't supported for rate\n   expressions.</p>\n\n         <p>If you chose this option when you created an association and later you edit that association\n   or you make changes to the SSM document on which that association is based (by using the\n   Documents page in the console), State Manager applies the association at the next specified cron\n   interval. For example, if you chose the <code>Latest</code> version of an SSM document when you\n   created an association and you edit the association by choosing a different document version on\n   the Documents page, State Manager applies the association at the next specified cron interval if\n   you previously selected this option. If this option wasn't selected, State Manager immediately\n   runs the association.</p>\n         <p>You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>\n   parameter when you update the association from the command line. This parameter forces the\n   association to run immediately after updating it and according to the interval specified.</p>"
           }
         },
         "CalendarNames": {
@@ -24948,7 +24956,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Set the default version of a document. </p>"
+        "smithy.api#documentation": "<p>Set the default version of a document. </p>\n         <note>\n            <p>If you change a document version for a State Manager association, Systems Manager immediately runs\n    the association unless you previously specifed the <code>apply-only-at-cron-interval</code>\n    parameter.</p>\n         </note>"
       }
     },
     "com.amazonaws.ssm#UpdateDocumentDefaultVersionRequest": {
@@ -25074,7 +25082,7 @@
         "DocumentVersion": {
           "target": "com.amazonaws.ssm#DocumentVersion",
           "traits": {
-            "smithy.api#documentation": "<p>The version of the document that you want to update. Currently, Systems Manager supports updating only\n   the latest version of the document. You can specify the version number of the latest version or\n   use the <code>$LATEST</code> variable.</p>"
+            "smithy.api#documentation": "<p>The version of the document that you want to update. Currently, Systems Manager supports updating only\n   the latest version of the document. You can specify the version number of the latest version or\n   use the <code>$LATEST</code> variable.</p>\n         <note>\n            <p>If you change a document version for a State Manager association, Systems Manager immediately runs\n    the association unless you previously specifed the <code>apply-only-at-cron-interval</code>\n    parameter.</p>\n         </note>"
           }
         },
         "DocumentFormat": {
