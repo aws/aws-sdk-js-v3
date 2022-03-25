@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.57.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.56.0...v3.57.0) (2022-03-25)
+
+
+### Features
+
+* **client-batch:** Bug Fix: Fixed a bug where shapes were marked as unboxed and were not serialized and sent over the wire, causing an API error from the service. ([193a1bc](https://github.com/aws/aws-sdk-js-v3/commit/193a1bc821ec4572161cc21d782d131dc3c153a8))
+* **client-ec2:** This is release adds support for Amazon VPC Reachability Analyzer to analyze path through a Transit Gateway. ([62b49fc](https://github.com/aws/aws-sdk-js-v3/commit/62b49fcdf2a24f886b9b621047c1e49b9fb721e4))
+* **client-ssm:** This Patch Manager release supports creating, updating, and deleting Patch Baselines for Rocky Linux OS. ([28ef4d2](https://github.com/aws/aws-sdk-js-v3/commit/28ef4d2d912e8e779ca4725ce7b6ac2075779808))
+
+
+
+
+
 # [3.56.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.55.0...v3.56.0) (2022-03-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.57.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.56.0...v3.57.0) (2022-03-25)
+
+
+### Features
+
+* **client-ssm:** This Patch Manager release supports creating, updating, and deleting Patch Baselines for Rocky Linux OS. ([28ef4d2](https://github.com/aws/aws-sdk-js-v3/commit/28ef4d2d912e8e779ca4725ce7b6ac2075779808))
+
+
+
+
+
 # [3.56.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.55.0...v3.56.0) (2022-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm
