@@ -1,9 +1,10 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles, SharedConfigInit as BaseSharedConfigInit } from "@aws-sdk/shared-ini-file-loader";
+import {
+  getProfileName,
+  loadSharedConfigFiles,
+  SharedConfigInit as BaseSharedConfigInit,
+} from "@aws-sdk/shared-ini-file-loader";
 import { Profile, Provider } from "@aws-sdk/types";
-
-const DEFAULT_PROFILE = "default";
-export const ENV_PROFILE = "AWS_PROFILE";
 
 export interface SharedConfigInit extends BaseSharedConfigInit {
   /**
@@ -30,8 +31,7 @@ export const fromSharedConfigFiles =
     { preferredFile = "config", ...init }: SharedConfigInit = {}
   ): Provider<T> =>
   async () => {
-    const { profile = process.env[ENV_PROFILE] || DEFAULT_PROFILE } = init;
-
+    const profile = getProfileName(init);
     const { configFile, credentialsFile } = await loadSharedConfigFiles(init);
 
     const profileFromCredentials = credentialsFile[profile] || {};

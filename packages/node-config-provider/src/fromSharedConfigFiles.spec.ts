@@ -1,25 +1,17 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+import { getProfileName, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 import { ParsedIniData, Profile } from "@aws-sdk/types";
 
-import { ENV_PROFILE, fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
+import { fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
 
 jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
+  getProfileName: jest.fn(),
   loadSharedConfigFiles: jest.fn(),
 }));
 
 describe("fromSharedConfigFiles", () => {
-  const envProfile = process.env[ENV_PROFILE];
   const configKey = "config_key";
   const configGetter: GetterFromConfig<string> = (profile: Profile) => profile[configKey];
-
-  beforeEach(() => {
-    delete process.env[ENV_PROFILE];
-  });
-
-  afterAll(() => {
-    process.env[ENV_PROFILE] = envProfile;
-  });
 
   const getCredentialsProviderError = (profile: string, getter: GetterFromConfig<string>) =>
     new CredentialsProviderError(
@@ -122,6 +114,7 @@ describe("fromSharedConfigFiles", () => {
             configFile: iniDataInConfig,
             credentialsFile: iniDataInCredentials,
           });
+          (getProfileName as jest.Mock).mockReturnValueOnce(profile ?? "default");
           return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).resolves.toBe(
             configValueToVerify
           );
@@ -135,6 +128,7 @@ describe("fromSharedConfigFiles", () => {
           configFile: iniDataInConfig,
           credentialsFile: iniDataInCredentials,
         });
+        (getProfileName as jest.Mock).mockReturnValueOnce(profile ?? "default");
         return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).rejects.toMatchObject(
           getCredentialsProviderError(profile ?? "default", configGetter)
         );
@@ -165,24 +159,15 @@ describe("fromSharedConfigFiles", () => {
       },
     };
 
-    describe("when profile is not defined", () => {
-      beforeEach(() => {
-        (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce(loadedConfigData);
-      });
+    beforeEach(() => {
+      (loadSharedConfigFiles as jest.Mock).mockResolvedValueOnce(loadedConfigData);
+    });
 
-      it(`returns configValue from value in '${ENV_PROFILE}' env var if it is set`, () => {
-        const profile = "foo";
-        process.env[ENV_PROFILE] = profile;
-        return expect(fromSharedConfigFiles(configGetter)()).resolves.toBe(
-          loadedConfigData.configFile[profile][configKey]
-        );
-      });
-
-      it(`returns configValue from default profile if '${ENV_PROFILE}' env var is not set`, () => {
-        return expect(fromSharedConfigFiles(configGetter)()).resolves.toBe(
-          loadedConfigData.configFile.default[configKey]
-        );
-      });
+    it.each(["foo", "default"])("returns config value from %s profile", (profile) => {
+      (getProfileName as jest.Mock).mockReturnValueOnce(profile);
+      return expect(fromSharedConfigFiles(configGetter)()).resolves.toBe(
+        loadedConfigData.configFile[profile][configKey]
+      );
     });
   });
 });
