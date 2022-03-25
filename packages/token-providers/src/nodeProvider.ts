@@ -24,7 +24,6 @@ export const nodeProvider = (init: FromSsoInit = {}): TokenProvider => {
   const options = {
     profile: process.env[ENV_PROFILE],
     ...init,
-    ...(!init.loadedConfig && { loadedConfig: loadSharedConfigFiles(init) }),
   };
 
   const providerChain = chain(fromSso(options), async () => {

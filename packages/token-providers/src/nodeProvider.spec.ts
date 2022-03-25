@@ -16,7 +16,6 @@ describe(nodeProvider.name, () => {
 
   const mockInit = {
     profile: "mockProfile",
-    loadedConfig: Promise.resolve({ configFile: {}, credentialsFile: {} }),
   };
 
   const mockSsoFn = jest.fn();
@@ -78,24 +77,6 @@ describe(nodeProvider.name, () => {
     }
 
     process.env = ORIGINAL_ENV;
-  });
-
-  it(`gets loadedConfig from loadSharedConfigFiles, if not provided in init`, async () => {
-    const mockSharedConfigFiles = Promise.resolve({
-      configFile: { key: "value" },
-      credentialsFile: { key: "value" },
-    });
-    (loadSharedConfigFiles as jest.Mock).mockReturnValue(mockSharedConfigFiles);
-
-    const { loadedConfig, ...mockInitWithoutLoadedConfig } = mockInit;
-    const receivedToken = await nodeProvider(mockInitWithoutLoadedConfig)();
-    expect(receivedToken).toStrictEqual(mockToken);
-
-    expect(loadSharedConfigFiles).toHaveBeenCalledWith(mockInitWithoutLoadedConfig);
-
-    for (const fromFn of [fromSso]) {
-      expect(fromFn).toHaveBeenCalledWith({ ...mockInit, loadedConfig: mockSharedConfigFiles });
-    }
   });
 
   describe("memoize isExpired", () => {
