@@ -36,7 +36,6 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  DiskImageFormat,
   GroupIdentifier,
   Ipam,
   IpamPool,
@@ -51,6 +50,79 @@ import {
   TransitGatewayConnect,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>The BGP options for the Connect attachment.</p>
+ */
+export interface TransitGatewayConnectRequestBgpOptions {
+  /**
+   * <p>The peer Autonomous System Number (ASN).</p>
+   */
+  PeerAsn?: number;
+}
+
+export namespace TransitGatewayConnectRequestBgpOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayConnectRequestBgpOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectPeerRequest {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which must be
+   *             specified from a transit gateway CIDR block. If not specified, Amazon automatically assigns
+   *             the first available IP address from the transit gateway CIDR block.</p>
+   */
+  TransitGatewayAddress?: string;
+
+  /**
+   * <p>The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.</p>
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The BGP options for the Connect peer.</p>
+   */
+  BgpOptions?: TransitGatewayConnectRequestBgpOptions;
+
+  /**
+   * <p>The range of inside IP addresses that are used for BGP peering. You must specify a
+   *             size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address
+   *             from the range must be configured on the appliance as the BGP IP address. You can also
+   *             optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code>
+   *             range.</p>
+   */
+  InsideCidrBlocks: string[] | undefined;
+
+  /**
+   * <p>The tags to apply to the Connect peer.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayConnectPeerRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectPeerRequest): any => ({
+    ...obj,
+  });
+}
 
 export type BgpStatus = "down" | "up";
 
@@ -8527,67 +8599,6 @@ export namespace DescribeConversionTasksRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a disk image.</p>
- */
-export interface DiskImageDescription {
-  /**
-   * <p>The checksum computed for the disk image.</p>
-   */
-  Checksum?: string;
-
-  /**
-   * <p>The disk image format.</p>
-   */
-  Format?: DiskImageFormat | string;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
-   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
-   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   */
-  ImportManifestUrl?: string;
-
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   */
-  Size?: number;
-}
-
-export namespace DiskImageDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskImageDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a disk image volume.</p>
- */
-export interface DiskImageVolumeDescription {
-  /**
-   * <p>The volume identifier.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   */
-  Size?: number;
-}
-
-export namespace DiskImageVolumeDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
     ...obj,
   });
 }

@@ -24,6 +24,7 @@ import {
   PathComponent,
   PortRange,
   Tag,
+  TransitGatewayRouteTableRoute,
 } from "./models_0";
 import {
   BlockDeviceMapping,
@@ -31,6 +32,7 @@ import {
   CapacityReservationTargetResponse,
   DefaultTargetCapacityType,
   DestinationFileFormat,
+  DiskImageFormat,
   ExportTask,
   FleetCapacityReservationUsageStrategy,
   FleetLaunchTemplateOverrides,
@@ -69,14 +71,68 @@ import {
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
-import {
-  DiskImageDescription,
-  DiskImageVolumeDescription,
-  Filter,
-  FleetStateCode,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_2";
+import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+
+/**
+ * <p>Describes a disk image.</p>
+ */
+export interface DiskImageDescription {
+  /**
+   * <p>The checksum computed for the disk image.</p>
+   */
+  Checksum?: string;
+
+  /**
+   * <p>The disk image format.</p>
+   */
+  Format?: DiskImageFormat | string;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
+   *    an Amazon S3 object, read the "Query String Request Authentication Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in
+   *    the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   */
+  ImportManifestUrl?: string;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   */
+  Size?: number;
+}
+
+export namespace DiskImageDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskImageDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a disk image volume.</p>
+ */
+export interface DiskImageVolumeDescription {
+  /**
+   * <p>The volume identifier.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  Size?: number;
+}
+
+export namespace DiskImageVolumeDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes an import volume task.</p>
@@ -10435,7 +10491,7 @@ export interface DescribeNetworkInsightsAnalysesRequest {
   AnalysisEndTime?: Date;
 
   /**
-   * <p>The filters. The following are possible values:</p>
+   * <p>The filters. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>PathFound - A Boolean value that indicates whether a feasible path is found.</p>
@@ -10593,7 +10649,7 @@ export interface Explanation {
   DestinationVpc?: AnalysisComponent;
 
   /**
-   * <p>The direction. The following are possible values:</p>
+   * <p>The direction. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>egress</p>
@@ -10769,6 +10825,26 @@ export interface Explanation {
    * <p>The VPN gateway.</p>
    */
   VpnGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway.</p>
+   */
+  TransitGateway?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table.</p>
+   */
+  TransitGatewayRouteTable?: AnalysisComponent;
+
+  /**
+   * <p>The transit gateway route table route.</p>
+   */
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
+
+  /**
+   * <p>The transit gateway attachment.</p>
+   */
+  TransitGatewayAttachment?: AnalysisComponent;
 }
 
 export namespace Explanation {
@@ -10892,7 +10968,7 @@ export interface DescribeNetworkInsightsPathsRequest {
   NetworkInsightsPathIds?: string[];
 
   /**
-   * <p>The filters. The following are possible values:</p>
+   * <p>The filters. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>Destination - The ID of the resource.</p>
@@ -12054,7 +12130,3 @@ export namespace DescribeReservedInstancesRequest {
     ...obj,
   });
 }
-
-export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
-
-export type RecurringChargeFrequency = "Hourly";

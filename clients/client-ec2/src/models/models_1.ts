@@ -25,10 +25,8 @@ import {
   FleetLaunchTemplateSpecificationRequest,
   HostnameType,
   InstanceEventWindow,
-  InstanceGeneration,
   InternetGatewayAttachment,
   Ipv4PrefixSpecification,
-  LocalStorage,
   PortRange,
   Protocol,
   ReservedInstancesListing,
@@ -42,6 +40,17 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+export enum InstanceGeneration {
+  CURRENT = "current",
+  PREVIOUS = "previous",
+}
+
+export enum LocalStorage {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
 
 export enum LocalStorageType {
   HDD = "hdd",
@@ -10298,79 +10307,6 @@ export namespace CreateTransitGatewayConnectResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTransitGatewayConnectResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The BGP options for the Connect attachment.</p>
- */
-export interface TransitGatewayConnectRequestBgpOptions {
-  /**
-   * <p>The peer Autonomous System Number (ASN).</p>
-   */
-  PeerAsn?: number;
-}
-
-export namespace TransitGatewayConnectRequestBgpOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayConnectRequestBgpOptions): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransitGatewayConnectPeerRequest {
-  /**
-   * <p>The ID of the Connect attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which must be
-   *             specified from a transit gateway CIDR block. If not specified, Amazon automatically assigns
-   *             the first available IP address from the transit gateway CIDR block.</p>
-   */
-  TransitGatewayAddress?: string;
-
-  /**
-   * <p>The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.</p>
-   */
-  PeerAddress: string | undefined;
-
-  /**
-   * <p>The BGP options for the Connect peer.</p>
-   */
-  BgpOptions?: TransitGatewayConnectRequestBgpOptions;
-
-  /**
-   * <p>The range of inside IP addresses that are used for BGP peering. You must specify a
-   *             size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address
-   *             from the range must be configured on the appliance as the BGP IP address. You can also
-   *             optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code>
-   *             range.</p>
-   */
-  InsideCidrBlocks: string[] | undefined;
-
-  /**
-   * <p>The tags to apply to the Connect peer.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace CreateTransitGatewayConnectPeerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectPeerRequest): any => ({
     ...obj,
   });
 }

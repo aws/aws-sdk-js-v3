@@ -141,6 +141,85 @@ import {
   VolumeModification,
 } from "./models_4";
 
+export interface GetHostReservationPurchasePreviewResult {
+  /**
+   * <p>The currency in which the <code>totalUpfrontPrice</code> and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   *             supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
+   *             associated with it.</p>
+   */
+  Purchase?: Purchase[];
+
+  /**
+   * <p>The potential total hourly price of the reservation per hour.</p>
+   */
+  TotalHourlyPrice?: string;
+
+  /**
+   * <p>The potential total upfront price. This is billed immediately.</p>
+   */
+  TotalUpfrontPrice?: string;
+}
+
+export namespace GetHostReservationPurchasePreviewResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInstanceTypesFromInstanceRequirementsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The processor architecture type.</p>
+   */
+  ArchitectureTypes: (ArchitectureType | string)[] | undefined;
+
+  /**
+   * <p>The virtualization type.</p>
+   */
+  VirtualizationTypes: (VirtualizationType | string)[] | undefined;
+
+  /**
+   * <p>The attributes required for the instance types.</p>
+   */
+  InstanceRequirements: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
+   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
+   *          the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetInstanceTypesFromInstanceRequirementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The list of instance types with the specified instance attributes.</p>
  */
@@ -9731,39 +9810,6 @@ export namespace ResetFpgaImageAttributeResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
-    ...obj,
-  });
-}
-
-export type ResetImageAttributeName = "launchPermission";
-
-/**
- * <p>Contains the parameters for ResetImageAttribute.</p>
- */
-export interface ResetImageAttributeRequest {
-  /**
-   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
-   */
-  Attribute: ResetImageAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ResetImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
     ...obj,
   });
 }

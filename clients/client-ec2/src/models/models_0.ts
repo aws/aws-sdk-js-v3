@@ -1082,6 +1082,30 @@ export namespace AnalysisComponent {
 }
 
 /**
+ * <p>Describes an additional detail for a path analysis.</p>
+ */
+export interface AdditionalDetail {
+  /**
+   * <p>The information type.</p>
+   */
+  AdditionalDetailType?: string;
+
+  /**
+   * <p>The path component.</p>
+   */
+  Component?: AnalysisComponent;
+}
+
+export namespace AdditionalDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdditionalDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a header. Reflects any changes made by a component as traffic passes through.
  *          The fields of an inbound header are null except for the first component of a path.</p>
  */
@@ -1161,19 +1185,16 @@ export interface AnalysisRouteTableRoute {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>Describes how the route was created. The following are possible values:</p>
+   * <p>Describes how the route was created. The following are the possible values:</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p>
+   *                <p>CreateRouteTable - The route was automatically created when the route table was created.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>CreateRoute</code> - The route was manually added to the route table.</p>
+   *                <p>CreateRoute - The route was manually added to the route table.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p>
+   *                <p>EnableVgwRoutePropagation - The route was propagated by route propagation.</p>
    *             </li>
    *          </ul>
    */
@@ -1209,7 +1230,7 @@ export interface AnalysisSecurityGroupRule {
   Cidr?: string;
 
   /**
-   * <p>The direction. The following are possible values:</p>
+   * <p>The direction. The following are the possible values:</p>
    *          <ul>
    *             <li>
    *                <p>egress</p>
@@ -1247,6 +1268,63 @@ export namespace AnalysisSecurityGroupRule {
    * @internal
    */
   export const filterSensitiveLog = (obj: AnalysisSecurityGroupRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a route in a transit gateway route table.</p>
+ */
+export interface TransitGatewayRouteTableRoute {
+  /**
+   * <p>The CIDR block used for destination matches.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
+   * <p>The state of the route.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The route origin. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>static</p>
+   *             </li>
+   *             <li>
+   *                <p>propagated</p>
+   *             </li>
+   *          </ul>
+   */
+  RouteOrigin?: string;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The ID of the route attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>The ID of the resource for the route attachment.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource type for the route attachment.</p>
+   */
+  ResourceType?: string;
+}
+
+export namespace TransitGatewayRouteTableRoute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayRouteTableRoute): any => ({
     ...obj,
   });
 }
@@ -1314,6 +1392,21 @@ export interface PathComponent {
    * <p>The component VPC.</p>
    */
   Vpc?: AnalysisComponent;
+
+  /**
+   * <p>The additional details.</p>
+   */
+  AdditionalDetails?: AdditionalDetail[];
+
+  /**
+   * <p>Describes a path component.</p>
+   */
+  TransitGateway?: AnalysisComponent;
+
+  /**
+   * <p>The route in a transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableRoute?: TransitGatewayRouteTableRoute;
 }
 
 export namespace PathComponent {
@@ -8749,15 +8842,4 @@ export enum CpuManufacturer {
   AMAZON_WEB_SERVICES = "amazon-web-services",
   AMD = "amd",
   INTEL = "intel",
-}
-
-export enum InstanceGeneration {
-  CURRENT = "current",
-  PREVIOUS = "previous",
-}
-
-export enum LocalStorage {
-  EXCLUDED = "excluded",
-  INCLUDED = "included",
-  REQUIRED = "required",
 }

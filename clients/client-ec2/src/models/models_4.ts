@@ -43,7 +43,6 @@ import {
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   InstanceRequirements,
-  InstanceRequirementsRequest,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   PrivateIpAddressSpecification,
@@ -80,7 +79,6 @@ import {
   VpnGateway,
 } from "./models_2";
 import {
-  ArchitectureType,
   AttributeBooleanValue,
   EventInformation,
   ExportTaskS3Location,
@@ -94,10 +92,11 @@ import {
   PaymentOption,
   PermissionGroup,
   ProductCode,
-  RecurringChargeFrequency,
-  RIProductDescription,
-  VirtualizationType,
 } from "./models_3";
+
+export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
+
+export type RecurringChargeFrequency = "Hourly";
 
 /**
  * <p>Describes a recurring charge.</p>
@@ -11256,85 +11255,6 @@ export namespace Purchase {
    * @internal
    */
   export const filterSensitiveLog = (obj: Purchase): any => ({
-    ...obj,
-  });
-}
-
-export interface GetHostReservationPurchasePreviewResult {
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code> and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
-   *             associated with it.</p>
-   */
-  Purchase?: Purchase[];
-
-  /**
-   * <p>The potential total hourly price of the reservation per hour.</p>
-   */
-  TotalHourlyPrice?: string;
-
-  /**
-   * <p>The potential total upfront price. This is billed immediately.</p>
-   */
-  TotalUpfrontPrice?: string;
-}
-
-export namespace GetHostReservationPurchasePreviewResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetInstanceTypesFromInstanceRequirementsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The processor architecture type.</p>
-   */
-  ArchitectureTypes: (ArchitectureType | string)[] | undefined;
-
-  /**
-   * <p>The virtualization type.</p>
-   */
-  VirtualizationTypes: (VirtualizationType | string)[] | undefined;
-
-  /**
-   * <p>The attributes required for the instance types.</p>
-   */
-  InstanceRequirements: InstanceRequirementsRequest | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetInstanceTypesFromInstanceRequirementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsRequest): any => ({
     ...obj,
   });
 }

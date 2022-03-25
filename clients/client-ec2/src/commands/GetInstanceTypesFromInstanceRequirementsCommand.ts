@@ -12,8 +12,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetInstanceTypesFromInstanceRequirementsRequest } from "../models/models_4";
-import { GetInstanceTypesFromInstanceRequirementsResult } from "../models/models_5";
+import {
+  GetInstanceTypesFromInstanceRequirementsRequest,
+  GetInstanceTypesFromInstanceRequirementsResult,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,
   serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand,

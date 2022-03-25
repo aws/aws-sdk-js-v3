@@ -40,6 +40,39 @@ import {
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
 
+export type ResetImageAttributeName = "launchPermission";
+
+/**
+ * <p>Contains the parameters for ResetImageAttribute.</p>
+ */
+export interface ResetImageAttributeRequest {
+  /**
+   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+   */
+  Attribute: ResetImageAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetImageAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface ResetInstanceAttributeRequest {
   /**
    * <p>The attribute to reset.</p>

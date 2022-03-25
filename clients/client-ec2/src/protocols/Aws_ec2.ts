@@ -1786,6 +1786,7 @@ import {
   AccountAttributeValue,
   ActiveInstance,
   AddIpamOperatingRegion,
+  AdditionalDetail,
   AddPrefixListEntry,
   Address,
   AddressAttribute,
@@ -1935,7 +1936,6 @@ import {
   InstanceEventWindowAssociationRequest,
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
-  InstanceGeneration,
   InternetGatewayAttachment,
   IpamPoolAllocation,
   IpPermission,
@@ -1978,6 +1978,7 @@ import {
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
+  TransitGatewayRouteTableRoute,
   TransitGatewayVpcAttachment,
   TransitGatewayVpcAttachmentOptions,
   TrunkInterfaceAssociation,
@@ -2083,7 +2084,6 @@ import {
   CreateTrafficMirrorSessionResult,
   CreateTrafficMirrorTargetRequest,
   CreateTrafficMirrorTargetResult,
-  CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectRequest,
   CreateTransitGatewayConnectRequestOptions,
   CreateTransitGatewayConnectResult,
@@ -2108,6 +2108,7 @@ import {
   IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
+  InstanceGeneration,
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceRequirements,
@@ -2223,7 +2224,6 @@ import {
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectOptions,
-  TransitGatewayConnectRequestBgpOptions,
   TransitGatewayOptions,
   TransitGatewayRequestOptions,
   ValidationError,
@@ -2250,6 +2250,7 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConnectionNotification,
+  CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
   CreateTransitGatewayMulticastDomainRequest,
   CreateTransitGatewayMulticastDomainRequestOptions,
@@ -2441,8 +2442,6 @@ import {
   DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
   DirectoryServiceAuthentication,
-  DiskImageDescription,
-  DiskImageVolumeDescription,
   DnsEntry,
   FailedQueuedPurchaseDeletion,
   FederatedAuthentication,
@@ -2477,6 +2476,7 @@ import {
   TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnectPeer,
   TransitGatewayConnectPeerConfiguration,
+  TransitGatewayConnectRequestBgpOptions,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
   TransitGatewayMulticastDomain,
@@ -2639,6 +2639,8 @@ import {
   DescribeReplaceRootVolumeTasksResult,
   DescribeReservedInstancesRequest,
   DestinationOptionsResponse,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2968,8 +2970,6 @@ import {
   GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
   GetHostReservationPurchasePreviewRequest,
-  GetHostReservationPurchasePreviewResult,
-  GetInstanceTypesFromInstanceRequirementsRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -3042,6 +3042,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetHostReservationPurchasePreviewResult,
+  GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
   GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
@@ -3295,7 +3297,6 @@ import {
   ResetEbsDefaultKmsKeyIdResult,
   ResetFpgaImageAttributeRequest,
   ResetFpgaImageAttributeResult,
-  ResetImageAttributeRequest,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3330,6 +3331,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ResetImageAttributeRequest,
   ResetInstanceAttributeRequest,
   ResetNetworkInterfaceAttributeRequest,
   ResetSnapshotAttributeRequest,
@@ -53716,6 +53718,31 @@ const deserializeAws_ec2ActiveInstanceSet = (output: any, context: __SerdeContex
     });
 };
 
+const deserializeAws_ec2AdditionalDetail = (output: any, context: __SerdeContext): AdditionalDetail => {
+  const contents: any = {
+    AdditionalDetailType: undefined,
+    Component: undefined,
+  };
+  if (output["additionalDetailType"] !== undefined) {
+    contents.AdditionalDetailType = __expectString(output["additionalDetailType"]);
+  }
+  if (output["component"] !== undefined) {
+    contents.Component = deserializeAws_ec2AnalysisComponent(output["component"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AdditionalDetailList = (output: any, context: __SerdeContext): AdditionalDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2AdditionalDetail(entry, context);
+    });
+};
+
 const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Address => {
   const contents: any = {
     InstanceId: undefined,
@@ -63204,6 +63231,10 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     VpcEndpoint: undefined,
     VpnConnection: undefined,
     VpnGateway: undefined,
+    TransitGateway: undefined,
+    TransitGatewayRouteTable: undefined,
+    TransitGatewayRouteTableRoute: undefined,
+    TransitGatewayAttachment: undefined,
   };
   if (output["acl"] !== undefined) {
     contents.Acl = deserializeAws_ec2AnalysisComponent(output["acl"], context);
@@ -63381,6 +63412,27 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
   }
   if (output["vpnGateway"] !== undefined) {
     contents.VpnGateway = deserializeAws_ec2AnalysisComponent(output["vpnGateway"], context);
+  }
+  if (output["transitGateway"] !== undefined) {
+    contents.TransitGateway = deserializeAws_ec2AnalysisComponent(output["transitGateway"], context);
+  }
+  if (output["transitGatewayRouteTable"] !== undefined) {
+    contents.TransitGatewayRouteTable = deserializeAws_ec2AnalysisComponent(
+      output["transitGatewayRouteTable"],
+      context
+    );
+  }
+  if (output["transitGatewayRouteTableRoute"] !== undefined) {
+    contents.TransitGatewayRouteTableRoute = deserializeAws_ec2TransitGatewayRouteTableRoute(
+      output["transitGatewayRouteTableRoute"],
+      context
+    );
+  }
+  if (output["transitGatewayAttachment"] !== undefined) {
+    contents.TransitGatewayAttachment = deserializeAws_ec2AnalysisComponent(
+      output["transitGatewayAttachment"],
+      context
+    );
   }
   return contents;
 };
@@ -72671,6 +72723,9 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
     SourceVpc: undefined,
     Subnet: undefined,
     Vpc: undefined,
+    AdditionalDetails: undefined,
+    TransitGateway: undefined,
+    TransitGatewayRouteTableRoute: undefined,
   };
   if (output["sequenceNumber"] !== undefined) {
     contents.SequenceNumber = __strictParseInt32(output["sequenceNumber"]) as number;
@@ -72707,6 +72762,24 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
   }
   if (output["vpc"] !== undefined) {
     contents.Vpc = deserializeAws_ec2AnalysisComponent(output["vpc"], context);
+  }
+  if (output.additionalDetailSet === "") {
+    contents.AdditionalDetails = [];
+  }
+  if (output["additionalDetailSet"] !== undefined && output["additionalDetailSet"]["item"] !== undefined) {
+    contents.AdditionalDetails = deserializeAws_ec2AdditionalDetailList(
+      __getArrayIfSingleItem(output["additionalDetailSet"]["item"]),
+      context
+    );
+  }
+  if (output["transitGateway"] !== undefined) {
+    contents.TransitGateway = deserializeAws_ec2AnalysisComponent(output["transitGateway"], context);
+  }
+  if (output["transitGatewayRouteTableRoute"] !== undefined) {
+    contents.TransitGatewayRouteTableRoute = deserializeAws_ec2TransitGatewayRouteTableRoute(
+      output["transitGatewayRouteTableRoute"],
+      context
+    );
   }
   return contents;
 };
@@ -79532,6 +79605,43 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagationList = (
       }
       return deserializeAws_ec2TransitGatewayRouteTablePropagation(entry, context);
     });
+};
+
+const deserializeAws_ec2TransitGatewayRouteTableRoute = (
+  output: any,
+  context: __SerdeContext
+): TransitGatewayRouteTableRoute => {
+  const contents: any = {
+    DestinationCidr: undefined,
+    State: undefined,
+    RouteOrigin: undefined,
+    PrefixListId: undefined,
+    AttachmentId: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined,
+  };
+  if (output["destinationCidr"] !== undefined) {
+    contents.DestinationCidr = __expectString(output["destinationCidr"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["routeOrigin"] !== undefined) {
+    contents.RouteOrigin = __expectString(output["routeOrigin"]);
+  }
+  if (output["prefixListId"] !== undefined) {
+    contents.PrefixListId = __expectString(output["prefixListId"]);
+  }
+  if (output["attachmentId"] !== undefined) {
+    contents.AttachmentId = __expectString(output["attachmentId"]);
+  }
+  if (output["resourceId"] !== undefined) {
+    contents.ResourceId = __expectString(output["resourceId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2TransitGatewayVpcAttachment = (
