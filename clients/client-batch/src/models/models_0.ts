@@ -694,7 +694,7 @@ export interface CreateComputeEnvironmentRequest {
    *    scheduling to reserve vCPU capacity for new share identifiers. If this parameter isn't provided for a fair share job
    *    queue, no vCPU capacity is reserved.</p>
    *          <note>
-   *             <p>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>/</p>
+   *             <p>This parameter is only supported when the <code>type</code> parameter is set to <code>UNMANAGED</code>.</p>
    *          </note>
    */
   unmanagedvCpus?: number;
@@ -2152,6 +2152,12 @@ export interface ContainerProperties {
    *          </note>
    *          <ul>
    *             <li>
+   *                <p>Images in Amazon ECR Public repositories use the full <code>registry/repository[:tag]</code> or
+   *       <code>registry/repository[@digest]</code> naming conventions. For example,
+   *        <code>public.ecr.aws/<i>registry_alias</i>/<i>my-web-app</i>:<i>latest</i>
+   *                   </code>.</p>
+   *             </li>
+   *             <li>
    *                <p>Images in Amazon ECR repositories use the full registry and repository URI (for example,
    *       <code>012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name></code>).</p>
    *             </li>
@@ -2175,7 +2181,7 @@ export interface ContainerProperties {
    * @deprecated
    *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the vCPU requirements for the job
-   *    definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it specifies
+   *    definition. It's not supported for jobs running on Fargate resources. For jobs running on EC2 resources, it specifies
    *    the number of vCPUs reserved for the job.</p>
    *          <p>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code> in the
    *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to
@@ -2188,7 +2194,7 @@ export interface ContainerProperties {
    * @deprecated
    *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to specify the memory requirements for the
-   *    job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2 resources, it
+   *    job definition. It's not supported for jobs running on Fargate resources. For jobs running on EC2 resources, it
    *    specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number,
    *    it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can
    *    be specified in several places. It must be specified for each node at least once.</p>
@@ -2826,9 +2832,9 @@ export interface ContainerDetail {
   vcpus?: number;
 
   /**
-   * <p>For jobs run on EC2 resources that didn't specify memory requirements using <code>resourceRequirements</code>,
-   *    the number of MiB of memory reserved for the job. For other jobs, including all run on Fargate resources, see
-   *     <code>resourceRequirements</code>.</p>
+   * <p>For jobs running on EC2 resources that didn't specify memory requirements using
+   *     <code>resourceRequirements</code>, the number of MiB of memory reserved for the job. For other jobs, including all
+   *    run on Fargate resources, see <code>resourceRequirements</code>.</p>
    */
   memory?: number;
 
@@ -3849,7 +3855,7 @@ export interface ContainerOverrides {
    * @deprecated
    *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the <code>vcpus</code> parameter
-   *    that's set in the job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2
+   *    that's set in the job definition. It's not supported for jobs running on Fargate resources. For jobs running on EC2
    *    resources, it overrides the <code>vcpus</code> parameter set in the job definition, but doesn't override any vCPU
    *    requirement specified in the <code>resourceRequirements</code> structure in the job definition. To override vCPU
    *    requirements that are specified in the <code>resourceRequirements</code> structure in the job definition,
@@ -3863,7 +3869,7 @@ export interface ContainerOverrides {
    * @deprecated
    *
    * <p>This parameter is deprecated, use <code>resourceRequirements</code> to override the memory requirements
-   *    specified in the job definition. It's not supported for jobs that run on Fargate resources. For jobs run on EC2
+   *    specified in the job definition. It's not supported for jobs running on Fargate resources. For jobs running on EC2
    *    resources, it overrides the <code>memory</code> parameter set in the job definition, but doesn't override any memory
    *    requirement specified in the <code>resourceRequirements</code> structure in the job definition. To override memory
    *    requirements that are specified in the <code>resourceRequirements</code> structure in the job definition,
