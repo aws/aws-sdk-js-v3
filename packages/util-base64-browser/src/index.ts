@@ -40,9 +40,9 @@ const maxLetterValue = 0b111111;
  */
 export function fromBase64(input: string): Uint8Array {
   let totalByteLength = (input.length / 4) * 3;
-  if (input.substr(-2) === "==") {
+  if (input.slice(-2) === "==") {
     totalByteLength -= 2;
-  } else if (input.substr(-1) === "=") {
+  } else if (input.slice(-1) === "=") {
     totalByteLength--;
   }
   const out = new ArrayBuffer(totalByteLength);

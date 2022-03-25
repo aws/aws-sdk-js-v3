@@ -38,7 +38,7 @@ export const updateDiscoveredEndpointInCache = async (
       endpointCache.set(cacheKey, placeholderEndpoints);
 
       const command = new options.endpointDiscoveryCommandCtor({
-        Operation: commandName.substr(0, commandName.length - 7), // strip "Command"
+        Operation: commandName.slice(0, -7), // strip "Command"
         Identifiers: identifiers,
       });
       const handler = command.resolveMiddleware(options.clientStack, config, options.options);

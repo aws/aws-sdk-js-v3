@@ -41,7 +41,7 @@ export const createPresignedPost = async (
 
   // signingDate in format like '20201028T070711Z'.
   const signingDate = iso8601(now).replace(/[\-:]/g, "");
-  const shortDate = signingDate.substr(0, 8);
+  const shortDate = signingDate.slice(0, 8);
   const clientRegion = await client.config.region();
 
   // Prepare credentials.

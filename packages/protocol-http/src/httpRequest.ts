@@ -22,7 +22,7 @@ export class HttpRequest implements HttpMessage, Endpoint {
     this.headers = options.headers || {};
     this.body = options.body;
     this.protocol = options.protocol
-      ? options.protocol.substr(-1) !== ":"
+      ? options.protocol.slice(-1) !== ":"
         ? `${options.protocol}:`
         : options.protocol
       : "https:";

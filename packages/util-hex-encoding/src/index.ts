@@ -23,7 +23,7 @@ export function fromHex(encoded: string): Uint8Array {
 
   const out = new Uint8Array(encoded.length / 2);
   for (let i = 0; i < encoded.length; i += 2) {
-    const encodedByte = encoded.substr(i, 2).toLowerCase();
+    const encodedByte = encoded.slice(i, i + 2).toLowerCase();
     if (encodedByte in HEX_TO_SHORT) {
       out[i / 2] = HEX_TO_SHORT[encodedByte];
     } else {
