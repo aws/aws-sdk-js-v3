@@ -230,7 +230,7 @@ but they are supported by the send operation.
 ```js
 // callbacks.
 client.send(command, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
@@ -264,7 +264,7 @@ client
 
 // callbacks.
 client.assignInstance(params, (err, data) => {
-  // proccess err and data.
+  // process err and data.
 });
 ```
 
