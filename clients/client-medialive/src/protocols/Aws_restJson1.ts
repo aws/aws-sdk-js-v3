@@ -199,7 +199,6 @@ import {
   HlsAkamaiSettings,
   HlsBasicPutSettings,
   HlsCdnSettings,
-  HlsGroupSettings,
   HlsInputSettings,
   HlsMediaStoreSettings,
   HlsOutputSettings,
@@ -230,6 +229,7 @@ import {
   KeyProviderSettings,
   M2tsSettings,
   M3u8Settings,
+  MaintenanceStatus,
   MediaConnectFlow,
   MediaConnectFlowRequest,
   MediaPackageOutputDestinationSettings,
@@ -310,6 +310,7 @@ import {
   H265ColorSpaceSettings,
   H265FilterSettings,
   H265Settings,
+  HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
   HlsTimedMetadataScheduleActionSettings,
   HtmlMotionGraphicsSettings,
@@ -321,6 +322,8 @@ import {
   InputSwitchScheduleActionSettings,
   InputVpcRequest,
   InternalServerErrorException,
+  MaintenanceCreateSettings,
+  MaintenanceUpdateSettings,
   MediaPackageGroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
@@ -627,6 +630,10 @@ export const serializeAws_restJson1CreateChannelCommand = async (
         inputSpecification: serializeAws_restJson1InputSpecification(input.InputSpecification, context),
       }),
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { logLevel: input.LogLevel }),
+    ...(input.Maintenance !== undefined &&
+      input.Maintenance !== null && {
+        maintenance: serializeAws_restJson1MaintenanceCreateSettings(input.Maintenance, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     requestId: input.RequestId ?? generateIdempotencyToken(),
     ...(input.Reserved !== undefined && input.Reserved !== null && { reserved: input.Reserved }),
@@ -1959,6 +1966,10 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
         inputSpecification: serializeAws_restJson1InputSpecification(input.InputSpecification, context),
       }),
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { logLevel: input.LogLevel }),
+    ...(input.Maintenance !== undefined &&
+      input.Maintenance !== null && {
+        maintenance: serializeAws_restJson1MaintenanceUpdateSettings(input.Maintenance, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { roleArn: input.RoleArn }),
   });
@@ -3171,6 +3182,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
     InputAttachments: undefined,
     InputSpecification: undefined,
     LogLevel: undefined,
+    Maintenance: undefined,
     Name: undefined,
     PipelineDetails: undefined,
     PipelinesRunningCount: undefined,
@@ -3209,6 +3221,9 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   }
   if (data.logLevel !== undefined && data.logLevel !== null) {
     contents.LogLevel = __expectString(data.logLevel);
+  }
+  if (data.maintenance !== undefined && data.maintenance !== null) {
+    contents.Maintenance = deserializeAws_restJson1MaintenanceStatus(data.maintenance, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -3853,6 +3868,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
     InputAttachments: undefined,
     InputSpecification: undefined,
     LogLevel: undefined,
+    Maintenance: undefined,
     Name: undefined,
     PipelineDetails: undefined,
     PipelinesRunningCount: undefined,
@@ -3891,6 +3907,9 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   }
   if (data.logLevel !== undefined && data.logLevel !== null) {
     contents.LogLevel = __expectString(data.logLevel);
+  }
+  if (data.maintenance !== undefined && data.maintenance !== null) {
+    contents.Maintenance = deserializeAws_restJson1MaintenanceStatus(data.maintenance, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -5618,6 +5637,7 @@ export const deserializeAws_restJson1StartChannelCommand = async (
     InputAttachments: undefined,
     InputSpecification: undefined,
     LogLevel: undefined,
+    Maintenance: undefined,
     Name: undefined,
     PipelineDetails: undefined,
     PipelinesRunningCount: undefined,
@@ -5656,6 +5676,9 @@ export const deserializeAws_restJson1StartChannelCommand = async (
   }
   if (data.logLevel !== undefined && data.logLevel !== null) {
     contents.LogLevel = __expectString(data.logLevel);
+  }
+  if (data.maintenance !== undefined && data.maintenance !== null) {
+    contents.Maintenance = deserializeAws_restJson1MaintenanceStatus(data.maintenance, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -5848,6 +5871,7 @@ export const deserializeAws_restJson1StopChannelCommand = async (
     InputAttachments: undefined,
     InputSpecification: undefined,
     LogLevel: undefined,
+    Maintenance: undefined,
     Name: undefined,
     PipelineDetails: undefined,
     PipelinesRunningCount: undefined,
@@ -5886,6 +5910,9 @@ export const deserializeAws_restJson1StopChannelCommand = async (
   }
   if (data.logLevel !== undefined && data.logLevel !== null) {
     contents.LogLevel = __expectString(data.logLevel);
+  }
+  if (data.maintenance !== undefined && data.maintenance !== null) {
+    contents.Maintenance = deserializeAws_restJson1MaintenanceStatus(data.maintenance, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = __expectString(data.name);
@@ -8883,6 +8910,32 @@ const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __Serd
   };
 };
 
+const serializeAws_restJson1MaintenanceCreateSettings = (
+  input: MaintenanceCreateSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaintenanceDay !== undefined &&
+      input.MaintenanceDay !== null && { maintenanceDay: input.MaintenanceDay }),
+    ...(input.MaintenanceStartTime !== undefined &&
+      input.MaintenanceStartTime !== null && { maintenanceStartTime: input.MaintenanceStartTime }),
+  };
+};
+
+const serializeAws_restJson1MaintenanceUpdateSettings = (
+  input: MaintenanceUpdateSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaintenanceDay !== undefined &&
+      input.MaintenanceDay !== null && { maintenanceDay: input.MaintenanceDay }),
+    ...(input.MaintenanceScheduledDate !== undefined &&
+      input.MaintenanceScheduledDate !== null && { maintenanceScheduledDate: input.MaintenanceScheduledDate }),
+    ...(input.MaintenanceStartTime !== undefined &&
+      input.MaintenanceStartTime !== null && { maintenanceStartTime: input.MaintenanceStartTime }),
+  };
+};
+
 const serializeAws_restJson1MediaConnectFlowRequest = (
   input: MediaConnectFlowRequest,
   context: __SerdeContext
@@ -11235,6 +11288,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1InputSpecification(output.inputSpecification, context)
         : undefined,
     LogLevel: __expectString(output.logLevel),
+    Maintenance:
+      output.maintenance !== undefined && output.maintenance !== null
+        ? deserializeAws_restJson1MaintenanceStatus(output.maintenance, context)
+        : undefined,
     Name: __expectString(output.name),
     PipelineDetails:
       output.pipelineDetails !== undefined && output.pipelineDetails !== null
@@ -11286,6 +11343,10 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
         ? deserializeAws_restJson1InputSpecification(output.inputSpecification, context)
         : undefined,
     LogLevel: __expectString(output.logLevel),
+    Maintenance:
+      output.maintenance !== undefined && output.maintenance !== null
+        ? deserializeAws_restJson1MaintenanceStatus(output.maintenance, context)
+        : undefined,
     Name: __expectString(output.name),
     PipelinesRunningCount: __expectInt32(output.pipelinesRunningCount),
     RoleArn: __expectString(output.roleArn),
@@ -12397,6 +12458,15 @@ const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeConte
     TimedMetadataPid: __expectString(output.timedMetadataPid),
     TransportStreamId: __expectInt32(output.transportStreamId),
     VideoPid: __expectString(output.videoPid),
+  } as any;
+};
+
+const deserializeAws_restJson1MaintenanceStatus = (output: any, context: __SerdeContext): MaintenanceStatus => {
+  return {
+    MaintenanceDay: __expectString(output.maintenanceDay),
+    MaintenanceDeadline: __expectString(output.maintenanceDeadline),
+    MaintenanceScheduledDate: __expectString(output.maintenanceScheduledDate),
+    MaintenanceStartTime: __expectString(output.maintenanceStartTime),
   } as any;
 };
 

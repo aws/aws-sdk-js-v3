@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { UpdateMultiplexProgramRequest, UpdateMultiplexProgramResponse } from "../models/models_1";
+import { UpdateMultiplexProgramRequest } from "../models/models_1";
+import { UpdateMultiplexProgramResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateMultiplexProgramCommand,
   serializeAws_restJson1UpdateMultiplexProgramCommand,
