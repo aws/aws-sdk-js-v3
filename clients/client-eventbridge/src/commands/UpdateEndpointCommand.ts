@@ -1,4 +1,3 @@
-import { getInjectEndpointIdPlugin } from "@aws-sdk/middleware-sdk-eventbridge";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -13,41 +12,41 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { PutEventsRequest, PutEventsResponse } from "../models/models_0";
-import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1UpdateEndpointCommand,
+  serializeAws_json1_1UpdateEndpointCommand,
+} from "../protocols/Aws_json1_1";
 
-export interface PutEventsCommandInput extends PutEventsRequest {}
-export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
+export interface UpdateEndpointCommandInput extends UpdateEndpointRequest {}
+export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
- *          <note>
- *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
- *          </note>
+ * <p>Update an existing endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
- * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * import { EventBridgeClient, UpdateEndpointCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, UpdateEndpointCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
- * const command = new PutEventsCommand(input);
+ * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link PutEventsCommandInput} for command's `input` shape.
- * @see {@link PutEventsCommandOutput} for command's `response` shape.
+ * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
+ * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
-export class PutEventsCommand extends $Command<
-  PutEventsCommandInput,
-  PutEventsCommandOutput,
+export class UpdateEndpointCommand extends $Command<
+  UpdateEndpointCommandInput,
+  UpdateEndpointCommandOutput,
   EventBridgeClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: PutEventsCommandInput) {
+  constructor(readonly input: UpdateEndpointCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,21 +59,20 @@ export class PutEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
+  ): Handler<UpdateEndpointCommandInput, UpdateEndpointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getInjectEndpointIdPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "EventBridgeClient";
-    const commandName = "PutEventsCommand";
+    const commandName = "UpdateEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +82,12 @@ export class PutEventsCommand extends $Command<
     );
   }
 
-  private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutEventsCommand(input, context);
+  private serialize(input: UpdateEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateEndpointCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return deserializeAws_json1_1PutEventsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEndpointCommandOutput> {
+    return deserializeAws_json1_1UpdateEndpointCommand(output, context);
   }
 
   // Start section: command_body_extra

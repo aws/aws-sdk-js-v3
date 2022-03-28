@@ -27,6 +27,7 @@ import {
 } from "../commands/CreateApiDestinationCommand";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "../commands/CreateArchiveCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "../commands/CreateEndpointCommand";
 import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "../commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
@@ -46,6 +47,7 @@ import {
 } from "../commands/DeleteApiDestinationCommand";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "../commands/DeleteArchiveCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "../commands/DeleteEndpointCommand";
 import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "../commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
@@ -58,6 +60,7 @@ import {
 } from "../commands/DescribeApiDestinationCommand";
 import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "../commands/DescribeArchiveCommand";
 import { DescribeConnectionCommandInput, DescribeConnectionCommandOutput } from "../commands/DescribeConnectionCommand";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "../commands/DescribeEndpointCommand";
 import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "../commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
@@ -77,6 +80,7 @@ import {
 } from "../commands/ListApiDestinationsCommand";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "../commands/ListArchivesCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
+import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "../commands/ListEndpointsCommand";
 import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "../commands/ListEventBusesCommand";
 import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "../commands/ListEventSourcesCommand";
 import {
@@ -115,6 +119,7 @@ import {
 } from "../commands/UpdateApiDestinationCommand";
 import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "../commands/UpdateArchiveCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../commands/UpdateConnectionCommand";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "../commands/UpdateEndpointCommand";
 import { EventBridgeServiceException as __BaseException } from "../models/EventBridgeServiceException";
 import {
   ActivateEventSourceRequest,
@@ -150,6 +155,8 @@ import {
   CreateConnectionOAuthRequestParameters,
   CreateConnectionRequest,
   CreateConnectionResponse,
+  CreateEndpointRequest,
+  CreateEndpointResponse,
   CreateEventBusRequest,
   CreateEventBusResponse,
   CreatePartnerEventSourceRequest,
@@ -164,6 +171,8 @@ import {
   DeleteArchiveResponse,
   DeleteConnectionRequest,
   DeleteConnectionResponse,
+  DeleteEndpointRequest,
+  DeleteEndpointResponse,
   DeleteEventBusRequest,
   DeletePartnerEventSourceRequest,
   DeleteRuleRequest,
@@ -173,6 +182,8 @@ import {
   DescribeArchiveResponse,
   DescribeConnectionRequest,
   DescribeConnectionResponse,
+  DescribeEndpointRequest,
+  DescribeEndpointResponse,
   DescribeEventBusRequest,
   DescribeEventBusResponse,
   DescribeEventSourceRequest,
@@ -186,8 +197,11 @@ import {
   DisableRuleRequest,
   EcsParameters,
   EnableRuleRequest,
+  Endpoint,
+  EndpointEventBus,
   EventBus,
   EventSource,
+  FailoverConfig,
   HttpParameters,
   IllegalStatusException,
   InputTransformer,
@@ -202,6 +216,8 @@ import {
   ListArchivesResponse,
   ListConnectionsRequest,
   ListConnectionsResponse,
+  ListEndpointsRequest,
+  ListEndpointsResponse,
   ListEventBusesRequest,
   ListEventBusesResponse,
   ListEventSourcesRequest,
@@ -228,6 +244,7 @@ import {
   PlacementConstraint,
   PlacementStrategy,
   PolicyLengthExceededException,
+  Primary,
   PutEventsRequest,
   PutEventsRequestEntry,
   PutEventsResponse,
@@ -249,14 +266,17 @@ import {
   RemoveTargetsResultEntry,
   Replay,
   ReplayDestination,
+  ReplicationConfig,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   RetryPolicy,
+  RoutingConfig,
   Rule,
   RunCommandParameters,
   RunCommandTarget,
   SageMakerPipelineParameter,
   SageMakerPipelineParameters,
+  Secondary,
   SqsParameters,
   StartReplayRequest,
   StartReplayResponse,
@@ -279,6 +299,8 @@ import {
   UpdateConnectionOAuthRequestParameters,
   UpdateConnectionRequest,
   UpdateConnectionResponse,
+  UpdateEndpointRequest,
+  UpdateEndpointResponse,
 } from "../models/models_0";
 
 export const serializeAws_json1_1ActivateEventSourceCommand = async (
@@ -343,6 +365,19 @@ export const serializeAws_json1_1CreateConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateEndpointCommand = async (
+  input: CreateEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.CreateEndpoint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -437,6 +472,19 @@ export const serializeAws_json1_1DeleteConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEndpointCommand = async (
+  input: DeleteEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DeleteEndpoint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEndpointRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEventBusCommand = async (
   input: DeleteEventBusCommandInput,
   context: __SerdeContext
@@ -512,6 +560,19 @@ export const serializeAws_json1_1DescribeConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeEndpointCommand = async (
+  input: DescribeEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.DescribeEndpoint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeEndpointRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -642,6 +703,19 @@ export const serializeAws_json1_1ListConnectionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListConnectionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListEndpointsCommand = async (
+  input: ListEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.ListEndpoints",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -944,6 +1018,19 @@ export const serializeAws_json1_1UpdateConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateEndpointCommand = async (
+  input: UpdateEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSEvents.UpdateEndpoint",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateEndpointRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_1ActivateEventSourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1179,6 +1266,55 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateEndpointResponse(data, context);
+  const response: CreateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1571,6 +1707,55 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEndpointResponse(data, context);
+  const response: DeleteEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DeleteEventBusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1825,6 +2010,52 @@ const deserializeAws_json1_1DescribeConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeEndpointResponse(data, context);
+  const response: DescribeEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2294,6 +2525,49 @@ const deserializeAws_json1_1ListConnectionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEndpointsResponse(data, context);
+  const response: ListEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3446,6 +3720,55 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateEndpointResponse(data, context);
+  const response: UpdateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.eventbridge#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.eventbridge#InternalException":
+      throw await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eventbridge#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3897,6 +4220,24 @@ const serializeAws_json1_1CreateConnectionRequest = (input: CreateConnectionRequ
   };
 };
 
+const serializeAws_json1_1CreateEndpointRequest = (input: CreateEndpointRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EventBuses !== undefined &&
+      input.EventBuses !== null && { EventBuses: serializeAws_json1_1EndpointEventBusList(input.EventBuses, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ReplicationConfig !== undefined &&
+      input.ReplicationConfig !== null && {
+        ReplicationConfig: serializeAws_json1_1ReplicationConfig(input.ReplicationConfig, context),
+      }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.RoutingConfig !== undefined &&
+      input.RoutingConfig !== null && {
+        RoutingConfig: serializeAws_json1_1RoutingConfig(input.RoutingConfig, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1CreateEventBusRequest = (input: CreateEventBusRequest, context: __SerdeContext): any => {
   return {
     ...(input.EventSourceName !== undefined &&
@@ -3961,6 +4302,12 @@ const serializeAws_json1_1DeleteConnectionRequest = (input: DeleteConnectionRequ
   };
 };
 
+const serializeAws_json1_1DeleteEndpointRequest = (input: DeleteEndpointRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1DeleteEventBusRequest = (input: DeleteEventBusRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -4005,6 +4352,13 @@ const serializeAws_json1_1DescribeConnectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DescribeEndpointRequest = (input: DescribeEndpointRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
@@ -4095,6 +4449,23 @@ const serializeAws_json1_1EnableRuleRequest = (input: EnableRuleRequest, context
   };
 };
 
+const serializeAws_json1_1EndpointEventBus = (input: EndpointEventBus, context: __SerdeContext): any => {
+  return {
+    ...(input.EventBusArn !== undefined && input.EventBusArn !== null && { EventBusArn: input.EventBusArn }),
+  };
+};
+
+const serializeAws_json1_1EndpointEventBusList = (input: EndpointEventBus[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EndpointEventBus(entry, context);
+    });
+};
+
 const serializeAws_json1_1EventResourceList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4104,6 +4475,15 @@ const serializeAws_json1_1EventResourceList = (input: string[], context: __Serde
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Primary !== undefined &&
+      input.Primary !== null && { Primary: serializeAws_json1_1Primary(input.Primary, context) }),
+    ...(input.Secondary !== undefined &&
+      input.Secondary !== null && { Secondary: serializeAws_json1_1Secondary(input.Secondary, context) }),
+  };
 };
 
 const serializeAws_json1_1HeaderParametersMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -4180,6 +4560,15 @@ const serializeAws_json1_1ListConnectionsRequest = (input: ListConnectionsReques
     ...(input.ConnectionState !== undefined &&
       input.ConnectionState !== null && { ConnectionState: input.ConnectionState }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NamePrefix !== undefined && input.NamePrefix !== null && { NamePrefix: input.NamePrefix }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListEndpointsRequest = (input: ListEndpointsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.HomeRegion !== undefined && input.HomeRegion !== null && { HomeRegion: input.HomeRegion }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NamePrefix !== undefined && input.NamePrefix !== null && { NamePrefix: input.NamePrefix }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
@@ -4333,8 +4722,15 @@ const serializeAws_json1_1PlacementStrategy = (input: PlacementStrategy, context
   };
 };
 
+const serializeAws_json1_1Primary = (input: Primary, context: __SerdeContext): any => {
+  return {
+    ...(input.HealthCheck !== undefined && input.HealthCheck !== null && { HealthCheck: input.HealthCheck }),
+  };
+};
+
 const serializeAws_json1_1PutEventsRequest = (input: PutEventsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
     ...(input.Entries !== undefined &&
       input.Entries !== null && { Entries: serializeAws_json1_1PutEventsRequestEntryList(input.Entries, context) }),
   };
@@ -4505,12 +4901,27 @@ const serializeAws_json1_1ReplayDestinationFilters = (input: string[], context: 
     });
 };
 
+const serializeAws_json1_1ReplicationConfig = (input: ReplicationConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+  };
+};
+
 const serializeAws_json1_1RetryPolicy = (input: RetryPolicy, context: __SerdeContext): any => {
   return {
     ...(input.MaximumEventAgeInSeconds !== undefined &&
       input.MaximumEventAgeInSeconds !== null && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds }),
     ...(input.MaximumRetryAttempts !== undefined &&
       input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
+  };
+};
+
+const serializeAws_json1_1RoutingConfig = (input: RoutingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.FailoverConfig !== undefined &&
+      input.FailoverConfig !== null && {
+        FailoverConfig: serializeAws_json1_1FailoverConfig(input.FailoverConfig, context),
+      }),
   };
 };
 
@@ -4586,6 +4997,12 @@ const serializeAws_json1_1SageMakerPipelineParameters = (
       input.PipelineParameterList !== null && {
         PipelineParameterList: serializeAws_json1_1SageMakerPipelineParameterList(input.PipelineParameterList, context),
       }),
+  };
+};
+
+const serializeAws_json1_1Secondary = (input: Secondary, context: __SerdeContext): any => {
+  return {
+    ...(input.Route !== undefined && input.Route !== null && { Route: input.Route }),
   };
 };
 
@@ -4881,6 +5298,24 @@ const serializeAws_json1_1UpdateConnectionRequest = (input: UpdateConnectionRequ
       input.AuthorizationType !== null && { AuthorizationType: input.AuthorizationType }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateEndpointRequest = (input: UpdateEndpointRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EventBuses !== undefined &&
+      input.EventBuses !== null && { EventBuses: serializeAws_json1_1EndpointEventBusList(input.EventBuses, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ReplicationConfig !== undefined &&
+      input.ReplicationConfig !== null && {
+        ReplicationConfig: serializeAws_json1_1ReplicationConfig(input.ReplicationConfig, context),
+      }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.RoutingConfig !== undefined &&
+      input.RoutingConfig !== null && {
+        RoutingConfig: serializeAws_json1_1RoutingConfig(input.RoutingConfig, context),
+      }),
   };
 };
 
@@ -5277,6 +5712,27 @@ const deserializeAws_json1_1CreateConnectionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
+  return {
+    Arn: __expectString(output.Arn),
+    EventBuses:
+      output.EventBuses !== undefined && output.EventBuses !== null
+        ? deserializeAws_json1_1EndpointEventBusList(output.EventBuses, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    ReplicationConfig:
+      output.ReplicationConfig !== undefined && output.ReplicationConfig !== null
+        ? deserializeAws_json1_1ReplicationConfig(output.ReplicationConfig, context)
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    RoutingConfig:
+      output.RoutingConfig !== undefined && output.RoutingConfig !== null
+        ? deserializeAws_json1_1RoutingConfig(output.RoutingConfig, context)
+        : undefined,
+    State: __expectString(output.State),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateEventBusResponse = (output: any, context: __SerdeContext): CreateEventBusResponse => {
   return {
     EventBusArn: __expectString(output.EventBusArn),
@@ -5353,6 +5809,10 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteEndpointResponse = (output: any, context: __SerdeContext): DeleteEndpointResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DescribeApiDestinationResponse = (
   output: any,
   context: __SerdeContext
@@ -5426,6 +5886,42 @@ const deserializeAws_json1_1DescribeConnectionResponse = (
         : undefined,
     Name: __expectString(output.Name),
     SecretArn: __expectString(output.SecretArn),
+    StateReason: __expectString(output.StateReason),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeEndpointResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeEndpointResponse => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    EndpointId: __expectString(output.EndpointId),
+    EndpointUrl: __expectString(output.EndpointUrl),
+    EventBuses:
+      output.EventBuses !== undefined && output.EventBuses !== null
+        ? deserializeAws_json1_1EndpointEventBusList(output.EventBuses, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    ReplicationConfig:
+      output.ReplicationConfig !== undefined && output.ReplicationConfig !== null
+        ? deserializeAws_json1_1ReplicationConfig(output.ReplicationConfig, context)
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    RoutingConfig:
+      output.RoutingConfig !== undefined && output.RoutingConfig !== null
+        ? deserializeAws_json1_1RoutingConfig(output.RoutingConfig, context)
+        : undefined,
+    State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
   } as any;
 };
@@ -5555,6 +6051,69 @@ const deserializeAws_json1_1EcsParameters = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    Description: __expectString(output.Description),
+    EndpointId: __expectString(output.EndpointId),
+    EndpointUrl: __expectString(output.EndpointUrl),
+    EventBuses:
+      output.EventBuses !== undefined && output.EventBuses !== null
+        ? deserializeAws_json1_1EndpointEventBusList(output.EventBuses, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    ReplicationConfig:
+      output.ReplicationConfig !== undefined && output.ReplicationConfig !== null
+        ? deserializeAws_json1_1ReplicationConfig(output.ReplicationConfig, context)
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    RoutingConfig:
+      output.RoutingConfig !== undefined && output.RoutingConfig !== null
+        ? deserializeAws_json1_1RoutingConfig(output.RoutingConfig, context)
+        : undefined,
+    State: __expectString(output.State),
+    StateReason: __expectString(output.StateReason),
+  } as any;
+};
+
+const deserializeAws_json1_1EndpointEventBus = (output: any, context: __SerdeContext): EndpointEventBus => {
+  return {
+    EventBusArn: __expectString(output.EventBusArn),
+  } as any;
+};
+
+const deserializeAws_json1_1EndpointEventBusList = (output: any, context: __SerdeContext): EndpointEventBus[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointEventBus(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1EndpointList = (output: any, context: __SerdeContext): Endpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Endpoint(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1EventBus = (output: any, context: __SerdeContext): EventBus => {
   return {
     Arn: __expectString(output.Arn),
@@ -5602,6 +6161,19 @@ const deserializeAws_json1_1EventSourceList = (output: any, context: __SerdeCont
       return deserializeAws_json1_1EventSource(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
+  return {
+    Primary:
+      output.Primary !== undefined && output.Primary !== null
+        ? deserializeAws_json1_1Primary(output.Primary, context)
+        : undefined,
+    Secondary:
+      output.Secondary !== undefined && output.Secondary !== null
+        ? deserializeAws_json1_1Secondary(output.Secondary, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1HeaderParametersMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -5713,6 +6285,16 @@ const deserializeAws_json1_1ListConnectionsResponse = (
     Connections:
       output.Connections !== undefined && output.Connections !== null
         ? deserializeAws_json1_1ConnectionResponseList(output.Connections, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListEndpointsResponse = (output: any, context: __SerdeContext): ListEndpointsResponse => {
+  return {
+    Endpoints:
+      output.Endpoints !== undefined && output.Endpoints !== null
+        ? deserializeAws_json1_1EndpointList(output.Endpoints, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
@@ -5960,6 +6542,12 @@ const deserializeAws_json1_1PolicyLengthExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1Primary = (output: any, context: __SerdeContext): Primary => {
+  return {
+    HealthCheck: __expectString(output.HealthCheck),
+  } as any;
+};
+
 const deserializeAws_json1_1PutEventsResponse = (output: any, context: __SerdeContext): PutEventsResponse => {
   return {
     Entries:
@@ -6196,6 +6784,12 @@ const deserializeAws_json1_1ReplayList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+const deserializeAws_json1_1ReplicationConfig = (output: any, context: __SerdeContext): ReplicationConfig => {
+  return {
+    State: __expectString(output.State),
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
@@ -6218,6 +6812,15 @@ const deserializeAws_json1_1RetryPolicy = (output: any, context: __SerdeContext)
   return {
     MaximumEventAgeInSeconds: __expectInt32(output.MaximumEventAgeInSeconds),
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
+  } as any;
+};
+
+const deserializeAws_json1_1RoutingConfig = (output: any, context: __SerdeContext): RoutingConfig => {
+  return {
+    FailoverConfig:
+      output.FailoverConfig !== undefined && output.FailoverConfig !== null
+        ? deserializeAws_json1_1FailoverConfig(output.FailoverConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -6336,6 +6939,12 @@ const deserializeAws_json1_1SageMakerPipelineParameters = (
       output.PipelineParameterList !== undefined && output.PipelineParameterList !== null
         ? deserializeAws_json1_1SageMakerPipelineParameterList(output.PipelineParameterList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Secondary = (output: any, context: __SerdeContext): Secondary => {
+  return {
+    Route: __expectString(output.Route),
   } as any;
 };
 
@@ -6532,6 +7141,29 @@ const deserializeAws_json1_1UpdateConnectionResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateEndpointResponse = (output: any, context: __SerdeContext): UpdateEndpointResponse => {
+  return {
+    Arn: __expectString(output.Arn),
+    EndpointId: __expectString(output.EndpointId),
+    EndpointUrl: __expectString(output.EndpointUrl),
+    EventBuses:
+      output.EventBuses !== undefined && output.EventBuses !== null
+        ? deserializeAws_json1_1EndpointEventBusList(output.EventBuses, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    ReplicationConfig:
+      output.ReplicationConfig !== undefined && output.ReplicationConfig !== null
+        ? deserializeAws_json1_1ReplicationConfig(output.ReplicationConfig, context)
+        : undefined,
+    RoleArn: __expectString(output.RoleArn),
+    RoutingConfig:
+      output.RoutingConfig !== undefined && output.RoutingConfig !== null
+        ? deserializeAws_json1_1RoutingConfig(output.RoutingConfig, context)
+        : undefined,
+    State: __expectString(output.State),
   } as any;
 };
 
