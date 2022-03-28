@@ -496,19 +496,17 @@ export enum S3ObjectAcl {
  * 			specifying a value for the <b>CustomCname</b> parameter. Your
  * 			private CA copies the CNAME or the S3 bucket name to the <b>CRL
  * 				Distribution Points</b> extension of each certificate it issues. Your S3
- * 			bucket policy must give write permission to Amazon Web Services Private CA. </p>
- * 		       <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
+ * 			bucket policy must give write permission to ACM Private CA. </p>
+ * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
- * 		       <p>Your private CA uses the value in the <b>ExpirationInDays</b>
- * 			parameter to calculate the <b>nextUpdate</b> field in the CRL.
- * 			The CRL is refreshed prior to a certificate's expiration date or when a certificate is
- * 			revoked. When a certificate is revoked, it appears in the CRL until the certificate
- * 			expires, and then in one additional CRL after expiration, and it always appears in the
- * 			audit report.</p>
+ * 		       <p>Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate the <b>nextUpdate</b> field in the CRL. The CRL is refreshed prior to a
+ * 			certificate's expiration date or when a certificate is revoked. When a certificate is
+ * 			revoked, it appears in the CRL until the certificate expires, and then in one additional
+ * 			CRL after expiration, and it always appears in the audit report.</p>
  *
  * 		       <p>A CRL is typically updated approximately 30 minutes after a certificate
- * 	is revoked. If for any reason a CRL update fails, Amazon Web Services Private CA makes further attempts
+ * 	is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts
  * 	every 15 minutes.</p>
  *
  * 		       <p>CRLs contain the following fields:</p>
@@ -596,14 +594,14 @@ export enum S3ObjectAcl {
  * 					CRL.</p>
  * 			         </li>
  *          </ul>
- * 		       <p>Certificate revocation lists created by Amazon Web Services Private CA are DER-encoded. You can use the
+ * 		       <p>Certificate revocation lists created by ACM Private CA are DER-encoded. You can use the
  * 			following OpenSSL command to list a CRL.</p>
  * 		       <p>
  *             <code>openssl crl -inform DER -text -in <i>crl_path</i>
  * 			-noout</code>
  *          </p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html">Planning a certificate revocation list
- * 				(CRL)</a> in the <i>Amazon Web Services Private Certificate Authority User Guide</i>
+ * 				(CRL)</a> in the <i>Certificate Manager Private Certificate Authority (PCA) User Guide</i>
  *          </p>
  */
 export interface CrlConfiguration {
@@ -633,7 +631,7 @@ export interface CrlConfiguration {
    * 				<b>CustomCname</b> argument, the name of your S3 bucket
    * 			is placed into the <b>CRL Distribution Points</b> extension of
    * 			the issued certificate. You can change the name of your bucket by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html">UpdateCertificateAuthority</a> operation. You must specify a <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies">bucket
-   * 				policy</a> that allows Amazon Web Services Private CA to write the CRL to your bucket.</p>
+   * 				policy</a> that allows ACM Private CA to write the CRL to your bucket.</p>
    */
   S3BucketName?: string;
 
@@ -680,13 +678,13 @@ export interface OcspConfiguration {
   Enabled: boolean | undefined;
 
   /**
-   * <p>By default, Amazon Web Services Private CA injects an Amazon Web Services domain into certificates being validated by
+   * <p>By default, ACM Private CA injects an Amazon Web Services domain into certificates being validated by
    * 			the Online Certificate Status Protocol (OCSP). A customer can alternatively use this
    * 			object to define a CNAME specifying a customized OCSP domain.</p>
    * 		       <p>Note: The value of the CNAME must not include a protocol prefix such as "http://" or
    * 			"https://".</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/ocsp-customize.html">Customizing Online Certificate Status Protocol
-   * 				(OCSP) </a> in the <i>Amazon Web Services Private Certificate Authority User Guide</i>.</p>
+   * 				(OCSP) </a> in the <i>Certificate Manager Private Certificate Authority (PCA) User Guide</i>.</p>
    */
   OcspCustomCname?: string;
 }
@@ -706,14 +704,14 @@ export namespace OcspConfiguration {
  * 			certificate revocation list (CRL). OCSP returns validation information about
  * 			certificates as requested by clients, and a CRL contains an updated list of certificates
  * 			revoked by your CA. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/revocation-setup.html">Setting up a
- * 				certificate revocation method</a> in the <i>Amazon Web Services Private Certificate Authority User
+ * 				certificate revocation method</a> in the <i>Certificate Manager Private Certificate Authority (PCA) User
  * 				Guide</i>.</p>
  */
 export interface RevocationConfiguration {
   /**
    * <p>Configuration of the certificate revocation list (CRL), if any, maintained by your
    * 			private CA. A CRL is typically updated approximately 30 minutes after a certificate
-   * 	is revoked. If for any reason a CRL update fails, Amazon Web Services Private CA makes further attempts
+   * 	is revoked. If for any reason a CRL update fails, ACM Private CA makes further attempts
    * 	every 15 minutes.</p>
    */
   CrlConfiguration?: CrlConfiguration;
@@ -786,7 +784,7 @@ export interface CreateCertificateAuthorityRequest {
    * <p>Custom string that can be used to distinguish between calls to the <b>CreateCertificateAuthority</b> action. Idempotency tokens for
    * 				<b>CreateCertificateAuthority</b> time out after five
    * 			minutes. Therefore, if you call <b>CreateCertificateAuthority</b> multiple times with the same idempotency
-   * 			token within five minutes, Amazon Web Services Private CA recognizes that you are requesting only
+   * 			token within five minutes, ACM Private CA recognizes that you are requesting only
    * 			certificate authority and will issue only one. If you change the idempotency token for
    * 			each call, PCA recognizes that you are requesting multiple certificate
    * 			authorities.</p>
@@ -904,7 +902,7 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine
+ * <p>An ACM Private CA quota has been exceeded. See the exception message returned to determine
  * 			the quota that was exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -1301,7 +1299,7 @@ export enum CertificateAuthorityStatus {
  * 			controls the public key contained in the <b>Subject Public Key
  * 				Info</b> field. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create your private CA. You must then
  * 			call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCertificate.html">GetCertificateAuthorityCertificate</a> action to retrieve a private CA
- * 			certificate signing request (CSR). Sign the CSR with your Amazon Web Services Private CA-hosted or
+ * 			certificate signing request (CSR). Sign the CSR with your ACM Private CA-hosted or
  * 			on-premises root or subordinate CA certificate. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action to import the signed
  * 			certificate into Certificate Manager (ACM). </p>
  */
@@ -1684,7 +1682,7 @@ export interface ImportCertificateAuthorityCertificateRequest {
 
   /**
    * <p>A PEM-encoded file that contains all of your certificates, other than the certificate
-   * 			you're importing, chaining up to your root CA. Your Amazon Web Services Private CA-hosted or on-premises
+   * 			you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises
    * 			root certificate is the last in the chain, and each certificate in the chain signs the
    * 			one preceding. </p>
    * 		       <p>This parameter must be supplied when you import a subordinate CA. When you import a
@@ -1745,7 +1743,7 @@ export enum PolicyQualifierId {
 }
 
 /**
- * <p>Defines a <code>PolicyInformation</code> qualifier. Amazon Web Services Private CA supports the <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4">certification
+ * <p>Defines a <code>PolicyInformation</code> qualifier. ACM Private CA supports the <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4">certification
  * 				practice statement (CPS) qualifier</a> defined in RFC 5280. </p>
  */
 export interface Qualifier {
@@ -1767,7 +1765,7 @@ export namespace Qualifier {
 
 /**
  * <p>Modifies the <code>CertPolicyId</code> of a <code>PolicyInformation</code> object with
- * 			a qualifier. Amazon Web Services Private CA supports the certification practice statement (CPS)
+ * 			a qualifier. ACM Private CA supports the certification practice statement (CPS)
  * 			qualifier.</p>
  */
 export interface PolicyQualifierInfo {
@@ -1777,7 +1775,7 @@ export interface PolicyQualifierInfo {
   PolicyQualifierId: PolicyQualifierId | string | undefined;
 
   /**
-   * <p>Defines the qualifier type. Amazon Web Services Private CA supports the use of a URI for a CPS qualifier
+   * <p>Defines the qualifier type. ACM Private CA supports the use of a URI for a CPS qualifier
    * 			in this field.</p>
    */
   Qualifier: Qualifier | undefined;
@@ -1804,7 +1802,7 @@ export interface PolicyInformation {
   CertPolicyId: string | undefined;
 
   /**
-   * <p>Modifies the given <code>CertPolicyId</code> with a qualifier. Amazon Web Services Private CA supports the
+   * <p>Modifies the given <code>CertPolicyId</code> with a qualifier. ACM Private CA supports the
    * 			certification practice statement (CPS) qualifier.</p>
    */
   PolicyQualifiers?: PolicyQualifierInfo[];
@@ -1825,7 +1823,8 @@ export namespace PolicyInformation {
  * 			certificate.</p>
  * 		       <p>Extensions present in <code>CustomExtensions</code> follow the
  * 				<code>ApiPassthrough</code>
- * 			         <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">template rules</a>. </p>
+ * 			         <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">template
+ * 				rules</a>. </p>
  */
 export interface CustomExtension {
   /**
@@ -1972,7 +1971,7 @@ export namespace Extensions {
  * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
  * 			be selected, or else this parameter is ignored. </p>
  * 		       <p>If conflicting or duplicate certificate information is supplied from other sources,
- * 			Amazon Web Services Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
+ * 			ACM Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
  * 				operation rules</a> to determine what information is used.</p>
  */
 export interface ApiPassthrough {
@@ -2014,7 +2013,7 @@ export enum ValidityPeriodType {
  * 			or expires, or as a span of time after issuance, stated in days, months, or years. For
  * 			more information, see <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5">Validity</a>
  * 			in RFC 5280.</p>
- * 		       <p>Amazon Web Services Private CA API consumes the <code>Validity</code> data type differently in two
+ * 		       <p>ACM Private CA API consumes the <code>Validity</code> data type differently in two
  * 			distinct parameters of the <code>IssueCertificate</code> action. The required parameter
  * 				<code>IssueCertificate</code>:<code>Validity</code> specifies the end of a
  * 			certificate's validity period. The optional parameter
@@ -2028,7 +2027,7 @@ export interface Validity {
   Value: number | undefined;
 
   /**
-   * <p>Determines how <i>Amazon Web Services Private CA</i> interprets the <code>Value</code>
+   * <p>Determines how <i>ACM Private CA</i> interprets the <code>Value</code>
    * 			parameter, an integer. Supported validity types include those listed below. Type
    * 			definitions with values include a sample input value and the resulting output. </p>
    * 		       <p>
@@ -2092,7 +2091,7 @@ export interface IssueCertificateRequest {
    * 			be selected, or else this parameter is ignored. For more information about using these
    * 			templates, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate Templates</a>.</p>
    * 		       <p>If conflicting or duplicate certificate information is supplied during certificate
-   * 			issuance, Amazon Web Services Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
+   * 			issuance, ACM Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
    * 				operation rules</a> to determine what information is used.</p>
    */
   ApiPassthrough?: ApiPassthrough;
@@ -2141,7 +2140,7 @@ export interface IssueCertificateRequest {
 
   /**
    * <p>Specifies a custom configuration template to use when issuing a certificate. If this
-   * 			parameter is not provided, Amazon Web Services Private CA defaults to the
+   * 			parameter is not provided, ACM Private CA defaults to the
    * 				<code>EndEntityCertificate/V1</code> template. For CA certificates, you should
    * 			choose the shortest path length that meets your needs. The path length is indicated by
    * 			the PathLen<i>N</i> portion of the ARN, where <i>N</i> is
@@ -2149,7 +2148,7 @@ export interface IssueCertificateRequest {
    * 				depth</a>.</p>
    * 		       <p>Note: The CA depth configured on a subordinate CA certificate must not exceed the
    * 			limit set by its parents in the CA hierarchy.</p>
-   * 		       <p>For a list of <code>TemplateArn</code> values supported by Amazon Web Services Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate
+   * 		       <p>For a list of <code>TemplateArn</code> values supported by ACM Private CA, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate
    * 				Templates</a>.</p>
    */
   TemplateArn?: string;
@@ -2174,7 +2173,7 @@ export interface IssueCertificateRequest {
   /**
    * <p>Information describing the start of the validity period of the certificate. This
    * 			parameter sets the “Not Before" date for the certificate.</p>
-   * 		       <p>By default, when issuing a certificate, Amazon Web Services Private CA sets the "Not Before" date to the
+   * 		       <p>By default, when issuing a certificate, ACM Private CA sets the "Not Before" date to the
    * 			issuance time minus 60 minutes. This compensates for clock inconsistencies across
    * 			computer systems. The <code>ValidityNotBefore</code> parameter can be used to customize
    * 			the “Not Before” value. </p>
@@ -2190,7 +2189,7 @@ export interface IssueCertificateRequest {
   /**
    * <p>Alphanumeric string that can be used to distinguish between calls to the <b>IssueCertificate</b> action. Idempotency tokens for <b>IssueCertificate</b> time out after one minute. Therefore, if you
    * 			call <b>IssueCertificate</b> multiple times with the same
-   * 			idempotency token within one minute, Amazon Web Services Private CA recognizes that you are requesting only
+   * 			idempotency token within one minute, ACM Private CA recognizes that you are requesting only
    * 			one certificate and will issue only one. If you change the idempotency token for each
    * 			call, PCA recognizes that you are requesting multiple certificates.</p>
    */

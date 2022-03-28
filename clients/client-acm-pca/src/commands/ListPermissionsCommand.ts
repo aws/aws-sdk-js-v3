@@ -47,7 +47,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * 			the ACM certificate owner must set up a resource-based policy to enable
  * 			cross-account issuance and renewals. For more information, see
  * 			<a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource
- * 			Based Policy with Amazon Web Services Private CA</a>.</p>
+ * 			Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *          </ul>
  * @example

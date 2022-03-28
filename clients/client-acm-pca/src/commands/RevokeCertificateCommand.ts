@@ -22,11 +22,11 @@ export interface RevokeCertificateCommandInput extends RevokeCertificateRequest 
 export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes a certificate that was issued inside Amazon Web Services Private CA. If you enable a certificate
+ * <p>Revokes a certificate that was issued inside ACM Private CA. If you enable a certificate
  * 			revocation list (CRL) when you create or update your private CA, information about the
- * 			revoked certificates will be included in the CRL. Amazon Web Services Private CA writes the CRL to an S3
+ * 			revoked certificates will be included in the CRL. ACM Private CA writes the CRL to an S3
  * 			bucket that you specify. A CRL is typically updated approximately 30 minutes after a
- * 			certificate is revoked. If for any reason the CRL update fails, Amazon Web Services Private CA attempts
+ * 			certificate is revoked. If for any reason the CRL update fails, ACM Private CA attempts
  * 			makes further attempts every 15 minutes. With Amazon CloudWatch, you can create alarms
  * 			for the metrics <code>CRLGenerated</code> and <code>MisconfiguredCRLBucket</code>. For
  * 			more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html">Supported CloudWatch Metrics</a>.</p>
@@ -37,7 +37,7 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies">Access
  * 						policies for CRLs in Amazon S3</a>.</p>
  *          </note>
- * 		       <p>Amazon Web Services Private CA also writes revocation information to the audit report. For more
+ * 		       <p>ACM Private CA also writes revocation information to the audit report. For more
  * 			information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
  * 		       <note>
  * 			         <p>You cannot revoke a root CA self-signed certificate.</p>

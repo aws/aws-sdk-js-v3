@@ -30,13 +30,13 @@ export interface DescribeCertificateAuthorityCommandOutput
  * 		       <ul>
  *             <li>
  * 				           <p>
- *                   <code>CREATING</code> - Amazon Web Services Private CA is creating your private certificate
+ *                   <code>CREATING</code> - ACM Private CA is creating your private certificate
  * 					authority.</p>
  * 			         </li>
  *             <li>
  * 				           <p>
  *                   <code>PENDING_CERTIFICATE</code> - The certificate is pending. You must use
- * 					your Amazon Web Services Private CA-hosted or on-premises root or subordinate CA to sign your
+ * 					your ACM Private CA-hosted or on-premises root or subordinate CA to sign your
  * 					private CA CSR and then import it into PCA. </p>
  * 			         </li>
  *             <li>

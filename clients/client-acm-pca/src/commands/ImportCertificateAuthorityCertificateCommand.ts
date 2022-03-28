@@ -23,12 +23,12 @@ export interface ImportCertificateAuthorityCertificateCommandInput
 export interface ImportCertificateAuthorityCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Imports a signed private CA certificate into Amazon Web Services Private CA. This action is used when you
- * 			are using a chain of trust whose root is located outside Amazon Web Services Private CA. Before you can call
+ * <p>Imports a signed private CA certificate into ACM Private CA. This action is used when you
+ * 			are using a chain of trust whose root is located outside ACM Private CA. Before you can call
  * 			this action, the following preparations must in place:</p>
  * 		       <ol>
  *             <li>
- * 				           <p>In Amazon Web Services Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create the private CA that you
+ * 				           <p>In ACM Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action to create the private CA that you
  * 					plan to back with the imported certificate.</p>
  * 			         </li>
  *             <li>
@@ -44,14 +44,14 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * 					chain to your working directory.</p>
  * 			         </li>
  *          </ol>
- * 		       <p>Amazon Web Services Private CA supports three scenarios for installing a CA certificate:</p>
+ * 		       <p>ACM Private CA supports three scenarios for installing a CA certificate:</p>
  * 		       <ul>
  *             <li>
- * 				           <p>Installing a certificate for a root CA hosted by Amazon Web Services Private CA.</p>
+ * 				           <p>Installing a certificate for a root CA hosted by ACM Private CA.</p>
  * 			         </li>
  *             <li>
  * 				           <p>Installing a subordinate CA certificate whose parent authority is hosted by
- * 					Amazon Web Services Private CA.</p>
+ * 					ACM Private CA.</p>
  * 			         </li>
  *             <li>
  * 				           <p>Installing a subordinate CA certificate whose parent authority is externally
@@ -89,7 +89,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * 		       <p>
  *             <i>Enforcement of Critical Constraints</i>
  *          </p>
- * 		       <p>Amazon Web Services Private CA allows the following extensions to be marked critical in the imported CA
+ * 		       <p>ACM Private CA allows the following extensions to be marked critical in the imported CA
  * 			certificate or chain.</p>
  * 		       <ul>
  *             <li>
@@ -129,7 +129,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * 				           <p>Inhibit anyPolicy</p>
  * 			         </li>
  *          </ul>
- * 		       <p>Amazon Web Services Private CA rejects the following extensions when they are marked critical in an
+ * 		       <p>ACM Private CA rejects the following extensions when they are marked critical in an
  * 			imported CA certificate or chain.</p>
  * 		       <ul>
  *             <li>

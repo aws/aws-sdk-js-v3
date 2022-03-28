@@ -37,7 +37,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *             <li>
  * 			            <p>A policy grants access on a private CA to an Amazon Web Services customer account, to Amazon Web Services Organizations, or to
  * 			an Amazon Web Services Organizations unit. Policies are under the control of a CA administrator. For more information,
- * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with Amazon Web Services Private CA</a>.</p>
+ * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html">Using a Resource Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *             <li>
  * 			            <p>A policy permits a user of Certificate Manager (ACM) to issue ACM certificates
@@ -47,7 +47,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * 			            <p>For ACM to manage automatic renewal of these certificates,
  * 			the ACM user must configure a Service Linked Role (SLR). The SLR allows
  * 			the ACM service to assume the identity of the user, subject to confirmation against the
- * 			Amazon Web Services Private CA policy. For more information, see
+ * 			ACM Private CA policy. For more information, see
  * 			<a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html">Using a
  *             Service Linked Role with ACM</a>.</p>
  * 		          </li>
