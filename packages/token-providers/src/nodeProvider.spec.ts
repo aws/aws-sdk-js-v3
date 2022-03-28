@@ -61,24 +61,6 @@ describe(nodeProvider.name, () => {
     expect(loadSharedConfigFiles).not.toHaveBeenCalled();
   });
 
-  it(`reads profile from env['${ENV_PROFILE}'], if not provided in init`, async () => {
-    const ORIGINAL_ENV = process.env;
-    process.env = {
-      ...ORIGINAL_ENV,
-      [ENV_PROFILE]: "envProfile",
-    };
-
-    const { profile, ...mockInitWithoutProfile } = mockInit;
-    const receivedToken = await nodeProvider(mockInitWithoutProfile)();
-    expect(receivedToken).toStrictEqual(mockToken);
-
-    for (const fromFn of [fromSso]) {
-      expect(fromFn).toHaveBeenCalledWith({ ...mockInit, profile: process.env[ENV_PROFILE] });
-    }
-
-    process.env = ORIGINAL_ENV;
-  });
-
   describe("memoize isExpired", () => {
     const mockDateNow = Date.now();
     beforeEach(async () => {

@@ -20,19 +20,11 @@ import { fromSso, FromSsoInit } from "./fromSso";
  *                              SSO cache or ssoOidc.createToken() call
  */
 
-export const nodeProvider = (init: FromSsoInit = {}): TokenProvider => {
-  const options = {
-    profile: process.env[ENV_PROFILE],
-    ...init,
-  };
-
-  const providerChain = chain(fromSso(options), async () => {
-    throw new TokenProviderError("Could not load token from any providers", false);
-  });
-
-  return memoize(
-    providerChain,
+export const nodeProvider = (init: FromSsoInit = {}): TokenProvider =>
+  memoize(
+    chain(fromSso(init), async () => {
+      throw new TokenProviderError("Could not load token from any providers", false);
+    }),
     (token) => token.expiration !== undefined && token.expiration.getTime() - Date.now() < 300000,
     (token) => token.expiration !== undefined
   );
-};
