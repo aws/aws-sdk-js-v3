@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
+
+
+### Features
+
+* **client-medialive:** This release adds support for selecting a maintenance window. ([1d78757](https://github.com/aws/aws-sdk-js-v3/commit/1d787579e0e35a1c407d7d78af2b116daef76868))
+
+
+
+
+
 # [3.56.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.55.0...v3.56.0) (2022-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

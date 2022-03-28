@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
+
+
+### Features
+
+* **client-acm-pca:** Updating service name entities ([8d633e0](https://github.com/aws/aws-sdk-js-v3/commit/8d633e0c37dbe07f8e7d5a9364c5d8814b90b2b9))
+
+
+
+
+
 # [3.56.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.55.0...v3.56.0) (2022-03-24)
 
 **Note:** Version bump only for package @aws-sdk/client-acm-pca
