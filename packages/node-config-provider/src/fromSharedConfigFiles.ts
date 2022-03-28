@@ -1,17 +1,8 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import {
-  getProfileName,
-  loadSharedConfigFiles,
-  SharedConfigInit as BaseSharedConfigInit,
-} from "@aws-sdk/shared-ini-file-loader";
+import { getProfileName, loadSharedConfigFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
 import { Profile, Provider } from "@aws-sdk/types";
 
-export interface SharedConfigInit extends BaseSharedConfigInit {
-  /**
-   * The configuration profile to use.
-   */
-  profile?: string;
-
+export interface SharedConfigInit extends SourceProfileInit {
   /**
    * The preferred shared ini file to load the config. "config" option refers to
    * the shared config file(defaults to `~/.aws/config`). "credentials" option
