@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.59.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.58.0...v3.59.0) (2022-03-29)
+
+
+### Features
+
+* **client-organizations:** This release provides the new CloseAccount API that enables principals in the management account to close any member account within an organization. ([be368b0](https://github.com/aws/aws-sdk-js-v3/commit/be368b035fc95aeba02ded15ce4ddfe02e22d488))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 
