@@ -25,13 +25,13 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  * <p>This action is available if all of the following are true:</p>
  *         <ul>
  *             <li>
- *                 <p>You're authorized to create accounts in the AWS GovCloud (US) Region. For
- *                     more information on the AWS GovCloud (US) Region, see the <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html">
- *                      <i>AWS GovCloud User Guide</i>.</a>
+ *                 <p>You're authorized to create accounts in the Amazon Web Services GovCloud (US) Region. For
+ *                     more information on the Amazon Web Services GovCloud (US) Region, see the <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html">
+ *                      <i>Amazon Web Services GovCloud User Guide</i>.</a>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>You already have an account in the AWS GovCloud (US) Region that is paired
+ *                 <p>You already have an account in the Amazon Web Services GovCloud (US) Region that is paired
  *                     with a management account of an organization in the commercial Region.</p>
  *             </li>
  *             <li>
@@ -43,20 +43,20 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                 </p>
  *             </li>
  *          </ul>
- *         <p>AWS Organizations automatically creates the required service-linked role named
- *                 <code>AWSServiceRoleForOrganizations</code>. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">AWS Organizations and Service-Linked Roles</a> in the
- *                 <i>AWS Organizations User Guide.</i>
+ *         <p>Organizations automatically creates the required service-linked role named
+ *                 <code>AWSServiceRoleForOrganizations</code>. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">Organizations and Service-Linked Roles</a> in the
+ *                 <i>Organizations User Guide.</i>
  *          </p>
- *         <p>AWS automatically enables AWS CloudTrail for AWS GovCloud (US) accounts, but you should also
+ *         <p>Amazon Web Services automatically enables CloudTrail for Amazon Web Services GovCloud (US) accounts, but you should also
  *             do the following:</p>
  *         <ul>
  *             <li>
- *                 <p>Verify that AWS CloudTrail is enabled to store logs.</p>
+ *                 <p>Verify that CloudTrail is enabled to store logs.</p>
  *             </li>
  *             <li>
- *                 <p>Create an S3 bucket for AWS CloudTrail log storage.</p>
- *                 <p>For more information, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html">Verifying AWS CloudTrail Is
- *                         Enabled</a> in the <i>AWS GovCloud User Guide</i>.
+ *                 <p>Create an Amazon S3 bucket for CloudTrail log storage.</p>
+ *                 <p>For more information, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html">Verifying CloudTrail Is
+ *                         Enabled</a> in the <i>Amazon Web Services GovCloud User Guide</i>.
  *                 </p>
  *             </li>
  *          </ul>
@@ -66,14 +66,14 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *             account itself. To add tags to the GovCloud account, call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
  *             account exists.</p>
  *         <p>You call this action from the management account of your organization in the
- *             commercial Region to create a standalone AWS account in the AWS GovCloud (US)
+ *             commercial Region to create a standalone Amazon Web Services account in the Amazon Web Services GovCloud (US)
  *             Region. After the account is created, the management account of an organization in the
- *             AWS GovCloud (US) Region can invite it to that organization. For more information on
- *             inviting standalone accounts in the AWS GovCloud (US) to join an organization, see
- *                 <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
- *             the <i>AWS GovCloud User Guide.</i>
+ *             Amazon Web Services GovCloud (US) Region can invite it to that organization. For more information on
+ *             inviting standalone accounts in the Amazon Web Services GovCloud (US) to join an organization, see
+ *                 <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a> in the
+ *                 <i>Amazon Web Services GovCloud User Guide.</i>
  *          </p>
- *         <p>Calling <code>CreateGovCloudAccount</code> is an asynchronous request that AWS
+ *         <p>Calling <code>CreateGovCloudAccount</code> is an asynchronous request that Amazon Web Services
  *             performs in the background. Because <code>CreateGovCloudAccount</code> operates
  *             asynchronously, it can return a successful completion message even though account
  *             initialization might still be in progress. You might need to wait a few minutes before
@@ -86,63 +86,62 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                     operation.</p>
  *             </li>
  *             <li>
- *                 <p>Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For
- *                     information on using AWS CloudTrail with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your
- *                         Organization</a> in the <i>AWS Organizations User Guide.</i>
+ *                 <p>Check the CloudTrail log for the <code>CreateAccountResult</code> event. For
+ *                     information on using CloudTrail with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your
+ *                         Organization</a> in the <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>
  *         <p></p>
  *         <p>When you call the <code>CreateGovCloudAccount</code> action, you create two accounts:
- *             a standalone account in the AWS GovCloud (US) Region and an associated account in the
+ *             a standalone account in the Amazon Web Services GovCloud (US) Region and an associated account in the
  *             commercial Region for billing and support purposes. The account in the commercial Region
  *             is automatically a member of the organization whose credentials made the request. Both
  *             accounts are associated with the same email address.</p>
  *         <p>A role is created in the new account in the commercial Region that allows the
- *             management account in the organization in the commercial Region to assume it. An AWS
+ *             management account in the organization in the commercial Region to assume it. An Amazon Web Services
  *             GovCloud (US) account is then created and associated with the commercial account that
- *             you just created. A role is also created in the new AWS GovCloud (US) account that can
- *             be assumed by the AWS GovCloud (US) account that is associated with the management
+ *             you just created. A role is also created in the new Amazon Web Services GovCloud (US) account that can
+ *             be assumed by the Amazon Web Services GovCloud (US) account that is associated with the management
  *             account of the commercial organization. For more information and to view a diagram that
- *             explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
- *                 <i>AWS GovCloud User Guide.</i>
+ *             explains how account access works, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a> in the
+ *                 <i>Amazon Web Services GovCloud User Guide.</i>
  *          </p>
  *
  *
  *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
- *                 an AWS Account in Your Organization</a> in the
- *                 <i>AWS Organizations User Guide.</i>
+ *                 an Amazon Web Services account in Your Organization</a> in the
+ *                 <i>Organizations User Guide.</i>
  *          </p>
  *         <important>
  *             <ul>
  *                <li>
- *                     <p>When you create an account in an organization using the AWS Organizations console,
+ *                     <p>When you create an account in an organization using the Organizations console,
  *                         API, or CLI commands, the information required for the account to operate as
  *                         a standalone account is <i>not</i> automatically collected.
  *                         This includes a payment method and signing the end user license agreement
  *                         (EULA). If you must remove an account from your organization later, you can
  *                         do so only after you provide the missing information. Follow the steps at
- *                             <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization as a member account</a> in the
- *                             <i>AWS Organizations User Guide.</i>
+ *                             <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization as a member account</a> in the
+ *                             <i>Organizations User Guide.</i>
  *                   </p>
  *                 </li>
  *                <li>
  *                     <p>If you get an exception that indicates that you exceeded your account
- *                         limits for the organization, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.</p>
+ *                         limits for the organization, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *                <li>
  *                     <p>If you get an exception that indicates that the operation failed because
  *                         your organization is still initializing, wait one hour and then try again.
- *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
- *                             Support</a>.</p>
+ *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *                <li>
  *                     <p>Using <code>CreateGovCloudAccount</code> to create multiple temporary
- *                         accounts isn't recommended. You can only close an account from the AWS
- *                         Billing and Cost Management console, and you must be signed in as the root
- *                         user. For information on the requirements and process for closing an
- *                         account, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing an AWS Account</a> in the
- *                             <i>AWS Organizations User Guide</i>.</p>
+ *                         accounts isn't recommended. You can only close an account from the Amazon Web Services
+ *                         Billing and Cost Management console, and you must be signed in as the root user. For information on
+ *                         the requirements and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing an
+ *                             Amazon Web Services account</a> in the
+ *                         <i>Organizations User Guide</i>.</p>
  *                 </li>
  *             </ul>
  *         </important>

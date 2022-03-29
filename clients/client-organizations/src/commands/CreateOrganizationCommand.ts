@@ -22,7 +22,7 @@ export interface CreateOrganizationCommandInput extends CreateOrganizationReques
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS organization. The account whose user is calling the
+ * <p>Creates an Amazon Web Services organization. The account whose user is calling the
  *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
  *         <p>This operation must be called using credentials from the account that is to become the
  *             new organization's management account. The principal must also have the relevant IAM

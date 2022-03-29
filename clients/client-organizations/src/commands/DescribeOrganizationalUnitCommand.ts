@@ -24,7 +24,7 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
 /**
  * <p>Retrieves information about an organizational unit (OU).</p>
  *         <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

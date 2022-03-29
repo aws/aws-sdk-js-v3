@@ -23,10 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists tags that are attached to the specified resource.</p>
- *         <p>You can attach tags to the following resources in AWS Organizations.</p>
+ *         <p>You can attach tags to the following resources in Organizations.</p>
  *         <ul>
  *             <li>
- *                 <p>AWS account</p>
+ *                 <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
  *                 <p>Organization root</p>
@@ -39,7 +39,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             </li>
  *          </ul>
  *         <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

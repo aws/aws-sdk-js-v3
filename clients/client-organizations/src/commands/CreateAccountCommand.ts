@@ -22,8 +22,8 @@ export interface CreateAccountCommandInput extends CreateAccountRequest {}
 export interface CreateAccountCommandOutput extends CreateAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS account that is automatically a member of the organization whose
- *             credentials made the request. This is an asynchronous request that AWS performs in the
+ * <p>Creates an Amazon Web Services account that is automatically a member of the organization whose
+ *             credentials made the request. This is an asynchronous request that Amazon Web Services performs in the
  *             background. Because <code>CreateAccount</code> operates asynchronously, it can return a
  *             successful completion message even though account initialization might still be in
  *             progress. You might need to wait a few minutes before you can successfully access the
@@ -34,59 +34,56 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     response element from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a> operation.</p>
  *             </li>
  *             <li>
- *                 <p>Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For
- *                     information on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging and monitoring in AWS Organizations</a> in the
- *                         <i>AWS Organizations User Guide.</i>
+ *                 <p>Check the CloudTrail log for the <code>CreateAccountResult</code> event. For
+ *                     information on using CloudTrail with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging and monitoring in Organizations</a> in the
+ *                         <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>
  *         <p>The user who calls the API to create an account must have the
  *                 <code>organizations:CreateAccount</code> permission. If you enabled all features in
- *             the organization, AWS Organizations creates the required service-linked role named
- *                 <code>AWSServiceRoleForOrganizations</code>. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">AWS Organizations and Service-Linked Roles</a> in the
- *                 <i>AWS Organizations User Guide</i>.</p>
+ *             the organization, Organizations creates the required service-linked role named
+ *                 <code>AWSServiceRoleForOrganizations</code>. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">Organizations and Service-Linked Roles</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *         <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>
- *         <p>AWS Organizations preconfigures the new member account with a role (named
+ *         <p>Organizations preconfigures the new member account with a role (named
  *                 <code>OrganizationAccountAccessRole</code> by default) that grants users in the
  *             management account administrator permissions in the new member account. Principals in
- *             the management account can assume the role. AWS Organizations clones the company name and address
+ *             the management account can assume the role. Organizations clones the company name and address
  *             information for the new account from the organization's management account.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
- *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
- *                 an AWS Account in Your Organization</a> in the
- *                 <i>AWS Organizations User Guide.</i>
+ *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating an Amazon Web Services account in
+ *                 Your Organization</a> in the <i>Organizations User Guide.</i>
  *          </p>
  *         <important>
  *             <ul>
  *                <li>
- *                     <p>When you create an account in an organization using the AWS Organizations console,
- *                         API, or CLI commands, the information required for the account to operate as
- *                         a standalone account, such as a payment method and signing the end user
+ *                     <p>When you create an account in an organization using the Organizations console,
+ *                         API, or CLI commands, the information required for the account to operate
+ *                         as a standalone account, such as a payment method and signing the end user
  *                         license agreement (EULA) is <i>not</i> automatically
  *                         collected. If you must remove an account from your organization later, you
  *                         can do so only after you provide the missing information. Follow the steps
- *                         at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization as a member account</a> in the
- *                             <i>AWS Organizations User Guide</i>.</p>
+ *                         at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info"> To leave an organization as a member account</a> in the
+ *                             <i>Organizations User Guide</i>.</p>
  *                 </li>
  *                <li>
  *                     <p>If you get an exception that indicates that you exceeded your account
- *                         limits for the organization, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.</p>
+ *                         limits for the organization, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *                <li>
  *                     <p>If you get an exception that indicates that the operation failed because
  *                         your organization is still initializing, wait one hour and then try again.
- *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
- *                             Support</a>.</p>
+ *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                 </li>
  *                <li>
  *                     <p>Using <code>CreateAccount</code> to create multiple temporary accounts
- *                         isn't recommended. You can only close an account from the Billing and Cost
- *                         Management Console, and you must be signed in as the root user. For
- *                         information on the requirements and process for closing an account, see
- *                             <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing an
- *                             AWS Account</a> in the
- *                         <i>AWS Organizations User Guide</i>.</p>
+ *                         isn't recommended. You can only close an account from the Billing and Cost Management console, and
+ *                         you must be signed in as the root user. For information on the requirements
+ *                         and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing an
+ *                             Amazon Web Services account</a> in the
+ *                         <i>Organizations User Guide</i>.</p>
  *                 </li>
  *             </ul>
  *         </important>

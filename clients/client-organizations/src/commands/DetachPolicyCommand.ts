@@ -25,7 +25,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>
  *         <important>
  *             <p>If the policy being detached is a service control policy (SCP), the changes to
- *                 permissions for AWS Identity and Access Management (IAM) users and roles in affected accounts are
+ *                 permissions for Identity and Access Management (IAM) users and roles in affected accounts are
  *                 immediate.</p>
  *         </important>
  *         <p>Every root, OU, and account must have at least one SCP attached. If you want to

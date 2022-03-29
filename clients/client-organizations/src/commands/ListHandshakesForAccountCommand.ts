@@ -24,9 +24,10 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
 /**
  * <p>Lists the current handshakes that are associated with the account of the requesting
  *             user.</p>
- *         <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>, or
- *                 <code>CANCELED</code> appear in the results of this API for only 30 days after
- *             changing to that state. After that, they're deleted and no longer accessible.</p>
+ *         <p>Handshakes that are <code>ACCEPTED</code>, <code>DECLINED</code>,
+ *                 <code>CANCELED</code>, or <code>EXPIRED</code> appear in the results of this API for
+ *             only 30 days after changing to that state. After that, they're deleted and no longer
+ *             accessible.</p>
  *         <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can

@@ -26,7 +26,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *             attach policies of that type to the root, any organizational unit (OU), or account in
  *             that root. You can undo this by using the <a>DisablePolicyType</a>
  *             operation.</p>
- *         <p>This is an asynchronous request that AWS performs in the background. AWS
+ *         <p>This is an asynchronous request that Amazon Web Services performs in the background. Amazon Web Services
  *             recommends that you first use <a>ListRoots</a> to see the status of policy
  *             types for a specified root, and then use this operation.</p>
  *         <p>This operation can be called only from the organization's management account.</p>

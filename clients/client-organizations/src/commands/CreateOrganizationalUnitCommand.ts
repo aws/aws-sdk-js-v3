@@ -28,7 +28,7 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *             upon the policy types enabled for that root. For service control policies, the limit is
  *             five.</p>
  *         <p>For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing Organizational Units</a> in the
- *                 <i>AWS Organizations User Guide.</i>
+ *                 <i>Organizations User Guide.</i>
  *          </p>
  *         <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>

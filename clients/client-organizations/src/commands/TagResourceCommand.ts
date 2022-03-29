@@ -23,10 +23,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more tags to the specified resource.</p>
- *         <p>Currently, you can attach tags to the following resources in AWS Organizations.</p>
+ *         <p>Currently, you can attach tags to the following resources in Organizations.</p>
  *         <ul>
  *             <li>
- *                 <p>AWS account</p>
+ *                 <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
  *                 <p>Organization root</p>

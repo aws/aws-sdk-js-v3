@@ -23,7 +23,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
 
 /**
  * <p>Creates a policy of a specified type that you can attach to a root, an organizational
- *             unit (OU), or an individual AWS account.</p>
+ *             unit (OU), or an individual Amazon Web Services account.</p>
  *         <p>For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
  *                 Organization Policies</a>.</p>
  *         <p>If the request includes tags, then the requester must have the

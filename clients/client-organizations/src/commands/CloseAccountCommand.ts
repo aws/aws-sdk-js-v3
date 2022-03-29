@@ -11,44 +11,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePolicyRequest, DescribePolicyResponse } from "../models/models_0";
+import { CloseAccountRequest } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
-  deserializeAws_json1_1DescribePolicyCommand,
-  serializeAws_json1_1DescribePolicyCommand,
+  deserializeAws_json1_1CloseAccountCommand,
+  serializeAws_json1_1CloseAccountCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribePolicyCommandInput extends DescribePolicyRequest {}
-export interface DescribePolicyCommandOutput extends DescribePolicyResponse, __MetadataBearer {}
+export interface CloseAccountCommandInput extends CloseAccountRequest {}
+export interface CloseAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a policy.</p>
- *         <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * <p>Closes an Amazon Web Services account that is now a part of an Organizations, either created within the organization, or invited to join the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OrganizationsClient, DescribePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
- * // const { OrganizationsClient, DescribePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * import { OrganizationsClient, CloseAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, CloseAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
- * const command = new DescribePolicyCommand(input);
+ * const command = new CloseAccountCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribePolicyCommandInput} for command's `input` shape.
- * @see {@link DescribePolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloseAccountCommandInput} for command's `input` shape.
+ * @see {@link CloseAccountCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
-export class DescribePolicyCommand extends $Command<
-  DescribePolicyCommandInput,
-  DescribePolicyCommandOutput,
+export class CloseAccountCommand extends $Command<
+  CloseAccountCommandInput,
+  CloseAccountCommandOutput,
   OrganizationsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribePolicyCommandInput) {
+  constructor(readonly input: CloseAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +59,20 @@ export class DescribePolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePolicyCommandInput, DescribePolicyCommandOutput> {
+  ): Handler<CloseAccountCommandInput, CloseAccountCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OrganizationsClient";
-    const commandName = "DescribePolicyCommand";
+    const commandName = "CloseAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CloseAccountRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -84,12 +82,12 @@ export class DescribePolicyCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePolicyCommand(input, context);
+  private serialize(input: CloseAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CloseAccountCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePolicyCommandOutput> {
-    return deserializeAws_json1_1DescribePolicyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseAccountCommandOutput> {
+    return deserializeAws_json1_1CloseAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

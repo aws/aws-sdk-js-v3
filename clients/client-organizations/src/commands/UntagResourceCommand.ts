@@ -23,10 +23,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes any tags with the specified keys from the specified resource.</p>
- *         <p>You can attach tags to the following resources in AWS Organizations.</p>
+ *         <p>You can attach tags to the following resources in Organizations.</p>
  *         <ul>
  *             <li>
- *                 <p>AWS account</p>
+ *                 <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
  *                 <p>Organization root</p>

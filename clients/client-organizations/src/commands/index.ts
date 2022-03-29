@@ -1,6 +1,7 @@
 export * from "./AcceptHandshakeCommand";
 export * from "./AttachPolicyCommand";
 export * from "./CancelHandshakeCommand";
+export * from "./CloseAccountCommand";
 export * from "./CreateAccountCommand";
 export * from "./CreateGovCloudAccountCommand";
 export * from "./CreateOrganizationCommand";

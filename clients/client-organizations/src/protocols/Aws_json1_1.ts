@@ -17,6 +17,7 @@ import {
 import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "../commands/AcceptHandshakeCommand";
 import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "../commands/AttachPolicyCommand";
 import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "../commands/CancelHandshakeCommand";
+import { CloseAccountCommandInput, CloseAccountCommandOutput } from "../commands/CloseAccountCommand";
 import { CreateAccountCommandInput, CreateAccountCommandOutput } from "../commands/CreateAccountCommand";
 import {
   CreateGovCloudAccountCommandInput,
@@ -146,6 +147,7 @@ import {
   AccessDeniedException,
   AccessDeniedForDependencyException,
   Account,
+  AccountAlreadyClosedException,
   AccountAlreadyRegisteredException,
   AccountNotFoundException,
   AccountNotRegisteredException,
@@ -157,7 +159,9 @@ import {
   CancelHandshakeResponse,
   Child,
   ChildNotFoundException,
+  CloseAccountRequest,
   ConcurrentModificationException,
+  ConflictException,
   ConstraintViolationException,
   CreateAccountRequest,
   CreateAccountResponse,
@@ -330,6 +334,19 @@ export const serializeAws_json1_1CancelHandshakeCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelHandshakeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CloseAccountCommand = async (
+  input: CloseAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSOrganizationsV20161128.CloseAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CloseAccountRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1156,6 +1173,76 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CloseAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CloseAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CloseAccountCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: CloseAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CloseAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CloseAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.organizations#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AccountAlreadyClosedException":
+    case "com.amazonaws.organizations#AccountAlreadyClosedException":
+      throw await deserializeAws_json1_1AccountAlreadyClosedExceptionResponse(parsedOutput, context);
+    case "AccountNotFoundException":
+    case "com.amazonaws.organizations#AccountNotFoundException":
+      throw await deserializeAws_json1_1AccountNotFoundExceptionResponse(parsedOutput, context);
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await deserializeAws_json1_1AWSOrganizationsNotInUseExceptionResponse(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.organizations#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.organizations#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.organizations#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.organizations#ServiceException":
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.organizations#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      throw await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -4205,6 +4292,19 @@ const deserializeAws_json1_1AccessDeniedForDependencyExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1AccountAlreadyClosedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountAlreadyClosedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccountAlreadyClosedException(body, context);
+  const exception = new AccountAlreadyClosedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1AccountAlreadyRegisteredExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4303,6 +4403,19 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4767,6 +4880,12 @@ const serializeAws_json1_1AttachPolicyRequest = (input: AttachPolicyRequest, con
 const serializeAws_json1_1CancelHandshakeRequest = (input: CancelHandshakeRequest, context: __SerdeContext): any => {
   return {
     ...(input.HandshakeId !== undefined && input.HandshakeId !== null && { HandshakeId: input.HandshakeId }),
+  };
+};
+
+const serializeAws_json1_1CloseAccountRequest = (input: CloseAccountRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
   };
 };
 
@@ -5301,6 +5420,15 @@ const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Ac
   } as any;
 };
 
+const deserializeAws_json1_1AccountAlreadyClosedException = (
+  output: any,
+  context: __SerdeContext
+): AccountAlreadyClosedException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
 const deserializeAws_json1_1AccountAlreadyRegisteredException = (
   output: any,
   context: __SerdeContext
@@ -5408,6 +5536,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
   } as any;

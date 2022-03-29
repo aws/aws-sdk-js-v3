@@ -22,25 +22,25 @@ export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAc
 export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables the integration of an AWS service (the service that is specified by
- *                 <code>ServicePrincipal</code>) with AWS Organizations. When you disable integration, the
- *             specified service no longer can create a <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
+ * <p>Disables the integration of an Amazon Web Services service (the service that is specified by
+ *                 <code>ServicePrincipal</code>) with Organizations. When you disable integration, the
+ *             specified service no longer can create a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">service-linked role</a> in
  *                 <i>new</i> accounts in your organization. This means the service can't
  *             perform operations on your behalf on any new accounts in your organization. The service
  *             can still perform operations in older accounts until the service completes its clean-up
- *             from AWS Organizations.</p>
+ *             from Organizations.</p>
  *         <important>
  *             <p>We <b>
  *                   <i>strongly recommend</i>
  *                </b> that
- *                 you don't use this command to disable integration between AWS Organizations and the specified
- *                 AWS service. Instead, use the console or commands that are provided by the
+ *                 you don't use this command to disable integration between Organizations and the specified
+ *                 Amazon Web Services service. Instead, use the console or commands that are provided by the
  *                 specified service. This lets the trusted service perform any required initialization
  *                 when enabling trusted access, such as creating any required resources and any
  *                 required clean up of resources when disabling trusted access. </p>
  *             <p>For information about how to disable trusted service access to your organization
  *                 using the trusted service, see the <b>Learn more</b> link
- *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS services that you can use with AWS Organizations</a>. on this page.</p>
+ *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">Amazon Web Services services that you can use with Organizations</a>. on this page.</p>
  *             <p>If you disable access by using this command, it causes the following actions to
  *                 occur:</p>
  *             <ul>
@@ -49,7 +49,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *                         your organization. This means that the service can't perform operations on
  *                         your behalf on any new accounts in your organization. The service can still
  *                         perform operations in older accounts until the service completes its
- *                         clean-up from AWS Organizations. </p>
+ *                         clean-up from Organizations. </p>
  *                 </li>
  *                <li>
  *                     <p>The service can no longer perform tasks in the member accounts in the
@@ -69,13 +69,13 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *                 that the other service is aware that it can clean up any resources that are required
  *                 only for the integration. How the service cleans up its resources in the
  *                 organization's accounts depends on that service. For more information, see the
- *                 documentation for the other AWS service. </p>
+ *                 documentation for the other Amazon Web Services service. </p>
  *         </important>
  *         <p>After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
  *             service can no longer perform operations in your organization's accounts </p>
- *         <p>For more information about integrating other services with AWS Organizations, including the
- *             list of services that work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other
- *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
+ *         <p>For more information about integrating other services with Organizations, including the
+ *             list of services that work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating Organizations with Other
+ *                 Amazon Web Services Services</a> in the <i>Organizations User Guide.</i>
  *          </p>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example

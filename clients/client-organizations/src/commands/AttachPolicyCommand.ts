@@ -24,7 +24,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches a policy to a root, an organizational unit (OU), or an individual account.
  *             How the policy affects accounts depends on the type of policy. Refer to the
- *                 <i>AWS Organizations User Guide</i> for information about each policy type:</p>
+ *                 <i>Organizations User Guide</i> for information about each policy type:</p>
  *         <ul>
  *             <li>
  *                <p>

@@ -113,7 +113,7 @@ export enum AccessDeniedForDependencyExceptionReason {
 /**
  * <p>The operation that you attempted requires you to have the
  *                 <code>iam:CreateServiceLinkedRole</code> for
- *                 <code>organizations.amazonaws.com</code> permission so that AWS Organizations can create the
+ *                 <code>organizations.amazonaws.com</code> permission so that Organizations can create the
  *             required service-linked role. You don't have that permission.</p>
  */
 export class AccessDeniedForDependencyException extends __BaseException {
@@ -207,6 +207,7 @@ export enum HandshakeConstraintViolationExceptionReason {
   ALREADY_IN_AN_ORGANIZATION = "ALREADY_IN_AN_ORGANIZATION",
   HANDSHAKE_RATE_LIMIT_EXCEEDED = "HANDSHAKE_RATE_LIMIT_EXCEEDED",
   INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES = "INVITE_DISABLED_DURING_ENABLE_ALL_FEATURES",
+  MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED = "MANAGEMENT_ACCOUNT_EMAIL_NOT_VERIFIED",
   ORGANIZATION_ALREADY_HAS_ALL_FEATURES = "ORGANIZATION_ALREADY_HAS_ALL_FEATURES",
   ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD = "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
   ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION = "ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION",
@@ -229,8 +230,7 @@ export enum HandshakeConstraintViolationExceptionReason {
  *                 <important>
  *                     <p>If you get this exception immediately after creating the organization,
  *                         wait one hour and try again. If after an hour it continues to fail with this
- *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
- *                         Support</a>.</p>
+ *                         error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                 </important>
  *             </li>
  *             <li>
@@ -379,7 +379,7 @@ export enum InvalidInputExceptionReason {
  *                     entity.</p>
  *             </li>
  *             <li>
- *                 <p>IMMUTABLE_POLICY: You specified a policy that is managed by AWS and can't be
+ *                 <p>IMMUTABLE_POLICY: You specified a policy that is managed by Amazon Web Services and can't be
  *                     modified.</p>
  *             </li>
  *             <li>
@@ -433,7 +433,7 @@ export enum InvalidInputExceptionReason {
  *             <li>
  *                 <p>INVALID_SYSTEM_TAGS_PARAMETER: You specified a tag key that is a system tag.
  *                     You can’t add, edit, or delete system tag keys because they're reserved for
- *                     AWS use. System tags don’t count against your tags per resource limit.</p>
+ *                     Amazon Web Services use. System tags don’t count against your tags per resource limit.</p>
  *             </li>
  *             <li>
  *                 <p>MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter for the
@@ -490,7 +490,7 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>AWS Organizations can't complete your request because of an internal service error. Try again
+ * <p>Organizations can't complete your request because of an internal service error. Try again
  *             later.</p>
  */
 export class ServiceException extends __BaseException {
@@ -514,8 +514,8 @@ export class ServiceException extends __BaseException {
 /**
  * <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *         <p>For information about quotas that affect AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for AWS Organizations</a>in the
- *                 <i>AWS Organizations User Guide.</i>
+ *         <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
+ *                 <i>Organizations User Guide.</i>
  *          </p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -545,11 +545,12 @@ export enum AccountJoinedMethod {
 
 export enum AccountStatus {
   ACTIVE = "ACTIVE",
+  PENDING_CLOSURE = "PENDING_CLOSURE",
   SUSPENDED = "SUSPENDED",
 }
 
 /**
- * <p>Contains information about an AWS account that is a member of an
+ * <p>Contains information about an Amazon Web Services account that is a member of an
  *             organization.</p>
  */
 export interface Account {
@@ -563,12 +564,12 @@ export interface Account {
   /**
    * <p>The Amazon Resource Name (ARN) of the account.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The email address associated with the AWS account.</p>
+   * <p>The email address associated with the Amazon Web Services account.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for this parameter is a string of characters that represents a
    *             standard internet email address.</p>
    */
@@ -610,7 +611,28 @@ export namespace Account {
 }
 
 /**
- * <p>The specified account is already a delegated administrator for this AWS
+ * <p>You attempted to close an account that is already closed.</p>
+ */
+export class AccountAlreadyClosedException extends __BaseException {
+  readonly name: "AccountAlreadyClosedException" = "AccountAlreadyClosedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountAlreadyClosedException, __BaseException>) {
+    super({
+      name: "AccountAlreadyClosedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountAlreadyClosedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The specified account is already a delegated administrator for this Amazon Web Services
  *             service.</p>
  */
 export class AccountAlreadyRegisteredException extends __BaseException {
@@ -632,7 +654,7 @@ export class AccountAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p> We can't find an AWS account with the <code>AccountId</code> that you specified, or
+ * <p> We can't find an Amazon Web Services account with the <code>AccountId</code> that you specified, or
  *             the account whose credentials you used to make this request isn't a member of an
  *             organization.</p>
  */
@@ -655,7 +677,7 @@ export class AccountNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified account is not a delegated administrator for this AWS service. </p>
+ * <p>The specified account is not a delegated administrator for this Amazon Web Services service. </p>
  */
 export class AccountNotRegisteredException extends __BaseException {
   readonly name: "AccountNotRegisteredException" = "AccountNotRegisteredException";
@@ -678,8 +700,8 @@ export class AccountNotRegisteredException extends __BaseException {
 /**
  * <p>You can't invite an existing account to your organization until you verify that you
  *             own the email address associated with the management account. For more information, see
- *                 <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email
- *                 Address Verification</a> in the <i>AWS Organizations User Guide.</i>
+ *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email Address
+ *                 Verification</a> in the <i>Organizations User Guide.</i>
  *          </p>
  */
 export class AccountOwnerNotVerifiedException extends __BaseException {
@@ -774,8 +796,11 @@ export enum ConstraintViolationExceptionReason {
   ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION = "ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION",
   ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED = "ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED",
   ACCOUNT_NUMBER_LIMIT_EXCEEDED = "ACCOUNT_NUMBER_LIMIT_EXCEEDED",
+  CANNOT_CLOSE_MANAGEMENT_ACCOUNT = "CANNOT_CLOSE_MANAGEMENT_ACCOUNT",
   CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR = "CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR",
   CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG = "CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG",
+  CLOSE_ACCOUNT_QUOTA_EXCEEDED = "CLOSE_ACCOUNT_QUOTA_EXCEEDED",
+  CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED = "CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED",
   CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION = "CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION",
   DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE = "DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE",
   EMAIL_VERIFICATION_CODE_EXPIRED = "EMAIL_VERIFICATION_CODE_EXPIRED",
@@ -795,6 +820,7 @@ export enum ConstraintViolationExceptionReason {
   OU_NUMBER_LIMIT_EXCEEDED = "OU_NUMBER_LIMIT_EXCEEDED",
   POLICY_CONTENT_LIMIT_EXCEEDED = "POLICY_CONTENT_LIMIT_EXCEEDED",
   POLICY_NUMBER_LIMIT_EXCEEDED = "POLICY_NUMBER_LIMIT_EXCEEDED",
+  SERVICE_ACCESS_NOT_ENABLED = "SERVICE_ACCESS_NOT_ENABLED",
   TAG_POLICY_VIOLATION = "TAG_POLICY_VIOLATION",
   WAIT_PERIOD_ACTIVE = "WAIT_PERIOD_ACTIVE",
 }
@@ -816,19 +842,11 @@ export enum ConstraintViolationExceptionReason {
  *                     after you remove all member accounts, delete the organization itself.</p>
  *             </li>
  *             <li>
- *                 <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the
- *                     organization that doesn't yet have enough information to exist as a standalone
- *                     account. This account requires you to first agree to the AWS Customer
- *                     Agreement. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a>in the
- *                         <i>AWS Organizations User Guide.</i>
- *                </p>
- *             </li>
- *             <li>
  *                 <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to remove an
  *                     account from the organization that doesn't yet have enough information to exist
  *                     as a standalone account. This account requires you to first complete phone
- *                     verification. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a> in the
- *                         <i>AWS Organizations User Guide.</i>
+ *                     verification. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a> in the
+ *                         <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *             <li>
@@ -837,25 +855,26 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
- *                     of accounts in an organization. If you need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a> to request an increase
- *                     in your limit. </p>
+ *                     of accounts in an organization. If you need more accounts, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
+ *                     request an increase in your limit. </p>
  *                 <p>Or the number of invitations that you tried to send would cause you to exceed
  *                     the limit of accounts in your organization. Send fewer invitations or contact
- *                     AWS Support to request an increase in the number of accounts.</p>
+ *                     Amazon Web Services Support to request an increase in the number of accounts.</p>
  *                 <note>
  *                     <p>Deleted and closed accounts still count toward your limit.</p>
  *                 </note>
  *                 <important>
  *                     <p>If you get this exception when running a command immediately after
  *                         creating the organization, wait one hour and try again. After an hour, if
- *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.</p>
+ *                         the command continues to fail with this error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services
+ *                         Support</a>.</p>
  *                 </important>
  *             </li>
  *             <li>
  *                 <p>CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register
  *                     the management account of the organization as a delegated administrator for an
- *                     AWS service integrated with Organizations. You can designate only a member
- *                     account as a delegated administrator.</p>
+ *                     Amazon Web Services service integrated with Organizations. You can designate only a member account as a
+ *                     delegated administrator.</p>
  *             </li>
  *             <li>
  *                 <p>CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG: You attempted to remove an
@@ -869,8 +888,8 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE: You attempted to register an
- *                     AWS account as a delegated administrator for an AWS service that already has a
- *                     delegated administrator. To complete this operation, you must first deregister
+ *                     Amazon Web Services account as a delegated administrator for an Amazon Web Services service that already has
+ *                     a delegated administrator. To complete this operation, you must first deregister
  *                     any existing delegated administrators for this service.</p>
  *             </li>
  *             <li>
@@ -891,9 +910,9 @@ export enum ConstraintViolationExceptionReason {
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                 <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the AWS Regions in
- *                     China. To create an organization, the master must have a valid business license.
- *                     For more information, contact customer support.</p>
+ *                 <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                     in China. To create an organization, the master must have a valid business
+ *                     license. For more information, contact customer support.</p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must
@@ -902,17 +921,17 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the
- *                     management account must have an associated account in the AWS GovCloud
- *                     (US-West) Region. For more information, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
- *                     the
- *                     <i>AWS GovCloud User Guide.</i>
+ *                     management account must have an associated account in the Amazon Web Services GovCloud
+ *                     (US-West) Region. For more information, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a>
+ *                     in the
+ *                     <i>Amazon Web Services GovCloud User Guide.</i>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with
  *                     this management account, you first must associate a valid payment instrument,
- *                     such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>AWS Organizations User Guide.</i>
+ *                     such as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
+ *                         been provided</a> in the <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *             <li>
@@ -932,8 +951,8 @@ export enum ConstraintViolationExceptionReason {
  *             <li>
  *                 <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with
  *                     this member account, you first must associate a valid payment instrument, such
- *                     as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>AWS Organizations User Guide.</i>
+ *                     as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
+ *                         been provided</a> in the <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *             <li>
@@ -964,8 +983,18 @@ export enum ConstraintViolationExceptionReason {
  *                     that you can have in an organization.</p>
  *             </li>
  *             <li>
+ *                 <p>SERVICE_ACCESS_NOT_ENABLED: You attempted to register a delegated
+ *                     administrator before you enabled service access. Call the <code>EnableAWSServiceAccess</code> API
+ *                     first.</p>
+ *             </li>
+ *             <li>
  *                 <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
  *                     that are not compliant with the tag policy requirements for this account.</p>
+ *             </li>
+ *             <li>
+ *                 <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
+ *                     period before you can remove it from the organization. If you get an error that
+ *                     indicates that a wait period is required, try again in a few days.</p>
  *             </li>
  *          </ul>
  */
@@ -1057,7 +1086,7 @@ export class PolicyNotFoundException extends __BaseException {
  * <p>The specified policy type isn't currently enabled in this root. You can't attach
  *             policies of the specified type to entities in a root until you enable that type in the
  *             root. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
- *                 in Your Organization</a> in the <i>AWS Organizations User Guide.</i>
+ *                 in Your Organization</a> in the <i>Organizations User Guide.</i>
  *          </p>
  */
 export class PolicyTypeNotEnabledException extends __BaseException {
@@ -1101,7 +1130,7 @@ export class TargetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This action isn't available in the current AWS Region.</p>
+ * <p>This action isn't available in the current Amazon Web Services Region.</p>
  */
 export class UnsupportedAPIEndpointException extends __BaseException {
   readonly name: "UnsupportedAPIEndpointException" = "UnsupportedAPIEndpointException";
@@ -1140,6 +1169,43 @@ export namespace CancelHandshakeRequest {
   });
 }
 
+export interface CloseAccountRequest {
+  /**
+   * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request. </p>
+   */
+  AccountId: string | undefined;
+}
+
+export namespace CloseAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CloseAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request failed because it conflicts with the current state of the specified resource.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export enum IAMUserAccessToBilling {
   ALLOW = "ALLOW",
   DENY = "DENY",
@@ -1150,7 +1216,7 @@ export enum IAMUserAccessToBilling {
  *         <p>You can attach tags to any of the following organization resources.</p>
  *         <ul>
  *             <li>
- *                 <p>AWS account</p>
+ *                 <p>Amazon Web Services account</p>
  *             </li>
  *             <li>
  *                 <p>Organizational unit (OU)</p>
@@ -1188,9 +1254,40 @@ export namespace Tag {
 export interface CreateAccountRequest {
   /**
    * <p>The email address of the owner to assign to the new member account. This email address
-   *             must not already be associated with another AWS account. You must use a valid email
-   *             address to complete account creation. You can't access the root user of the account or
-   *             remove an account that was created with an invalid email address.</p>
+   *             must not already be associated with another Amazon Web Services account. You must use a valid email
+   *             address to complete account creation.</p>
+   *         <p>The rules for a valid email address:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The address must be a minimum of 6 and a maximum of 64 characters long.</p>
+   *             </li>
+   *             <li>
+   *                 <p>All characters must be 7-bit ASCII characters.</p>
+   *             </li>
+   *             <li>
+   *                 <p>There must be one and only one @ symbol, which separates the local name from
+   *                     the domain name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The local name can't contain any of the following characters:</p>
+   *                 <p>whitespace, " ' ( ) < > [ ] : ; , \ | % &</p>
+   *             </li>
+   *             <li>
+   *                 <p>The local name can't begin with a dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name can consist of only the characters [a-z],[A-Z],[0-9], hyphen
+   *                     (-), or dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name can't begin or end with a hyphen (-) or dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name must contain at least one dot</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can't access the root user of the account or remove an account that was created
+   *             with an invalid email address.</p>
    */
   Email: string | undefined;
 
@@ -1201,7 +1298,7 @@ export interface CreateAccountRequest {
 
   /**
    * <p>(Optional)</p>
-   *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
+   *         <p>The name of an IAM role that Organizations automatically preconfigures in the new member
    *             account. This role trusts the management account, allowing users in the management
    *             account to assume the role, as permitted by the management account administrator. The
    *             role has administrator permissions in the new member account.</p>
@@ -1213,12 +1310,12 @@ export interface CreateAccountRequest {
    *             <li>
    *                 <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing and Administering the Member Accounts in Your
-   *                         Organization</a> in the <i>AWS Organizations User Guide</i>
+   *                         Organization</a> in the <i>Organizations User Guide</i>
    *                </p>
    *             </li>
    *             <li>
    *                 <p>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:
-   *                         Delegate Access Across AWS Accounts Using IAM Roles</a> in the
+   *                         Delegate Access Across Amazon Web Services accounts Using IAM Roles</a> in the
    *                         <i>IAM User Guide</i>
    *                </p>
    *             </li>
@@ -1235,7 +1332,7 @@ export interface CreateAccountRequest {
    *             to <code>DENY</code>, only the root user of the new account can access account billing
    *             information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
    *                 Access to the Billing and Cost Management Console</a> in the
-   *                 <i>AWS Billing and Cost Management User Guide</i>.</p>
+   *             <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    *         <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
@@ -1246,11 +1343,12 @@ export interface CreateAccountRequest {
    * <p>A list of tags that you want to attach to the newly created account. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
-   *                 resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations
+   *                 resources</a> in the Organizations User Guide.</p>
    *         <note>
-   *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
-   *                 an account, then the entire request fails and the account is not created.</p>
+   *             <p>If any one of the tags is invalid or if you exceed the maximum allowed number of
+   *                 tags for an account, then the entire request fails and the account is not
+   *                 created.</p>
    *         </note>
    */
   Tags?: Tag[];
@@ -1290,7 +1388,7 @@ export enum CreateAccountState {
 }
 
 /**
- * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS
+ * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
  *             GovCloud (US) account in an organization.</p>
  */
 export interface CreateAccountStatus {
@@ -1309,7 +1407,7 @@ export interface CreateAccountStatus {
   AccountName?: string;
 
   /**
-   * <p>The status of the asynchronous request to create an AWS account.</p>
+   * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
    */
   State?: CreateAccountState | string;
 
@@ -1333,7 +1431,7 @@ export interface CreateAccountStatus {
 
   /**
    * <p>If the account was created successfully, the unique identifier (ID) of the new account
-   *             in the AWS GovCloud (US) Region.</p>
+   *             in the Amazon Web Services GovCloud (US) Region.</p>
    */
   GovCloudAccountId?: string;
 
@@ -1349,20 +1447,20 @@ export interface CreateAccountStatus {
    *                     information.</p>
    *             </li>
    *             <li>
-   *                 <p>EMAIL_ALREADY_EXISTS: The account could not be created because another AWS
+   *                 <p>EMAIL_ALREADY_EXISTS: The account could not be created because another Amazon Web Services
    *                     account with that email address already exists.</p>
    *             </li>
    *             <li>
-   *                 <p>FAILED_BUSINESS_VALIDATION: The AWS account that owns your organization
+   *                 <p>FAILED_BUSINESS_VALIDATION: The Amazon Web Services account that owns your organization
    *                     failed to receive business license validation.</p>
    *             </li>
    *             <li>
-   *                 <p>GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the AWS GovCloud (US) Region
+   *                 <p>GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the Amazon Web Services GovCloud (US) Region
    *                     could not be created because this Region already includes an account with that
    *                     email address.</p>
    *             </li>
    *             <li>
-   *                 <p>IDENTITY_INVALID_BUSINESS_VALIDATION: The AWS account that owns your
+   *                 <p>IDENTITY_INVALID_BUSINESS_VALIDATION: The Amazon Web Services account that owns your
    *                     organization can't complete business license validation because it doesn't have
    *                     valid identity data.</p>
    *             </li>
@@ -1376,11 +1474,11 @@ export interface CreateAccountStatus {
    *             </li>
    *             <li>
    *                 <p>INTERNAL_FAILURE: The account could not be created because of an internal
-   *                     failure. Try again later. If the problem persists, contact AWS Customer
+   *                     failure. Try again later. If the problem persists, contact Amazon Web Services Customer
    *                     Support.</p>
    *             </li>
    *             <li>
-   *                 <p>MISSING_BUSINESS_VALIDATION: The AWS account that owns your organization has
+   *                 <p>MISSING_BUSINESS_VALIDATION: The Amazon Web Services account that owns your organization has
    *                     not received Business Validation.</p>
    *             </li>
    *             <li>
@@ -1388,11 +1486,11 @@ export interface CreateAccountStatus {
    *                     valid payment method, such as a credit card.</p>
    *             </li>
    *             <li>
-   *                 <p>PENDING_BUSINESS_VALIDATION: The AWS account that owns your organization is
+   *                 <p>PENDING_BUSINESS_VALIDATION: The Amazon Web Services account that owns your organization is
    *                     still in the process of completing business license validation.</p>
    *             </li>
    *             <li>
-   *                 <p>UNKNOWN_BUSINESS_VALIDATION: The AWS account that owns your organization has
+   *                 <p>UNKNOWN_BUSINESS_VALIDATION: The Amazon Web Services account that owns your organization has
    *                     an unknown issue with business license validation.</p>
    *             </li>
    *          </ul>
@@ -1416,9 +1514,10 @@ export interface CreateAccountResponse {
    *             response structure might not be fully populated when you first receive it because
    *             account creation is an asynchronous process. You can pass the returned
    *                 <code>CreateAccountStatus</code> ID as a parameter to <a>DescribeCreateAccountStatus</a> to get status about the progress of the
-   *             request at later times. You can also check the AWS CloudTrail log for the
-   *                 <code>CreateAccountResult</code> event. For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your
-   *                 Organization</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *             request at later times. You can also check the CloudTrail log for the
+   *                 <code>CreateAccountResult</code> event. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the
+   *                 Activity in Your Organization</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -1436,10 +1535,9 @@ export namespace CreateAccountResponse {
 }
 
 /**
- * <p>AWS Organizations couldn't perform the operation because your organization hasn't finished
+ * <p>Organizations couldn't perform the operation because your organization hasn't finished
  *             initializing. This can take up to an hour. Try again later. If after one hour you
- *             continue to receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">AWS
- *                 Support</a>.</p>
+ *             continue to receive this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  */
 export class FinalizingOrganizationException extends __BaseException {
   readonly name: "FinalizingOrganizationException" = "FinalizingOrganizationException";
@@ -1461,13 +1559,44 @@ export class FinalizingOrganizationException extends __BaseException {
 
 export interface CreateGovCloudAccountRequest {
   /**
-   * <p>The email address of the owner to assign to the new member account in the commercial
-   *             Region. This email address must not already be associated with another AWS account.
-   *             You must use a valid email address to complete account creation. You can't access the
-   *             root user of the account or remove an account that was created with an invalid email
-   *             address. Like all request parameters for <code>CreateGovCloudAccount</code>, the request
-   *             for the email address for the AWS GovCloud (US) account originates from the commercial
-   *             Region, not from the AWS GovCloud (US) Region.</p>
+   * <p>Specifies the email address of the owner to assign to the new member account in the
+   *             commercial Region. This email address must not already be associated with another
+   *             Amazon Web Services account. You must use a valid email address to complete account creation.</p>
+   *         <p>The rules for a valid email address:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The address must be a minimum of 6 and a maximum of 64 characters long.</p>
+   *             </li>
+   *             <li>
+   *                 <p>All characters must be 7-bit ASCII characters.</p>
+   *             </li>
+   *             <li>
+   *                 <p>There must be one and only one @ symbol, which separates the local name from
+   *                     the domain name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The local name can't contain any of the following characters:</p>
+   *                 <p>whitespace, " ' ( ) < > [ ] : ; , \ | % &</p>
+   *             </li>
+   *             <li>
+   *                 <p>The local name can't begin with a dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name can consist of only the characters [a-z],[A-Z],[0-9], hyphen
+   *                     (-), or dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name can't begin or end with a hyphen (-) or dot (.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The domain name must contain at least one dot</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can't access the root user of the account or remove an account that was created
+   *             with an invalid email address. Like all request parameters for
+   *                 <code>CreateGovCloudAccount</code>, the request for the email address for the Amazon Web Services
+   *             GovCloud (US) account originates from the commercial Region, not from the Amazon Web Services GovCloud
+   *             (US) Region.</p>
    */
   Email: string | undefined;
 
@@ -1478,8 +1607,8 @@ export interface CreateGovCloudAccountRequest {
 
   /**
    * <p>(Optional)</p>
-   *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
-   *             accounts in both the AWS GovCloud (US) Region and in the commercial Region. This role
+   *         <p>The name of an IAM role that Organizations automatically preconfigures in the new member
+   *             accounts in both the Amazon Web Services GovCloud (US) Region and in the commercial Region. This role
    *             trusts the management account, allowing users in the management account to assume the
    *             role, as permitted by the management account administrator. The role has administrator
    *             permissions in the new member account.</p>
@@ -1487,7 +1616,7 @@ export interface CreateGovCloudAccountRequest {
    *                 <code>OrganizationAccountAccessRole</code>.</p>
    *         <p>For more information about how to use this role to access the member account, see
    *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing and Administering the Member Accounts in Your Organization</a> in the
-   *                 <i>AWS Organizations User Guide</i> and steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial: Delegate Access Across AWS Accounts Using IAM Roles</a> in the
+   *                 <i>Organizations User Guide</i> and steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial: Delegate Access Across Amazon Web Services accounts Using IAM Roles</a> in the
    *                 <i>IAM User Guide.</i>
    *          </p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
@@ -1502,7 +1631,7 @@ export interface CreateGovCloudAccountRequest {
    *             required permissions. If set to <code>DENY</code>, only the root user of the new account
    *             can access account billing information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
    *                 Access to the Billing and Cost Management Console</a> in the
-   *                 <i>AWS Billing and Cost Management User Guide.</i>
+   *             <i>Amazon Web Services Billing and Cost Management User Guide.</i>
    *          </p>
    *         <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
@@ -1517,11 +1646,12 @@ export interface CreateGovCloudAccountRequest {
    *             account exists.</p>
    *         <p>For each tag in the list, you must specify both a tag key and a value. You can set the
    *             value to an empty string, but you can't set it to <code>null</code>. For more
-   *             information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a> in the
-   *             AWS Organizations User Guide.</p>
+   *             information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations resources</a> in the
+   *             Organizations User Guide.</p>
    *         <note>
-   *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
-   *                 an account, then the entire request fails and the account is not created.</p>
+   *             <p>If any one of the tags is invalid or if you exceed the maximum allowed number of
+   *                 tags for an account, then the entire request fails and the account is not
+   *                 created.</p>
    *         </note>
    */
   Tags?: Tag[];
@@ -1540,7 +1670,7 @@ export namespace CreateGovCloudAccountRequest {
 
 export interface CreateGovCloudAccountResponse {
   /**
-   * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an AWS account or an AWS
+   * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
    *             GovCloud (US) account in an organization.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
@@ -1573,10 +1703,10 @@ export interface CreateOrganizationRequest {
    *                   <code>CONSOLIDATED_BILLING</code>: All member accounts have their bills
    *                     consolidated to and paid by the management account. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated billing</a> in the
-   *                     <i>AWS Organizations User Guide.</i>
+   *                     <i>Organizations User Guide.</i>
    *                </p>
    *                 <p> The consolidated billing feature subset isn't available for organizations in
-   *                     the AWS GovCloud (US) Region.</p>
+   *                     the Amazon Web Services GovCloud (US) Region.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1584,7 +1714,7 @@ export interface CreateOrganizationRequest {
    *                     consolidated billing feature set, the management account can also apply any
    *                     policy type to any member account in the organization. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
-   *                         features</a> in the <i>AWS Organizations User Guide.</i>
+   *                         features</a> in the <i>Organizations User Guide.</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -1656,7 +1786,7 @@ export interface Organization {
   /**
    * <p>The Amazon Resource Name (ARN) of an organization.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1665,7 +1795,7 @@ export interface Organization {
    *             "ALL", then all features are enabled and policies can be applied to accounts in the
    *             organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing
    *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
-   *                 in Your Organization</a> in the <i>AWS Organizations User Guide</i>.</p>
+   *                 in Your Organization</a> in the <i>Organizations User Guide</i>.</p>
    */
   FeatureSet?: OrganizationFeatureSet | string;
 
@@ -1673,7 +1803,7 @@ export interface Organization {
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the management
    *             account for the organization.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   MasterAccountArn?: string;
 
@@ -1685,7 +1815,7 @@ export interface Organization {
   MasterAccountId?: string;
 
   /**
-   * <p>The email address that is associated with the AWS account that is designated as the
+   * <p>The email address that is associated with the Amazon Web Services account that is designated as the
    *             management account for the organization.</p>
    */
   MasterAccountEmail?: string;
@@ -1759,8 +1889,8 @@ export interface CreateOrganizationalUnitRequest {
    * <p>A list of tags that you want to attach to the newly created OU. For each tag in the
    *             list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
-   *                 resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations
+   *                 resources</a> in the Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 an OU, then the entire request fails and the OU is not created.</p>
@@ -1779,7 +1909,7 @@ export namespace CreateOrganizationalUnitRequest {
 }
 
 /**
- * <p>Contains details about an organizational unit (OU). An OU is a container of AWS
+ * <p>Contains details about an organizational unit (OU). An OU is a container of Amazon Web Services
  *             accounts within a root of an organization. Policies that are attached to an OU apply to
  *             all accounts contained in that OU and in any child OUs.</p>
  */
@@ -1796,7 +1926,7 @@ export interface OrganizationalUnit {
   /**
    * <p>The Amazon Resource Name (ARN) of this OU.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1927,8 +2057,8 @@ export interface CreatePolicyRequest {
    * <p>A list of tags that you want to attach to the newly created policy. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
-   *                 resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations
+   *                 resources</a> in the Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 a policy, then the entire request fails and the policy is not created.</p>
@@ -1961,7 +2091,7 @@ export interface PolicySummary {
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -1984,7 +2114,7 @@ export interface PolicySummary {
   Type?: PolicyType | string;
 
   /**
-   * <p>A boolean value that indicates whether the specified policy is an AWS managed
+   * <p>A boolean value that indicates whether the specified policy is an Amazon Web Services managed
    *             policy. If true, then you can attach the policy to roots, OUs, or accounts, but you
    *             cannot edit it.</p>
    */
@@ -2067,7 +2197,7 @@ export class DuplicatePolicyException extends __BaseException {
  * <p>The provided policy document doesn't meet the requirements of the specified policy
  *             type. For example, the syntax might be incorrect. For details about service control
  *             policy syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control Policy
- *                 Syntax</a> in the <i>AWS Organizations User Guide.</i>
+ *                 Syntax</a> in the <i>Organizations User Guide.</i>
  *          </p>
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -2092,7 +2222,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * <p>You can't use the specified policy type with the feature set currently enabled for
  *             this organization. For example, you can enable SCPs only after you enable all features
  *             in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Managing
- *                 AWS Organizations Policies</a>in the <i>AWS Organizations User Guide.</i>
+ *                 Organizations Policies</a>in the <i>Organizations User Guide.</i>
  *          </p>
  */
 export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
@@ -2269,9 +2399,9 @@ export interface DeregisterDelegatedAdministratorRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The service principal name of an AWS service for which the account is a delegated
+   * <p>The service principal name of an Amazon Web Services service for which the account is a delegated
    *             administrator.</p>
-   *         <p>Delegated administrator privileges are revoked for only the specified AWS service
+   *         <p>Delegated administrator privileges are revoked for only the specified Amazon Web Services service
    *             from the member account. If the specified service is the only service for which the
    *             member account is a delegated administrator, the operation also revokes Organizations read action
    *             permissions.</p>
@@ -2290,7 +2420,7 @@ export namespace DeregisterDelegatedAdministratorRequest {
 
 export interface DescribeAccountRequest {
   /**
-   * <p>The unique identifier (ID) of the AWS account that you want information about. You
+   * <p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You
    *             can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
@@ -2696,7 +2826,7 @@ export class PolicyNotAttachedException extends __BaseException {
 
 export interface DisableAWSServiceAccessRequest {
   /**
-   * <p>The service principal name of the AWS service for which you want to disable
+   * <p>The service principal name of the Amazon Web Services service for which you want to disable
    *             integration with your organization. This is typically in the form of a URL, such as
    *                     <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
@@ -2763,7 +2893,7 @@ export namespace DisablePolicyTypeRequest {
 /**
  * <p>Contains details about a root. A root is a top-level parent node in the hierarchy of
  *             an organization that can contain organizational units (OUs) and accounts.
- *             The root contains every AWS account in the
+ *             The root contains every Amazon Web Services account in the
  *             organization.</p>
  */
 export interface Root {
@@ -2777,7 +2907,7 @@ export interface Root {
   /**
    * <p>The Amazon Resource Name (ARN) of the root.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -2860,7 +2990,7 @@ export namespace EnableAllFeaturesRequest {
 
 export interface EnableAWSServiceAccessRequest {
   /**
-   * <p>The service principal name of the AWS service for which you want to enable
+   * <p>The service principal name of the Amazon Web Services service for which you want to enable
    *             integration with your organization. This is typically in the form of a URL, such as
    *                     <code>
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
@@ -2988,7 +3118,7 @@ export class DuplicateHandshakeException extends __BaseException {
 
 export interface InviteAccountToOrganizationRequest {
   /**
-   * <p>The identifier (ID) of the AWS account that you want to invite to join your
+   * <p>The identifier (ID) of the Amazon Web Services account that you want to invite to join your
    *             organization. This is a JSON object that contains the following elements:</p>
    *         <p>
    *             <code>{ "Type": "ACCOUNT", "Id": "<<i>
@@ -2996,12 +3126,12 @@ export interface InviteAccountToOrganizationRequest {
    *                         number</b>
    *                </i>>" }</code>
    *         </p>
-   *         <p>If you use the AWS CLI, you can submit this as a single string, similar to the following
+   *         <p>If you use the CLI, you can submit this as a single string, similar to the following
    *             example:</p>
    *         <p>
    *             <code>--target Id=123456789012,Type=ACCOUNT</code>
    *         </p>
-   *         <p>If you specify <code>"Type": "ACCOUNT"</code>, you must provide the AWS account ID
+   *         <p>If you specify <code>"Type": "ACCOUNT"</code>, you must provide the Amazon Web Services account ID
    *             number as the <code>Id</code>. If you specify <code>"Type": "EMAIL"</code>, you must
    *             specify the email address that is associated with the account.</p>
    *         <p>
@@ -3020,8 +3150,8 @@ export interface InviteAccountToOrganizationRequest {
    * <p>A list of tags that you want to attach to the account when it becomes a member of the
    *             organization. For each tag in the list, you must specify both a tag key and a value. You
    *             can set the value to an empty string, but you can't set it to <code>null</code>. For
-   *             more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a> in the
-   *             AWS Organizations User Guide.</p>
+   *             more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations resources</a> in the
+   *             Organizations User Guide.</p>
    *         <important>
    *             <p>Any tags in the request are checked for compliance with any applicable tag
    *                 policies when the request is made. The request is rejected if the tags in the
@@ -3228,8 +3358,8 @@ export namespace ListAWSServiceAccessForOrganizationRequest {
 }
 
 /**
- * <p>A structure that contains details of a service principal that represents an AWS
- *             service that is enabled to integrate with AWS Organizations.</p>
+ * <p>A structure that contains details of a service principal that represents an Amazon Web Services
+ *             service that is enabled to integrate with Organizations.</p>
  */
 export interface EnabledServicePrincipal {
   /**
@@ -3240,7 +3370,7 @@ export interface EnabledServicePrincipal {
   ServicePrincipal?: string;
 
   /**
-   * <p>The date that the service principal was enabled for integration with AWS Organizations.</p>
+   * <p>The date that the service principal was enabled for integration with Organizations.</p>
    */
   DateEnabled?: Date;
 }
@@ -3258,7 +3388,7 @@ export interface ListAWSServiceAccessForOrganizationResponse {
   /**
    * <p>A list of the service principals for the services that are enabled to integrate with
    *             your organization. Each principal is a structure that includes the name and the date
-   *             that it was enabled for integration with AWS Organizations.</p>
+   *             that it was enabled for integration with Organizations.</p>
    */
   EnabledServicePrincipals?: EnabledServicePrincipal[];
 
@@ -3528,7 +3658,7 @@ export interface DelegatedAdministrator {
   Arn?: string;
 
   /**
-   * <p>The email address that is associated with the delegated administrator's AWS
+   * <p>The email address that is associated with the delegated administrator's Amazon Web Services
    *             account.</p>
    */
   Email?: string;
@@ -3639,12 +3769,12 @@ export namespace ListDelegatedServicesForAccountRequest {
 }
 
 /**
- * <p>Contains information about the AWS service for which the account is a delegated
+ * <p>Contains information about the Amazon Web Services service for which the account is a delegated
  *             administrator.</p>
  */
 export interface DelegatedService {
   /**
-   * <p>The name of an AWS service that can request an operation for the specified service.
+   * <p>The name of an Amazon Web Services service that can request an operation for the specified service.
    *             This is typically in the form of a URL, such as:
    *                 <code>
    *                <i>servicename</i>.amazonaws.com</code>.</p>
@@ -3885,7 +4015,7 @@ export namespace ListOrganizationalUnitsForParentResponse {
 }
 
 /**
- * <p>We can't find an organizational unit (OU) or AWS account with the
+ * <p>We can't find an organizational unit (OU) or Amazon Web Services account with the
  *                 <code>ChildId</code> that you specified.</p>
  */
 export class ChildNotFoundException extends __BaseException {
@@ -4284,7 +4414,7 @@ export interface ListTagsForResourceRequest {
    *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
-   *                 <p>AWS account – specify the account ID number.</p>
+   *                 <p>Amazon Web Services account – specify the account ID number.</p>
    *             </li>
    *             <li>
    *                 <p>Organizational unit  – specify the OU ID that begins with <code>ou-</code> and
@@ -4427,7 +4557,7 @@ export interface PolicyTargetSummary {
   /**
    * <p>The Amazon Resource Name (ARN) of the policy target.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 
@@ -4612,7 +4742,7 @@ export interface RegisterDelegatedAdministratorRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The service principal of the AWS service for which you want to make the member
+   * <p>The service principal of the Amazon Web Services service for which you want to make the member
    *             account a delegated administrator.</p>
    */
   ServicePrincipal: string | undefined;
@@ -4649,15 +4779,10 @@ export namespace RemoveAccountFromOrganizationRequest {
 export interface TagResourceRequest {
   /**
    * <p>The ID of the resource to add a tag to.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>A list of tags to add to the specified resource.</p>
    *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
-   *                 <p>AWS account – specify the account ID number.</p>
+   *                 <p>Amazon Web Services account – specify the account ID number.</p>
    *             </li>
    *             <li>
    *                 <p>Organizational unit  – specify the OU ID that begins with <code>ou-</code> and
@@ -4678,12 +4803,16 @@ export interface TagResourceRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For each tag in the list, you must specify both a tag key and a value. You can set the
-   *             value to an empty string, but you can't set it to <code>null</code>.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>A list of tags to add to the specified resource.</p>
+   *         <p>For each tag in the list, you must specify both a tag key and a value. The value can
+   *             be an empty string, but you can't set it to <code>null</code>.</p>
    *         <note>
-   *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
-   *                 an account user, then the entire request fails and the account is not
-   *                 created.</p>
+   *             <p>If any one of the tags is invalid or if you exceed the maximum allowed number of
+   *                 tags for a resource, then the entire request fails.</p>
    *         </note>
    */
   Tags: Tag[] | undefined;
@@ -4704,7 +4833,7 @@ export interface UntagResourceRequest {
    *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
-   *                 <p>AWS account – specify the account ID number.</p>
+   *                 <p>Amazon Web Services account – specify the account ID number.</p>
    *             </li>
    *             <li>
    *                 <p>Organizational unit  – specify the OU ID that begins with <code>ou-</code> and
@@ -4813,7 +4942,7 @@ export interface UpdatePolicyRequest {
   /**
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
    *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
-   *                 Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i>
+   *                 Control Policy Syntax</a> in the <i>Organizations User Guide.</i>
    *          </p>
    */
   Content?: string;
@@ -4861,7 +4990,7 @@ export interface HandshakeResource {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ACCOUNT</code> - Specifies an AWS account ID number.</p>
+   *                   <code>ACCOUNT</code> - Specifies an Amazon Web Services account ID number.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4917,8 +5046,8 @@ export namespace HandshakeResource {
  *             accounts exchange information as a series of handshake requests and responses.</p>
  *         <p>
  *             <b>Note:</b> Handshakes that are <code>CANCELED</code>,
- *                 <code>ACCEPTED</code>, or <code>DECLINED</code> show up in lists for only 30 days
- *             after entering that state After that they are deleted.</p>
+ *                 <code>ACCEPTED</code>, <code>DECLINED</code>, or <code>EXPIRED</code> show up in
+ *             lists for only 30 days after entering that state After that they are deleted.</p>
  */
 export interface Handshake {
   /**
@@ -4932,7 +5061,7 @@ export interface Handshake {
   /**
    * <p>The Amazon Resource Name (ARN) of a handshake.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
-   *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
+   *     Formats Supported by Organizations</a> in the <i>Amazon Web Services Service Authorization Reference</i>.</p>
    */
   Arn?: string;
 

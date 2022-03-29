@@ -34,7 +34,7 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  * when there are no more results to display.</p>
  *          </note>
  *         <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  *         <note>
  *             <p>In the current release, a child can have only a single parent.</p>
  *         </note>
