@@ -22,7 +22,8 @@ export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRe
 export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>
+ * <p>Deletes a launch template. Deleting a launch template deletes all of its
+ *             versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

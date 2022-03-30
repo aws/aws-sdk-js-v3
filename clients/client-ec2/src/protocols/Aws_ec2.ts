@@ -1422,6 +1422,10 @@ import {
   ModifyInstanceEventWindowCommandOutput,
 } from "../commands/ModifyInstanceEventWindowCommand";
 import {
+  ModifyInstanceMaintenanceOptionsCommandInput,
+  ModifyInstanceMaintenanceOptionsCommandOutput,
+} from "../commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
 } from "../commands/ModifyInstanceMetadataOptionsCommand";
@@ -2086,7 +2090,6 @@ import {
   CreateTrafficMirrorTargetResult,
   CreateTransitGatewayConnectRequest,
   CreateTransitGatewayConnectRequestOptions,
-  CreateTransitGatewayConnectResult,
   CreateTransitGatewayRequest,
   CreateTransitGatewayResult,
   CreditSpecification,
@@ -2144,6 +2147,8 @@ import {
   LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecification,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
+  LaunchTemplateInstanceMaintenanceOptions,
+  LaunchTemplateInstanceMaintenanceOptionsRequest,
   LaunchTemplateInstanceMarketOptions,
   LaunchTemplateInstanceMarketOptionsRequest,
   LaunchTemplateInstanceMetadataOptions,
@@ -2222,8 +2227,6 @@ import {
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
-  TransitGatewayConnect,
-  TransitGatewayConnectOptions,
   TransitGatewayOptions,
   TransitGatewayRequestOptions,
   ValidationError,
@@ -2247,11 +2250,11 @@ import {
   ClientVpnEndpoint,
   ClientVpnEndpointAttributeStatus,
   ClientVpnRoute,
-  CoipPool,
   ConnectionLogResponseOptions,
   ConnectionNotification,
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
+  CreateTransitGatewayConnectResult,
   CreateTransitGatewayMulticastDomainRequest,
   CreateTransitGatewayMulticastDomainRequestOptions,
   CreateTransitGatewayMulticastDomainResult,
@@ -2439,8 +2442,6 @@ import {
   DescribeClientVpnTargetNetworksRequest,
   DescribeClientVpnTargetNetworksResult,
   DescribeCoipPoolsRequest,
-  DescribeCoipPoolsResult,
-  DescribeConversionTasksRequest,
   DirectoryServiceAuthentication,
   DnsEntry,
   FailedQueuedPurchaseDeletion,
@@ -2474,6 +2475,8 @@ import {
   SuccessfulQueuedPurchaseDeletion,
   TargetNetwork,
   TransitGatewayAttachmentBgpConfiguration,
+  TransitGatewayConnect,
+  TransitGatewayConnectOptions,
   TransitGatewayConnectPeer,
   TransitGatewayConnectPeerConfiguration,
   TransitGatewayConnectRequestBgpOptions,
@@ -2506,8 +2509,11 @@ import {
   BootModeType,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
+  CoipPool,
   ConversionTask,
   CpuOptions,
+  DescribeCoipPoolsResult,
+  DescribeConversionTasksRequest,
   DescribeConversionTasksResult,
   DescribeCustomerGatewaysRequest,
   DescribeCustomerGatewaysResult,
@@ -2635,9 +2641,6 @@ import {
   DescribePublicIpv4PoolsResult,
   DescribeRegionsRequest,
   DescribeRegionsResult,
-  DescribeReplaceRootVolumeTasksRequest,
-  DescribeReplaceRootVolumeTasksResult,
-  DescribeReservedInstancesRequest,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2695,6 +2698,7 @@ import {
   InstanceCreditSpecification,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
+  InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
   InstanceNetworkInterface,
   InstanceNetworkInterfaceAssociation,
@@ -2753,19 +2757,21 @@ import {
 import {
   AssociatedRole,
   AthenaIntegration,
-  CapacityReservationGroup,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   CreateVolumePermission,
+  DescribeReplaceRootVolumeTasksRequest,
+  DescribeReplaceRootVolumeTasksResult,
   DescribeReservedInstancesListingsRequest,
   DescribeReservedInstancesListingsResult,
   DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
+  DescribeReservedInstancesRequest,
   DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
@@ -2967,9 +2973,6 @@ import {
   GetEbsEncryptionByDefaultResult,
   GetFlowLogsIntegrationTemplateRequest,
   GetFlowLogsIntegrationTemplateResult,
-  GetGroupsForCapacityReservationRequest,
-  GetGroupsForCapacityReservationResult,
-  GetHostReservationPurchasePreviewRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -2983,7 +2986,6 @@ import {
   LoadBalancersConfig,
   PricingDetail,
   PrivateDnsDetails,
-  Purchase,
   RecurringCharge,
   ReservedInstances,
   ReservedInstancesConfiguration,
@@ -3034,6 +3036,7 @@ import {
 } from "../models/models_4";
 import {
   BlobAttributeValue,
+  CapacityReservationGroup,
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   ClientData,
@@ -3042,6 +3045,9 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetGroupsForCapacityReservationRequest,
+  GetGroupsForCapacityReservationResult,
+  GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
@@ -3150,6 +3156,8 @@ import {
   ModifyInstanceEventStartTimeResult,
   ModifyInstanceEventWindowRequest,
   ModifyInstanceEventWindowResult,
+  ModifyInstanceMaintenanceOptionsRequest,
+  ModifyInstanceMaintenanceOptionsResult,
   ModifyInstanceMetadataOptionsRequest,
   ModifyInstanceMetadataOptionsResult,
   ModifyInstancePlacementRequest,
@@ -3237,6 +3245,7 @@ import {
   ProvisionIpamPoolCidrResult,
   ProvisionPublicIpv4PoolCidrRequest,
   ProvisionPublicIpv4PoolCidrResult,
+  Purchase,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
   PurchaseRequest,
@@ -3291,12 +3300,6 @@ import {
   ReservationValue,
   ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
-  ResetAddressAttributeRequest,
-  ResetAddressAttributeResult,
-  ResetEbsDefaultKmsKeyIdRequest,
-  ResetEbsDefaultKmsKeyIdResult,
-  ResetFpgaImageAttributeRequest,
-  ResetFpgaImageAttributeResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3325,12 +3328,19 @@ import {
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  InstanceMaintenanceOptionsRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ResetAddressAttributeRequest,
+  ResetAddressAttributeResult,
+  ResetEbsDefaultKmsKeyIdRequest,
+  ResetEbsDefaultKmsKeyIdResult,
+  ResetFpgaImageAttributeRequest,
+  ResetFpgaImageAttributeResult,
   ResetImageAttributeRequest,
   ResetInstanceAttributeRequest,
   ResetNetworkInterfaceAttributeRequest,
@@ -10116,6 +10126,22 @@ export const serializeAws_ec2ModifyInstanceEventWindowCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyInstanceEventWindowRequest(input, context),
     Action: "ModifyInstanceEventWindow",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand = async (
+  input: ModifyInstanceMaintenanceOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyInstanceMaintenanceOptionsRequest(input, context),
+    Action: "ModifyInstanceMaintenanceOptions",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -28420,6 +28446,46 @@ const deserializeAws_ec2ModifyInstanceEventWindowCommandError = async (
   }
 };
 
+export const deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyInstanceMaintenanceOptionsResult(data, context);
+  const response: ModifyInstanceMaintenanceOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
 export const deserializeAws_ec2ModifyInstanceMetadataOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -44561,6 +44627,17 @@ const serializeAws_ec2InstanceIpv6AddressRequest = (
   return entries;
 };
 
+const serializeAws_ec2InstanceMaintenanceOptionsRequest = (
+  input: InstanceMaintenanceOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoRecovery !== undefined && input.AutoRecovery !== null) {
+    entries["AutoRecovery"] = input.AutoRecovery;
+  }
+  return entries;
+};
+
 const serializeAws_ec2InstanceMarketOptionsRequest = (
   input: InstanceMarketOptionsRequest,
   context: __SerdeContext
@@ -45630,6 +45707,17 @@ const serializeAws_ec2LaunchTemplateIdStringList = (input: string[], context: __
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2LaunchTemplateInstanceMaintenanceOptionsRequest = (
+  input: LaunchTemplateInstanceMaintenanceOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoRecovery !== undefined && input.AutoRecovery !== null) {
+    entries["AutoRecovery"] = input.AutoRecovery;
   }
   return entries;
 };
@@ -46889,6 +46977,23 @@ const serializeAws_ec2ModifyInstanceEventWindowRequest = (
   }
   if (input.CronExpression !== undefined && input.CronExpression !== null) {
     entries["CronExpression"] = input.CronExpression;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyInstanceMaintenanceOptionsRequest = (
+  input: ModifyInstanceMaintenanceOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceId !== undefined && input.InstanceId !== null) {
+    entries["InstanceId"] = input.InstanceId;
+  }
+  if (input.AutoRecovery !== undefined && input.AutoRecovery !== null) {
+    entries["AutoRecovery"] = input.AutoRecovery;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -50078,6 +50183,16 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
       entries[loc] = value;
     });
   }
+  if (input.MaintenanceOptions !== undefined && input.MaintenanceOptions !== null) {
+    const memberEntries = serializeAws_ec2LaunchTemplateInstanceMaintenanceOptionsRequest(
+      input.MaintenanceOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MaintenanceOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -51027,6 +51142,13 @@ const serializeAws_ec2RunInstancesRequest = (input: RunInstancesRequest, context
     const memberEntries = serializeAws_ec2PrivateDnsNameOptionsRequest(input.PrivateDnsNameOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PrivateDnsNameOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaintenanceOptions !== undefined && input.MaintenanceOptions !== null) {
+    const memberEntries = serializeAws_ec2InstanceMaintenanceOptionsRequest(input.MaintenanceOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MaintenanceOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -66585,6 +66707,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     UsageOperationUpdateTime: undefined,
     PrivateDnsNameOptions: undefined,
     Ipv6Address: undefined,
+    MaintenanceOptions: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
     contents.AmiLaunchIndex = __strictParseInt32(output["amiLaunchIndex"]) as number;
@@ -66798,6 +66921,9 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
   }
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
+  }
+  if (output["maintenanceOptions"] !== undefined) {
+    contents.MaintenanceOptions = deserializeAws_ec2InstanceMaintenanceOptions(output["maintenanceOptions"], context);
   }
   return contents;
 };
@@ -67297,6 +67423,19 @@ const deserializeAws_ec2InstanceList = (output: any, context: __SerdeContext): I
       }
       return deserializeAws_ec2Instance(entry, context);
     });
+};
+
+const deserializeAws_ec2InstanceMaintenanceOptions = (
+  output: any,
+  context: __SerdeContext
+): InstanceMaintenanceOptions => {
+  const contents: any = {
+    AutoRecovery: undefined,
+  };
+  if (output["autoRecovery"] !== undefined) {
+    contents.AutoRecovery = __expectString(output["autoRecovery"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2InstanceMetadataOptionsResponse = (
@@ -69808,6 +69947,19 @@ const deserializeAws_ec2LaunchTemplateIamInstanceProfileSpecification = (
   return contents;
 };
 
+const deserializeAws_ec2LaunchTemplateInstanceMaintenanceOptions = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateInstanceMaintenanceOptions => {
+  const contents: any = {
+    AutoRecovery: undefined,
+  };
+  if (output["autoRecovery"] !== undefined) {
+    contents.AutoRecovery = __expectString(output["autoRecovery"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2LaunchTemplateInstanceMarketOptions = (
   output: any,
   context: __SerdeContext
@@ -71070,6 +71222,23 @@ const deserializeAws_ec2ModifyInstanceEventWindowResult = (
   };
   if (output["instanceEventWindow"] !== undefined) {
     contents.InstanceEventWindow = deserializeAws_ec2InstanceEventWindow(output["instanceEventWindow"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyInstanceMaintenanceOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyInstanceMaintenanceOptionsResult => {
+  const contents: any = {
+    InstanceId: undefined,
+    AutoRecovery: undefined,
+  };
+  if (output["instanceId"] !== undefined) {
+    contents.InstanceId = __expectString(output["instanceId"]);
+  }
+  if (output["autoRecovery"] !== undefined) {
+    contents.AutoRecovery = __expectString(output["autoRecovery"]);
   }
   return contents;
 };
@@ -74965,6 +75134,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     EnclaveOptions: undefined,
     InstanceRequirements: undefined,
     PrivateDnsNameOptions: undefined,
+    MaintenanceOptions: undefined,
   };
   if (output["kernelId"] !== undefined) {
     contents.KernelId = __expectString(output["kernelId"]);
@@ -75123,6 +75293,12 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   if (output["privateDnsNameOptions"] !== undefined) {
     contents.PrivateDnsNameOptions = deserializeAws_ec2LaunchTemplatePrivateDnsNameOptions(
       output["privateDnsNameOptions"],
+      context
+    );
+  }
+  if (output["maintenanceOptions"] !== undefined) {
+    contents.MaintenanceOptions = deserializeAws_ec2LaunchTemplateInstanceMaintenanceOptions(
+      output["maintenanceOptions"],
       context
     );
   }

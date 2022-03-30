@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetHostReservationPurchasePreviewRequest } from "../models/models_4";
-import { GetHostReservationPurchasePreviewResult } from "../models/models_5";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
   serializeAws_ec2GetHostReservationPurchasePreviewCommand,

@@ -46,6 +46,7 @@ import {
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   PrivateIpAddressSpecification,
+  ReplaceRootVolumeTask,
   RouteTable,
   Snapshot,
   SnapshotState,
@@ -58,7 +59,6 @@ import {
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
-  TransitGatewayConnect,
   VolumeType,
 } from "./models_1";
 import {
@@ -70,6 +70,7 @@ import {
   ServiceConfiguration,
   ServiceTypeDetail,
   State,
+  TransitGatewayConnect,
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
   TransitGatewayRouteTable,
@@ -87,12 +88,198 @@ import {
   FastLaunchSnapshotConfigurationResponse,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  OfferingClassType,
-  OfferingTypeValues,
-  PaymentOption,
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+export interface DescribeReplaceRootVolumeTasksRequest {
+  /**
+   * <p>The ID of the root volume replacement task to view.</p>
+   */
+  ReplaceRootVolumeTaskIds?: string[];
+
+  /**
+   * <p>Filter to use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeReplaceRootVolumeTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReplaceRootVolumeTasksResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeReplaceRootVolumeTasksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksResult): any => ({
+    ...obj,
+  });
+}
+
+export enum OfferingClassType {
+  CONVERTIBLE = "convertible",
+  STANDARD = "standard",
+}
+
+export type OfferingTypeValues =
+  | "All Upfront"
+  | "Heavy Utilization"
+  | "Light Utilization"
+  | "Medium Utilization"
+  | "No Upfront"
+  | "Partial Upfront";
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstances.</p>
+ */
+export interface DescribeReservedInstancesRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-description</code> - The Reserved Instance product platform
+   *           description. Instances that include <code>(Amazon VPC)</code> in the product platform
+   *           description will only be displayed to EC2-Classic account holders and are for use with
+   *           Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
+   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
+   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
+   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
+   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
+   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
+   *             <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
+   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon
+   *           VPC)</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
+   */
+  OfferingClass?: OfferingClassType | string;
+
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
+   */
+  ReservedInstancesIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
+   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   * 			offering type.</p>
+   */
+  OfferingType?: OfferingTypeValues | string;
+}
+
+export namespace DescribeReservedInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
+    ...obj,
+  });
+}
 
 export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
 
@@ -10889,7 +11076,8 @@ export namespace GetDefaultCreditSpecificationRequest {
 }
 
 /**
- * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
+ * <p>Describes the default credit option for CPU usage of a burstable performance instance
+ *             family.</p>
  */
 export interface InstanceFamilyCreditSpecification {
   /**
@@ -10898,7 +11086,8 @@ export interface InstanceFamilyCreditSpecification {
   InstanceFamily?: UnlimitedSupportedInstanceFamily | string;
 
   /**
-   * <p>The default credit option for CPU usage of the instance family. Valid values are <code>standard</code> and <code>unlimited</code>.</p>
+   * <p>The default credit option for CPU usage of the instance family. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
    */
   CpuCredits?: string;
 }
@@ -11101,160 +11290,6 @@ export namespace GetFlowLogsIntegrationTemplateResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGroupsForCapacityReservationRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetGroupsForCapacityReservationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
- */
-export interface CapacityReservationGroup {
-  /**
-   * <p>The ARN of the resource group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
-   */
-  OwnerId?: string;
-}
-
-export namespace CapacityReservationGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityReservationGroup): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGroupsForCapacityReservationResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
-   */
-  CapacityReservationGroups?: CapacityReservationGroup[];
-}
-
-export namespace GetGroupsForCapacityReservationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetHostReservationPurchasePreviewRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
-   */
-  HostIdSet: string[] | undefined;
-
-  /**
-   * <p>The offering ID of the reservation.</p>
-   */
-  OfferingId: string | undefined;
-}
-
-export namespace GetHostReservationPurchasePreviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the result of the purchase.</p>
- */
-export interface Purchase {
-  /**
-   * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The duration of the reservation's term in seconds.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   */
-  HostIdSet?: string[];
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The hourly price of the reservation per hour.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The instance family on the Dedicated Host that the reservation can be associated
-   *             with.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The payment option for the reservation.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   */
-  UpfrontPrice?: string;
-}
-
-export namespace Purchase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Purchase): any => ({
     ...obj,
   });
 }

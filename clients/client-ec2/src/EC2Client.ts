@@ -1450,6 +1450,10 @@ import {
   ModifyInstanceEventWindowCommandOutput,
 } from "./commands/ModifyInstanceEventWindowCommand";
 import {
+  ModifyInstanceMaintenanceOptionsCommandInput,
+  ModifyInstanceMaintenanceOptionsCommandOutput,
+} from "./commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
 } from "./commands/ModifyInstanceMetadataOptionsCommand";
@@ -2207,6 +2211,7 @@ export type ServiceInputTypes =
   | ModifyInstanceCreditSpecificationCommandInput
   | ModifyInstanceEventStartTimeCommandInput
   | ModifyInstanceEventWindowCommandInput
+  | ModifyInstanceMaintenanceOptionsCommandInput
   | ModifyInstanceMetadataOptionsCommandInput
   | ModifyInstancePlacementCommandInput
   | ModifyIpamCommandInput
@@ -2730,6 +2735,7 @@ export type ServiceOutputTypes =
   | ModifyInstanceCreditSpecificationCommandOutput
   | ModifyInstanceEventStartTimeCommandOutput
   | ModifyInstanceEventWindowCommandOutput
+  | ModifyInstanceMaintenanceOptionsCommandOutput
   | ModifyInstanceMetadataOptionsCommandOutput
   | ModifyInstancePlacementCommandOutput
   | ModifyIpamCommandOutput

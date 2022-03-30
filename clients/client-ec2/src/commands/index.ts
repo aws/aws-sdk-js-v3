@@ -418,6 +418,7 @@ export * from "./ModifyInstanceCapacityReservationAttributesCommand";
 export * from "./ModifyInstanceCreditSpecificationCommand";
 export * from "./ModifyInstanceEventStartTimeCommand";
 export * from "./ModifyInstanceEventWindowCommand";
+export * from "./ModifyInstanceMaintenanceOptionsCommand";
 export * from "./ModifyInstanceMetadataOptionsCommand";
 export * from "./ModifyInstancePlacementCommand";
 export * from "./ModifyIpamCommand";

@@ -31,7 +31,8 @@ export interface StopInstancesCommandOutput extends StopInstancesResult, __Metad
  *             instance usage.</p>
  *         <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
  *             action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
- *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  *         <p>When you stop or hibernate an instance, we shut it down. You can restart your instance
  *             at any time. Before stopping or hibernating an instance, make sure it is in a state from
  *             which it can be restarted. Stopping an instance does not preserve data stored in RAM,

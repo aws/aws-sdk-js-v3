@@ -31,7 +31,8 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
  *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
  *         <p>To modify some attributes, the instance must be stopped. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

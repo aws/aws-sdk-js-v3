@@ -40,7 +40,8 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                     <b>Scheduled events</b> - Amazon EC2 can schedule
  *                     events (such as reboot, stop, or terminate) for your instances related to
  *                     hardware issues, software updates, or system maintenance. For more information,
- *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User
+ *                         Guide</i>.</p>
  *             </li>
  *             <li>
  *                 <p>

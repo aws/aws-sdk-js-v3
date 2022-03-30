@@ -6,7 +6,6 @@ import {
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressAttribute,
-  AddressAttributeName,
   Affinity,
   ApplianceModeSupportValue,
   AttributeValue,
@@ -109,6 +108,7 @@ import {
   HttpTokensState,
   ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
+  InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
   InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
@@ -116,6 +116,7 @@ import {
   InstanceStatusEvent,
   LaunchPermission,
   Monitoring,
+  PaymentOption,
   PermissionGroup,
   PublicIpv4PoolRange,
   SnapshotDetail,
@@ -128,7 +129,6 @@ import {
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
   LaunchTemplateConfig,
-  Purchase,
   ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
@@ -140,6 +140,160 @@ import {
   UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_4";
+
+export interface GetGroupsForCapacityReservationRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetGroupsForCapacityReservationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+ */
+export interface CapacityReservationGroup {
+  /**
+   * <p>The ARN of the resource group.</p>
+   */
+  GroupArn?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resource group.</p>
+   */
+  OwnerId?: string;
+}
+
+export namespace CapacityReservationGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationGroup): any => ({
+    ...obj,
+  });
+}
+
+export interface GetGroupsForCapacityReservationResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
+   */
+  CapacityReservationGroups?: CapacityReservationGroup[];
+}
+
+export namespace GetGroupsForCapacityReservationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetHostReservationPurchasePreviewRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
+   */
+  HostIdSet: string[] | undefined;
+
+  /**
+   * <p>The offering ID of the reservation.</p>
+   */
+  OfferingId: string | undefined;
+}
+
+export namespace GetHostReservationPurchasePreviewRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the result of the purchase.</p>
+ */
+export interface Purchase {
+  /**
+   * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
+   *             amounts are specified. At this time, the only supported currency is
+   *             <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The duration of the reservation's term in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   */
+  HostIdSet?: string[];
+
+  /**
+   * <p>The ID of the reservation.</p>
+   */
+  HostReservationId?: string;
+
+  /**
+   * <p>The hourly price of the reservation per hour.</p>
+   */
+  HourlyPrice?: string;
+
+  /**
+   * <p>The instance family on the Dedicated Host that the reservation can be associated
+   *             with.</p>
+   */
+  InstanceFamily?: string;
+
+  /**
+   * <p>The payment option for the reservation.</p>
+   */
+  PaymentOption?: PaymentOption | string;
+
+  /**
+   * <p>The upfront price of the reservation.</p>
+   */
+  UpfrontPrice?: string;
+}
+
+export namespace Purchase {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Purchase): any => ({
+    ...obj,
+  });
+}
 
 export interface GetHostReservationPurchasePreviewResult {
   /**
@@ -3894,7 +4048,8 @@ export namespace ModifyFleetRequest {
 
 export interface ModifyFleetResult {
   /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *          no response is returned, and instead an error message is returned.</p>
    */
   Return?: boolean;
 }
@@ -4363,12 +4518,12 @@ export namespace BlobAttributeValue {
 
 export interface ModifyInstanceAttributeRequest {
   /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
+   * <p>Enable or disable source/destination checks, which ensure that the instance is either
+   *             the source or the destination of any traffic that it receives. If the value is
+   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
+   *             disabled. The default value is <code>true</code>. You must disable source/destination
+   *             checks if the instance runs services such as network address translation, routing, or
+   *             firewalls.</p>
    */
   SourceDestCheck?: AttributeBooleanValue;
 
@@ -4384,7 +4539,7 @@ export interface ModifyInstanceAttributeRequest {
    *             deleted when the instance is terminated.</p>
    *         <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
    *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   BlockDeviceMappings?: InstanceBlockDeviceMappingSpecification[];
 
@@ -4419,9 +4574,10 @@ export interface ModifyInstanceAttributeRequest {
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security groups.
-   *             You must specify at least one security group, even if it's just the default security group for the VPC. You must
-   *             specify the security group ID, not the security group name.</p>
+   * <p>[EC2-VPC] Replaces the security groups of the instance with the specified security
+   *             groups. You must specify at least one security group, even if it's just the default
+   *             security group for the VPC. You must specify the security group ID, not the security
+   *             group name.</p>
    */
   Groups?: string[];
 
@@ -4438,8 +4594,8 @@ export interface ModifyInstanceAttributeRequest {
 
   /**
    * <p>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-   *             types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is not valid,
-   *             the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
+   *                 types</a> in the <i>Amazon EC2 User Guide</i>. If the instance type is
+   *             not valid, the error returned is <code>InvalidInstanceAttributeValue</code>.</p>
    */
   InstanceType?: AttributeValue;
 
@@ -4466,9 +4622,8 @@ export interface ModifyInstanceAttributeRequest {
   SriovNetSupport?: AttributeValue;
 
   /**
-   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK
-   *             or command line tool, base64-encoding is performed for you, and you can load the text
-   *             from a file. Otherwise, you must provide base64-encoded text.</p>
+   * <p>Changes the instance's user data to the specified value. If you are using an Amazon Web Services SDK or command line tool, base64-encoding is performed for you, and you
+   *             can load the text from a file. Otherwise, you must provide base64-encoded text.</p>
    */
   UserData?: BlobAttributeValue;
 
@@ -4863,6 +5018,58 @@ export namespace ModifyInstanceEventWindowResult {
   });
 }
 
+export interface ModifyInstanceMaintenanceOptionsRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to
+   *             default.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyInstanceMaintenanceOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceMaintenanceOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceMaintenanceOptionsResult {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Provides information on the current automatic recovery behavior of your
+   *             instance.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+}
+
+export namespace ModifyInstanceMaintenanceOptionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceMaintenanceOptionsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ModifyInstanceMetadataOptionsRequest {
   /**
    * <p>The ID of the instance.</p>
@@ -4873,36 +5080,37 @@ export interface ModifyInstanceMetadataOptionsRequest {
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *             specified in the request, the default state is <code>optional</code>.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
+   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
+   *             returned. If you retrieve the IAM role credentials using a valid signed
+   *             token, the version 2.0 role credentials are returned.</p>
    *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   *             instance metadata retrieval requests. In this state, retrieving the IAM
+   *             role credential always returns the version 2.0 credentials; the version 1.0 credentials
+   *             are not available.</p>
    */
   HttpTokens?: HttpTokensState | string;
 
   /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel. If no parameter is specified, the existing state is maintained.</p>
+   *             number, the further instance metadata requests can travel. If no parameter is specified,
+   *             the existing state is maintained.</p>
    *         <p>Possible values: Integers from 1 to 64</p>
    */
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>Enables or disables the HTTP metadata endpoint on your instances. If
-   *             this parameter is not specified, the existing state is maintained.</p>
-   *         <p>If you specify a value of <code>disabled</code>, you cannot access your
-   *             instance metadata.</p>
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If this parameter is
+   *             not specified, the existing state is maintained.</p>
+   *         <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is
-   *             <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -5530,9 +5738,10 @@ export namespace ModifyNetworkInterfaceAttributeRequest {
 
 export interface ModifyPrivateDnsNameOptionsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -5542,20 +5751,22 @@ export interface ModifyPrivateDnsNameOptionsRequest {
   InstanceId?: string;
 
   /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be
-   *             based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
-   *             on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
-   *             IPv4 address or the instance ID.</p>
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
    */
   PrivateDnsHostnameType?: HostnameType | string;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
    */
   EnableResourceNameDnsARecord?: boolean;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
    */
   EnableResourceNameDnsAAAARecord?: boolean;
 }
@@ -5571,7 +5782,8 @@ export namespace ModifyPrivateDnsNameOptionsRequest {
 
 export interface ModifyPrivateDnsNameOptionsResult {
   /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an
+   *             error.</p>
    */
   Return?: boolean;
 }
@@ -5954,7 +6166,8 @@ export namespace ModifySpotFleetRequestRequest {
  */
 export interface ModifySpotFleetRequestResponse {
   /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *             no response is returned, and instead an error message is returned.</p>
    */
   Return?: boolean;
 }
@@ -9686,130 +9899,6 @@ export namespace RequestSpotInstancesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetAddressAttributeRequest {
-  /**
-   * <p>[EC2-VPC] The allocation ID.</p>
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The attribute of the IP address.</p>
-   */
-  Attribute: AddressAttributeName | string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ResetAddressAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAddressAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetAddressAttributeResult {
-  /**
-   * <p>Information about the IP address.</p>
-   */
-  Address?: AddressAttribute;
-}
-
-export namespace ResetAddressAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAddressAttributeResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetEbsDefaultKmsKeyIdRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ResetEbsDefaultKmsKeyIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
-   */
-  KmsKeyId?: string;
-}
-
-export namespace ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
-    ...obj,
-  });
-}
-
-export type ResetFpgaImageAttributeName = "loadPermission";
-
-export interface ResetFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The attribute.</p>
-   */
-  Attribute?: ResetFpgaImageAttributeName | string;
-}
-
-export namespace ResetFpgaImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetFpgaImageAttributeResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ResetFpgaImageAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
     ...obj,
   });
 }

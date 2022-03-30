@@ -28,17 +28,17 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *         <p>If you specify multiple instances and the request fails (for example, because of a
  *             single incorrect instance ID), none of the instances are terminated.</p>
  *
- *         <p>If you terminate multiple instances across multiple Availability Zones, and one or more
- *             of the specified instances are enabled for termination protection, the request fails with
- *             the following results:</p>
+ *         <p>If you terminate multiple instances across multiple Availability Zones, and one or
+ *             more of the specified instances are enabled for termination protection, the request
+ *             fails with the following results:</p>
  *         <ul>
  *             <li>
- *                 <p>The specified instances that are in the same Availability Zone as the protected
- *                     instance are not terminated.</p>
+ *                 <p>The specified instances that are in the same Availability Zone as the
+ *                     protected instance are not terminated.</p>
  *             </li>
  *             <li>
- *                 <p>The specified instances that are in different Availability Zones, where no other
- *                     specified instances are protected, are successfully terminated.</p>
+ *                 <p>The specified instances that are in different Availability Zones, where no
+ *                     other specified instances are protected, are successfully terminated.</p>
  *             </li>
  *          </ul>
  *
@@ -57,16 +57,18 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
  *             </li>
  *          </ul>
- *         <p>If you attempt to terminate all of these instances in the same request, the request reports
- *             failure with the following results:</p>
+ *         <p>If you attempt to terminate all of these instances in the same request, the request
+ *             reports failure with the following results:</p>
  *         <ul>
  *             <li>
- *                 <p>Instance A and Instance B are successfully terminated because none of the specified
- *                     instances in <code>us-east-1a</code> are enabled for termination protection.</p>
+ *                 <p>Instance A and Instance B are successfully terminated because none of the
+ *                     specified instances in <code>us-east-1a</code> are enabled for termination
+ *                     protection.</p>
  *             </li>
  *             <li>
- *                 <p>Instance C and Instance D fail to terminate because at least one of the specified
- *                     instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p>
+ *                 <p>Instance C and Instance D fail to terminate because at least one of the
+ *                     specified instances in <code>us-east-1b</code> (Instance C) is enabled for
+ *                     termination protection.</p>
  *             </li>
  *          </ul>
  *
@@ -83,7 +85,8 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             to <code>true</code> are automatically deleted. For more information about the
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
  *             in the <i>Amazon EC2 User Guide</i>.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

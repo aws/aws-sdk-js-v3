@@ -1,5 +1,7 @@
 import {
   _InstanceType,
+  AddressAttribute,
+  AddressAttributeName,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
   HostnameType,
@@ -26,6 +28,7 @@ import { ClientVpnConnectionStatus, Filter, TransitGatewayRoute } from "./models
 import {
   HttpTokensState,
   InstanceAttributeName,
+  InstanceAutoRecoveryState,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
@@ -39,6 +42,130 @@ import {
   SnapshotAttributeName,
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+
+export interface ResetAddressAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID.</p>
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The attribute of the IP address.</p>
+   */
+  Attribute: AddressAttributeName | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetAddressAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAddressAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetAddressAttributeResult {
+  /**
+   * <p>Information about the IP address.</p>
+   */
+  Address?: AddressAttribute;
+}
+
+export namespace ResetAddressAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAddressAttributeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetEbsDefaultKmsKeyIdRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetEbsDefaultKmsKeyIdRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetEbsDefaultKmsKeyIdResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace ResetEbsDefaultKmsKeyIdResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
+    ...obj,
+  });
+}
+
+export type ResetFpgaImageAttributeName = "loadPermission";
+
+export interface ResetFpgaImageAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   */
+  FpgaImageId: string | undefined;
+
+  /**
+   * <p>The attribute.</p>
+   */
+  Attribute?: ResetFpgaImageAttributeName | string;
+}
+
+export namespace ResetFpgaImageAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetFpgaImageAttributeResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ResetFpgaImageAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
+    ...obj,
+  });
+}
 
 export type ResetImageAttributeName = "launchPermission";
 
@@ -78,8 +205,7 @@ export interface ResetInstanceAttributeRequest {
    * <p>The attribute to reset.</p>
    *         <important>
    *             <p>You can only reset the following attributes: <code>kernel</code> |
-   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance
-   *                 attribute, use <a>ModifyInstanceAttribute</a>.</p>
+   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
    *         </important>
    */
   Attribute: InstanceAttributeName | string | undefined;
@@ -706,8 +832,8 @@ export interface CpuOptionsRequest {
   CoreCount?: number;
 
   /**
-   * <p>The number of threads per CPU core. To disable multithreading for
-   *             the instance, specify a value of <code>1</code>. Otherwise, specify the default value of
+   * <p>The number of threads per CPU core. To disable multithreading for the instance,
+   *             specify a value of <code>1</code>. Otherwise, specify the default value of
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
@@ -754,13 +880,15 @@ export namespace ElasticInferenceAccelerator {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
- *     		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
- *     		    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
+ *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
+ *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
+ *                 Guide</i>.</p>
  */
 export interface EnclaveOptionsRequest {
   /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
+   *                 <code>true</code>.</p>
    */
   Enabled?: boolean;
 }
@@ -777,8 +905,7 @@ export namespace EnclaveOptionsRequest {
 /**
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
- *                 prerequisites</a>. For
- *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface HibernationOptionsRequest {
@@ -811,9 +938,9 @@ export interface SpotMarketOptions {
   MaxPrice?: string;
 
   /**
-   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
-   *             Instance requests are only supported when the instance interruption behavior is either <code>hibernate</code> or
-   *                 <code>stop</code>.</p>
+   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent
+   *             Spot Instance requests are only supported when the instance interruption behavior is
+   *             either <code>hibernate</code> or <code>stop</code>.</p>
    */
   SpotInstanceType?: SpotInstanceType | string;
 
@@ -881,8 +1008,8 @@ export namespace InstanceMarketOptionsRequest {
 }
 
 /**
- * <p>The launch template to use. You must specify either the launch template ID or
- *             launch template name in the request, but not both.</p>
+ * <p>The launch template to use. You must specify either the launch template ID or launch
+ *             template name in the request, but not both.</p>
  */
 export interface LaunchTemplateSpecification {
   /**
@@ -931,20 +1058,39 @@ export namespace LicenseConfigurationRequest {
 }
 
 /**
+ * <p>The maintenance options for the instance.</p>
+ */
+export interface InstanceMaintenanceOptionsRequest {
+  /**
+   * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+}
+
+export namespace InstanceMaintenanceOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMaintenanceOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The metadata options for the instance.</p>
  */
 export interface InstanceMetadataOptionsRequest {
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
+   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
+   *             returned. If you retrieve the IAM role credentials using a valid signed
+   *             token, the version 2.0 role credentials are returned.</p>
    *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   *             instance metadata retrieval requests. In this state, retrieving the IAM
+   *             role credentials always returns the version 2.0 credentials; the version 1.0 credentials
+   *             are not available.</p>
    *         <p>Default: <code>optional</code>
    *          </p>
    */
@@ -960,8 +1106,8 @@ export interface InstanceMetadataOptionsRequest {
 
   /**
    * <p>Enables or disables the HTTP metadata endpoint on your instances.</p>
-   *         <p>If you specify a value of <code>disabled</code>, you cannot access your
-   *             instance metadata.</p>
+   *         <p>If you specify a value of <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
    *         <p>Default: <code>enabled</code>
    *          </p>
    */
@@ -973,8 +1119,10 @@ export interface InstanceMetadataOptionsRequest {
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 
   /**
-   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off
-   *             access to instance tags from the instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags using the instance metadata</a>.</p>
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
+   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
    *         <p>Default: <code>disabled</code>
    *          </p>
    */
@@ -995,20 +1143,22 @@ export namespace InstanceMetadataOptionsRequest {
  */
 export interface PrivateDnsNameOptionsRequest {
   /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name must be
-   *             based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
-   *             on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
-   *             IPv4 address or the instance ID.</p>
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
    */
   HostnameType?: HostnameType | string;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
    */
   EnableResourceNameDnsARecord?: boolean;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
    */
   EnableResourceNameDnsAAAARecord?: boolean;
 }
@@ -1024,15 +1174,15 @@ export namespace PrivateDnsNameOptionsRequest {
 
 export interface RunInstancesRequest {
   /**
-   * <p>The block device mapping, which defines the EBS volumes and instance store
-   *             volumes to attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device mappings</a>
-   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The block device mapping, which defines the EBS volumes and instance store volumes to
+   *             attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
+   *                 mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
-   * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
-   *         	specified here or in a launch template.</p>
+   * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be specified
+   *             here or in a launch template.</p>
    */
   ImageId?: string;
 
@@ -1120,8 +1270,8 @@ export interface RunInstancesRequest {
   /**
    * <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
    *             Check the kernel requirements for information about whether you need to specify a RAM
-   *             disk. To find kernel requirements, go to the Amazon Web Services Resource Center and search for the
-   *             kernel ID.</p>
+   *             disk. To find kernel requirements, go to the Amazon Web Services Resource Center and
+   *             search for the kernel ID.</p>
    *         <important>
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
@@ -1131,9 +1281,9 @@ export interface RunInstancesRequest {
   RamdiskId?: string;
 
   /**
-   * <p>The IDs of the security groups. You can create a security group using
-   * 	<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
-   *         <p>If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+   * <p>The IDs of the security groups. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
+   *         <p>If you specify a network interface, you must specify any security groups as part of
+   *             the network interface.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -1148,13 +1298,15 @@ export interface RunInstancesRequest {
 
   /**
    * <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
-   *         <p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
+   *         <p>If you specify a network interface, you must specify any subnets as part of the
+   *             network interface.</p>
    */
   SubnetId?: string;
 
   /**
-   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
-   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
+   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on
+   *                 your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your
+   *                 Windows instance at launch</a>. If you are using a command line tool,
    *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
    *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -1167,10 +1319,10 @@ export interface RunInstancesRequest {
 
   /**
    * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If you do not specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   *             request. If you do not specify a client token, a randomly generated token is used for
+   *             the request to ensure idempotency.</p>
    *
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    *                 Idempotency</a>.</p>
    *         <p>Constraints: Maximum 64 ASCII characters</p>
    */
@@ -1178,11 +1330,10 @@ export interface RunInstancesRequest {
 
   /**
    * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
-   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch,
-   *             use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
-   *             Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
-   *                 <code>terminate</code>, you can terminate the instance by running the shutdown
-   *             command from the instance.</p>
+   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after
+   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>. Alternatively, if you set
+   *                 <code>InstanceInitiatedShutdownBehavior</code> to <code>terminate</code>, you can
+   *             terminate the instance by running the shutdown command from the instance.</p>
    *         <p>Default: <code>false</code>
    *         </p>
    */
@@ -1207,7 +1358,8 @@ export interface RunInstancesRequest {
   EbsOptimized?: boolean;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of an IAM instance profile.</p>
+   * <p>The name or Amazon Resource Name (ARN) of an IAM instance
+   *             profile.</p>
    */
   IamInstanceProfile?: IamInstanceProfileSpecification;
 
@@ -1220,8 +1372,9 @@ export interface RunInstancesRequest {
   InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
 
   /**
-   * <p>The network interfaces to associate with the instance. If you specify a network interface,
-   *             you must specify any security groups and subnets as part of the network interface.</p>
+   * <p>The network interfaces to associate with the instance. If you specify a network
+   *             interface, you must specify any security groups and subnets as part of the network
+   *             interface.</p>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
@@ -1240,8 +1393,8 @@ export interface RunInstancesRequest {
   /**
    * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
    *             you can attach to your Windows instance to accelerate the graphics performance of your
-   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon EC2 Elastic
-   *                 GPUs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon EC2 Elastic GPUs</a> in
+   *             the <i>Amazon EC2 User Guide</i>.</p>
    */
   ElasticGpuSpecification?: ElasticGpuSpecification[];
 
@@ -1306,7 +1459,8 @@ export interface RunInstancesRequest {
    * <p>Indicates whether an instance is enabled for hibernation. For more information, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same instance.</p>
+   *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
+   *             instance.</p>
    */
   HibernationOptions?: HibernationOptionsRequest;
 
@@ -1321,17 +1475,25 @@ export interface RunInstancesRequest {
   MetadataOptions?: InstanceMetadataOptionsRequest;
 
   /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
-   * 			    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
-   * 	        <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
+   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
+   *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
+   *                 Guide</i>.</p>
+   *         <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
+   *             instance.</p>
    */
   EnclaveOptions?: EnclaveOptionsRequest;
 
   /**
-   * <p>The options for the instance hostname. The default values are inherited from the subnet.</p>
+   * <p>The options for the instance hostname. The default values are inherited from the
+   *             subnet.</p>
    */
   PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest;
+
+  /**
+   * <p>The maintenance and recovery options for the instance.</p>
+   */
+  MaintenanceOptions?: InstanceMaintenanceOptionsRequest;
 }
 
 export namespace RunInstancesRequest {

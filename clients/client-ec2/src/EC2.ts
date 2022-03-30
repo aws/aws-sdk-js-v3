@@ -2041,6 +2041,11 @@ import {
   ModifyInstanceEventWindowCommandOutput,
 } from "./commands/ModifyInstanceEventWindowCommand";
 import {
+  ModifyInstanceMaintenanceOptionsCommand,
+  ModifyInstanceMaintenanceOptionsCommandInput,
+  ModifyInstanceMaintenanceOptionsCommandOutput,
+} from "./commands/ModifyInstanceMaintenanceOptionsCommand";
+import {
   ModifyInstanceMetadataOptionsCommand,
   ModifyInstanceMetadataOptionsCommandInput,
   ModifyInstanceMetadataOptionsCommandOutput,
@@ -5244,8 +5249,8 @@ export class EC2 extends EC2Client {
    *             launch template from which to base the new version.</p>
    *         <p>Launch template versions are numbered in the order in which they are created. You
    *             cannot specify, change, or replace the numbering of launch template versions.</p>
-   *         <p>For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createLaunchTemplateVersion(
     args: CreateLaunchTemplateVersionCommandInput,
@@ -7597,7 +7602,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>
+   * <p>Deletes a launch template. Deleting a launch template deletes all of its
+   *             versions.</p>
    */
   public deleteLaunchTemplate(
     args: DeleteLaunchTemplateCommandInput,
@@ -11069,13 +11075,14 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified instances or all instances.</p>
-   *         <p>If you specify instance IDs, the output includes information for only the specified instances.
-   *             If you specify filters, the output includes information for only those instances that meet the filter criteria.
-   *             If you do not specify instance IDs or filters, the output includes information for all instances,
-   *             which can affect performance. We recommend that you use pagination to ensure that the operation
-   *             returns quickly and successfully.</p>
-   *         <p>If you specify an instance ID that is not valid, an error is returned. If you
-   *             specify an instance that you do not own, it is not included in the output.</p>
+   *         <p>If you specify instance IDs, the output includes information for only the specified
+   *             instances. If you specify filters, the output includes information for only those
+   *             instances that meet the filter criteria. If you do not specify instance IDs or filters,
+   *             the output includes information for all instances, which can affect performance. We
+   *             recommend that you use pagination to ensure that the operation returns quickly and
+   *             successfully.</p>
+   *         <p>If you specify an instance ID that is not valid, an error is returned. If you specify
+   *             an instance that you do not own, it is not included in the output.</p>
    *         <p>Recently terminated instances might appear in the returned results. This interval is
    *             usually less than one hour.</p>
    *         <p>If you describe instances in the rare case where an Availability Zone is experiencing
@@ -11132,7 +11139,8 @@ export class EC2 extends EC2Client {
    *                     <b>Scheduled events</b> - Amazon EC2 can schedule
    *                     events (such as reboot, stop, or terminate) for your instances related to
    *                     hardware issues, software updates, or system maintenance. For more information,
-   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User
+   *                         Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -15799,9 +15807,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
+   * <p>Describes the default credit option for CPU usage of a burstable performance instance
+   *             family.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public getDefaultCreditSpecification(
     args: GetDefaultCreditSpecificationCommandInput,
@@ -16192,11 +16201,13 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Retrieves the configuration data of the specified instance. You can use this data
-   *             to create a launch template. </p>
-   *         <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following
-   *             actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
-   *         <code>describe*</code> depending on your instance requirements.</p>
+   * <p>Retrieves the configuration data of the specified instance. You can use this data to
+   *             create a launch template. </p>
+   *         <p>This action calls on other describe actions to get instance information. Depending on
+   *             your instance configuration, you may need to allow the following actions in your IAM
+   *             policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications,
+   *             DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
+   *                 <code>describe*</code> depending on your instance requirements.</p>
    */
   public getLaunchTemplateData(
     args: GetLaunchTemplateDataCommandInput,
@@ -16362,7 +16373,7 @@ export class EC2 extends EC2Client {
    *         <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
    *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
    *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *         <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
    *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
    *         <p>The password is encrypted using the key pair that you specified when you launched the
@@ -17227,18 +17238,19 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies the default credit option for CPU usage of burstable performance instances.
-   *             The default credit option is set at the account level per Amazon Web Services Region, and is specified
-   *             per instance family. All new burstable performance instances in the account launch using
-   *             the default credit option.</p>
+   *             The default credit option is set at the account level per Amazon Web Services Region, and
+   *             is specified per instance family. All new burstable performance instances in the account
+   *             launch using the default credit option.</p>
    *         <p>
-   *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which works at an Amazon Web Services Region
-   *             level and modifies the credit option for each Availability Zone. All zones in a
-   *             Region are updated within five minutes. But if instances are launched during this
-   *             operation, they might not get the new credit option until the zone is updated. To verify
-   *             whether the update has occurred, you can call <code>GetDefaultCreditSpecification</code> and check
-   *             <code>DefaultCreditSpecification</code> for updates.</p>
+   *             <code>ModifyDefaultCreditSpecification</code> is an asynchronous operation, which
+   *             works at an Amazon Web Services Region level and modifies the credit option for each
+   *             Availability Zone. All zones in a Region are updated within five minutes. But if
+   *             instances are launched during this operation, they might not get the new credit option
+   *             until the zone is updated. To verify whether the update has occurred, you can call
+   *                 <code>GetDefaultCreditSpecification</code> and check
+   *                 <code>DefaultCreditSpecification</code> for updates.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *             performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyDefaultCreditSpecification(
     args: ModifyDefaultCreditSpecificationCommandInput,
@@ -17575,7 +17587,8 @@ export class EC2 extends EC2Client {
    *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
    *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
    *         <p>To modify some attributes, the instance must be stopped. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceAttribute(
     args: ModifyInstanceAttributeCommandInput,
@@ -17750,13 +17763,48 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies the recovery behavior of your instance to disable simplified automatic
+   *             recovery or set the recovery behavior to default. The default configuration will not
+   *             enable simplified automatic recovery for an unsupported instance type. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+   */
+  public modifyInstanceMaintenanceOptions(
+    args: ModifyInstanceMaintenanceOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput>;
+  public modifyInstanceMaintenanceOptions(
+    args: ModifyInstanceMaintenanceOptionsCommandInput,
+    cb: (err: any, data?: ModifyInstanceMaintenanceOptionsCommandOutput) => void
+  ): void;
+  public modifyInstanceMaintenanceOptions(
+    args: ModifyInstanceMaintenanceOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyInstanceMaintenanceOptionsCommandOutput) => void
+  ): void;
+  public modifyInstanceMaintenanceOptions(
+    args: ModifyInstanceMaintenanceOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceMaintenanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyInstanceMaintenanceOptionsCommandOutput) => void
+  ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> | void {
+    const command = new ModifyInstanceMaintenanceOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modify the instance metadata parameters on a running or stopped instance. When you
    *             modify the parameters on a stopped instance, they are applied when the instance is
    *             started. When you modify the parameters on a running instance, the API responds with a
    *             state of “pending”. After the parameter modifications are successfully applied to the
    *             instance, the state of the modifications changes from “pending” to “applied” in
-   *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>
-   *           in the <i>Amazon EC2 User Guide</i>.</p>
+   *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public modifyInstanceMetadataOptions(
     args: ModifyInstanceMetadataOptionsCommandInput,
@@ -19465,7 +19513,7 @@ export class EC2 extends EC2Client {
    *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
    *             hard reboot.</p>
    *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Troubleshoot an unreachable
-   *             instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public rebootInstances(
     args: RebootInstancesCommandInput,
@@ -21053,21 +21101,23 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
-   * 			<i>kernel panic</i> (on Linux instances), or a
-   * 			<i>blue screen</i>/<i>stop error</i> (on Windows
-   * 			instances). For instances based on Intel and AMD processors, the interrupt is
-   * 			received as a <i>non-maskable interrupt</i> (NMI).</p>
+   *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
+   *                 screen</i>/<i>stop error</i> (on Windows instances). For
+   *             instances based on Intel and AMD processors, the interrupt is received as a
+   *                 <i>non-maskable interrupt</i> (NMI).</p>
    *
-   * 		       <p>In general, the operating system crashes and reboots when a kernel panic or stop
-   * 			error is triggered. The operating system can also be configured to perform diagnostic
-   * 			tasks, such as generating a memory dump file, loading a secondary kernel, or
-   * 			obtaining a call trace.</p>
+   *         <p>In general, the operating system crashes and reboots when a kernel panic or stop error
+   *             is triggered. The operating system can also be configured to perform diagnostic tasks,
+   *             such as generating a memory dump file, loading a secondary kernel, or obtaining a call
+   *             trace.</p>
    *
-   * 		       <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
-   * 			system is configured to perform the required diagnostic tasks.</p>
+   *         <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
+   *             system is configured to perform the required diagnostic tasks.</p>
    *
-   * 		       <p>For more information about configuring your operating system to generate a crash dump
-   * 			when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic interrupt (for advanced users)</a> (Windows instances).</p>
+   *         <p>For more information about configuring your operating system to generate a crash dump
+   *             when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt
+   *                 (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic
+   *                 interrupt (for advanced users)</a> (Windows instances).</p>
    */
   public sendDiagnosticInterrupt(
     args: SendDiagnosticInterruptCommandInput,
@@ -21112,10 +21162,11 @@ export class EC2 extends EC2Client {
    *         <p>Performing this operation on an instance that uses an instance store as its root
    *             device returns an error.</p>
    *
-   *         <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the <code>unlimted</code>
-   *             CPU credit option, the request fails. The <code>unlimited</code> CPU credit option is not
-   *             supported on Dedicated Hosts. Before you start the instance, either change its CPU credit
-   *             option to <code>standard</code>, or change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
+   *         <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the
+   *                 <code>unlimted</code> CPU credit option, the request fails. The
+   *                 <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before
+   *             you start the instance, either change its CPU credit option to <code>standard</code>, or
+   *             change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
    *
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop and start your instance</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
@@ -21266,7 +21317,8 @@ export class EC2 extends EC2Client {
    *             instance usage.</p>
    *         <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop
    *             action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
-   *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating interrupted Spot Instances</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *         <p>When you stop or hibernate an instance, we shut it down. You can restart your instance
    *             at any time. Before stopping or hibernating an instance, make sure it is in a state from
    *             which it can be restarted. Stopping an instance does not preserve data stored in RAM,
@@ -21352,17 +21404,17 @@ export class EC2 extends EC2Client {
    *         <p>If you specify multiple instances and the request fails (for example, because of a
    *             single incorrect instance ID), none of the instances are terminated.</p>
    *
-   *         <p>If you terminate multiple instances across multiple Availability Zones, and one or more
-   *             of the specified instances are enabled for termination protection, the request fails with
-   *             the following results:</p>
+   *         <p>If you terminate multiple instances across multiple Availability Zones, and one or
+   *             more of the specified instances are enabled for termination protection, the request
+   *             fails with the following results:</p>
    *         <ul>
    *             <li>
-   *                 <p>The specified instances that are in the same Availability Zone as the protected
-   *                     instance are not terminated.</p>
+   *                 <p>The specified instances that are in the same Availability Zone as the
+   *                     protected instance are not terminated.</p>
    *             </li>
    *             <li>
-   *                 <p>The specified instances that are in different Availability Zones, where no other
-   *                     specified instances are protected, are successfully terminated.</p>
+   *                 <p>The specified instances that are in different Availability Zones, where no
+   *                     other specified instances are protected, are successfully terminated.</p>
    *             </li>
    *          </ul>
    *
@@ -21381,16 +21433,18 @@ export class EC2 extends EC2Client {
    *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
    *             </li>
    *          </ul>
-   *         <p>If you attempt to terminate all of these instances in the same request, the request reports
-   *             failure with the following results:</p>
+   *         <p>If you attempt to terminate all of these instances in the same request, the request
+   *             reports failure with the following results:</p>
    *         <ul>
    *             <li>
-   *                 <p>Instance A and Instance B are successfully terminated because none of the specified
-   *                     instances in <code>us-east-1a</code> are enabled for termination protection.</p>
+   *                 <p>Instance A and Instance B are successfully terminated because none of the
+   *                     specified instances in <code>us-east-1a</code> are enabled for termination
+   *                     protection.</p>
    *             </li>
    *             <li>
-   *                 <p>Instance C and Instance D fail to terminate because at least one of the specified
-   *                     instances in <code>us-east-1b</code> (Instance C) is enabled for termination protection.</p>
+   *                 <p>Instance C and Instance D fail to terminate because at least one of the
+   *                     specified instances in <code>us-east-1b</code> (Instance C) is enabled for
+   *                     termination protection.</p>
    *             </li>
    *          </ul>
    *
@@ -21407,7 +21461,8 @@ export class EC2 extends EC2Client {
    *             to <code>true</code> are automatically deleted. For more information about the
    *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   public terminateInstances(
     args: TerminateInstancesCommandInput,
@@ -21504,7 +21559,8 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
-   *             your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 your instances and volumes</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    */
   public unmonitorInstances(
     args: UnmonitorInstancesCommandInput,

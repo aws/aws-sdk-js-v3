@@ -26,6 +26,7 @@ import {
   TagSpecification,
   Tenancy,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TransportProtocol,
@@ -47,9 +48,92 @@ import {
   ProtocolValue,
   SubnetCidrReservation,
   TransitGateway,
-  TransitGatewayConnect,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>Describes the Connect attachment options.</p>
+ */
+export interface TransitGatewayConnectOptions {
+  /**
+   * <p>The tunnel protocol.</p>
+   */
+  Protocol?: ProtocolValue | string;
+}
+
+export namespace TransitGatewayConnectOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayConnectOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a transit gateway Connect attachment.</p>
+ */
+export interface TransitGatewayConnect {
+  /**
+   * <p>The ID of the Connect attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the attachment from which the Connect attachment was created.</p>
+   */
+  TransportTransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The state of the attachment.</p>
+   */
+  State?: TransitGatewayAttachmentState | string;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The Connect attachment options.</p>
+   */
+  Options?: TransitGatewayConnectOptions;
+
+  /**
+   * <p>The tags for the attachment.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayConnect {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayConnect): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateTransitGatewayConnectResult {
+  /**
+   * <p>Information about the Connect attachment.</p>
+   */
+  TransitGatewayConnect?: TransitGatewayConnect;
+}
+
+export namespace CreateTransitGatewayConnectResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectResult): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The BGP options for the Connect attachment.</p>
@@ -4069,8 +4153,7 @@ export namespace DeleteLaunchTemplateVersionsResponseErrorItem {
 
 export interface DeleteLaunchTemplateVersionsResult {
   /**
-   * <p>Information about the launch template versions that were successfully
-   *             deleted.</p>
+   * <p>Information about the launch template versions that were successfully deleted.</p>
    */
   SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[];
 
@@ -8516,89 +8599,6 @@ export namespace DescribeCoipPoolsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a customer-owned address pool.</p>
- */
-export interface CoipPool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The address ranges of the address pool.</p>
-   */
-  PoolCidrs?: string[];
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN of the address pool.</p>
-   */
-  PoolArn?: string;
-}
-
-export namespace CoipPool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoipPool): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCoipPoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   */
-  CoipPools?: CoipPool[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeCoipPoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCoipPoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeConversionTasksRequest {
-  /**
-   * <p>The conversion task IDs.</p>
-   */
-  ConversionTaskIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeConversionTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
     ...obj,
   });
 }

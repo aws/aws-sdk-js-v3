@@ -65,13 +65,95 @@ import {
   Placement,
   PlacementGroup,
   PlatformValues,
-  ReplaceRootVolumeTask,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+
+/**
+ * <p>Describes a customer-owned address pool.</p>
+ */
+export interface CoipPool {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>The address ranges of the address pool.</p>
+   */
+  PoolCidrs?: string[];
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ARN of the address pool.</p>
+   */
+  PoolArn?: string;
+}
+
+export namespace CoipPool {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CoipPool): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeCoipPoolsResult {
+  /**
+   * <p>Information about the address pools.</p>
+   */
+  CoipPools?: CoipPool[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeCoipPoolsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeCoipPoolsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeConversionTasksRequest {
+  /**
+   * <p>The conversion task IDs.</p>
+   */
+  ConversionTaskIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeConversionTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeConversionTasksRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes a disk image.</p>
@@ -4974,12 +5056,13 @@ export namespace AttributeBooleanValue {
 }
 
 /**
- * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
+ *             Enclaves.</p>
  */
 export interface EnclaveOptions {
   /**
-   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves;
-   *             otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
+   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web Services Nitro
+   *             Enclaves.</p>
    */
   Enabled?: boolean;
 }
@@ -5019,8 +5102,8 @@ export interface InstanceAttribute {
   EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
-   * 		set it to <code>false</code>.</p>
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to
+   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
    */
   EnclaveOptions?: EnclaveOptions;
 
@@ -5067,12 +5150,12 @@ export interface InstanceAttribute {
   RootDeviceName?: AttributeValue;
 
   /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
+   * <p>Enable or disable source/destination checks, which ensure that the instance is either
+   *             the source or the destination of any traffic that it receives. If the value is
+   *                 <code>true</code>, source/destination checks are enabled; otherwise, they are
+   *             disabled. The default value is <code>true</code>. You must disable source/destination
+   *             checks if the instance runs services such as network address translation, routing, or
+   *             firewalls.</p>
    */
   SourceDestCheck?: AttributeBooleanValue;
 
@@ -5423,8 +5506,8 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                 <p>
    *                   <code>hypervisor</code> - The hypervisor type of the instance
-   *                     (<code>ovm</code> | <code>xen</code>). The value <code>xen</code>
-   *                     is used for both Xen and Nitro hypervisors.</p>
+   *                         (<code>ovm</code> | <code>xen</code>). The value <code>xen</code> is used
+   *                     for both Xen and Nitro hypervisors.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5491,7 +5574,8 @@ export interface DescribeInstancesRequest {
    *             <li>
    *                 <p>
    *                   <code>launch-index</code> - When launching multiple instances, this is the
-   *                     index for the instance in the launch group (for example, 0, 1, 2, and so on). </p>
+   *                     index for the instance in the launch group (for example, 0, 1, 2, and so on).
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5679,11 +5763,13 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the
+   *                     Outpost.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>owner-id</code> - The Amazon Web Services account ID of the instance owner.</p>
+   *                     <code>owner-id</code> - The Amazon Web Services account ID of the instance
+   *                     owner.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5992,8 +6078,7 @@ export namespace ElasticInferenceAcceleratorAssociation {
 /**
  * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
- *                 prerequisites</a>. For
- *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+ *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface HibernationOptions {
@@ -6030,6 +6115,31 @@ export namespace LicenseConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: LicenseConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceAutoRecoveryState {
+  default = "default",
+  disabled = "disabled",
+}
+
+/**
+ * <p>The maintenance options for the instance.</p>
+ */
+export interface InstanceMaintenanceOptions {
+  /**
+   * <p>Provides information on the current automatic recovery behavior of your
+   *             instance.</p>
+   */
+  AutoRecovery?: InstanceAutoRecoveryState | string;
+}
+
+export namespace InstanceMaintenanceOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMaintenanceOptions): any => ({
     ...obj,
   });
 }
@@ -6071,14 +6181,13 @@ export interface InstanceMetadataOptionsResponse {
   /**
    * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
+   *             with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are
+   *             returned. If you retrieve the IAM role credentials using a valid signed
+   *             token, the version 2.0 role credentials are returned.</p>
    *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
+   *             instance metadata retrieval requests. In this state, retrieving the IAM
+   *             role credential always returns the version 2.0 credentials; the version 1.0 credentials
+   *             are not available.</p>
    *         <p>Default: <code>optional</code>
    *          </p>
    */
@@ -6095,13 +6204,14 @@ export interface InstanceMetadataOptionsResponse {
   /**
    * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or
    *             disabled.</p>
-   *             <p>If the value is <code>disabled</code>, you cannot access your
-   *                 instance metadata.</p>
+   *         <p>If the value is <code>disabled</code>, you cannot access your instance
+   *             metadata.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
   /**
-   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
+   *             disabled.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 
@@ -6416,12 +6526,14 @@ export interface PrivateDnsNameOptionsResponse {
   HostnameType?: HostnameType | string;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
    */
   EnableResourceNameDnsARecord?: boolean;
 
   /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
    */
   EnableResourceNameDnsAAAARecord?: boolean;
 }
@@ -6649,13 +6761,14 @@ export interface Instance {
   EnaSupport?: boolean;
 
   /**
-   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
-   *             Nitro hypervisors.</p>
+   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen
+   *             and Nitro hypervisors.</p>
    */
   Hypervisor?: HypervisorType | string;
 
   /**
-   * <p>The IAM instance profile associated with the instance, if applicable.</p>
+   * <p>The IAM instance profile associated with the instance, if
+   *             applicable.</p>
    */
   IamInstanceProfile?: IamInstanceProfile;
 
@@ -6763,13 +6876,14 @@ export interface Instance {
   MetadataOptions?: InstanceMetadataOptionsResponse;
 
   /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
+   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
+   *             Enclaves.</p>
    */
   EnclaveOptions?: EnclaveOptions;
 
   /**
    * <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
 
@@ -6781,8 +6895,9 @@ export interface Instance {
   PlatformDetails?: string;
 
   /**
-   * <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a>
-   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The usage operation value for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI
+   *                 billing information fields</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    */
   UsageOperation?: string;
 
@@ -6800,6 +6915,11 @@ export interface Instance {
    * <p>The IPv6 address assigned to the instance.</p>
    */
   Ipv6Address?: string;
+
+  /**
+   * <p>Provides information on the recovery and maintenance options of your instance.</p>
+   */
+  MaintenanceOptions?: InstanceMaintenanceOptions;
 }
 
 export namespace Instance {
@@ -6812,9 +6932,9 @@ export namespace Instance {
 }
 
 /**
- * <p>Describes a launch request for one or more instances, and includes
- *             owner, requester, and security group information that applies to all
- *             instances in the launch request.</p>
+ * <p>Describes a launch request for one or more instances, and includes owner, requester,
+ *             and security group information that applies to all instances in the launch
+ *             request.</p>
  */
 export interface Reservation {
   /**
@@ -6834,7 +6954,7 @@ export interface Reservation {
 
   /**
    * <p>The ID of the requester that launched the instances on your behalf (for example,
-   *             Amazon Web Services Management Console or Auto Scaling).</p>
+   *                 Amazon Web Services Management Console or Auto Scaling).</p>
    */
   RequesterId?: string;
 
@@ -8874,12 +8994,12 @@ export interface DescribeLaunchTemplatesRequest {
    *                   <code>launch-template-name</code> - The name of the launch template.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *          </ul>
@@ -8915,8 +9035,8 @@ export interface DescribeLaunchTemplatesResult {
   LaunchTemplates?: LaunchTemplate[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -8956,9 +9076,12 @@ export interface DescribeLaunchTemplateVersionsRequest {
   LaunchTemplateName?: string;
 
   /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-   *             <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *             <p>To describe all launch templates in your account that are defined as the latest
+   * <p>One or more versions of the launch template. Valid values depend on whether you are
+   *             describing a specified launch template (by ID or name) or all launch templates in your
+   *             account.</p>
+   *         <p>To describe one or more versions of a specified launch template, valid values are
+   *                 <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+   *         <p>To describe all launch templates in your account that are defined as the latest
    *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
    *             your account that are defined as the default version, the valid value is
    *                 <code>$Default</code>. You can specify <code>$Latest</code> and
@@ -8992,13 +9115,14 @@ export interface DescribeLaunchTemplateVersionsRequest {
    * <p>One or more filters.</p>
    *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time the launch template version was created.</p>
+   *                 <p>
+   *                   <code>create-time</code> - The time the launch template version was
+   *                     created.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance
-   *                     is optimized for Amazon EBS I/O.</p>
+   *                   <code>ebs-optimized</code> - A boolean that indicates whether the instance is
+   *                     optimized for Amazon EBS I/O.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9036,8 +9160,8 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>is-default-version</code> - A boolean that indicates whether the
-   *                     launch template version is the default version.</p>
+   *                   <code>is-default-version</code> - A boolean that indicates whether the launch
+   *                     template version is the default version.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9077,8 +9201,8 @@ export interface DescribeLaunchTemplateVersionsResult {
   LaunchTemplateVersions?: LaunchTemplateVersion[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
    */
   NextToken?: string;
 }
@@ -11436,7 +11560,8 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement group.</p>
+   *                     <code>group-arn</code> - The Amazon Resource Name (ARN) of the placement
+   *                     group.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -11938,195 +12063,6 @@ export namespace DescribeRegionsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeReplaceRootVolumeTasksRequest {
-  /**
-   * <p>The ID of the root volume replacement task to view.</p>
-   */
-  ReplaceRootVolumeTaskIds?: string[];
-
-  /**
-   * <p>Filter to use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance for which the root volume replacement task was created.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeReplaceRootVolumeTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeReplaceRootVolumeTasksResult {
-  /**
-   * <p>Information about the root volume replacement task.</p>
-   */
-  ReplaceRootVolumeTasks?: ReplaceRootVolumeTask[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeReplaceRootVolumeTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplaceRootVolumeTasksResult): any => ({
-    ...obj,
-  });
-}
-
-export enum OfferingClassType {
-  CONVERTIBLE = "convertible",
-  STANDARD = "standard",
-}
-
-export type OfferingTypeValues =
-  | "All Upfront"
-  | "Heavy Utilization"
-  | "Light Utilization"
-  | "Medium Utilization"
-  | "No Upfront"
-  | "Partial Upfront";
-
-/**
- * <p>Contains the parameters for DescribeReservedInstances.</p>
- */
-export interface DescribeReservedInstancesRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone where the Reserved Instance can be used.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>duration</code> - The duration of the Reserved Instance (one year or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fixed-price</code> - The purchase price of the Reserved Instance (for example, 9800.0).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type that is covered by the reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability Zone</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-description</code> - The Reserved Instance product platform
-   *           description. Instances that include <code>(Amazon VPC)</code> in the product platform
-   *           description will only be displayed to EC2-Classic account holders and are for use with
-   *           Amazon VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
-   *             Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise
-   *             Linux</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat
-   *             Enterprise Linux with HA (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
-   *             (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows with
-   *             SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code> |
-   *             <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-   *             Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon
-   *           VPC)</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start</code> - The time at which the Reserved Instance purchase request was placed (for example, 2014-08-07T11:54:42.000Z).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the Reserved Instance (<code>payment-pending</code> | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>usage-price</code> - The usage price of the Reserved Instance, per hour (for example, 0.84).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
-   */
-  OfferingClass?: OfferingClassType | string;
-
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
-   */
-  ReservedInstancesIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type.</p>
-   */
-  OfferingType?: OfferingTypeValues | string;
-}
-
-export namespace DescribeReservedInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedInstancesRequest): any => ({
     ...obj,
   });
 }

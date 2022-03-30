@@ -26,8 +26,8 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *             launch template from which to base the new version.</p>
  *         <p>Launch template versions are numbered in the order in which they are created. You
  *             cannot specify, change, or replace the numbering of launch template versions.</p>
- *         <p>For
- *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the
+ *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
