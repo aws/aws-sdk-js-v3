@@ -1677,7 +1677,7 @@ export interface Snapshot {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and Memcached engine version 1.5.16 onward):</p>
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):</p>
    *
    *
    * 					                <p>
@@ -2358,7 +2358,7 @@ export interface CreateCacheClusterMessage {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -2769,7 +2769,7 @@ export namespace CreateCacheClusterMessage {
  *                      </p>
  *
  * 					                <p>
- *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and for Memcached engine version 1.5.16 onward):
+ *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
  * 					        <code>cache.t4g.micro</code>,
  * 					        <code>cache.t4g.small</code>,
  * 					        <code>cache.t4g.medium</code>
@@ -3259,7 +3259,7 @@ export interface CacheCluster {
    *
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -4763,7 +4763,7 @@ export interface CreateReplicationGroupMessage {
    *
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -7421,7 +7421,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -7772,7 +7772,7 @@ export interface ReservedCacheNode {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8133,7 +8133,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -8457,7 +8457,7 @@ export interface ReservedCacheNodesOffering {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 6.0 onward and Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					     <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>

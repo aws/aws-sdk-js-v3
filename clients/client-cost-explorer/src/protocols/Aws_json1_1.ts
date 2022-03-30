@@ -95,9 +95,15 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "../commands/ProvideAnomalyFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateAnomalyMonitorCommandInput,
   UpdateAnomalyMonitorCommandOutput,
@@ -205,6 +211,8 @@ import {
   LimitExceededException,
   ListCostCategoryDefinitionsRequest,
   ListCostCategoryDefinitionsResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
   MatchOption,
   MetricValue,
   ModifyRecommendationDetail,
@@ -224,6 +232,7 @@ import {
   ReservationUtilizationGroup,
   ResourceDetails,
   ResourceNotFoundException,
+  ResourceTag,
   ResourceUtilization,
   ResultByTime,
   RightsizingRecommendation,
@@ -249,13 +258,18 @@ import {
   ServiceSpecification,
   SortDefinition,
   Subscriber,
+  TagResourceRequest,
+  TagResourceResponse,
   TagValues,
   TargetInstance,
   TerminateRecommendationDetail,
+  TooManyTagsException,
   TotalImpactFilter,
   UnknownMonitorException,
   UnknownSubscriptionException,
   UnresolvableUsageUnitException,
+  UntagResourceRequest,
+  UntagResourceResponse,
   UpdateAnomalyMonitorRequest,
   UpdateAnomalyMonitorResponse,
   UpdateAnomalySubscriptionRequest,
@@ -603,6 +617,19 @@ export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.ListTagsForResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
   input: ProvideAnomalyFeedbackCommandInput,
   context: __SerdeContext
@@ -613,6 +640,32 @@ export const serializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvideAnomalyFeedbackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.TagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSInsightsIndexService.UntagResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1914,6 +1967,52 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1946,6 +2045,101 @@ const deserializeAws_json1_1ProvideAnomalyFeedbackCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.costexplorer#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.costexplorer#TooManyTagsException":
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -2192,6 +2386,19 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1UnknownMonitorExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2414,6 +2621,10 @@ const serializeAws_json1_1CreateAnomalyMonitorRequest = (
       input.AnomalyMonitor !== null && {
         AnomalyMonitor: serializeAws_json1_1AnomalyMonitor(input.AnomalyMonitor, context),
       }),
+    ...(input.ResourceTags !== undefined &&
+      input.ResourceTags !== null && {
+        ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
+      }),
   };
 };
 
@@ -2426,6 +2637,10 @@ const serializeAws_json1_1CreateAnomalySubscriptionRequest = (
       input.AnomalySubscription !== null && {
         AnomalySubscription: serializeAws_json1_1AnomalySubscription(input.AnomalySubscription, context),
       }),
+    ...(input.ResourceTags !== undefined &&
+      input.ResourceTags !== null && {
+        ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
+      }),
   };
 };
 
@@ -2436,6 +2651,10 @@ const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
   return {
     ...(input.DefaultValue !== undefined && input.DefaultValue !== null && { DefaultValue: input.DefaultValue }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResourceTags !== undefined &&
+      input.ResourceTags !== null && {
+        ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
+      }),
     ...(input.RuleVersion !== undefined && input.RuleVersion !== null && { RuleVersion: input.RuleVersion }),
     ...(input.Rules !== undefined &&
       input.Rules !== null && { Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context) }),
@@ -2872,6 +3091,15 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1MatchOptions = (input: (MatchOption | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2913,6 +3141,35 @@ const serializeAws_json1_1ProvideAnomalyFeedbackRequest = (
     ...(input.AnomalyId !== undefined && input.AnomalyId !== null && { AnomalyId: input.AnomalyId }),
     ...(input.Feedback !== undefined && input.Feedback !== null && { Feedback: input.Feedback }),
   };
+};
+
+const serializeAws_json1_1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1ResourceTagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResourceTagList = (input: ResourceTag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ResourceTag(entry, context);
+    });
 };
 
 const serializeAws_json1_1RightsizingRecommendationConfiguration = (
@@ -2987,6 +3244,16 @@ const serializeAws_json1_1Subscribers = (input: Subscriber[], context: __SerdeCo
     });
 };
 
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceTags !== undefined &&
+      input.ResourceTags !== null && {
+        ResourceTags: serializeAws_json1_1ResourceTagList(input.ResourceTags, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
@@ -3004,6 +3271,16 @@ const serializeAws_json1_1TotalImpactFilter = (input: TotalImpactFilter, context
       input.NumericOperator !== null && { NumericOperator: input.NumericOperator }),
     ...(input.StartValue !== undefined &&
       input.StartValue !== null && { StartValue: __serializeFloat(input.StartValue) }),
+  };
+};
+
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceTagKeys !== undefined &&
+      input.ResourceTagKeys !== null && {
+        ResourceTagKeys: serializeAws_json1_1ResourceTagKeyList(input.ResourceTagKeys, context),
+      }),
   };
 };
 
@@ -4245,6 +4522,18 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  return {
+    ResourceTags:
+      output.ResourceTags !== undefined && output.ResourceTags !== null
+        ? deserializeAws_json1_1ResourceTagList(output.ResourceTags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1MatchOptions = (output: any, context: __SerdeContext): (MatchOption | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -4578,7 +4867,27 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     Message: __expectString(output.Message),
+    ResourceName: __expectString(output.ResourceName),
   } as any;
+};
+
+const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceTag(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceUtilization = (output: any, context: __SerdeContext): ResourceUtilization => {
@@ -5045,6 +5354,10 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): st
   return retVal;
 };
 
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): TagValues => {
   return {
     Key: __expectString(output.Key),
@@ -5114,6 +5427,13 @@ const deserializeAws_json1_1TerminateRecommendationDetail = (
   } as any;
 };
 
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
+  return {
+    Message: __expectString(output.Message),
+    ResourceName: __expectString(output.ResourceName),
+  } as any;
+};
+
 const deserializeAws_json1_1UnknownMonitorException = (
   output: any,
   context: __SerdeContext
@@ -5139,6 +5459,10 @@ const deserializeAws_json1_1UnresolvableUsageUnitException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAnomalyMonitorResponse = (

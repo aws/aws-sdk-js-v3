@@ -81,6 +81,7 @@ export enum Engine {
 
 export type LanguageCode =
   | "arb"
+  | "ca-ES"
   | "cmn-CN"
   | "cy-GB"
   | "da-DK"
@@ -160,6 +161,7 @@ export type VoiceId =
   | "Aditi"
   | "Amy"
   | "Aria"
+  | "Arlet"
   | "Astrid"
   | "Ayanda"
   | "Bianca"
@@ -1374,7 +1376,7 @@ export interface SynthesizeSpeechOutput {
    *             <li>
    *                <p>If you request <code>json</code> as the
    *             <code>OutputFormat</code>, the <code>ContentType</code> returned is
-   *           audio/json.</p>
+   *           application/x-json-stream.</p>
    *             </li>
    *          </ul>
    *          <p> </p>
