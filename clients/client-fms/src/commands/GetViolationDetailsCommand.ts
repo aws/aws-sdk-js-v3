@@ -22,8 +22,7 @@ export interface GetViolationDetailsCommandInput extends GetViolationDetailsRequ
 export interface GetViolationDetailsCommandOutput extends GetViolationDetailsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services
- *          account.</p>
+ * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

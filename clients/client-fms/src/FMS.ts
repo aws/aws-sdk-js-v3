@@ -6,6 +6,11 @@ import {
   AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
 import {
+  AssociateThirdPartyFirewallCommand,
+  AssociateThirdPartyFirewallCommandInput,
+  AssociateThirdPartyFirewallCommandOutput,
+} from "./commands/AssociateThirdPartyFirewallCommand";
+import {
   DeleteAppsListCommand,
   DeleteAppsListCommandInput,
   DeleteAppsListCommandOutput,
@@ -30,6 +35,11 @@ import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
+import {
+  DisassociateThirdPartyFirewallCommand,
+  DisassociateThirdPartyFirewallCommandInput,
+  DisassociateThirdPartyFirewallCommandOutput,
+} from "./commands/DisassociateThirdPartyFirewallCommand";
 import {
   GetAdminAccountCommand,
   GetAdminAccountCommandInput,
@@ -57,6 +67,11 @@ import {
   GetProtocolsListCommandInput,
   GetProtocolsListCommandOutput,
 } from "./commands/GetProtocolsListCommand";
+import {
+  GetThirdPartyFirewallAssociationStatusCommand,
+  GetThirdPartyFirewallAssociationStatusCommandInput,
+  GetThirdPartyFirewallAssociationStatusCommandOutput,
+} from "./commands/GetThirdPartyFirewallAssociationStatusCommand";
 import {
   GetViolationDetailsCommand,
   GetViolationDetailsCommandInput,
@@ -92,6 +107,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListThirdPartyFirewallFirewallPoliciesCommand,
+  ListThirdPartyFirewallFirewallPoliciesCommandInput,
+  ListThirdPartyFirewallFirewallPoliciesCommandOutput,
+} from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
 import { PutAppsListCommand, PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommand,
@@ -114,20 +134,19 @@ import { FMSClient } from "./FMSClient";
 
 /**
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
- *          developers who need detailed information about the Firewall Manager API actions, data types, and
- *          errors. For detailed information about Firewall Manager features, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager
- *             Developer Guide</a>.</p>
- *          <p>Some API actions require explicit resource permissions. For information, see the
- *          developer guide topic <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions
- *             for API actions</a>. </p>
+ *       developers who need detailed information about the Firewall Manager API actions, data
+ *       types, and errors. For detailed information about Firewall Manager features, see the
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
+ *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+ * </p>
  */
 export class FMS extends FMSClient {
   /**
-   * <p>Sets the Firewall Manager administrator account. The account must be a member of the
-   *          organization in Organizations whose resources you want to protect. Firewall Manager sets the
-   *          permissions that allow the account to administer your Firewall Manager policies.</p>
-   *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator
-   *          account. </p>
+   * <p>Sets the Firewall Manager administrator account. The account must be
+   *       a member of the organization in Organizations whose resources you want to protect.
+   *           Firewall Manager sets the permissions that allow the account to administer your Firewall Manager policies.</p>
+   *          <p>The account that you associate with Firewall Manager is called the Firewall Manager administrator account. </p>
    */
   public associateAdminAccount(
     args: AssociateAdminAccountCommandInput,
@@ -148,6 +167,38 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: AssociateAdminAccountCommandOutput) => void
   ): Promise<AssociateAdminAccountCommandOutput> | void {
     const command = new AssociateAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the Firewall Manager policy administrator as a tenant administrator of a third-party firewall service. A tenant is an instance of the third-party firewall service that's associated with your Amazon Web Services customer account.</p>
+   */
+  public associateThirdPartyFirewall(
+    args: AssociateThirdPartyFirewallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateThirdPartyFirewallCommandOutput>;
+  public associateThirdPartyFirewall(
+    args: AssociateThirdPartyFirewallCommandInput,
+    cb: (err: any, data?: AssociateThirdPartyFirewallCommandOutput) => void
+  ): void;
+  public associateThirdPartyFirewall(
+    args: AssociateThirdPartyFirewallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateThirdPartyFirewallCommandOutput) => void
+  ): void;
+  public associateThirdPartyFirewall(
+    args: AssociateThirdPartyFirewallCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateThirdPartyFirewallCommandOutput) => void),
+    cb?: (err: any, data?: AssociateThirdPartyFirewallCommandOutput) => void
+  ): Promise<AssociateThirdPartyFirewallCommandOutput> | void {
+    const command = new AssociateThirdPartyFirewallCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -191,8 +242,8 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple Notification
-   *          Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
+   * <p>Deletes an Firewall Manager association with the IAM role and the Amazon Simple
+   *       Notification Service (SNS) topic that is used to record Firewall Manager SNS logs.</p>
    */
   public deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
@@ -285,9 +336,9 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Disassociates the account that has been set as the Firewall Manager administrator account. To
-   *          set a different account as the administrator account, you must submit an
-   *             <code>AssociateAdminAccount</code> request.</p>
+   * <p>Disassociates the account that has been set as the Firewall Manager administrator
+   *       account. To set a different account as the administrator account, you must submit an
+   *         <code>AssociateAdminAccount</code> request.</p>
    */
   public disassociateAdminAccount(
     args: DisassociateAdminAccountCommandInput,
@@ -319,8 +370,40 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Returns the Organizations account that is associated with Firewall Manager as the Firewall Manager
-   *          administrator.</p>
+   * <p>Disassociates a Firewall Manager policy administrator from a third-party firewall tenant. When you call <code>DisassociateThirdPartyFirewall</code>, the third-party firewall vendor deletes all of the firewalls that are associated with the account.</p>
+   */
+  public disassociateThirdPartyFirewall(
+    args: DisassociateThirdPartyFirewallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateThirdPartyFirewallCommandOutput>;
+  public disassociateThirdPartyFirewall(
+    args: DisassociateThirdPartyFirewallCommandInput,
+    cb: (err: any, data?: DisassociateThirdPartyFirewallCommandOutput) => void
+  ): void;
+  public disassociateThirdPartyFirewall(
+    args: DisassociateThirdPartyFirewallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateThirdPartyFirewallCommandOutput) => void
+  ): void;
+  public disassociateThirdPartyFirewall(
+    args: DisassociateThirdPartyFirewallCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateThirdPartyFirewallCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateThirdPartyFirewallCommandOutput) => void
+  ): Promise<DisassociateThirdPartyFirewallCommandOutput> | void {
+    const command = new DisassociateThirdPartyFirewallCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the Organizations account that is associated with Firewall Manager
+   *       as the Firewall Manager administrator.</p>
    */
   public getAdminAccount(
     args: GetAdminAccountCommandInput,
@@ -379,27 +462,27 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Returns detailed compliance information about the specified member account. Details
-   *          include resources that are in and out of compliance with the specified policy. </p>
+   *       include resources that are in and out of compliance with the specified policy. </p>
    *          <ul>
    *             <li>
-   *                <p>Resources are considered noncompliant for WAF and Shield Advanced policies
-   *                if the specified policy has not been applied to them.</p>
+   *               <p>Resources are
+   *               considered noncompliant for WAF and Shield Advanced policies if the specified policy has
+   *               not been applied to them.</p>
    *             </li>
    *             <li>
-   *                <p>Resources are considered noncompliant for security group policies if they are in
-   *                scope of the policy, they violate one or more of the policy rules, and remediation is
-   *                disabled or not possible.</p>
+   *               <p>Resources are considered noncompliant for security group policies if
+   *               they are in scope of the policy, they violate one or more of the policy rules, and remediation
+   *               is disabled or not possible.</p>
    *             </li>
    *             <li>
-   *                <p>Resources are considered noncompliant for Network Firewall policies if a firewall is
-   *                missing in the VPC, if the firewall endpoint isn't set up in an expected Availability
-   *                Zone and subnet, if a subnet created by the Firewall Manager doesn't have the expected route
-   *                table, and for modifications to a firewall policy that violate the Firewall Manager policy's
-   *                rules.</p>
+   *               <p>Resources are considered noncompliant for Network Firewall policies
+   *                 if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an expected Availability Zone and subnet,
+   *                 if a subnet created by the Firewall Manager doesn't have the expected route table,
+   *                 and for modifications to a firewall policy that violate the Firewall Manager policy's rules.</p>
    *             </li>
    *             <li>
-   *                <p>Resources are considered noncompliant for DNS Firewall policies if a DNS Firewall
-   *                rule group is missing from the rule group associations for the VPC. </p>
+   *               <p>Resources are considered noncompliant for DNS Firewall policies
+   *               if a DNS Firewall rule group is missing from the rule group associations for the VPC. </p>
    *             </li>
    *          </ul>
    */
@@ -434,8 +517,8 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Information
-   *          about the Amazon Simple Notification Service (SNS) topic that is used to
-   *          record Firewall Manager SNS logs.</p>
+   *       about the Amazon Simple Notification Service (SNS) topic that is used to
+   *       record Firewall Manager SNS logs.</p>
    */
   public getNotificationChannel(
     args: GetNotificationChannelCommandInput,
@@ -494,8 +577,7 @@ export class FMS extends FMSClient {
 
   /**
    * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
-   *          in the event of a potential DDoS attack. Other policy types are currently
-   *          unsupported.</p>
+   *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
    */
   public getProtectionStatus(
     args: GetProtectionStatusCommandInput,
@@ -559,8 +641,41 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services
-   *          account.</p>
+   * <p>The onboarding status of a Firewall Manager admin account to third-party firewall vendor tenant.</p>
+   */
+  public getThirdPartyFirewallAssociationStatus(
+    args: GetThirdPartyFirewallAssociationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput>;
+  public getThirdPartyFirewallAssociationStatus(
+    args: GetThirdPartyFirewallAssociationStatusCommandInput,
+    cb: (err: any, data?: GetThirdPartyFirewallAssociationStatusCommandOutput) => void
+  ): void;
+  public getThirdPartyFirewallAssociationStatus(
+    args: GetThirdPartyFirewallAssociationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetThirdPartyFirewallAssociationStatusCommandOutput) => void
+  ): void;
+  public getThirdPartyFirewallAssociationStatus(
+    args: GetThirdPartyFirewallAssociationStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetThirdPartyFirewallAssociationStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetThirdPartyFirewallAssociationStatusCommandOutput) => void
+  ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> | void {
+    const command = new GetThirdPartyFirewallAssociationStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves violations for a resource based on the specified Firewall Manager policy and Amazon Web Services account.</p>
    */
   public getViolationDetails(
     args: GetViolationDetailsCommandInput,
@@ -625,8 +740,8 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
-   *             <code>PolicyComplianceStatus</code> to get a summary of which member accounts are
-   *          protected by the specified policy. </p>
+   *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
+   *       by the specified policy. </p>
    */
   public listComplianceStatus(
     args: ListComplianceStatusCommandInput,
@@ -659,9 +774,9 @@ export class FMS extends FMSClient {
 
   /**
    * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
-   *          administrator's Amazon Web Services organization.</p>
+   *       administrator's Amazon Web Services organization.</p>
    *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
-   *          Firewall Manager administrator.</p>
+   *       Firewall Manager administrator.</p>
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -754,7 +869,7 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Retrieves the list of tags for the specified Amazon Web Services resource. </p>
+   * <p>Retrieves the list of tags for the specified Amazon Web Services resource.   </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -775,6 +890,40 @@ export class FMS extends FMSClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account.</p>
+   */
+  public listThirdPartyFirewallFirewallPolicies(
+    args: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput>;
+  public listThirdPartyFirewallFirewallPolicies(
+    args: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+    cb: (err: any, data?: ListThirdPartyFirewallFirewallPoliciesCommandOutput) => void
+  ): void;
+  public listThirdPartyFirewallFirewallPolicies(
+    args: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThirdPartyFirewallFirewallPoliciesCommandOutput) => void
+  ): void;
+  public listThirdPartyFirewallFirewallPolicies(
+    args: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListThirdPartyFirewallFirewallPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListThirdPartyFirewallFirewallPoliciesCommandOutput) => void
+  ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> | void {
+    const command = new ListThirdPartyFirewallFirewallPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -812,12 +961,11 @@ export class FMS extends FMSClient {
   }
 
   /**
-   * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that Firewall Manager
-   *          uses to record SNS logs.</p>
-   *          <p>To perform this action outside of the console, you must configure the SNS topic to allow
-   *          the Firewall Manager role <code>AWSServiceRoleForFMS</code> to publish SNS logs. For more information,
-   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions
-   *             for API actions</a> in the <i>Firewall Manager Developer Guide</i>.</p>
+   * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that
+   *       Firewall Manager uses to record SNS logs.</p>
+   *          <p>To perform this action outside of the console, you must configure the SNS topic to allow the Firewall Manager
+   *       role <code>AWSServiceRoleForFMS</code> to publish SNS logs. For more information, see
+   *       <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a> in the <i>Firewall Manager Developer Guide</i>.</p>
    */
   public putNotificationChannel(
     args: PutNotificationChannelCommandInput,
@@ -854,33 +1002,34 @@ export class FMS extends FMSClient {
    *          <ul>
    *             <li>
    *                <p>An WAF policy (type WAFV2), which defines rule groups to run first in the
-   *                corresponding WAF web ACL and rule groups to run last in the web ACL.</p>
+   *               corresponding WAF web ACL and rule groups to run last in the web ACL.</p>
    *             </li>
    *             <li>
    *                <p>An WAF Classic policy (type WAF), which defines a rule group. </p>
    *             </li>
    *             <li>
    *                <p>A Shield Advanced policy, which applies Shield Advanced protection to specified
-   *                accounts and resources.</p>
+   *           accounts and resources.</p>
    *             </li>
    *             <li>
    *                <p>A security group policy, which manages VPC security groups across your Amazon Web Services
-   *                organization. </p>
+   *           organization. </p>
    *             </li>
    *             <li>
-   *                <p>An Network Firewall policy, which provides firewall rules to filter network traffic in
-   *                specified Amazon VPCs.</p>
+   *                <p>An Network Firewall policy, which provides firewall rules to filter network traffic in specified
+   *           Amazon VPCs.</p>
    *             </li>
    *             <li>
-   *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS
-   *                queries for specified VPCs.</p>
+   *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
+   *             specified VPCs.</p>
    *             </li>
    *          </ul>
-   *          <p>Each policy is specific to one of the types. If you want to enforce more than one policy
-   *          type across accounts, create multiple policies. You can create multiple policies for each
-   *          type.</p>
+   *          <p>Each policy is specific to one of the types. If you want to enforce more than one
+   *       policy type across accounts, create multiple policies. You can create multiple
+   *       policies for each type.</p>
    *          <p>You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more
-   *          information about subscribing to Shield Advanced, see <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
+   *         information about subscribing to Shield Advanced, see
+   *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
    */
   public putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
   public putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;

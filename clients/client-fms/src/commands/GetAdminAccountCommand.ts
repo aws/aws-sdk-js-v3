@@ -22,8 +22,8 @@ export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
 export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the Organizations account that is associated with Firewall Manager as the Firewall Manager
- *          administrator.</p>
+ * <p>Returns the Organizations account that is associated with Firewall Manager
+ *       as the Firewall Manager administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

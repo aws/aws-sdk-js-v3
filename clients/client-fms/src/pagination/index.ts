@@ -4,3 +4,4 @@ export * from "./ListComplianceStatusPaginator";
 export * from "./ListMemberAccountsPaginator";
 export * from "./ListPoliciesPaginator";
 export * from "./ListProtocolsListsPaginator";
+export * from "./ListThirdPartyFirewallFirewallPoliciesPaginator";

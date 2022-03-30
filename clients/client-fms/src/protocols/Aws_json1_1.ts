@@ -20,6 +20,10 @@ import {
   AssociateAdminAccountCommandInput,
   AssociateAdminAccountCommandOutput,
 } from "../commands/AssociateAdminAccountCommand";
+import {
+  AssociateThirdPartyFirewallCommandInput,
+  AssociateThirdPartyFirewallCommandOutput,
+} from "../commands/AssociateThirdPartyFirewallCommand";
 import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "../commands/DeleteAppsListCommand";
 import {
   DeleteNotificationChannelCommandInput,
@@ -34,6 +38,10 @@ import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
 } from "../commands/DisassociateAdminAccountCommand";
+import {
+  DisassociateThirdPartyFirewallCommandInput,
+  DisassociateThirdPartyFirewallCommandOutput,
+} from "../commands/DisassociateThirdPartyFirewallCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "../commands/GetAdminAccountCommand";
 import { GetAppsListCommandInput, GetAppsListCommandOutput } from "../commands/GetAppsListCommand";
 import {
@@ -51,6 +59,10 @@ import {
 } from "../commands/GetProtectionStatusCommand";
 import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "../commands/GetProtocolsListCommand";
 import {
+  GetThirdPartyFirewallAssociationStatusCommandInput,
+  GetThirdPartyFirewallAssociationStatusCommandOutput,
+} from "../commands/GetThirdPartyFirewallAssociationStatusCommand";
+import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "../commands/GetViolationDetailsCommand";
@@ -66,6 +78,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListThirdPartyFirewallFirewallPoliciesCommandInput,
+  ListThirdPartyFirewallFirewallPoliciesCommandOutput,
+} from "../commands/ListThirdPartyFirewallFirewallPoliciesCommand";
 import { PutAppsListCommandInput, PutAppsListCommandOutput } from "../commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
@@ -82,6 +98,8 @@ import {
   AppsListData,
   AppsListDataSummary,
   AssociateAdminAccountRequest,
+  AssociateThirdPartyFirewallRequest,
+  AssociateThirdPartyFirewallResponse,
   AwsEc2InstanceViolation,
   AwsEc2NetworkInterfaceViolation,
   AwsVPCSecurityGroupViolation,
@@ -93,6 +111,8 @@ import {
   DeleteProtocolsListRequest,
   DependentServiceName,
   DisassociateAdminAccountRequest,
+  DisassociateThirdPartyFirewallRequest,
+  DisassociateThirdPartyFirewallResponse,
   DnsDuplicateRuleGroupViolation,
   DnsRuleGroupLimitExceededViolation,
   DnsRuleGroupPriorityConflictViolation,
@@ -106,6 +126,7 @@ import {
   EvaluationResult,
   ExpectedRoute,
   FirewallSubnetIsOutOfScopeViolation,
+  FirewallSubnetMissingVPCEndpointViolation,
   FMSPolicyUpdateFirewallCreationConfigAction,
   GetAdminAccountRequest,
   GetAdminAccountResponse,
@@ -121,6 +142,8 @@ import {
   GetProtectionStatusResponse,
   GetProtocolsListRequest,
   GetProtocolsListResponse,
+  GetThirdPartyFirewallAssociationStatusRequest,
+  GetThirdPartyFirewallAssociationStatusResponse,
   GetViolationDetailsRequest,
   GetViolationDetailsResponse,
   InternalErrorException,
@@ -140,6 +163,8 @@ import {
   ListProtocolsListsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListThirdPartyFirewallFirewallPoliciesRequest,
+  ListThirdPartyFirewallFirewallPoliciesResponse,
   NetworkFirewallBlackHoleRouteDetectedViolation,
   NetworkFirewallInternetTrafficNotInspectedViolation,
   NetworkFirewallInvalidRouteConfigurationViolation,
@@ -184,6 +209,11 @@ import {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  ThirdPartyFirewallFirewallPolicy,
+  ThirdPartyFirewallMissingExpectedRouteTableViolation,
+  ThirdPartyFirewallMissingFirewallViolation,
+  ThirdPartyFirewallMissingSubnetViolation,
+  ThirdPartyFirewallPolicy,
   UntagResourceRequest,
   UntagResourceResponse,
   ViolationDetail,
@@ -199,6 +229,19 @@ export const serializeAws_json1_1AssociateAdminAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateAdminAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
+  input: AssociateThirdPartyFirewallCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.AssociateThirdPartyFirewall",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -264,6 +307,19 @@ export const serializeAws_json1_1DisassociateAdminAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateAdminAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DisassociateThirdPartyFirewallCommand = async (
+  input: DisassociateThirdPartyFirewallCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.DisassociateThirdPartyFirewall",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateThirdPartyFirewallRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -358,6 +414,19 @@ export const serializeAws_json1_1GetProtocolsListCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
+  input: GetThirdPartyFirewallAssociationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetViolationDetailsCommand = async (
   input: GetViolationDetailsCommandInput,
   context: __SerdeContext
@@ -446,6 +515,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand = async (
+  input: ListThirdPartyFirewallFirewallPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.ListThirdPartyFirewallFirewallPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -565,6 +647,58 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.fms#LimitExceededException":
       throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateThirdPartyFirewallCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateThirdPartyFirewallCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateThirdPartyFirewallResponse(data, context);
+  const response: AssociateThirdPartyFirewallCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateThirdPartyFirewallCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateThirdPartyFirewallCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -798,6 +932,58 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DisassociateThirdPartyFirewallCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateThirdPartyFirewallResponse(data, context);
+  const response: DisassociateThirdPartyFirewallCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
@@ -1164,6 +1350,58 @@ const deserializeAws_json1_1GetProtocolsListCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse(data, context);
+  const response: GetThirdPartyFirewallAssociationStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1GetViolationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1479,6 +1717,58 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse(data, context);
+  const response: ListThirdPartyFirewallFirewallPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1956,6 +2246,16 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
   };
 };
 
+const serializeAws_json1_1AssociateThirdPartyFirewallRequest = (
+  input: AssociateThirdPartyFirewallRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ThirdPartyFirewall !== undefined &&
+      input.ThirdPartyFirewall !== null && { ThirdPartyFirewall: input.ThirdPartyFirewall }),
+  };
+};
+
 const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2022,6 +2322,16 @@ const serializeAws_json1_1DisassociateAdminAccountRequest = (
   return {};
 };
 
+const serializeAws_json1_1DisassociateThirdPartyFirewallRequest = (
+  input: DisassociateThirdPartyFirewallRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ThirdPartyFirewall !== undefined &&
+      input.ThirdPartyFirewall !== null && { ThirdPartyFirewall: input.ThirdPartyFirewall }),
+  };
+};
+
 const serializeAws_json1_1GetAdminAccountRequest = (input: GetAdminAccountRequest, context: __SerdeContext): any => {
   return {};
 };
@@ -2077,6 +2387,16 @@ const serializeAws_json1_1GetProtocolsListRequest = (input: GetProtocolsListRequ
   return {
     ...(input.DefaultList !== undefined && input.DefaultList !== null && { DefaultList: input.DefaultList }),
     ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
+  };
+};
+
+const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest = (
+  input: GetThirdPartyFirewallAssociationStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ThirdPartyFirewall !== undefined &&
+      input.ThirdPartyFirewall !== null && { ThirdPartyFirewall: input.ThirdPartyFirewall }),
   };
 };
 
@@ -2148,6 +2468,18 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesRequest = (
+  input: ListThirdPartyFirewallFirewallPoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ThirdPartyFirewall !== undefined &&
+      input.ThirdPartyFirewall !== null && { ThirdPartyFirewall: input.ThirdPartyFirewall }),
+  };
+};
+
 const serializeAws_json1_1NetworkFirewallPolicy = (input: NetworkFirewallPolicy, context: __SerdeContext): any => {
   return {
     ...(input.FirewallDeploymentModel !== undefined &&
@@ -2199,6 +2531,10 @@ const serializeAws_json1_1PolicyOption = (input: PolicyOption, context: __SerdeC
     ...(input.NetworkFirewallPolicy !== undefined &&
       input.NetworkFirewallPolicy !== null && {
         NetworkFirewallPolicy: serializeAws_json1_1NetworkFirewallPolicy(input.NetworkFirewallPolicy, context),
+      }),
+    ...(input.ThirdPartyFirewallPolicy !== undefined &&
+      input.ThirdPartyFirewallPolicy !== null && {
+        ThirdPartyFirewallPolicy: serializeAws_json1_1ThirdPartyFirewallPolicy(input.ThirdPartyFirewallPolicy, context),
       }),
   };
 };
@@ -2380,6 +2716,16 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1ThirdPartyFirewallPolicy = (
+  input: ThirdPartyFirewallPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FirewallDeploymentModel !== undefined &&
+      input.FirewallDeploymentModel !== null && { FirewallDeploymentModel: input.FirewallDeploymentModel }),
+  };
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
@@ -2461,6 +2807,15 @@ const deserializeAws_json1_1AppsListsData = (output: any, context: __SerdeContex
       return deserializeAws_json1_1AppsListDataSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1AssociateThirdPartyFirewallResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateThirdPartyFirewallResponse => {
+  return {
+    ThirdPartyFirewallStatus: __expectString(output.ThirdPartyFirewallStatus),
+  } as any;
 };
 
 const deserializeAws_json1_1AwsEc2InstanceViolation = (
@@ -2590,6 +2945,15 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
     },
     {}
   );
+};
+
+const deserializeAws_json1_1DisassociateThirdPartyFirewallResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateThirdPartyFirewallResponse => {
+  return {
+    ThirdPartyFirewallStatus: __expectString(output.ThirdPartyFirewallStatus),
+  } as any;
 };
 
 const deserializeAws_json1_1DnsDuplicateRuleGroupViolation = (
@@ -2822,6 +3186,18 @@ const deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation = (
   } as any;
 };
 
+const deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation = (
+  output: any,
+  context: __SerdeContext
+): FirewallSubnetMissingVPCEndpointViolation => {
+  return {
+    FirewallSubnetId: __expectString(output.FirewallSubnetId),
+    SubnetAvailabilityZone: __expectString(output.SubnetAvailabilityZone),
+    SubnetAvailabilityZoneId: __expectString(output.SubnetAvailabilityZoneId),
+    VpcId: __expectString(output.VpcId),
+  } as any;
+};
+
 const deserializeAws_json1_1FMSPolicyUpdateFirewallCreationConfigAction = (
   output: any,
   context: __SerdeContext
@@ -2906,6 +3282,16 @@ const deserializeAws_json1_1GetProtocolsListResponse = (
         ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context)
         : undefined,
     ProtocolsListArn: __expectString(output.ProtocolsListArn),
+  } as any;
+};
+
+const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): GetThirdPartyFirewallAssociationStatusResponse => {
+  return {
+    MarketplaceOnboardingStatus: __expectString(output.MarketplaceOnboardingStatus),
+    ThirdPartyFirewallStatus: __expectString(output.ThirdPartyFirewallStatus),
   } as any;
 };
 
@@ -3048,6 +3434,19 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListThirdPartyFirewallFirewallPoliciesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ThirdPartyFirewallFirewallPolicies:
+      output.ThirdPartyFirewallFirewallPolicies !== undefined && output.ThirdPartyFirewallFirewallPolicies !== null
+        ? deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies(output.ThirdPartyFirewallFirewallPolicies, context)
         : undefined,
   } as any;
 };
@@ -3436,6 +3835,10 @@ const deserializeAws_json1_1PolicyOption = (output: any, context: __SerdeContext
       output.NetworkFirewallPolicy !== undefined && output.NetworkFirewallPolicy !== null
         ? deserializeAws_json1_1NetworkFirewallPolicy(output.NetworkFirewallPolicy, context)
         : undefined,
+    ThirdPartyFirewallPolicy:
+      output.ThirdPartyFirewallPolicy !== undefined && output.ThirdPartyFirewallPolicy !== null
+        ? deserializeAws_json1_1ThirdPartyFirewallPolicy(output.ThirdPartyFirewallPolicy, context)
+        : undefined,
   } as any;
 };
 
@@ -3773,6 +4176,14 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
       output.FirewallSubnetIsOutOfScopeViolation !== undefined && output.FirewallSubnetIsOutOfScopeViolation !== null
         ? deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation(output.FirewallSubnetIsOutOfScopeViolation, context)
         : undefined,
+    FirewallSubnetMissingVPCEndpointViolation:
+      output.FirewallSubnetMissingVPCEndpointViolation !== undefined &&
+      output.FirewallSubnetMissingVPCEndpointViolation !== null
+        ? deserializeAws_json1_1FirewallSubnetMissingVPCEndpointViolation(
+            output.FirewallSubnetMissingVPCEndpointViolation,
+            context
+          )
+        : undefined,
     NetworkFirewallBlackHoleRouteDetectedViolation:
       output.NetworkFirewallBlackHoleRouteDetectedViolation !== undefined &&
       output.NetworkFirewallBlackHoleRouteDetectedViolation !== null
@@ -3860,6 +4271,30 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
     RouteHasOutOfScopeEndpointViolation:
       output.RouteHasOutOfScopeEndpointViolation !== undefined && output.RouteHasOutOfScopeEndpointViolation !== null
         ? deserializeAws_json1_1RouteHasOutOfScopeEndpointViolation(output.RouteHasOutOfScopeEndpointViolation, context)
+        : undefined,
+    ThirdPartyFirewallMissingExpectedRouteTableViolation:
+      output.ThirdPartyFirewallMissingExpectedRouteTableViolation !== undefined &&
+      output.ThirdPartyFirewallMissingExpectedRouteTableViolation !== null
+        ? deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation(
+            output.ThirdPartyFirewallMissingExpectedRouteTableViolation,
+            context
+          )
+        : undefined,
+    ThirdPartyFirewallMissingFirewallViolation:
+      output.ThirdPartyFirewallMissingFirewallViolation !== undefined &&
+      output.ThirdPartyFirewallMissingFirewallViolation !== null
+        ? deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation(
+            output.ThirdPartyFirewallMissingFirewallViolation,
+            context
+          )
+        : undefined,
+    ThirdPartyFirewallMissingSubnetViolation:
+      output.ThirdPartyFirewallMissingSubnetViolation !== undefined &&
+      output.ThirdPartyFirewallMissingSubnetViolation !== null
+        ? deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation(
+            output.ThirdPartyFirewallMissingSubnetViolation,
+            context
+          )
         : undefined,
   } as any;
 };
@@ -4056,6 +4491,77 @@ const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __Se
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicies = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallFirewallPolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallFirewallPolicy = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallFirewallPolicy => {
+  return {
+    FirewallPolicyId: __expectString(output.FirewallPolicyId),
+    FirewallPolicyName: __expectString(output.FirewallPolicyName),
+  } as any;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallMissingExpectedRouteTableViolation = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallMissingExpectedRouteTableViolation => {
+  return {
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    CurrentRouteTable: __expectString(output.CurrentRouteTable),
+    ExpectedRouteTable: __expectString(output.ExpectedRouteTable),
+    VPC: __expectString(output.VPC),
+    ViolationTarget: __expectString(output.ViolationTarget),
+  } as any;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallMissingFirewallViolation = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallMissingFirewallViolation => {
+  return {
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    TargetViolationReason: __expectString(output.TargetViolationReason),
+    VPC: __expectString(output.VPC),
+    ViolationTarget: __expectString(output.ViolationTarget),
+  } as any;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallMissingSubnetViolation = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallMissingSubnetViolation => {
+  return {
+    AvailabilityZone: __expectString(output.AvailabilityZone),
+    TargetViolationReason: __expectString(output.TargetViolationReason),
+    VPC: __expectString(output.VPC),
+    ViolationTarget: __expectString(output.ViolationTarget),
+  } as any;
+};
+
+const deserializeAws_json1_1ThirdPartyFirewallPolicy = (
+  output: any,
+  context: __SerdeContext
+): ThirdPartyFirewallPolicy => {
+  return {
+    FirewallDeploymentModel: __expectString(output.FirewallDeploymentModel),
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

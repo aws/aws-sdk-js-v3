@@ -55,6 +55,10 @@ import {
   AssociateAdminAccountCommandInput,
   AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
+import {
+  AssociateThirdPartyFirewallCommandInput,
+  AssociateThirdPartyFirewallCommandOutput,
+} from "./commands/AssociateThirdPartyFirewallCommand";
 import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand";
 import {
   DeleteNotificationChannelCommandInput,
@@ -69,6 +73,10 @@ import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
+import {
+  DisassociateThirdPartyFirewallCommandInput,
+  DisassociateThirdPartyFirewallCommandOutput,
+} from "./commands/DisassociateThirdPartyFirewallCommand";
 import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
 import { GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand";
 import {
@@ -86,6 +94,10 @@ import {
 } from "./commands/GetProtectionStatusCommand";
 import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand";
 import {
+  GetThirdPartyFirewallAssociationStatusCommandInput,
+  GetThirdPartyFirewallAssociationStatusCommandOutput,
+} from "./commands/GetThirdPartyFirewallAssociationStatusCommand";
+import {
   GetViolationDetailsCommandInput,
   GetViolationDetailsCommandOutput,
 } from "./commands/GetViolationDetailsCommand";
@@ -101,6 +113,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListThirdPartyFirewallFirewallPoliciesCommandInput,
+  ListThirdPartyFirewallFirewallPoliciesCommandOutput,
+} from "./commands/ListThirdPartyFirewallFirewallPoliciesCommand";
 import { PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand";
 import {
   PutNotificationChannelCommandInput,
@@ -114,11 +130,13 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
+  | AssociateThirdPartyFirewallCommandInput
   | DeleteAppsListCommandInput
   | DeleteNotificationChannelCommandInput
   | DeletePolicyCommandInput
   | DeleteProtocolsListCommandInput
   | DisassociateAdminAccountCommandInput
+  | DisassociateThirdPartyFirewallCommandInput
   | GetAdminAccountCommandInput
   | GetAppsListCommandInput
   | GetComplianceDetailCommandInput
@@ -126,6 +144,7 @@ export type ServiceInputTypes =
   | GetPolicyCommandInput
   | GetProtectionStatusCommandInput
   | GetProtocolsListCommandInput
+  | GetThirdPartyFirewallAssociationStatusCommandInput
   | GetViolationDetailsCommandInput
   | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
@@ -133,6 +152,7 @@ export type ServiceInputTypes =
   | ListPoliciesCommandInput
   | ListProtocolsListsCommandInput
   | ListTagsForResourceCommandInput
+  | ListThirdPartyFirewallFirewallPoliciesCommandInput
   | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
@@ -142,11 +162,13 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
+  | AssociateThirdPartyFirewallCommandOutput
   | DeleteAppsListCommandOutput
   | DeleteNotificationChannelCommandOutput
   | DeletePolicyCommandOutput
   | DeleteProtocolsListCommandOutput
   | DisassociateAdminAccountCommandOutput
+  | DisassociateThirdPartyFirewallCommandOutput
   | GetAdminAccountCommandOutput
   | GetAppsListCommandOutput
   | GetComplianceDetailCommandOutput
@@ -154,6 +176,7 @@ export type ServiceOutputTypes =
   | GetPolicyCommandOutput
   | GetProtectionStatusCommandOutput
   | GetProtocolsListCommandOutput
+  | GetThirdPartyFirewallAssociationStatusCommandOutput
   | GetViolationDetailsCommandOutput
   | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
@@ -161,6 +184,7 @@ export type ServiceOutputTypes =
   | ListPoliciesCommandOutput
   | ListProtocolsListsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListThirdPartyFirewallFirewallPoliciesCommandOutput
   | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
@@ -323,12 +347,12 @@ export interface FMSClientResolvedConfig extends FMSClientResolvedConfigType {}
 
 /**
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for
- *          developers who need detailed information about the Firewall Manager API actions, data types, and
- *          errors. For detailed information about Firewall Manager features, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager
- *             Developer Guide</a>.</p>
- *          <p>Some API actions require explicit resource permissions. For information, see the
- *          developer guide topic <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions
- *             for API actions</a>. </p>
+ *       developers who need detailed information about the Firewall Manager API actions, data
+ *       types, and errors. For detailed information about Firewall Manager features, see the
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">Firewall Manager Developer Guide</a>.</p>
+ *          <p>Some API actions require explicit resource permissions. For information, see the developer guide topic
+ *         <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a>.
+ * </p>
  */
 export class FMSClient extends __Client<
   __HttpHandlerOptions,
