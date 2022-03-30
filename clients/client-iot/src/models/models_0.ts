@@ -3981,26 +3981,26 @@ export enum CustomMetricType {
 
 export interface CreateCustomMetricRequest {
   /**
-   * <p> The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with <code>aws:</code>.
-   *       Cannot be updated
-   *       once defined.</p>
+   * <p> The name of the custom metric. This will be used in the metric report submitted from the
+   *       device/thing. The name can't begin with <code>aws:</code>. You can't change the name after you
+   *       define it.</p>
    */
   metricName: string | undefined;
 
   /**
-   * <p>
-   *       Field
-   *       represents a friendly name in the console for the custom metric;
-   *       it
-   *       doesn't have to be unique. Don't use this name as the metric identifier in
-   *       the device metric report. Can be updated once defined.</p>
+   * <p> The friendly name in the console for the custom metric. This name doesn't have to be
+   *       unique. Don't use this name as the metric identifier in the device metric report. You can
+   *       update the friendly name after you define it.</p>
    */
   displayName?: string;
 
   /**
-   * <p>
-   *       The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>.
-   *     </p>
+   * <p> The type of the custom metric. </p>
+   *          <important>
+   *             <p>The type <code>number</code> only takes a single metric value as an input, but when you
+   *         submit the metrics value in the DeviceMetrics report, you must pass it as an array with a
+   *         single value.</p>
+   *          </important>
    */
   metricType: CustomMetricType | string | undefined;
 
@@ -4039,8 +4039,8 @@ export interface CreateCustomMetricResponse {
   metricName?: string;
 
   /**
-   * <p>
-   *       The Amazon Resource Number (ARN) of the custom metric, e.g. <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i>
+   * <p> The Amazon Resource Number (ARN) of the custom metric. For example,
+   *           <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i>
    *             </code>
    *          </p>
    */
@@ -5505,12 +5505,12 @@ export interface CustomCodeSigning {
   certificateChain?: CodeSigningCertificateChain;
 
   /**
-   * <p>The hash algorithm used to code sign the file.</p>
+   * <p>The hash algorithm used to code sign the file. You can use a string as the algorithm name if the target over-the-air (OTA) update devices are able to verify the signature that was generated using the same signature algorithm. For example, FreeRTOS uses <code>SHA256</code> or <code>SHA1</code>, so you can pass either of them based on which was used for generating the signature.</p>
    */
   hashAlgorithm?: string;
 
   /**
-   * <p>The signature algorithm used to code sign the file.</p>
+   * <p>The signature algorithm used to code sign the file. You can use a string as the algorithm name if the target over-the-air (OTA) update devices are able to verify the signature that was generated using the same signature algorithm. For example, FreeRTOS uses <code>ECDSA</code> or <code>RSA</code>, so you can pass either of them based on which was used for generating the signature.</p>
    */
   signatureAlgorithm?: string;
 }
@@ -6313,6 +6313,8 @@ export interface CreateRoleAliasRequest {
 
   /**
    * <p>How long (in seconds) the credentials will be valid. The default value is 3,600 seconds.</p>
+   *          <p>This value must be less than or equal to the maximum session duration of the IAM role
+   *       that the role alias references.</p>
    */
   credentialDurationSeconds?: number;
 

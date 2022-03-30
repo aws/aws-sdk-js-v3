@@ -1058,6 +1058,8 @@ export interface RegisterCACertificateRequest {
 
   /**
    * <p>A boolean value that specifies if the CA certificate is set to active.</p>
+   *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
+   *          </p>
    */
   setAsActive?: boolean;
 
@@ -1176,11 +1178,14 @@ export interface RegisterCertificateRequest {
    * @deprecated
    *
    * <p>A boolean value that specifies if the certificate is set to active.</p>
+   *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
+   *          </p>
    */
   setAsActive?: boolean;
 
   /**
-   * <p>The status of the register certificate request.</p>
+   * <p>The status of the register certificate request. Valid values that you can use include
+   *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
    */
   status?: CertificateStatus | string;
 }
@@ -2760,9 +2765,10 @@ export interface UpdateCustomMetricResponse {
   metricArn?: string;
 
   /**
-   * <p>
-   *       The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>.
-   *     </p>
+   * <p> The type of the custom metric. </p>
+   *          <important>
+   *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
+   *          </important>
    */
   metricType?: CustomMetricType | string;
 
@@ -3279,6 +3285,8 @@ export interface UpdateRoleAliasRequest {
 
   /**
    * <p>The number of seconds the credential will be valid.</p>
+   *          <p>This value must be less than or equal to the maximum session duration of the IAM role
+   *          that the role alias references.</p>
    */
   credentialDurationSeconds?: number;
 }
