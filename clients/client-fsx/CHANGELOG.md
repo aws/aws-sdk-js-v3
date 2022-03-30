@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.60.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.59.0...v3.60.0) (2022-03-30)
+
+
+### Features
+
+* **client-fsx:** This release adds support for modifying throughput capacity for FSx for ONTAP file systems. ([4619832](https://github.com/aws/aws-sdk-js-v3/commit/4619832b1c2059c731d944c82d14dcd28bc3a482))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

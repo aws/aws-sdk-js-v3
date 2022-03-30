@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.60.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.59.0...v3.60.0) (2022-03-30)
+
+
+### Features
+
+* **client-iot-data-plane:** Update the default AWS IoT Core Data Plane endpoint from VeriSign signed to ATS signed. If you have firewalls with strict egress rules, configure the rules to grant you access to data-ats.iot.[region].amazonaws.com or data-ats.iot.[region].amazonaws.com.cn. ([3c918da](https://github.com/aws/aws-sdk-js-v3/commit/3c918dac69e4ff6ed2fe9c102c6bc66def395411))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-data-plane

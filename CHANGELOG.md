@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.60.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.59.0...v3.60.0) (2022-03-30)
+
+
+### Features
+
+* **client-ec2:** This release simplifies the auto-recovery configuration process enabling customers to set the recovery behavior to disabled or default ([4e3290e](https://github.com/aws/aws-sdk-js-v3/commit/4e3290e38f5a6d984aaf293c303f92f09ec9a229))
+* **client-fms:** AWS Firewall Manager now supports the configuration of third-party policies that can use either the centralized or distributed deployment models. ([7dbbfd5](https://github.com/aws/aws-sdk-js-v3/commit/7dbbfd55467d3cc3bd1aec28d27b6e050de37e58))
+* **client-fsx:** This release adds support for modifying throughput capacity for FSx for ONTAP file systems. ([4619832](https://github.com/aws/aws-sdk-js-v3/commit/4619832b1c2059c731d944c82d14dcd28bc3a482))
+* **client-iot-data-plane:** Update the default AWS IoT Core Data Plane endpoint from VeriSign signed to ATS signed. If you have firewalls with strict egress rules, configure the rules to grant you access to data-ats.iot.[region].amazonaws.com or data-ats.iot.[region].amazonaws.com.cn. ([3c918da](https://github.com/aws/aws-sdk-js-v3/commit/3c918dac69e4ff6ed2fe9c102c6bc66def395411))
+* **clients:** update client endpoints as of 2022-03-30 ([1c2da1d](https://github.com/aws/aws-sdk-js-v3/commit/1c2da1dfcff3c3e016d5532dbc374e5b331e6919))
+* **smithy-client:** update client defaults provider ([57e29b7](https://github.com/aws/aws-sdk-js-v3/commit/57e29b7017740fb391c84556cbf9c184eb698861))
+
+
+
+
+
 # [3.59.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.58.0...v3.59.0) (2022-03-29)
 
 

@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.56.0|2.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cognito-sync|3.56.0|637.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-dynamodb|3.56.0|2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-ec2|3.57.0|14.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-ec2|3.58.0|14.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-efs|3.56.0|1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-eventbridge|3.56.0|1.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-firehose|3.56.0|781.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
