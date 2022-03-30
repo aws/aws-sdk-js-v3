@@ -27,7 +27,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  *          <p>For more information about MQTT messages, see
  *       <a href="http://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">MQTT Protocol</a> in the
  *        IoT Developer Guide.</p>
- *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">IoT Core
+ *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core
  *       pricing - Messaging</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

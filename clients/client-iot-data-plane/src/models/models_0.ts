@@ -471,7 +471,7 @@ export interface PublishRequest {
   /**
    * <p>The message body. MQTT accepts text, binary, and empty (null) message payloads.</p>
    *          <p>Publishing an empty (null) payload with <b>retain</b> =
-   *         <code>true</code> deletes the retained message identified by <b>topic</b> from IoT Core.</p>
+   *         <code>true</code> deletes the retained message identified by <b>topic</b> from Amazon Web Services IoT Core.</p>
    */
   payload?: Uint8Array;
 }

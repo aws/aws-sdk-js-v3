@@ -1,64 +1,7 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {
-  "ca-central-1": {
-    variants: [
-      {
-        hostname: "data.iot-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-east-1": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-east-2": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-gov-east-1": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-gov-west-1": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-west-1": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-  "us-west-2": {
-    variants: [
-      {
-        hostname: "data.iot-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-  },
-};
+const regionHash: RegionHash = {};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -79,11 +22,6 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
-      "fips-ca-central-1",
-      "fips-us-east-1",
-      "fips-us-east-2",
-      "fips-us-west-1",
-      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",
@@ -94,19 +32,19 @@ const partitionHash: PartitionHash = {
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     variants: [
       {
-        hostname: "data.iot.{region}.amazonaws.com",
+        hostname: "data-ats.iot.{region}.amazonaws.com",
         tags: [],
       },
       {
-        hostname: "data.iot-fips.{region}.amazonaws.com",
+        hostname: "data-ats.iot-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        hostname: "data.iot-fips.{region}.api.aws",
+        hostname: "data-ats.iot-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "data.iot.{region}.api.aws",
+        hostname: "data-ats.iot.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -116,19 +54,19 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     variants: [
       {
-        hostname: "data.iot.{region}.amazonaws.com.cn",
+        hostname: "data-ats.iot.{region}.amazonaws.com.cn",
         tags: [],
       },
       {
-        hostname: "data.iot-fips.{region}.amazonaws.com.cn",
+        hostname: "data-ats.iot-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        hostname: "data.iot-fips.{region}.api.amazonwebservices.com.cn",
+        hostname: "data-ats.iot-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "data.iot.{region}.api.amazonwebservices.com.cn",
+        hostname: "data-ats.iot.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -138,11 +76,11 @@ const partitionHash: PartitionHash = {
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     variants: [
       {
-        hostname: "data.iot.{region}.c2s.ic.gov",
+        hostname: "data-ats.iot.{region}.c2s.ic.gov",
         tags: [],
       },
       {
-        hostname: "data.iot-fips.{region}.c2s.ic.gov",
+        hostname: "data-ats.iot-fips.{region}.c2s.ic.gov",
         tags: ["fips"],
       },
     ],
@@ -152,33 +90,33 @@ const partitionHash: PartitionHash = {
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     variants: [
       {
-        hostname: "data.iot.{region}.sc2s.sgov.gov",
+        hostname: "data-ats.iot.{region}.sc2s.sgov.gov",
         tags: [],
       },
       {
-        hostname: "data.iot-fips.{region}.sc2s.sgov.gov",
+        hostname: "data-ats.iot-fips.{region}.sc2s.sgov.gov",
         tags: ["fips"],
       },
     ],
   },
   "aws-us-gov": {
-    regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
+    regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     variants: [
       {
-        hostname: "data.iot.{region}.amazonaws.com",
+        hostname: "data-ats.iot.{region}.amazonaws.com",
         tags: [],
       },
       {
-        hostname: "data.iot-fips.{region}.amazonaws.com",
+        hostname: "data-ats.iot-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        hostname: "data.iot-fips.{region}.api.aws",
+        hostname: "data-ats.iot-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "data.iot.{region}.api.aws",
+        hostname: "data-ats.iot.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
