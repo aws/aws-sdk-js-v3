@@ -132,9 +132,15 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAnomalyMonitorCommandInput,
   UpdateAnomalyMonitorCommandOutput,
@@ -176,7 +182,10 @@ export type ServiceInputTypes =
   | GetTagsCommandInput
   | GetUsageForecastCommandInput
   | ListCostCategoryDefinitionsCommandInput
+  | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAnomalyMonitorCommandInput
   | UpdateAnomalySubscriptionCommandInput
   | UpdateCostCategoryDefinitionCommandInput;
@@ -208,7 +217,10 @@ export type ServiceOutputTypes =
   | GetTagsCommandOutput
   | GetUsageForecastCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAnomalyMonitorCommandOutput
   | UpdateAnomalySubscriptionCommandOutput
   | UpdateCostCategoryDefinitionCommandOutput;

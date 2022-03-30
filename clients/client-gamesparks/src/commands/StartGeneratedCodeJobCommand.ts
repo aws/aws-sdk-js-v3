@@ -1,0 +1,98 @@
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
+import { StartGeneratedCodeJobRequest, StartGeneratedCodeJobResult } from "../models/models_0";
+import {
+  deserializeAws_restJson1StartGeneratedCodeJobCommand,
+  serializeAws_restJson1StartGeneratedCodeJobCommand,
+} from "../protocols/Aws_restJson1";
+
+export interface StartGeneratedCodeJobCommandInput extends StartGeneratedCodeJobRequest {}
+export interface StartGeneratedCodeJobCommandOutput extends StartGeneratedCodeJobResult, __MetadataBearer {}
+
+/**
+ * <p>
+ *       Starts an asynchronous process that generates client code for system-defined and custom messages.
+ *       The resulting code is collected as a .zip file and uploaded to a pre-signed Amazon S3 URL.
+ *       </p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameSparksClient, StartGeneratedCodeJobCommand } from "@aws-sdk/client-gamesparks"; // ES Modules import
+ * // const { GameSparksClient, StartGeneratedCodeJobCommand } = require("@aws-sdk/client-gamesparks"); // CommonJS import
+ * const client = new GameSparksClient(config);
+ * const command = new StartGeneratedCodeJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartGeneratedCodeJobCommandInput} for command's `input` shape.
+ * @see {@link StartGeneratedCodeJobCommandOutput} for command's `response` shape.
+ * @see {@link GameSparksClientResolvedConfig | config} for GameSparksClient's `config` shape.
+ *
+ */
+export class StartGeneratedCodeJobCommand extends $Command<
+  StartGeneratedCodeJobCommandInput,
+  StartGeneratedCodeJobCommandOutput,
+  GameSparksClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: StartGeneratedCodeJobCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: GameSparksClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<StartGeneratedCodeJobCommandInput, StartGeneratedCodeJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "GameSparksClient";
+    const commandName = "StartGeneratedCodeJobCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: StartGeneratedCodeJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartGeneratedCodeJobResult.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: StartGeneratedCodeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StartGeneratedCodeJobCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartGeneratedCodeJobCommandOutput> {
+    return deserializeAws_restJson1StartGeneratedCodeJobCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

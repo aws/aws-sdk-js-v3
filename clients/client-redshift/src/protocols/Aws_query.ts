@@ -13048,6 +13048,9 @@ const serializeAws_queryRestoreFromClusterSnapshotMessage = (
   if (input.TargetReservedNodeOfferingId !== undefined && input.TargetReservedNodeOfferingId !== null) {
     entries["TargetReservedNodeOfferingId"] = input.TargetReservedNodeOfferingId;
   }
+  if (input.Encrypted !== undefined && input.Encrypted !== null) {
+    entries["Encrypted"] = input.Encrypted;
+  }
   return entries;
 };
 

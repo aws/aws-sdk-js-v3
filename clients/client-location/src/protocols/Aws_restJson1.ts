@@ -1317,6 +1317,7 @@ export const serializeAws_restJson1GetDevicePositionHistoryCommand = async (
       input.EndTimeExclusive !== null && {
         EndTimeExclusive: input.EndTimeExclusive.toISOString().split(".")[0] + "Z",
       }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.StartTimeInclusive !== undefined &&
       input.StartTimeInclusive !== null && {

@@ -42,6 +42,7 @@ export async function* paginateGetDevicePositionHistory(
   let page: GetDevicePositionHistoryCommandOutput;
   while (hasNext) {
     input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
     if (config.client instanceof Location) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof LocationClient) {

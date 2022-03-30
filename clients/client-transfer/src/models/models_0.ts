@@ -780,6 +780,10 @@ export namespace WorkflowDetail {
 export interface WorkflowDetails {
   /**
    * <p>A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.</p>
+   *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
+   *          <p>
+   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>
+   *          </p>
    */
   OnUpload: WorkflowDetail[] | undefined;
 }
@@ -3998,6 +4002,10 @@ export interface UpdateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow.</p>
+   *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
+   *          <p>
+   *             <code>aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'</code>
+   *          </p>
    */
   WorkflowDetails?: WorkflowDetails;
 }

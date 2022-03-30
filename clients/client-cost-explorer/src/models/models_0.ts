@@ -448,6 +448,45 @@ export namespace AnomalySubscription {
   });
 }
 
+/**
+ * <p>
+ *             The tag structure that contains a tag key and value.
+ *         </p>
+ *         <note>
+ *             <p>Tagging is supported only for the following Cost Explorer resource types: <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
+ *                   <code>AnomalyMonitor</code>
+ *                </a>, <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">
+ *                   <code>AnomalySubscription</code>
+ *                </a>, <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html">
+ *                   <code>CostCategory</code>
+ *                </a>.</p>
+ *          </note>
+ */
+export interface ResourceTag {
+  /**
+   * <p>
+   *             The key that is associated with the tag.
+   *         </p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>
+   *             The value that is associated with the tag.
+   *         </p>
+   */
+  Value: string | undefined;
+}
+
+export namespace ResourceTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceTag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAnomalyMonitorResponse {
   /**
    * <p>The unique identifier of your newly created cost anomaly detection monitor.</p>
@@ -490,6 +529,39 @@ export interface CreateAnomalySubscriptionRequest {
    * <p>The cost anomaly subscription object that you want to create. </p>
    */
   AnomalySubscription: AnomalySubscription | undefined;
+
+  /**
+   * <p>
+   *       An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">
+   *                <code>AnomalySubscription</code>
+   *             </a>. You can use resource tags to control access to your <code>subscription</code> using IAM policies.</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a key is 128 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a value is 256 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid characters for keys and values are: <code>A-Z</code>, <code>a-z</code>, spaces, <code>_.:/=+-</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are case sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
+   *             </li>
+   *             <li>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceTags?: ResourceTag[];
 }
 
 export namespace CreateAnomalySubscriptionRequest {
@@ -841,6 +913,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   Message?: string;
+  ResourceName?: string;
   /**
    * @internal
    */
@@ -852,6 +925,7 @@ export class ResourceNotFoundException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
   }
 }
 
@@ -4246,6 +4320,39 @@ export namespace ListCostCategoryDefinitionsResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tag key value pairs that are associated with the response.
+   *     </p>
+   */
+  ResourceTags?: ResourceTag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ProvideAnomalyFeedbackRequest {
   /**
    * <p>A cost anomaly ID. </p>
@@ -4279,6 +4386,124 @@ export namespace ProvideAnomalyFeedbackResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ProvideAnomalyFeedbackResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.
+   *     </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   *       A list of tag key-value pairs to be added to the resource.</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a key is 128 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a value is 256 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid characters for keys and values are: <code>A-Z</code>, <code>a-z</code>, spaces, <code>_.:/=+-</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are case sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
+   *             </li>
+   *             <li>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceTags: ResourceTag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>
+   *       The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.
+   *     </p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>
+   *       A list of tag keys associated with tags that need to be removed from the resource. If you specify a tag key that does not exist, it is ignored. Although the maximum number of array members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use.
+   *     </p>
+   */
+  ResourceTagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }
@@ -4692,8 +4917,8 @@ export interface GetCostAndUsageRequest {
    * 			and get the costs that are associated with that account's usage of that service. You can nest <code>Expression</code> objects
    * 			to define any combination of dimension filters. For more information, see
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   * 	        <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
-   * 	        <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   * 	        <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   * 	        <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter?: Expression;
 
@@ -4763,8 +4988,8 @@ export interface GetCostAndUsageWithResourcesRequest {
    *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group by or filter by a
    *       <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
    *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
-   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
-   *          <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter: Expression | undefined;
 
@@ -6717,6 +6942,39 @@ export interface CreateAnomalyMonitorRequest {
    * <p>The cost anomaly detection monitor object that you want to create.</p>
    */
   AnomalyMonitor: AnomalyMonitor | undefined;
+
+  /**
+   * <p>
+   *       An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
+   *                <code>AnomalyMonitor</code>
+   *             </a>. You can use resource tags to control access to your monitor using IAM policies.</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a key is 128 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a value is 256 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid characters for keys and values are: <code>A-Z</code>, <code>a-z</code>, spaces, <code>_.:/=+-</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are case sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
+   *             </li>
+   *             <li>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceTags?: ResourceTag[];
 }
 
 export namespace CreateAnomalyMonitorRequest {
@@ -6822,6 +7080,39 @@ export interface CreateCostCategoryDefinitionRequest {
    *     </p>
    */
   SplitChargeRules?: CostCategorySplitChargeRule[];
+
+  /**
+   * <p>
+   *       An optional list of tags to associate with the specified <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html">
+   *                <code>CostCategory</code>
+   *             </a>. You can use resource tags to control access to your <code>cost category</code> using IAM policies.</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a key is 128 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>The maximum length of a value is 256 characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid characters for keys and values are: <code>A-Z</code>, <code>a-z</code>, spaces, <code>_.:/=+-</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are case sensitive</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
+   *             </li>
+   *             <li>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceTags?: ResourceTag[];
 }
 
 export namespace CreateCostCategoryDefinitionRequest {

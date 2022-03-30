@@ -4028,6 +4028,13 @@ export interface GetDevicePositionHistoryRequest {
    *          </ul>
    */
   EndTimeExclusive?: Date;
+
+  /**
+   * <p>An optional limit for the number of device positions returned in a single call.</p>
+   *         <p>Default value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetDevicePositionHistoryRequest {
