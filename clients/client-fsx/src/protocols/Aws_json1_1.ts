@@ -4657,6 +4657,8 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
       }),
     ...(input.FsxAdminPassword !== undefined &&
       input.FsxAdminPassword !== null && { FsxAdminPassword: input.FsxAdminPassword }),
+    ...(input.ThroughputCapacity !== undefined &&
+      input.ThroughputCapacity !== null && { ThroughputCapacity: input.ThroughputCapacity }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };

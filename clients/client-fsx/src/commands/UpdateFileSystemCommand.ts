@@ -127,6 +127,11 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>ThroughputCapacity</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>WeeklyMaintenanceStartTime</code>
  *                </p>
  *             </li>

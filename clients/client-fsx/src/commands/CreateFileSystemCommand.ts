@@ -59,7 +59,7 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *                     an initial lifecycle state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Returns the description of the file system.</p>
+ *                 <p>Returns the description of the file system in JSON format.</p>
  *             </li>
  *          </ul>
  *
