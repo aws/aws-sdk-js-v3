@@ -22,9 +22,9 @@ export interface CreateConnectionAliasCommandInput extends CreateConnectionAlias
 export interface CreateConnectionAliasCommandOutput extends CreateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * <p>Creates the specified connection alias for use with cross-Region redirection. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ * <p>Creates the specified connection alias for use with cross-Region redirection. For more
+ *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+ *             Redirection for Amazon WorkSpaces</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

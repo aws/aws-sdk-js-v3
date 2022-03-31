@@ -24,8 +24,7 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the permissions that the owner of an image has granted to other
- *          Amazon Web Services accounts for an image.</p>
+ * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

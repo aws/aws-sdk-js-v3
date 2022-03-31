@@ -24,22 +24,19 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified directory. This operation is asynchronous
- *          and returns before the WorkSpace directory is deregistered. If any WorkSpaces are
- *       registered to this directory, you must remove them before you can deregister the directory.</p>
- *
+ * <p>Deregisters the specified directory. This operation is asynchronous and returns before
+ *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
+ *          directory, you must remove them before you can deregister the directory.</p>
  *          <note>
- *             <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces.
- *             If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30
- *             consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces,
- *             and you will be charged for this directory as per the
- *             <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing terms</a>.</p>
- *
- *             <p>To delete empty directories, see
- *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html">
- *                Delete the Directory for Your WorkSpaces</a>. If you delete your
- *             Simple AD or AD Connector directory, you can always create a new one when you want to start using
- *             WorkSpaces again.</p>
+ *             <p>Simple AD and AD Connector are made available to you free of charge to use with
+ *             WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
+ *             directory for 30 consecutive days, this directory will be automatically deregistered for
+ *             use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing
+ *                terms</a>.</p>
+ *             <p>To delete empty directories, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html"> Delete the
+ *                Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector
+ *             directory, you can always create a new one when you want to start using WorkSpaces
+ *             again.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

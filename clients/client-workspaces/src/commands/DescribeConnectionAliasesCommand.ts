@@ -22,9 +22,9 @@ export interface DescribeConnectionAliasesCommandInput extends DescribeConnectio
 export interface DescribeConnectionAliasesCommandOutput extends DescribeConnectionAliasesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ * <p>Retrieves a list that describes the connection aliases used for cross-Region
+ *          redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+ *             Redirection for Amazon WorkSpaces</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

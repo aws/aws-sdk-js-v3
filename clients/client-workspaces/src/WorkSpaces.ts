@@ -52,6 +52,11 @@ import {
   CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
 import {
+  DeleteClientBrandingCommand,
+  DeleteClientBrandingCommandInput,
+  DeleteClientBrandingCommandOutput,
+} from "./commands/DeleteClientBrandingCommand";
+import {
   DeleteConnectClientAddInCommand,
   DeleteConnectClientAddInCommandInput,
   DeleteConnectClientAddInCommandOutput,
@@ -92,6 +97,11 @@ import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
+import {
+  DescribeClientBrandingCommand,
+  DescribeClientBrandingCommandInput,
+  DescribeClientBrandingCommandOutput,
+} from "./commands/DescribeClientBrandingCommand";
 import {
   DescribeClientPropertiesCommand,
   DescribeClientPropertiesCommandInput,
@@ -167,6 +177,11 @@ import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
+import {
+  ImportClientBrandingCommand,
+  ImportClientBrandingCommandInput,
+  ImportClientBrandingCommandOutput,
+} from "./commands/ImportClientBrandingCommand";
 import {
   ImportWorkspaceImageCommand,
   ImportWorkspaceImageCommandInput,
@@ -286,18 +301,32 @@ import { WorkSpacesClient } from "./WorkSpacesClient";
 
 /**
  * <fullname>Amazon WorkSpaces Service</fullname>
- *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows and
- *          Amazon Linux desktops for your users.</p>
+ *          <p>Amazon WorkSpaces enables you to provision virtual, cloud-based Microsoft Windows
+ *          or Amazon Linux desktops for your users, known as <i>WorkSpaces</i>.
+ *             WorkSpaces eliminates the need to procure and deploy hardware or install complex
+ *          software. You can quickly add or remove users as your needs change. Users can access their
+ *          virtual desktops from multiple devices or web browsers.</p>
+ *          <p>This API Reference provides detailed information about the actions, data types,
+ *          parameters, and errors of the WorkSpaces service. For more information about the
+ *          supported Amazon Web Services Regions, endpoints, and service quotas of the Amazon WorkSpaces service, see <a href="https://docs.aws.amazon.com/general/latest/gr/wsp.html">WorkSpaces endpoints and quotas</a> in the <i>Amazon Web Services
+ *             General Reference</i>.</p>
+ *          <p>You can also manage your WorkSpaces resources using the WorkSpaces
+ *          console, Command Line Interface (CLI), and SDKs. For more information about
+ *          administering WorkSpaces, see the <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/">Amazon WorkSpaces Administration Guide</a>.
+ *          For more information about using the Amazon WorkSpaces client application or web
+ *          browser to access provisioned WorkSpaces, see the <a href="https://docs.aws.amazon.com/workspaces/latest/userguide/">Amazon WorkSpaces User Guide</a>. For more
+ *          information about using the CLI to manage your WorkSpaces resources,
+ *          see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html">WorkSpaces section of the CLI Reference</a>.</p>
  */
 export class WorkSpaces extends WorkSpacesClient {
   /**
-   * <p>Associates the specified connection alias with the specified directory to enable cross-Region redirection.
-   *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
-   *
+   * <p>Associates the specified connection alias with the specified directory to enable
+   *          cross-Region redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    *          <note>
    *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
-   *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *                DescribeConnectionAliases</a> to make sure that the current state of the
+   *             connection alias is <code>CREATED</code>.</p>
    *          </note>
    */
   public associateConnectionAlias(
@@ -396,19 +425,15 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Copies the specified image from the specified Region to the current Region.
-   *          For more information about copying images, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html">
-   *             Copy a Custom WorkSpaces Image</a>.</p>
-   *
+   * <p>Copies the specified image from the specified Region to the current Region. For more
+   *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
+   *             Image</a>.</p>
    *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
-   *
    *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
-   *
    *          <important>
    *             <p>Before copying a shared image, be sure to verify that it has been shared from the
-   *             correct Amazon Web Services account. To determine if an image has been shared and to see the
-   *             ID of the Amazon Web Services account that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a> and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a> API operations. </p>
+   *             correct Amazon Web Services account. To determine if an image has been shared and to see
+   *             the ID of the Amazon Web Services account that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a> and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a> API operations. </p>
    *          </important>
    */
   public copyWorkspaceImage(
@@ -443,7 +468,6 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
    *          one Amazon Connect client add-in within a directory.</p>
-   *
    *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
    */
   public createConnectClientAddIn(
@@ -476,9 +500,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Creates the specified connection alias for use with cross-Region redirection. For more information, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   * <p>Creates the specified connection alias for use with cross-Region redirection. For more
+   *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    */
   public createConnectionAlias(
     args: CreateConnectionAliasCommandInput,
@@ -515,7 +539,6 @@ export class WorkSpaces extends WorkSpacesClient {
    *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
    *          ranges, add rules to your IP access control group and then associate the group with your
    *          directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p>
-   *
    *          <p>There is a default IP access control group associated with your directory. If you don't
    *          associate an IP access control group with your directory, the default group is used. The
    *          default group includes a default rule that allows users to access their WorkSpaces from
@@ -577,27 +600,25 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Creates a new updated WorkSpace image based on the specified source image. The
-   *          new updated WorkSpace image has the latest drivers and other updates required by
-   *          the Amazon WorkSpaces components.</p>
-   *
-   *          <p>To determine which WorkSpace images need to be updated with the latest Amazon
-   *          WorkSpaces requirements, use
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
+   * <p>Creates a new updated WorkSpace image based on the specified source image. The new
+   *          updated WorkSpace image has the latest drivers and other updates required by the Amazon
+   *          WorkSpaces components.</p>
+   *          <p>To determine which WorkSpace images need to be updated with the latest Amazon WorkSpaces
+   *          requirements, use <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">
    *             DescribeWorkspaceImages</a>.</p>
-   *
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images can be programmatically updated at this time.</p>
+   *                   <p>Only Windows 10, Windows Sever 2016, and Windows Server 2019 WorkSpace images
+   *                   can be programmatically updated at this time.</p>
    *                </li>
    *                <li>
-   *                   <p>Microsoft Windows updates and other application updates are not included
-   *                   in the update process.</p>
+   *                   <p>Microsoft Windows updates and other application updates are not included in the
+   *                   update process.</p>
    *                </li>
    *                <li>
-   *                   <p>The source WorkSpace image is not deleted. You can delete the source image after you've
-   *                   verified your new updated image and created a new bundle. </p>
+   *                   <p>The source WorkSpace image is not deleted. You can delete the source image
+   *                   after you've verified your new updated image and created a new bundle. </p>
    *                </li>
    *             </ul>
    *          </note>
@@ -699,6 +720,43 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Deletes customized client branding. Client branding allows you to customize your
+   *          WorkSpace's client login portal. You can tailor your login portal company logo, the support
+   *          email address, support link, link to reset password, and a custom message for users trying
+   *          to sign in.</p>
+   *          <p>After you delete your customized client branding, your login portal reverts to the
+   *          default client branding.</p>
+   */
+  public deleteClientBranding(
+    args: DeleteClientBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClientBrandingCommandOutput>;
+  public deleteClientBranding(
+    args: DeleteClientBrandingCommandInput,
+    cb: (err: any, data?: DeleteClientBrandingCommandOutput) => void
+  ): void;
+  public deleteClientBranding(
+    args: DeleteClientBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClientBrandingCommandOutput) => void
+  ): void;
+  public deleteClientBranding(
+    args: DeleteClientBrandingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClientBrandingCommandOutput) => void),
+    cb?: (err: any, data?: DeleteClientBrandingCommandOutput) => void
+  ): Promise<DeleteClientBrandingCommandOutput> | void {
+    const command = new DeleteClientBrandingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a client-add-in for Amazon Connect that is configured within a
    *          directory.</p>
    */
@@ -733,21 +791,19 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
-   *
+   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
    *          <important>
    *             <p>
-   *                <b>If you will no longer be using a fully qualified domain name (FQDN) as the registration code
-   *             for your WorkSpaces users, you must take certain precautions to prevent potential security issues.</b>
-   *             For more information, see
-   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations">
-   *                Security Considerations if You Stop Using Cross-Region Redirection</a>.</p>
+   *                <b>If you will no longer be using a fully qualified domain name
+   *                (FQDN) as the registration code for your WorkSpaces users, you must take certain
+   *                precautions to prevent potential security issues.</b> For more information,
+   *             see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations"> Security Considerations if You Stop Using Cross-Region Redirection</a>.</p>
    *          </important>
-   *
    *          <note>
-   *             <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias
-   *             from any directories it has been associated with. Then you must unshare the connection alias from the account it has
-   *             been shared with. You can delete a connection alias only after it is no longer shared with any accounts or
+   *             <p>To delete a connection alias that has been shared, the shared account must first
+   *             disassociate the connection alias from any directories it has been associated with. Then
+   *             you must unshare the connection alias from the account it has been shared with. You can
+   *             delete a connection alias only after it is no longer shared with any accounts or
    *             associated with any directories.</p>
    *          </note>
    */
@@ -908,22 +964,19 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Deregisters the specified directory. This operation is asynchronous
-   *          and returns before the WorkSpace directory is deregistered. If any WorkSpaces are
-   *       registered to this directory, you must remove them before you can deregister the directory.</p>
-   *
+   * <p>Deregisters the specified directory. This operation is asynchronous and returns before
+   *          the WorkSpace directory is deregistered. If any WorkSpaces are registered to this
+   *          directory, you must remove them before you can deregister the directory.</p>
    *          <note>
-   *             <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces.
-   *             If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30
-   *             consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces,
-   *             and you will be charged for this directory as per the
-   *             <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing terms</a>.</p>
-   *
-   *             <p>To delete empty directories, see
-   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html">
-   *                Delete the Directory for Your WorkSpaces</a>. If you delete your
-   *             Simple AD or AD Connector directory, you can always create a new one when you want to start using
-   *             WorkSpaces again.</p>
+   *             <p>Simple AD and AD Connector are made available to you free of charge to use with
+   *             WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
+   *             directory for 30 consecutive days, this directory will be automatically deregistered for
+   *             use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing
+   *                terms</a>.</p>
+   *             <p>To delete empty directories, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html"> Delete the
+   *                Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector
+   *             directory, you can always create a new one when you want to start using WorkSpaces
+   *             again.</p>
    *          </note>
    */
   public deregisterWorkspaceDirectory(
@@ -1022,6 +1075,45 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Describes the specified client branding. Client branding allows you to customize the log
+   *          in page of various device types for your users. You can add your company logo, the support
+   *          email address, support link, link to reset password, and a custom message for users trying
+   *          to sign in.</p>
+   *          <note>
+   *             <p>Only device types that have branding information configured will be shown in the
+   *             response.</p>
+   *          </note>
+   */
+  public describeClientBranding(
+    args: DescribeClientBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClientBrandingCommandOutput>;
+  public describeClientBranding(
+    args: DescribeClientBrandingCommandInput,
+    cb: (err: any, data?: DescribeClientBrandingCommandOutput) => void
+  ): void;
+  public describeClientBranding(
+    args: DescribeClientBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClientBrandingCommandOutput) => void
+  ): void;
+  public describeClientBranding(
+    args: DescribeClientBrandingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientBrandingCommandOutput) => void),
+    cb?: (err: any, data?: DescribeClientBrandingCommandOutput) => void
+  ): Promise<DescribeClientBrandingCommandOutput> | void {
+    const command = new DescribeClientBrandingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a list that describes one or more specified Amazon WorkSpaces clients.</p>
    */
   public describeClientProperties(
@@ -1086,9 +1178,9 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   * <p>Retrieves a list that describes the connection aliases used for cross-Region
+   *          redirection. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    */
   public describeConnectionAliases(
     args: DescribeConnectionAliasesCommandInput,
@@ -1120,9 +1212,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Describes the permissions that the owner of a connection alias has granted to another Amazon Web Services account for
-   *          the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   * <p>Describes the permissions that the owner of a connection alias has granted to another
+   *             Amazon Web Services account for the specified connection alias. For more information, see
+   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    */
   public describeConnectionAliasPermissions(
     args: DescribeConnectionAliasPermissionsCommandInput,
@@ -1248,8 +1341,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Describes the available directories that are registered with
-   *          Amazon WorkSpaces.</p>
+   * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
    */
   public describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
@@ -1281,8 +1373,7 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Describes the permissions that the owner of an image has granted to other
-   *          Amazon Web Services accounts for an image.</p>
+   * <p>Describes the permissions that the owner of an image has granted to other Amazon Web Services accounts for an image.</p>
    */
   public describeWorkspaceImagePermissions(
     args: DescribeWorkspaceImagePermissionsCommandInput,
@@ -1445,14 +1536,14 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region
-   *          redirection between two directories in different Regions. For more information, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
-   *
+   * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
+   *          disables cross-Region redirection between two directories in different Regions. For more
+   *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    *          <note>
    *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
-   *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *                DescribeConnectionAliases</a> to make sure that the current state of the
+   *             connection alias is <code>CREATED</code>.</p>
    *          </note>
    */
   public disassociateConnectionAlias(
@@ -1517,11 +1608,69 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Imports client branding. Client branding allows you to customize your WorkSpace's client
+   *          login portal. You can tailor your login portal company logo, the support email address,
+   *          support link, link to reset password, and a custom message for users trying to sign
+   *          in.</p>
+   *          <p>After you import client branding, the default branding experience for the specified
+   *          platform type is replaced with the imported experience</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>You must specify at least one platform type when importing client
+   *                   branding.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You can import up to 6 MB of data with each request. If your request exceeds
+   *                   this limit, you can import client branding for different platform types using
+   *                   separate requests.</p>
+   *                </li>
+   *                <li>
+   *                   <p>In each platform type, the <code>SupportEmail</code> and
+   *                      <code>SupportLink</code> parameters are mutually exclusive. You can specify
+   *                   only one parameter for each platform type, but not both.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Imported data can take up to a minute to appear in the WorkSpaces
+   *                   client.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public importClientBranding(
+    args: ImportClientBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportClientBrandingCommandOutput>;
+  public importClientBranding(
+    args: ImportClientBrandingCommandInput,
+    cb: (err: any, data?: ImportClientBrandingCommandOutput) => void
+  ): void;
+  public importClientBranding(
+    args: ImportClientBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportClientBrandingCommandOutput) => void
+  ): void;
+  public importClientBranding(
+    args: ImportClientBrandingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportClientBrandingCommandOutput) => void),
+    cb?: (err: any, data?: ImportClientBrandingCommandOutput) => void
+  ): Promise<ImportClientBrandingCommandOutput> | void {
+    const command = new ImportClientBrandingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
-   *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your
-   *          Amazon Web Services account, and you must own the image. For more information about creating BYOL images, see
-   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
-   *             Bring Your Own Windows Desktop Licenses</a>.</p>
+   *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your Amazon Web Services account, and you must own the image. For more information about creating BYOL
+   *          images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring Your Own Windows
+   *             Desktop Licenses</a>.</p>
    */
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
@@ -1555,10 +1704,9 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
    *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
-   *
-   *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL. If your account
-   *          isn't enabled for BYOL, you'll receive an <code>AccessDeniedException</code> error.</p>
-   *
+   *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
+   *          If your account isn't enabled for BYOL, you'll receive an
+   *             <code>AccessDeniedException</code> error.</p>
    *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
    *          network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
    *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
@@ -1593,15 +1741,17 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Migrates a WorkSpace from one operating system or bundle type to another, while retaining the data on the user volume.</p>
-   *
-   *          <p>The migration process recreates the WorkSpace by using a new root volume from the target bundle image and the user volume
-   *          from the last available snapshot of the original WorkSpace. During migration, the original <code>D:\Users\%USERNAME%</code>
-   *          user profile folder is renamed to <code>D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated</code>. A new <code>D:\Users\%USERNAME%\</code>
-   *          folder is generated by the new OS. Certain files in the old user profile are moved to the new user profile.</p>
-   *
-   *          <p>For available migration scenarios, details about what happens during migration, and best practices, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html">Migrate a WorkSpace</a>.</p>
+   * <p>Migrates a WorkSpace from one operating system or bundle type to another, while
+   *          retaining the data on the user volume.</p>
+   *          <p>The migration process recreates the WorkSpace by using a new root volume from the target
+   *          bundle image and the user volume from the last available snapshot of the original
+   *          WorkSpace. During migration, the original <code>D:\Users\%USERNAME%</code> user profile
+   *          folder is renamed to <code>D:\Users\%USERNAME%MMddyyTHHmmss%.NotMigrated</code>. A new
+   *             <code>D:\Users\%USERNAME%\</code> folder is generated by the new OS. Certain files in
+   *          the old user profile are moved to the new user profile.</p>
+   *          <p>For available migration scenarios, details about what happens during migration, and best
+   *          practices, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html">Migrate a
+   *          WorkSpace</a>.</p>
    */
   public migrateWorkspace(
     args: MigrateWorkspaceCommandInput,
@@ -1797,10 +1947,8 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Modifies the specified WorkSpace properties. For important information about how
-   *          to modify the size of the root and user volumes, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
-   *             Modify a WorkSpace</a>.
+   * <p>Modifies the specified WorkSpace properties. For important information about how to
+   *          modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html"> Modify a WorkSpace</a>.
    *       </p>
    */
   public modifyWorkspaceProperties(
@@ -1907,7 +2055,8 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Rebuilds the specified WorkSpace.</p>
    *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
-   *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.</p>
+   *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or
+   *             <code>REBOOTING</code>.</p>
    *          <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
    *          of data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html">Rebuild a
    *          WorkSpace</a>.</p>
@@ -1944,10 +2093,10 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Registers the specified directory. This operation is asynchronous
-   *          and returns before the WorkSpace directory is registered. If this is the first time you are
-   *          registering a directory, you will need to create the workspaces_DefaultRole role before you can
-   *          register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
+   * <p>Registers the specified directory. This operation is asynchronous and returns before the
+   *          WorkSpace directory is registered. If this is the first time you are registering a
+   *          directory, you will need to create the workspaces_DefaultRole role before you can register
+   *          a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
    *             Creating the workspaces_DefaultRole Role</a>.</p>
    */
   public registerWorkspaceDirectory(
@@ -2121,34 +2270,29 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Terminates the specified WorkSpaces.</p>
-   *
    *          <important>
-   *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is
-   *             destroyed. If you need to archive any user data, contact Amazon Web Services Support before
+   *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
+   *             is destroyed. If you need to archive any user data, contact Amazon Web Services Support before
    *             terminating the WorkSpace.</p>
    *          </important>
-   *
    *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
    *          terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned
    *          only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely
    *          returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
+   *             <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
    *             DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has
    *          been successfully terminated.</p>
-   *
    *          <note>
-   *             <p>Simple AD and AD Connector are made available to you free of charge to use with WorkSpaces.
-   *             If there are no WorkSpaces being used with your Simple AD or AD Connector directory for 30
-   *             consecutive days, this directory will be automatically deregistered for use with Amazon WorkSpaces,
-   *             and you will be charged for this directory as per the
-   *             <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing terms</a>.</p>
-   *
-   *             <p>To delete empty directories, see
-   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html">
-   *                Delete the Directory for Your WorkSpaces</a>. If you delete your
-   *             Simple AD or AD Connector directory, you can always create a new one when you want to start using
-   *             WorkSpaces again.</p>
+   *             <p>Simple AD and AD Connector are made available to you free of charge to use with
+   *             WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector
+   *             directory for 30 consecutive days, this directory will be automatically deregistered for
+   *             use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href="http://aws.amazon.com/directoryservice/pricing/">Directory Service pricing
+   *                terms</a>.</p>
+   *             <p>To delete empty directories, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html"> Delete the
+   *                Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector
+   *             directory, you can always create a new one when you want to start using WorkSpaces
+   *             again.</p>
    *          </note>
    */
   public terminateWorkspaces(
@@ -2214,23 +2358,25 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Shares or unshares a connection alias with one account by specifying whether that account has permission to
-   *          associate the connection alias with a directory. If the association permission is granted, the connection alias
-   *          is shared with that account. If the association permission is revoked, the connection alias is unshared with the
-   *          account. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
-   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
-   *
+   * <p>Shares or unshares a connection alias with one account by specifying whether that
+   *          account has permission to associate the connection alias with a directory. If the
+   *          association permission is granted, the connection alias is shared with that account. If the
+   *          association permission is revoked, the connection alias is unshared with the account. For
+   *          more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+   *             Redirection for Amazon WorkSpaces</a>.</p>
    *          <note>
    *             <ul>
    *                <li>
    *                   <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
-   *                   DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *                      DescribeConnectionAliases</a> to make sure that the current state of the
+   *                   connection alias is <code>CREATED</code>.</p>
    *                </li>
    *                <li>
-   *                   <p>To delete a connection alias that has been shared, the shared account must first disassociate the
-   *                   connection alias from any directories it has been associated with. Then you must unshare the connection
-   *                   alias from the account it has been shared with. You can delete a connection alias only after it is no
-   *                   longer shared with any accounts or associated with any directories.</p>
+   *                   <p>To delete a connection alias that has been shared, the shared account must
+   *                   first disassociate the connection alias from any directories it has been
+   *                   associated with. Then you must unshare the connection alias from the account it
+   *                   has been shared with. You can delete a connection alias only after it is no longer
+   *                   shared with any accounts or associated with any directories.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -2338,29 +2484,26 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by specifying whether that account has
-   *          permission to copy the image. If the copy image permission is granted, the image is shared with that account.
-   *          If the copy image permission is revoked, the image is unshared with the account.</p>
-   *
-   *          <p>After an image has been shared, the recipient account can copy the image to other Regions as needed.</p>
-   *
+   * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by
+   *          specifying whether that account has permission to copy the image. If the copy image
+   *          permission is granted, the image is shared with that account. If the copy image permission
+   *          is revoked, the image is unshared with the account.</p>
+   *          <p>After an image has been shared, the recipient account can copy the image to other
+   *          Regions as needed.</p>
    *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
-   *
    *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
-   *
-   *          <p>For more information about sharing images, see
-   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
-   *             Share or Unshare a Custom WorkSpaces Image</a>.</p>
-   *
+   *          <p>For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html"> Share or Unshare a Custom
+   *             WorkSpaces Image</a>.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>To delete an image that has been shared, you must unshare the image before you delete it.</p>
+   *                   <p>To delete an image that has been shared, you must unshare the image before you
+   *                   delete it.</p>
    *                </li>
    *                <li>
-   *                   <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts isn't supported at
-   *                   this time in Amazon Web Services GovCloud (US). To share BYOL images across accounts in
-   *                   Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>
+   *                   <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
+   *                   isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
+   *                   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>
    *                </li>
    *             </ul>
    *          </note>

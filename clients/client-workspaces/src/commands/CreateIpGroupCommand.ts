@@ -27,7 +27,6 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
  *          ranges, add rules to your IP access control group and then associate the group with your
  *          directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p>
- *
  *          <p>There is a default IP access control group associated with your directory. If you don't
  *          associate an IP access control group with your directory, the default group is used. The
  *          default group includes a default rule that allows users to access their WorkSpaces from

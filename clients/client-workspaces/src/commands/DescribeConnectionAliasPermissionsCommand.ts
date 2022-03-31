@@ -27,9 +27,10 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the permissions that the owner of a connection alias has granted to another Amazon Web Services account for
- *          the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ * <p>Describes the permissions that the owner of a connection alias has granted to another
+ *             Amazon Web Services account for the specified connection alias. For more information, see
+ *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+ *             Redirection for Amazon WorkSpaces</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

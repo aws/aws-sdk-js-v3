@@ -22,10 +22,10 @@ export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspac
 export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Registers the specified directory. This operation is asynchronous
- *          and returns before the WorkSpace directory is registered. If this is the first time you are
- *          registering a directory, you will need to create the workspaces_DefaultRole role before you can
- *          register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
+ * <p>Registers the specified directory. This operation is asynchronous and returns before the
+ *          WorkSpace directory is registered. If this is the first time you are registering a
+ *          directory, you will need to create the workspaces_DefaultRole role before you can register
+ *          a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
  *             Creating the workspaces_DefaultRole Role</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

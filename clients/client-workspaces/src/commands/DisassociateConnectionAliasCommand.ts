@@ -22,14 +22,14 @@ export interface DisassociateConnectionAliasCommandInput extends DisassociateCon
 export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region
- *          redirection between two directories in different Regions. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
- *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
- *
+ * <p>Disassociates a connection alias from a directory. Disassociating a connection alias
+ *          disables cross-Region redirection between two directories in different Regions. For more
+ *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html"> Cross-Region
+ *             Redirection for Amazon WorkSpaces</a>.</p>
  *          <note>
  *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
- *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+ *                DescribeConnectionAliases</a> to make sure that the current state of the
+ *             connection alias is <code>CREATED</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

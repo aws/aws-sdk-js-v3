@@ -24,7 +24,6 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
 /**
  * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
  *          one Amazon Connect client add-in within a directory.</p>
- *
  *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

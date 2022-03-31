@@ -42,6 +42,10 @@ import {
 } from "../commands/CreateWorkspaceBundleCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand";
 import {
+  DeleteClientBrandingCommandInput,
+  DeleteClientBrandingCommandOutput,
+} from "../commands/DeleteClientBrandingCommand";
+import {
   DeleteConnectClientAddInCommandInput,
   DeleteConnectClientAddInCommandOutput,
 } from "../commands/DeleteConnectClientAddInCommand";
@@ -68,6 +72,10 @@ import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "../commands/DescribeAccountModificationsCommand";
+import {
+  DescribeClientBrandingCommandInput,
+  DescribeClientBrandingCommandOutput,
+} from "../commands/DescribeClientBrandingCommand";
 import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
@@ -119,6 +127,10 @@ import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "../commands/DisassociateIpGroupsCommand";
+import {
+  ImportClientBrandingCommandInput,
+  ImportClientBrandingCommandOutput,
+} from "../commands/ImportClientBrandingCommand";
 import {
   ImportWorkspaceImageCommandInput,
   ImportWorkspaceImageCommandOutput,
@@ -197,6 +209,7 @@ import {
   AssociateIpGroupsResult,
   AuthorizeIpRulesRequest,
   AuthorizeIpRulesResult,
+  ClientDeviceType,
   ClientProperties,
   ClientPropertiesResult,
   ComputeType,
@@ -220,7 +233,11 @@ import {
   CreateWorkspaceBundleResult,
   CreateWorkspacesRequest,
   CreateWorkspacesResult,
+  DefaultClientBrandingAttributes,
+  DefaultImportClientBrandingAttributes,
   DefaultWorkspaceCreationProperties,
+  DeleteClientBrandingRequest,
+  DeleteClientBrandingResult,
   DeleteConnectClientAddInRequest,
   DeleteConnectClientAddInResult,
   DeleteConnectionAliasRequest,
@@ -239,6 +256,8 @@ import {
   DescribeAccountModificationsResult,
   DescribeAccountRequest,
   DescribeAccountResult,
+  DescribeClientBrandingRequest,
+  DescribeClientBrandingResult,
   DescribeClientPropertiesRequest,
   DescribeClientPropertiesResult,
   DescribeConnectClientAddInsRequest,
@@ -272,10 +291,14 @@ import {
   FailedCreateWorkspaceRequest,
   FailedWorkspaceChangeRequest,
   ImagePermission,
+  ImportClientBrandingRequest,
+  ImportClientBrandingResult,
   ImportWorkspaceImageRequest,
   ImportWorkspaceImageResult,
   InvalidParameterValuesException,
   InvalidResourceStateException,
+  IosClientBrandingAttributes,
+  IosImportClientBrandingAttributes,
   IpRuleItem,
   ListAvailableManagementCidrRangesRequest,
   ListAvailableManagementCidrRangesResult,
@@ -501,6 +524,19 @@ export const serializeAws_json1_1CreateWorkspacesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteClientBrandingCommand = async (
+  input: DeleteClientBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.DeleteClientBranding",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteClientBrandingRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteConnectClientAddInCommand = async (
   input: DeleteConnectClientAddInCommandInput,
   context: __SerdeContext
@@ -615,6 +651,19 @@ export const serializeAws_json1_1DescribeAccountModificationsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAccountModificationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeClientBrandingCommand = async (
+  input: DescribeClientBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.DescribeClientBranding",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeClientBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -810,6 +859,19 @@ export const serializeAws_json1_1DisassociateIpGroupsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateIpGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ImportClientBrandingCommand = async (
+  input: ImportClientBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.ImportClientBranding",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportClientBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1726,6 +1788,55 @@ const deserializeAws_json1_1CreateWorkspacesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteClientBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClientBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteClientBrandingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteClientBrandingResult(data, context);
+  const response: DeleteClientBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteClientBrandingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClientBrandingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1DeleteConnectClientAddInCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2162,6 +2273,55 @@ const deserializeAws_json1_1DescribeAccountModificationsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
       throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DescribeClientBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClientBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeClientBrandingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeClientBrandingResult(data, context);
+  const response: DescribeClientBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeClientBrandingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClientBrandingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -2873,6 +3033,55 @@ const deserializeAws_json1_1DisassociateIpGroupsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ImportClientBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportClientBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportClientBrandingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportClientBrandingResult(data, context);
+  const response: ImportClientBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportClientBrandingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportClientBrandingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.workspaces#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -4277,6 +4486,20 @@ const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_json1_1ClientDeviceTypeList = (
+  input: (ClientDeviceType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ClientProperties = (input: ClientProperties, context: __SerdeContext): any => {
   return {
     ...(input.ReconnectEnabled !== undefined &&
@@ -4403,6 +4626,32 @@ const serializeAws_json1_1CreateWorkspacesRequest = (input: CreateWorkspacesRequ
   };
 };
 
+const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
+  input: DefaultImportClientBrandingAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ForgotPasswordLink !== undefined &&
+      input.ForgotPasswordLink !== null && { ForgotPasswordLink: input.ForgotPasswordLink }),
+    ...(input.LoginMessage !== undefined &&
+      input.LoginMessage !== null && { LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context) }),
+    ...(input.Logo !== undefined && input.Logo !== null && { Logo: context.base64Encoder(input.Logo) }),
+    ...(input.SupportEmail !== undefined && input.SupportEmail !== null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportLink !== undefined && input.SupportLink !== null && { SupportLink: input.SupportLink }),
+  };
+};
+
+const serializeAws_json1_1DeleteClientBrandingRequest = (
+  input: DeleteClientBrandingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Platforms !== undefined &&
+      input.Platforms !== null && { Platforms: serializeAws_json1_1ClientDeviceTypeList(input.Platforms, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+  };
+};
+
 const serializeAws_json1_1DeleteConnectClientAddInRequest = (
   input: DeleteConnectClientAddInRequest,
   context: __SerdeContext
@@ -4474,6 +4723,15 @@ const serializeAws_json1_1DescribeAccountModificationsRequest = (
 
 const serializeAws_json1_1DescribeAccountRequest = (input: DescribeAccountRequest, context: __SerdeContext): any => {
   return {};
+};
+
+const serializeAws_json1_1DescribeClientBrandingRequest = (
+  input: DescribeClientBrandingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+  };
 };
 
 const serializeAws_json1_1DescribeClientPropertiesRequest = (
@@ -4656,6 +4914,39 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
   };
 };
 
+const serializeAws_json1_1ImportClientBrandingRequest = (
+  input: ImportClientBrandingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceTypeAndroid !== undefined &&
+      input.DeviceTypeAndroid !== null && {
+        DeviceTypeAndroid: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeAndroid, context),
+      }),
+    ...(input.DeviceTypeIos !== undefined &&
+      input.DeviceTypeIos !== null && {
+        DeviceTypeIos: serializeAws_json1_1IosImportClientBrandingAttributes(input.DeviceTypeIos, context),
+      }),
+    ...(input.DeviceTypeLinux !== undefined &&
+      input.DeviceTypeLinux !== null && {
+        DeviceTypeLinux: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeLinux, context),
+      }),
+    ...(input.DeviceTypeOsx !== undefined &&
+      input.DeviceTypeOsx !== null && {
+        DeviceTypeOsx: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeOsx, context),
+      }),
+    ...(input.DeviceTypeWeb !== undefined &&
+      input.DeviceTypeWeb !== null && {
+        DeviceTypeWeb: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeWeb, context),
+      }),
+    ...(input.DeviceTypeWindows !== undefined &&
+      input.DeviceTypeWindows !== null && {
+        DeviceTypeWindows: serializeAws_json1_1DefaultImportClientBrandingAttributes(input.DeviceTypeWindows, context),
+      }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+  };
+};
+
 const serializeAws_json1_1ImportWorkspaceImageRequest = (
   input: ImportWorkspaceImageRequest,
   context: __SerdeContext
@@ -4672,6 +4963,23 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
     ...(input.IngestionProcess !== undefined &&
       input.IngestionProcess !== null && { IngestionProcess: input.IngestionProcess }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1IosImportClientBrandingAttributes = (
+  input: IosImportClientBrandingAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ForgotPasswordLink !== undefined &&
+      input.ForgotPasswordLink !== null && { ForgotPasswordLink: input.ForgotPasswordLink }),
+    ...(input.LoginMessage !== undefined &&
+      input.LoginMessage !== null && { LoginMessage: serializeAws_json1_1LoginMessage(input.LoginMessage, context) }),
+    ...(input.Logo !== undefined && input.Logo !== null && { Logo: context.base64Encoder(input.Logo) }),
+    ...(input.Logo2x !== undefined && input.Logo2x !== null && { Logo2x: context.base64Encoder(input.Logo2x) }),
+    ...(input.Logo3x !== undefined && input.Logo3x !== null && { Logo3x: context.base64Encoder(input.Logo3x) }),
+    ...(input.SupportEmail !== undefined && input.SupportEmail !== null && { SupportEmail: input.SupportEmail }),
+    ...(input.SupportLink !== undefined && input.SupportLink !== null && { SupportLink: input.SupportLink }),
   };
 };
 
@@ -4727,6 +5035,18 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
+};
+
+const serializeAws_json1_1LoginMessage = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_json1_1MigrateWorkspaceRequest = (input: MigrateWorkspaceRequest, context: __SerdeContext): any => {
@@ -5529,6 +5849,22 @@ const deserializeAws_json1_1DedicatedTenancyCidrRangeList = (output: any, contex
   return retVal;
 };
 
+const deserializeAws_json1_1DefaultClientBrandingAttributes = (
+  output: any,
+  context: __SerdeContext
+): DefaultClientBrandingAttributes => {
+  return {
+    ForgotPasswordLink: __expectString(output.ForgotPasswordLink),
+    LoginMessage:
+      output.LoginMessage !== undefined && output.LoginMessage !== null
+        ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context)
+        : undefined,
+    LogoUrl: __expectString(output.LogoUrl),
+    SupportEmail: __expectString(output.SupportEmail),
+    SupportLink: __expectString(output.SupportLink),
+  } as any;
+};
+
 const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
   output: any,
   context: __SerdeContext
@@ -5541,6 +5877,13 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
     EnableWorkDocs: __expectBoolean(output.EnableWorkDocs),
     UserEnabledAsLocalAdministrator: __expectBoolean(output.UserEnabledAsLocalAdministrator),
   } as any;
+};
+
+const deserializeAws_json1_1DeleteClientBrandingResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteClientBrandingResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteConnectClientAddInResult = (
@@ -5603,6 +5946,38 @@ const deserializeAws_json1_1DescribeAccountResult = (output: any, context: __Ser
   return {
     DedicatedTenancyManagementCidrRange: __expectString(output.DedicatedTenancyManagementCidrRange),
     DedicatedTenancySupport: __expectString(output.DedicatedTenancySupport),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeClientBrandingResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeClientBrandingResult => {
+  return {
+    DeviceTypeAndroid:
+      output.DeviceTypeAndroid !== undefined && output.DeviceTypeAndroid !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeAndroid, context)
+        : undefined,
+    DeviceTypeIos:
+      output.DeviceTypeIos !== undefined && output.DeviceTypeIos !== null
+        ? deserializeAws_json1_1IosClientBrandingAttributes(output.DeviceTypeIos, context)
+        : undefined,
+    DeviceTypeLinux:
+      output.DeviceTypeLinux !== undefined && output.DeviceTypeLinux !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeLinux, context)
+        : undefined,
+    DeviceTypeOsx:
+      output.DeviceTypeOsx !== undefined && output.DeviceTypeOsx !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeOsx, context)
+        : undefined,
+    DeviceTypeWeb:
+      output.DeviceTypeWeb !== undefined && output.DeviceTypeWeb !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWeb, context)
+        : undefined,
+    DeviceTypeWindows:
+      output.DeviceTypeWindows !== undefined && output.DeviceTypeWindows !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWindows, context)
+        : undefined,
   } as any;
 };
 
@@ -5943,6 +6318,38 @@ const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1ImportClientBrandingResult = (
+  output: any,
+  context: __SerdeContext
+): ImportClientBrandingResult => {
+  return {
+    DeviceTypeAndroid:
+      output.DeviceTypeAndroid !== undefined && output.DeviceTypeAndroid !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeAndroid, context)
+        : undefined,
+    DeviceTypeIos:
+      output.DeviceTypeIos !== undefined && output.DeviceTypeIos !== null
+        ? deserializeAws_json1_1IosClientBrandingAttributes(output.DeviceTypeIos, context)
+        : undefined,
+    DeviceTypeLinux:
+      output.DeviceTypeLinux !== undefined && output.DeviceTypeLinux !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeLinux, context)
+        : undefined,
+    DeviceTypeOsx:
+      output.DeviceTypeOsx !== undefined && output.DeviceTypeOsx !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeOsx, context)
+        : undefined,
+    DeviceTypeWeb:
+      output.DeviceTypeWeb !== undefined && output.DeviceTypeWeb !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWeb, context)
+        : undefined,
+    DeviceTypeWindows:
+      output.DeviceTypeWindows !== undefined && output.DeviceTypeWindows !== null
+        ? deserializeAws_json1_1DefaultClientBrandingAttributes(output.DeviceTypeWindows, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ImportWorkspaceImageResult = (
   output: any,
   context: __SerdeContext
@@ -5967,6 +6374,24 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 ): InvalidResourceStateException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1IosClientBrandingAttributes = (
+  output: any,
+  context: __SerdeContext
+): IosClientBrandingAttributes => {
+  return {
+    ForgotPasswordLink: __expectString(output.ForgotPasswordLink),
+    LoginMessage:
+      output.LoginMessage !== undefined && output.LoginMessage !== null
+        ? deserializeAws_json1_1LoginMessage(output.LoginMessage, context)
+        : undefined,
+    Logo2xUrl: __expectString(output.Logo2xUrl),
+    Logo3xUrl: __expectString(output.Logo3xUrl),
+    LogoUrl: __expectString(output.LogoUrl),
+    SupportEmail: __expectString(output.SupportEmail),
+    SupportLink: __expectString(output.SupportLink),
   } as any;
 };
 
@@ -6012,6 +6437,18 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
+};
+
+const deserializeAws_json1_1LoginMessage = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1MigrateWorkspaceResult = (output: any, context: __SerdeContext): MigrateWorkspaceResult => {

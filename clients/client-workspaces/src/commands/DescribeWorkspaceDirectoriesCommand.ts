@@ -24,8 +24,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the available directories that are registered with
- *          Amazon WorkSpaces.</p>
+ * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

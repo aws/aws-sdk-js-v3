@@ -26,10 +26,9 @@ export interface ListAvailableManagementCidrRangesCommandOutput
 /**
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
  *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
- *
- *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL. If your account
- *          isn't enabled for BYOL, you'll receive an <code>AccessDeniedException</code> error.</p>
- *
+ *          <p>This operation can be run only by Amazon Web Services accounts that are enabled for BYOL.
+ *          If your account isn't enabled for BYOL, you'll receive an
+ *             <code>AccessDeniedException</code> error.</p>
  *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
  *          network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
  *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
