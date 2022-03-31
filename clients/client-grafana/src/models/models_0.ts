@@ -164,6 +164,10 @@ export enum DataSourceType {
    */
   AMAZON_OPENSEARCH_SERVICE = "AMAZON_OPENSEARCH_SERVICE",
   /**
+   * Amazon Athena
+   */
+  ATHENA = "ATHENA",
+  /**
    * CloudWatch Logs
    */
   CLOUDWATCH = "CLOUDWATCH",
@@ -171,6 +175,10 @@ export enum DataSourceType {
    * Managed Prometheus
    */
   PROMETHEUS = "PROMETHEUS",
+  /**
+   * Redshift
+   */
+  REDSHIFT = "REDSHIFT",
   /**
    * IoT SiteWise
    */
@@ -380,6 +388,11 @@ export interface WorkspaceDescription {
    *       for user authentication.</p>
    */
   authentication: AuthenticationSummary | undefined;
+
+  /**
+   * <p>The list of tags associated with the workspace.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace WorkspaceDescription {
@@ -931,6 +944,38 @@ export namespace DisassociateLicenseResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource the list of tags are associated with.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of tags that are associated with the resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum UserType {
   /**
    * SSO group.
@@ -1003,6 +1048,8 @@ export enum Role {
 export interface User {
   /**
    * <p>The ID of the user or group.</p>
+   *          <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code>
+   *          </p>
    */
   id: string | undefined;
 
@@ -1177,6 +1224,71 @@ export namespace UpdatePermissionsResponse {
   });
 }
 
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource the tag is associated with.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys and values to associate with the resource.  You can associate tag keys only, tags (key and values) only
+   *       or a combination of tag keys and tags.</p>
+   */
+  tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource the tag association is removed from.  </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The key values of the tag to be removed from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateWorkspaceRequest {
   /**
    * <p>Specifies whether the workspace can access Amazon Web Services resources in this Amazon Web Services account only, or whether it can also access Amazon Web Services resources in
@@ -1198,16 +1310,16 @@ export interface CreateWorkspaceRequest {
   organizationRoleName?: string;
 
   /**
-   * <p>If you specify <code>Service Managed</code>, Amazon Managed Grafana automatically creates
+   * <p>If you specify <code>SERVICE_MANAGED</code> on AWS Grafana console, Amazon Managed Grafana automatically creates
    *          the IAM roles and provisions the permissions that the workspace needs to use
-   *             Amazon Web Services data sources and notification channels.</p>
+   *          Amazon Web Services data sources and notification channels. In CLI mode, the permissionType <code>SERVICE_MANAGED</code> will not create the IAM role
+   *          for you.</p>
    *          <p>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and
    *          permissions yourself. If you are creating this workspace in a member account of an
    *          organization that is not a delegated administrator account, and you want the workspace to access data sources in other Amazon Web Services
    *          accounts in the organization, you must choose <code>CUSTOMER_MANAGED</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html">Amazon Managed Grafana permissions and policies for
-   *          Amazon Web Services data sources and notification channels</a>
-   *          </p>
+   *          Amazon Web Services data sources and notification channels</a>.</p>
    */
   permissionType: PermissionType | string | undefined;
 
@@ -1230,6 +1342,8 @@ export interface CreateWorkspaceRequest {
 
   /**
    * <p>A description for the workspace. This is used only to help you identify this workspace.</p>
+   *          <p>Pattern: <code>^[\\p{L}\\p{Z}\\p{N}\\p{P}]{0,2048}$</code>
+   *          </p>
    */
   workspaceDescription?: string;
 
@@ -1253,10 +1367,7 @@ export interface CreateWorkspaceRequest {
 
   /**
    * <p>The workspace needs an IAM role that grants permissions to the Amazon Web Services resources that the
-   *       workspace will view data from. If you already have a role that you want to use, specify it here. If you omit
-   *       this field and you specify some Amazon Web Services resources in <code>workspaceDataSources</code> or
-   *          <code>workspaceNotificationDestinations</code>, a new IAM role with the necessary permissions is
-   *       automatically created.</p>
+   *       workspace will view data from. If you already have a role that you want to use, specify it here.  The permission type should be set to  <code>CUSTOMER_MANAGED</code>.</p>
    */
   workspaceRoleArn?: string;
 
@@ -1267,6 +1378,11 @@ export interface CreateWorkspaceRequest {
    *             Amazon Managed Grafana</a>.</p>
    */
   authenticationProviders: (AuthenticationProviderTypes | string)[] | undefined;
+
+  /**
+   * <p>The list of tags associated with the workspace.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateWorkspaceRequest {
@@ -1487,6 +1603,11 @@ export interface WorkspaceSummary {
    *          the workspace.</p>
    */
   authentication: AuthenticationSummary | undefined;
+
+  /**
+   * <p>The list of tags associated with the workspace.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace WorkspaceSummary {

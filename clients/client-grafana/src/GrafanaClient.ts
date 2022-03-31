@@ -64,7 +64,13 @@ import {
   DisassociateLicenseCommandOutput,
 } from "./commands/DisassociateLicenseCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdatePermissionsCommandInput, UpdatePermissionsCommandOutput } from "./commands/UpdatePermissionsCommand";
 import {
   UpdateWorkspaceAuthenticationCommandInput,
@@ -81,7 +87,10 @@ export type ServiceInputTypes =
   | DescribeWorkspaceCommandInput
   | DisassociateLicenseCommandInput
   | ListPermissionsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdatePermissionsCommandInput
   | UpdateWorkspaceAuthenticationCommandInput
   | UpdateWorkspaceCommandInput;
@@ -94,7 +103,10 @@ export type ServiceOutputTypes =
   | DescribeWorkspaceCommandOutput
   | DisassociateLicenseCommandOutput
   | ListPermissionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdatePermissionsCommandOutput
   | UpdateWorkspaceAuthenticationCommandOutput
   | UpdateWorkspaceCommandOutput;
