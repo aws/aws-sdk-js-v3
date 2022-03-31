@@ -191,6 +191,7 @@ export enum InputFormat {
   CSV = "CSV",
   EXCEL = "EXCEL",
   JSON = "JSON",
+  ORC = "ORC",
   PARQUET = "PARQUET",
 }
 
@@ -487,8 +488,9 @@ export interface FilesLimit {
   OrderedBy?: OrderedBy | string;
 
   /**
-   * <p>A criteria to use for Amazon S3 files sorting before their selection. By default uses DESCENDING order,
-   *             i.e. most recent files are selected first. Anotherpossible value is ASCENDING.</p>
+   * <p>A criteria to use for Amazon S3 files sorting before their selection. By
+   *             default uses DESCENDING order, i.e. most recent files are selected first. Another
+   *             possible value is ASCENDING.</p>
    */
   Order?: Order | string;
 }
@@ -572,8 +574,8 @@ export enum ParameterType {
 }
 
 /**
- * <p>Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3
- *             path of the dataset.</p>
+ * <p>Represents a dataset parameter that defines type and conditions for a parameter in the
+ *                 Amazon S3 path of the dataset.</p>
  */
 export interface DatasetParameter {
   /**
@@ -1876,17 +1878,16 @@ export interface Rule {
   Disabled?: boolean;
 
   /**
-   * <p>The expression which includes column references, condition names followed by
-   *             variable references, possibly grouped and combined with other conditions. For
-   *             example, <code>(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and
-   *             (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)</code>. Column and value
-   *             references are substitution variables that should start with the ':' symbol.
-   *             Depending on the context, substitution variables' values can be either an actual
-   *             value or a column name. These values are defined in the SubstitutionMap.
-   *             If a CheckExpression starts with a column reference, then ColumnSelectors in the
-   *             rule should be null. If ColumnSelectors has been defined, then there should be no
-   *             columnn reference in the left side of a condition, for example,
-   *             <code>is_between :val1 and :val2</code>.</p>
+   * <p>The expression which includes column references, condition names followed by variable
+   *             references, possibly grouped and combined with other conditions. For example,
+   *                 <code>(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1
+   *                 ends_with :suffix1 or :col1 ends_with :suffix2)</code>. Column and value references
+   *             are substitution variables that should start with the ':' symbol. Depending on the
+   *             context, substitution variables' values can be either an actual value or a column name.
+   *             These values are defined in the SubstitutionMap. If a CheckExpression starts with a
+   *             column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors
+   *             has been defined, then there should be no column reference in the left side of a
+   *             condition, for example, <code>is_between :val1 and :val2</code>.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
    *          </p>
    */
