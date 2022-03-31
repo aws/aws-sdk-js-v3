@@ -22,10 +22,9 @@ export interface ListResourcesCommandInput extends ListResourcesInput {}
 export interface ListResourcesCommandOutput extends ListResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified resources. For more information, see <a href="cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering
- *         resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+ * <p>Returns information about the specified resources. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <p>You can use this action to return information about existing resources in your account and
- *       Amazon Web Services Region, whether or not those resources were provisioned using Cloud Control API.</p>
+ *       Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

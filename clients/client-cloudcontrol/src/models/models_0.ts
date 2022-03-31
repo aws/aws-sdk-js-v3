@@ -111,7 +111,7 @@ export interface ProgressEvent {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PENDING</code>: The resource operation has not yet started.</p>
+   *                   <code>PENDING</code>: The resource operation hasn't yet started.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -219,7 +219,7 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>A resource operation with the specified request token cannot be found.</p>
+ * <p>A resource operation with the specified request token can't be found.</p>
  */
 export class RequestTokenNotFoundException extends __BaseException {
   readonly name: "RequestTokenNotFoundException" = "RequestTokenNotFoundException";
@@ -241,7 +241,7 @@ export class RequestTokenNotFoundException extends __BaseException {
 
 /**
  * <p>The specified client token has already been used in another resource request.</p>
- *          <p>It is best practice for client tokens to be unique for each resource operation request.
+ *          <p>It's best practice for client tokens to be unique for each resource operation request.
  *       However, client token expire after 36 hours.</p>
  */
 export class ClientTokenConflictException extends __BaseException {
@@ -295,7 +295,7 @@ export interface CreateResourceInput {
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
    *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
    *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
@@ -313,7 +313,7 @@ export interface CreateResourceInput {
 
   /**
    * <p>Structured data format representing the desired state of the resource, consisting of that
-   *       resource's properties and their desired values. </p>
+   *       resource's properties and their desired values.</p>
    *          <note>
    *             <p>Cloud Control API currently supports JSON as a structured data format.</p>
    *          </note>
@@ -330,8 +330,7 @@ export interface CreateResourceInput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User
    *         Guide</i>.</p>
    *          <p>For more information about the properties of a specific resource, refer to the related
-   *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>Amazon Web Services
-   *         CloudFormation Users Guide</i>.</p>
+   *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
    */
   DesiredState: string | undefined;
 }
@@ -367,8 +366,8 @@ export namespace CreateResourceOutput {
 }
 
 /**
- * <p>The resource handler has returned that the downstream service generated an error that does
- *       not map to any other handler error code.</p>
+ * <p>The resource handler has returned that the downstream service generated an error that
+ *       doesn't map to any other handler error code.</p>
  */
 export class GeneralServiceException extends __BaseException {
   readonly name: "GeneralServiceException" = "GeneralServiceException";
@@ -477,8 +476,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource handler has returned that the request could not be completed due to
- *       networking issues, such as a failure to receive a response from the server.</p>
+ * <p>The resource handler has returned that the request couldn't be completed due to networking
+ *       issues, such as a failure to receive a response from the server.</p>
  */
 export class NetworkFailureException extends __BaseException {
   readonly name: "NetworkFailureException" = "NetworkFailureException";
@@ -522,7 +521,7 @@ export class NotStabilizedException extends __BaseException {
 
 /**
  * <p>One or more properties included in this resource operation are defined as create-only, and
- *       therefore cannot be updated.</p>
+ *       therefore can't be updated.</p>
  */
 export class NotUpdatableException extends __BaseException {
   readonly name: "NotUpdatableException" = "NotUpdatableException";
@@ -543,9 +542,9 @@ export class NotUpdatableException extends __BaseException {
 }
 
 /**
- * <p>Cloud Control API has not received a valid response from the resource handler, due to a
- *       configuration error. This includes issues such as the resource handler returning an invalid
- *       response, or timing out.</p>
+ * <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration
+ *       error. This includes issues such as the resource handler returning an invalid response, or
+ *       timing out.</p>
  */
 export class PrivateTypeException extends __BaseException {
   readonly name: "PrivateTypeException" = "PrivateTypeException";
@@ -567,7 +566,7 @@ export class PrivateTypeException extends __BaseException {
 
 /**
  * <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
- *       currently undergoing an operation and cannot be acted upon until that operation is
+ *       currently undergoing an operation and can't be acted upon until that operation is
  *       finished.</p>
  */
 export class ResourceConflictException extends __BaseException {
@@ -589,7 +588,7 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>A resource with the specified identifier cannot be found.</p>
+ * <p>A resource with the specified identifier can't be found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -675,7 +674,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The specified extension does not exist in the CloudFormation registry.</p>
+ * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
  */
 export class TypeNotFoundException extends __BaseException {
   readonly name: "TypeNotFoundException" = "TypeNotFoundException";
@@ -696,7 +695,7 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not support this resource operation.</p>
+ * <p>The specified resource doesn't support this resource operation.</p>
  */
 export class UnsupportedActionException extends __BaseException {
   readonly name: "UnsupportedActionException" = "UnsupportedActionException";
@@ -728,7 +727,7 @@ export interface DeleteResourceInput {
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
    *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
    *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
@@ -747,7 +746,7 @@ export interface DeleteResourceInput {
   /**
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>
+   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;
@@ -794,7 +793,7 @@ export interface GetResourceInput {
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
    *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
    *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
@@ -805,7 +804,7 @@ export interface GetResourceInput {
   /**
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>
+   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;
@@ -924,19 +923,19 @@ export interface ResourceRequestStatusFilter {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code>: The operation is currently in progress.</p>
+   *                   <code>IN_PROGRESS</code>: The operation is in progress.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SUCCESS</code>: The operation has successfully completed.</p>
+   *                   <code>SUCCESS</code>: The operation completed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code>: The operation has failed.</p>
+   *                   <code>FAILED</code>: The operation failed.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CANCEL_IN_PROGRESS</code>: The operation is currently in the process of being
+   *                   <code>CANCEL_IN_PROGRESS</code>: The operation is in the process of being
    *           canceled.</p>
    *             </li>
    *             <li>
@@ -1025,7 +1024,7 @@ export interface ListResourcesInput {
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
    *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
    *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
@@ -1039,11 +1038,7 @@ export interface ListResourcesInput {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *       available results exceeds this maximum, the response includes a <code>NextToken</code> value
-   *       that you can assign to the <code>NextToken</code> request parameter to get the next set of
-   *       results.</p>
-   *          <p>The default is <code>20</code>.</p>
+   * <p>Reserved.</p>
    */
   MaxResults?: number;
 
@@ -1105,7 +1100,7 @@ export interface UpdateResourceInput {
   TypeVersionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. The role specified must have the permissions required for this operation. The necessary permissions for each event handler are defined in the <code>
    *                <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers">handlers</a>
    *             </code> section of the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">resource type definition schema</a>.</p>
    *          <p>If you do not specify a role, Cloud Control API uses a temporary session created using your Amazon Web Services user credentials.</p>
@@ -1124,7 +1119,7 @@ export interface UpdateResourceInput {
   /**
    * <p>The identifier for the resource.</p>
    *          <p>You can specify the primary identifier, or any secondary identifier defined for the resource type in its resource schema. You can only specify one identifier. Primary identifiers can be specified as a string or JSON; secondary identifiers must be specified as JSON.</p>
-   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>. </p>
+   *          <p>For compound primary identifiers (that is, one that consists of multiple resource properties strung together), to specify the primary identifier as a string, list the property values <i>in the order they are specified</i> in the primary identifier definition, separated by <code>|</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    */
   Identifier: string | undefined;

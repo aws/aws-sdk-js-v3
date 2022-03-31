@@ -39,12 +39,7 @@ import {
 } from "./commands/UpdateResourceCommand";
 
 /**
- * <p>Use Amazon Web Services Cloud Control API to create, read, update, delete, and list (CRUD-L) your cloud resources that
- *       belong to a wide range of services--both Amazon Web Services and third-party.  With the Cloud Control API
- *       standardized set of application programming interfaces (APIs), you can perform CRUD-L operations
- *       on any supported resources in your Amazon Web Services account. Using Cloud Control API, you won't have to generate code
- *       or scripts specific to each individual service responsible for those resources.</p>
- *          <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
+ * <p>For more information about Amazon Web Services Cloud Control API, see the <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html">Amazon Web Services Cloud Control API User
  *         Guide</a>.</p>
  */
 export class CloudControl extends CloudControlClient {
@@ -52,7 +47,7 @@ export class CloudControl extends CloudControlClient {
    * <p>Cancels the specified resource operation request. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-cancel">Canceling resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>Only resource operations requests with a status of <code>PENDING</code> or
-   *         <code>IN_PROGRESS</code> can be cancelled.</p>
+   *         <code>IN_PROGRESS</code> can be canceled.</p>
    */
   public cancelResourceRequest(
     args: CancelResourceRequestCommandInput,
@@ -159,7 +154,7 @@ export class CloudControl extends CloudControlClient {
    * <p>Returns information about the current state of the specified resource. For details, see
    *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-read.html">Reading a resource's current state</a>.</p>
    *          <p>You can use this action to return information about an existing resource in your account
-   *       and Amazon Web Services Region, whether or not those resources were provisioned using Cloud Control API.</p>
+   *       and Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>
    */
   public getResource(args: GetResourceCommandInput, options?: __HttpHandlerOptions): Promise<GetResourceCommandOutput>;
   public getResource(args: GetResourceCommandInput, cb: (err: any, data?: GetResourceCommandOutput) => void): void;
@@ -223,7 +218,7 @@ export class CloudControl extends CloudControlClient {
    *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <note>
-   *             <p>Resource operation requests expire after seven days.</p>
+   *             <p>Resource operation requests expire after 7 days.</p>
    *          </note>
    */
   public listResourceRequests(
@@ -256,10 +251,9 @@ export class CloudControl extends CloudControlClient {
   }
 
   /**
-   * <p>Returns information about the specified resources. For more information, see <a href="cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering
-   *         resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+   * <p>Returns information about the specified resources. For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-list.html">Discovering resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    *          <p>You can use this action to return information about existing resources in your account and
-   *       Amazon Web Services Region, whether or not those resources were provisioned using Cloud Control API.</p>
+   *       Amazon Web Services Region, whether those resources were provisioned using Cloud Control API.</p>
    */
   public listResources(
     args: ListResourcesCommandInput,
@@ -302,8 +296,7 @@ export class CloudControl extends CloudControlClient {
    *       request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the
    *         <code>ProgressEvent</code> returned by <code>UpdateResource</code>.</p>
    *          <p>For more information about the properties of a specific resource, refer to the related
-   *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>Amazon Web Services
-   *         CloudFormation Users Guide</i>.</p>
+   *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
    */
   public updateResource(
     args: UpdateResourceCommandInput,

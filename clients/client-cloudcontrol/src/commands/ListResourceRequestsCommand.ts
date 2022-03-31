@@ -26,7 +26,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
  *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
  *          <note>
- *             <p>Resource operation requests expire after seven days.</p>
+ *             <p>Resource operation requests expire after 7 days.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

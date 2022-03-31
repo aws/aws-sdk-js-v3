@@ -33,8 +33,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  *       request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the
  *         <code>ProgressEvent</code> returned by <code>UpdateResource</code>.</p>
  *          <p>For more information about the properties of a specific resource, refer to the related
- *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>Amazon Web Services
- *         CloudFormation Users Guide</i>.</p>
+ *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
