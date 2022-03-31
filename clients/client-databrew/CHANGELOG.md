@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.61.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.60.0...v3.61.0) (2022-03-31)
+
+
+### Features
+
+* **client-databrew:** This AWS Glue Databrew release adds feature to support ORC as an input format. ([4ed643b](https://github.com/aws/aws-sdk-js-v3/commit/4ed643bee6af76efa1cce53743a58ec001128401))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-databrew

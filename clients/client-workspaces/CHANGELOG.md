@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.61.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.60.0...v3.61.0) (2022-03-31)
+
+
+### Features
+
+* **client-workspaces:** Added APIs that allow you to customize the logo, login message, and help links in the WorkSpaces client login page. To learn more, visit https://docs.aws.amazon.com/workspaces/latest/adminguide/customize-branding.html ([f7d75a0](https://github.com/aws/aws-sdk-js-v3/commit/f7d75a0c0424a5174538a10ddc0e1d060b5bb7df))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

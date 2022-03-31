@@ -48,7 +48,7 @@
 |@aws-sdk/lib-dynamodb|3.56.0|159.8 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/lib-storage|3.56.0|70.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/node-http-handler|3.55.0|107.6 KB|N/A|N/A|N/A|
-|@aws-sdk/polly-request-presigner|3.56.0|39.8 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/polly-request-presigner|3.58.0|40 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/s3-presigned-post|3.56.0|41.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/s3-request-presigner|3.56.0|82.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/signature-v4|3.56.0|180.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|

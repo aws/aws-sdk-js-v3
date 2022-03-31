@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.61.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.60.0...v3.61.0) (2022-03-31)
+
+
+### Features
+
+* **client-cloudcontrol:** SDK release for Cloud Control API in Amazon Web Services China (Beijing) Region, operated by Sinnet, and Amazon Web Services China (Ningxia) Region, operated by NWCD ([a83077b](https://github.com/aws/aws-sdk-js-v3/commit/a83077b0fcd59d0c9207d822526db5fa3763aa51))
+* **client-databrew:** This AWS Glue Databrew release adds feature to support ORC as an input format. ([4ed643b](https://github.com/aws/aws-sdk-js-v3/commit/4ed643bee6af76efa1cce53743a58ec001128401))
+* **client-grafana:** This release adds tagging support to the Managed Grafana service. New APIs: TagResource, UntagResource and ListTagsForResource. Updates: add optional field tags to support tagging while calling CreateWorkspace. ([38838fa](https://github.com/aws/aws-sdk-js-v3/commit/38838fa822f863c6f6e6380c31596247fac2f40e))
+* **client-pinpoint-sms-voice-v2:** Amazon Pinpoint now offers a version 2.0 suite of SMS and voice APIs, providing increased control over sending and configuration. This release is a new SDK for sending SMS and voice messages called PinpointSMSVoiceV2. ([51170c6](https://github.com/aws/aws-sdk-js-v3/commit/51170c698d15cf16fff4b413fec8de474774e9a6))
+* **client-route53-recovery-cluster:** This release adds a new API "ListRoutingControls" to list routing control states using the highly reliable Route 53 ARC data plane endpoints. ([ac15087](https://github.com/aws/aws-sdk-js-v3/commit/ac1508711cd99e732b3e5cf8fa120fe46ea2ad8b))
+* **client-workspaces:** Added APIs that allow you to customize the logo, login message, and help links in the WorkSpaces client login page. To learn more, visit https://docs.aws.amazon.com/workspaces/latest/adminguide/customize-branding.html ([f7d75a0](https://github.com/aws/aws-sdk-js-v3/commit/f7d75a0c0424a5174538a10ddc0e1d060b5bb7df))
+* **clients:** update client endpoints as of 2022-03-31 ([990c97a](https://github.com/aws/aws-sdk-js-v3/commit/990c97ab8c00f54fd53d46ae1f91151898509d15))
+* **clients:** update clients for 03/22/2022 & 03/23/2022 ([#3498](https://github.com/aws/aws-sdk-js-v3/issues/3498)) ([fc18e5c](https://github.com/aws/aws-sdk-js-v3/commit/fc18e5c1b339dc71946edd83b28bf71cf4f8eba3))
+* **smithy-client:** update client defaults provider ([37ef64a](https://github.com/aws/aws-sdk-js-v3/commit/37ef64a200d2e449029685c0f458221a0a0ac578))
+
+
+
+
+
 # [3.60.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.59.0...v3.60.0) (2022-03-30)
 
 
