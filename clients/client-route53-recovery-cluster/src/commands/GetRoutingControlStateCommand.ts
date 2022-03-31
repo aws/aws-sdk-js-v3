@@ -27,16 +27,16 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
 
 /**
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
- * 			can use to route traffic to cells. When the state is On, traffic flows to a cell. When
- * 			it's Off, traffic does not flow. </p>
- * 			      <p>Before you can create a routing control, you must first create a cluster to host the control
- * 				in a control panel. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
+ * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
+ * 				the state is Off, traffic does not flow. </p>
+ * 			      <p>Before you can create a routing control, you must first create a cluster, and then host the control
+ * 				in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
  * 					Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
- * 				Then you access one of the endpoints for the cluster to get or update the routing control state to
- * 				redirect traffic. </p>
+ * 				You access one of the endpoints for the cluster to get or update the routing control state to
+ * 				redirect traffic for your application. </p>
  * 			      <p>
  *             <i>You must specify Regional endpoints when you work with API cluster operations
- * 				to get or update routing control states in Application Recovery Controller.</i>
+ * 				to get or update routing control states in Route 53 ARC.</i>
  *          </p>
  * 			      <p>To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * 				in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API examples</a>
@@ -52,7 +52,8 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working with routing controls overall</a>
+ *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html">Working with
+ * 					routing controls in Route 53 ARC</a>
  *                </p>
  *             </li>
  *          </ul>

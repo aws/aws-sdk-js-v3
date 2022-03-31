@@ -27,9 +27,9 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
 
 /**
  * <p>Set the state of the routing control to reroute traffic. You can set the value to be On or
- * 			Off. When the state is On, traffic flows to a cell. When it's Off, traffic does not
+ * 			Off. When the state is On, traffic flows to a cell. When the state is Off, traffic does not
  * 			flow.</p>
- * 			      <p>With Application Recovery Controller, you can add safety rules for routing controls, which are safeguards for routing
+ * 			      <p>With Route 53 ARC, you can add safety rules for routing controls, which are safeguards for routing
  * 				control state updates that help prevent unexpected outcomes, like fail open traffic routing. However,
  * 				there are scenarios when you might want to bypass the routing control safeguards that are enforced with
  * 				safety rules that you've configured. For example, you might want to fail over quickly for disaster recovery,
@@ -42,7 +42,7 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * 					Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
  * 			      <p>
  *             <i>You must specify Regional endpoints when you work with API cluster operations
- * 				to get or update routing control states in Application Recovery Controller.</i>
+ * 				to get or update routing control states in Route 53 ARC.</i>
  *          </p>
  * 			      <p>To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * 				in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API examples</a>

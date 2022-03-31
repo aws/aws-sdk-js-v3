@@ -16,6 +16,10 @@ import {
   GetRoutingControlStateCommandOutput,
 } from "../commands/GetRoutingControlStateCommand";
 import {
+  ListRoutingControlsCommandInput,
+  ListRoutingControlsCommandOutput,
+} from "../commands/ListRoutingControlsCommand";
+import {
   UpdateRoutingControlStateCommandInput,
   UpdateRoutingControlStateCommandOutput,
 } from "../commands/UpdateRoutingControlStateCommand";
@@ -30,7 +34,11 @@ import {
   GetRoutingControlStateRequest,
   GetRoutingControlStateResponse,
   InternalServerException,
+  ListRoutingControlsRequest,
+  ListRoutingControlsResponse,
   ResourceNotFoundException,
+  RoutingControl,
+  ServiceLimitExceededException,
   ThrottlingException,
   UpdateRoutingControlStateEntry,
   UpdateRoutingControlStateRequest,
@@ -52,6 +60,19 @@ export const serializeAws_json1_0GetRoutingControlStateCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRoutingControlStateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListRoutingControlsCommand = async (
+  input: ListRoutingControlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ToggleCustomerAPI.ListRoutingControls",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListRoutingControlsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -102,6 +123,64 @@ const deserializeAws_json1_0GetRoutingControlStateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoutingControlStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53recoverycluster#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EndpointTemporarilyUnavailableException":
+    case "com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException":
+      throw await deserializeAws_json1_0EndpointTemporarilyUnavailableExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.route53recoverycluster#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53recoverycluster#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53recoverycluster#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_0ListRoutingControlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingControlsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListRoutingControlsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListRoutingControlsResponse(data, context);
+  const response: ListRoutingControlsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListRoutingControlsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingControlsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -244,6 +323,9 @@ const deserializeAws_json1_0UpdateRoutingControlStatesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
       throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceLimitExceededException":
+    case "com.amazonaws.route53recoverycluster#ServiceLimitExceededException":
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycluster#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
@@ -326,6 +408,19 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_0ServiceLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0ServiceLimitExceededException(body, context);
+  const exception = new ServiceLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_0ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -370,6 +465,18 @@ const serializeAws_json1_0GetRoutingControlStateRequest = (
   return {
     ...(input.RoutingControlArn !== undefined &&
       input.RoutingControlArn !== null && { RoutingControlArn: input.RoutingControlArn }),
+  };
+};
+
+const serializeAws_json1_0ListRoutingControlsRequest = (
+  input: ListRoutingControlsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ControlPanelArn !== undefined &&
+      input.ControlPanelArn !== null && { ControlPanelArn: input.ControlPanelArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -463,6 +570,7 @@ const deserializeAws_json1_0GetRoutingControlStateResponse = (
 ): GetRoutingControlStateResponse => {
   return {
     RoutingControlArn: __expectString(output.RoutingControlArn),
+    RoutingControlName: __expectString(output.RoutingControlName),
     RoutingControlState: __expectString(output.RoutingControlState),
   } as any;
 };
@@ -477,6 +585,19 @@ const deserializeAws_json1_0InternalServerException = (
   } as any;
 };
 
+const deserializeAws_json1_0ListRoutingControlsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListRoutingControlsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    RoutingControls:
+      output.RoutingControls !== undefined && output.RoutingControls !== null
+        ? deserializeAws_json1_0RoutingControls(output.RoutingControls, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -485,6 +606,41 @@ const deserializeAws_json1_0ResourceNotFoundException = (
     message: __expectString(output.message),
     resourceId: __expectString(output.resourceId),
     resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_json1_0RoutingControl = (output: any, context: __SerdeContext): RoutingControl => {
+  return {
+    ControlPanelArn: __expectString(output.ControlPanelArn),
+    ControlPanelName: __expectString(output.ControlPanelName),
+    RoutingControlArn: __expectString(output.RoutingControlArn),
+    RoutingControlName: __expectString(output.RoutingControlName),
+    RoutingControlState: __expectString(output.RoutingControlState),
+  } as any;
+};
+
+const deserializeAws_json1_0RoutingControls = (output: any, context: __SerdeContext): RoutingControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0RoutingControl(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ServiceLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ServiceLimitExceededException => {
+  return {
+    limitCode: __expectString(output.limitCode),
+    message: __expectString(output.message),
+    resourceId: __expectString(output.resourceId),
+    resourceType: __expectString(output.resourceType),
+    serviceCode: __expectString(output.serviceCode),
   } as any;
 };
 

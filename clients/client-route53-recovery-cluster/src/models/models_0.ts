@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Route53RecoveryClusterServiceException as __BaseException } from "./Route53RecoveryClusterServiceException";
 
 /**
- * <p>You don't have sufficient permissions to query the routing control state.</p>
+ * <p>You don't have sufficient permissions to perform this action.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -74,7 +74,7 @@ export class EndpointTemporarilyUnavailableException extends __BaseException {
 
 export interface GetRoutingControlStateRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) for the routing control that you want to get the state for.</p>
+   * <p>The Amazon Resource Name (ARN) for the routing control that you want to get the state for.</p>
    */
   RoutingControlArn: string | undefined;
 }
@@ -95,7 +95,7 @@ export enum RoutingControlState {
 
 export interface GetRoutingControlStateResponse {
   /**
-   * <p>The Amazon Resource Number (ARN) of the response.</p>
+   * <p>The Amazon Resource Name (ARN) of the response.</p>
    */
   RoutingControlArn: string | undefined;
 
@@ -103,6 +103,11 @@ export interface GetRoutingControlStateResponse {
    * <p>The state of the routing control.</p>
    */
   RoutingControlState: RoutingControlState | string | undefined;
+
+  /**
+   * <p>The routing control name.</p>
+   */
+  RoutingControlName?: string;
 }
 
 export namespace GetRoutingControlStateResponse {
@@ -140,7 +145,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a routing control that was not found.</p>
+ * <p>The request references a routing control or control panel that was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -257,9 +262,141 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export interface ListRoutingControlsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the control panel of the routing controls to list.</p>
+   */
+  ControlPanelArn?: string;
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The number of routing controls objects that you want to return with this call. The default value is 500.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListRoutingControlsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingControlsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A routing control, which is a simple on/off switch that you
+ * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
+ * 			the state is Off, traffic does not flow. </p>
+ */
+export interface RoutingControl {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the control panel where the routing control is located.</p>
+   */
+  ControlPanelArn?: string;
+
+  /**
+   * <p>The name of the control panel where the routing control is located.</p>
+   */
+  ControlPanelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   */
+  RoutingControlArn?: string;
+
+  /**
+   * <p>The name of the routing control.</p>
+   */
+  RoutingControlName?: string;
+
+  /**
+   * <p>The current state of the routing control. When a routing control state is On, traffic flows to a cell. When
+   * 			the state is Off, traffic does not flow. </p>
+   */
+  RoutingControlState?: RoutingControlState | string;
+}
+
+export namespace RoutingControl {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutingControl): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRoutingControlsResponse {
+  /**
+   * <p>The list of routing controls.</p>
+   */
+  RoutingControls: RoutingControl[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRoutingControlsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRoutingControlsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request can't update that many routing control states at the same time. Try again with fewer routing control states.</p>
+ */
+export class ServiceLimitExceededException extends __BaseException {
+  readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The resource identifier of the limit that was exceeded.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The resource type of the limit that was exceeded.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>The code of the limit that was exceeded.</p>
+   */
+  limitCode: string | undefined;
+
+  /**
+   * <p>The service code of the limit that was exceeded.</p>
+   */
+  serviceCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLimitExceededException, __BaseException>) {
+    super({
+      name: "ServiceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLimitExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.limitCode = opts.limitCode;
+    this.serviceCode = opts.serviceCode;
+  }
+}
+
 export interface UpdateRoutingControlStateRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) for the routing control that you want to update the state for.</p>
+   * <p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>
    */
   RoutingControlArn: string | undefined;
 
@@ -269,7 +406,7 @@ export interface UpdateRoutingControlStateRequest {
   RoutingControlState: RoutingControlState | string | undefined;
 
   /**
-   * <p>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override when you're updating the state of
+   * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of
    * 			a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
@@ -303,7 +440,7 @@ export namespace UpdateRoutingControlStateResponse {
  */
 export interface UpdateRoutingControlStateEntry {
   /**
-   * <p>The Amazon Resource Number (ARN) for a routing control state entry.</p>
+   * <p>The Amazon Resource Name (ARN) for a routing control state entry.</p>
    */
   RoutingControlArn: string | undefined;
 
@@ -329,7 +466,7 @@ export interface UpdateRoutingControlStatesRequest {
   UpdateRoutingControlStateEntries: UpdateRoutingControlStateEntry[] | undefined;
 
   /**
-   * <p>The Amazon Resource Numbers (ARNs) for the safety rules that you want to override when you're updating routing
+   * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing
    * 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
