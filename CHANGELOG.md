@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.62.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.61.0...v3.62.0) (2022-04-01)
+
+
+### Features
+
+* **client-connect:** This release updates these APIs: UpdateInstanceAttribute, DescribeInstanceAttribute and ListInstanceAttributes. You can use it to programmatically enable/disable multi-party conferencing using attribute type MULTI_PARTY_CONFERENCING on the specified Amazon Connect instance. ([f7b6683](https://github.com/aws/aws-sdk-js-v3/commit/f7b66837ec2ac795553726463fbe9157d1acd05f))
+* **clients:** update client endpoints as of 2022-04-01 ([ca7dc28](https://github.com/aws/aws-sdk-js-v3/commit/ca7dc28d87ebc04a41cdaf6567c03b892cbb9204))
+
+
+
+
+
 # [3.61.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.60.0...v3.61.0) (2022-03-31)
 
 
