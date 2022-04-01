@@ -3892,9 +3892,6 @@ export class Connect extends ConnectClient {
    * <p>Ends the specified contact. This call does not work for the following initiation methods:</p>
    *          <ul>
    *             <li>
-   *                <p>CALLBACK</p>
-   *             </li>
-   *             <li>
    *                <p>DISCONNECT</p>
    *             </li>
    *             <li>
