@@ -2993,7 +2993,7 @@ export interface SubscribeToShardOutput {
   /**
    * <p>The event stream that your consumer can use to read records from the shard.</p>
    */
-  EventStream: AsyncIterable<SubscribeToShardEventStream> | undefined;
+  EventStream: AsyncIterable<SubscribeToShardEvent> | undefined;
 }
 
 export namespace SubscribeToShardOutput {
