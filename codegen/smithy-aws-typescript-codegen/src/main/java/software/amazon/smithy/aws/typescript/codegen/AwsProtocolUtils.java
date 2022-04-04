@@ -314,12 +314,6 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // TODO remove after 1.17.1 or later
-        // https://github.com/awslabs/smithy/pull/1084
-        if (testCase.getId().equals("RestJsonOutputUnionWithUnitMember")) {
-            return true;
-        }
-
         return false;
     }
 

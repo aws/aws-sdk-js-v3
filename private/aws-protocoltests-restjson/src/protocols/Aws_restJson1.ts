@@ -1939,6 +1939,8 @@ export const serializeAws_restJson1MalformedSetCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedSet";
   let body: any;
   body = JSON.stringify({
+    ...(input.blobSet !== undefined &&
+      input.blobSet !== null && { blobSet: serializeAws_restJson1BlobSet(input.blobSet, context) }),
     ...(input.set !== undefined && input.set !== null && { set: serializeAws_restJson1SimpleSet(input.set, context) }),
   });
   return new __HttpRequest({
@@ -6145,14 +6147,8 @@ export const deserializeAws_restJson1StreamingTraitsRequireLengthCommand = async
   }
   const contents: StreamingTraitsRequireLengthCommandOutput = {
     $metadata: deserializeMetadata(output),
-    blob: undefined,
-    foo: undefined,
   };
-  if (output.headers["x-foo"] !== undefined) {
-    contents.foo = output.headers["x-foo"];
-  }
-  const data: any = output.body;
-  contents.blob = data;
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 };
 
@@ -6545,6 +6541,17 @@ const deserializeAws_restJson1InvalidGreetingResponse = async (
     ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const serializeAws_restJson1BlobSet = (input: Uint8Array[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return context.base64Encoder(entry);
+    });
 };
 
 const serializeAws_restJson1DenseBooleanMap = (input: { [key: string]: boolean }, context: __SerdeContext): any => {

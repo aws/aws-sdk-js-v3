@@ -11,26 +11,24 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StreamingTraitsRequireLengthInputOutput } from "../models/models_0";
+import { StreamingTraitsRequireLengthInput } from "../models/models_0";
 import {
   deserializeAws_restJson1StreamingTraitsRequireLengthCommand,
   serializeAws_restJson1StreamingTraitsRequireLengthCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInputOutput, "blob"> & {
+type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInput, "blob"> & {
   /**
-   * For *`StreamingTraitsRequireLengthInputOutput["blob"]`*, see {@link StreamingTraitsRequireLengthInputOutput.blob}.
+   * For *`StreamingTraitsRequireLengthInput["blob"]`*, see {@link StreamingTraitsRequireLengthInput.blob}.
    */
-  blob?: StreamingTraitsRequireLengthInputOutput["blob"] | string | Uint8Array | Buffer;
+  blob?: StreamingTraitsRequireLengthInput["blob"] | string | Uint8Array | Buffer;
 };
 /**
- * This interface extends from `StreamingTraitsRequireLengthInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsRequireLengthInputOutput}
+ * This interface extends from `StreamingTraitsRequireLengthInput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsRequireLengthInput}
  */
 export interface StreamingTraitsRequireLengthCommandInput extends StreamingTraitsRequireLengthCommandInputType {}
-export interface StreamingTraitsRequireLengthCommandOutput
-  extends StreamingTraitsRequireLengthInputOutput,
-    __MetadataBearer {}
+export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBearer {}
 
 /**
  * This examples serializes a streaming blob shape with a required content
@@ -86,8 +84,8 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsRequireLengthInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsRequireLengthInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsRequireLengthInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
