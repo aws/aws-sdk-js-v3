@@ -22,10 +22,10 @@ export interface CreateServiceCommandInput extends CreateServiceInput {}
 export interface CreateServiceCommandOutput extends CreateServiceOutput, __MetadataBearer {}
 
 /**
- * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and
- *    pipeline. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in the
- *     <i>Proton Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a>
- *    in the <i>Proton User Guide</i>.</p>
+ * <p>Create an Proton service. An Proton service is an instantiation of a service template and often includes several service instances and pipeline.
+ *       For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-services.html">Services</a> in the <i>Proton
+ *         Administrator Guide</i> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ug-service.html">Services</a> in the <i>Proton
+ *         User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

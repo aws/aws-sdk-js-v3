@@ -22,9 +22,9 @@ export interface CancelEnvironmentDeploymentCommandInput extends CancelEnvironme
 export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironmentDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>.
- *    For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the
- *     <i>Proton Administrator guide</i>.</p>
+ * <p>Attempts to cancel an environment deployment on an <a>UpdateEnvironment</a> action, if the deployment is <code>IN_PROGRESS</code>. For more
+ *       information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html">Update an environment</a> in the <i>Proton
+ *         Administrator guide</i>.</p>
  *          <p>The following list includes potential cancellation scenarios.</p>
  *          <ul>
  *             <li>
@@ -35,7 +35,7 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  *             </li>
  *             <li>
  *                <p>If the current <a>UpdateEnvironment</a> action succeeds before the cancellation attempt starts, the resulting deployment state is
- *       <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
+ *             <code>SUCCEEDED</code> and the cancellation attempt has no effect.</p>
  *             </li>
  *          </ul>
  * @example

@@ -24,18 +24,20 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
 /**
  * <p>Update an environment.</p>
  *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
- *     <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account
- *    connection.</p>
- *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment
- *    account connection was created in and is associated with the current environment.</p>
- *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include
- *    the <code>environmentAccountConnectionId</code> parameter to update or connect to an environment account connection.</p>
- *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t
- *    update both.</p>
- *          <p>If the environment was provisioned with pull request provisioning, include the <code>provisioningRepository</code> parameter and omit the
- *     <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
- *          <p>If the environment wasn't provisioned with pull request provisioning, omit the <code>provisioningRepository</code> parameter.</p>
- *          <p>There are four modes for updating an environment as described in the following. The <code>deploymentType</code> field defines the mode.</p>
+ *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
+ *          <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current
+ *       environment account connection was created in. The account connection must also be associated with the current environment.</p>
+ *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the
+ *         <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account
+ *       connection if it <i>isn't</i> already associated with an environment connection.</p>
+ *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update
+ *       both.</p>
+ *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
+ *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
+ *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+ *         Guide</i>.</p>
+ *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
  *          <dl>
  *             <dt/>
  *             <dd>
@@ -50,24 +52,23 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *                   <code>CURRENT_VERSION</code>
  *                </p>
  *                <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated.
- *        <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
+ *               <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
  *             </dd>
  *             <dt/>
  *             <dd>
  *                <p>
  *                   <code>MINOR_VERSION</code>
  *                </p>
- *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version
- *       in use, by default. You can also specify a different minor version of the current major version in use.</p>
+ *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in
+ *             use, by default. You can also specify a different minor version of the current major version in use.</p>
  *             </dd>
  *             <dt/>
  *             <dd>
  *                <p>
  *                   <code>MAJOR_VERSION</code>
  *                </p>
- *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current
- *       template, by default. You can also specify a different major version that's higher than the major version in use and a minor version
- *       (optional).</p>
+ *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template,
+ *             by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p>
  *             </dd>
  *          </dl>
  * @example

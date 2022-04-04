@@ -27,13 +27,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Notify Proton of status changes to a provisioned resource when you use pull request provisioning. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template bundles</a>.</p>
- *          <important>
- *             <p>Provisioning by pull request is currently in feature preview and is
- *     only usable with Terraform based Proton Templates. To learn more about
- *     <a href="https://aws.amazon.com/service-terms">Amazon Web Services Feature Preview terms</a>, see section 2 on Beta and
- *     Previews.</p>
- *          </important>
+ * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

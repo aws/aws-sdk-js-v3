@@ -25,11 +25,11 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
 
 /**
  * <p>If no other minor versions of an environment template exist, delete a major version of the environment template if it's not the
- *     <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor
- *    versions of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
+ *         <code>Recommended</code> version. Delete the <code>Recommended</code> version of the environment template if no other major versions or minor versions
+ *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
  *          <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
- *     <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version
- *    of an environment template is a version that's backward compatible.</p>
+ *         <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version of an
+ *       environment template is a version that's backward compatible.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

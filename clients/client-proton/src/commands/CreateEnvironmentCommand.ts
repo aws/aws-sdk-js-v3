@@ -22,23 +22,22 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can
- *    be shared across services.</p>
+ * <p>Deploy a new environment. An Proton environment is created from an environment template that defines infrastructure and resources that can be
+ *       shared across services.</p>
  *          <p class="title">
  *             <b>You can provision environments using the following methods:</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Standard provisioning: Proton makes direct calls to provision your resources.</p>
+ *                <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p>
  *             </li>
  *             <li>
- *                <p>Pull request provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your
- *      IaC engine uses to provision resources.</p>
+ *                <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC
+ *           engine uses to provision resources.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> in the
- *     <i>Proton Administrator Guide.</i>
- *          </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton Administrator
+ *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

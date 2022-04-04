@@ -22,8 +22,7 @@ export interface GetServiceInstanceCommandInput extends GetServiceInstanceInput 
 export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for a service instance. A service instance is an instantiation of service template, which is running in a specific
- *    environment.</p>
+ * <p>Get detail data for a service instance. A service instance is an instantiation of service template and it runs in a specific environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
