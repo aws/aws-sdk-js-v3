@@ -4253,9 +4253,16 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences;
 
   /**
+   * @deprecated
+   *
    * <p>The output of the provisioning artifact.</p>
    */
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[];
+
+  /**
+   * <p>A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.</p>
+   */
+  ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
 }
 
 export namespace DescribeProvisioningParametersOutput {

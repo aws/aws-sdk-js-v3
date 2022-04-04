@@ -8019,6 +8019,10 @@ const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
       output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
         : undefined,
+    ProvisioningArtifactOutputKeys:
+      output.ProvisioningArtifactOutputKeys !== undefined && output.ProvisioningArtifactOutputKeys !== null
+        ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputKeys, context)
+        : undefined,
     ProvisioningArtifactOutputs:
       output.ProvisioningArtifactOutputs !== undefined && output.ProvisioningArtifactOutputs !== null
         ? deserializeAws_json1_1ProvisioningArtifactOutputs(output.ProvisioningArtifactOutputs, context)
