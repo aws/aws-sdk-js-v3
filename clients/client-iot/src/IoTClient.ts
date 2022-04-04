@@ -461,6 +461,7 @@ import {
   ListManagedJobTemplatesCommandInput,
   ListManagedJobTemplatesCommandOutput,
 } from "./commands/ListManagedJobTemplatesCommand";
+import { ListMetricValuesCommandInput, ListMetricValuesCommandOutput } from "./commands/ListMetricValuesCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput,
@@ -859,6 +860,7 @@ export type ServiceInputTypes =
   | ListJobTemplatesCommandInput
   | ListJobsCommandInput
   | ListManagedJobTemplatesCommandInput
+  | ListMetricValuesCommandInput
   | ListMitigationActionsCommandInput
   | ListOTAUpdatesCommandInput
   | ListOutgoingCertificatesCommandInput
@@ -1097,6 +1099,7 @@ export type ServiceOutputTypes =
   | ListJobTemplatesCommandOutput
   | ListJobsCommandOutput
   | ListManagedJobTemplatesCommandOutput
+  | ListMetricValuesCommandOutput
   | ListMitigationActionsCommandOutput
   | ListOTAUpdatesCommandOutput
   | ListOutgoingCertificatesCommandOutput

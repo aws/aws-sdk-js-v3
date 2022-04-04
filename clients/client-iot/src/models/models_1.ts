@@ -34,11 +34,13 @@ import {
   CustomMetricType,
   DayOfWeek,
   DimensionType,
+  DimensionValueOperator,
   FleetMetricUnit,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
   MetricToRetain,
+  MetricValue,
   MitigationActionParams,
   OTAUpdateFile,
   OTAUpdateStatus,
@@ -6895,6 +6897,103 @@ export namespace ListManagedJobTemplatesResponse {
   });
 }
 
+export interface ListMetricValuesRequest {
+  /**
+   * <p>The name of the thing for which security profile metric values are returned.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The name of the security profile metric for which values are returned.</p>
+   */
+  metricName: string | undefined;
+
+  /**
+   * <p>The dimension name.</p>
+   */
+  dimensionName?: string;
+
+  /**
+   * <p>The dimension value operator.</p>
+   */
+  dimensionValueOperator?: DimensionValueOperator | string;
+
+  /**
+   * <p>The start of the time period for which metric values are returned.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time period for which metric values are returned.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMetricValuesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMetricValuesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A metric.</p>
+ */
+export interface MetricDatum {
+  /**
+   * <p>The time the metric value was reported.</p>
+   */
+  timestamp?: Date;
+
+  /**
+   * <p>The value reported for the metric.</p>
+   */
+  value?: MetricValue;
+}
+
+export namespace MetricDatum {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDatum): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMetricValuesResponse {
+  /**
+   * <p>The data the thing reports for the metric during the specified time period.</p>
+   */
+  metricDatumList?: MetricDatum[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
+   *         if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListMetricValuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMetricValuesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListMitigationActionsRequest {
   /**
    * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
@@ -8241,64 +8340,4 @@ export namespace ListThingGroupsForThingResponse {
   export const filterSensitiveLog = (obj: ListThingGroupsForThingResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The input for the ListThingPrincipal operation.</p>
- */
-export interface ListThingPrincipalsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-}
-
-export namespace ListThingPrincipalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the ListThingPrincipals operation.</p>
- */
-export interface ListThingPrincipalsResponse {
-  /**
-   * <p>The principals associated with the thing.</p>
-   */
-  principals?: string[];
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingPrincipalsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ReportType {
-  ERRORS = "ERRORS",
-  RESULTS = "RESULTS",
 }

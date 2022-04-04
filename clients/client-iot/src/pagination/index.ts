@@ -23,6 +23,7 @@ export * from "./ListJobExecutionsForJobPaginator";
 export * from "./ListJobExecutionsForThingPaginator";
 export * from "./ListJobTemplatesPaginator";
 export * from "./ListJobsPaginator";
+export * from "./ListMetricValuesPaginator";
 export * from "./ListMitigationActionsPaginator";
 export * from "./ListOTAUpdatesPaginator";
 export * from "./ListOutgoingCertificatesPaginator";

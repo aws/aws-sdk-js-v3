@@ -50,13 +50,72 @@ import {
   DomainConfigurationStatus,
   LogTargetType,
   RegistrationConfig,
-  ReportType,
   Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * <p>The input for the ListThingPrincipal operation.</p>
+ */
+export interface ListThingPrincipalsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace ListThingPrincipalsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingPrincipalsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the ListThingPrincipals operation.</p>
+ */
+export interface ListThingPrincipalsResponse {
+  /**
+   * <p>The principals associated with the thing.</p>
+   */
+  principals?: string[];
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListThingPrincipalsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListThingPrincipalsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ReportType {
+  ERRORS = "ERRORS",
+  RESULTS = "RESULTS",
+}
 
 export interface ListThingRegistrationTaskReportsRequest {
   /**
