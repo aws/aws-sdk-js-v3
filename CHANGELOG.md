@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.63.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.62.0...v3.63.0) (2022-04-04)
+
+
+### Features
+
+* **client-iot:** AWS IoT - AWS IoT Device Defender adds support to list metric datapoints collected for IoT devices through the ListMetricValues API ([0964244](https://github.com/aws/aws-sdk-js-v3/commit/09642440c038644af7a66d46e36fe815fb7b22a9))
+* **client-proton:** SDK release to support tagging for AWS Proton Repository resource ([19e9f72](https://github.com/aws/aws-sdk-js-v3/commit/19e9f72ab60539b87624019ba16921ce495a5d4f))
+* **client-service-catalog:** This release adds ProvisioningArtifictOutputKeys to DescribeProvisioningParameters to reference the outputs of a Provisioned Product and deprecates ProvisioningArtifactOutputs. ([2ef44bc](https://github.com/aws/aws-sdk-js-v3/commit/2ef44bce101a89f7086898da1c814f9275e887cd))
+
+
+
+
+
 # [3.62.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.61.0...v3.62.0) (2022-04-01)
 
 
