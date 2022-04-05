@@ -1496,6 +1496,37 @@ export namespace AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
 }
 
 /**
+ * <p>Details about the launch template to use.</p>
+ */
+export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
+  /**
+   * <p>The identifier of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. You must specify either <code>LaunchTemplateId</code> or <code>LaunchTemplateName</code>.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
+   */
+  Version?: string;
+}
+
+export namespace AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (
+    obj: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the instances distribution.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
@@ -1542,7 +1573,7 @@ export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
 }
 
 /**
- * <p>Details about the launch template to use.</p>
+ * <p>Details about the launch template to use for a mixed instances policy.</p>
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
   /**
@@ -1603,7 +1634,7 @@ export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
  */
 export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
   /**
-   * <p>The launch template to use.</p>
+   * <p>The launch template to use for a mixed instances policy.</p>
    */
   LaunchTemplateSpecification?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification;
 
@@ -1690,6 +1721,17 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
    * <p>The list of Availability Zones for the automatic scaling group.</p>
    */
   AvailabilityZones?: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails[];
+
+  /**
+   * <p>The launch template to use.</p>
+   */
+  LaunchTemplate?: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification;
+
+  /**
+   * <p>Indicates whether capacity rebalancing is enabled.
+   *       </p>
+   */
+  CapacityRebalance?: boolean;
 }
 
 export namespace AwsAutoScalingAutoScalingGroupDetails {
@@ -3315,6 +3357,11 @@ export interface AwsCodeBuildProjectDetails {
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
    */
   VpcConfig?: AwsCodeBuildProjectVpcConfig;
+
+  /**
+   * <p>Information about the secondary artifacts for the CodeBuild project.</p>
+   */
+  SecondaryArtifacts?: AwsCodeBuildProjectArtifactsDetails[];
 }
 
 export namespace AwsCodeBuildProjectDetails {
@@ -7930,6 +7977,30 @@ export namespace AwsElbLoadBalancerAccessLog {
 }
 
 /**
+ * <p>Provides information about additional attributes for the load balancer.</p>
+ */
+export interface AwsElbLoadBalancerAdditionalAttribute {
+  /**
+   * <p>The name of the attribute.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the attribute.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsElbLoadBalancerAdditionalAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAdditionalAttribute): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains information about the connection draining configuration for the load
  *          balancer.</p>
  */
@@ -8026,6 +8097,11 @@ export interface AwsElbLoadBalancerAttributes {
    *          evenly across all instances regardless of the Availability Zones.</p>
    */
   CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
+
+  /**
+   * <p>Any additional attributes for a load balancer.</p>
+   */
+  AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
 }
 
 export namespace AwsElbLoadBalancerAttributes {
@@ -11404,54 +11480,6 @@ export namespace AwsRdsDbInstanceEndpoint {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An option group membership.</p>
- */
-export interface AwsRdsDbOptionGroupMembership {
-  /**
-   * <p>The name of the option group.</p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The status of the option group membership.</p>
-   */
-  Status?: string;
-}
-
-export namespace AwsRdsDbOptionGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbOptionGroupMembership): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Identifies the log types to enable and disable.</p>
- */
-export interface AwsRdsPendingCloudWatchLogsExports {
-  /**
-   * <p>A list of log types that are being enabled.</p>
-   */
-  LogTypesToEnable?: string[];
-
-  /**
-   * <p>A list of log types that are being disabled.</p>
-   */
-  LogTypesToDisable?: string[];
-}
-
-export namespace AwsRdsPendingCloudWatchLogsExports {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
     ...obj,
   });
 }

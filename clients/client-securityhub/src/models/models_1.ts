@@ -56,12 +56,58 @@ import {
   AwsRdsDbInstanceAssociatedRole,
   AwsRdsDbInstanceEndpoint,
   AwsRdsDbInstanceVpcSecurityGroup,
-  AwsRdsDbOptionGroupMembership,
   AwsRdsDbParameterGroup,
   AwsRdsDbSubnetGroup,
-  AwsRdsPendingCloudWatchLogsExports,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>An option group membership.</p>
+ */
+export interface AwsRdsDbOptionGroupMembership {
+  /**
+   * <p>The name of the option group.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The status of the option group membership.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbOptionGroupMembership {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbOptionGroupMembership): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies the log types to enable and disable.</p>
+ */
+export interface AwsRdsPendingCloudWatchLogsExports {
+  /**
+   * <p>A list of log types that are being enabled.</p>
+   */
+  LogTypesToEnable?: string[];
+
+  /**
+   * <p>A list of log types that are being disabled.</p>
+   */
+  LogTypesToDisable?: string[];
+}
+
+export namespace AwsRdsPendingCloudWatchLogsExports {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>A processor feature.</p>
@@ -566,6 +612,114 @@ export namespace AwsRdsDbInstanceDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>EC2 security group information for an RDS DB security group.</p>
+ */
+export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
+  /**
+   * <p>Specifies the ID for the EC2 security group.</p>
+   */
+  Ec2SecurityGroupId?: string;
+
+  /**
+   * <p>Specifies the name of the EC2 security group.</p>
+   */
+  Ec2SecurityGroupName?: string;
+
+  /**
+   * <p>Provides the Amazon Web Services ID of the owner of the EC2 security group.</p>
+   */
+  Ec2SecurityGroupOwnerId?: string;
+
+  /**
+   * <p>Provides the status of the EC2 security group.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbSecurityGroupEc2SecurityGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupEc2SecurityGroup): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>IP range information for an RDS DB security group.</p>
+ */
+export interface AwsRdsDbSecurityGroupIpRange {
+  /**
+   * <p>Specifies the IP range.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>Specifies the status of the IP range.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsRdsDbSecurityGroupIpRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupIpRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an Amazon RDS DB security group.</p>
+ */
+export interface AwsRdsDbSecurityGroupDetails {
+  /**
+   * <p>The ARN for the DB security group.</p>
+   */
+  DbSecurityGroupArn?: string;
+
+  /**
+   * <p>Provides the description of the DB security group.</p>
+   */
+  DbSecurityGroupDescription?: string;
+
+  /**
+   * <p>Specifies the name of the DB security group.</p>
+   */
+  DbSecurityGroupName?: string;
+
+  /**
+   * <p>Contains a list of EC2 security groups.</p>
+   */
+  Ec2SecurityGroups?: AwsRdsDbSecurityGroupEc2SecurityGroup[];
+
+  /**
+   * <p>Contains a list of IP ranges.</p>
+   */
+  IpRanges?: AwsRdsDbSecurityGroupIpRange[];
+
+  /**
+   * <p>Provides the Amazon Web Services ID of the owner of a specific DB security group.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Provides VPC ID associated with the DB security group.
+   *       </p>
+   */
+  VpcId?: string;
+}
+
+export namespace AwsRdsDbSecurityGroupDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupDetails): any => ({
     ...obj,
   });
 }
@@ -1092,6 +1246,56 @@ export namespace AwsRedshiftClusterIamRole {
 }
 
 /**
+ * <p>Provides information about the logging status of the cluster.</p>
+ */
+export interface AwsRedshiftClusterLoggingStatus {
+  /**
+   * <p>The name of the S3 bucket where the log files are stored.</p>
+   */
+  BucketName?: string;
+
+  /**
+   * <p>The message indicating that the logs failed to be delivered.</p>
+   */
+  LastFailureMessage?: string;
+
+  /**
+   * <p>The last time when logs failed to be delivered.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastFailureTime?: string;
+
+  /**
+   * <p>The last time that logs were delivered successfully.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces. For example,
+   *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastSuccessfulDeliveryTime?: string;
+
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
+  LoggingEnabled?: boolean;
+
+  /**
+   * <p>Provides the prefix applied to the log file names.</p>
+   */
+  S3KeyPrefix?: string;
+}
+
+export namespace AwsRedshiftClusterLoggingStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRedshiftClusterLoggingStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Changes to the Amazon Redshift cluster that are currently pending.</p>
  */
 export interface AwsRedshiftClusterPendingModifiedValues {
@@ -1561,6 +1765,11 @@ export interface AwsRedshiftClusterDetails {
    *          VPC.</p>
    */
   VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
+
+  /**
+   * <p>Information about the logging status of the cluster.</p>
+   */
+  LoggingStatus?: AwsRedshiftClusterLoggingStatus;
 }
 
 export namespace AwsRedshiftClusterDetails {
@@ -4536,6 +4745,11 @@ export interface ResourceDetails {
    * <p>Details about an Network Firewall rule group.</p>
    */
   AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails;
+
+  /**
+   * <p>Details about an Amazon RDS DB security group.</p>
+   */
+  AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails;
 }
 
 export namespace ResourceDetails {
