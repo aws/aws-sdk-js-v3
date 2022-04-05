@@ -12,42 +12,42 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
+import { DescribeLocationFsxOpenZfsRequest, DescribeLocationFsxOpenZfsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
-  serializeAws_json1_1DescribeLocationFsxWindowsCommand,
+  deserializeAws_json1_1DescribeLocationFsxOpenZfsCommand,
+  serializeAws_json1_1DescribeLocationFsxOpenZfsCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeLocationFsxWindowsCommandInput extends DescribeLocationFsxWindowsRequest {}
-export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocationFsxWindowsResponse, __MetadataBearer {}
+export interface DescribeLocationFsxOpenZfsCommandInput extends DescribeLocationFsxOpenZfsRequest {}
+export interface DescribeLocationFsxOpenZfsCommandOutput extends DescribeLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about an Amazon FSx for Windows File Server
+ * <p>Returns metadata about an Amazon FSx for OpenZFS
  *       location, such as information about its path.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
- * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * import { DataSyncClient, DescribeLocationFsxOpenZfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationFsxOpenZfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
- * const command = new DescribeLocationFsxWindowsCommand(input);
+ * const command = new DescribeLocationFsxOpenZfsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeLocationFsxWindowsCommandInput} for command's `input` shape.
- * @see {@link DescribeLocationFsxWindowsCommandOutput} for command's `response` shape.
+ * @see {@link DescribeLocationFsxOpenZfsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocationFsxOpenZfsCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
-export class DescribeLocationFsxWindowsCommand extends $Command<
-  DescribeLocationFsxWindowsCommandInput,
-  DescribeLocationFsxWindowsCommandOutput,
+export class DescribeLocationFsxOpenZfsCommand extends $Command<
+  DescribeLocationFsxOpenZfsCommandInput,
+  DescribeLocationFsxOpenZfsCommandOutput,
   DataSyncClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeLocationFsxWindowsCommandInput) {
+  constructor(readonly input: DescribeLocationFsxOpenZfsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +60,20 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeLocationFsxWindowsCommandInput, DescribeLocationFsxWindowsCommandOutput> {
+  ): Handler<DescribeLocationFsxOpenZfsCommandInput, DescribeLocationFsxOpenZfsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "DataSyncClient";
-    const commandName = "DescribeLocationFsxWindowsCommand";
+    const commandName = "DescribeLocationFsxOpenZfsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxWindowsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationFsxWindowsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocationFsxOpenZfsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocationFsxOpenZfsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,15 +83,15 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeLocationFsxWindowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeLocationFsxWindowsCommand(input, context);
+  private serialize(input: DescribeLocationFsxOpenZfsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeLocationFsxOpenZfsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeLocationFsxWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeLocationFsxWindowsCommand(output, context);
+  ): Promise<DescribeLocationFsxOpenZfsCommandOutput> {
+    return deserializeAws_json1_1DescribeLocationFsxOpenZfsCommand(output, context);
   }
 
   // Start section: command_body_extra

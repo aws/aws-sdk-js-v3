@@ -235,15 +235,15 @@ export namespace CreateAgentResponse {
 }
 
 /**
- * <p>The subnet and the security group that DataSync uses to access target EFS file system.
- *       The subnet must have at least one mount target for that file system. The security group that
- *       you provide needs to be able to communicate with the security group on the mount target in the
+ * <p>The subnet that DataSync uses to access target EFS file system. The
+ *       subnet must have at least one mount target for that file system. The security group that you
+ *       provide needs to be able to communicate with the security group on the mount target in the
  *       subnet specified. </p>
  */
 export interface Ec2Config {
   /**
-   * <p>The ARN of the subnet and the security group that DataSync uses to access the target
-   *       EFS file system.</p>
+   * <p>The ARN of the subnet that DataSync uses to access the target EFS file
+   *       system.</p>
    */
   SubnetArn: string | undefined;
 
@@ -397,6 +397,157 @@ export namespace CreateLocationFsxLustreResponse {
   });
 }
 
+export enum NfsVersion {
+  AUTOMATIC = "AUTOMATIC",
+  NFS3 = "NFS3",
+  NFS4_0 = "NFS4_0",
+  NFS4_1 = "NFS4_1",
+}
+
+/**
+ * <p>Represents the mount options that are available for DataSync to access an NFS
+ *       location.</p>
+ */
+export interface NfsMountOptions {
+  /**
+   * <p>The specific NFS version that you want DataSync to use to mount your NFS share. If the
+   *       server refuses to use the version specified, the sync will fail. If you don't specify a
+   *       version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync automatically
+   *       selects a version based on negotiation with the NFS server.</p>
+   *
+   *          <p>You can specify the following NFS versions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <a href="https://tools.ietf.org/html/rfc1813">NFSv3</a>
+   *                   </b> - stateless protocol version that allows for asynchronous
+   *           writes on the server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a>
+   *                   </b> - stateful, firewall-friendly protocol version that supports
+   *           delegations and pseudo file systems.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a>
+   *                   </b> - stateful protocol version that supports sessions,
+   *           directory delegations, and parallel data processing. Version 4.1 also includes all
+   *           features available in version 4.0.</p>
+   *             </li>
+   *          </ul>
+   */
+  Version?: NfsVersion | string;
+}
+
+export namespace NfsMountOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NfsMountOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the Network File System (NFS) protocol that DataSync uses to access your Amazon FSx for OpenZFS file system.</p>
+ */
+export interface FsxProtocolNfs {
+  /**
+   * <p>Represents the mount options that are available for DataSync to access an NFS
+   *       location.</p>
+   */
+  MountOptions?: NfsMountOptions;
+}
+
+export namespace FsxProtocolNfs {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FsxProtocolNfs): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the protocol that DataSync uses to access your Amazon FSx for OpenZFS file system.</p>
+ */
+export interface FsxProtocol {
+  /**
+   * <p>Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.</p>
+   */
+  NFS?: FsxProtocolNfs;
+}
+
+export namespace FsxProtocol {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FsxProtocol): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLocationFsxOpenZfsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.</p>
+   */
+  FsxFilesystemArn: string | undefined;
+
+  /**
+   * <p>The type of protocol that DataSync uses to
+   *       access your file system.</p>
+   */
+  Protocol: FsxProtocol | undefined;
+
+  /**
+   * <p>The ARNs of the security groups that are used to configure the
+   *       FSx for OpenZFS file system.</p>
+   */
+  SecurityGroupArns: string[] | undefined;
+
+  /**
+   * <p>A subdirectory in the location's path that must begin with <code>/fsx</code>. DataSync uses this subdirectory to read
+   *       or write data (depending on whether the file system is a source or destination
+   *       location).</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.</p>
+   */
+  Tags?: TagListEntry[];
+}
+
+export namespace CreateLocationFsxOpenZfsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxOpenZfsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLocationFsxOpenZfsResponse {
+  /**
+   * <p>The ARN of the FSx for OpenZFS file system location that you created.</p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationFsxOpenZfsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationFsxOpenZfsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateLocationFsxWindowsRequest {
   /**
    * <p>A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows
@@ -411,7 +562,7 @@ export interface CreateLocationFsxWindowsRequest {
   FsxFilesystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are used to configure the
+   * <p>The ARNs of the security groups that are used to configure the
    *       FSx for Windows File Server file system.</p>
    */
   SecurityGroupArns: string[] | undefined;
@@ -456,7 +607,7 @@ export namespace CreateLocationFsxWindowsRequest {
 export interface CreateLocationFsxWindowsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server file system location
-   *       that is created.</p>
+   *       you created.</p>
    */
   LocationArn?: string;
 }
@@ -675,62 +826,6 @@ export namespace CreateLocationHdfsResponse {
   });
 }
 
-export enum NfsVersion {
-  AUTOMATIC = "AUTOMATIC",
-  NFS3 = "NFS3",
-  NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1",
-}
-
-/**
- * <p>Represents the mount options that are available for DataSync to access an NFS
- *       location.</p>
- */
-export interface NfsMountOptions {
-  /**
-   * <p>The specific NFS version that you want DataSync to use to mount your NFS share. If the
-   *       server refuses to use the version specified, the sync will fail. If you don't specify a
-   *       version, DataSync defaults to <code>AUTOMATIC</code>. That is, DataSync automatically
-   *       selects a version based on negotiation with the NFS server.</p>
-   *
-   *          <p>You can specify the following NFS versions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc1813">NFSv3</a>
-   *                   </b> - stateless protocol version that allows for asynchronous
-   *           writes on the server.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a>
-   *                   </b> - stateful, firewall-friendly protocol version that supports
-   *           delegations and pseudo file systems.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <a href="https://tools.ietf.org/html/rfc5661">NFSv4.1</a>
-   *                   </b> - stateful protocol version that supports sessions,
-   *           directory delegations, and parallel data processing. Version 4.1 also includes all
-   *           features available in version 4.0.</p>
-   *             </li>
-   *          </ul>
-   */
-  Version?: NfsVersion | string;
-}
-
-export namespace NfsMountOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NfsMountOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of Amazon Resource Names (ARNs) of agents to use for a Network File System (NFS)
  *       location.</p>
@@ -779,8 +874,8 @@ export interface CreateLocationNfsRequest {
 
   /**
    * <p>The name of the NFS server. This value is the IP address or Domain Name Service (DNS)
-   *       name of the NFS server. An agent that is installed on-premises uses this host name to mount
-   *       the NFS server in a network. </p>
+   *       name of the NFS server. An agent that is installed on-premises uses this hostname to mount the
+   *       NFS server in a network. </p>
    *          <p>If you are copying data to or from your Snowcone device, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone">NFS Server on Snowcone</a> for more information.</p>
    *          <note>
    *             <p>This name must either be DNS-compliant or must be an IP version 4 (IPv4)
@@ -847,9 +942,9 @@ export enum ObjectStorageServerProtocol {
  */
 export interface CreateLocationObjectStorageRequest {
   /**
-   * <p>The name of the self-managed object storage server. This value is the
-   *       IP address or Domain Name Service (DNS) name of the object storage server.
-   *       An agent uses this host name to mount the object storage server in a network. </p>
+   * <p>The name of the self-managed object storage server. This value is the IP address or Domain
+   *       Name Service (DNS) name of the object storage server. An agent uses this hostname to mount the
+   *       object storage server in a network. </p>
    */
   ServerHostname: string | undefined;
 
@@ -938,17 +1033,15 @@ export namespace CreateLocationObjectStorageResponse {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
- *       that is used to access an Amazon S3 bucket.</p>
+ * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
+ *       an Amazon S3 bucket.</p>
  *
  *          <p>For detailed information about using such a role, see Creating a Location for
  *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
  */
 export interface S3Config {
   /**
-   * <p>The Amazon S3 bucket to access. This bucket is used as a parameter in the
-   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html">CreateLocationS3</a>
-   *       operation. </p>
+   * <p>The ARN of the IAM role for accessing the S3 bucket. </p>
    */
   BucketAccessRoleArn: string | undefined;
 }
@@ -999,8 +1092,8 @@ export interface CreateLocationS3Request {
   S3StorageClass?: S3StorageClass | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
-   *       that is used to access an Amazon S3 bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
+   *       an Amazon S3 bucket.</p>
    *
    *          <p>For detailed information about using such a role, see Creating a Location for
    *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
@@ -1008,9 +1101,10 @@ export interface CreateLocationS3Request {
   S3Config: S3Config | undefined;
 
   /**
-   * <p>If you are using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource Names (ARNs) of
-   *       the DataSync agents deployed on your Outpost. For more information about launching a DataSync
-   *       agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on Outposts</a>.</p>
+   * <p>If you're using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
+   *       Names (ARNs) of the DataSync agents deployed on your Outpost. For more information about
+   *       launching a DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent
+   *         on Outposts</a>.</p>
    */
   AgentArns?: string[];
 
@@ -1308,8 +1402,7 @@ export interface Options {
    *          <p>POINT_IN_TIME_CONSISTENT: Scan the entire source and entire destination
    *       at the end of the transfer
    *       to verify that source and destination are fully
-   *       synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier
-   *       Deep Archive storage classes.</p>
+   *       synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.</p>
    *          <p>NONE: No additional verification is done at the end of the
    *       transfer, but all data transmissions are integrity-checked with
    *       checksum verification during the transfer.</p>
@@ -1883,9 +1976,9 @@ export interface DescribeLocationEfsResponse {
   LocationUri?: string;
 
   /**
-   * <p>The subnet and the security group that DataSync uses to access target EFS file system.
-   *       The subnet must have at least one mount target for that file system. The security group that
-   *       you provide needs to be able to communicate with the security group on the mount target in the
+   * <p>The subnet that DataSync uses to access target EFS file system. The
+   *       subnet must have at least one mount target for that file system. The security group that you
+   *       provide needs to be able to communicate with the security group on the mount target in the
    *       subnet specified. </p>
    */
   Ec2Config?: Ec2Config;
@@ -1948,6 +2041,63 @@ export namespace DescribeLocationFsxLustreResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeLocationFsxLustreResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocationFsxOpenZfsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the FSx for OpenZFS location to describe.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationFsxOpenZfsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxOpenZfsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocationFsxOpenZfsResponse {
+  /**
+   * <p>The ARN of the FSx for OpenZFS location that was described.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The uniform resource identifier (URI) of the FSx for OpenZFS location that was
+   *       described.</p>
+   *          <p>Example: <code>fsxz://us-west-2.fs-1234567890abcdef02/fsx/folderA/folder</code>
+   *          </p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>The ARNs of the security groups that are configured for the FSx for OpenZFS file
+   *       system.</p>
+   */
+  SecurityGroupArns?: string[];
+
+  /**
+   * <p>The type of protocol that DataSync uses to
+   *       access your file system.</p>
+   */
+  Protocol?: FsxProtocol;
+
+  /**
+   * <p>The time that the FSx for OpenZFS location was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace DescribeLocationFsxOpenZfsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationFsxOpenZfsResponse): any => ({
     ...obj,
   });
 }
@@ -2280,8 +2430,8 @@ export interface DescribeLocationS3Response {
   S3StorageClass?: S3StorageClass | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
-   *       that is used to access an Amazon S3 bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
+   *       an Amazon S3 bucket.</p>
    *
    *          <p>For detailed information about using such a role, see Creating a Location for
    *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
@@ -2897,11 +3047,12 @@ export interface LocationListEntry {
    *       contains a list of locations when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a> operation is
    *       called.</p>
    *          <p>Format: <code>TYPE://GLOBAL_ID/SUBDIR</code>.</p>
-   *          <p>TYPE designates the type of location. Valid values: NFS | EFS | S3.</p>
+   *          <p>TYPE designates the type of location (for example, <code>nfs</code> or
+   *       <code>s3</code>).</p>
    *          <p>GLOBAL_ID is the globally unique identifier of the resource that backs the location. An
    *       example for EFS is <code>us-east-2.fs-abcd1234</code>. An example for Amazon S3 is the bucket
-   *       name, such as <code>myBucket</code>. An example for NFS is a valid IPv4 address or a host name
-   *       compliant with Domain Name Service (DNS).</p>
+   *       name, such as <code>myBucket</code>. An example for NFS is a valid IPv4 address or a hostname
+   *       that is compliant with Domain Name Service (DNS).</p>
    *          <p>SUBDIR is a valid file system path, delimited by forward slashes as is the *nix
    *       convention. For NFS and Amazon EFS, it's the export path to mount the location. For
    *       Amazon S3, it's the prefix path that you mount to and treat as the root of the
@@ -3449,16 +3600,16 @@ export interface UpdateLocationHdfsRequest {
   /**
    * <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
    *       principal and the encrypted keys. You can load the keytab from a file by providing the file's
-   *       address. If you use the AWS CLI, it performs base64 encoding for you. Otherwise, provide the
-   *       base64-encoded text.</p>
+   *       address. If you use the CLI, it performs base64 encoding for you. Otherwise,
+   *       provide the base64-encoded text.</p>
    */
   KerberosKeytab?: Uint8Array;
 
   /**
    * <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You
    *       can load the <code>krb5.conf</code> file by providing the file's address. If you're using the
-   *       AWS CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
-   *       text.</p>
+   *         CLI, it performs the base64 encoding for you. Otherwise, provide the
+   *       base64-encoded text.</p>
    */
   KerberosKrb5Conf?: Uint8Array;
 
