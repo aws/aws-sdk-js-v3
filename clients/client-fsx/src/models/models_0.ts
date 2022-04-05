@@ -149,6 +149,7 @@ export enum FileSystemLifecycle {
   DELETING = "DELETING",
   FAILED = "FAILED",
   MISCONFIGURED = "MISCONFIGURED",
+  MISCONFIGURED_UNAVAILABLE = "MISCONFIGURED_UNAVAILABLE",
   UPDATING = "UPDATING",
 }
 
@@ -6915,9 +6916,9 @@ export interface RestoreVolumeFromSnapshotRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes any volumes cloned from this
-   *                     volume. If there are any cloned volumes and this option isn't used,
-   *                         <code>RestoreVolumeFromSnapshot</code> fails.</p>
+   *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes any dependent clone volumes
+   *                     created from intermediate snapshots. If there are any dependent clone volumes and this
+   *                     option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p>
    *             </li>
    *          </ul>
    */
@@ -7240,7 +7241,7 @@ export interface UpdateFileSystemOntapConfiguration {
 
   /**
    * <p>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes per second
-   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *             (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</p>
    */
   ThroughputCapacity?: number;
 }
@@ -7995,6 +7996,11 @@ export interface FileSystem {
    *             <li>
    *                <p>
    *                   <code>MISCONFIGURED</code> - The file system is in a failed but recoverable state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURED_UNAVAILABLE</code> - (Amazon FSx for Windows File Server only) The file system is
+   *                     currently unavailable due to a change in your Active Directory configuration.</p>
    *             </li>
    *             <li>
    *                <p>
