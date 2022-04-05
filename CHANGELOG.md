@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.64.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.63.0...v3.64.0) (2022-04-05)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports Amazon FSx for OpenZFS locations. ([9159aa9](https://github.com/aws/aws-sdk-js-v3/commit/9159aa90df2e4f01792501c5b64a3b41fa8282e8))
+* **client-fsx:** Provide customers more visibility into file system status by adding new "Misconfigured Unavailable" status for Amazon FSx for Windows File Server. ([c921027](https://github.com/aws/aws-sdk-js-v3/commit/c921027a293f7f1c5e1300ad541070b6a01e7fbc))
+* **client-securityhub:** Added additional ASFF details for RdsSecurityGroup AutoScalingGroup, ElbLoadBalancer, CodeBuildProject and RedshiftCluster. ([6f94efe](https://github.com/aws/aws-sdk-js-v3/commit/6f94efe1597ec6be62be3bd93c091b73e7d2e023))
+
+
+
+
+
 # [3.63.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.62.0...v3.63.0) (2022-04-04)
 
 
