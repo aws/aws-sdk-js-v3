@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.65.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.64.0...v3.65.0) (2022-04-06)
+
+
+### Features
+
+* **client-kendra:** Amazon Kendra now provides a data source connector for Box. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html ([23658e5](https://github.com/aws/aws-sdk-js-v3/commit/23658e58933ed49de16a4ddbe52e3f920b084404))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

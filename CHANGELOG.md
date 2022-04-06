@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.65.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.64.0...v3.65.0) (2022-04-06)
+
+
+### Features
+
+* **client-config-service:** Add resourceType enums for AWS::EMR::SecurityConfiguration and AWS::SageMaker::CodeRepository ([19e9658](https://github.com/aws/aws-sdk-js-v3/commit/19e96583b3e2463799dccb9415aa0a1e47515224))
+* **client-kendra:** Amazon Kendra now provides a data source connector for Box. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html ([23658e5](https://github.com/aws/aws-sdk-js-v3/commit/23658e58933ed49de16a4ddbe52e3f920b084404))
+* **client-lambda:** This release adds new APIs for creating and managing Lambda Function URLs and adds a new FunctionUrlAuthType parameter to the AddPermission API. Customers can use Function URLs to create built-in HTTPS endpoints on their functions. ([aeba101](https://github.com/aws/aws-sdk-js-v3/commit/aeba101970c66c4dd3ee3be790ae0d07459d51ca))
+* **client-panorama:** Added Brand field to device listings. ([a8b16e4](https://github.com/aws/aws-sdk-js-v3/commit/a8b16e42885107adcab28db05771679ad5209521))
+* **clients:** update client endpoints as of 2022-04-06 ([11b2fe6](https://github.com/aws/aws-sdk-js-v3/commit/11b2fe68b7484cc685559891be3f949b93c84ce2))
+
+
+
+
+
 # [3.64.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.63.0...v3.64.0) (2022-04-05)
 
 

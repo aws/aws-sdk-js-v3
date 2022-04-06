@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.65.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.64.0...v3.65.0) (2022-04-06)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-04-06 ([11b2fe6](https://github.com/aws/aws-sdk-js-v3/commit/11b2fe68b7484cc685559891be3f949b93c84ce2))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-iotsitewise

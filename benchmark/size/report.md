@@ -25,7 +25,7 @@
 |@aws-sdk/client-iam|3.56.0|3.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-kinesis|3.56.0|939.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-kms|3.56.0|1.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-lambda|3.56.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-lambda|3.58.0|2.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-opsworks|3.56.0|1.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-pinpoint|3.56.0|3.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-resource-groups-tagging-api|3.56.0|408.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
