@@ -24,11 +24,11 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds or updates an Config rule for evaluating whether your
  * 			Amazon Web Services resources comply with your desired configurations.</p>
- * 		       <p>You can use this action for custom Config rules and Config
- * 			managed rules. A custom Config rule is a rule that you
+ * 		       <p>You can use this action for Config custom rules and Config
+ * 			managed rules. A Config custom rule is a rule that you
  * 			develop and maintain. An Config managed rule is a customizable,
  * 			predefined rule that Config provides.</p>
- * 		       <p>If you are adding a new custom Config rule, you must first
+ * 		       <p>If you are adding a new Config custom rule, you must first
  * 			create the Lambda function that the rule invokes to evaluate
  * 			your resources. When you use the <code>PutConfigRule</code> action
  * 			to add the rule to Config, you must specify the Amazon Resource
