@@ -3,6 +3,7 @@ export * from "./ListAliasesPaginator";
 export * from "./ListCodeSigningConfigsPaginator";
 export * from "./ListEventSourceMappingsPaginator";
 export * from "./ListFunctionEventInvokeConfigsPaginator";
+export * from "./ListFunctionUrlConfigsPaginator";
 export * from "./ListFunctionsByCodeSigningConfigPaginator";
 export * from "./ListFunctionsPaginator";
 export * from "./ListLayerVersionsPaginator";

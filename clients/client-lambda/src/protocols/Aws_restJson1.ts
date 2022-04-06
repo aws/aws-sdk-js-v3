@@ -34,6 +34,10 @@ import {
   CreateEventSourceMappingCommandOutput,
 } from "../commands/CreateEventSourceMappingCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../commands/CreateFunctionCommand";
+import {
+  CreateFunctionUrlConfigCommandInput,
+  CreateFunctionUrlConfigCommandOutput,
+} from "../commands/CreateFunctionUrlConfigCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
 import {
   DeleteCodeSigningConfigCommandInput,
@@ -56,6 +60,10 @@ import {
   DeleteFunctionEventInvokeConfigCommandInput,
   DeleteFunctionEventInvokeConfigCommandOutput,
 } from "../commands/DeleteFunctionEventInvokeConfigCommand";
+import {
+  DeleteFunctionUrlConfigCommandInput,
+  DeleteFunctionUrlConfigCommandOutput,
+} from "../commands/DeleteFunctionUrlConfigCommand";
 import { DeleteLayerVersionCommandInput, DeleteLayerVersionCommandOutput } from "../commands/DeleteLayerVersionCommand";
 import {
   DeleteProvisionedConcurrencyConfigCommandInput,
@@ -88,6 +96,10 @@ import {
   GetFunctionEventInvokeConfigCommandInput,
   GetFunctionEventInvokeConfigCommandOutput,
 } from "../commands/GetFunctionEventInvokeConfigCommand";
+import {
+  GetFunctionUrlConfigCommandInput,
+  GetFunctionUrlConfigCommandOutput,
+} from "../commands/GetFunctionUrlConfigCommand";
 import {
   GetLayerVersionByArnCommandInput,
   GetLayerVersionByArnCommandOutput,
@@ -122,6 +134,10 @@ import {
   ListFunctionsByCodeSigningConfigCommandOutput,
 } from "../commands/ListFunctionsByCodeSigningConfigCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
+import {
+  ListFunctionUrlConfigsCommandInput,
+  ListFunctionUrlConfigsCommandOutput,
+} from "../commands/ListFunctionUrlConfigsCommand";
 import { ListLayersCommandInput, ListLayersCommandOutput } from "../commands/ListLayersCommand";
 import { ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput } from "../commands/ListLayerVersionsCommand";
 import {
@@ -179,6 +195,10 @@ import {
   UpdateFunctionEventInvokeConfigCommandInput,
   UpdateFunctionEventInvokeConfigCommandOutput,
 } from "../commands/UpdateFunctionEventInvokeConfigCommand";
+import {
+  UpdateFunctionUrlConfigCommandInput,
+  UpdateFunctionUrlConfigCommandOutput,
+} from "../commands/UpdateFunctionUrlConfigCommand";
 import { LambdaServiceException as __BaseException } from "../models/LambdaServiceException";
 import {
   AccountLimit,
@@ -193,6 +213,7 @@ import {
   CodeStorageExceededException,
   CodeVerificationFailedException,
   Concurrency,
+  Cors,
   DeadLetterConfig,
   DestinationConfig,
   EC2AccessDeniedException,
@@ -217,6 +238,7 @@ import {
   FunctionConfiguration,
   FunctionEventInvokeConfig,
   FunctionResponseType,
+  FunctionUrlConfig,
   ImageConfig,
   ImageConfigError,
   ImageConfigResponse,
@@ -340,6 +362,8 @@ export const serializeAws_restJson1AddPermissionCommand = async (
     ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
     ...(input.EventSourceToken !== undefined &&
       input.EventSourceToken !== null && { EventSourceToken: input.EventSourceToken }),
+    ...(input.FunctionUrlAuthType !== undefined &&
+      input.FunctionUrlAuthType !== null && { FunctionUrlAuthType: input.FunctionUrlAuthType }),
     ...(input.Principal !== undefined && input.Principal !== null && { Principal: input.Principal }),
     ...(input.PrincipalOrgID !== undefined &&
       input.PrincipalOrgID !== null && { PrincipalOrgID: input.PrincipalOrgID }),
@@ -577,6 +601,45 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateFunctionUrlConfigCommand = async (
+  input: CreateFunctionUrlConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AuthType !== undefined && input.AuthType !== null && { AuthType: input.AuthType }),
+    ...(input.Cors !== undefined && input.Cors !== null && { Cors: serializeAws_restJson1Cors(input.Cors, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteAliasCommand = async (
   input: DeleteAliasCommandInput,
   context: __SerdeContext
@@ -777,6 +840,39 @@ export const serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = asyn
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteFunctionUrlConfigCommand = async (
+  input: DeleteFunctionUrlConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1132,6 +1228,39 @@ export const serializeAws_restJson1GetFunctionEventInvokeConfigCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2019-09-25/functions/{FunctionName}/event-invoke-config";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetFunctionUrlConfigCommand = async (
+  input: GetFunctionUrlConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1570,6 +1699,40 @@ export const serializeAws_restJson1ListFunctionsByCodeSigningConfigCommand = asy
     resolvedPath = resolvedPath.replace("{CodeSigningConfigArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CodeSigningConfigArn.");
+  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListFunctionUrlConfigsCommand = async (
+  input: ListFunctionUrlConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/urls";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2478,6 +2641,45 @@ export const serializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = asyn
   });
 };
 
+export const serializeAws_restJson1UpdateFunctionUrlConfigCommand = async (
+  input: UpdateFunctionUrlConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-10-31/functions/{FunctionName}/url";
+  if (input.FunctionName !== undefined) {
+    const labelValue: string = input.FunctionName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FunctionName.");
+    }
+    resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  const query: any = {
+    ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AuthType !== undefined && input.AuthType !== null && { AuthType: input.AuthType }),
+    ...(input.Cors !== undefined && input.Cors !== null && { Cors: serializeAws_restJson1Cors(input.Cors, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1AddLayerVersionPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3080,6 +3282,78 @@ const deserializeAws_restJson1CreateFunctionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateFunctionUrlConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFunctionUrlConfigCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateFunctionUrlConfigCommandError(output, context);
+  }
+  const contents: CreateFunctionUrlConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AuthType: undefined,
+    Cors: undefined,
+    CreationTime: undefined,
+    FunctionArn: undefined,
+    FunctionUrl: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AuthType !== undefined && data.AuthType !== null) {
+    contents.AuthType = __expectString(data.AuthType);
+  }
+  if (data.Cors !== undefined && data.Cors !== null) {
+    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+  }
+  if (data.CreationTime !== undefined && data.CreationTime !== null) {
+    contents.CreationTime = __expectString(data.CreationTime);
+  }
+  if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
+  if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+    contents.FunctionUrl = __expectString(data.FunctionUrl);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateFunctionUrlConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFunctionUrlConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3521,6 +3795,55 @@ const deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError = asyn
     case "InvalidParameterValueException":
     case "com.amazonaws.lambda#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteFunctionUrlConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFunctionUrlConfigCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFunctionUrlConfigCommandError(output, context);
+  }
+  const contents: DeleteFunctionUrlConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFunctionUrlConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFunctionUrlConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ResourceConflictException":
     case "com.amazonaws.lambda#ResourceConflictException":
       throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
@@ -4359,6 +4682,79 @@ const deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1GetFunctionUrlConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFunctionUrlConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetFunctionUrlConfigCommandError(output, context);
+  }
+  const contents: GetFunctionUrlConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AuthType: undefined,
+    Cors: undefined,
+    CreationTime: undefined,
+    FunctionArn: undefined,
+    FunctionUrl: undefined,
+    LastModifiedTime: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AuthType !== undefined && data.AuthType !== null) {
+    contents.AuthType = __expectString(data.AuthType);
+  }
+  if (data.Cors !== undefined && data.Cors !== null) {
+    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+  }
+  if (data.CreationTime !== undefined && data.CreationTime !== null) {
+    contents.CreationTime = __expectString(data.CreationTime);
+  }
+  if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
+  if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+    contents.FunctionUrl = __expectString(data.FunctionUrl);
+  }
+  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
+    contents.LastModifiedTime = __expectString(data.LastModifiedTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetFunctionUrlConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFunctionUrlConfigCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5276,6 +5672,63 @@ const deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError = asy
     case "ServiceException":
     case "com.amazonaws.lambda#ServiceException":
       throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListFunctionUrlConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFunctionUrlConfigsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFunctionUrlConfigsCommandError(output, context);
+  }
+  const contents: ListFunctionUrlConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FunctionUrlConfigs: undefined,
+    NextMarker: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FunctionUrlConfigs !== undefined && data.FunctionUrlConfigs !== null) {
+    contents.FunctionUrlConfigs = deserializeAws_restJson1FunctionUrlConfigList(data.FunctionUrlConfigs, context);
+  }
+  if (data.NextMarker !== undefined && data.NextMarker !== null) {
+    contents.NextMarker = __expectString(data.NextMarker);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFunctionUrlConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFunctionUrlConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -7087,6 +7540,82 @@ const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError = asyn
   }
 };
 
+export const deserializeAws_restJson1UpdateFunctionUrlConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFunctionUrlConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFunctionUrlConfigCommandError(output, context);
+  }
+  const contents: UpdateFunctionUrlConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AuthType: undefined,
+    Cors: undefined,
+    CreationTime: undefined,
+    FunctionArn: undefined,
+    FunctionUrl: undefined,
+    LastModifiedTime: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AuthType !== undefined && data.AuthType !== null) {
+    contents.AuthType = __expectString(data.AuthType);
+  }
+  if (data.Cors !== undefined && data.Cors !== null) {
+    contents.Cors = deserializeAws_restJson1Cors(data.Cors, context);
+  }
+  if (data.CreationTime !== undefined && data.CreationTime !== null) {
+    contents.CreationTime = __expectString(data.CreationTime);
+  }
+  if (data.FunctionArn !== undefined && data.FunctionArn !== null) {
+    contents.FunctionArn = __expectString(data.FunctionArn);
+  }
+  if (data.FunctionUrl !== undefined && data.FunctionUrl !== null) {
+    contents.FunctionUrl = __expectString(data.FunctionUrl);
+  }
+  if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
+    contents.LastModifiedTime = __expectString(data.LastModifiedTime);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFunctionUrlConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFunctionUrlConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.lambda#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.lambda#ResourceConflictException":
+      throw await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lambda#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.lambda#ServiceException":
+      throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lambda#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_restJson1CodeSigningConfigNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7784,6 +8313,28 @@ const serializeAws_restJson1AllowedPublishers = (input: AllowedPublishers, conte
   };
 };
 
+const serializeAws_restJson1AllowMethodsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1AllowOriginsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7827,6 +8378,28 @@ const serializeAws_restJson1CompatibleRuntimes = (input: (Runtime | string)[], c
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1Cors = (input: Cors, context: __SerdeContext): any => {
+  return {
+    ...(input.AllowCredentials !== undefined &&
+      input.AllowCredentials !== null && { AllowCredentials: input.AllowCredentials }),
+    ...(input.AllowHeaders !== undefined &&
+      input.AllowHeaders !== null && { AllowHeaders: serializeAws_restJson1HeadersList(input.AllowHeaders, context) }),
+    ...(input.AllowMethods !== undefined &&
+      input.AllowMethods !== null && {
+        AllowMethods: serializeAws_restJson1AllowMethodsList(input.AllowMethods, context),
+      }),
+    ...(input.AllowOrigins !== undefined &&
+      input.AllowOrigins !== null && {
+        AllowOrigins: serializeAws_restJson1AllowOriginsList(input.AllowOrigins, context),
+      }),
+    ...(input.ExposeHeaders !== undefined &&
+      input.ExposeHeaders !== null && {
+        ExposeHeaders: serializeAws_restJson1HeadersList(input.ExposeHeaders, context),
+      }),
+    ...(input.MaxAge !== undefined && input.MaxAge !== null && { MaxAge: input.MaxAge }),
+  };
 };
 
 const serializeAws_restJson1DeadLetterConfig = (input: DeadLetterConfig, context: __SerdeContext): any => {
@@ -7950,6 +8523,17 @@ const serializeAws_restJson1FunctionResponseTypeList = (
   input: (FunctionResponseType | string)[],
   context: __SerdeContext
 ): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1HeadersList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8212,6 +8796,30 @@ const deserializeAws_restJson1AllowedPublishers = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1AllowMethodsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AllowOriginsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8289,6 +8897,29 @@ const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __Serd
 const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContext): Concurrency => {
   return {
     ReservedConcurrentExecutions: __expectInt32(output.ReservedConcurrentExecutions),
+  } as any;
+};
+
+const deserializeAws_restJson1Cors = (output: any, context: __SerdeContext): Cors => {
+  return {
+    AllowCredentials: __expectBoolean(output.AllowCredentials),
+    AllowHeaders:
+      output.AllowHeaders !== undefined && output.AllowHeaders !== null
+        ? deserializeAws_restJson1HeadersList(output.AllowHeaders, context)
+        : undefined,
+    AllowMethods:
+      output.AllowMethods !== undefined && output.AllowMethods !== null
+        ? deserializeAws_restJson1AllowMethodsList(output.AllowMethods, context)
+        : undefined,
+    AllowOrigins:
+      output.AllowOrigins !== undefined && output.AllowOrigins !== null
+        ? deserializeAws_restJson1AllowOriginsList(output.AllowOrigins, context)
+        : undefined,
+    ExposeHeaders:
+      output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
+        ? deserializeAws_restJson1HeadersList(output.ExposeHeaders, context)
+        : undefined,
+    MaxAge: __expectInt32(output.MaxAge),
   } as any;
 };
 
@@ -8634,6 +9265,44 @@ const deserializeAws_restJson1FunctionResponseTypeList = (
   output: any,
   context: __SerdeContext
 ): (FunctionResponseType | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FunctionUrlConfig = (output: any, context: __SerdeContext): FunctionUrlConfig => {
+  return {
+    AuthType: __expectString(output.AuthType),
+    Cors:
+      output.Cors !== undefined && output.Cors !== null
+        ? deserializeAws_restJson1Cors(output.Cors, context)
+        : undefined,
+    CreationTime: __expectString(output.CreationTime),
+    FunctionArn: __expectString(output.FunctionArn),
+    FunctionUrl: __expectString(output.FunctionUrl),
+    LastModifiedTime: __expectString(output.LastModifiedTime),
+  } as any;
+};
+
+const deserializeAws_restJson1FunctionUrlConfigList = (output: any, context: __SerdeContext): FunctionUrlConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FunctionUrlConfig(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1HeadersList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
