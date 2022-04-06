@@ -169,6 +169,7 @@ import {
   BatchPutDocumentRequest,
   BatchPutDocumentResponse,
   BatchPutDocumentResponseFailedDocument,
+  BoxConfiguration,
   CapacityUnitsConfiguration,
   ClearQuerySuggestionsRequest,
   ClickFeedback,
@@ -4530,6 +4531,51 @@ const serializeAws_json1_1BatchPutDocumentRequest = (input: BatchPutDocumentRequ
   };
 };
 
+const serializeAws_json1_1BoxConfiguration = (input: BoxConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.CommentFieldMappings !== undefined &&
+      input.CommentFieldMappings !== null && {
+        CommentFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.CommentFieldMappings,
+          context
+        ),
+      }),
+    ...(input.CrawlComments !== undefined && input.CrawlComments !== null && { CrawlComments: input.CrawlComments }),
+    ...(input.CrawlTasks !== undefined && input.CrawlTasks !== null && { CrawlTasks: input.CrawlTasks }),
+    ...(input.CrawlWebLinks !== undefined && input.CrawlWebLinks !== null && { CrawlWebLinks: input.CrawlWebLinks }),
+    ...(input.EnterpriseId !== undefined && input.EnterpriseId !== null && { EnterpriseId: input.EnterpriseId }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FileFieldMappings !== undefined &&
+      input.FileFieldMappings !== null && {
+        FileFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FileFieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.TaskFieldMappings !== undefined &&
+      input.TaskFieldMappings !== null && {
+        TaskFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.TaskFieldMappings, context),
+      }),
+    ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
+    ...(input.WebLinkFieldMappings !== undefined &&
+      input.WebLinkFieldMappings !== null && {
+        WebLinkFieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(
+          input.WebLinkFieldMappings,
+          context
+        ),
+      }),
+  };
+};
+
 const serializeAws_json1_1CapacityUnitsConfiguration = (
   input: CapacityUnitsConfiguration,
   context: __SerdeContext
@@ -5026,6 +5072,10 @@ const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration,
 
 const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.BoxConfiguration !== undefined &&
+      input.BoxConfiguration !== null && {
+        BoxConfiguration: serializeAws_json1_1BoxConfiguration(input.BoxConfiguration, context),
+      }),
     ...(input.ConfluenceConfiguration !== undefined &&
       input.ConfluenceConfiguration !== null && {
         ConfluenceConfiguration: serializeAws_json1_1ConfluenceConfiguration(input.ConfluenceConfiguration, context),
@@ -7397,6 +7447,45 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   return retVal;
 };
 
+const deserializeAws_json1_1BoxConfiguration = (output: any, context: __SerdeContext): BoxConfiguration => {
+  return {
+    CommentFieldMappings:
+      output.CommentFieldMappings !== undefined && output.CommentFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.CommentFieldMappings, context)
+        : undefined,
+    CrawlComments: __expectBoolean(output.CrawlComments),
+    CrawlTasks: __expectBoolean(output.CrawlTasks),
+    CrawlWebLinks: __expectBoolean(output.CrawlWebLinks),
+    EnterpriseId: __expectString(output.EnterpriseId),
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FileFieldMappings:
+      output.FileFieldMappings !== undefined && output.FileFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FileFieldMappings, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    SecretArn: __expectString(output.SecretArn),
+    TaskFieldMappings:
+      output.TaskFieldMappings !== undefined && output.TaskFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.TaskFieldMappings, context)
+        : undefined,
+    UseChangeLog: __expectBoolean(output.UseChangeLog),
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+    WebLinkFieldMappings:
+      output.WebLinkFieldMappings !== undefined && output.WebLinkFieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.WebLinkFieldMappings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CapacityUnitsConfiguration = (
   output: any,
   context: __SerdeContext
@@ -7806,6 +7895,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
   context: __SerdeContext
 ): DataSourceConfiguration => {
   return {
+    BoxConfiguration:
+      output.BoxConfiguration !== undefined && output.BoxConfiguration !== null
+        ? deserializeAws_json1_1BoxConfiguration(output.BoxConfiguration, context)
+        : undefined,
     ConfluenceConfiguration:
       output.ConfluenceConfiguration !== undefined && output.ConfluenceConfiguration !== null
         ? deserializeAws_json1_1ConfluenceConfiguration(output.ConfluenceConfiguration, context)

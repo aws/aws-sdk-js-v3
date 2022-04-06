@@ -22,7 +22,7 @@ export interface ListIndicesCommandInput extends ListIndicesRequest {}
 export interface ListIndicesCommandOutput extends ListIndicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon Kendra indexes that you have created.</p>
+ * <p>Lists the Amazon Kendra indexes that you created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

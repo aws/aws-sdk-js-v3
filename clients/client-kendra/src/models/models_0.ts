@@ -1499,6 +1499,206 @@ export namespace ClearQuerySuggestionsRequest {
   });
 }
 
+/**
+ * <p>Maps a column or attribute in the data source to an index field.
+ *             You must first create the fields in the index using the
+ *                 <code>UpdateIndex</code> API.</p>
+ */
+export interface DataSourceToIndexFieldMapping {
+  /**
+   * <p>The name of the column or attribute in the data source.</p>
+   */
+  DataSourceFieldName: string | undefined;
+
+  /**
+   * <p>The type of data stored in the column or attribute.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the field in the index.</p>
+   */
+  IndexFieldName: string | undefined;
+}
+
+export namespace DataSourceToIndexFieldMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to an Amazon VPC.</p>
+ */
+export interface DataSourceVpcConfiguration {
+  /**
+   * <p>A list of identifiers for subnets within your Amazon VPC. The
+   *             subnets should be able to connect to each other in the VPC, and they
+   *             should have outgoing access to the Internet through a NAT
+   *             device.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of identifiers of security groups within your Amazon VPC.
+   *             The security groups should enable Amazon Kendra to connect to the data
+   *             source.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+}
+
+export namespace DataSourceVpcConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to Box as
+ *             your data source.</p>
+ */
+export interface BoxConfiguration {
+  /**
+   * <p>The identifier of the Box Enterprise platform. You can find the enterprise
+   *             ID in the Box Developer Console settings or when you create an app in Box and
+   *             download your authentication credentials. For example, <i>801234567</i>.</p>
+   */
+  EnterpriseId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains
+   *             the key-value pairs required to connect to your Box platform. The secret must
+   *             contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>clientID—The identifier of the client OAuth 2.0 authentication
+   *                     application created in Box.</p>
+   *             </li>
+   *             <li>
+   *                 <p>clientSecret—A set of characters known only to the OAuth 2.0
+   *                     authentication application created in Box.</p>
+   *             </li>
+   *             <li>
+   *                 <p>publicKeyId—The identifier of the public key contained within an
+   *                     identity certificate.</p>
+   *             </li>
+   *             <li>
+   *                 <p>privateKey—A set of characters that make up an encryption key.</p>
+   *             </li>
+   *             <li>
+   *                 <p>passphrase—A set of characters that act like a password.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You create an application in Box to generate the keys or credentials required
+   *             for the secret. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-box.html#box-authentication">Authentication
+   *                 for a Box data source</a>.</p>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to use the Slack change log to determine which documents require
+   *             updating in the index. Depending on the data source change log's size, it may take
+   *             longer for Amazon Kendra to use the change log than to scan all of your
+   *             documents.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index comments.</p>
+   */
+  CrawlComments?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index the contents of tasks.</p>
+   */
+  CrawlTasks?: boolean;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to index web links.</p>
+   */
+  CrawlWebLinks?: boolean;
+
+  /**
+   * <p>A
+   *             list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes or
+   *             field names of Box files to Amazon Kendra index field names. To create custom
+   *             fields, use the <code>UpdateIndex</code> API before you map to Box fields. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  FileFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box tasks to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  TaskFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box comments to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  CommentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map attributes
+   *             or field names of Box web links to Amazon Kendra index field names. To create
+   *             custom fields, use the <code>UpdateIndex</code> API before you map to Box fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping data source fields</a>.
+   *             The Box field names must exist in your Box custom metadata.</p>
+   */
+  WebLinkFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain files and folders in your
+   *             Box platform. Files and folders that match the patterns are included in the index.
+   *             Files and folders that don't match the patterns are excluded from the index. If a
+   *             file or folder matches both an inclusion and exclusion pattern, the exclusion pattern
+   *             takes precedence and the file or folder isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files and folders from
+   *             your Box platform. Files and folders that match the patterns are excluded from the
+   *             index.Files and folders that don't match the patterns are included in the index.
+   *             If a file or folder matches both an inclusion and exclusion pattern, the exclusion
+   *             pattern takes precedence and the file or folder isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an Amazon VPC to connect to your Box. For
+   *             more information, see <a href="https://docs.aws.amazon.com/endra/latest/dg/vpc-configuration.html">Configuring a VPC</a>.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace BoxConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BoxConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum ConfluenceAttachmentFieldName {
   AUTHOR = "AUTHOR",
   CONTENT_TYPE = "CONTENT_TYPE",
@@ -1852,35 +2052,6 @@ export enum ConfluenceVersion {
 }
 
 /**
- * <p>Provides the configuration information to connect to an Amazon VPC.</p>
- */
-export interface DataSourceVpcConfiguration {
-  /**
-   * <p>A list of identifiers for subnets within your Amazon VPC. The
-   *             subnets should be able to connect to each other in the VPC, and they
-   *             should have outgoing access to the Internet through a NAT
-   *             device.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>A list of identifiers of security groups within your Amazon VPC.
-   *             The security groups should enable Amazon Kendra to connect to the data
-   *             source.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-}
-
-export namespace DataSourceVpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Provides the configuration information to connect to Confluence
  *             as your data source.</p>
  */
@@ -1968,37 +2139,6 @@ export namespace ConfluenceConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConfluenceConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Maps a column or attribute in the data source to an index field.
- *             You must first create the fields in the index using the
- *                 <code>UpdateIndex</code> API.</p>
- */
-export interface DataSourceToIndexFieldMapping {
-  /**
-   * <p>The name of the column or attribute in the data source.</p>
-   */
-  DataSourceFieldName: string | undefined;
-
-  /**
-   * <p>The type of data stored in the column or attribute.</p>
-   */
-  DateFieldFormat?: string;
-
-  /**
-   * <p>The name of the field in the index.</p>
-   */
-  IndexFieldName: string | undefined;
-}
-
-export namespace DataSourceToIndexFieldMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceToIndexFieldMapping): any => ({
     ...obj,
   });
 }
@@ -3834,6 +3974,11 @@ export interface DataSourceConfiguration {
    *             data source.</p>
    */
   SlackConfiguration?: SlackConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Box as your data source.</p>
+   */
+  BoxConfiguration?: BoxConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -3874,6 +4019,7 @@ export namespace Tag {
 }
 
 export enum DataSourceType {
+  BOX = "BOX",
   CONFLUENCE = "CONFLUENCE",
   CUSTOM = "CUSTOM",
   DATABASE = "DATABASE",
@@ -4448,17 +4594,17 @@ export interface CreateIndexRequest {
   Edition?: IndexEdition | string;
 
   /**
-   * <p>An Identity and Access Management(IAM) role that gives
+   * <p>An Identity and Access Management (IAM) role that gives
    *       Amazon Kendra permissions to access your Amazon CloudWatch logs and
-   *       metrics. This is also the role used when you use the
+   *       metrics. This is also the role you use when you call the
    *         <code>BatchPutDocument</code> API to index documents from an
    *       Amazon S3 bucket.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The identifier of the KMScustomer managed key (CMK) to use to
-   *       encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
+   * <p>The identifier of the KMS customer managed key (CMK) that's
+   *       used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support
    *       asymmetric CMKs.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
@@ -5258,7 +5404,7 @@ export namespace DescribeFaqResponse {
 
 export interface DescribeIndexRequest {
   /**
-   * <p>The name of the index to describe.</p>
+   * <p>The identifier of the index to describe.</p>
    */
   Id: string | undefined;
 }
@@ -5273,9 +5419,9 @@ export namespace DescribeIndexRequest {
 }
 
 /**
- * <p>Specifies capacity units configured for your enterprise edition index.
- *             You can add and remove capacity units to tune an index to your
- *             requirements.</p>
+ * <p>Specifies additional capacity units configured for your
+ *             Enterprise Edition index. You can add and remove capacity units
+ *             to fit your usage requirements.</p>
  */
 export interface CapacityUnitsConfiguration {
   /**
@@ -5567,7 +5713,7 @@ export interface DescribeIndexResponse {
   Name?: string;
 
   /**
-   * <p>The name of the index.</p>
+   * <p>The identifier of the index.</p>
    */
   Id?: string;
 
@@ -5584,8 +5730,9 @@ export interface DescribeIndexResponse {
   RoleArn?: string;
 
   /**
-   * <p>The identifier of the KMScustomer master key (CMK) used to
-   *       encrypt your data. Amazon Kendra doesn't support asymmetric CMKs.</p>
+   * <p>The identifier of the KMScustomer master key (CMK)
+   *       that is used to encrypt your data. Amazon Kendra doesn't support
+   *       asymmetric CMKs.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
@@ -5599,7 +5746,7 @@ export interface DescribeIndexResponse {
   Status?: IndexStatus | string;
 
   /**
-   * <p>The description of the index.</p>
+   * <p>The description for the index.</p>
    */
   Description?: string;
 
@@ -5626,18 +5773,20 @@ export interface DescribeIndexResponse {
   IndexStatistics?: IndexStatistics;
 
   /**
-   * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
    *         <code>ErrorMessage</code> field contains a message that explains
    *       why.</p>
    */
   ErrorMessage?: string;
 
   /**
-   * <p>For Enterprise edition indexes, you can choose to use additional
+   * <p>For Enterprise Edition indexes, you can choose to use additional
    *       capacity to meet the needs of your application. This contains the capacity
-   *       units used for the index. A 0 for the query capacity or the storage
-   *       capacity indicates that the index is using the default capacity for the
-   *       index.</p>
+   *       units used for the index. A query or document storage capacity of zero
+   *       indicates that the index is using the default capacity. For more information
+   *       on the default capacity for an index and adjusting this, see
+   *       <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
+   *         capacity</a>.</p>
    */
   CapacityUnits?: CapacityUnitsConfiguration;
 
@@ -7433,7 +7582,7 @@ export namespace ListIndicesRequest {
  */
 export interface IndexConfigurationSummary {
   /**
-   * <p>The name of the index.</p>
+   * <p>The identifier of the index.</p>
    */
   Name?: string;
 
@@ -8843,11 +8992,11 @@ export interface UpdateIndexRequest {
   DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
   /**
-   * <p>Sets the number of additional storage and query capacity units that
-   *       should be used by the index. You can change the capacity of the index up
-   *       to 5 times per day.</p>
+   * <p>Sets the number of additional document storage and query capacity
+   *       units that should be used by the index. You can change the capacity of
+   *       the index up to 5 times per day, or make 5 API calls.</p>
    *          <p>If you are using extra storage units, you can't reduce the storage
-   *       capacity below that required to meet the storage needs for your
+   *       capacity below what is required to meet the storage needs for your
    *       index.</p>
    */
   CapacityUnits?: CapacityUnitsConfiguration;
