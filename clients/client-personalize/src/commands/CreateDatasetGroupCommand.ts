@@ -51,7 +51,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *                <p>DELETE PENDING</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the dataset group, call <a>DescribeDatasetGroup</a>. If
+ *          <p>To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>. If
  *       the status shows as CREATE FAILED, the response includes a <code>failureReason</code> key,
  *       which describes why the creation failed.</p>
  *          <note>
@@ -67,17 +67,17 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateDataset</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateEventTracker</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>CreateSolution</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -87,17 +87,17 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListDatasetGroups</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeDatasetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteDatasetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html">DeleteDatasetGroup</a>
  *                </p>
  *             </li>
  *          </ul>

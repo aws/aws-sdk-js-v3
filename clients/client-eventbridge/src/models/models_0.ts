@@ -883,6 +883,230 @@ export namespace CreateConnectionResponse {
 }
 
 /**
+ * <p>The event buses the endpoint is associated with.</p>
+ */
+export interface EndpointEventBus {
+  /**
+   * <p>The ARN of the event bus the endpoint is associated with.</p>
+   */
+  EventBusArn: string | undefined;
+}
+
+export namespace EndpointEventBus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointEventBus): any => ({
+    ...obj,
+  });
+}
+
+export enum ReplicationState {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Endpoints can replicate all events to the secondary Region.</p>
+ */
+export interface ReplicationConfig {
+  /**
+   * <p>The state of event replication.</p>
+   */
+  State?: ReplicationState | string;
+}
+
+export namespace ReplicationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplicationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The primary Region of the endpoint.</p>
+ */
+export interface Primary {
+  /**
+   * <p>The ARN of the health check used by the endpoint to determine whether failover is triggered.</p>
+   */
+  HealthCheck: string | undefined;
+}
+
+export namespace Primary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Primary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The secondary Region that processes events when failover is triggered or replication is enabled.</p>
+ */
+export interface Secondary {
+  /**
+   * <p>Defines the secondary Region.</p>
+   */
+  Route: string | undefined;
+}
+
+export namespace Secondary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Secondary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+ */
+export interface FailoverConfig {
+  /**
+   * <p>The main Region of the endpoint.</p>
+   */
+  Primary: Primary | undefined;
+
+  /**
+   * <p>The Region that events are routed to when failover is triggered or event replication is enabled.</p>
+   */
+  Secondary: Secondary | undefined;
+}
+
+export namespace FailoverConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FailoverConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The routing configuration of the endpoint.</p>
+ */
+export interface RoutingConfig {
+  /**
+   * <p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
+   */
+  FailoverConfig: FailoverConfig | undefined;
+}
+
+export namespace RoutingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutingConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEndpointRequest {
+  /**
+   * <p>The name of the global endpoint. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the global endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Configure the routing policy, including the health check and secondary Region..</p>
+   */
+  RoutingConfig: RoutingConfig | undefined;
+
+  /**
+   * <p>Enable or disable event replication.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>Define the event buses used. </p>
+   *          <important>
+   *             <p>The names of the event buses must be identical in each Region.</p>
+   *          </important>
+   */
+  EventBuses: EndpointEventBus[] | undefined;
+
+  /**
+   * <p>The ARN of the role used for replication.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace CreateEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum EndpointState {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
+
+export interface CreateEndpointResponse {
+  /**
+   * <p>The name of the endpoint that was created by this request.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the endpoint that was created by this request.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The routing configuration defined by this request.</p>
+   */
+  RoutingConfig?: RoutingConfig;
+
+  /**
+   * <p>Whether event replication was enabled or disabled by this request.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>The event buses used by this request.</p>
+   */
+  EventBuses?: EndpointEventBus[];
+
+  /**
+   * <p>The ARN of the role used by event replication for this request.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The state of the endpoint that was created by this request.</p>
+   */
+  State?: EndpointState | string;
+}
+
+export namespace CreateEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A key-value pair associated with an Amazon Web Services resource. In EventBridge, rules and event buses
  *       support tagging.</p>
  */
@@ -1171,6 +1395,33 @@ export namespace DeleteConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEndpointRequest {
+  /**
+   * <p>The name of the endpoint you want to delete. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>..</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEndpointResponse {}
+
+export namespace DeleteEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEndpointResponse): any => ({
     ...obj,
   });
 }
@@ -1641,6 +1892,103 @@ export namespace DescribeConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEndpointRequest {
+  /**
+   * <p>The name of the endpoint you want to get information about. For example, <code>"Name":"us-east-2-custom_bus_A-endpoint"</code>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The primary Region of the endpoint you want to get information about. For example <code>"HomeRegion": "us-east-1"</code>.</p>
+   */
+  HomeRegion?: string;
+}
+
+export namespace DescribeEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEndpointResponse {
+  /**
+   * <p>The name of the endpoint you asked for information about.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the endpoint you asked for information about.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the endpoint you asked for information about.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The routing configuration of the endpoint you asked for information about.</p>
+   */
+  RoutingConfig?: RoutingConfig;
+
+  /**
+   * <p>Whether replication is enabled or disabled for the endpoint you asked for information about.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>The event buses being used by the endpoint you asked for information about.</p>
+   */
+  EventBuses?: EndpointEventBus[];
+
+  /**
+   * <p>The ARN of the role used by the endpoint you asked for information about.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The ID of the endpoint you asked for information about.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The URL of the endpoint you asked for information about.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p>The current state of the endpoint you asked for information about.</p>
+   */
+  State?: EndpointState | string;
+
+  /**
+   * <p>The reason the endpoint you asked for information about is in its current state.</p>
+   */
+  StateReason?: string;
+
+  /**
+   * <p>The time the endpoint you asked for information about was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the endpoint you asked for information about was modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace DescribeEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEndpointResponse): any => ({
     ...obj,
   });
 }
@@ -2258,6 +2606,141 @@ export namespace ListConnectionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListConnectionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEndpointsRequest {
+  /**
+   * <p>A value that will return a subset of the endpoints associated with this account. For example, <code>"NamePrefix": "ABC"</code> will return all endpoints with "ABC" in the name.</p>
+   */
+  NamePrefix?: string;
+
+  /**
+   * <p>The primary Region of the endpoints associated with this account. For example <code>"HomeRegion": "us-east-1"</code>.</p>
+   */
+  HomeRegion?: string;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+   *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results returned by the call.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEndpointsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
+ */
+export interface Endpoint {
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A description for the endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the endpoint.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The routing configuration of the endpoint.</p>
+   */
+  RoutingConfig?: RoutingConfig;
+
+  /**
+   * <p>Whether event replication was enabled or disabled for this endpoint.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>The event buses being used by the endpoint.</p>
+   */
+  EventBuses?: EndpointEventBus[];
+
+  /**
+   * <p>The ARN of the role used by event replication for the endpoint.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The URL of the endpoint.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p>The current state of the endpoint.</p>
+   */
+  State?: EndpointState | string;
+
+  /**
+   * <p>The reason the endpoint is in its current state.</p>
+   */
+  StateReason?: string;
+
+  /**
+   * <p>The time the endpoint was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The last time the endpoint was modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace Endpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Endpoint): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEndpointsResponse {
+  /**
+   * <p>The endpoints returned by the call.</p>
+   */
+  Endpoints?: Endpoint[];
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   *        Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination
+   *        token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEndpointsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEndpointsResponse): any => ({
     ...obj,
   });
 }
@@ -3888,7 +4371,7 @@ export interface PutEventsRequestEntry {
   DetailType?: string;
 
   /**
-   * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain fields
+   * <p>A valid JSON object. There is no other schema imposed. The JSON object may contain fields
    *       and nested subobjects.</p>
    */
   Detail?: string;
@@ -3897,6 +4380,11 @@ export interface PutEventsRequestEntry {
    * <p>The name or ARN of the event bus to receive the event. Only the rules that are associated
    *       with this event bus are used to match the event. If you omit this, the default event bus is
    *       used.</p>
+   *          <note>
+   *             <p>If you're using a global endpoint with a custom bus, you must enter the name, not the ARN, of the event bus in either
+   *       the primary or secondary Region here and the corresponding event bus in the
+   *       other Region will be determined based on the endpoint referenced by the <code>EndpointId</code>.</p>
+   *          </note>
    */
   EventBusName?: string;
 
@@ -3924,6 +4412,14 @@ export interface PutEventsRequest {
    *       on.</p>
    */
   Entries: PutEventsRequestEntry[] | undefined;
+
+  /**
+   * <p>The URL subdomain of the endpoint. For example, if the URL for Endpoint is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is <code>abcde.veo</code>.</p>
+   *          <important>
+   *             <p>When using Java, you must include <code>auth-crt</code> on the class path.</p>
+   *          </important>
+   */
+  EndpointId?: string;
 }
 
 export namespace PutEventsRequest {
@@ -4233,8 +4729,8 @@ export interface PutRuleRequest {
   ScheduleExpression?: string;
 
   /**
-   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html.html">EventBridge event
+   *         patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
@@ -5049,6 +5545,103 @@ export namespace UpdateConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointRequest {
+  /**
+   * <p>The name of the endpoint you want to update.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description for the endpoint.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Configure the routing policy, including the health check and secondary Region..</p>
+   */
+  RoutingConfig?: RoutingConfig;
+
+  /**
+   * <p>Whether event replication was enabled or disabled by this request.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>Define event buses used for replication.</p>
+   */
+  EventBuses?: EndpointEventBus[];
+
+  /**
+   * <p>The ARN of the role used by event replication for this request.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace UpdateEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEndpointResponse {
+  /**
+   * <p>The name of the endpoint you updated in this request.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the endpoint you updated in this request.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The routing configuration you updated in this request.</p>
+   */
+  RoutingConfig?: RoutingConfig;
+
+  /**
+   * <p>Whether event replication was enabled or disabled for the endpoint you updated in this request.</p>
+   */
+  ReplicationConfig?: ReplicationConfig;
+
+  /**
+   * <p>The event buses used for replication for the endpoint you updated in this request.</p>
+   */
+  EventBuses?: EndpointEventBus[];
+
+  /**
+   * <p>The ARN of the role used by event replication for the endpoint you updated in this request.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The ID of the endpoint you updated in this request.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The URL of the endpoint you updated in this request.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p>The state of the endpoint you updated in this request.</p>
+   */
+  State?: EndpointState | string;
+}
+
+export namespace UpdateEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
     ...obj,
   });
 }

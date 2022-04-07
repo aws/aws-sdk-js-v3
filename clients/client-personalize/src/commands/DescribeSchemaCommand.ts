@@ -23,7 +23,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
 
 /**
  * <p>Describes a schema. For more information on schemas, see
- *       <a>CreateSchema</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

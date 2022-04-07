@@ -5017,6 +5017,12 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.PromotionTier !== undefined && input.PromotionTier !== null) {
     entries["PromotionTier"] = input.PromotionTier;
   }
+  if (input.EnablePerformanceInsights !== undefined && input.EnablePerformanceInsights !== null) {
+    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  }
+  if (input.PerformanceInsightsKMSKeyId !== undefined && input.PerformanceInsightsKMSKeyId !== null) {
+    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
+  }
   return entries;
 };
 
@@ -5856,6 +5862,12 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.PromotionTier !== undefined && input.PromotionTier !== null) {
     entries["PromotionTier"] = input.PromotionTier;
+  }
+  if (input.EnablePerformanceInsights !== undefined && input.EnablePerformanceInsights !== null) {
+    entries["EnablePerformanceInsights"] = input.EnablePerformanceInsights;
+  }
+  if (input.PerformanceInsightsKMSKeyId !== undefined && input.PerformanceInsightsKMSKeyId !== null) {
+    entries["PerformanceInsightsKMSKeyId"] = input.PerformanceInsightsKMSKeyId;
   }
   return entries;
 };

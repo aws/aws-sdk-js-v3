@@ -22,7 +22,8 @@ export interface DescribeSolutionVersionCommandInput extends DescribeSolutionVer
 export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>
+ * <p>Describes a specific version of a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

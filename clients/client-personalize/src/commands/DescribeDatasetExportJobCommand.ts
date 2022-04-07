@@ -22,7 +22,7 @@ export interface DescribeDatasetExportJobCommandInput extends DescribeDatasetExp
 export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the dataset export job created by <a>CreateDatasetExportJob</a>,
+ * <p>Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>,
  *       including the export job status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

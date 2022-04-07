@@ -249,10 +249,21 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   StopSolutionVersionCreationCommand,
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
 } from "./commands/StopSolutionVersionCreationCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateCampaignCommand,
   UpdateCampaignCommandInput,
@@ -272,7 +283,9 @@ import { PersonalizeClient } from "./PersonalizeClient";
 export class Personalize extends PersonalizeClient {
   /**
    * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
-   *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
+   *       input file must be in JSON format. For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
+   *     </p>
    */
   public createBatchInferenceJob(
     args: CreateBatchInferenceJobCommandInput,
@@ -305,7 +318,8 @@ export class Personalize extends PersonalizeClient {
 
   /**
    * <p>Creates a batch segment job. The operation can handle up to 50 million records and the
-   *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
+   *       input file must be in JSON format. For more information, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recommendations-batch.html">Getting batch recommendations and user segments</a>.</p>
    */
   public createBatchSegmentJob(
     args: CreateBatchSegmentJobCommandInput,
@@ -377,34 +391,33 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *          <p>To get the campaign status, call <a>DescribeCampaign</a>.</p>
+   *          <p>To get the campaign status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>.</p>
    *          <note>
    *             <p>Wait until the <code>status</code> of the campaign
    *         is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
    *          </note>
-   *
    *          <p class="title">
    *             <b>Related APIs</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListCampaigns</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeCampaign</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>UpdateCampaign</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html">UpdateCampaign</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteCampaign</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html">DeleteCampaign</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -439,7 +452,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates an empty dataset and adds it to the specified dataset group. Use <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>
+   * <p>Creates an empty dataset and adds it to the specified dataset group. Use
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a dataset.</p>
+   *
    *          <p>There are three types of datasets:</p>
    *          <ul>
    *             <li>
@@ -464,29 +479,29 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the dataset, call <a>DescribeDataset</a>.</p>
+   *          <p>To get the status of the dataset, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>.</p>
    *          <p class="title">
    *             <b>Related APIs</b>
    *          </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateDatasetGroup</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>ListDatasets</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html">ListDatasets</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeDataset</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteDataset</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html">DeleteDataset</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -538,7 +553,7 @@ export class Personalize extends PersonalizeClient {
    *             </li>
    *          </ul>
    *          <p>
-   *       To get the status of the export job, call <a>DescribeDatasetExportJob</a>,
+   *       To get the status of the export job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a>,
    *       and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is
    *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
    *       includes a <code>failureReason</code> key, which describes why the job failed.
@@ -603,7 +618,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the dataset group, call <a>DescribeDatasetGroup</a>. If
+   *          <p>To get the status of the dataset group, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>. If
    *       the status shows as CREATE FAILED, the response includes a <code>failureReason</code> key,
    *       which describes why the creation failed.</p>
    *          <note>
@@ -619,17 +634,17 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>CreateDataset</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateEventTracker</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -639,17 +654,17 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListDatasetGroups</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeDatasetGroup</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteDatasetGroup</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html">DeleteDatasetGroup</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -702,7 +717,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the import job, call <a>DescribeDatasetImportJob</a>,
+   *          <p>To get the status of the import job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>,
    *       providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is
    *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
    *       includes a <code>failureReason</code> key, which describes why the job failed.</p>
@@ -717,12 +732,12 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListDatasetImportJobs</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeDatasetImportJob</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -779,7 +794,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the event tracker, call <a>DescribeEventTracker</a>.</p>
+   *          <p>To get the status of the event tracker, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>.</p>
    *          <note>
    *             <p>The event tracker must be in the ACTIVE state before using the tracking ID.</p>
    *          </note>
@@ -789,17 +804,17 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListEventTrackers</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html">ListEventTrackers</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeEventTracker</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteEventTracker</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html">DeleteEventTracker</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -834,7 +849,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates a recommendation filter. For more information, see <a>filter</a>.</p>
+   * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering recommendations and user segments</a>.</p>
    */
   public createFilter(
     args: CreateFilterCommandInput,
@@ -906,7 +921,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *          <p>To get the recommender status, call <a>DescribeRecommender</a>.</p>
+   *          <p>To get the recommender status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>.</p>
    *          <note>
    *             <p>Wait until the <code>status</code> of the recommender
    *         is <code>ACTIVE</code> before asking the recommender for recommendations.</p>
@@ -917,22 +932,22 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListRecommenders</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html">ListRecommenders</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeRecommender</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>UpdateRecommender</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html">UpdateRecommender</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteRecommender</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html">DeleteRecommender</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -972,7 +987,7 @@ export class Personalize extends PersonalizeClient {
    *          <p>Amazon Personalize recognizes three schema variants. Each schema is associated with a dataset
    *       type and has a set of required field and keywords. If you are creating a schema for a dataset in a Domain dataset group, you
    *     provide the domain of the Domain dataset group.
-   *       You specify a schema when you call <a>CreateDataset</a>.</p>
+   *     You specify a schema when you call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    *
    *          <p class="title">
    *             <b>Related APIs</b>
@@ -980,17 +995,17 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListSchemas</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html">ListSchemas</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeSchema</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteSchema</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html">DeleteSchema</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1024,11 +1039,11 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Creates the configuration for training a model. A trained model is known as
    *       a solution. After the configuration is created, you train the model (create a solution)
-   *       by calling the <a>CreateSolutionVersion</a> operation. Every time you call
+   *       by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a> operation. Every time you call
    *       <code>CreateSolutionVersion</code>, a new version of the solution is created.</p>
    *          <p>After creating a solution version, you check its accuracy by calling
-   *       <a>GetSolutionMetrics</a>. When you are satisfied with the version, you
-   *       deploy it using <a>CreateCampaign</a>. The campaign provides recommendations
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html">GetSolutionMetrics</a>. When you are satisfied with the version, you
+   *       deploy it using <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>. The campaign provides recommendations
    *       to a client through the
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> API.</p>
    *          <p>To train a model, Amazon Personalize requires training data and a recipe. The training data
@@ -1053,7 +1068,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the solution, call <a>DescribeSolution</a>. Wait
+   *          <p>To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>. Wait
    *       until the status shows as ACTIVE before calling <code>CreateSolutionVersion</code>.</p>
    *
    *
@@ -1064,34 +1079,34 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListSolutions</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateSolutionVersion</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a>
    *                </p>
    *             </li>
    *          </ul>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListSolutionVersions</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeSolutionVersion</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1126,7 +1141,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a>CreateSolution</a> operation and must be in the ACTIVE state before calling
+   * <p>Trains or retrains an active solution in a Custom dataset group. A solution is created using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+   *       operation and must be in the ACTIVE state before calling
    *         <code>CreateSolutionVersion</code>. A new version of the solution is created every time you
    *       call this operation.</p>
    *          <p>
@@ -1153,7 +1169,7 @@ export class Personalize extends PersonalizeClient {
    *                <p>CREATE STOPPED</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the version, call <a>DescribeSolutionVersion</a>. Wait
+   *          <p>To get the status of the version, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>. Wait
    *       until the status shows as ACTIVE before calling <code>CreateCampaign</code>.</p>
    *          <p>If the status shows as CREATE FAILED, the response includes a <code>failureReason</code>
    *       key, which describes why the job failed.</p>
@@ -1163,34 +1179,32 @@ export class Personalize extends PersonalizeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a>ListSolutionVersions</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeSolutionVersion</a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a>ListSolutions</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>CreateSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DescribeSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a>DeleteSolution</a>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -1230,7 +1244,7 @@ export class Personalize extends PersonalizeClient {
    *       longer be specified in a
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
    *       request.
-   *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+   *       For information on creating campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
    */
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -1264,7 +1278,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Deletes a dataset. You can't delete a dataset if an associated
    *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the CREATE PENDING or IN
-   *       PROGRESS state. For more information on datasets, see <a>CreateDataset</a>.</p>
+   *       PROGRESS state. For more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -1342,7 +1356,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Deletes the event tracker. Does not delete the event-interactions dataset from
    *         the associated dataset group. For more
-   *         information on event trackers, see <a>CreateEventTracker</a>.</p>
+   *         information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
    */
   public deleteEventTracker(
     args: DeleteEventTrackerCommandInput,
@@ -1438,7 +1452,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Deletes a schema. Before deleting a schema, you must delete all
    *       datasets referencing the schema. For more information on schemas, see
-   *       <a>CreateSchema</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
    */
   public deleteSchema(
     args: DeleteSchemaCommandInput,
@@ -1470,10 +1484,10 @@ export class Personalize extends PersonalizeClient {
    * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.
    *       Before deleting a solution, you must delete all campaigns based on
    *       the solution. To determine what campaigns are using the solution, call
-   *       <a>ListCampaigns</a> and supply the Amazon Resource Name (ARN) of the solution.
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a> and supply the Amazon Resource Name (ARN) of the solution.
    *       You can't delete a solution if an associated <code>SolutionVersion</code> is in the
    *       CREATE PENDING or IN PROGRESS state.
-   *       For more information on solutions, see <a>CreateSolution</a>.</p>
+   *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
    */
   public deleteSolution(
     args: DeleteSolutionCommandInput,
@@ -1617,7 +1631,7 @@ export class Personalize extends PersonalizeClient {
    *          </ul>
    *          <p>When the <code>status</code> is <code>CREATE FAILED</code>, the response includes the
    *       <code>failureReason</code> key, which describes why.</p>
-   *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+   *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
    */
   public describeCampaign(
     args: DescribeCampaignCommandInput,
@@ -1649,7 +1663,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the given dataset. For more information on datasets, see <a>CreateDataset</a>.</p>
+   * <p>Describes the given dataset. For more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -1681,7 +1695,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the dataset export job created by <a>CreateDatasetExportJob</a>,
+   * <p>Describes the dataset export job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>,
    *       including the export job status.</p>
    */
   public describeDatasetExportJob(
@@ -1714,7 +1728,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the given dataset group. For more information on dataset groups, see <a>CreateDatasetGroup</a>.</p>
+   * <p>Describes the given dataset group. For more information on dataset groups, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
    */
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -1746,7 +1760,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the dataset import job created by <a>CreateDatasetImportJob</a>,
+   * <p>Describes the dataset import job created by <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>,
    *       including the import job status.</p>
    */
   public describeDatasetImportJob(
@@ -1781,7 +1795,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
    *       <code>status</code> of the event tracker.
-   *       For more information on event trackers, see <a>CreateEventTracker</a>.</p>
+   *       For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
    */
   public describeEventTracker(
     args: DescribeEventTrackerCommandInput,
@@ -1891,7 +1905,7 @@ export class Personalize extends PersonalizeClient {
    *             </li>
    *          </ul>
    *          <p>Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a
-   *       solution with the <a>CreateSolution</a> API.
+   *       solution with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a> API.
    *       <code>CreateSolution</code> trains a model by using the algorithm
    *       in the specified recipe and a training dataset. The solution, when deployed as a campaign,
    *       can provide recommendations using the
@@ -1972,7 +1986,7 @@ export class Personalize extends PersonalizeClient {
 
   /**
    * <p>Describes a schema. For more information on schemas, see
-   *       <a>CreateSchema</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
    */
   public describeSchema(
     args: DescribeSchemaCommandInput,
@@ -2005,7 +2019,7 @@ export class Personalize extends PersonalizeClient {
 
   /**
    * <p>Describes a solution.
-   *       For more information on solutions, see <a>CreateSolution</a>.</p>
+   *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
    */
   public describeSolution(
     args: DescribeSolutionCommandInput,
@@ -2037,7 +2051,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes a specific version of a solution. For more information on solutions, see <a>CreateSolution</a>.</p>
+   * <p>Describes a specific version of a solution. For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+   *          </p>
    */
   public describeSolutionVersion(
     args: DescribeSolutionVersionCommandInput,
@@ -2170,7 +2185,7 @@ export class Personalize extends PersonalizeClient {
    * <p>Returns a list of campaigns that use the given solution.
    *       When a solution is not specified, all the campaigns associated with the account are listed.
    *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
-   *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+   *       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
    */
   public listCampaigns(
     args: ListCampaignsCommandInput,
@@ -2205,8 +2220,8 @@ export class Personalize extends PersonalizeClient {
    * <p>Returns a list of dataset export jobs that use the given dataset. When a dataset is not
    *       specified, all the dataset export jobs associated with the account are listed. The response
    *       provides the properties for each dataset export job, including the Amazon Resource Name (ARN).
-   *       For more information on dataset export jobs, see <a>CreateDatasetExportJob</a>. For
-   *       more information on datasets, see <a>CreateDataset</a>.</p>
+   *       For more information on dataset export jobs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>. For
+   *       more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
   public listDatasetExportJobs(
     args: ListDatasetExportJobsCommandInput,
@@ -2240,7 +2255,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Returns a list of dataset groups. The response provides the properties for each dataset
    *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
-   *         <a>CreateDatasetGroup</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>.</p>
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -2275,8 +2290,8 @@ export class Personalize extends PersonalizeClient {
    * <p>Returns a list of dataset import jobs that use the given dataset. When a dataset is not
    *       specified, all the dataset import jobs associated with the account are listed. The response
    *       provides the properties for each dataset import job, including the Amazon Resource Name (ARN).
-   *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>. For
-   *       more information on datasets, see <a>CreateDataset</a>.</p>
+   *       For more information on dataset import jobs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>. For
+   *       more information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -2310,7 +2325,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Returns the list of datasets contained in the given dataset group. The response provides
    *       the properties for each dataset, including the Amazon Resource Name (ARN). For more
-   *       information on datasets, see <a>CreateDataset</a>.</p>
+   *       information on datasets, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -2342,7 +2357,7 @@ export class Personalize extends PersonalizeClient {
    * <p>Returns the list of event trackers associated with the account.
    *       The response provides the properties for each event tracker, including the Amazon Resource
    *       Name (ARN) and tracking ID. For more
-   *       information on event trackers, see <a>CreateEventTracker</a>.</p>
+   *       information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
    */
   public listEventTrackers(
     args: ListEventTrackersCommandInput,
@@ -2464,7 +2479,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Returns the list of schemas associated with the account. The response provides the
    *       properties for each schema, including the Amazon Resource Name (ARN).
-   *       For more information on schemas, see <a>CreateSchema</a>.</p>
+   *       For more information on schemas, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
    */
   public listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
   public listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
@@ -2493,7 +2508,7 @@ export class Personalize extends PersonalizeClient {
    * <p>Returns a list of solutions that use the given dataset group.
    *       When a dataset group is not specified, all the solutions associated with the account are listed.
    *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
-   *       For more information on solutions, see <a>CreateSolution</a>.</p>
+   *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
    */
   public listSolutions(
     args: ListSolutionsCommandInput,
@@ -2527,8 +2542,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Returns a list of solution versions for the given solution. When a solution is not
    *       specified, all the solution versions associated with the account are listed. The response
-   *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
-   *       For more information on solutions, see <a>CreateSolution</a>.</p>
+   *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
    */
   public listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
@@ -2549,6 +2563,38 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: ListSolutionVersionsCommandOutput) => void
   ): Promise<ListSolutionVersionsCommandOutput> | void {
     const command = new ListSolutionVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get a list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> attached to a resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2605,15 +2651,73 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Add a list of tags to a resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> that are attached to a resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a campaign by either deploying a new solution or changing the value of the
    *       campaign's <code>minProvisionedTPS</code> parameter.</p>
    *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
-   *       Check the campaign status using the <a>DescribeCampaign</a> API.</p>
+   *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
    *          <note>
    *             <p>You must wait until the <code>status</code> of the
    *         updated campaign is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
    *          </note>
-   *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+   *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
    */
   public updateCampaign(
     args: UpdateCampaignCommandInput,

@@ -24,7 +24,7 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
 /**
  * <p>Describes an event tracker. The response includes the <code>trackingId</code> and
  *       <code>status</code> of the event tracker.
- *       For more information on event trackers, see <a>CreateEventTracker</a>.</p>
+ *       For more information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

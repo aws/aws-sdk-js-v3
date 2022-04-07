@@ -40,7 +40,7 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the import job, call <a>DescribeDatasetImportJob</a>,
+ *          <p>To get the status of the import job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>,
  *       providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is
  *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
  *       includes a <code>failureReason</code> key, which describes why the job failed.</p>
@@ -55,12 +55,12 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListDatasetImportJobs</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeDatasetImportJob</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>
  *                </p>
  *             </li>
  *          </ul>
