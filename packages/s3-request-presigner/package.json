@@ -21,7 +21,7 @@
   "dependencies": {
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/protocol-http": "*",
-    "@aws-sdk/signature-v4": "*",
+    "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-create-request": "*",

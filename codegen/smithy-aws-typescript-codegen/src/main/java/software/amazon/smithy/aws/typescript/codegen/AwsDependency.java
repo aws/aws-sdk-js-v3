@@ -72,6 +72,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
     MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
     AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "2.0.0"),
+    SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
+    EVENTBRIDGE_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-eventbridge"),
 
     // Conditionally added when httpChecksum trait exists
     MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js"),

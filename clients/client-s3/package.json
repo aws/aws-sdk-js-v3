@@ -51,6 +51,7 @@
     "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/node-http-handler": "*",
     "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/signature-v4-multi-region": "*",
     "@aws-sdk/smithy-client": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/url-parser": "*",

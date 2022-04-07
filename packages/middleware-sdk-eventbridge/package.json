@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.58.0",
+  "name": "@aws-sdk/middleware-sdk-eventbridge",
+  "version": "3.0.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -21,16 +21,7 @@
   "dependencies": {
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
-    "@aws-sdk/util-arn-parser": "*",
     "tslib": "^2.3.1"
-  },
-  "devDependencies": {
-    "@tsconfig/recommended": "1.0.1",
-    "concurrently": "7.0.0",
-    "downlevel-dts": "0.7.0",
-    "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
-    "typescript": "~4.6.2"
   },
   "engines": {
     "node": ">= 12.0.0"
@@ -45,10 +36,18 @@
   "files": [
     "dist-*"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-s3",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-eventbridge",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/middleware-sdk-s3"
+    "directory": "packages/middleware-sdk-eventbridge"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.7.0",
+    "rimraf": "3.0.2",
+    "typedoc": "0.19.2",
+    "typescript": "~4.6.2"
   }
 }

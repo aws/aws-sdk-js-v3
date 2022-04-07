@@ -8,7 +8,7 @@ import {
   RequestSigningArguments,
 } from "@aws-sdk/types";
 
-export type S3SignerV4Init = SignatureV4Init &
+export type SignatureV4MultiRegionInit = SignatureV4Init &
   SignatureV4CryptoInit & {
     runtime?: string;
   };
@@ -21,12 +21,12 @@ export type S3SignerV4Init = SignatureV4Init &
  * Note that SigV4a signer is only supported in Node.js now because it depends on a native dependency.
  * @private
  */
-export class S3SignatureV4 implements RequestPresigner, RequestSigner {
+export class SignatureV4MultiRegion implements RequestPresigner, RequestSigner {
   private readonly sigv4Signer: SignatureV4;
   private sigv4aSigner?: CrtSignerV4;
-  private readonly signerOptions: S3SignerV4Init;
+  private readonly signerOptions: SignatureV4MultiRegionInit;
 
-  constructor(options: S3SignerV4Init) {
+  constructor(options: SignatureV4MultiRegionInit) {
     this.sigv4Signer = new SignatureV4(options);
     this.signerOptions = options;
   }
@@ -53,13 +53,13 @@ export class S3SignatureV4 implements RequestPresigner, RequestSigner {
     if (!this.sigv4aSigner) {
       let CrtSignerV4: new (options: CrtSignerV4Init & SignatureV4CryptoInit) => CrtSignerV4;
       try {
-        CrtSignerV4 = require("@aws-sdk/signature-v4-crt").CrtSignerV4;
+        CrtSignerV4 = typeof require === "function" && require("@aws-sdk/signature-v4-crt").CrtSignerV4;
         if (typeof CrtSignerV4 !== "function") throw new Error();
       } catch (e) {
         e.message =
           `${e.message}\nPlease check if you have installed "@aws-sdk/signature-v4-crt" package explicitly. \n` +
           "For more information please go to " +
-          "https://github.com/aws/aws-sdk-js-v3##functionality-requiring-aws-common-runtime-crt";
+          "https://github.com/aws/aws-sdk-js-v3#functionality-requiring-aws-common-runtime-crt";
         throw e;
       }
       this.sigv4aSigner = new CrtSignerV4({
