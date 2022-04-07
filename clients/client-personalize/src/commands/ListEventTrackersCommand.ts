@@ -25,7 +25,7 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  * <p>Returns the list of event trackers associated with the account.
  *       The response provides the properties for each event tracker, including the Amazon Resource
  *       Name (ARN) and tracking ID. For more
- *       information on event trackers, see <a>CreateEventTracker</a>.</p>
+ *       information on event trackers, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

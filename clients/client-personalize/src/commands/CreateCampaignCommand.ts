@@ -62,34 +62,33 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the campaign status, call <a>DescribeCampaign</a>.</p>
+ *          <p>To get the campaign status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>.</p>
  *          <note>
  *             <p>Wait until the <code>status</code> of the campaign
  *         is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
  *          </note>
- *
  *          <p class="title">
  *             <b>Related APIs</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListCampaigns</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeCampaign</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateCampaign</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html">UpdateCampaign</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteCampaign</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html">DeleteCampaign</a>
  *                </p>
  *             </li>
  *          </ul>

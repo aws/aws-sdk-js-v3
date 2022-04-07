@@ -22,7 +22,9 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an empty dataset and adds it to the specified dataset group. Use <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>
+ * <p>Creates an empty dataset and adds it to the specified dataset group. Use
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a> to import your training data to a dataset.</p>
+ *
  *          <p>There are three types of datasets:</p>
  *          <ul>
  *             <li>
@@ -47,29 +49,29 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the status of the dataset, call <a>DescribeDataset</a>.</p>
+ *          <p>To get the status of the dataset, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>.</p>
  *          <p class="title">
  *             <b>Related APIs</b>
  *          </p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>CreateDatasetGroup</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>ListDatasets</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html">ListDatasets</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeDataset</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteDataset</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html">DeleteDataset</a>
  *                </p>
  *             </li>
  *          </ul>

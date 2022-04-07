@@ -33,21 +33,19 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API
- *           destination</a>
+ *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API destination</a>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Amazon API Gateway REST API endpoints</p>
- *             </li>
- *             <li>
- *                <p>API Gateway</p>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html">API Gateway</a>
+ *                </p>
  *             </li>
  *             <li>
  *                <p>Batch job queue</p>
  *             </li>
  *             <li>
- *                <p>CloudWatch Logs group</p>
+ *                <p>CloudWatch group</p>
  *             </li>
  *             <li>
  *                <p>CodeBuild project</p>
@@ -56,60 +54,78 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>CodePipeline</p>
  *             </li>
  *             <li>
- *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
+ *                <p>EC2 <code>CreateSnapshot</code> API call</p>
  *             </li>
  *             <li>
  *                <p>EC2 Image Builder</p>
  *             </li>
  *             <li>
- *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
+ *                <p>EC2 <code>RebootInstances</code> API call</p>
  *             </li>
  *             <li>
- *                <p>Amazon EC2 <code>StopInstances</code> API call</p>
+ *                <p>EC2 <code>StopInstances</code> API call</p>
  *             </li>
  *             <li>
- *                <p>Amazon EC2 <code>TerminateInstances</code> API call</p>
+ *                <p>EC2 <code>TerminateInstances</code> API call</p>
  *             </li>
  *             <li>
- *                <p>Amazon ECS tasks</p>
+ *                <p>ECS task</p>
  *             </li>
  *             <li>
- *                <p>Event bus in a different Amazon Web Services account or Region.</p>
- *                <p>You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
- *           us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.</p>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html">Event bus in a different account or
+ *           Region</a>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>Firehose delivery stream (Kinesis Data Firehose)</p>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html">Event bus in the same account and
+ *           Region</a>
+ *                </p>
  *             </li>
  *             <li>
- *                <p>Inspector assessment template (Amazon Inspector)</p>
+ *                <p>Firehose delivery stream</p>
  *             </li>
  *             <li>
- *                <p>Kinesis stream (Kinesis Data Stream)</p>
+ *                <p>Glue workflow</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge">Incident Manager response plan</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Inspector assessment template</p>
+ *             </li>
+ *             <li>
+ *                <p>Kinesis stream</p>
  *             </li>
  *             <li>
  *                <p>Lambda function</p>
  *             </li>
  *             <li>
- *                <p>Redshift clusters (Data API statement execution)</p>
+ *                <p>Redshift cluster</p>
  *             </li>
  *             <li>
- *                <p>Amazon SNS topic</p>
+ *                <p>SageMaker Pipeline</p>
  *             </li>
  *             <li>
- *                <p>Amazon SQS queues (includes FIFO queues)</p>
+ *                <p>SNS topic</p>
  *             </li>
  *             <li>
- *                <p>SSM Automation</p>
+ *                <p>SQS queue</p>
  *             </li>
  *             <li>
- *                <p>SSM OpsItem</p>
+ *                <p>Step Functions state machine</p>
  *             </li>
  *             <li>
- *                <p>SSM Run Command</p>
+ *                <p>Systems Manager Automation</p>
  *             </li>
  *             <li>
- *                <p>Step Functions state machines</p>
+ *                <p>Systems Manager OpsItem</p>
+ *             </li>
+ *             <li>
+ *                <p>Systems Manager Run Command</p>
  *             </li>
  *          </ul>
  *

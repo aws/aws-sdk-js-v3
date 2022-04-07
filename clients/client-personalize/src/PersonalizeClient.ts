@@ -161,9 +161,15 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
 } from "./commands/StopSolutionVersionCreationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
 import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -221,7 +227,10 @@ export type ServiceInputTypes =
   | ListSchemasCommandInput
   | ListSolutionVersionsCommandInput
   | ListSolutionsCommandInput
+  | ListTagsForResourceCommandInput
   | StopSolutionVersionCreationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateCampaignCommandInput
   | UpdateRecommenderCommandInput;
 
@@ -278,7 +287,10 @@ export type ServiceOutputTypes =
   | ListSchemasCommandOutput
   | ListSolutionVersionsCommandOutput
   | ListSolutionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | StopSolutionVersionCreationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateCampaignCommandOutput
   | UpdateRecommenderCommandOutput;
 

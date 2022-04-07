@@ -27,7 +27,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *       longer be specified in a
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *       request.
- *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ *       For information on creating campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

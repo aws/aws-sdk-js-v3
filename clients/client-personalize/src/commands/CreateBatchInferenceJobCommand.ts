@@ -23,7 +23,9 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
 
 /**
  * <p>Creates a batch inference job. The operation can handle up to 50 million records and the
- *       input file must be in JSON format. For more information, see <a>recommendations-batch</a>.</p>
+ *       input file must be in JSON format. For more information, see
+ *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-batch-inference-job.html">Creating a batch inference job</a>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

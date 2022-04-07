@@ -24,8 +24,7 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
 /**
  * <p>Returns a list of solution versions for the given solution. When a solution is not
  *       specified, all the solution versions associated with the account are listed. The response
- *       provides the properties for each solution version, including the Amazon Resource Name (ARN).
- *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ *       provides the properties for each solution version, including the Amazon Resource Name (ARN).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

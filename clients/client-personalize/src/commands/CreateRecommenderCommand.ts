@@ -65,7 +65,7 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
  *             </li>
  *          </ul>
- *          <p>To get the recommender status, call <a>DescribeRecommender</a>.</p>
+ *          <p>To get the recommender status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>.</p>
  *          <note>
  *             <p>Wait until the <code>status</code> of the recommender
  *         is <code>ACTIVE</code> before asking the recommender for recommendations.</p>
@@ -76,22 +76,22 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>ListRecommenders</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListRecommenders.html">ListRecommenders</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DescribeRecommender</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateRecommender</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateRecommender.html">UpdateRecommender</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a>DeleteRecommender</a>
+ *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteRecommender.html">DeleteRecommender</a>
  *                </p>
  *             </li>
  *          </ul>

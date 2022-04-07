@@ -22,7 +22,7 @@ export interface GetResourceMetricsCommandInput extends GetResourceMetricsReques
 export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide
+ * <p>Retrieve Performance Insights metrics for a set of data sources over a time period. You can provide
  *       specific dimension groups and dimensions, and provide aggregation and filtering criteria for
  *       each group.</p>
  *          <note>

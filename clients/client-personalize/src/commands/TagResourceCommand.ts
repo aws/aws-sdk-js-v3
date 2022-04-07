@@ -11,43 +11,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
-  deserializeAws_json1_1DescribeSolutionCommand,
-  serializeAws_json1_1DescribeSolutionCommand,
+  deserializeAws_json1_1TagResourceCommand,
+  serializeAws_json1_1TagResourceCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DescribeSolutionCommandInput extends DescribeSolutionRequest {}
-export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse, __MetadataBearer {}
+export interface TagResourceCommandInput extends TagResourceRequest {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a solution.
- *       For more information on solutions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>.</p>
+ * <p>Add a list of tags to a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { PersonalizeClient, DescribeSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
- * // const { PersonalizeClient, DescribeSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * import { PersonalizeClient, TagResourceCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, TagResourceCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
- * const command = new DescribeSolutionCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeSolutionCommandInput} for command's `input` shape.
- * @see {@link DescribeSolutionCommandOutput} for command's `response` shape.
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
-export class DescribeSolutionCommand extends $Command<
-  DescribeSolutionCommandInput,
-  DescribeSolutionCommandOutput,
+export class TagResourceCommand extends $Command<
+  TagResourceCommandInput,
+  TagResourceCommandOutput,
   PersonalizeClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeSolutionCommandInput) {
+  constructor(readonly input: TagResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +59,20 @@ export class DescribeSolutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeSolutionCommandInput, DescribeSolutionCommandOutput> {
+  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "PersonalizeClient";
-    const commandName = "DescribeSolutionCommand";
+    const commandName = "TagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSolutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSolutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +82,12 @@ export class DescribeSolutionCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeSolutionCommand(input, context);
+  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1TagResourceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSolutionCommandOutput> {
-    return deserializeAws_json1_1DescribeSolutionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
+    return deserializeAws_json1_1TagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
