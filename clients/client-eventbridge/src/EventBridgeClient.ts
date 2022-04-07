@@ -62,7 +62,6 @@ import {
 } from "./commands/CreateApiDestinationCommand";
 import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
-import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
@@ -82,7 +81,6 @@ import {
 } from "./commands/DeleteApiDestinationCommand";
 import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
-import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
@@ -95,7 +93,6 @@ import {
 } from "./commands/DescribeApiDestinationCommand";
 import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "./commands/DescribeArchiveCommand";
 import { DescribeConnectionCommandInput, DescribeConnectionCommandOutput } from "./commands/DescribeConnectionCommand";
-import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
@@ -115,7 +112,6 @@ import {
 } from "./commands/ListApiDestinationsCommand";
 import { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
-import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
 import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
 import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
 import {
@@ -154,7 +150,6 @@ import {
 } from "./commands/UpdateApiDestinationCommand";
 import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "./commands/UpdateArchiveCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
-import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -163,7 +158,6 @@ export type ServiceInputTypes =
   | CreateApiDestinationCommandInput
   | CreateArchiveCommandInput
   | CreateConnectionCommandInput
-  | CreateEndpointCommandInput
   | CreateEventBusCommandInput
   | CreatePartnerEventSourceCommandInput
   | DeactivateEventSourceCommandInput
@@ -171,14 +165,12 @@ export type ServiceInputTypes =
   | DeleteApiDestinationCommandInput
   | DeleteArchiveCommandInput
   | DeleteConnectionCommandInput
-  | DeleteEndpointCommandInput
   | DeleteEventBusCommandInput
   | DeletePartnerEventSourceCommandInput
   | DeleteRuleCommandInput
   | DescribeApiDestinationCommandInput
   | DescribeArchiveCommandInput
   | DescribeConnectionCommandInput
-  | DescribeEndpointCommandInput
   | DescribeEventBusCommandInput
   | DescribeEventSourceCommandInput
   | DescribePartnerEventSourceCommandInput
@@ -189,7 +181,6 @@ export type ServiceInputTypes =
   | ListApiDestinationsCommandInput
   | ListArchivesCommandInput
   | ListConnectionsCommandInput
-  | ListEndpointsCommandInput
   | ListEventBusesCommandInput
   | ListEventSourcesCommandInput
   | ListPartnerEventSourceAccountsCommandInput
@@ -212,8 +203,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateApiDestinationCommandInput
   | UpdateArchiveCommandInput
-  | UpdateConnectionCommandInput
-  | UpdateEndpointCommandInput;
+  | UpdateConnectionCommandInput;
 
 export type ServiceOutputTypes =
   | ActivateEventSourceCommandOutput
@@ -221,7 +211,6 @@ export type ServiceOutputTypes =
   | CreateApiDestinationCommandOutput
   | CreateArchiveCommandOutput
   | CreateConnectionCommandOutput
-  | CreateEndpointCommandOutput
   | CreateEventBusCommandOutput
   | CreatePartnerEventSourceCommandOutput
   | DeactivateEventSourceCommandOutput
@@ -229,14 +218,12 @@ export type ServiceOutputTypes =
   | DeleteApiDestinationCommandOutput
   | DeleteArchiveCommandOutput
   | DeleteConnectionCommandOutput
-  | DeleteEndpointCommandOutput
   | DeleteEventBusCommandOutput
   | DeletePartnerEventSourceCommandOutput
   | DeleteRuleCommandOutput
   | DescribeApiDestinationCommandOutput
   | DescribeArchiveCommandOutput
   | DescribeConnectionCommandOutput
-  | DescribeEndpointCommandOutput
   | DescribeEventBusCommandOutput
   | DescribeEventSourceCommandOutput
   | DescribePartnerEventSourceCommandOutput
@@ -247,7 +234,6 @@ export type ServiceOutputTypes =
   | ListApiDestinationsCommandOutput
   | ListArchivesCommandOutput
   | ListConnectionsCommandOutput
-  | ListEndpointsCommandOutput
   | ListEventBusesCommandOutput
   | ListEventSourcesCommandOutput
   | ListPartnerEventSourceAccountsCommandOutput
@@ -270,8 +256,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateApiDestinationCommandOutput
   | UpdateArchiveCommandOutput
-  | UpdateConnectionCommandOutput
-  | UpdateEndpointCommandOutput;
+  | UpdateConnectionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

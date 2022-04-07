@@ -1,4 +1,3 @@
-import { getInjectEndpointIdPlugin } from "@aws-sdk/middleware-sdk-eventbridge";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -21,9 +20,6 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
- *          <note>
- *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +58,6 @@ export class PutEventsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getInjectEndpointIdPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

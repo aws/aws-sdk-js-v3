@@ -1,4 +1,3 @@
-import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
 
@@ -14,6 +13,5 @@ export const getRuntimeConfig = (config: EventBridgeClientConfig) => ({
   logger: config?.logger ?? ({} as __Logger),
   regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
   serviceId: config?.serviceId ?? "EventBridge",
-  signerConstructor: config?.signerConstructor ?? SignatureV4MultiRegion,
   urlParser: config?.urlParser ?? parseUrl,
 });

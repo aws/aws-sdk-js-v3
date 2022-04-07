@@ -26,11 +26,6 @@ import {
   CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
-  CreateEndpointCommand,
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
-} from "./commands/CreateEndpointCommand";
-import {
   CreateEventBusCommand,
   CreateEventBusCommandInput,
   CreateEventBusCommandOutput,
@@ -66,11 +61,6 @@ import {
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
-  DeleteEndpointCommand,
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
-} from "./commands/DeleteEndpointCommand";
-import {
   DeleteEventBusCommand,
   DeleteEventBusCommandInput,
   DeleteEventBusCommandOutput,
@@ -96,11 +86,6 @@ import {
   DescribeConnectionCommandInput,
   DescribeConnectionCommandOutput,
 } from "./commands/DescribeConnectionCommand";
-import {
-  DescribeEndpointCommand,
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput,
-} from "./commands/DescribeEndpointCommand";
 import {
   DescribeEventBusCommand,
   DescribeEventBusCommandInput,
@@ -143,11 +128,6 @@ import {
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
-import {
-  ListEndpointsCommand,
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
-} from "./commands/ListEndpointsCommand";
 import {
   ListEventBusesCommand,
   ListEventBusesCommandInput,
@@ -235,11 +215,6 @@ import {
   UpdateConnectionCommandInput,
   UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
-import {
-  UpdateEndpointCommand,
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
-} from "./commands/UpdateEndpointCommand";
 import { EventBridgeClient } from "./EventBridgeClient";
 
 /**
@@ -420,40 +395,6 @@ export class EventBridge extends EventBridgeClient {
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a global endpoint. Global endpoints improve your application's availability by making it regional-fault tolerant. To do this, you define a primary and secondary Region
-   *       with event buses in each Region. You also create a Amazon Route 53 health check that will tell EventBridge to route events to the secondary Region when an "unhealthy" state
-   *       is encountered and events will be routed back to the primary Region when the health check reports a "healthy" state.</p>
-   */
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateEndpointCommandOutput>;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    cb: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): void;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): void;
-  public createEndpoint(
-    args: CreateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: CreateEndpointCommandOutput) => void
-  ): Promise<CreateEndpointCommandOutput> | void {
-    const command = new CreateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -719,38 +660,6 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   * <p>Delete an existing global endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
-   */
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteEndpointCommandOutput>;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): void;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): void;
-  public deleteEndpoint(
-    args: DeleteEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
-  ): Promise<DeleteEndpointCommandOutput> | void {
-    const command = new DeleteEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
    *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
    */
@@ -944,38 +853,6 @@ export class EventBridge extends EventBridgeClient {
     cb?: (err: any, data?: DescribeConnectionCommandOutput) => void
   ): Promise<DescribeConnectionCommandOutput> | void {
     const command = new DescribeConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the information about an existing global endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
-   */
-  public describeEndpoint(
-    args: DescribeEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEndpointCommandOutput>;
-  public describeEndpoint(
-    args: DescribeEndpointCommandInput,
-    cb: (err: any, data?: DescribeEndpointCommandOutput) => void
-  ): void;
-  public describeEndpoint(
-    args: DescribeEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEndpointCommandOutput) => void
-  ): void;
-  public describeEndpoint(
-    args: DescribeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
-  ): Promise<DescribeEndpointCommandOutput> | void {
-    const command = new DescribeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1317,38 +1194,6 @@ export class EventBridge extends EventBridgeClient {
   }
 
   /**
-   * <p>List the global endpoints associated with this account. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
-   */
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListEndpointsCommandOutput>;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    cb: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): void;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): void;
-  public listEndpoints(
-    args: ListEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
-    cb?: (err: any, data?: ListEndpointsCommandOutput) => void
-  ): Promise<ListEndpointsCommandOutput> | void {
-    const command = new ListEndpointsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all the event buses in your account, including the default event bus, custom event
    *       buses, and partner event buses.</p>
    */
@@ -1638,9 +1483,6 @@ export class EventBridge extends EventBridgeClient {
 
   /**
    * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
-   *          <note>
-   *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
-   *          </note>
    */
   public putEvents(args: PutEventsCommandInput, options?: __HttpHandlerOptions): Promise<PutEventsCommandOutput>;
   public putEvents(args: PutEventsCommandInput, cb: (err: any, data?: PutEventsCommandOutput) => void): void;
@@ -1833,19 +1675,21 @@ export class EventBridge extends EventBridgeClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API destination</a>
+   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API
+   *           destination</a>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html">API Gateway</a>
-   *                </p>
+   *                <p>Amazon API Gateway REST API endpoints</p>
+   *             </li>
+   *             <li>
+   *                <p>API Gateway</p>
    *             </li>
    *             <li>
    *                <p>Batch job queue</p>
    *             </li>
    *             <li>
-   *                <p>CloudWatch group</p>
+   *                <p>CloudWatch Logs group</p>
    *             </li>
    *             <li>
    *                <p>CodeBuild project</p>
@@ -1854,78 +1698,60 @@ export class EventBridge extends EventBridgeClient {
    *                <p>CodePipeline</p>
    *             </li>
    *             <li>
-   *                <p>EC2 <code>CreateSnapshot</code> API call</p>
+   *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
    *             </li>
    *             <li>
    *                <p>EC2 Image Builder</p>
    *             </li>
    *             <li>
-   *                <p>EC2 <code>RebootInstances</code> API call</p>
+   *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
    *             </li>
    *             <li>
-   *                <p>EC2 <code>StopInstances</code> API call</p>
+   *                <p>Amazon EC2 <code>StopInstances</code> API call</p>
    *             </li>
    *             <li>
-   *                <p>EC2 <code>TerminateInstances</code> API call</p>
+   *                <p>Amazon EC2 <code>TerminateInstances</code> API call</p>
    *             </li>
    *             <li>
-   *                <p>ECS task</p>
+   *                <p>Amazon ECS tasks</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html">Event bus in a different account or
-   *           Region</a>
-   *                </p>
+   *                <p>Event bus in a different Amazon Web Services account or Region.</p>
+   *                <p>You can use an event bus in the US East (N. Virginia) us-east-1, US West (Oregon)
+   *           us-west-2, or Europe (Ireland) eu-west-1 Regions as a target for a rule.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html">Event bus in the same account and
-   *           Region</a>
-   *                </p>
+   *                <p>Firehose delivery stream (Kinesis Data Firehose)</p>
    *             </li>
    *             <li>
-   *                <p>Firehose delivery stream</p>
+   *                <p>Inspector assessment template (Amazon Inspector)</p>
    *             </li>
    *             <li>
-   *                <p>Glue workflow</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge">Incident Manager response plan</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Inspector assessment template</p>
-   *             </li>
-   *             <li>
-   *                <p>Kinesis stream</p>
+   *                <p>Kinesis stream (Kinesis Data Stream)</p>
    *             </li>
    *             <li>
    *                <p>Lambda function</p>
    *             </li>
    *             <li>
-   *                <p>Redshift cluster</p>
+   *                <p>Redshift clusters (Data API statement execution)</p>
    *             </li>
    *             <li>
-   *                <p>SageMaker Pipeline</p>
+   *                <p>Amazon SNS topic</p>
    *             </li>
    *             <li>
-   *                <p>SNS topic</p>
+   *                <p>Amazon SQS queues (includes FIFO queues)</p>
    *             </li>
    *             <li>
-   *                <p>SQS queue</p>
+   *                <p>SSM Automation</p>
    *             </li>
    *             <li>
-   *                <p>Step Functions state machine</p>
+   *                <p>SSM OpsItem</p>
    *             </li>
    *             <li>
-   *                <p>Systems Manager Automation</p>
+   *                <p>SSM Run Command</p>
    *             </li>
    *             <li>
-   *                <p>Systems Manager OpsItem</p>
-   *             </li>
-   *             <li>
-   *                <p>Systems Manager Run Command</p>
+   *                <p>Step Functions state machines</p>
    *             </li>
    *          </ul>
    *
@@ -2338,38 +2164,6 @@ export class EventBridge extends EventBridgeClient {
     cb?: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): Promise<UpdateConnectionCommandOutput> | void {
     const command = new UpdateConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Update an existing endpoint. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide..</p>
-   */
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateEndpointCommandOutput>;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): void;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): void;
-  public updateEndpoint(
-    args: UpdateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
-  ): Promise<UpdateEndpointCommandOutput> | void {
-    const command = new UpdateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
