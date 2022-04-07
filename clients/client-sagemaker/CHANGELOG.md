@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.66.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.65.0...v3.66.0) (2022-04-07)
+
+
+### Features
+
+* **clients:** update clients as of 04/07/2022 ([#3520](https://github.com/aws/aws-sdk-js-v3/issues/3520)) ([4aaf58a](https://github.com/aws/aws-sdk-js-v3/commit/4aaf58aa983f1c30430e5ce57cb47a36837c590b))
+
+
+
+
+
 # [3.58.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.57.0...v3.58.0) (2022-03-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
