@@ -1968,6 +1968,8 @@ const serializeAws_restJson1DashManifest = (input: DashManifest, context: __Serd
     ...(input.MinBufferTimeSeconds !== undefined &&
       input.MinBufferTimeSeconds !== null && { minBufferTimeSeconds: input.MinBufferTimeSeconds }),
     ...(input.Profile !== undefined && input.Profile !== null && { profile: input.Profile }),
+    ...(input.ScteMarkersSource !== undefined &&
+      input.ScteMarkersSource !== null && { scteMarkersSource: input.ScteMarkersSource }),
     ...(input.StreamSelection !== undefined &&
       input.StreamSelection !== null && {
         streamSelection: serializeAws_restJson1StreamSelection(input.StreamSelection, context),
@@ -2306,6 +2308,7 @@ const deserializeAws_restJson1DashManifest = (output: any, context: __SerdeConte
     ManifestName: __expectString(output.manifestName),
     MinBufferTimeSeconds: __expectInt32(output.minBufferTimeSeconds),
     Profile: __expectString(output.profile),
+    ScteMarkersSource: __expectString(output.scteMarkersSource),
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
         ? deserializeAws_restJson1StreamSelection(output.streamSelection, context)

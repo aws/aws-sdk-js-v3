@@ -71,6 +71,11 @@ export enum Profile {
   NONE = "NONE",
 }
 
+export enum ScteMarkersSource {
+  MANIFEST = "MANIFEST",
+  SEGMENTS = "SEGMENTS",
+}
+
 export enum StreamOrder {
   ORIGINAL = "ORIGINAL",
   VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
@@ -129,6 +134,11 @@ export interface DashManifest {
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
    */
   Profile?: Profile | string;
+
+  /**
+   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+   */
+  ScteMarkersSource?: ScteMarkersSource | string;
 
   /**
    * A StreamSelection configuration.
