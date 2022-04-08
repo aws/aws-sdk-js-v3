@@ -50,8 +50,9 @@ export async function* paginateListEndpointsByPlatformApplication(
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

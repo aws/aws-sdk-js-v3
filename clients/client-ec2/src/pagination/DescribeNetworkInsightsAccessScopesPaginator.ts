@@ -51,8 +51,9 @@ export async function* paginateDescribeNetworkInsightsAccessScopes(
       throw new Error("Invalid client, expected EC2 | EC2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -51,8 +51,9 @@ export async function* paginateDescribeReplicationGroups(
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

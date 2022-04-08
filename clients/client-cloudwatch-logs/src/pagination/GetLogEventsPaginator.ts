@@ -51,8 +51,9 @@ export async function* paginateGetLogEvents(
       throw new Error("Invalid client, expected CloudWatchLogs | CloudWatchLogsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextForwardToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

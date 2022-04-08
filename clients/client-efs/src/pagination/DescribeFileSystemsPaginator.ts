@@ -51,8 +51,9 @@ export async function* paginateDescribeFileSystems(
       throw new Error("Invalid client, expected EFS | EFSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

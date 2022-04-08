@@ -51,8 +51,9 @@ export async function* paginateDescribeEngineDefaultParameters(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.EngineDefaults!.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

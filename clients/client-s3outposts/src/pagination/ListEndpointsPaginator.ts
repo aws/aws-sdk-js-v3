@@ -51,8 +51,9 @@ export async function* paginateListEndpoints(
       throw new Error("Invalid client, expected S3Outposts | S3OutpostsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

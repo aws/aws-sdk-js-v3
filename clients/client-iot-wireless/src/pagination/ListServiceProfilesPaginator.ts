@@ -51,8 +51,9 @@ export async function* paginateListServiceProfiles(
       throw new Error("Invalid client, expected IoTWireless | IoTWirelessClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -50,8 +50,9 @@ export async function* paginateListSecurityConfigurations(
       throw new Error("Invalid client, expected EMR | EMRClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

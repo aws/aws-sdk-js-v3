@@ -51,8 +51,9 @@ export async function* paginateGetDifferences(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -51,8 +51,9 @@ export async function* paginateListLaunchProfiles(
       throw new Error("Invalid client, expected Nimble | NimbleClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

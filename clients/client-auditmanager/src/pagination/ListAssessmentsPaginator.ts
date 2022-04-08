@@ -51,8 +51,9 @@ export async function* paginateListAssessments(
       throw new Error("Invalid client, expected AuditManager | AuditManagerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

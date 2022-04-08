@@ -47,8 +47,9 @@ export async function* paginateListFilters(
       throw new Error("Invalid client, expected Inspector2 | Inspector2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

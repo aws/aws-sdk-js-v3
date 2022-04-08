@@ -51,8 +51,9 @@ export async function* paginateListCertificateAuthorities(
       throw new Error("Invalid client, expected ACMPCA | ACMPCAClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

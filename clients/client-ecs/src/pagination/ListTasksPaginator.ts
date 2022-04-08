@@ -47,8 +47,9 @@ export async function* paginateListTasks(
       throw new Error("Invalid client, expected ECS | ECSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

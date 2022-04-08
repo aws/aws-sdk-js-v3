@@ -51,8 +51,9 @@ export async function* paginateListEnvironments(
       throw new Error("Invalid client, expected Cloud9 | Cloud9Client");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

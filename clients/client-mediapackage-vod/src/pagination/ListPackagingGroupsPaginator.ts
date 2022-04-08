@@ -51,8 +51,9 @@ export async function* paginateListPackagingGroups(
       throw new Error("Invalid client, expected MediaPackageVod | MediaPackageVodClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

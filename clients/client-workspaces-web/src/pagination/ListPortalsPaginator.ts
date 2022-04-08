@@ -47,8 +47,9 @@ export async function* paginateListPortals(
       throw new Error("Invalid client, expected WorkSpacesWeb | WorkSpacesWebClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

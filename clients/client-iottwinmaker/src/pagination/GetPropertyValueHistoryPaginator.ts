@@ -51,8 +51,9 @@ export async function* paginateGetPropertyValueHistory(
       throw new Error("Invalid client, expected IoTTwinMaker | IoTTwinMakerClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

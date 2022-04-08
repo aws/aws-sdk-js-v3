@@ -47,8 +47,9 @@ export async function* paginateListTables(
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.LastEvaluatedTableName;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

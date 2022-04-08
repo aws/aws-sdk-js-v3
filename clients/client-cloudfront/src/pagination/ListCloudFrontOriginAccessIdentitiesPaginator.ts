@@ -51,8 +51,9 @@ export async function* paginateListCloudFrontOriginAccessIdentities(
       throw new Error("Invalid client, expected CloudFront | CloudFrontClient");
     }
     yield page;
+    const prevToken = token;
     token = page.CloudFrontOriginAccessIdentityList!.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -51,8 +51,9 @@ export async function* paginateGetExecutionHistory(
       throw new Error("Invalid client, expected SFN | SFNClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

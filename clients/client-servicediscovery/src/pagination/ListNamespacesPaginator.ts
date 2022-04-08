@@ -51,8 +51,9 @@ export async function* paginateListNamespaces(
       throw new Error("Invalid client, expected ServiceDiscovery | ServiceDiscoveryClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

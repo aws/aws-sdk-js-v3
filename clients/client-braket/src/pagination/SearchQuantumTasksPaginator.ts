@@ -51,8 +51,9 @@ export async function* paginateSearchQuantumTasks(
       throw new Error("Invalid client, expected Braket | BraketClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

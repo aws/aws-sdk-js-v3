@@ -51,8 +51,9 @@ export async function* paginateDescribeFlowExecutionRecords(
       throw new Error("Invalid client, expected Appflow | AppflowClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

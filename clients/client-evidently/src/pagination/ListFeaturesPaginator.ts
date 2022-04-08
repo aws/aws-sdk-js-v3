@@ -51,8 +51,9 @@ export async function* paginateListFeatures(
       throw new Error("Invalid client, expected Evidently | EvidentlyClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

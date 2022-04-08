@@ -51,8 +51,9 @@ export async function* paginateListProjects(
       throw new Error("Invalid client, expected IoT1ClickProjects | IoT1ClickProjectsClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

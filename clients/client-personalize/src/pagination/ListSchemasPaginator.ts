@@ -47,8 +47,9 @@ export async function* paginateListSchemas(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;
