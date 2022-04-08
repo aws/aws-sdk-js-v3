@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.67.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.66.0...v3.67.0) (2022-04-08)
+
+
+### Features
+
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK has added support for the pass-through of WebVTT styling to WebVTT outputs, pass-through of KLV metadata to supported formats, and improved filter support for processing 444/RGB content. ([d49135a](https://github.com/aws/aws-sdk-js-v3/commit/d49135a6cb3e625afa608a31de8119ef8cc72c76))
+* **client-mediapackage-vod:** This release adds ScteMarkersSource as an available field for Dash Packaging Configurations. When set to MANIFEST, MediaPackage will source the SCTE-35 markers from the manifest. When set to SEGMENTS, MediaPackage will source the SCTE-35 markers from the segments. ([fc43d06](https://github.com/aws/aws-sdk-js-v3/commit/fc43d06a17b13401d4b4ccb3968e40aa1455b8d8))
+* **client-wafv2:** Add a new CurrentDefaultVersion field to ListAvailableManagedRuleGroupVersions API response; add a new VersioningSupported boolean to each ManagedRuleGroup returned from ListAvailableManagedRuleGroups API response. ([07f9765](https://github.com/aws/aws-sdk-js-v3/commit/07f9765e25fb60aea6a42c0ed9fdbf79d028b118))
+* **clients:** update client endpoints as of 2022-04-08 ([ad3734a](https://github.com/aws/aws-sdk-js-v3/commit/ad3734a4213558b53cdeb35aeed7e6c7cde0e5c5))
+
+
+
+
+
 # [3.66.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.65.0...v3.66.0) (2022-04-07)
 
 
