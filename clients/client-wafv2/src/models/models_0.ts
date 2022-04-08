@@ -1367,6 +1367,7 @@ export namespace UsernameField {
  * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
  *          <p>Use this for the account takeover prevention managed rule group
  *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
+ *          <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>
  */
 export interface ManagedRuleGroupConfig {
   /**
@@ -4744,6 +4745,11 @@ export interface ManagedRuleGroupSummary {
   Name?: string;
 
   /**
+   * <p>Indicates whether the managed rule group is versioned. If it is, you can retrieve the versions list by calling <a>ListAvailableManagedRuleGroupVersions</a>. </p>
+   */
+  VersioningSupported?: boolean;
+
+  /**
    * <p>The description of the managed rule group, provided by Amazon Web Services Managed Rules or the Amazon Web Services Marketplace seller who manages it.</p>
    */
   Description?: string;
@@ -4867,6 +4873,11 @@ export interface ListAvailableManagedRuleGroupVersionsResponse {
    * <p>The versions that are currently available for the specified managed rule group. </p>
    */
   Versions?: ManagedRuleGroupVersion[];
+
+  /**
+   * <p>The name of the version that's currently set as the default. </p>
+   */
+  CurrentDefaultVersion?: string;
 }
 
 export namespace ListAvailableManagedRuleGroupVersionsResponse {
@@ -5726,7 +5737,9 @@ export interface PutPermissionPolicyRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code>. WAF rejects any extra actions or wildcard actions in the policy.</p>
+   *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and
+   *              <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>.
+   *                  WAF rejects any extra actions or wildcard actions in the policy.</p>
    *             </li>
    *             <li>
    *                <p>The policy must not include a <code>Resource</code> parameter.</p>
@@ -5774,7 +5787,9 @@ export namespace PutPermissionPolicyResponse {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and <code>wafv2:PutFirewallManagerRuleGroups</code>. WAF rejects any extra actions or wildcard actions in the policy.</p>
+ *                   <code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>, and
+ *              <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>.
+ *                  WAF rejects any extra actions or wildcard actions in the policy.</p>
  *             </li>
  *             <li>
  *                <p>The policy must not include a <code>Resource</code> parameter.</p>
@@ -6300,6 +6315,7 @@ export interface ManagedRuleGroupStatement {
    * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
    *          <p>Use this for the account takeover prevention managed rule group
    *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
+   *          <p>You can provide multiple individual <code>ManagedRuleGroupConfig</code> objects for any rule group configuration, for example <code>UsernameField</code> and <code>PasswordField</code>. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: <code>LoginPath</code>, <code>PasswordField</code>, <code>PayloadType</code> and <code>UsernameField</code>.</p>
    */
   ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[];
 }

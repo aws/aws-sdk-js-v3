@@ -2596,6 +2596,9 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError = 
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafv2#WAFInvalidParameterException":
       throw await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      throw await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -6154,6 +6157,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsResponse = (
   context: __SerdeContext
 ): ListAvailableManagedRuleGroupVersionsResponse => {
   return {
+    CurrentDefaultVersion: __expectString(output.CurrentDefaultVersion),
     NextMarker: __expectString(output.NextMarker),
     Versions:
       output.Versions !== undefined && output.Versions !== null
@@ -6398,6 +6402,7 @@ const deserializeAws_json1_1ManagedRuleGroupSummary = (
     Description: __expectString(output.Description),
     Name: __expectString(output.Name),
     VendorName: __expectString(output.VendorName),
+    VersioningSupported: __expectBoolean(output.VersioningSupported),
   } as any;
 };
 
