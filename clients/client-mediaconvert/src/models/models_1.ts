@@ -29,8 +29,6 @@ import {
   KantarWatermarkSettings,
   M2tsSettings,
   M3u8AudioDuration,
-  M3u8DataPtsControl,
-  M3u8NielsenId3,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
@@ -39,6 +37,16 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum M3u8DataPtsControl {
+  ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
+  AUTO = "AUTO",
+}
+
+export enum M3u8NielsenId3 {
+  INSERT = "INSERT",
+  NONE = "NONE",
+}
 
 export enum M3u8PcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
@@ -302,6 +310,11 @@ export enum MpdCaptionContainerType {
   RAW = "RAW",
 }
 
+export enum MpdKlvMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 export enum MpdScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -335,6 +348,11 @@ export interface MpdSettings {
    * Use this setting only in DASH output groups that include sidecar TTML or IMSC captions.  You specify sidecar captions in a separate output from your audio and video. Choose Raw (RAW) for captions in a single XML file in a raw container. Choose Fragmented MPEG-4 (FRAGMENTED_MP4) for captions in XML format contained within fragmented MP4 files. This set of fragmented MP4 files is separate from your video and audio fragmented MP4 files.
    */
   CaptionContainerType?: MpdCaptionContainerType | string;
+
+  /**
+   * Applies to DASH ISO outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.
+   */
+  KlvMetadata?: MpdKlvMetadata | string;
 
   /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
@@ -5440,54 +5458,6 @@ export namespace ResourceTags {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResourceTags): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
-   */
-  ResourceTags?: ResourceTags;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface PutPolicyRequest {
-  /**
-   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Policy: Policy | undefined;
-}
-
-export namespace PutPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutPolicyResponse {
-  /**
-   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Policy?: Policy;
-}
-
-export namespace PutPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
     ...obj,
   });
 }

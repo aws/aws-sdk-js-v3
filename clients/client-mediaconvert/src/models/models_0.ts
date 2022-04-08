@@ -1918,6 +1918,7 @@ export enum WebvttAccessibilitySubs {
 export enum WebvttStylePassthrough {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
+  STRICT = "STRICT",
 }
 
 /**
@@ -1930,7 +1931,7 @@ export interface WebvttDestinationSettings {
   Accessibility?: WebvttAccessibilitySubs | string;
 
   /**
-   * Set Style passthrough (StylePassthrough) to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use simplified output captions.
+   * To use the available style, color, and position information from your input captions: Set Style passthrough (stylePassthrough) to Enabled (ENABLED). MediaConvert uses default settings when style and position information is missing from your input captions. To recreate the input captions exactly: Set Style passthrough to Strict (STRICT). MediaConvert automatically applies timing adjustments, including adjustments for frame rate conversion, ad avails, and input clipping. Your input captions format must be WebVTT. To ignore the style and position information from your input captions and use simplified output captions: Set Style passthrough to Disabled (DISABLED), or leave blank.
    */
   StylePassthrough?: WebvttStylePassthrough | string;
 }
@@ -5298,6 +5299,11 @@ export enum CmfcIFrameOnlyManifest {
   INCLUDE = "INCLUDE",
 }
 
+export enum CmfcKlvMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 export enum CmfcScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -5346,6 +5352,11 @@ export interface CmfcSettings {
    * Choose Include (INCLUDE) to have MediaConvert generate an HLS child manifest that lists only the I-frames for this rendition, in addition to your regular manifest for this rendition. You might use this manifest as part of a workflow that creates preview functions for your video. MediaConvert adds both the I-frame only child manifest and the regular child manifest to the parent manifest. When you don't need the I-frame only child manifest, keep the default value Exclude (EXCLUDE).
    */
   IFrameOnlyManifest?: CmfcIFrameOnlyManifest | string;
+
+  /**
+   * Applies to CMAF outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.
+   */
+  KlvMetadata?: CmfcKlvMetadata | string;
 
   /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
@@ -5539,6 +5550,11 @@ export enum M2tsForceTsVideoEbpOrder {
   FORCE = "FORCE",
 }
 
+export enum M2tsKlvMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 export enum M2tsNielsenId3 {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -5682,6 +5698,11 @@ export interface M2tsSettings {
   FragmentTime?: number;
 
   /**
+   * Applies to MPEG-TS outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.
+   */
+  KlvMetadata?: M2tsKlvMetadata | string;
+
+  /**
    * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
    */
   MaxPcrInterval?: number;
@@ -5799,14 +5820,4 @@ export namespace M2tsSettings {
 export enum M3u8AudioDuration {
   DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
   MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
-}
-
-export enum M3u8DataPtsControl {
-  ALIGN_TO_VIDEO = "ALIGN_TO_VIDEO",
-  AUTO = "AUTO",
-}
-
-export enum M3u8NielsenId3 {
-  INSERT = "INSERT",
-  NONE = "NONE",
 }

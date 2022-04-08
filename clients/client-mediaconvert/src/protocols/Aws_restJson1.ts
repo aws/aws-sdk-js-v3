@@ -3850,6 +3850,7 @@ const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __Serd
       input.DescriptiveVideoServiceFlag !== null && { descriptiveVideoServiceFlag: input.DescriptiveVideoServiceFlag }),
     ...(input.IFrameOnlyManifest !== undefined &&
       input.IFrameOnlyManifest !== null && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
@@ -5023,6 +5024,7 @@ const serializeAws_restJson1M2tsSettings = (input: M2tsSettings, context: __Serd
       input.ForceTsVideoEbpOrder !== null && { forceTsVideoEbpOrder: input.ForceTsVideoEbpOrder }),
     ...(input.FragmentTime !== undefined &&
       input.FragmentTime !== null && { fragmentTime: __serializeFloat(input.FragmentTime) }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.MaxPcrInterval !== undefined &&
       input.MaxPcrInterval !== null && { maxPcrInterval: input.MaxPcrInterval }),
     ...(input.MinEbpInterval !== undefined &&
@@ -5176,6 +5178,7 @@ const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeC
     ...(input.AudioDuration !== undefined && input.AudioDuration !== null && { audioDuration: input.AudioDuration }),
     ...(input.CaptionContainerType !== undefined &&
       input.CaptionContainerType !== null && { captionContainerType: input.CaptionContainerType }),
+    ...(input.KlvMetadata !== undefined && input.KlvMetadata !== null && { klvMetadata: input.KlvMetadata }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
     ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
@@ -7192,6 +7195,7 @@ const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeConte
     AudioTrackType: __expectString(output.audioTrackType),
     DescriptiveVideoServiceFlag: __expectString(output.descriptiveVideoServiceFlag),
     IFrameOnlyManifest: __expectString(output.iFrameOnlyManifest),
+    KlvMetadata: __expectString(output.klvMetadata),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),
@@ -8287,6 +8291,7 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
     EsRateInPes: __expectString(output.esRateInPes),
     ForceTsVideoEbpOrder: __expectString(output.forceTsVideoEbpOrder),
     FragmentTime: __limitedParseDouble(output.fragmentTime),
+    KlvMetadata: __expectString(output.klvMetadata),
     MaxPcrInterval: __expectInt32(output.maxPcrInterval),
     MinEbpInterval: __expectInt32(output.minEbpInterval),
     NielsenId3: __expectString(output.nielsenId3),
@@ -8422,6 +8427,7 @@ const deserializeAws_restJson1MpdSettings = (output: any, context: __SerdeContex
     AccessibilityCaptionHints: __expectString(output.accessibilityCaptionHints),
     AudioDuration: __expectString(output.audioDuration),
     CaptionContainerType: __expectString(output.captionContainerType),
+    KlvMetadata: __expectString(output.klvMetadata),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
     TimedMetadata: __expectString(output.timedMetadata),

@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
+import { ListTagsForResourceRequest } from "../models/models_1";
+import { ListTagsForResourceResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

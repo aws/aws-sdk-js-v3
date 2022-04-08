@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { PutPolicyRequest, PutPolicyResponse } from "../models/models_1";
+import { PutPolicyRequest, PutPolicyResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1PutPolicyCommand,
   serializeAws_restJson1PutPolicyCommand,

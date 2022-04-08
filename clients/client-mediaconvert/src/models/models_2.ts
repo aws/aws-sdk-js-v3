@@ -2,13 +2,63 @@ import { AccelerationSettings, HopDestination } from "./models_0";
 import {
   JobTemplate,
   JobTemplateSettings,
+  Policy,
   Preset,
   PresetSettings,
   Queue,
   QueueStatus,
   ReservationPlanSettings,
+  ResourceTags,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface ListTagsForResourceResponse {
+  /**
+   * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+   */
+  ResourceTags?: ResourceTags;
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPolicyRequest {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy: Policy | undefined;
+}
+
+export namespace PutPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy?: Policy;
+}
+
+export namespace PutPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface TagResourceRequest {
   /**
