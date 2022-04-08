@@ -1,9 +1,7 @@
 /// <reference types="mocha" />
-import { HttpRequest } from "@aws-sdk/protocol-http";
 import { FinalizeRequestMiddleware } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";
-import { Readable } from "stream";
 
 import { EventBridge } from "../src/EventBridge";
 
@@ -27,8 +25,9 @@ describe("EventBridge", () => {
         Entries: [],
         EndpointId: "endpointId",
       });
-      expect(request.hostname).eql("abc");
-      expect(request.headers["authorization"]).contains(`Credential=abc`);
+      expect(request.hostname).eql("endpointId.endpoint.events.amazonaws.com");
+      expect(request.headers["X-Amz-Region-Set"]).eql("*");
+      expect(request.headers["Authorization"]).includes("AWS4-ECDSA-P256-SHA256");
     });
   });
 });
