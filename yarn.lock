@@ -6382,6 +6382,54 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-gamesparks@workspace:clients/client-gamesparks":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-gamesparks@workspace:clients/client-gamesparks"
+  dependencies:
+    "@aws-crypto/sha256-browser": 2.0.0
+    "@aws-crypto/sha256-js": 2.0.0
+    "@aws-sdk/client-sts": "*"
+    "@aws-sdk/config-resolver": "*"
+    "@aws-sdk/credential-provider-node": "*"
+    "@aws-sdk/fetch-http-handler": "*"
+    "@aws-sdk/hash-node": "*"
+    "@aws-sdk/invalid-dependency": "*"
+    "@aws-sdk/middleware-content-length": "*"
+    "@aws-sdk/middleware-host-header": "*"
+    "@aws-sdk/middleware-logger": "*"
+    "@aws-sdk/middleware-retry": "*"
+    "@aws-sdk/middleware-serde": "*"
+    "@aws-sdk/middleware-signing": "*"
+    "@aws-sdk/middleware-stack": "*"
+    "@aws-sdk/middleware-user-agent": "*"
+    "@aws-sdk/node-config-provider": "*"
+    "@aws-sdk/node-http-handler": "*"
+    "@aws-sdk/protocol-http": "*"
+    "@aws-sdk/service-client-documentation-generator": "*"
+    "@aws-sdk/smithy-client": "*"
+    "@aws-sdk/types": "*"
+    "@aws-sdk/url-parser": "*"
+    "@aws-sdk/util-base64-browser": "*"
+    "@aws-sdk/util-base64-node": "*"
+    "@aws-sdk/util-body-length-browser": "*"
+    "@aws-sdk/util-body-length-node": "*"
+    "@aws-sdk/util-defaults-mode-browser": "*"
+    "@aws-sdk/util-defaults-mode-node": "*"
+    "@aws-sdk/util-user-agent-browser": "*"
+    "@aws-sdk/util-user-agent-node": "*"
+    "@aws-sdk/util-utf8-browser": "*"
+    "@aws-sdk/util-utf8-node": "*"
+    "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.7.5
+    concurrently: 7.0.0
+    downlevel-dts: 0.7.0
+    rimraf: 3.0.2
+    tslib: ^2.3.1
+    typedoc: 0.19.2
+    typescript: ~4.6.2
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-glacier@workspace:clients/client-glacier":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-glacier@workspace:clients/client-glacier"
@@ -11116,6 +11164,56 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-pinpoint-sms-voice-v2@workspace:clients/client-pinpoint-sms-voice-v2":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-pinpoint-sms-voice-v2@workspace:clients/client-pinpoint-sms-voice-v2"
+  dependencies:
+    "@aws-crypto/sha256-browser": 2.0.0
+    "@aws-crypto/sha256-js": 2.0.0
+    "@aws-sdk/client-sts": "*"
+    "@aws-sdk/config-resolver": "*"
+    "@aws-sdk/credential-provider-node": "*"
+    "@aws-sdk/fetch-http-handler": "*"
+    "@aws-sdk/hash-node": "*"
+    "@aws-sdk/invalid-dependency": "*"
+    "@aws-sdk/middleware-content-length": "*"
+    "@aws-sdk/middleware-host-header": "*"
+    "@aws-sdk/middleware-logger": "*"
+    "@aws-sdk/middleware-retry": "*"
+    "@aws-sdk/middleware-serde": "*"
+    "@aws-sdk/middleware-signing": "*"
+    "@aws-sdk/middleware-stack": "*"
+    "@aws-sdk/middleware-user-agent": "*"
+    "@aws-sdk/node-config-provider": "*"
+    "@aws-sdk/node-http-handler": "*"
+    "@aws-sdk/protocol-http": "*"
+    "@aws-sdk/service-client-documentation-generator": "*"
+    "@aws-sdk/smithy-client": "*"
+    "@aws-sdk/types": "*"
+    "@aws-sdk/url-parser": "*"
+    "@aws-sdk/util-base64-browser": "*"
+    "@aws-sdk/util-base64-node": "*"
+    "@aws-sdk/util-body-length-browser": "*"
+    "@aws-sdk/util-body-length-node": "*"
+    "@aws-sdk/util-defaults-mode-browser": "*"
+    "@aws-sdk/util-defaults-mode-node": "*"
+    "@aws-sdk/util-user-agent-browser": "*"
+    "@aws-sdk/util-user-agent-node": "*"
+    "@aws-sdk/util-utf8-browser": "*"
+    "@aws-sdk/util-utf8-node": "*"
+    "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.7.5
+    "@types/uuid": ^8.3.0
+    concurrently: 7.0.0
+    downlevel-dts: 0.7.0
+    rimraf: 3.0.2
+    tslib: ^2.3.1
+    typedoc: 0.19.2
+    typescript: ~4.6.2
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-pinpoint-sms-voice@workspace:clients/client-pinpoint-sms-voice":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-pinpoint-sms-voice@workspace:clients/client-pinpoint-sms-voice"
@@ -14135,49 +14233,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@file:../../clients/client-sts::locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader":
-  version: 3.58.0
-  resolution: "@aws-sdk/client-sts@file:../../clients/client-sts#../../clients/client-sts::hash=85c173&locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader"
-  dependencies:
-    "@aws-crypto/sha256-browser": 2.0.0
-    "@aws-crypto/sha256-js": 2.0.0
-    "@aws-sdk/config-resolver": "*"
-    "@aws-sdk/credential-provider-node": "*"
-    "@aws-sdk/fetch-http-handler": "*"
-    "@aws-sdk/hash-node": "*"
-    "@aws-sdk/invalid-dependency": "*"
-    "@aws-sdk/middleware-content-length": "*"
-    "@aws-sdk/middleware-host-header": "*"
-    "@aws-sdk/middleware-logger": "*"
-    "@aws-sdk/middleware-retry": "*"
-    "@aws-sdk/middleware-sdk-sts": "*"
-    "@aws-sdk/middleware-serde": "*"
-    "@aws-sdk/middleware-signing": "*"
-    "@aws-sdk/middleware-stack": "*"
-    "@aws-sdk/middleware-user-agent": "*"
-    "@aws-sdk/node-config-provider": "*"
-    "@aws-sdk/node-http-handler": "*"
-    "@aws-sdk/protocol-http": "*"
-    "@aws-sdk/smithy-client": "*"
-    "@aws-sdk/types": "*"
-    "@aws-sdk/url-parser": "*"
-    "@aws-sdk/util-base64-browser": "*"
-    "@aws-sdk/util-base64-node": "*"
-    "@aws-sdk/util-body-length-browser": "*"
-    "@aws-sdk/util-body-length-node": "*"
-    "@aws-sdk/util-defaults-mode-browser": "*"
-    "@aws-sdk/util-defaults-mode-node": "*"
-    "@aws-sdk/util-user-agent-browser": "*"
-    "@aws-sdk/util-user-agent-node": "*"
-    "@aws-sdk/util-utf8-browser": "*"
-    "@aws-sdk/util-utf8-node": "*"
-    entities: 2.2.0
-    fast-xml-parser: 3.19.0
-    tslib: ^2.3.1
-  checksum: 7b3a2847aa36663a21810cdf6765236149d8abbe2cab1e313f3a57450c81e767d3e9f8b76849d9a75ca7306413b347bbd8a035f07d4800686d42c39362289112
-  languageName: node
-  linkType: hard
-
 "@aws-sdk/client-support@workspace:clients/client-support":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-support@workspace:clients/client-support"
@@ -15748,7 +15803,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader"
   dependencies:
-    "@aws-sdk/client-sts": "file:../../clients/client-sts"
+    "@aws-sdk/client-sts": "*"
     "@aws-sdk/credential-provider-node": "*"
     "@tsconfig/recommended": 1.0.1
     "@types/node": ^10.0.0
