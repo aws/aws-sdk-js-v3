@@ -19448,10 +19448,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:^4.2.11":
+"@types/chai@npm:*":
   version: 4.2.16
   resolution: "@types/chai@npm:4.2.16"
   checksum: 789762d5a5fa1ffdcb6569c5cf0bfba8afc8c84614c34a7226262da9d8a76da173dbb85786313c2f5d3c639aee2754d6bdf3786bd2a9584b23e72aa76866b3c3
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:^4.2.11":
+  version: 4.3.0
+  resolution: "@types/chai@npm:4.3.0"
+  checksum: 3e393e094263db65df28a0123dc13f342937c1bab6cd173eae913d593c5b9a16b555713a08c34863a1fbf079aa7222b96197c70380a5c130549d6b2f6845a989
   languageName: node
   linkType: hard
 
@@ -19574,13 +19581,13 @@ __metadata:
   linkType: hard
 
 "@types/mocha@npm:^8.0.4":
-  version: 8.2.2
-  resolution: "@types/mocha@npm:8.2.2"
-  checksum: 8e1fbc3e98d6bd93fe5b7454c34d53241b9f1947b28c10b8bb340585a9ed303be649b45c36b19236000f82f74e8d3df67ed617ae7baae80ea09d5317dbe080ba
+  version: 8.2.3
+  resolution: "@types/mocha@npm:8.2.3"
+  checksum: b43ed1b642a2ee62bf10792a07d5d21d66ab8b4d2cf5d822c8a7643e77b90009aecc000eefab5f6ddc9eb69004192f84119a6f97a8499e1a13ea082e7a5e71bf
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>= 8, @types/node@npm:^14.11.2":
+"@types/node@npm:*, @types/node@npm:>= 8":
   version: 14.14.41
   resolution: "@types/node@npm:14.14.41"
   checksum: 8fc205d411742fba8f12bf255423427481bdb371035b2c32db7167642fc1cff2bdfc2007ffc5ddbfe2c09f0df851d2df9f2199fac1f2b0046c1d6ccb2894cffd
@@ -19609,9 +19616,16 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^12.7.5":
-  version: 12.20.10
-  resolution: "@types/node@npm:12.20.10"
-  checksum: edc4ea98b589481c2910ec27dc57eb87e42af6597245f05869e98b875b1bbbd1f3fe888f7878d33036e3417b20ff75537ba7cd4cb02d476442e5fbac274bbee9
+  version: 12.20.47
+  resolution: "@types/node@npm:12.20.47"
+  checksum: 97487af02fada4342e1bd47f9c9ebf601c12b85cbf17056ba73a315339ae996490403f2d4d1d799d8078cfe43a59e33370b4a5ae2d4fb79dd02359f4691934b4
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^14.11.2":
+  version: 14.18.12
+  resolution: "@types/node@npm:14.18.12"
+  checksum: 8a0273caa0584020adb8802784fc7d4f18f05e6c205335b7f3818a91d6b0c22736b9f51da3428d5bc54076ad47f1a4d6d57990a3ce8489a520ac66b2b3ff24bc
   languageName: node
   linkType: hard
 
@@ -29509,14 +29523,14 @@ __metadata:
   linkType: hard
 
 "nock@npm:^13.0.2":
-  version: 13.0.11
-  resolution: "nock@npm:13.0.11"
+  version: 13.2.4
+  resolution: "nock@npm:13.2.4"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
     lodash.set: ^4.3.2
     propagate: ^2.0.0
-  checksum: f472f3c57858219977bc17f9fc623aadaecc8c8a0103da7b72072fff15e5d0ed374e6bdedf922daf1e5f21615ad57aaf7c3fb5bf18c69845583137a2e30322fe
+  checksum: 2750a82ea22eebd8203eb1d7669ae09c3daae1fd573026372bad2515adad48d723a804f647bd45d7a499eb3a9a632560da406bde05bca9df762d3027db9099b5
   languageName: node
   linkType: hard
 
@@ -34359,9 +34373,9 @@ __metadata:
   linkType: hard
 
 "web-streams-polyfill@npm:^3.0.0":
-  version: 3.0.3
-  resolution: "web-streams-polyfill@npm:3.0.3"
-  checksum: 14299a9cbbca1bf0ffc16c7844990fc85eb0921ba7ff84efbad964738f0ff8e6d2bc3b2617a8728415843be7f40236992c136ff2c89cde3a153636e824b3e712
+  version: 3.2.1
+  resolution: "web-streams-polyfill@npm:3.2.1"
+  checksum: b119c78574b6d65935e35098c2afdcd752b84268e18746606af149e3c424e15621b6f1ff0b42b2676dc012fc4f0d313f964b41a4b5031e525faa03997457da02
   languageName: node
   linkType: hard
 
