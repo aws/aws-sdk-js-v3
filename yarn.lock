@@ -105,7 +105,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -471,7 +473,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -493,7 +497,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -508,7 +514,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -522,7 +530,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -537,7 +547,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15372,7 +15384,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15387,7 +15401,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15404,7 +15420,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15421,7 +15439,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15440,8 +15460,10 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     nock: ^13.0.2
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15463,7 +15485,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15487,7 +15511,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15505,7 +15531,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15524,7 +15552,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15541,7 +15571,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15569,7 +15601,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15584,8 +15618,10 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     mnemonist: 0.38.3
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15603,7 +15639,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15623,7 +15661,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15640,7 +15680,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15655,7 +15697,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15674,7 +15718,9 @@ __metadata:
     "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15692,7 +15738,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15711,7 +15759,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15730,7 +15780,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15748,7 +15800,9 @@ __metadata:
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     hash-test-vectors: ^1.3.2
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15766,7 +15820,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15781,7 +15837,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15795,7 +15853,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15812,7 +15872,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15831,7 +15893,9 @@ __metadata:
     "@types/node": ^14.11.2
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15854,8 +15918,10 @@ __metadata:
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     events: 3.3.0
+    jest: 27.4.5
     rimraf: 3.0.2
     stream-browserify: 3.0.0
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15881,7 +15947,9 @@ __metadata:
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     hash-test-vectors: ^1.3.2
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15898,7 +15966,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15918,7 +15988,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15934,7 +16006,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15953,7 +16027,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15969,7 +16045,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -15986,7 +16064,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16004,7 +16084,9 @@ __metadata:
     "@aws-sdk/types": "*"
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typescript: ~4.6.2
   languageName: unknown
@@ -16019,7 +16101,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16035,7 +16119,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16050,7 +16136,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16066,7 +16154,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16086,7 +16176,9 @@ __metadata:
     "@types/uuid": ^8.3.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16103,7 +16195,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16121,7 +16215,27 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
+    tslib: ^2.3.1
+    typedoc: 0.19.2
+    typescript: ~4.6.2
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/middleware-sdk-eventbridge@*, @aws-sdk/middleware-sdk-eventbridge@workspace:packages/middleware-sdk-eventbridge":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/middleware-sdk-eventbridge@workspace:packages/middleware-sdk-eventbridge"
+  dependencies:
+    "@aws-sdk/protocol-http": "*"
+    "@aws-sdk/types": "*"
+    "@tsconfig/recommended": 1.0.1
+    concurrently: 7.0.0
+    downlevel-dts: 0.7.0
+    jest: 27.4.5
+    rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16137,7 +16251,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16153,7 +16269,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16171,7 +16289,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16186,7 +16306,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16205,7 +16327,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16224,7 +16348,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16245,7 +16371,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16264,7 +16392,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16285,9 +16415,11 @@ __metadata:
     "@types/uuid": ^8.3.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     jest-websocket-mock: ^2.0.2
     mock-socket: ^9.0.3
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16303,7 +16435,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16321,7 +16455,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16336,7 +16472,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16351,7 +16489,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16368,7 +16508,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16386,7 +16528,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16405,7 +16549,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16427,7 +16573,9 @@ __metadata:
     "@types/node": ^12.0.2
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16442,7 +16590,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16457,7 +16607,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16473,7 +16625,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16488,7 +16642,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16510,7 +16666,9 @@ __metadata:
     "@types/node": ^12.0.2
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16534,7 +16692,9 @@ __metadata:
     "@types/node": ^12.0.2
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16549,7 +16709,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16564,7 +16726,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     typedoc: 0.19.2
     typescript: ~4.6.2
   languageName: unknown
@@ -16581,7 +16745,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16597,7 +16763,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16622,10 +16790,38 @@ __metadata:
     aws-crt: ^1.11.3
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/signature-v4-multi-region@*, @aws-sdk/signature-v4-multi-region@workspace:packages/signature-v4-multi-region":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages/signature-v4-multi-region"
+  dependencies:
+    "@aws-sdk/protocol-http": "*"
+    "@aws-sdk/signature-v4": "*"
+    "@aws-sdk/signature-v4-crt": "*"
+    "@aws-sdk/types": "*"
+    "@aws-sdk/util-arn-parser": "*"
+    "@tsconfig/recommended": 1.0.1
+    concurrently: 7.0.0
+    downlevel-dts: 0.7.0
+    jest: 27.4.5
+    rimraf: 3.0.2
+    ts-jest: 27.1.4
+    tslib: ^2.3.1
+    typedoc: 0.19.2
+    typescript: ~4.6.2
+  peerDependencies:
+    "@aws-sdk/signature-v4-crt": ^3.66.0
+  peerDependenciesMeta:
+    "@aws-sdk/signature-v4-crt":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -16644,7 +16840,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16661,7 +16859,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16675,7 +16875,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16691,7 +16893,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16706,7 +16910,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16721,7 +16927,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16737,7 +16945,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16751,7 +16961,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16766,7 +16978,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16782,7 +16996,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16797,7 +17013,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16816,7 +17034,9 @@ __metadata:
     "@types/node": ^10.0.3
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16835,7 +17055,9 @@ __metadata:
     bowser: ^2.11.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16856,7 +17078,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16871,7 +17095,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16887,7 +17113,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16901,7 +17129,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16916,7 +17146,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16932,7 +17164,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16947,7 +17181,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typescript: ~4.6.2
   languageName: unknown
@@ -16961,7 +17197,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typescript: ~4.6.2
   languageName: unknown
@@ -16974,7 +17212,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -16991,7 +17231,9 @@ __metadata:
     bowser: ^2.11.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -17009,7 +17251,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -17023,7 +17267,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -17039,7 +17285,9 @@ __metadata:
     "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -17055,7 +17303,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -17069,7 +17319,9 @@ __metadata:
     "@tsconfig/recommended": 1.0.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
+    jest: 27.4.5
     rimraf: 3.0.2
+    ts-jest: 27.1.4
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
@@ -20920,7 +21172,7 @@ __metadata:
     puppeteer: ^5.1.0
     rimraf: 3.0.2
     strip-comments: 2.0.1
-    ts-jest: 27.1.2
+    ts-jest: 27.1.4
     ts-loader: ^7.0.5
     ts-mocha: 8.0.0
     ts-node: ^10.4.0
@@ -33468,9 +33720,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.1.2":
-  version: 27.1.2
-  resolution: "ts-jest@npm:27.1.2"
+"ts-jest@npm:27.1.4":
+  version: 27.1.4
+  resolution: "ts-jest@npm:27.1.4"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -33484,7 +33736,6 @@ __metadata:
     "@babel/core": ">=7.0.0-beta.0 <8"
     "@types/jest": ^27.0.0
     babel-jest: ">=27.0.0 <28"
-    esbuild: ~0.14.0
     jest: ^27.0.0
     typescript: ">=3.8 <5.0"
   peerDependenciesMeta:
@@ -33498,7 +33749,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 2e7275f8a3545ec1340b37c458ace9244b5903e86861eb108beffff97d433f296c1254f76a41b573b1fe6245110b21bb62150bb88d55159f1dc7a929886535cb
+  checksum: d2cc2719ed2884a880ab50d2c14c311834be9c88bc79d0064fa0189afce5c296d7676314d26cc3f7e82ddd52df272c2d4137a832c89616f30cbe8f43e30f9a29
   languageName: node
   linkType: hard
 
