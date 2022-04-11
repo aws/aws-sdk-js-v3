@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es5", "ES2018.AsyncGenerator"],
+
     "outDir": "dist-es",
     "rootDir": "src"
   },

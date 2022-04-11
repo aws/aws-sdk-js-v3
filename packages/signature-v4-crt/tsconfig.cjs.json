@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2016"],
+
     "noUnusedLocals": true,
     "outDir": "dist-cjs",
     "rootDir": "src",
