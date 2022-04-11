@@ -15600,6 +15600,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-utf8-node": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -15670,6 +15671,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-utf8-node": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -15687,6 +15689,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-utf8-node": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -16655,6 +16658,7 @@ __metadata:
     "@aws-sdk/middleware-stack": "*"
     "@aws-sdk/types": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^10.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -19602,6 +19606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^12.0.0, @types/node@npm:^12.7.5":
+  version: 12.20.47
+  resolution: "@types/node@npm:12.20.47"
+  checksum: 97487af02fada4342e1bd47f9c9ebf601c12b85cbf17056ba73a315339ae996490403f2d4d1d799d8078cfe43a59e33370b4a5ae2d4fb79dd02359f4691934b4
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^12.0.2":
   version: 12.20.20
   resolution: "@types/node@npm:12.20.20"
@@ -19613,13 +19624,6 @@ __metadata:
   version: 12.20.27
   resolution: "@types/node@npm:12.20.27"
   checksum: d54239186169c2d7fd2e33d36f273022350916624671ed398dc8ac2623935d9f564d466f0616bc1dea32f0df29689eab822b4b5ea78c51bdb6cb26cffbc18cbe
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.7.5":
-  version: 12.20.47
-  resolution: "@types/node@npm:12.20.47"
-  checksum: 97487af02fada4342e1bd47f9c9ebf601c12b85cbf17056ba73a315339ae996490403f2d4d1d799d8078cfe43a59e33370b4a5ae2d4fb79dd02359f4691934b4
   languageName: node
   linkType: hard
 
