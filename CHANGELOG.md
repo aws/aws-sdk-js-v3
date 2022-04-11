@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.68.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.67.0...v3.68.0) (2022-04-11)
+
+
+### Features
+
+* **client-amplifyuibuilder:** In this release, we have added the ability to bind events to component level actions. ([b7a8349](https://github.com/aws/aws-sdk-js-v3/commit/b7a83498370892c2eaa56c7757d22a53b16b8162))
+* **client-apprunner:** This release adds tracing for App Runner services with X-Ray using AWS Distro for OpenTelemetry. New APIs: CreateObservabilityConfiguration, DescribeObservabilityConfiguration, ListObservabilityConfigurations, and DeleteObservabilityConfiguration. Updated APIs: CreateService and UpdateService. ([9ca1250](https://github.com/aws/aws-sdk-js-v3/commit/9ca12509acb68fee28553b1ba40135875f1c063b))
+* **client-workspaces:** Added API support that allows customers to create GPU-enabled WorkSpaces using EC2 G4dn instances. ([6c11084](https://github.com/aws/aws-sdk-js-v3/commit/6c110847bc757ecaa9c6a968c7d529bf7fa8087a))
+* **clients:** update client endpoints as of 2022-04-11 ([dccb5cb](https://github.com/aws/aws-sdk-js-v3/commit/dccb5cbabd70115fdc08e1238ed3a8c2d96e3dc1))
+
+
+
+
+
 # [3.67.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.66.0...v3.67.0) (2022-04-08)
 
 
