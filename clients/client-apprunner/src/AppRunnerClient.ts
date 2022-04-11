@@ -60,6 +60,10 @@ import {
   CreateAutoScalingConfigurationCommandOutput,
 } from "./commands/CreateAutoScalingConfigurationCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
+import {
+  CreateObservabilityConfigurationCommandInput,
+  CreateObservabilityConfigurationCommandOutput,
+} from "./commands/CreateObservabilityConfigurationCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "./commands/CreateVpcConnectorCommand";
 import {
@@ -67,6 +71,10 @@ import {
   DeleteAutoScalingConfigurationCommandOutput,
 } from "./commands/DeleteAutoScalingConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import {
+  DeleteObservabilityConfigurationCommandInput,
+  DeleteObservabilityConfigurationCommandOutput,
+} from "./commands/DeleteObservabilityConfigurationCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "./commands/DeleteVpcConnectorCommand";
 import {
@@ -77,6 +85,10 @@ import {
   DescribeCustomDomainsCommandInput,
   DescribeCustomDomainsCommandOutput,
 } from "./commands/DescribeCustomDomainsCommand";
+import {
+  DescribeObservabilityConfigurationCommandInput,
+  DescribeObservabilityConfigurationCommandOutput,
+} from "./commands/DescribeObservabilityConfigurationCommand";
 import { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "./commands/DescribeServiceCommand";
 import {
   DescribeVpcConnectorCommandInput,
@@ -91,6 +103,10 @@ import {
   ListAutoScalingConfigurationsCommandOutput,
 } from "./commands/ListAutoScalingConfigurationsCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
+import {
+  ListObservabilityConfigurationsCommandInput,
+  ListObservabilityConfigurationsCommandOutput,
+} from "./commands/ListObservabilityConfigurationsCommand";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
@@ -110,19 +126,23 @@ export type ServiceInputTypes =
   | AssociateCustomDomainCommandInput
   | CreateAutoScalingConfigurationCommandInput
   | CreateConnectionCommandInput
+  | CreateObservabilityConfigurationCommandInput
   | CreateServiceCommandInput
   | CreateVpcConnectorCommandInput
   | DeleteAutoScalingConfigurationCommandInput
   | DeleteConnectionCommandInput
+  | DeleteObservabilityConfigurationCommandInput
   | DeleteServiceCommandInput
   | DeleteVpcConnectorCommandInput
   | DescribeAutoScalingConfigurationCommandInput
   | DescribeCustomDomainsCommandInput
+  | DescribeObservabilityConfigurationCommandInput
   | DescribeServiceCommandInput
   | DescribeVpcConnectorCommandInput
   | DisassociateCustomDomainCommandInput
   | ListAutoScalingConfigurationsCommandInput
   | ListConnectionsCommandInput
+  | ListObservabilityConfigurationsCommandInput
   | ListOperationsCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
@@ -138,19 +158,23 @@ export type ServiceOutputTypes =
   | AssociateCustomDomainCommandOutput
   | CreateAutoScalingConfigurationCommandOutput
   | CreateConnectionCommandOutput
+  | CreateObservabilityConfigurationCommandOutput
   | CreateServiceCommandOutput
   | CreateVpcConnectorCommandOutput
   | DeleteAutoScalingConfigurationCommandOutput
   | DeleteConnectionCommandOutput
+  | DeleteObservabilityConfigurationCommandOutput
   | DeleteServiceCommandOutput
   | DeleteVpcConnectorCommandOutput
   | DescribeAutoScalingConfigurationCommandOutput
   | DescribeCustomDomainsCommandOutput
+  | DescribeObservabilityConfigurationCommandOutput
   | DescribeServiceCommandOutput
   | DescribeVpcConnectorCommandOutput
   | DisassociateCustomDomainCommandOutput
   | ListAutoScalingConfigurationsCommandOutput
   | ListConnectionsCommandOutput
+  | ListObservabilityConfigurationsCommandOutput
   | ListOperationsCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput

@@ -17,6 +17,11 @@ import {
   CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
+  CreateObservabilityConfigurationCommand,
+  CreateObservabilityConfigurationCommandInput,
+  CreateObservabilityConfigurationCommandOutput,
+} from "./commands/CreateObservabilityConfigurationCommand";
+import {
   CreateServiceCommand,
   CreateServiceCommandInput,
   CreateServiceCommandOutput,
@@ -37,6 +42,11 @@ import {
   DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
+  DeleteObservabilityConfigurationCommand,
+  DeleteObservabilityConfigurationCommandInput,
+  DeleteObservabilityConfigurationCommandOutput,
+} from "./commands/DeleteObservabilityConfigurationCommand";
+import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
@@ -56,6 +66,11 @@ import {
   DescribeCustomDomainsCommandInput,
   DescribeCustomDomainsCommandOutput,
 } from "./commands/DescribeCustomDomainsCommand";
+import {
+  DescribeObservabilityConfigurationCommand,
+  DescribeObservabilityConfigurationCommandInput,
+  DescribeObservabilityConfigurationCommandOutput,
+} from "./commands/DescribeObservabilityConfigurationCommand";
 import {
   DescribeServiceCommand,
   DescribeServiceCommandInput,
@@ -81,6 +96,11 @@ import {
   ListConnectionsCommandInput,
   ListConnectionsCommandOutput,
 } from "./commands/ListConnectionsCommand";
+import {
+  ListObservabilityConfigurationsCommand,
+  ListObservabilityConfigurationsCommandInput,
+  ListObservabilityConfigurationsCommandOutput,
+} from "./commands/ListObservabilityConfigurationsCommand";
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
@@ -188,12 +208,12 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
-   * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource
-   *       when you create App Runner services that require non-default auto scaling settings. You can share an
-   *       auto scaling configuration across multiple services.</p>
+   * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require
+   *       non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p>
    *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call
-   *       returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service, you can set it to use the latest active revision of
-   *       an auto scaling configuration or a specific revision.</p>
+   *       returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service and configure an auto scaling configuration resource,
+   *       the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific
+   *       revision.</p>
    *          <p>Configure a higher <code>MinSize</code> to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is
    *       a higher minimal cost.</p>
    *          <p>Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower responsiveness during peak demand.</p>
@@ -252,6 +272,46 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an App Runner observability configuration resource. App Runner requires this resource when you create or update App Runner services and you want to enable
+   *       non-default observability features. You can share an observability configuration across multiple services.</p>
+   *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>ObservabilityConfigurationName</code>. The
+   *       call returns incremental <code>ObservabilityConfigurationRevision</code> values. When you create a service and configure an observability configuration
+   *       resource, the service uses the latest active revision of the observability configuration by default. You can optionally configure the service to use a
+   *       specific revision.</p>
+   *          <p>The observability configuration resource is designed to configure multiple features (currently one feature, tracing). This action takes optional
+   *       parameters that describe the configuration of these features (currently one parameter, <code>TraceConfiguration</code>). If you don't specify a feature
+   *       parameter, App Runner doesn't enable the feature.</p>
+   */
+  public createObservabilityConfiguration(
+    args: CreateObservabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateObservabilityConfigurationCommandOutput>;
+  public createObservabilityConfiguration(
+    args: CreateObservabilityConfigurationCommandInput,
+    cb: (err: any, data?: CreateObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public createObservabilityConfiguration(
+    args: CreateObservabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public createObservabilityConfiguration(
+    args: CreateObservabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateObservabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateObservabilityConfigurationCommandOutput) => void
+  ): Promise<CreateObservabilityConfigurationCommandOutput> | void {
+    const command = new CreateObservabilityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -395,6 +455,39 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
+   * <p>Delete an App Runner observability configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
+   *       configuration that's used by one or more App Runner services.</p>
+   */
+  public deleteObservabilityConfiguration(
+    args: DeleteObservabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObservabilityConfigurationCommandOutput>;
+  public deleteObservabilityConfiguration(
+    args: DeleteObservabilityConfigurationCommandInput,
+    cb: (err: any, data?: DeleteObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public deleteObservabilityConfiguration(
+    args: DeleteObservabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public deleteObservabilityConfiguration(
+    args: DeleteObservabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObservabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteObservabilityConfigurationCommandOutput) => void
+  ): Promise<DeleteObservabilityConfigurationCommandOutput> | void {
+    const command = new DeleteObservabilityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete an App Runner service.</p>
    *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
    *       call to track the operation's progress.</p>
@@ -526,6 +619,38 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
+   * <p>Return a full description of an App Runner observability configuration resource.</p>
+   */
+  public describeObservabilityConfiguration(
+    args: DescribeObservabilityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeObservabilityConfigurationCommandOutput>;
+  public describeObservabilityConfiguration(
+    args: DescribeObservabilityConfigurationCommandInput,
+    cb: (err: any, data?: DescribeObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public describeObservabilityConfiguration(
+    args: DescribeObservabilityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeObservabilityConfigurationCommandOutput) => void
+  ): void;
+  public describeObservabilityConfiguration(
+    args: DescribeObservabilityConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeObservabilityConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeObservabilityConfigurationCommandOutput) => void
+  ): Promise<DescribeObservabilityConfigurationCommandOutput> | void {
+    const command = new DescribeObservabilityConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Return a full description of an App Runner service.</p>
    */
   public describeService(
@@ -625,8 +750,11 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
-   * <p>Returns a list of App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific configuration name or
-   *       the revisions for all configurations in your account. You can optionally query only the latest revision of each requested name.</p>
+   * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
+   *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
+   *       name.</p>
+   *          <p>To retrieve a full description of a particular configuration revision, call  and provide one of
+   *       the ARNs returned by <code>ListAutoScalingConfigurations</code>.</p>
    */
   public listAutoScalingConfigurations(
     args: ListAutoScalingConfigurationsCommandInput,
@@ -679,6 +807,42 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: ListConnectionsCommandOutput) => void
   ): Promise<ListConnectionsCommandOutput> | void {
     const command = new ListConnectionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of active App Runner observability configurations in your Amazon Web Services account. You can query the revisions for a specific
+   *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
+   *       name.</p>
+   *          <p>To retrieve a full description of a particular configuration revision, call  and provide one
+   *       of the ARNs returned by <code>ListObservabilityConfigurations</code>.</p>
+   */
+  public listObservabilityConfigurations(
+    args: ListObservabilityConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObservabilityConfigurationsCommandOutput>;
+  public listObservabilityConfigurations(
+    args: ListObservabilityConfigurationsCommandInput,
+    cb: (err: any, data?: ListObservabilityConfigurationsCommandOutput) => void
+  ): void;
+  public listObservabilityConfigurations(
+    args: ListObservabilityConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObservabilityConfigurationsCommandOutput) => void
+  ): void;
+  public listObservabilityConfigurations(
+    args: ListObservabilityConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObservabilityConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListObservabilityConfigurationsCommandOutput) => void
+  ): Promise<ListObservabilityConfigurationsCommandOutput> | void {
+    const command = new ListObservabilityConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
