@@ -15890,7 +15890,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-dynamodb": "*"
     "@tsconfig/recommended": 1.0.1
-    "@types/node": ^14.11.2
+    "@types/node": ^12.20.47
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     jest: 27.4.5
@@ -15913,7 +15913,7 @@ __metadata:
     "@aws-sdk/abort-controller": "*"
     "@aws-sdk/client-s3": "*"
     "@tsconfig/recommended": 1.0.1
-    "@types/node": ^14.11.2
+    "@types/node": ^12.20.47
     buffer: 5.6.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
@@ -19858,17 +19858,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^12.0.0, @types/node@npm:^12.7.5":
+"@types/node@npm:^12.0.0, @types/node@npm:^12.0.2, @types/node@npm:^12.20.47, @types/node@npm:^12.7.5":
   version: 12.20.47
   resolution: "@types/node@npm:12.20.47"
   checksum: 97487af02fada4342e1bd47f9c9ebf601c12b85cbf17056ba73a315339ae996490403f2d4d1d799d8078cfe43a59e33370b4a5ae2d4fb79dd02359f4691934b4
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^12.0.2":
-  version: 12.20.20
-  resolution: "@types/node@npm:12.20.20"
-  checksum: 69e59ca166d0cd569ee493e61dadc03c21063dac30e4ef072d74cd79363e341e009b2ee5fd2747513410f95f92cdc7e279e33999d1aa5a25dfe9d3f850640d04
   languageName: node
   linkType: hard
 
@@ -19876,13 +19869,6 @@ __metadata:
   version: 12.20.27
   resolution: "@types/node@npm:12.20.27"
   checksum: d54239186169c2d7fd2e33d36f273022350916624671ed398dc8ac2623935d9f564d466f0616bc1dea32f0df29689eab822b4b5ea78c51bdb6cb26cffbc18cbe
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.11.2":
-  version: 14.18.12
-  resolution: "@types/node@npm:14.18.12"
-  checksum: 8a0273caa0584020adb8802784fc7d4f18f05e6c205335b7f3818a91d6b0c22736b9f51da3428d5bc54076ad47f1a4d6d57990a3ce8489a520ac66b2b3ff24bc
   languageName: node
   linkType: hard
 

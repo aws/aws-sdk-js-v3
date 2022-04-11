@@ -36,7 +36,7 @@
     "@aws-sdk/abort-controller": "*",
     "@aws-sdk/client-s3": "*",
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^14.11.2",
+    "@types/node": "^12.20.47",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.7.0",
     "jest": "27.4.5",

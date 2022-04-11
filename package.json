@@ -26,7 +26,7 @@
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
-    "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
+    "test:all": "yarn build:all && jest --coverage --passWithNoTests -w=50% && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
     "test:e2e": "yarn build:e2e && node ./tests/e2e/index.js",
     "test:functional": "jest --config tests/functional/jest.config.js && lerna run test:unit --scope \"@aws-sdk/client-*\"",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
