@@ -4,7 +4,14 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "incremental": true,
-    "lib": ["es2015", "dom"],
+    "lib": [
+      "es2015",
+      "dom",
+      "ES2018.AsyncGenerator",
+      "ES2015.Symbol.WellKnown",
+      "ES2016.Array.Include",
+      "ES2019.String"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
