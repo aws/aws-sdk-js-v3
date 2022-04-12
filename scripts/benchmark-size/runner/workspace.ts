@@ -26,7 +26,7 @@ export const loadWorkspacePackages = async (options?: {
   scope?: string[];
   since?: SinceOption;
 }): Promise<WorkspacePackage[]> => {
-  const args = ["list", "--json"];
+  const args = ["lerna", "list", "--json"];
   if (options?.scope) {
     options.scope.forEach((scope) => {
       args.push(...["--scope", scope]);
@@ -44,7 +44,7 @@ export const loadWorkspacePackages = async (options?: {
     }
   }
 
-  const { stdout } = await exec("./node_modules/.bin/lerna", args, {
+  const { stdout } = await exec("yarn", args, {
     cwd: PROJECT_ROOT,
     encoding: "utf8",
   });
