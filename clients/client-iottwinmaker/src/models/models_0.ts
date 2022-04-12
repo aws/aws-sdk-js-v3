@@ -204,7 +204,7 @@ export interface DataConnector {
   lambda?: LambdaFunction;
 
   /**
-   * <p>A Boolean value that specifies whether the data connector is native to TwinMaker.</p>
+   * <p>A Boolean value that specifies whether the data connector is native to IoT TwinMaker.</p>
    */
   isNative?: boolean;
 }
@@ -341,6 +341,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 export enum PropertyUpdateType {
+  CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
 }
@@ -1187,6 +1188,7 @@ export namespace ListComponentTypesResponse {
  */
 export type ListEntitiesFilter =
   | ListEntitiesFilter.ComponentTypeIdMember
+  | ListEntitiesFilter.ExternalIdMember
   | ListEntitiesFilter.ParentEntityIdMember
   | ListEntitiesFilter.$UnknownMember;
 
@@ -1197,6 +1199,7 @@ export namespace ListEntitiesFilter {
   export interface ParentEntityIdMember {
     parentEntityId: string;
     componentTypeId?: never;
+    externalId?: never;
     $unknown?: never;
   }
 
@@ -1206,24 +1209,38 @@ export namespace ListEntitiesFilter {
   export interface ComponentTypeIdMember {
     parentEntityId?: never;
     componentTypeId: string;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The external-Id property of a component. The external-Id property is the primary key of an external storage system.</p>
+   */
+  export interface ExternalIdMember {
+    parentEntityId?: never;
+    componentTypeId?: never;
+    externalId: string;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     parentEntityId?: never;
     componentTypeId?: never;
+    externalId?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     parentEntityId: (value: string) => T;
     componentTypeId: (value: string) => T;
+    externalId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ListEntitiesFilter, visitor: Visitor<T>): T => {
     if (value.parentEntityId !== undefined) return visitor.parentEntityId(value.parentEntityId);
     if (value.componentTypeId !== undefined) return visitor.componentTypeId(value.componentTypeId);
+    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -1233,6 +1250,7 @@ export namespace ListEntitiesFilter {
   export const filterSensitiveLog = (obj: ListEntitiesFilter): any => {
     if (obj.parentEntityId !== undefined) return { parentEntityId: obj.parentEntityId };
     if (obj.componentTypeId !== undefined) return { componentTypeId: obj.componentTypeId };
+    if (obj.externalId !== undefined) return { externalId: obj.externalId };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -1949,14 +1967,21 @@ export namespace PropertyLatestValue {
  */
 export interface PropertyValue {
   /**
+   * @deprecated
+   *
    * <p>The timestamp of a value for a time series property.</p>
    */
-  timestamp: Date | undefined;
+  timestamp?: Date;
 
   /**
    * <p>An object that specifies a value for a time series property.</p>
    */
   value: DataValue | undefined;
+
+  /**
+   * Timestamp represented in ISO 8601 format
+   */
+  time?: string;
 }
 
 export namespace PropertyValue {
@@ -2039,14 +2064,18 @@ export interface GetPropertyValueHistoryRequest {
   propertyFilters?: PropertyFilter[];
 
   /**
+   * @deprecated
+   *
    * <p>The date and time of the earliest property value to return.</p>
    */
-  startDateTime: Date | undefined;
+  startDateTime?: Date;
 
   /**
+   * @deprecated
+   *
    * <p>The date and time of the latest property value to return.</p>
    */
-  endDateTime: Date | undefined;
+  endDateTime?: Date;
 
   /**
    * <p>An object that specifies the interpolation type and the interval over which to interpolate data.</p>
@@ -2067,6 +2096,16 @@ export interface GetPropertyValueHistoryRequest {
    * <p>The time direction to use in the result order.</p>
    */
   orderByTime?: OrderByTime | string;
+
+  /**
+   * Timestamp represented in ISO 8601 format
+   */
+  startTime?: string;
+
+  /**
+   * Timestamp represented in ISO 8601 format
+   */
+  endTime?: string;
 }
 
 export namespace GetPropertyValueHistoryRequest {

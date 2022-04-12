@@ -23,11 +23,6 @@ export interface CreateComponentTypeCommandOutput extends CreateComponentTypeRes
 
 /**
  * <p>Creates a component type.</p>
- *          <important>
- *             <p>
- *         TwinMaker is in public preview and is subject to change.
- *       </p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
