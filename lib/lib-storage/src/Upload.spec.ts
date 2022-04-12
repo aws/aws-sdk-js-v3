@@ -1,3 +1,5 @@
+import { Readable } from "stream";
+
 const sendMock = jest.fn().mockImplementation((x) => x);
 const createMultipartMock = jest.fn().mockResolvedValue({
   UploadId: "mockuploadId",
@@ -37,7 +39,6 @@ jest.mock("@aws-sdk/client-s3", () => ({
 }));
 
 import { S3 } from "@aws-sdk/client-s3";
-import { Readable } from "stream";
 
 import { Progress, Upload } from "./index";
 
@@ -155,6 +156,7 @@ describe(Upload.name, () => {
   });
 
   it("should upload using PUT when parts are smaller than one part stream", async () => {
+    // @ts-ignore
     const streamBody = Readable.from(
       (function* () {
         yield params.Body;
@@ -253,6 +255,7 @@ describe(Upload.name, () => {
     const largeBuffer = Buffer.from("#".repeat(DEFAULT_PART_SIZE + 10));
     const firstBuffer = largeBuffer.subarray(0, DEFAULT_PART_SIZE);
     const secondBuffer = largeBuffer.subarray(DEFAULT_PART_SIZE);
+    // @ts-ignore
     const streamBody = Readable.from(
       (function* () {
         yield largeBuffer;
@@ -461,6 +464,7 @@ describe(Upload.name, () => {
   it("should provide progress updates multi-part stream", async () => {
     const partSize = 1024 * 1024 * 5;
     const largeBuffer = Buffer.from("#".repeat(partSize + 10));
+    // @ts-ignore
     const streamBody = Readable.from(
       (function* () {
         yield largeBuffer;
@@ -518,6 +522,7 @@ describe(Upload.name, () => {
   });
 
   it("should provide progress updates empty stream", async () => {
+    // @ts-ignore
     const stream = Readable.from((function* () {})());
     const actionParams = { ...params, Body: stream };
     const upload = new Upload({

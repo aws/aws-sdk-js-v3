@@ -113,21 +113,12 @@
     "webpack-cli": "^3.3.12",
     "yarn": "1.22.10"
   },
-  "workspaces": {
-    "packages": [
-      "clients/*",
-      "lib/*",
-      "packages/*",
-      "private/*"
-    ],
-    "nohoist": [
-      "**/karma*",
-      "**/karma*/**",
-      "**/@types/mocha*",
-      "**/@types/mocha*/**",
-      "**/@aws-sdk/client-sso/**"
-    ]
-  },
+  "workspaces": [
+    "clients/*",
+    "lib/*",
+    "packages/*",
+    "private/*"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
