@@ -47170,6 +47170,94 @@
           {
             "value": "z1d.metal",
             "name": "z1d_metal"
+          },
+          {
+            "value": "x2idn.16xlarge",
+            "name": "x2idn_16xlarge"
+          },
+          {
+            "value": "x2idn.24xlarge",
+            "name": "x2idn_24xlarge"
+          },
+          {
+            "value": "x2idn.32xlarge",
+            "name": "x2idn_32xlarge"
+          },
+          {
+            "value": "x2iedn.xlarge",
+            "name": "x2iedn_xlarge"
+          },
+          {
+            "value": "x2iedn.2xlarge",
+            "name": "x2iedn_2xlarge"
+          },
+          {
+            "value": "x2iedn.4xlarge",
+            "name": "x2iedn_4xlarge"
+          },
+          {
+            "value": "x2iedn.8xlarge",
+            "name": "x2iedn_8xlarge"
+          },
+          {
+            "value": "x2iedn.16xlarge",
+            "name": "x2iedn_16xlarge"
+          },
+          {
+            "value": "x2iedn.24xlarge",
+            "name": "x2iedn_24xlarge"
+          },
+          {
+            "value": "x2iedn.32xlarge",
+            "name": "x2iedn_32xlarge"
+          },
+          {
+            "value": "c6a.large",
+            "name": "c6a_large"
+          },
+          {
+            "value": "c6a.xlarge",
+            "name": "c6a_xlarge"
+          },
+          {
+            "value": "c6a.2xlarge",
+            "name": "c6a_2xlarge"
+          },
+          {
+            "value": "c6a.4xlarge",
+            "name": "c6a_4xlarge"
+          },
+          {
+            "value": "c6a.8xlarge",
+            "name": "c6a_8xlarge"
+          },
+          {
+            "value": "c6a.12xlarge",
+            "name": "c6a_12xlarge"
+          },
+          {
+            "value": "c6a.16xlarge",
+            "name": "c6a_16xlarge"
+          },
+          {
+            "value": "c6a.24xlarge",
+            "name": "c6a_24xlarge"
+          },
+          {
+            "value": "c6a.32xlarge",
+            "name": "c6a_32xlarge"
+          },
+          {
+            "value": "c6a.48xlarge",
+            "name": "c6a_48xlarge"
+          },
+          {
+            "value": "c6a.metal",
+            "name": "c6a_metal"
+          },
+          {
+            "value": "m6a.metal",
+            "name": "m6a_metal"
           }
         ]
       }
