@@ -55,6 +55,7 @@ import {
   AddNotificationChannelCommandInput,
   AddNotificationChannelCommandOutput,
 } from "./commands/AddNotificationChannelCommand";
+import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
 import {
   DescribeAccountHealthCommandInput,
   DescribeAccountHealthCommandOutput,
@@ -143,6 +144,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AddNotificationChannelCommandInput
+  | DeleteInsightCommandInput
   | DescribeAccountHealthCommandInput
   | DescribeAccountOverviewCommandInput
   | DescribeAnomalyCommandInput
@@ -173,6 +175,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AddNotificationChannelCommandOutput
+  | DeleteInsightCommandOutput
   | DescribeAccountHealthCommandOutput
   | DescribeAccountOverviewCommandOutput
   | DescribeAnomalyCommandOutput
