@@ -102,7 +102,6 @@
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
-    "ts-jest": "27.1.4",
     "ts-loader": "^7.0.5",
     "ts-mocha": "8.0.0",
     "ts-node": "^10.4.0",
@@ -114,14 +113,12 @@
     "webpack-cli": "^3.3.12",
     "yarn": "1.22.10"
   },
-  "workspaces": {
-    "packages": [
-      "clients/*",
-      "lib/*",
-      "packages/*",
-      "private/*"
-    ]
-  },
+  "workspaces": [
+    "clients/*",
+    "lib/*",
+    "packages/*",
+    "private/*"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
