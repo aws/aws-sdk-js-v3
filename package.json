@@ -102,6 +102,7 @@
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
     "strip-comments": "2.0.1",
+    "ts-jest": "27.1.4",
     "ts-loader": "^7.0.5",
     "ts-mocha": "8.0.0",
     "ts-node": "^10.4.0",
