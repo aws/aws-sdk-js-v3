@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.69.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.68.0...v3.69.0) (2022-04-12)
+
+
+### Features
+
+* **client-devops-guru:** This release adds new APIs DeleteInsight to deletes the insight along with the associated anomalies, events and recommendations. ([3dc7bfe](https://github.com/aws/aws-sdk-js-v3/commit/3dc7bfebbec642c1008191c00c4a3791665d33b9))
+* **client-ec2:** X2idn and X2iedn instances are powered by 3rd generation Intel Xeon Scalable processors with an all-core turbo frequency up to 3.5 GHzAmazon EC2. C6a instances are powered by 3rd generation AMD EPYC processors. ([57c38e8](https://github.com/aws/aws-sdk-js-v3/commit/57c38e8466cfe494da95fa3964967ab8272e6152))
+* **client-efs:** Amazon EFS adds support for a ThrottlingException when using the CreateAccessPoint API if the account is nearing the AccessPoint limit(120). ([848941d](https://github.com/aws/aws-sdk-js-v3/commit/848941d3dc0639cfc0f8dca4589ed371947306e1))
+* **client-iottwinmaker:** This release adds the following new features: 1) ListEntities API now supports search using ExternalId. 2) BatchPutPropertyValue and GetPropertyValueHistory API now allows users to represent time in sub-second level precisions. ([f000752](https://github.com/aws/aws-sdk-js-v3/commit/f0007527263b955c0e0af12ca2372b00caa40961))
+* **clients:** update client endpoints as of 2022-04-12 ([7924dc7](https://github.com/aws/aws-sdk-js-v3/commit/7924dc761026faed00dcca22afe6a42371f5fa8a))
+
+
+
+
+
 # [3.68.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.67.0...v3.68.0) (2022-04-11)
 
 
