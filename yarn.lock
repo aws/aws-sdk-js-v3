@@ -5848,6 +5848,7 @@ __metadata:
     "@aws-sdk/middleware-host-header": "*"
     "@aws-sdk/middleware-logger": "*"
     "@aws-sdk/middleware-retry": "*"
+    "@aws-sdk/middleware-sdk-eventbridge": "*"
     "@aws-sdk/middleware-serde": "*"
     "@aws-sdk/middleware-signing": "*"
     "@aws-sdk/middleware-stack": "*"
@@ -5856,6 +5857,7 @@ __metadata:
     "@aws-sdk/node-http-handler": "*"
     "@aws-sdk/protocol-http": "*"
     "@aws-sdk/service-client-documentation-generator": "*"
+    "@aws-sdk/signature-v4-multi-region": "*"
     "@aws-sdk/smithy-client": "*"
     "@aws-sdk/types": "*"
     "@aws-sdk/url-parser": "*"
@@ -12615,6 +12617,7 @@ __metadata:
     "@aws-sdk/node-http-handler": "*"
     "@aws-sdk/protocol-http": "*"
     "@aws-sdk/service-client-documentation-generator": "*"
+    "@aws-sdk/signature-v4-multi-region": "*"
     "@aws-sdk/smithy-client": "*"
     "@aws-sdk/types": "*"
     "@aws-sdk/url-parser": "*"
@@ -16361,8 +16364,6 @@ __metadata:
   resolution: "@aws-sdk/middleware-sdk-s3@workspace:packages/middleware-sdk-s3"
   dependencies:
     "@aws-sdk/protocol-http": "*"
-    "@aws-sdk/signature-v4": "*"
-    "@aws-sdk/signature-v4-crt": "*"
     "@aws-sdk/types": "*"
     "@aws-sdk/util-arn-parser": "*"
     "@tsconfig/recommended": 1.0.1
@@ -16374,11 +16375,6 @@ __metadata:
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
-  peerDependencies:
-    "@aws-sdk/signature-v4-crt": ^3.54.1
-  peerDependenciesMeta:
-    "@aws-sdk/signature-v4-crt":
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -16703,7 +16699,7 @@ __metadata:
     "@aws-sdk/hash-node": "*"
     "@aws-sdk/middleware-sdk-s3": "*"
     "@aws-sdk/protocol-http": "*"
-    "@aws-sdk/signature-v4": "*"
+    "@aws-sdk/signature-v4-multi-region": "*"
     "@aws-sdk/smithy-client": "*"
     "@aws-sdk/types": "*"
     "@aws-sdk/util-create-request": "*"
@@ -16807,7 +16803,7 @@ __metadata:
     "@aws-sdk/util-middleware": "*"
     "@aws-sdk/util-uri-escape": "*"
     "@tsconfig/recommended": 1.0.1
-    aws-crt: ^1.11.3
+    aws-crt: ^1.12.1
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     jest: 27.4.5
@@ -20805,7 +20801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-crt@npm:^1.11.3":
+"aws-crt@npm:^1.12.1":
   version: 1.12.1
   resolution: "aws-crt@npm:1.12.1"
   dependencies:
