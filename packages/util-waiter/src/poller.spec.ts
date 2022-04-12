@@ -19,12 +19,19 @@ describe(runPolling.name, () => {
   };
   const failureState = {
     state: WaiterState.FAILURE,
+    reason: {
+      mockedReason: "some-failure-value",
+    },
   };
   const successState = {
     state: WaiterState.SUCCESS,
+    reason: {
+      mockedReason: "some-success-value",
+    },
   };
   const retryState = {
     state: WaiterState.RETRY,
+    reason: undefined,
   };
   const timeoutState = {
     state: WaiterState.TIMEOUT,
@@ -42,7 +49,7 @@ describe(runPolling.name, () => {
     jest.spyOn(global.Math, "random").mockRestore();
   });
 
-  it("should returns state in case of failure", async () => {
+  it("should returns state and reason in case of failure", async () => {
     mockAcceptorChecks = jest.fn().mockResolvedValueOnce(failureState);
     await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(failureState);
 
@@ -52,7 +59,7 @@ describe(runPolling.name, () => {
     expect(sleep).toHaveBeenCalledTimes(0);
   });
 
-  it("returns state in case of success", async () => {
+  it("returns state and reason in case of success", async () => {
     mockAcceptorChecks = jest.fn().mockResolvedValueOnce(successState);
     await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(successState);
     expect(mockAcceptorChecks).toHaveBeenCalled();
