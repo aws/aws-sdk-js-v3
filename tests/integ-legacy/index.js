@@ -5,7 +5,6 @@ const { execSync, spawn } = require("child_process");
 
 const ROOT = resolve(join(__dirname, "..", ".."));
 const FEATURES_FOLDER = join(ROOT, "features");
-const ROOT_BIN = join(ROOT, "node_modules", ".bin");
 
 const execOptions = {
   ...process,
@@ -19,7 +18,7 @@ console.info(`Looking for changed clients that has the legacy integration test t
 
 let changedPackages = [];
 try {
-  changedPackages = execSync(`${join(ROOT_BIN, "lerna")} changed`, execOptions).split("\n");
+  changedPackages = execSync("yarn exec lerna changed", execOptions).split("\n");
 } catch (e) {
   // Swallow error because Lerna throws if no package changes.
 }
@@ -36,11 +35,10 @@ if (tagsToTest.length === 0) {
 }
 
 // Cucumber requires cwd to contain the test cases.
-const command = `${join("node_modules", ".bin", "cucumber-js")}`;
-const args = ["--fail-fast", "-t", `"${tagsToTest.join(" or ")}"`];
-console.info(`Running cucumber test: \n${command} ${args.join(" ")}`);
+const args = ["exec", "cucumber-js", "--fail-fast", "-t", `"${tagsToTest.join(" or ")}"`];
+console.info(`Running cucumber test: \nyarn ${args.join(" ")}`);
 
-const cucumber = spawn(command, args, { ...execOptions, cwd: ROOT, shell: true });
+const cucumber = spawn("yarn", args, { ...execOptions, cwd: ROOT, shell: true });
 cucumber.stdout.pipe(process.stdout);
 cucumber.stderr.pipe(process.stderr);
 cucumber.on("close", (code) => {
