@@ -25,9 +25,9 @@ export const runPolling = async <Client, Input>(
   input: Input,
   acceptorChecks: (client: Client, input: Input) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
-  const { state } = await acceptorChecks(client, input);
+  const { state, reason } = await acceptorChecks(client, input);
   if (state !== WaiterState.RETRY) {
-    return { state };
+    return { state, reason };
   }
 
   let currentAttempt = 1;
@@ -46,9 +46,9 @@ export const runPolling = async <Client, Input>(
       return { state: WaiterState.TIMEOUT };
     }
     await sleep(delay);
-    const { state } = await acceptorChecks(client, input);
+    const { state, reason } = await acceptorChecks(client, input);
     if (state !== WaiterState.RETRY) {
-      return { state };
+      return { state, reason };
     }
 
     currentAttempt += 1;
