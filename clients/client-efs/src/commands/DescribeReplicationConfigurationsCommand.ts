@@ -27,8 +27,9 @@ export interface DescribeReplicationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the replication configurations for either a specific file system, or all configurations for the
- *       Amazon Web Services account in an Amazon Web Services Region if a file system is not specified.</p>
+ * <p>Retrieves the replication configuration for a specific file system. If a file system is
+ *       not specified, all of the replication configurations for the Amazon Web Services account in an
+ *         Amazon Web Services Region are retrieved.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

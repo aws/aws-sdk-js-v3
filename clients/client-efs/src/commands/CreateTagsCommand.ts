@@ -25,8 +25,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @deprecated
  *
  * <note>
- *             <p>DEPRECATED - CreateTags is deprecated and not maintained. Please use the
- *        API action to create tags for EFS resources.</p>
+ *             <p>DEPRECATED - <code>CreateTags</code> is deprecated and not maintained. To create tags for EFS
+ *         resources, use the  API action.</p>
  *          </note>
  *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
  *       a tag key specified in the request already exists on the file system, this operation
