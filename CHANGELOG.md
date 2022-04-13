@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.70.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.69.0...v3.70.0) (2022-04-13)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for additional statistics in CloudWatch Metric Streams. ([58e3a94](https://github.com/aws/aws-sdk-js-v3/commit/58e3a94179ee1a06e05138408b64cc96514b0e6e))
+* **client-fsx:** This release adds support for deploying FSx for ONTAP file systems in a single Availability Zone. ([2f160df](https://github.com/aws/aws-sdk-js-v3/commit/2f160df5f6c82b9750ca386e88a8dd664e8b7ffc))
+
+
+
+
+
 # [3.69.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.68.0...v3.69.0) (2022-04-12)
 
 
