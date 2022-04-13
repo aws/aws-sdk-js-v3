@@ -7,6 +7,7 @@
     "lib": [
       "es2015",
       "dom",
+      "ES2017.TypedArrays",
       "ES2018.AsyncGenerator",
       "ES2015.Symbol.WellKnown",
       "ES2016.Array.Include",
