@@ -49,8 +49,5 @@ const { models } = yargs
   }
 
   // Prettify copied models
-  await spawnProcess(join(__dirname, "..", "..", "node_modules", ".bin", "prettier"), [
-    "--write",
-    `${OUTPUT_DIR}/*.json`,
-  ]);
+  await spawnProcess("yarn", ["exec", "prettier", "--write", `${OUTPUT_DIR}/*.json`]);
 })();

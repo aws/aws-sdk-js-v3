@@ -21,7 +21,7 @@
     "clear-build-cache": "rimraf ./packages/*/dist-* ./clients/*/dist-* ./lib/*/dist-* ./private/*/dist-*",
     "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo ./private/**/*.tsbuildinfo",
     "copy-models": "node ./scripts/copy-models",
-    "generate-clients": "node ./scripts/generate-clients",
+    "generate-clients": "yarn node ./scripts/generate-clients",
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
