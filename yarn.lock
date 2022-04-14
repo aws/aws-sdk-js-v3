@@ -491,6 +491,7 @@ __metadata:
     "@aws-sdk/util-hex-encoding": "*"
     "@aws-sdk/util-utf8-node": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -15373,6 +15374,7 @@ __metadata:
     "@aws-sdk/util-config-provider": "*"
     "@aws-sdk/util-middleware": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -15920,6 +15922,7 @@ __metadata:
     "@aws-sdk/util-arn-parser": "*"
     "@aws-sdk/util-config-provider": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -15955,6 +15958,7 @@ __metadata:
     "@aws-sdk/protocol-http": "*"
     "@aws-sdk/types": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -16087,6 +16091,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-middleware": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     "@types/uuid": ^8.3.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
@@ -16223,6 +16228,7 @@ __metadata:
     "@aws-sdk/types": "*"
     "@aws-sdk/util-arn-parser": "*"
     "@tsconfig/recommended": 1.0.1
+    "@types/node": ^12.0.0
     concurrently: 7.0.0
     downlevel-dts: 0.7.0
     rimraf: 3.0.2
@@ -19518,11 +19524,11 @@ __metadata:
   linkType: hard
 
 "@types/fs-extra@npm:^8.0.1":
-  version: 8.1.1
-  resolution: "@types/fs-extra@npm:8.1.1"
+  version: 8.1.2
+  resolution: "@types/fs-extra@npm:8.1.2"
   dependencies:
     "@types/node": "*"
-  checksum: d7d564b84b86e51241984c9bec16f683056d45510e2c63e1bfe9282026685bd14e5ca406ee809453f1e2fd8c9aa76c5712a3019492eb946dd46de327ccb0e1b1
+  checksum: 7277198ded9caea5750c82e569ba1e6fbac28cdb4a95e5d52d24e7c4c2ac90bf45fbe89e08fc21de8f9d3c9b302e30680566eb04e460c30ceac66ad24c161b37
   languageName: node
   linkType: hard
 
