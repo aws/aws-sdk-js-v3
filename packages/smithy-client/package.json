@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^10.0.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",
