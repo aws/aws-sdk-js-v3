@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.71.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.70.0...v3.71.0) (2022-04-14)
+
+
+### Features
+
+* **client-appflow:** Enables users to pass custom token URL parameters for Oauth2 authentication during create connector profile ([fc1c8ac](https://github.com/aws/aws-sdk-js-v3/commit/fc1c8ac67dc1386914d16433f972881676c11c64))
+
+
+
+
+
 # [3.67.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.66.0...v3.67.0) (2022-04-08)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow

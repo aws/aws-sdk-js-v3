@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.71.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.70.0...v3.71.0) (2022-04-14)
+
+
+### Features
+
+* **client-appflow:** Enables users to pass custom token URL parameters for Oauth2 authentication during create connector profile ([fc1c8ac](https://github.com/aws/aws-sdk-js-v3/commit/fc1c8ac67dc1386914d16433f972881676c11c64))
+* **client-appstream:** Includes updates for create and update fleet APIs to manage the session scripts locations for Elastic fleets. ([e52c79d](https://github.com/aws/aws-sdk-js-v3/commit/e52c79d9000e8a9794f979c4048316dd739f71fd))
+* **client-batch:** Enables configuration updates for compute environments with BEST_FIT_PROGRESSIVE and SPOT_CAPACITY_OPTIMIZED allocation strategies. ([f042910](https://github.com/aws/aws-sdk-js-v3/commit/f042910e837f25d81f8c941c5ee8f94a3c10b884))
+* **client-glue:** Auto Scaling for Glue version 3.0 and later jobs to dynamically scale compute resources. This SDK change provides customers with the auto-scaled DPU usage ([f8edcd3](https://github.com/aws/aws-sdk-js-v3/commit/f8edcd39b72ee84af81ad4af1c27c6b5ed0b3e5f))
+* **clients:** update client endpoints as of 2022-04-14 ([582ebd6](https://github.com/aws/aws-sdk-js-v3/commit/582ebd69e02aa014b961147dcb93781fb3d6d19c))
+
+
+
+
+
 # [3.70.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.69.0...v3.70.0) (2022-04-13)
 
 
