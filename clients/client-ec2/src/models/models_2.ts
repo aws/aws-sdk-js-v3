@@ -1848,7 +1848,7 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 
   /**
    * <p>Indicates whether requests from service consumers to create an endpoint to your service must
-   *             be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>
+   *             be accepted manually.</p>
    */
   AcceptanceRequired?: boolean;
 
@@ -1901,10 +1901,7 @@ export enum DnsNameState {
 }
 
 /**
- * <p>Information about the private DNS name for the service endpoint. For more information
- *             about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service
- *                 Private DNS Name Verification</a> in the
- *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Information about the private DNS name for the service endpoint.</p>
  */
 export interface PrivateDnsNameConfiguration {
   /**

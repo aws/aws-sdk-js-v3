@@ -1304,9 +1304,8 @@ export interface RunInstancesRequest {
   SubnetId?: string;
 
   /**
-   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on
-   *                 your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your
-   *                 Windows instance at launch</a>. If you are using a command line tool,
+   * <p>The user data script to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
+   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
    *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
    *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */

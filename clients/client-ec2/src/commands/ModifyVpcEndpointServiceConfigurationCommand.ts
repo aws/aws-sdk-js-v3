@@ -33,9 +33,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *             required for requests to connect to your endpoint service through an interface VPC
  *             endpoint.</p>
  * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
- *             domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
- *                 Private DNS Name Verification</a> in the
- *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ *             domain name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

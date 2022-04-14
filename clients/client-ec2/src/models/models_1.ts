@@ -2252,6 +2252,9 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The ARN of the Outpost on which the snapshot is stored.</p>
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called
+   *             by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
+   *                 CreateImage</a>.</p>
    */
   OutpostArn?: string;
 
@@ -2355,11 +2358,17 @@ export interface CreateImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.
-   *        If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating
-   *        the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted
-   *        at the same time), but not application consistent (all the operating system buffers are not flushed
-   *        to disk before the snapshots are created).</p>
+   * <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+   * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
+   * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
+   * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
+   * 					rebooting the instance.</p>
+   *    	     <important>
+   * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+   * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
+   * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
+   * 				     </important>
+   *          <p>Default: <code>false</code> (follow standard reboot process)</p>
    */
   NoReboot?: boolean;
 
@@ -3448,7 +3457,7 @@ export interface CreateKeyPairRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p>
+   * <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p>
    *         <p>Default: <code>rsa</code>
    *          </p>
    */
@@ -4440,6 +4449,9 @@ export namespace LaunchTemplateTagSpecificationRequest {
 
 /**
  * <p>The information to include in the launch template.</p>
+ *         <note>
+ *             <p>You must specify at least one parameter for the launch template data.</p>
+ *         </note>
  */
 export interface RequestLaunchTemplateData {
   /**
