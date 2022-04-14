@@ -50,7 +50,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * 		       <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
  * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use the
  * 			<code>StatisticsConfigurations</code> parameter to have
- * 			the metric stream also send extended statistics in the stream. Streaming extended statistics incurs
+ * 			the metric stream also send additional statistics in the stream. Streaming additional statistics incurs
  * 			additional costs. For more information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>. </p>
  *
  * 		       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream

@@ -2611,12 +2611,12 @@ export enum MetricStreamOutputFormat {
 }
 
 /**
- * <p>This object contains the information for one metric that is to streamed with
- * 		extended statistics.</p>
+ * <p>This object contains the information for one metric that is to be streamed with
+ * 		additional statistics.</p>
  */
 export interface MetricStreamStatisticsMetric {
   /**
-   * <p>The metric namespace for the metric.</p>
+   * <p>The namespace of the metric.</p>
    */
   Namespace: string | undefined;
 
@@ -2638,29 +2638,29 @@ export namespace MetricStreamStatisticsMetric {
 /**
  * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
  * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. This structure contains information for
- * 			one metric that includes extended statistics in the stream. For more information about extended statistics,
+ * 			one metric that includes additional statistics in the stream. For more information about statistics,
  * 			see CloudWatch, listed in
  * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
  * 				CloudWatch statistics definitions</a>.</p>
  */
 export interface MetricStreamStatisticsConfiguration {
   /**
-   * <p>An array of metric name and namespace pairs that stream the extended statistics listed
+   * <p>An array of metric name and namespace pairs that stream the additional statistics listed
    * 		in the value of the <code>AdditionalStatistics</code> parameter. There can be as many as
    * 		100 pairs in the array.</p>
    * 		       <p>All metrics that match the combination of metric name and namespace will be streamed
-   * 		with the extended statistics, no matter their dimensions.</p>
+   * 		with the additional statistics, no matter their dimensions.</p>
    */
   IncludeMetrics: MetricStreamStatisticsMetric[] | undefined;
 
   /**
-   * <p>The list of extended statistics that are to be streamed for the metrics listed
+   * <p>The list of additional statistics that are to be streamed for the metrics listed
    * 		in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
    * 		       <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry0.7</code>, the only
    * 			valid values are <code>p<i>??</i>
    *             </code> percentile statistics such as <code>p90</code>, <code>p99</code> and so on.</p>
    * 		       <p>If the <code>OutputFormat</code> for the stream is <code>json</code>,
-   * 			the valid values are include the abbreviations for all of the extended statistics listed in
+   * 			the valid values include the abbreviations for all of the statistics listed in
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. For example, this includes
    * 		<code>tm98, </code>
@@ -2740,8 +2740,8 @@ export interface GetMetricStreamOutput {
   OutputFormat?: MetricStreamOutputFormat | string;
 
   /**
-   * <p>Each entry in this array displays information about one or more metrics that include extended statistics
-   * 			in the metric stream. For more information about extended statistics, see
+   * <p>Each entry in this array displays information about one or more metrics that include additional statistics
+   * 			in the metric stream. For more information about the additional statistics, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. </p>
    */
@@ -3712,6 +3712,11 @@ export interface PutMetricAlarmInput {
    * 				Alarms Treats Missing Data</a>.</p>
    * 		       <p>Valid Values: <code>breaching | notBreaching | ignore | missing</code>
    *          </p>
+   * 		       <note>
+   *             <p>Alarms that evaluate metrics in the <code>AWS/DynamoDB</code> namespace always <code>ignore</code>
+   * 			missing data even if you choose a different option for <code>TreatMissingData</code>. When an
+   * 			<code>AWS/DynamoDB</code> metric has missing data, alarms that evaluate that metric remain in their current state.</p>
+   * 		       </note>
    */
   TreatMissingData?: string;
 
@@ -3982,15 +3987,15 @@ export interface PutMetricStreamInput {
   /**
    * <p>By default, a metric stream always sends the <code>MAX</code>, <code>MIN</code>, <code>SUM</code>,
    * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use this parameter to have
-   * 			the metric stream also send extended statistics in the stream. This
+   * 			the metric stream also send additional statistics in the stream. This
    * 			array can have up to 100 members.</p>
-   * 		       <p>For each entry in this array, you specify one or more metrics and the list of extended statistics to stream
-   * 			for those metrics. The extended statistics that you can stream depend on the stream's <code>OutputFormat</code>.
-   * 			If the <code>OutputFormat</code> is <code>json</code>, you can stream any extended statistic that is supported
+   * 		       <p>For each entry in this array, you specify one or more metrics and the list of additional statistics to stream
+   * 			for those metrics. The additional statistics that you can stream depend on the stream's <code>OutputFormat</code>.
+   * 			If the <code>OutputFormat</code> is <code>json</code>, you can stream any additional statistic that is supported
    * 			by CloudWatch, listed in
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is
-   * 			<code>opentelemetry0.7</code>, you can stream percentile statistics (p<i>??</i>).</p>
+   * 			<code>opentelemetry0.7</code>, you can stream percentile statistics such as p95, p99.9 and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
 }
