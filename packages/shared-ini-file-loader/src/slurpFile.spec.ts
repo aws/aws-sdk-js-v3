@@ -8,16 +8,17 @@ describe("slurpFile", () => {
   const getMockFileContents = (path: string, options = UTF8) => JSON.stringify({ path, options });
 
   beforeEach(() => {
-    (promises.readFile as jest.Mock).mockImplementation((path, options) =>
-      Promise.resolve(getMockFileContents(path, options))
-    );
+    (promises.readFile as jest.Mock).mockImplementation(async (path, options) => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      return getMockFileContents(path, options);
+    });
   });
 
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("makes one readFile call for a filepath irrepsective of slurpFile calls", (done) => {
+  it("makes one readFile call for a filepath irrespective of slurpFile calls", (done) => {
     jest.isolateModules(async () => {
       const { slurpFile } = require("./slurpFile");
       const mockPath = "/mock/path";
