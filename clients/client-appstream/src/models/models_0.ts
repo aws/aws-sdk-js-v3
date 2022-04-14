@@ -1706,6 +1706,11 @@ export interface CreateFleetRequest {
    * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
    */
   UsbDeviceFilterStrings?: string[];
+
+  /**
+   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
+   */
+  SessionScriptS3Location?: S3Location;
 }
 
 export namespace CreateFleetRequest {
@@ -2033,6 +2038,11 @@ export interface Fleet {
    * <p>The USB device filter strings associated with the fleet.</p>
    */
   UsbDeviceFilterStrings?: string[];
+
+  /**
+   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
+   */
+  SessionScriptS3Location?: S3Location;
 }
 
 export namespace Fleet {
@@ -4836,6 +4846,7 @@ export namespace ExpireSessionResult {
 export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN = "IAM_ROLE_ARN",
+  SESSION_SCRIPT_S3_LOCATION = "SESSION_SCRIPT_S3_LOCATION",
   USB_DEVICE_FILTER_STRINGS = "USB_DEVICE_FILTER_STRINGS",
   VPC_CONFIGURATION = "VPC_CONFIGURATION",
   VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
@@ -5603,6 +5614,11 @@ export interface UpdateFleetRequest {
    * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
    */
   UsbDeviceFilterStrings?: string[];
+
+  /**
+   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets. </p>
+   */
+  SessionScriptS3Location?: S3Location;
 }
 
 export namespace UpdateFleetRequest {
