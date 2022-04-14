@@ -20190,6 +20190,7 @@ const deserializeAws_json1_1JobRun = (output: any, context: __SerdeContext): Job
       output.CompletedOn !== undefined && output.CompletedOn !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletedOn)))
         : undefined,
+    DPUSeconds: __limitedParseDouble(output.DPUSeconds),
     ErrorMessage: __expectString(output.ErrorMessage),
     ExecutionTime: __expectInt32(output.ExecutionTime),
     GlueVersion: __expectString(output.GlueVersion),
