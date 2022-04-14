@@ -14186,7 +14186,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@*, @aws-sdk/client-sts@workspace:*, @aws-sdk/client-sts@workspace:clients/client-sts":
+"@aws-sdk/client-sts@*, @aws-sdk/client-sts@workspace:clients/client-sts":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sts@workspace:clients/client-sts"
   dependencies:
@@ -15809,7 +15809,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader"
   dependencies:
-    "@aws-sdk/client-sts": "workspace:*"
     "@aws-sdk/credential-provider-node": "*"
     "@tsconfig/recommended": 1.0.1
     "@types/node": ^10.0.0
@@ -15819,6 +15818,8 @@ __metadata:
     tslib: ^2.3.1
     typedoc: 0.19.2
     typescript: ~4.6.2
+  peerDependencies:
+    "@aws-sdk/client-sts": "*"
   languageName: unknown
   linkType: soft
 
