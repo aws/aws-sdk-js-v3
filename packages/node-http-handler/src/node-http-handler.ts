@@ -45,9 +45,13 @@ export class NodeHttpHandler implements HttpHandler {
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
   constructor(options?: NodeHttpHandlerOptions | Provider<NodeHttpHandlerOptions | void>) {
-    this.configProvider = new Promise(async (resolve) => {
+    this.configProvider = new Promise((resolve, reject) => {
       if (typeof options === "function") {
-        resolve(this.resolveDefaultConfig(await options()));
+        options()
+          .then((_options) => {
+            resolve(this.resolveDefaultConfig(_options));
+          })
+          .catch(reject);
       } else {
         resolve(this.resolveDefaultConfig(options));
       }

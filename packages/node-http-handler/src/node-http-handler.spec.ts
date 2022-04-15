@@ -103,17 +103,16 @@ describe("NodeHttpHandler", () => {
         };
 
         const nodeHttpHandler = new NodeHttpHandler(slowConfigProvider);
-        const promises = [];
-        for (let i = 0; i < 100; ++i) {
-          promises.push(nodeHttpHandler.handle({} as unknown as HttpRequest));
-        }
+
+        const promises = Promise.all(
+          Array.from({ length: 20 }).map(() => nodeHttpHandler.handle({} as unknown as HttpRequest))
+        );
 
         expect(providerInvokedCount).toBe(1);
         expect(providerResolvedCount).toBe(0);
-        await new Promise((r) => setTimeout(r, 50));
+        await promises;
         expect(providerInvokedCount).toBe(1);
         expect(providerResolvedCount).toBe(1);
-        await Promise.all(promises);
       });
     });
   });
