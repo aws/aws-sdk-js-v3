@@ -59,7 +59,6 @@
     "@mixer/parallel-prettier": "^2.0.1",
     "@tsconfig/recommended": "1.0.1",
     "@types/chai-as-promised": "^7.1.2",
-    "@types/fs-extra": "^8.0.1",
     "@types/jest": "27.4.0",
     "@typescript-eslint/eslint-plugin": "5.15.0",
     "@typescript-eslint/parser": "5.15.0",
