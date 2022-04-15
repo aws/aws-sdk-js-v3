@@ -1220,7 +1220,8 @@ export class Lightsail extends LightsailClient {
    *       configuration.</p>
    *
    *          <p>You can deploy containers to your container service using container images from a public
-   *       registry like Docker Hub, or from your local machine. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
+   *       registry such as Amazon ECR Public, or from your local machine. For more information, see
+   *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
    *         <i>Amazon Lightsail Developer Guide</i>.</p>
    */
   public createContainerServiceDeployment(
@@ -3113,10 +3114,12 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Returns information about one or more Amazon Lightsail buckets.</p>
+   * <p>Returns information about one or more Amazon Lightsail buckets. The information returned
+   *       includes the synchronization status of the Amazon Simple Storage Service (Amazon S3)
+   *       account-level block public access feature for your Lightsail buckets.</p>
    *
    *          <p>For more information about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
-   *         Guide</i>..</p>
+   *         Guide</i>.</p>
    */
   public getBuckets(args: GetBucketsCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketsCommandOutput>;
   public getBuckets(args: GetBucketsCommandInput, cb: (err: any, data?: GetBucketsCommandOutput) => void): void;
@@ -3660,7 +3663,7 @@ export class Lightsail extends LightsailClient {
    * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
    *       (CDN) distributions.</p>
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
-   *       your dsitribution.</p>
+   *       your distribution.</p>
    */
   public getDistributionBundles(
     args: GetDistributionBundlesCommandInput,
@@ -5820,7 +5823,7 @@ export class Lightsail extends LightsailClient {
    * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
-   *       your dsitribution.</p>
+   *       your distribution.</p>
    *          <p>Update your distribution's bundle if your distribution is going over its monthly network
    *       transfer quota and is incurring an overage fee.</p>
    *          <p>You can update your distribution's bundle only one time within your monthly AWS billing
