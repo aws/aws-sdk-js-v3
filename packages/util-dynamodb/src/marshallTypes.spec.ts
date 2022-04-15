@@ -44,6 +44,7 @@ describe("marshall type discernment", () => {
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
   });
+
   describe("unwraps one level for input data which are lists or maps", () => {
     it("marshals and unwraps map", () => {
       expect(marshall({ a: 1, b: { a: 2, b: [1, 2, 3] } })).toEqual({
