@@ -7,20 +7,24 @@ describe("marshall type discernment", () => {
       const value = "hello";
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals number", () => {
       const value = 1578;
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals binary", () => {
       const value = new Uint8Array([0, 1, 0, 1]);
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals boolean", () => {
       let value = false;
       expect(marshall(value)).toEqual(convertToAttr(value));
       value = true;
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals null", () => {
       const value = null;
       expect(marshall(value)).toEqual(convertToAttr(value));
@@ -29,10 +33,12 @@ describe("marshall type discernment", () => {
       const value = new Set(["a", "b"]);
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals number set", () => {
       const value = new Set([1, 2]);
       expect(marshall(value)).toEqual(convertToAttr(value));
     });
+
     it("marshals binary set", () => {
       const value = new Set([new Uint8Array([1, 0]), new Uint8Array([0, 1])]);
       expect(marshall(value)).toEqual(convertToAttr(value));
@@ -52,6 +58,7 @@ describe("marshall type discernment", () => {
         },
       });
     });
+
     it("marshals and unwraps list", () => {
       expect(marshall(["test", 2, null])).toEqual([{ S: "test" }, { N: "2" }, { NULL: true }]);
     });
