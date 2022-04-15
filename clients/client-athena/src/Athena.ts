@@ -1270,7 +1270,8 @@ export class Athena extends AthenaClient {
   }
 
   /**
-   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.</p>
+   * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
+   *             updated.</p>
    */
   public updateNamedQuery(
     args: UpdateNamedQueryCommandInput,

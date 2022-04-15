@@ -21,8 +21,7 @@ export interface AclConfiguration {
    *                 <code>BUCKET_OWNER_FULL_CONTROL</code>. If a query runs in a workgroup and the
    *             workgroup overrides client-side settings, then the Amazon S3 canned ACL
    *             specified in the workgroup's settings is used for all queries that run in the workgroup.
-   *             For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned ACL</a> in the <i>Amazon S3 User
-   *                 Guide</i>.</p>
+   *             For more information about Amazon S3 canned ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   S3AclOption: S3AclOption | string | undefined;
 }
@@ -53,8 +52,8 @@ export namespace BatchGetNamedQueryInput {
 }
 
 /**
- * <p>A query, where <code>QueryString</code> contains the SQL statements that
- *             make up the query.</p>
+ * <p>A query, where <code>QueryString</code> contains the SQL statements that make up the
+ *             query.</p>
  */
 export interface NamedQuery {
   /**
@@ -279,14 +278,14 @@ export enum EncryptionOption {
 
 /**
  * <p>If query results are encrypted in Amazon S3, indicates the encryption option
- *             used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key
+ *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key
  *             information.</p>
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>), server-side encryption with KMS-managed keys
-   *                 (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is
-   *             used.</p>
+   * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>), server-side encryption with KMS-managed keys
+   *                 (<code>SSE_KMS</code>), or client-side encryption with KMS-managed keys
+   *                 (<code>CSE_KMS</code>) is used.</p>
    *         <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
    *             the workgroup's setting for encryption is used. It specifies whether query results must
    *             be encrypted, for all queries that run in this workgroup. </p>
@@ -294,7 +293,7 @@ export interface EncryptionConfiguration {
   EncryptionOption: EncryptionOption | string | undefined;
 
   /**
-   * <p>For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or
+   * <p>For <code>SSE_KMS</code> and <code>CSE_KMS</code>, this is the KMS key ARN or
    *             ID.</p>
    */
   KmsKey?: string;
@@ -329,7 +328,7 @@ export interface ResultConfiguration {
 
   /**
    * <p>If query results are encrypted in Amazon S3, indicates the encryption option
-   *             used (for example, <code>SSE-KMS</code> or <code>CSE-KMS</code>) and key information.
+   *             used (for example, <code>SSE_KMS</code> or <code>CSE_KMS</code>) and key information.
    *             This is a client-side setting. If workgroup settings override client-side settings, then
    *             the query uses the encryption configuration that is specified for the workgroup, and
    *             also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
@@ -340,7 +339,7 @@ export interface ResultConfiguration {
    * <p>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3 bucket specified by <a>ResultConfiguration$OutputLocation</a>.
    *             If set, Athena uses the value for <code>ExpectedBucketOwner</code> when it
    *             makes Amazon S3 calls to your specified output location. If the
-   *             <code>ExpectedBucketOwner</code>
+   *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
    *         <p>This is a client-side setting. If workgroup settings override client-side settings,
@@ -466,6 +465,16 @@ export interface AthenaError {
    *                 Guide</i>.</p>
    */
   ErrorType?: number;
+
+  /**
+   * <p>True if the query might succeed if resubmitted.</p>
+   */
+  Retryable?: boolean;
+
+  /**
+   * <p>Contains a short description of the error that occurred.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace AthenaError {
@@ -2898,9 +2907,9 @@ export interface ResultConfigurationUpdates {
    * <p>If set to "true", indicates that the previously-specified query results location (also
    *             known as a client-side setting) for queries in this workgroup should be ignored and set
    *             to null. If set to "false" or not set, and a value is present in the
-   *             <code>OutputLocation</code> in <code>ResultConfigurationUpdates</code> (the
+   *                 <code>OutputLocation</code> in <code>ResultConfigurationUpdates</code> (the
    *             client-side setting), the <code>OutputLocation</code> in the workgroup's
-   *             <code>ResultConfiguration</code> will be updated with the new value. For more
+   *                 <code>ResultConfiguration</code> will be updated with the new value. For more
    *             information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
    *                 Client-Side Settings</a>.</p>
    */
@@ -2927,22 +2936,22 @@ export interface ResultConfigurationUpdates {
    * <p>The Amazon Web Services account ID that you expect to be the owner of the Amazon S3 bucket specified by <a>ResultConfiguration$OutputLocation</a>.
    *             If set, Athena uses the value for <code>ExpectedBucketOwner</code> when it
    *             makes Amazon S3 calls to your specified output location. If the
-   *             <code>ExpectedBucketOwner</code>
+   *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
    *
    *         <p>If workgroup settings override client-side settings, then the query uses the
-   *             <code>ExpectedBucketOwner</code> setting that is specified for the workgroup, and
+   *                 <code>ExpectedBucketOwner</code> setting that is specified for the workgroup, and
    *             also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */
   ExpectedBucketOwner?: string;
 
   /**
    * <p>If set to "true", removes the Amazon Web Services account ID previously specified for
-   *             <a>ResultConfiguration$ExpectedBucketOwner</a>. If set to "false" or not
+   *                 <a>ResultConfiguration$ExpectedBucketOwner</a>. If set to "false" or not
    *             set, and a value is present in the <code>ExpectedBucketOwner</code> in
-   *             <code>ResultConfigurationUpdates</code> (the client-side setting), the
-   *             <code>ExpectedBucketOwner</code> in the workgroup's <code>ResultConfiguration</code>
+   *                 <code>ResultConfigurationUpdates</code> (the client-side setting), the
+   *                 <code>ExpectedBucketOwner</code> in the workgroup's <code>ResultConfiguration</code>
    *             is updated with the new value. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override
    *                 Client-Side Settings</a>.</p>
    */
