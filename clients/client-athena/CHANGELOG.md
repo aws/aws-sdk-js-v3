@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
+
+
+### Features
+
+* **client-athena:** This release adds subfields, ErrorMessage, Retryable, to the AthenaError response object in the GetQueryExecution API when a query fails. ([905ab58](https://github.com/aws/aws-sdk-js-v3/commit/905ab589eb3cb490c61b0158494e4d2c47857039))
+
+
+
+
+
 # [3.67.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.66.0...v3.67.0) (2022-04-08)
 
 **Note:** Version bump only for package @aws-sdk/client-athena

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
+
+
+### Features
+
+* **client-athena:** This release adds subfields, ErrorMessage, Retryable, to the AthenaError response object in the GetQueryExecution API when a query fails. ([905ab58](https://github.com/aws/aws-sdk-js-v3/commit/905ab589eb3cb490c61b0158494e4d2c47857039))
+* **client-lightsail:** This release adds support to describe the synchronization status of the account-level block public access feature for your Amazon Lightsail buckets. ([4850e32](https://github.com/aws/aws-sdk-js-v3/commit/4850e32ab3b5e58dd4d66eb2d0ccd14b1503ef10))
+* **client-rds:** Removes Amazon RDS on VMware with the deletion of APIs related to Custom Availability Zones and Media installation ([2a9f8c3](https://github.com/aws/aws-sdk-js-v3/commit/2a9f8c3e4f7d82a08dd6e797181645d07ed87825))
+
+
+
+
+
 # [3.71.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.70.0...v3.71.0) (2022-04-14)
 
 
