@@ -11,6 +11,9 @@ import {
   RequestSigner,
 } from "@aws-sdk/types";
 
+// Export interface to avoid inferred types in AwsAuthInputConfig interface
+export type { SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
+
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
 
