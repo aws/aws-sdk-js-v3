@@ -7,15 +7,7 @@ const filePromisesHash: { [key: string]: Promise<string> } = {};
 
 export const slurpFile = (path: string) => {
   if (!filePromisesHash[path]) {
-    filePromisesHash[path] = new Promise((resolve, reject) => {
-      readFile(path, "utf8")
-        .then((data) => {
-          resolve(data);
-        })
-        .catch((err) => {
-          reject(err);
-        });
-    });
+    filePromisesHash[path] = readFile(path, "utf8");
   }
   return filePromisesHash[path];
 };
