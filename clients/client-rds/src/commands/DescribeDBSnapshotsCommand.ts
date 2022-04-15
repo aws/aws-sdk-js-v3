@@ -11,7 +11,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/models_1";
+import { DBSnapshotMessage } from "../models/models_0";
+import { DescribeDBSnapshotsMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBSnapshotsCommand,
   serializeAws_queryDescribeDBSnapshotsCommand,

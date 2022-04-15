@@ -13,15 +13,16 @@ import {
   DBInstanceAutomatedBackup,
   DBProxy,
   DBProxyEndpoint,
+  DBProxyTarget,
   DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
+  DBSnapshotAttributesResult,
   DBSubnetGroup,
   EventSubscription,
   ExportTask,
   Filter,
   GlobalCluster,
-  InstallationMedia,
   OptionGroup,
   OptionSetting,
   Parameter,
@@ -33,345 +34,6 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
-
-export enum TargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum TargetHealthReason {
-  AUTH_FAILURE = "AUTH_FAILURE",
-  CONNECTION_FAILED = "CONNECTION_FAILED",
-  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
-  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
-  UNREACHABLE = "UNREACHABLE",
-}
-
-export enum TargetState {
-  available = "AVAILABLE",
-  registering = "REGISTERING",
-  unavailable = "UNAVAILABLE",
-}
-
-/**
- * <p>Information about the connection health of an RDS Proxy target.</p>
- */
-export interface TargetHealth {
-  /**
-   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
-   *            The following is a typical lifecycle example for the states of an RDS Proxy target:</p>
-   *         <p>
-   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
-   *          </p>
-   */
-  State?: TargetState | string;
-
-  /**
-   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
-   */
-  Reason?: TargetHealthReason | string;
-
-  /**
-   * <p>A description of the health of the RDS Proxy target.
-   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
-   */
-  Description?: string;
-}
-
-export namespace TargetHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealth): any => ({
-    ...obj,
-  });
-}
-
-export enum TargetType {
-  RDS_INSTANCE = "RDS_INSTANCE",
-  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
-  TRACKED_CLUSTER = "TRACKED_CLUSTER",
-}
-
-/**
- * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
- *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
- *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
- */
-export interface DBProxyTarget {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
-   */
-  TrackedClusterId?: string;
-
-  /**
-   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
-   *         or the cluster identifier for an Aurora DB cluster.</p>
-   */
-  RdsResourceId?: string;
-
-  /**
-   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
-   */
-  Type?: TargetType | string;
-
-  /**
-   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
-   */
-  Role?: TargetRole | string;
-
-  /**
-   * <p>Information about the connection health of the RDS Proxy target.</p>
-   */
-  TargetHealth?: TargetHealth;
-}
-
-export namespace DBProxyTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTarget): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDBProxyTargetsResponse {
-  /**
-   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
-   */
-  Targets?: DBProxyTarget[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeDBProxyTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
- */
-export interface DBSecurityGroupMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>DBSecurityGroup</code> instances.</p>
-   */
-  DBSecurityGroups?: DBSecurityGroup[];
-}
-
-export namespace DBSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface DescribeDBSecurityGroupsMessage {
-  /**
-   * <p>The name of the DB security group to return details for.</p>
-   */
-  DBSecurityGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBSecurityGroups</code> request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeDBSecurityGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface DescribeDBSnapshotAttributesMessage {
-  /**
-   * <p>The identifier for the DB snapshot to describe the attributes for.</p>
-   */
-  DBSnapshotIdentifier: string | undefined;
-}
-
-export namespace DescribeDBSnapshotAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the name and values of a manual DB snapshot attribute</p>
- *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
- *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
- *     API.</p>
- */
-export interface DBSnapshotAttribute {
-  /**
-   * <p>The name of the manual DB snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
-   *           have permission to copy or restore the manual DB cluster snapshot. For more information,
-   *           see the <code>ModifyDBSnapshotAttribute</code>
-   *           API action.</p>
-   */
-  AttributeName?: string;
-
-  /**
-   * <p>The value or values for the manual DB snapshot attribute.</p>
-   *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
-   *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
-   *       is public and available for any Amazon Web Services account to copy or restore.</p>
-   */
-  AttributeValues?: string[];
-}
-
-export namespace DBSnapshotAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
- *     API action.</p>
- *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
- *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
- *       API action.</p>
- */
-export interface DBSnapshotAttributesResult {
-  /**
-   * <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
-   */
-  DBSnapshotIdentifier?: string;
-
-  /**
-   * <p>The list of attributes and values for the manual DB snapshot.</p>
-   */
-  DBSnapshotAttributes?: DBSnapshotAttribute[];
-}
-
-export namespace DBSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDBSnapshotAttributesResult {
-  /**
-   * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
-   *     API action.</p>
-   *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
-   *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
-   *       API action.</p>
-   */
-  DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
-}
-
-export namespace DescribeDBSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
- */
-export interface DBSnapshotMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>DBSnapshot</code> instances.</p>
-   */
-  DBSnapshots?: DBSnapshot[];
-}
-
-export namespace DBSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotMessage): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -695,6 +357,204 @@ export namespace DescribeEngineDefaultClusterParametersResult {
 export interface DescribeEngineDefaultParametersMessage {
   /**
    * <p>The name of the DB parameter group family.</p>
+   *         <p>Valid Values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora5.6</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-mysql5.7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-mysql8.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-postgresql10</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-postgresql11</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-postgresql12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>aurora-postgresql13</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mariadb10.2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mariadb10.3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mariadb10.4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mariadb10.5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mariadb10.6</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mysql5.7</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>mysql8.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>postgres10</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>postgres11</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>postgres12</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>postgres13</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>postgres14</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ee-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ee-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ee-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ee-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ee-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ex-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ex-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ex-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ex-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-ex-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-se-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-se-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-se-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-se-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-se-15.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-web-11.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-web-12.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-web-13.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-web-14.0</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sqlserver-web-15.0</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   DBParameterGroupFamily: string | undefined;
 
@@ -1256,82 +1116,6 @@ export namespace GlobalClustersMessage {
    * @internal
    */
   export const filterSensitiveLog = (obj: GlobalClustersMessage): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstallationMediaMessage {
-  /**
-   * <p>The installation medium ID.</p>
-   */
-  InstallationMediaId?: string;
-
-  /**
-   * <p>A filter that specifies one or more installation media to describe. Supported filters
-   *           include the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>custom-availability-zone-id</code> - Accepts custom Availability Zone (AZ)
-   *                     identifiers. The results list includes information about only the custom AZs
-   *                     identified by these identifiers.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>engine</code> - Accepts database engines. The results list includes information about
-   *               only the database engines identified by these identifiers.</p>
-   *                 <p>For more information about the valid engines for installation media, see <a>ImportInstallationMedia</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous DescribeInstallationMedia request.
-   *           If this parameter is specified, the response includes
-   *           only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *           If this parameter is specified, the response includes
-   *           only records beyond the marker,
-   *           up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeInstallationMediaMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstallationMediaMessage): any => ({
-    ...obj,
-  });
-}
-
-export interface InstallationMediaMessage {
-  /**
-   * <p>An optional pagination token provided by a previous
-   *           <a>DescribeInstallationMedia</a> request.
-   *           If this parameter is specified, the response includes
-   *           only records beyond the marker,
-   *           up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The list of <a>InstallationMedia</a> objects for the Amazon Web Services account.</p>
-   */
-  InstallationMedia?: InstallationMedia[];
-}
-
-export namespace InstallationMediaMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMediaMessage): any => ({
     ...obj,
   });
 }
@@ -3213,99 +2997,6 @@ export namespace FailoverGlobalClusterResult {
   export const filterSensitiveLog = (obj: FailoverGlobalClusterResult): any => ({
     ...obj,
   });
-}
-
-export interface ImportInstallationMediaMessage {
-  /**
-   * <p>The identifier of the custom Availability Zone (AZ) to import the installation media to.</p>
-   */
-  CustomAvailabilityZoneId: string | undefined;
-
-  /**
-   * <p>The name of the database engine to be used for this instance.</p>
-   *         <p>The list only includes supported DB engines that require an on-premises
-   *           customer provided license.</p>
-   *         <p>Valid Values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>sqlserver-ee</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sqlserver-se</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sqlserver-ex</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sqlserver-web</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>The version number of the database engine to use.</p>
-   *         <p>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</p>
-   *         <p>The following are the database engines and links to information about the major and minor
-   *           versions. The list only includes DB engines that require an on-premises
-   *           customer provided license.</p>
-   *         <p>
-   *             <b>Microsoft SQL Server</b>
-   *          </p>
-   *         <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">
-   *           Microsoft SQL Server Versions on Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p>
-   */
-  EngineVersion: string | undefined;
-
-  /**
-   * <p>The path to the installation medium for the specified DB engine.</p>
-   *         <p>Example: <code>SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso</code>
-   *          </p>
-   */
-  EngineInstallationMediaPath: string | undefined;
-
-  /**
-   * <p>The path to the installation medium for the operating system associated with the specified DB engine.</p>
-   *         <p>Example: <code>WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso</code>
-   *          </p>
-   */
-  OSInstallationMediaPath: string | undefined;
-}
-
-export namespace ImportInstallationMediaMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportInstallationMediaMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified installation medium has already been imported.</p>
- */
-export class InstallationMediaAlreadyExistsFault extends __BaseException {
-  readonly name: "InstallationMediaAlreadyExistsFault" = "InstallationMediaAlreadyExistsFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstallationMediaAlreadyExistsFault, __BaseException>) {
-    super({
-      name: "InstallationMediaAlreadyExistsFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstallationMediaAlreadyExistsFault.prototype);
-  }
 }
 
 /**

@@ -66,11 +66,6 @@ import {
   CopyOptionGroupCommandOutput,
 } from "./commands/CopyOptionGroupCommand";
 import {
-  CreateCustomAvailabilityZoneCommand,
-  CreateCustomAvailabilityZoneCommandInput,
-  CreateCustomAvailabilityZoneCommandOutput,
-} from "./commands/CreateCustomAvailabilityZoneCommand";
-import {
   CreateCustomDBEngineVersionCommand,
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
@@ -151,11 +146,6 @@ import {
   CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand";
 import {
-  DeleteCustomAvailabilityZoneCommand,
-  DeleteCustomAvailabilityZoneCommandInput,
-  DeleteCustomAvailabilityZoneCommandOutput,
-} from "./commands/DeleteCustomAvailabilityZoneCommand";
-import {
   DeleteCustomDBEngineVersionCommand,
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
@@ -231,11 +221,6 @@ import {
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
 import {
-  DeleteInstallationMediaCommand,
-  DeleteInstallationMediaCommandInput,
-  DeleteInstallationMediaCommandOutput,
-} from "./commands/DeleteInstallationMediaCommand";
-import {
   DeleteOptionGroupCommand,
   DeleteOptionGroupCommandInput,
   DeleteOptionGroupCommandOutput,
@@ -255,11 +240,6 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
-import {
-  DescribeCustomAvailabilityZonesCommand,
-  DescribeCustomAvailabilityZonesCommandInput,
-  DescribeCustomAvailabilityZonesCommandOutput,
-} from "./commands/DescribeCustomAvailabilityZonesCommand";
 import {
   DescribeDBClusterBacktracksCommand,
   DescribeDBClusterBacktracksCommandInput,
@@ -401,11 +381,6 @@ import {
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
 import {
-  DescribeInstallationMediaCommand,
-  DescribeInstallationMediaCommandInput,
-  DescribeInstallationMediaCommandOutput,
-} from "./commands/DescribeInstallationMediaCommand";
-import {
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
@@ -460,11 +435,6 @@ import {
   FailoverGlobalClusterCommandInput,
   FailoverGlobalClusterCommandOutput,
 } from "./commands/FailoverGlobalClusterCommand";
-import {
-  ImportInstallationMediaCommand,
-  ImportInstallationMediaCommandInput,
-  ImportInstallationMediaCommandOutput,
-} from "./commands/ImportInstallationMediaCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -1280,43 +1250,6 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a custom Availability Zone (AZ).</p>
-   *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
-   *         <p>For more information about RDS on VMware, see the
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 RDS on VMware User Guide.</a>
-   *          </p>
-   */
-  public createCustomAvailabilityZone(
-    args: CreateCustomAvailabilityZoneCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateCustomAvailabilityZoneCommandOutput>;
-  public createCustomAvailabilityZone(
-    args: CreateCustomAvailabilityZoneCommandInput,
-    cb: (err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void
-  ): void;
-  public createCustomAvailabilityZone(
-    args: CreateCustomAvailabilityZoneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void
-  ): void;
-  public createCustomAvailabilityZone(
-    args: CreateCustomAvailabilityZoneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void),
-    cb?: (err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void
-  ): Promise<CreateCustomAvailabilityZoneCommandOutput> | void {
-    const command = new CreateCustomAvailabilityZoneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Creates a custom DB engine version (CEV). A CEV is a binary volume snapshot of a database engine and specific
    *             AMI. The supported engines are the following:</p>
    *         <ul>
@@ -1977,43 +1910,6 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Deletes a custom Availability Zone (AZ).</p>
-   *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
-   *         <p>For more information about RDS on VMware, see the
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 RDS on VMware User Guide.</a>
-   *          </p>
-   */
-  public deleteCustomAvailabilityZone(
-    args: DeleteCustomAvailabilityZoneCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteCustomAvailabilityZoneCommandOutput>;
-  public deleteCustomAvailabilityZone(
-    args: DeleteCustomAvailabilityZoneCommandInput,
-    cb: (err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void
-  ): void;
-  public deleteCustomAvailabilityZone(
-    args: DeleteCustomAvailabilityZoneCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void
-  ): void;
-  public deleteCustomAvailabilityZone(
-    args: DeleteCustomAvailabilityZoneCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void),
-    cb?: (err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void
-  ): Promise<DeleteCustomAvailabilityZoneCommandOutput> | void {
-    const command = new DeleteCustomAvailabilityZoneCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
    *         <ul>
    *             <li>
@@ -2579,39 +2475,6 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Deletes the installation medium for a DB engine that requires an on-premises customer provided license,
-   *             such as Microsoft SQL Server.</p>
-   */
-  public deleteInstallationMedia(
-    args: DeleteInstallationMediaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteInstallationMediaCommandOutput>;
-  public deleteInstallationMedia(
-    args: DeleteInstallationMediaCommandInput,
-    cb: (err: any, data?: DeleteInstallationMediaCommandOutput) => void
-  ): void;
-  public deleteInstallationMedia(
-    args: DeleteInstallationMediaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteInstallationMediaCommandOutput) => void
-  ): void;
-  public deleteInstallationMedia(
-    args: DeleteInstallationMediaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInstallationMediaCommandOutput) => void),
-    cb?: (err: any, data?: DeleteInstallationMediaCommandOutput) => void
-  ): Promise<DeleteInstallationMediaCommandOutput> | void {
-    const command = new DeleteInstallationMediaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Deletes an existing option group.</p>
    */
   public deleteOptionGroup(
@@ -2730,43 +2593,6 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): Promise<DescribeCertificatesCommandOutput> | void {
     const command = new DescribeCertificatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Returns information about custom Availability Zones (AZs).</p>
-   *         <p>A custom AZ is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
-   *         <p>For more information about RDS on VMware, see the
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                 RDS on VMware User Guide.</a>
-   *          </p>
-   */
-  public describeCustomAvailabilityZones(
-    args: DescribeCustomAvailabilityZonesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeCustomAvailabilityZonesCommandOutput>;
-  public describeCustomAvailabilityZones(
-    args: DescribeCustomAvailabilityZonesCommandInput,
-    cb: (err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void
-  ): void;
-  public describeCustomAvailabilityZones(
-    args: DescribeCustomAvailabilityZonesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void
-  ): void;
-  public describeCustomAvailabilityZones(
-    args: DescribeCustomAvailabilityZonesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCustomAvailabilityZonesCommandOutput) => void
-  ): Promise<DescribeCustomAvailabilityZonesCommandOutput> | void {
-    const command = new DescribeCustomAvailabilityZonesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3762,39 +3588,6 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Describes the available installation media for a DB engine that requires an
-   *           on-premises customer provided license, such as Microsoft SQL Server.</p>
-   */
-  public describeInstallationMedia(
-    args: DescribeInstallationMediaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeInstallationMediaCommandOutput>;
-  public describeInstallationMedia(
-    args: DescribeInstallationMediaCommandInput,
-    cb: (err: any, data?: DescribeInstallationMediaCommandOutput) => void
-  ): void;
-  public describeInstallationMedia(
-    args: DescribeInstallationMediaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeInstallationMediaCommandOutput) => void
-  ): void;
-  public describeInstallationMedia(
-    args: DescribeInstallationMediaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInstallationMediaCommandOutput) => void),
-    cb?: (err: any, data?: DescribeInstallationMediaCommandOutput) => void
-  ): Promise<DescribeInstallationMediaCommandOutput> | void {
-    const command = new DescribeInstallationMediaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Describes all available options.</p>
    */
   public describeOptionGroupOptions(
@@ -4179,39 +3972,6 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Imports the installation media for a DB engine that requires an on-premises
-   *           customer provided license, such as SQL Server.</p>
-   */
-  public importInstallationMedia(
-    args: ImportInstallationMediaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ImportInstallationMediaCommandOutput>;
-  public importInstallationMedia(
-    args: ImportInstallationMediaCommandInput,
-    cb: (err: any, data?: ImportInstallationMediaCommandOutput) => void
-  ): void;
-  public importInstallationMedia(
-    args: ImportInstallationMediaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportInstallationMediaCommandOutput) => void
-  ): void;
-  public importInstallationMedia(
-    args: ImportInstallationMediaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportInstallationMediaCommandOutput) => void),
-    cb?: (err: any, data?: ImportInstallationMediaCommandOutput) => void
-  ): Promise<ImportInstallationMediaCommandOutput> | void {
-    const command = new ImportInstallationMediaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Lists all tags on an Amazon RDS resource.</p>
    *         <p>For an overview on tagging an Amazon RDS resource,
    *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
@@ -4248,7 +4008,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
-   *           certificate for Amazon RDS for new DB instances temporarily, or remove the override.</p>
+   *           certificate for Amazon RDS for new DB instances, or remove the override.</p>
    *         <p>By using this operation, you can specify an RDS-approved SSL/TLS certificate for new DB
    *             instances that is different from the default certificate provided by RDS. You can also
    *             use this operation to remove the override, so that new DB instances use the default
