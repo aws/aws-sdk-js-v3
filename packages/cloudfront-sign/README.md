@@ -9,14 +9,14 @@ This package provides functions to generate signed urls and cookies for accessin
 JavaScript Example:
 
 ```javascript
-const { signUrl } = require("@aws-sdk/cloudfront-sign");
+const { getSignedUrl } = require("@aws-sdk/cloudfront-sign");
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
 const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
 const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
 const dateLessThan = "2022-01-01";
-const signedUrl = signUrl({
+const signedUrl = getSignedUrl({
   url,
   keyPairId,
   dateLessThan,
@@ -27,14 +27,14 @@ const signedUrl = signUrl({
 ES6 Example
 
 ```javascript
-import { signUrl } from "@aws-sdk/cloudfront-sign";
+import { getSignedUrl } from "@aws-sdk/cloudfront-sign";
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
 const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
 const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
 const dateLessThan = "2022-01-01";
-const signedUrl = signUrl({
+const signedUrl = getSignedUrl({
   url,
   keyPairId,
   dateLessThan,

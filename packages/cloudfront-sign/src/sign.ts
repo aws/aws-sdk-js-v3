@@ -153,7 +153,7 @@ function signPolicy(policy: string, privateKey: string): string {
   return normalizeBase64(signData(policy, privateKeyBuffer));
 }
 
-export function signUrl(args: CloudfrontSignInput): string {
+export function getSignedUrl(args: CloudfrontSignInput): string {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
   const url = parseUrl(args.url);
   const policy = JSON.stringify(

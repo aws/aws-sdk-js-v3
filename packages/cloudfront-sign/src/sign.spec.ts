@@ -4,7 +4,7 @@ import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { resolve } from "path";
 
-import { signCookies, signUrl } from "./index";
+import { getSignedUrl, signCookies } from "./index";
 
 const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
 const keyPairId = "APKAEIBAERJR2EXAMPLE";
@@ -66,7 +66,7 @@ function epochTime(date: string): number {
   return new Date(date).getTime() / 1000;
 }
 
-describe("signUrl", () => {
+describe("getSignedUrl", () => {
   let tmpDir = "";
   let privateKeyPath = "";
   beforeAll(() => {
@@ -80,7 +80,7 @@ describe("signUrl", () => {
   it("should maintain query params after signing a URL", () => {
     const url = "https://example.com/private.jpeg?foo=bar";
     const result = parseUrl(
-      signUrl({
+      getSignedUrl({
         url,
         keyPairId,
         dateLessThan,
@@ -95,7 +95,7 @@ describe("signUrl", () => {
   it("should include url path in policy of signed URL", () => {
     const url = "https://example.com/private.jpeg?foo=bar";
     const result = parseUrl(
-      signUrl({
+      getSignedUrl({
         url,
         keyPairId,
         dateLessThan,
@@ -122,7 +122,7 @@ describe("signUrl", () => {
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a canned policy", () => {
-    const result = signUrl({
+    const result = getSignedUrl({
       url,
       keyPairId,
       dateLessThan,
@@ -150,7 +150,7 @@ describe("signUrl", () => {
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing a start date", () => {
-    const result = signUrl({
+    const result = getSignedUrl({
       url,
       keyPairId,
       dateLessThan,
@@ -182,7 +182,7 @@ describe("signUrl", () => {
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing an ip address", () => {
-    const result = signUrl({
+    const result = getSignedUrl({
       url,
       keyPairId,
       dateLessThan,
@@ -214,7 +214,7 @@ describe("signUrl", () => {
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
   it("should sign a URL with a custom policy containing a start date and ip address", () => {
-    const result = signUrl({
+    const result = getSignedUrl({
       url,
       keyPairId,
       dateLessThan,
@@ -257,13 +257,13 @@ describe("signUrl", () => {
       privateKey: privateKeyPath,
     };
     expect(
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.0/32",
       })
     ).toBeTruthy();
     expect(
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.0",
       })
@@ -277,37 +277,37 @@ describe("signUrl", () => {
       privateKey: privateKeyPath,
     };
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.0/",
       })
     ).toThrow('IP address "10.0.0.0/" is invalid due to missing ip or mask part of CIDR.');
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "/32",
       })
     ).toThrow('IP address "/32" is invalid due to missing ip or mask part of CIDR.');
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.0/-1",
       })
     ).toThrow('IP address "10.0.0.0/-1" is invalid due to invalid mask.');
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.0/33",
       })
     ).toThrow('IP address "10.0.0.0/33" is invalid due to invalid mask.');
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.-1",
       })
     ).toThrow('IP address "10.0.0.-1" is invalid due to invalid IP octets.');
     expect(() =>
-      signUrl({
+      getSignedUrl({
         ...baseArgs,
         ipAddress: "10.0.0.256",
       })
