@@ -47,14 +47,14 @@ const signedUrl = getSignedUrl({
 JavaScript Example:
 
 ```javascript
-const { signCookies } = require("@aws-sdk/cloudfront-sign");
+const { getSignedCookies } = require("@aws-sdk/cloudfront-sign");
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
 const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
 const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
 const dateLessThan = "2022-01-01";
-const cookies = signCookies({
+const cookies = getSignedCookies({
   url,
   keyPairId,
   dateLessThan,
@@ -65,14 +65,14 @@ const cookies = signCookies({
 ES6 Example
 
 ```javascript
-import { signCookies } from "@aws-sdk/cloudfront-sign";
+import { getSignedCookies } from "@aws-sdk/cloudfront-sign";
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
 const privateKey = "PATH/TO/CLOUDFRONT/PRIVATE/KEY.PEM";
 const keyPairId = "PUBLIC-KEY-ID-OF-CLOUDFRONT-KEY-PAIR";
 const dateLessThan = "2022-01-01";
-const cookies = signCookies({
+const cookies = getSignedCookies({
   url,
   keyPairId,
   dateLessThan,

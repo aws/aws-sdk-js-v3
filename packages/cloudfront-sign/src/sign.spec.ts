@@ -4,7 +4,7 @@ import { mkdtempSync, rmdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { resolve } from "path";
 
-import { getSignedUrl, signCookies } from "./index";
+import { getSignedCookies, getSignedUrl } from "./index";
 
 const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
 const keyPairId = "APKAEIBAERJR2EXAMPLE";
@@ -315,7 +315,7 @@ describe("getSignedUrl", () => {
   });
 });
 
-describe("signCookies", () => {
+describe("getSignedCookies", () => {
   let tmpDir = "";
   let privateKeyPath = "";
   beforeAll(() => {
@@ -334,13 +334,13 @@ describe("signCookies", () => {
       privateKey: privateKeyPath,
     };
     expect(
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.0/32",
       })
     ).toBeTruthy();
     expect(
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.0",
       })
@@ -354,37 +354,37 @@ describe("signCookies", () => {
       privateKey: privateKeyPath,
     };
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.0/",
       })
     ).toThrow('IP address "10.0.0.0/" is invalid due to missing ip or mask part of CIDR.');
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "/32",
       })
     ).toThrow('IP address "/32" is invalid due to missing ip or mask part of CIDR.');
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.0/-1",
       })
     ).toThrow('IP address "10.0.0.0/-1" is invalid due to invalid mask.');
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.0/33",
       })
     ).toThrow('IP address "10.0.0.0/33" is invalid due to invalid mask.');
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.-1",
       })
     ).toThrow('IP address "10.0.0.-1" is invalid due to invalid IP octets.');
     expect(() =>
-      signCookies({
+      getSignedCookies({
         ...baseArgs,
         ipAddress: "10.0.0.256",
       })
@@ -392,7 +392,7 @@ describe("signCookies", () => {
   });
   it("should be able sign cookies that contain a URL with wildcards", () => {
     const url = "https://example.com/private-content/*";
-    const result = signCookies({
+    const result = getSignedCookies({
       url,
       keyPairId,
       dateLessThan,
@@ -413,7 +413,7 @@ describe("signCookies", () => {
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
   it("should sign cookies with a canned policy", () => {
-    const result = signCookies({
+    const result = getSignedCookies({
       url,
       keyPairId,
       dateLessThan,
@@ -443,7 +443,7 @@ describe("signCookies", () => {
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
   it("should sign cookies with a custom policy containing a start date", () => {
-    const result = signCookies({
+    const result = getSignedCookies({
       url,
       keyPairId,
       dateLessThan,
@@ -477,7 +477,7 @@ describe("signCookies", () => {
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
   it("should sign cookies with a custom policy containing an ip address", () => {
-    const result = signCookies({
+    const result = getSignedCookies({
       url,
       keyPairId,
       dateLessThan,
@@ -511,7 +511,7 @@ describe("signCookies", () => {
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
   });
   it("should sign cookies with a custom policy containing a start date and ip address", () => {
-    const result = signCookies({
+    const result = getSignedCookies({
       url,
       keyPairId,
       dateLessThan,

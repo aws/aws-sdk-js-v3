@@ -181,7 +181,7 @@ export function getSignedUrl(args: CloudfrontSignInput): string {
   return `${args.url.split("?")[0]}?${cloudfrontQueryParams.join("&")}`;
 }
 
-export function signCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
+export function getSignedCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
   const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
   const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
   const policy = JSON.stringify(
