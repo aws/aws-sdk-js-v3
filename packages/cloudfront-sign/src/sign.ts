@@ -153,51 +153,65 @@ function signPolicy(policy: string, privateKey: string): string {
   return normalizeBase64(signData(policy, privateKeyBuffer));
 }
 
-export function getSignedUrl(args: CloudfrontSignInput): string {
-  const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
-  const url = parseUrl(args.url);
+export function getSignedUrl({
+  dateLessThan,
+  dateGreaterThan,
+  url,
+  keyPairId,
+  privateKey,
+  ipAddress,
+}: CloudfrontSignInput): string {
+  const parsedDates = parseDateWindow(dateLessThan, dateGreaterThan);
+  const parsedUrl = parseUrl(url);
   const policy = JSON.stringify(
     buildPolicy({
-      dateLessThan,
-      dateGreaterThan,
-      ipAddress: args.ipAddress,
-      resource: args.url,
+      dateLessThan: parsedDates.dateLessThan,
+      dateGreaterThan: parsedDates.dateGreaterThan,
+      ipAddress,
+      resource: url,
     })
   );
-  const signature = signPolicy(policy, args.privateKey);
+  const signature = signPolicy(policy, privateKey);
   const cloudfrontQueryParams = [];
-  for (const key in url.query) {
-    cloudfrontQueryParams.push(`${key}=${url.query[key]}`);
+  for (const key in parsedUrl.query) {
+    cloudfrontQueryParams.push(`${key}=${parsedUrl.query[key]}`);
   }
-  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
+  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
   if (usingACustomPolicy) {
     const base64EncodedPolicy = encodeToBase64(policy);
     cloudfrontQueryParams.push(`Policy=${base64EncodedPolicy}`);
   } else {
     cloudfrontQueryParams.push(`Expires=${dateLessThan}`);
   }
-  cloudfrontQueryParams.push(`Key-Pair-Id=${args.keyPairId}`);
+  cloudfrontQueryParams.push(`Key-Pair-Id=${keyPairId}`);
   cloudfrontQueryParams.push(`Signature=${signature}`);
-  return `${args.url.split("?")[0]}?${cloudfrontQueryParams.join("&")}`;
+  return `${url.split("?")[0]}?${cloudfrontQueryParams.join("&")}`;
 }
 
-export function getSignedCookies(args: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
-  const { dateLessThan, dateGreaterThan } = parseDateWindow(args.dateLessThan, args.dateGreaterThan);
-  const usingACustomPolicy = Boolean(dateGreaterThan) || Boolean(args.ipAddress);
+export function getSignedCookies({
+  ipAddress,
+  url,
+  privateKey,
+  keyPairId,
+  dateLessThan,
+  dateGreaterThan,
+}: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
+  const parsedDates = parseDateWindow(dateLessThan, dateGreaterThan);
+  const usingACustomPolicy = Boolean(parsedDates.dateGreaterThan) || Boolean(ipAddress);
   const policy = JSON.stringify(
     buildPolicy({
-      dateLessThan,
-      dateGreaterThan,
-      ipAddress: args.ipAddress,
-      resource: args.url,
+      dateLessThan: parsedDates.dateLessThan,
+      dateGreaterThan: parsedDates.dateGreaterThan,
+      ipAddress,
+      resource: url,
     })
   );
-  const signature = signPolicy(policy, args.privateKey);
+  const signature = signPolicy(policy, privateKey);
   const base64EncodedPolicy = encodeToBase64(policy);
   return {
-    "CloudFront-Key-Pair-Id": args.keyPairId,
+    "CloudFront-Key-Pair-Id": keyPairId,
     "CloudFront-Signature": signature,
-    "CloudFront-Expires": !usingACustomPolicy ? dateLessThan : undefined,
+    "CloudFront-Expires": !usingACustomPolicy ? parsedDates.dateLessThan : undefined,
     "CloudFront-Policy": usingACustomPolicy ? base64EncodedPolicy : undefined,
   };
 }
