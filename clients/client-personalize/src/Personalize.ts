@@ -254,6 +254,16 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  StartRecommenderCommand,
+  StartRecommenderCommandInput,
+  StartRecommenderCommandOutput,
+} from "./commands/StartRecommenderCommand";
+import {
+  StopRecommenderCommand,
+  StopRecommenderCommandInput,
+  StopRecommenderCommandOutput,
+} from "./commands/StopRecommenderCommand";
+import {
   StopSolutionVersionCreationCommand,
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
@@ -2606,6 +2616,71 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
+   * <p>Starts a recommender that is INACTIVE. Starting a recommender does not
+   *       create any new models, but resumes billing and automatic retraining for the recommender.</p>
+   */
+  public startRecommender(
+    args: StartRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecommenderCommandOutput>;
+  public startRecommender(
+    args: StartRecommenderCommandInput,
+    cb: (err: any, data?: StartRecommenderCommandOutput) => void
+  ): void;
+  public startRecommender(
+    args: StartRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRecommenderCommandOutput) => void
+  ): void;
+  public startRecommender(
+    args: StartRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: StartRecommenderCommandOutput) => void
+  ): Promise<StartRecommenderCommandOutput> | void {
+    const command = new StartRecommenderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a recommender that is ACTIVE. Stopping a recommender halts billing and automatic retraining for the recommender.</p>
+   */
+  public stopRecommender(
+    args: StopRecommenderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRecommenderCommandOutput>;
+  public stopRecommender(
+    args: StopRecommenderCommandInput,
+    cb: (err: any, data?: StopRecommenderCommandOutput) => void
+  ): void;
+  public stopRecommender(
+    args: StopRecommenderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRecommenderCommandOutput) => void
+  ): void;
+  public stopRecommender(
+    args: StopRecommenderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopRecommenderCommandOutput) => void),
+    cb?: (err: any, data?: StopRecommenderCommandOutput) => void
+  ): Promise<StopRecommenderCommandOutput> | void {
+    const command = new StopRecommenderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
    *       </p>
    *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
@@ -2713,10 +2788,13 @@ export class Personalize extends PersonalizeClient {
    *       campaign's <code>minProvisionedTPS</code> parameter.</p>
    *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
    *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
+   *
    *          <note>
-   *             <p>You must wait until the <code>status</code> of the
-   *         updated campaign is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
+   *             <p>You can still get recommendations from a campaign while an update is in progress.
+   *       The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is <code>Active</code>.
+   *     </p>
    *          </note>
+   *
    *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
    */
   public updateCampaign(

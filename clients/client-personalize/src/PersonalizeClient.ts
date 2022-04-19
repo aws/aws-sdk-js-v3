@@ -164,6 +164,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
+import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
 import {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
@@ -228,6 +230,8 @@ export type ServiceInputTypes =
   | ListSolutionVersionsCommandInput
   | ListSolutionsCommandInput
   | ListTagsForResourceCommandInput
+  | StartRecommenderCommandInput
+  | StopRecommenderCommandInput
   | StopSolutionVersionCreationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -288,6 +292,8 @@ export type ServiceOutputTypes =
   | ListSolutionVersionsCommandOutput
   | ListSolutionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartRecommenderCommandOutput
+  | StopRecommenderCommandOutput
   | StopSolutionVersionCreationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

@@ -5188,6 +5188,70 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface StartRecommenderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender to start.</p>
+   */
+  recommenderArn: string | undefined;
+}
+
+export namespace StartRecommenderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRecommenderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartRecommenderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender you started.</p>
+   */
+  recommenderArn?: string;
+}
+
+export namespace StartRecommenderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRecommenderResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopRecommenderRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender to stop.</p>
+   */
+  recommenderArn: string | undefined;
+}
+
+export namespace StopRecommenderRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopRecommenderRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopRecommenderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>
+   */
+  recommenderArn?: string;
+}
+
+export namespace StopRecommenderResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopRecommenderResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StopSolutionVersionCreationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
