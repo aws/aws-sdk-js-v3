@@ -27,10 +27,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
  *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
  *       applicable), the key state, and the origin and expiration date (if any) of the key material.
- *       It includes fields, like <code>KeySpec</code>, that help you distinguish symmetric from
- *       asymmetric KMS keys. It also provides information that is particularly important to asymmetric
- *       keys, such as the key usage (encryption or signing) and the encryption algorithms or signing
- *       algorithms that the KMS key supports. For KMS keys in custom key stores, it includes
+ *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of KMS keys. It also displays the key usage (encryption, signing, or generating and verifying MACs) and the algorithms that the KMS key supports. For KMS keys in custom key stores, it includes
  *       information about the custom key store, such as the key store ID and the CloudHSM cluster ID. For
  *       multi-Region keys, it displays the primary key and all related replica keys. </p>
  *          <p>
@@ -52,10 +49,11 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *                <p>Key policies and grants on the KMS key. To get this information, use <a>GetKeyPolicy</a> and <a>ListGrants</a>.</p>
  *             </li>
  *          </ul>
- *          <p>If you call the <code>DescribeKey</code> operation on a <i>predefined Amazon Web Services
- *         alias</i>, that is, an Amazon Web Services alias with no key ID, KMS creates an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed
- *         key</a>. Then, it associates the alias with the new KMS key, and returns the
- *         <code>KeyId</code> and <code>Arn</code> of the new KMS key in the response.</p>
+ *          <p>In general, <code>DescribeKey</code> is a non-mutating operation. It returns data about
+ *       KMS keys, but doesn't change them. However, Amazon Web Services services use <code>DescribeKey</code> to
+ *       create <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services
+ *         managed keys</a> from a <i>predefined Amazon Web Services alias</i> with no key
+ *       ID.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>

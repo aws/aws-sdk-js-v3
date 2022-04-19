@@ -25,7 +25,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  * <p>Gets a list of all grants for the specified KMS key. </p>
  *          <p>You must specify the KMS key in all requests. You can filter the grant list by grant ID or
  *       grantee principal.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>. For examples of working with grants in several

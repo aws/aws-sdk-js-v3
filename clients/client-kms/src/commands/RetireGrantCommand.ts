@@ -28,11 +28,10 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *       returns both values.</p>
  *          <p>This operation can be called by the <i>retiring principal</i> for a grant,
  *       by the <i>grantee principal</i> if the grant allows the <code>RetireGrant</code>
- *       operation, and by the Amazon Web Services account (root user) in which the grant is created. It can also be
- *       called by principals to whom permission for retiring a grant is delegated. For details, see
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
- *         revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *       operation, and by the Amazon Web Services account in which the grant is created. It can also be called by
+ *       principals to whom permission for retiring a grant is delegated. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking
+ *         grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>. For examples of working with grants in several

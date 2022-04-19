@@ -22,13 +22,13 @@ export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest 
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
- * <p>Imports key material into an existing symmetric KMS KMS key that was created without key
- *       material. After you successfully import key material into a KMS key, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
- *         the same key material</a> into that KMS key, but you cannot import different key
- *       material. </p>
- *          <p>You cannot perform this operation on an asymmetric KMS key or on any KMS key in a different Amazon Web Services account. For more information about creating KMS keys with no key material
- *       and then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ * <p>Imports key material into an existing symmetric encryption KMS key that was created
+ *       without key material. After you successfully import key material into a KMS key, you can
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different
+ *       key material. </p>
+ *          <p>You cannot perform this operation on an asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon Web Services account. For more information about
+ *       creating KMS keys with no key material and then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
+ *       in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>Before using this operation, call <a>GetParametersForImport</a>. Its response
  *       includes a public key and an import token. Use the public key to encrypt the key material.
  *       Then, submit the import token from the same <code>GetParametersForImport</code>
@@ -65,7 +65,7 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *       and repeat the import procedure. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#importing-keys-overview">How To Import Key
  *         Material</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *

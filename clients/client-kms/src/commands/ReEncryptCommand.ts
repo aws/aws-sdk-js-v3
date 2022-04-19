@@ -24,8 +24,8 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *         rotate</a> a KMS key or change the KMS key that protects a ciphertext. You can also use
  *       it to reencrypt ciphertext under the same KMS key, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
  *         context</a> of a ciphertext.</p>
- *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using an
- *       KMS KMS key in an KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>. It can also decrypt ciphertext that was encrypted by using the
+ *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using a
+ *       KMS key in an KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>. It can also decrypt ciphertext that was encrypted by using the
  *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric KMS key</a>
  *       outside of KMS. However, it cannot decrypt ciphertext produced by other libraries, such as
  *       the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a> or
@@ -42,7 +42,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *           is required to decrypt the data.</p>
  *             </li>
  *             <li>
- *                <p>If your ciphertext was encrypted under a symmetric KMS key, the
+ *                <p>If your ciphertext was encrypted under a symmetric encryption KMS key, the
  *             <code>SourceKeyId</code> parameter is optional. KMS can get this information from
  *           metadata that it adds to the symmetric ciphertext blob. This feature adds durability to
  *           your implementation by ensuring that authorized users can decrypt ciphertext decades after
@@ -55,19 +55,18 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *             </li>
  *             <li>
  *                <p>To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter
- *           specify the KMS key that re-encrypts the data after it is decrypted. You can select a
- *           symmetric or asymmetric KMS key. If the destination KMS key is an asymmetric KMS key, you
- *           must also provide the encryption algorithm. The algorithm that you choose must be
- *           compatible with the KMS key.</p>
+ *           specify the KMS key that re-encrypts the data after it is decrypted. If the destination
+ *           KMS key is an asymmetric KMS key, you must also provide the encryption algorithm. The
+ *           algorithm that you choose must be compatible with the KMS key.</p>
  *
  *                <important>
  *                   <p>When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record the KMS key and encryption algorithm that you choose. You will be required to provide the same KMS key and encryption algorithm when you decrypt the data. If the KMS key and algorithm do not match the values used to encrypt the data, the decrypt operation fails.</p>
- *                   <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
+ *                   <p>You are not required to supply the key ID and encryption algorithm when you decrypt with symmetric encryption KMS keys because KMS stores this information in the ciphertext blob. KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard format for asymmetric key ciphertext does not include configurable fields.</p>
  *                </important>
  *             </li>
  *          </ul>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes.
  *       The source KMS key and destination KMS key can be in different Amazon Web Services accounts. Either or both

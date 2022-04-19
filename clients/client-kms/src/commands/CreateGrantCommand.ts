@@ -28,7 +28,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *       grants are considered along with key policies and IAM policies. Grants are often used for
  *       temporary permissions because you can create one, use its permissions, and delete it without
  *       changing your key policies or IAM policies. </p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>. For examples of working with grants in several
@@ -53,7 +53,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *             </li>
  *          </ul>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes.
  *       To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
