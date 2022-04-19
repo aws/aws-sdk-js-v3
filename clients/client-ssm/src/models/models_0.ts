@@ -155,6 +155,9 @@ export interface AddTagsToResourceRequest {
    *             <code>PatchBaseline</code>: <code>pb-012345abcde</code>
    *          </p>
    *          <p>
+   *             <code>Automation</code>: <code>example-c160-4567-8519-012345abcde</code>
+   *          </p>
+   *          <p>
    *             <code>OpsMetadata</code> object: <code>ResourceID</code> for tagging is created from the
    *    Amazon Resource Name (ARN) for the object. Specifically, <code>ResourceID</code> is created from
    *    the strings that come after the word <code>opsmetadata</code> in the ARN. For example, an
@@ -1228,6 +1231,17 @@ export interface CreateAssociationRequest {
    *    accounts.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association. For example, if you
+   *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
+   *    to run the association each Sunday after the second Thursday of the month. For more information about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   *          <note>
+   *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
+   *     option tells the system not to run an association immediately after you create it. </p>
+   *          </note>
+   */
+  ScheduleOffset?: number;
 }
 
 export namespace CreateAssociationRequest {
@@ -1468,6 +1482,11 @@ export interface AssociationDescription {
    *    association.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
 }
 
 export namespace AssociationDescription {
@@ -1772,6 +1791,11 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>Use this action to create an association in multiple Regions and multiple accounts.</p>
    */
   TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association.</p>
+   */
+  ScheduleOffset?: number;
 }
 
 export namespace CreateAssociationBatchRequestEntry {

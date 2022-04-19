@@ -11705,6 +11705,8 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
       input.Parameters !== null && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined &&
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.ScheduleOffset !== undefined &&
+      input.ScheduleOffset !== null && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
     ...(input.TargetLocations !== undefined &&
@@ -11750,6 +11752,8 @@ const serializeAws_json1_1CreateAssociationRequest = (
       input.Parameters !== null && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined &&
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.ScheduleOffset !== undefined &&
+      input.ScheduleOffset !== null && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
     ...(input.TargetLocations !== undefined &&
@@ -14861,6 +14865,8 @@ const serializeAws_json1_1UpdateAssociationRequest = (
       input.Parameters !== null && { Parameters: serializeAws_json1_1Parameters(input.Parameters, context) }),
     ...(input.ScheduleExpression !== undefined &&
       input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
+    ...(input.ScheduleOffset !== undefined &&
+      input.ScheduleOffset !== null && { ScheduleOffset: input.ScheduleOffset }),
     ...(input.SyncCompliance !== undefined &&
       input.SyncCompliance !== null && { SyncCompliance: input.SyncCompliance }),
     ...(input.TargetLocations !== undefined &&
@@ -15259,6 +15265,7 @@ const deserializeAws_json1_1Association = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1AssociationOverview(output.Overview, context)
         : undefined,
     ScheduleExpression: __expectString(output.ScheduleExpression),
+    ScheduleOffset: __expectInt32(output.ScheduleOffset),
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -15319,6 +15326,7 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
         ? deserializeAws_json1_1Parameters(output.Parameters, context)
         : undefined,
     ScheduleExpression: __expectString(output.ScheduleExpression),
+    ScheduleOffset: __expectInt32(output.ScheduleOffset),
     Status:
       output.Status !== undefined && output.Status !== null
         ? deserializeAws_json1_1AssociationStatus(output.Status, context)
@@ -15525,6 +15533,7 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
         ? deserializeAws_json1_1Parameters(output.Parameters, context)
         : undefined,
     ScheduleExpression: __expectString(output.ScheduleExpression),
+    ScheduleOffset: __expectInt32(output.ScheduleOffset),
     SyncCompliance: __expectString(output.SyncCompliance),
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
@@ -16173,6 +16182,7 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
         ? deserializeAws_json1_1Parameters(output.Parameters, context)
         : undefined,
     ScheduleExpression: __expectString(output.ScheduleExpression),
+    ScheduleOffset: __expectInt32(output.ScheduleOffset),
     SyncCompliance: __expectString(output.SyncCompliance),
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
