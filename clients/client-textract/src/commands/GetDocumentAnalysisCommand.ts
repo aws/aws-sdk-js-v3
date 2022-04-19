@@ -51,12 +51,15 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *             relationship with the value of the <code>StartDocumentAnalysis</code>
  *                   <code>FeatureTypes</code> input parameter). </p>
  *             </li>
+ *             <li>
+ *                <p>Queries. A QUERIES_RESULT Block object contains the answer to the query, the alias associated and an ID that
+ *             connect it to the query asked. This Block also contains a location and attached confidence score</p>
+ *             </li>
  *          </ul>
  *
  *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.
  *          A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,
  *          including the selection status.</p>
- *
  *
  *
  *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are

@@ -21,7 +21,8 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
 /**
  * <p>Analyzes identity documents for relevant information. This information is extracted
  *          and returned as <code>IdentityDocumentFields</code>, which records both the normalized
- *          field and value of the extracted text.</p>
+ *          field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code>
+ *       doesn't return any Geometry data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
 
 /**
  * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
- *          words that make up a line of text. The input document must be an image in JPEG or PNG
+ *          words that make up a line of text. The input document must be an image in JPEG, PNG, PDF, or TIFF
  *          format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p>
  *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
  *          is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is

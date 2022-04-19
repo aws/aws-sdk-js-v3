@@ -74,11 +74,16 @@ export class Textract extends TextractClient {
    *         All lines and words that are detected in the document are returned (including text that doesn't have a
    *                relationship with the value of <code>FeatureTypes</code>). </p>
    *             </li>
+   *             <li>
+   *                <p>Queries.A QUERIES_RESULT Block object contains the answer to the query, the alias associated and an ID that
+   *             connect it to the query asked. This Block also contains a location and attached confidence score.</p>
+   *             </li>
    *          </ul>
    *
    *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.
    *          A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,
    *          including the selection status.</p>
+   *
    *          <p>You can choose which type of analysis to perform by specifying the <code>FeatureTypes</code> list.
    *       </p>
    *          <p>The output is returned in a list of <code>Block</code> objects.</p>
@@ -165,7 +170,8 @@ export class Textract extends TextractClient {
   /**
    * <p>Analyzes identity documents for relevant information. This information is extracted
    *          and returned as <code>IdentityDocumentFields</code>, which records both the normalized
-   *          field and value of the extracted text.</p>
+   *          field and value of the extracted text.Unlike other Amazon Textract operations, <code>AnalyzeID</code>
+   *       doesn't return any Geometry data.</p>
    */
   public analyzeID(args: AnalyzeIDCommandInput, options?: __HttpHandlerOptions): Promise<AnalyzeIDCommandOutput>;
   public analyzeID(args: AnalyzeIDCommandInput, cb: (err: any, data?: AnalyzeIDCommandOutput) => void): void;
@@ -192,7 +198,7 @@ export class Textract extends TextractClient {
 
   /**
    * <p>Detects text in the input document. Amazon Textract can detect lines of text and the
-   *          words that make up a line of text. The input document must be an image in JPEG or PNG
+   *          words that make up a line of text. The input document must be an image in JPEG, PNG, PDF, or TIFF
    *          format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p>
    *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
    *          is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
@@ -262,12 +268,15 @@ export class Textract extends TextractClient {
    *             relationship with the value of the <code>StartDocumentAnalysis</code>
    *                   <code>FeatureTypes</code> input parameter). </p>
    *             </li>
+   *             <li>
+   *                <p>Queries. A QUERIES_RESULT Block object contains the answer to the query, the alias associated and an ID that
+   *             connect it to the query asked. This Block also contains a location and attached confidence score</p>
+   *             </li>
    *          </ul>
    *
    *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables.
    *          A SELECTION_ELEMENT <code>Block</code> object contains information about a selection element,
    *          including the selection status.</p>
-   *
    *
    *
    *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are
