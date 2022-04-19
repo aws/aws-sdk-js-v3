@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
+
+
+### Features
+
+* **client-auto-scaling:** EC2 Auto Scaling now adds default instance warm-up times for all scaling activities, health check replacements, and other replacement events in the Auto Scaling instance lifecycle. ([b97e526](https://github.com/aws/aws-sdk-js-v3/commit/b97e526b4aef8e65f99f031497efefd9e071f88b))
+* **client-kendra:** Amazon Kendra now provides a data source connector for Quip. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-quip.html ([d1aebb8](https://github.com/aws/aws-sdk-js-v3/commit/d1aebb88223102ec2ce417cc44cb3c5d571cc6ae))
+* **client-kms:** Adds support for KMS keys and APIs that generate and verify HMAC codes ([90a9a16](https://github.com/aws/aws-sdk-js-v3/commit/90a9a16314deb5df692167e002fcdbb3f60025c2))
+* **client-personalize:** Adding StartRecommender and StopRecommender APIs for Personalize. ([67d79bf](https://github.com/aws/aws-sdk-js-v3/commit/67d79bf3c08a969e4768ee1c879188905a722699))
+* **client-polly:** Amazon Polly adds new Austrian German voice - Hannah. Hannah is available as Neural voice only. ([ae5a8f2](https://github.com/aws/aws-sdk-js-v3/commit/ae5a8f26e819935b07a9149b90ca59c91ac5c2c4))
+* **client-redshift:** Introduces new fields for LogDestinationType and LogExports on EnableLogging requests and Enable/Disable/DescribeLogging responses. Customers can now select CloudWatch Logs as a destination for their Audit Logs. ([a39c581](https://github.com/aws/aws-sdk-js-v3/commit/a39c5810839ff12e228c33fcca897386d6b7bf8b))
+* **client-ssm:** Added offset support for specifying the number of days to wait after the date and time specified by a CRON expression when creating SSM association. ([e8b6d98](https://github.com/aws/aws-sdk-js-v3/commit/e8b6d9840c9163373a387547d9fcd45164d136fd))
+* **client-textract:** This release adds support for specifying and extracting information from documents using the Queries feature within Analyze Document API ([584f346](https://github.com/aws/aws-sdk-js-v3/commit/584f3463663dcdec6122e0c2128a4e9d7d866f46))
+* **client-worklink:** Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK. ([047ace0](https://github.com/aws/aws-sdk-js-v3/commit/047ace0ac8213c8756db3f7a7aabdf07cc25768e))
+* **clients:** update client endpoints as of 2022-04-19 ([eb1fa11](https://github.com/aws/aws-sdk-js-v3/commit/eb1fa113162a80784805fe976339af9575b50263))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 

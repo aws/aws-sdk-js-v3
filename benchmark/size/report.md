@@ -4,7 +4,7 @@
 |@aws-sdk/client-app-mesh|3.67.0|1.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-application-insights|3.67.0|770.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-athena|3.67.0|966.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-auto-scaling|3.67.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-auto-scaling|3.72.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cloudformation|3.67.0|2.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cloudhsm-v2|3.67.0|517.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cloudwatch|3.71.0|1.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -24,7 +24,7 @@
 |@aws-sdk/client-glue|3.71.0|4.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-iam|3.67.0|3.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-kinesis|3.67.0|940.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-kms|3.67.0|1.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-kms|3.72.0|1.7 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-lambda|3.67.0|2.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-opsworks|3.67.0|1.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-pinpoint|3.67.0|3.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -32,7 +32,7 @@
 |@aws-sdk/client-s3|3.67.0|3.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-ses|3.67.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-sns|3.67.0|1.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-ssm|3.67.0|4.3 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-ssm|3.72.0|4.3 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-sts|3.67.0|499.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-xray|3.67.0|915 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-provider-cognito-identity|3.67.0|120.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -48,7 +48,7 @@
 |@aws-sdk/lib-dynamodb|3.67.0|160.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/lib-storage|3.67.0|70.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/node-http-handler|3.55.0|107.6 KB|N/A|N/A|N/A|
-|@aws-sdk/polly-request-presigner|3.67.0|40.3 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/polly-request-presigner|3.72.0|40.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/s3-presigned-post|3.67.0|42.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/s3-request-presigner|3.67.0|83.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/signature-v4|3.56.0|180.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|

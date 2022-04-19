@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
+
+
+### Features
+
+* **client-kendra:** Amazon Kendra now provides a data source connector for Quip. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-quip.html ([d1aebb8](https://github.com/aws/aws-sdk-js-v3/commit/d1aebb88223102ec2ce417cc44cb3c5d571cc6ae))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-04-19 ([eb1fa11](https://github.com/aws/aws-sdk-js-v3/commit/eb1fa113162a80784805fe976339af9575b50263))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-qldb

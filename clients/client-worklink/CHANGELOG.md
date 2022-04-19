@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
+
+
+### Features
+
+* **client-worklink:** Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK. ([047ace0](https://github.com/aws/aws-sdk-js-v3/commit/047ace0ac8213c8756db3f7a7aabdf07cc25768e))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-worklink

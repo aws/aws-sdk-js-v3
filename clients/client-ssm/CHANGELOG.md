@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
+
+
+### Features
+
+* **client-ssm:** Added offset support for specifying the number of days to wait after the date and time specified by a CRON expression when creating SSM association. ([e8b6d98](https://github.com/aws/aws-sdk-js-v3/commit/e8b6d9840c9163373a387547d9fcd45164d136fd))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm
