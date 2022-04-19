@@ -22,6 +22,8 @@ export interface SignOutUserCommandInput extends SignOutUserRequest {}
 export interface SignOutUserCommandOutput extends SignOutUserResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
  *             valid credentials.</p>
  * @example

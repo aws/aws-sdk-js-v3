@@ -22,6 +22,8 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of domains associated to a specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

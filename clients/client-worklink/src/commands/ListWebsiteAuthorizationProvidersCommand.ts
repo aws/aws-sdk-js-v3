@@ -27,6 +27,8 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

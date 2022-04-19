@@ -22,6 +22,8 @@ export interface UpdateFleetMetadataCommandInput extends UpdateFleetMetadataRequ
 export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Updates fleet metadata, such as DisplayName.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

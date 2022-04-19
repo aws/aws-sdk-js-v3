@@ -22,6 +22,8 @@ export interface RevokeDomainAccessCommandInput extends RevokeDomainAccessReques
 export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

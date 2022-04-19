@@ -27,6 +27,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>
  * @example

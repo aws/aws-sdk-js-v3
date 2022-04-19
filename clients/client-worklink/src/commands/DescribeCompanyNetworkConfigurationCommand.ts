@@ -27,6 +27,8 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes the networking configuration to access the internal websites associated with
  *             the specified fleet.</p>
  * @example

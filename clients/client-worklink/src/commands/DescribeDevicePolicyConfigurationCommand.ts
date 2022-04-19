@@ -27,6 +27,8 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes the device policy configuration for the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

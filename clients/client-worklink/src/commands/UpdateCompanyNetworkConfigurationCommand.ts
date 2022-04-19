@@ -27,6 +27,8 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Updates the company network configuration for the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

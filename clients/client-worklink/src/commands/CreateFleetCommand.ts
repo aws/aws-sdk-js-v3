@@ -22,6 +22,8 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
  *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
  * @example

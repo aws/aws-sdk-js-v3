@@ -22,6 +22,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of tags for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

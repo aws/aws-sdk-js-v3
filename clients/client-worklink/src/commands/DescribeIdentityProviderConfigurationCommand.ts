@@ -28,6 +28,8 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes the identity provider configuration of the specified fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

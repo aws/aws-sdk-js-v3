@@ -22,6 +22,8 @@ export interface UpdateDomainMetadataCommandInput extends UpdateDomainMetadataRe
 export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Updates domain metadata, such as DisplayName.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

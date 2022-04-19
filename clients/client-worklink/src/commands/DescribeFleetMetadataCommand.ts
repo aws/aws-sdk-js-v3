@@ -22,6 +22,8 @@ export interface DescribeFleetMetadataCommandInput extends DescribeFleetMetadata
 export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadataResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>
  * @example

@@ -24,6 +24,8 @@ export interface UpdateAuditStreamConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Updates the audit stream configuration for the fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

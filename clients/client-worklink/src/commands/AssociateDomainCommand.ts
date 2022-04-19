@@ -22,6 +22,8 @@ export interface AssociateDomainCommandInput extends AssociateDomainRequest {}
 export interface AssociateDomainCommandOutput extends AssociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

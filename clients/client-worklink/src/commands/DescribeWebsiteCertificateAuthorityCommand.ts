@@ -27,6 +27,8 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Provides information about the certificate authority.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
