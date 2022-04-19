@@ -12229,6 +12229,16 @@ const serializeAws_queryEnableLoggingMessage = (input: EnableLoggingMessage, con
   if (input.S3KeyPrefix !== undefined && input.S3KeyPrefix !== null) {
     entries["S3KeyPrefix"] = input.S3KeyPrefix;
   }
+  if (input.LogDestinationType !== undefined && input.LogDestinationType !== null) {
+    entries["LogDestinationType"] = input.LogDestinationType;
+  }
+  if (input.LogExports !== undefined && input.LogExports !== null) {
+    const memberEntries = serializeAws_queryLogTypeList(input.LogExports, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LogExports.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -12346,6 +12356,19 @@ const serializeAws_queryIamRoleArnList = (input: string[], context: __SerdeConte
       continue;
     }
     entries[`IamRoleArn.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryLogTypeList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -16974,6 +16997,8 @@ const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext)
     LastSuccessfulDeliveryTime: undefined,
     LastFailureTime: undefined,
     LastFailureMessage: undefined,
+    LogDestinationType: undefined,
+    LogExports: undefined,
   };
   if (output["LoggingEnabled"] !== undefined) {
     contents.LoggingEnabled = __parseBoolean(output["LoggingEnabled"]);
@@ -16993,7 +17018,30 @@ const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext)
   if (output["LastFailureMessage"] !== undefined) {
     contents.LastFailureMessage = __expectString(output["LastFailureMessage"]);
   }
+  if (output["LogDestinationType"] !== undefined) {
+    contents.LogDestinationType = __expectString(output["LogDestinationType"]);
+  }
+  if (output.LogExports === "") {
+    contents.LogExports = [];
+  }
+  if (output["LogExports"] !== undefined && output["LogExports"]["member"] !== undefined) {
+    contents.LogExports = deserializeAws_queryLogTypeList(
+      __getArrayIfSingleItem(output["LogExports"]["member"]),
+      context
+    );
+  }
   return contents;
+};
+
+const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_queryMaintenanceTrack = (output: any, context: __SerdeContext): MaintenanceTrack => {
