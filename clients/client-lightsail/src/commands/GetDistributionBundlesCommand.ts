@@ -25,7 +25,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  * <p>Returns the bundles that can be applied to your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
- *       your dsitribution.</p>
+ *       your distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

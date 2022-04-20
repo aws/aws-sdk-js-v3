@@ -22,21 +22,21 @@ export interface GetParametersForImportCommandInput extends GetParametersForImpo
 export interface GetParametersForImportCommandOutput extends GetParametersForImportResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the items you need to import key material into a symmetric, customer managed KMS
- *       key. For more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a>
- *       in the <i>Key Management Service Developer Guide</i>.</p>
+ * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
+ *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation returns a public key and an import token. Use the public key to encrypt the
  *       symmetric key material. Store the import token to send with a subsequent <a>ImportKeyMaterial</a> request.</p>
- *          <p>You must specify the key ID of the symmetric KMS key into which you will import key
- *       material. This KMS key's <code>Origin</code> must be <code>EXTERNAL</code>. You must also
+ *          <p>You must specify the key ID of the symmetric encryption KMS key into which you will import
+ *       key material. This KMS key's <code>Origin</code> must be <code>EXTERNAL</code>. You must also
  *       specify the wrapping algorithm and type of wrapping key (public key) that you will use to
- *       encrypt the key material. You cannot perform this operation on an asymmetric KMS key or on any KMS key in a different Amazon Web Services account.</p>
+ *       encrypt the key material. You cannot perform this operation on an asymmetric KMS key, an HMAC KMS key, or on any KMS key in a different Amazon Web Services account.</p>
  *          <p>To import key material, you must use the public key and import token from the same
  *       response. These items are valid for 24 hours. The expiration date and time appear in the
  *         <code>GetParametersForImport</code> response. You cannot use an expired token in an <a>ImportKeyMaterial</a> request. If your key and token expire, send another
  *         <code>GetParametersForImport</code> request.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *

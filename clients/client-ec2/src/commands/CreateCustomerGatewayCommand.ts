@@ -29,35 +29,14 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *             interface. The IP address must be static and can be behind a device performing network
  *             address translation (NAT).</p>
  *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
- *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your
- *             network. If you don't have an ASN already, you can use a private ASN (in the 64512 -
- *             65534 range).</p>
- *         <note>
- *             <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with
- *                 the exception of the following:</p>
- *             <ul>
- *                <li>
- *                     <p>7224 - reserved in the <code>us-east-1</code> Region</p>
- *                 </li>
- *                <li>
- *                     <p>9059 - reserved in the <code>eu-west-1</code> Region</p>
- *                 </li>
- *                <li>
- *                     <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>
- *                 </li>
- *                <li>
- *                     <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>
- *                 </li>
- *             </ul>
- *         </note>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
- *                 User Guide</i>.</p>
- *         <important>
- *             <p>To create more than one customer gateway with the same VPN type, IP address, and
- *                 BGP ASN, specify a unique device name for each customer gateway. Identical requests
- *                 return information about the existing customer gateway and do not create new
- *                 customer gateways.</p>
- *         </important>
+ *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
+ *             If you don't have an ASN already, you can use a private ASN. For more information, see
+ *             <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway
+ *                 options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+ *         <p>To create more than one customer gateway with the same VPN type, IP address, and
+ *             BGP ASN, specify a unique device name for each customer gateway. An identical request
+ *             returns information about the existing customer gateway; it doesn't create a new customer
+ *             gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

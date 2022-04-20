@@ -22,6 +22,8 @@ export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Provides information about the domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

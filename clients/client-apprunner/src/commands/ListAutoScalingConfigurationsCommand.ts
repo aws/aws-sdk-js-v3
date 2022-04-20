@@ -24,8 +24,11 @@ export interface ListAutoScalingConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a list of App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific configuration name or
- *       the revisions for all configurations in your account. You can optionally query only the latest revision of each requested name.</p>
+ * <p>Returns a list of active App Runner automatic scaling configurations in your Amazon Web Services account. You can query the revisions for a specific
+ *       configuration name or the revisions for all active configurations in your account. You can optionally query only the latest revision of each requested
+ *       name.</p>
+ *          <p>To retrieve a full description of a particular configuration revision, call  and provide one of
+ *       the ARNs returned by <code>ListAutoScalingConfigurations</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

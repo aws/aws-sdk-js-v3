@@ -24,6 +24,8 @@ export interface DescribeAuditStreamConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes the configuration for delivering audit streams to the customer account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

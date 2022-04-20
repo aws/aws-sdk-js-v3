@@ -22,6 +22,8 @@ export interface DisassociateDomainCommandInput extends DisassociateDomainReques
 export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

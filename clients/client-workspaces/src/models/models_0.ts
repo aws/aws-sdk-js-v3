@@ -347,6 +347,8 @@ export namespace AuthorizeIpRulesResult {
 export enum Compute {
   GRAPHICS = "GRAPHICS",
   GRAPHICSPRO = "GRAPHICSPRO",
+  GRAPHICSPRO_G4DN = "GRAPHICSPRO_G4DN",
+  GRAPHICS_G4DN = "GRAPHICS_G4DN",
   PERFORMANCE = "PERFORMANCE",
   POWER = "POWER",
   POWERPRO = "POWERPRO",
@@ -3503,6 +3505,7 @@ export namespace ImportClientBrandingResult {
 export enum WorkspaceImageIngestionProcess {
   BYOL_GRAPHICS = "BYOL_GRAPHICS",
   BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
+  BYOL_GRAPHICS_G4DN = "BYOL_GRAPHICS_G4DN",
   BYOL_REGULAR = "BYOL_REGULAR",
   BYOL_REGULAR_WSP = "BYOL_REGULAR_WSP",
 }
@@ -3515,12 +3518,17 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
-   *          Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP,
-   *          specify a value that does not end in <code>_WSP</code>. </p>
-   *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-   *             <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the
-   *          protocol.</p>
+   *          you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming Protocol
+   *          (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use PCoIP, specify a value
+   *          that does not end in <code>_WSP</code>. </p>
+   *
+   *          <p>For non-GPU-enabled images (bundles other than Graphics.g4dn, GraphicsPro.g4dn, Graphics,
+   *          or GraphicsPro), specify <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending
+   *          on the protocol.</p>
+   *          <note>
+   *             <p>Use <code>BYOL_GRAPHICS_G4DN</code> ingestion for both Graphics.g4dn and
+   *             GraphicsPro.g4dn.</p>
+   *          </note>
    */
   IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
 
@@ -3544,7 +3552,15 @@ export interface ImportWorkspaceImageRequest {
    *          BYOL images. For more information about subscribing to Office for BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html"> Bring
    *             Your Own Windows Desktop Licenses</a>.</p>
    *          <note>
-   *             <p>Although this parameter is an array, only one item is allowed at this time.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Although this parameter is an array, only one item is allowed at this time</p>
+   *                </li>
+   *                <li>
+   *                   <p>Microsoft Office 2016 application subscription through AWS is currently not supported
+   *                   for Graphics.g4dn Bring Your Own License (BYOL) images</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   Applications?: (Application | string)[];

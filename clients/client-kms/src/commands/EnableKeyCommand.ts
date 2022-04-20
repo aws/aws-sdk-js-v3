@@ -22,7 +22,7 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  * <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
  *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account
  *       use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>

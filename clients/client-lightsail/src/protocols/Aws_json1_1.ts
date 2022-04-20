@@ -403,6 +403,7 @@ import {
   AccessKey,
   AccessKeyLastUsed,
   AccessRules,
+  AccountLevelBpaSync,
   AccountSetupInProgressException,
   AddOn,
   AddOnRequest,
@@ -641,7 +642,6 @@ import {
   InstanceEntry,
   InstanceHardware,
   InstancePlatform,
-  InstancePortInfo,
   InstanceSnapshotInfo,
   InvalidInputException,
   KeyPair,
@@ -649,7 +649,6 @@ import {
   MetricDatapoint,
   MetricStatistic,
   MonitoredResourceInfo,
-  MonthlyTransfer,
   NotFoundException,
   Operation,
   OperationFailureException,
@@ -735,6 +734,7 @@ import {
   InstanceAccessDetails,
   InstanceHealthSummary,
   InstanceNetworking,
+  InstancePortInfo,
   InstancePortState,
   InstanceSnapshot,
   InstanceState,
@@ -748,6 +748,7 @@ import {
   LoadBalancerTlsCertificateRenewalSummary,
   LoadBalancerTlsCertificateSummary,
   LogEvent,
+  MonthlyTransfer,
   OpenInstancePublicPortsRequest,
   OpenInstancePublicPortsResult,
   PasswordData,
@@ -14255,6 +14256,18 @@ const deserializeAws_json1_1AccessRules = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_json1_1AccountLevelBpaSync = (output: any, context: __SerdeContext): AccountLevelBpaSync => {
+  return {
+    bpaImpactsLightsail: __expectBoolean(output.bpaImpactsLightsail),
+    lastSyncedAt:
+      output.lastSyncedAt !== undefined && output.lastSyncedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastSyncedAt)))
+        : undefined,
+    message: __expectString(output.message),
+    status: __expectString(output.status),
+  } as any;
+};
+
 const deserializeAws_json1_1AccountSetupInProgressException = (
   output: any,
   context: __SerdeContext
@@ -16219,6 +16232,10 @@ const deserializeAws_json1_1GetBucketMetricDataResult = (
 
 const deserializeAws_json1_1GetBucketsResult = (output: any, context: __SerdeContext): GetBucketsResult => {
   return {
+    accountLevelBpaSync:
+      output.accountLevelBpaSync !== undefined && output.accountLevelBpaSync !== null
+        ? deserializeAws_json1_1AccountLevelBpaSync(output.accountLevelBpaSync, context)
+        : undefined,
     buckets:
       output.buckets !== undefined && output.buckets !== null
         ? deserializeAws_json1_1BucketList(output.buckets, context)

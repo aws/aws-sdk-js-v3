@@ -22,7 +22,8 @@ export interface UpdateNamedQueryCommandInput extends UpdateNamedQueryInput {}
 export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be updated.</p>
+ * <p>Updates a <a>NamedQuery</a> object. The database or workgroup cannot be
+ *             updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

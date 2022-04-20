@@ -25,6 +25,13 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
  *       file system no longer exists and you can't access any contents of the deleted file
  *       system.</p>
+ *          <p>You need to manually delete mount targets attached to a file system before you can delete
+ *     an EFS file system. This step is performed for you when you use the Amazon Web Services console
+ *     to delete a file system.</p>
+ *          <note>
+ *             <p>You cannot delete a file system that is part of an EFS Replication configuration.
+ *       You need to delete the replication configuration first.</p>
+ *          </note>
  *          <p> You can't delete a file system that is in use. That is, if the file system has
  *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
  *

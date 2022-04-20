@@ -24,8 +24,7 @@ export interface AcceptVpcEndpointConnectionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
- *             service.</p>
+ * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

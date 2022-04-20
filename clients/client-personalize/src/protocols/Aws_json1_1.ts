@@ -130,6 +130,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "../commands/StartRecommenderCommand";
+import { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "../commands/StopRecommenderCommand";
 import {
   StopSolutionVersionCreationCommandInput,
   StopSolutionVersionCreationCommandOutput,
@@ -301,6 +303,10 @@ import {
   SolutionSummary,
   SolutionVersion,
   SolutionVersionSummary,
+  StartRecommenderRequest,
+  StartRecommenderResponse,
+  StopRecommenderRequest,
+  StopRecommenderResponse,
   StopSolutionVersionCreationRequest,
   Tag,
   TagResourceRequest,
@@ -1003,6 +1009,32 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartRecommenderCommand = async (
+  input: StartRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.StartRecommender",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartRecommenderRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopRecommenderCommand = async (
+  input: StopRecommenderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.StopRecommender",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopRecommenderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3644,6 +3676,104 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1StartRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartRecommenderResponse(data, context);
+  const response: StartRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1StopRecommenderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopRecommenderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StopRecommenderResponse(data, context);
+  const response: StopRecommenderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopRecommenderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopRecommenderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1StopSolutionVersionCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4848,6 +4978,20 @@ const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __Se
       input.optimizationObjective !== null && {
         optimizationObjective: serializeAws_json1_1OptimizationObjective(input.optimizationObjective, context),
       }),
+  };
+};
+
+const serializeAws_json1_1StartRecommenderRequest = (input: StartRecommenderRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.recommenderArn !== undefined &&
+      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
+  };
+};
+
+const serializeAws_json1_1StopRecommenderRequest = (input: StopRecommenderRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.recommenderArn !== undefined &&
+      input.recommenderArn !== null && { recommenderArn: input.recommenderArn }),
   };
 };
 
@@ -6777,6 +6921,24 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
         : undefined,
     solutionVersionArn: __expectString(output.solutionVersionArn),
     status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_json1_1StartRecommenderResponse = (
+  output: any,
+  context: __SerdeContext
+): StartRecommenderResponse => {
+  return {
+    recommenderArn: __expectString(output.recommenderArn),
+  } as any;
+};
+
+const deserializeAws_json1_1StopRecommenderResponse = (
+  output: any,
+  context: __SerdeContext
+): StopRecommenderResponse => {
+  return {
+    recommenderArn: __expectString(output.recommenderArn),
   } as any;
 };
 

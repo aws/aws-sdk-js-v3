@@ -51,6 +51,8 @@ export * from "./ListSchemasCommand";
 export * from "./ListSolutionVersionsCommand";
 export * from "./ListSolutionsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./StartRecommenderCommand";
+export * from "./StopRecommenderCommand";
 export * from "./StopSolutionVersionCreationCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

@@ -150,6 +150,8 @@ import { WorkLinkClient } from "./WorkLinkClient";
  */
 export class WorkLink extends WorkLinkClient {
   /**
+   * @deprecated
+   *
    * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
    */
   public associateDomain(
@@ -182,6 +184,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
    */
   public associateWebsiteAuthorizationProvider(
@@ -216,6 +220,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
    *             certificates used by associated websites within the company network.</p>
    */
@@ -249,6 +255,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
    *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
    */
@@ -276,6 +284,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
    */
   public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
@@ -302,6 +312,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes the configuration for delivering audit streams to the customer account.</p>
    */
   public describeAuditStreamConfiguration(
@@ -334,6 +346,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes the networking configuration to access the internal websites associated with
    *             the specified fleet.</p>
    */
@@ -367,6 +381,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Provides information about a user's device.</p>
    */
   public describeDevice(
@@ -399,6 +415,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes the device policy configuration for the specified fleet.</p>
    */
   public describeDevicePolicyConfiguration(
@@ -431,6 +449,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Provides information about the domain.</p>
    */
   public describeDomain(
@@ -463,6 +483,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Provides basic information for the specified fleet, excluding identity provider,
    *             networking, and device configuration details.</p>
    */
@@ -496,6 +518,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes the identity provider configuration of the specified fleet.</p>
    */
   public describeIdentityProviderConfiguration(
@@ -530,6 +554,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Provides information about the certificate authority.</p>
    */
   public describeWebsiteCertificateAuthority(
@@ -562,6 +588,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
    */
   public disassociateDomain(
@@ -594,6 +622,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Disassociates a website authorization provider from a specified fleet. After the
    *             disassociation, users can't load any associated websites that require this authorization
    *             provider.</p>
@@ -630,6 +660,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Removes a certificate authority (CA).</p>
    */
   public disassociateWebsiteCertificateAuthority(
@@ -664,6 +696,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of devices registered with the specified fleet.</p>
    */
   public listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
@@ -690,6 +724,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of domains associated to a specified fleet.</p>
    */
   public listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
@@ -716,6 +752,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of fleets for the current account and Region.</p>
    */
   public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
@@ -742,6 +780,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of tags for the specified resource.</p>
    */
   public listTagsForResource(
@@ -774,6 +814,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
    */
   public listWebsiteAuthorizationProviders(
@@ -806,6 +848,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Retrieves a list of certificate authorities added for the current account and
    *             Region.</p>
    */
@@ -839,6 +883,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
    */
   public restoreDomainAccess(
@@ -871,6 +917,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
    */
   public revokeDomainAccess(
@@ -903,6 +951,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Signs the user out from all of their devices. The user can sign in again if they have
    *             valid credentials.</p>
    */
@@ -930,6 +980,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Adds or overwrites one or more tags for the specified resource, such as a fleet. Each tag consists of a key and an optional value. If a resource already has a tag with the same key, this operation updates its value.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -956,6 +1008,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Removes one or more tags from the specified resource.</p>
    */
   public untagResource(
@@ -988,6 +1042,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates the audit stream configuration for the fleet.</p>
    */
   public updateAuditStreamConfiguration(
@@ -1020,6 +1076,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates the company network configuration for the fleet.</p>
    */
   public updateCompanyNetworkConfiguration(
@@ -1052,6 +1110,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates the device policy configuration for the fleet.</p>
    */
   public updateDevicePolicyConfiguration(
@@ -1084,6 +1144,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates domain metadata, such as DisplayName.</p>
    */
   public updateDomainMetadata(
@@ -1116,6 +1178,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates fleet metadata, such as DisplayName.</p>
    */
   public updateFleetMetadata(
@@ -1148,6 +1212,8 @@ export class WorkLink extends WorkLinkClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Updates the identity provider configuration for the fleet.</p>
    */
   public updateIdentityProviderConfiguration(

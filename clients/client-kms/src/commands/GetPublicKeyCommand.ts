@@ -26,7 +26,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       KMS key, which never leaves KMS unencrypted, callers with <code>kms:GetPublicKey</code>
  *       permission can download the public key of an asymmetric KMS key. You can share the public key
  *       to allow others to encrypt messages and verify signatures outside of KMS.
- *       For information about symmetric and asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>You do not need to download the public key. Instead, you can use the public key within
  *       KMS by calling the <a>Encrypt</a>, <a>ReEncrypt</a>, or <a>Verify</a> operations with the identifier of an asymmetric KMS key. When you use the
  *       public key within KMS, you benefit from the authentication, authorization, and logging that
@@ -58,7 +58,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       can also avoid errors, such as using the wrong signing algorithm in a verification
  *       operation.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>:
  *       Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify

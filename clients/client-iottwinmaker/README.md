@@ -7,11 +7,6 @@
 
 AWS SDK for JavaScript IoTTwinMaker Client for Node.js, Browser and React Native.
 
-<important>
-<p>
-TwinMaker is in public preview and is subject to change.
-</p>
-</important>
 <p>IoT TwinMaker is a service that enables you to build operational digital twins of
 physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
 cameras, and enterprise applications so you can create data visualizations to monitor your

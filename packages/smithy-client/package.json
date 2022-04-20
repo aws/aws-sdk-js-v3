@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/smithy-client",
-  "version": "3.55.0",
+  "version": "3.72.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^10.0.0",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.7.0",
     "rimraf": "3.0.2",

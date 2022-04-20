@@ -21,12 +21,16 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
 /**
  * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
  *      	that is either running or stopped.</p>
- *          <important>
- *             <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on
- *          the instance is stopped and in a consistent state during the creation process. If you're confident that your
- *          instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b>
- *          parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p>
- *          </important>
+ * 	        <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+ * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
+ * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
+ * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
+ * 					rebooting the instance.</p>
+ *    	     <important>
+ * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+ * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
+ * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
+ * 				     </important>
  *
  *
  *

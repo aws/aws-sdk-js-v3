@@ -2714,8 +2714,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
-   *             service.</p>
+   * <p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>
    */
   public acceptVpcEndpointConnections(
     args: AcceptVpcEndpointConnectionsCommandInput,
@@ -4538,35 +4537,14 @@ export class EC2 extends EC2Client {
    *             interface. The IP address must be static and can be behind a device performing network
    *             address translation (NAT).</p>
    *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
-   *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your
-   *             network. If you don't have an ASN already, you can use a private ASN (in the 64512 -
-   *             65534 range).</p>
-   *         <note>
-   *             <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with
-   *                 the exception of the following:</p>
-   *             <ul>
-   *                <li>
-   *                     <p>7224 - reserved in the <code>us-east-1</code> Region</p>
-   *                 </li>
-   *                <li>
-   *                     <p>9059 - reserved in the <code>eu-west-1</code> Region</p>
-   *                 </li>
-   *                <li>
-   *                     <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>
-   *                 </li>
-   *                <li>
-   *                     <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>
-   *                 </li>
-   *             </ul>
-   *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN
-   *                 User Guide</i>.</p>
-   *         <important>
-   *             <p>To create more than one customer gateway with the same VPN type, IP address, and
-   *                 BGP ASN, specify a unique device name for each customer gateway. Identical requests
-   *                 return information about the existing customer gateway and do not create new
-   *                 customer gateways.</p>
-   *         </important>
+   *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
+   *             If you don't have an ASN already, you can use a private ASN. For more information, see
+   *             <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway
+   *                 options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
+   *         <p>To create more than one customer gateway with the same VPN type, IP address, and
+   *             BGP ASN, specify a unique device name for each customer gateway. An identical request
+   *             returns information about the existing customer gateway; it doesn't create a new customer
+   *             gateway.</p>
    */
   public createCustomerGateway(
     args: CreateCustomerGatewayCommandInput,
@@ -4908,12 +4886,16 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
    *      	that is either running or stopped.</p>
-   *          <important>
-   *             <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on
-   *          the instance is stopped and in a consistent state during the creation process. If you're confident that your
-   *          instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b>
-   *          parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p>
-   *          </important>
+   * 	        <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can
+   * 					take snapshots of the attached volumes while data is at rest, in order to ensure a consistent
+   * 					state. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request,
+   * 					or use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and
+   * 					rebooting the instance.</p>
+   *    	     <important>
+   * 					       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
+   * 					parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option
+   * 					in the CLI, we can't guarantee the file system integrity of the created image.</p>
+   * 				     </important>
    *
    *
    *
@@ -5073,7 +5055,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p>
+   * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
+   *          to automate your IP address management workflows including assigning, tracking,
+   *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
+   *          throughout your Amazon Web Services Organization.</p>
    *          <p>For more information, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -5209,11 +5194,16 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a launch template. A launch template contains the parameters to launch an
+   * <p>Creates a launch template.</p>
+   *         <p>A launch template contains the parameters to launch an
    *             instance. When you launch an instance using <a>RunInstances</a>, you can
    *             specify a launch template instead of providing the launch parameters in the request. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a
    *                 launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>If you want to clone an existing launch template as the basis for creating a new
+   *             launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
+   *             cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createLaunchTemplate(
     args: CreateLaunchTemplateCommandInput,
@@ -6777,19 +6767,7 @@ export class EC2 extends EC2Client {
    * <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a
    *             private connection between your VPC and the service. The service may be provided by Amazon Web Services,
    *             an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information,
-   *             see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the
-   *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-   *         <p>A <code>gateway</code> endpoint serves as a target for a route in your route table for
-   *             traffic destined for the Amazon Web Service. You can specify an endpoint policy to attach
-   *             to the endpoint, which will control access to the service from your VPC. You can also
-   *             specify the VPC route tables that use the endpoint.</p>
-   *         <p>An <code>interface</code> endpoint is a network interface in your subnet that
-   *             serves as an endpoint for communicating with the specified service. You can specify the
-   *             subnets in which to create an endpoint, and the security groups to associate with the
-   *             endpoint network interface.</p>
-   *         <p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p>
-   *         <p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported
-   *             services.</p>
+   *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink Guide</a>.</p>
    */
   public createVpcEndpoint(
     args: CreateVpcEndpointCommandInput,
@@ -6859,26 +6837,23 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts,
+   * <p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
    *             IAM users, and IAM roles) can connect.</p>
-   *         <p>To create an endpoint service configuration, you must first create one of the
-   *             following for your service:</p>
+   *         <p>Before you create an endpoint service, you must create one of the following for your service:</p>
    *         <ul>
    *             <li>
-   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">Network Load Balancer</a>. Service consumers connect to your service using an
-   *                     interface endpoint.</p>
+   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/">Network Load Balancer</a>.
+   *                     Service consumers connect to your service using an interface endpoint.</p>
    *             </li>
    *             <li>
-   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html">Gateway Load Balancer</a>. Service consumers connect to your service using a
-   *                     Gateway Load Balancer endpoint.</p>
+   *                 <p>A <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/">Gateway Load Balancer</a>.
+   *                     Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>. </p>
    *         <p>If you set the private DNS name, you must prove that you own the private DNS domain
-   *             name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
-   *                 Private DNS Name Verification</a> in the
-   *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             name.</p>
+   * 	        <p>For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+   * 	        Guide</a>.</p>
    */
   public createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
@@ -7465,11 +7440,6 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>
-   *          <note>
-   *             <p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool
-   *                CIDRs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>.
-   *             </p>
-   *          </note>
    *          <p>For more information, see <a href="/vpc/latest/ipam/delete-ipam.html">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *       </p>
    */
@@ -18633,8 +18603,9 @@ export class EC2 extends EC2Client {
    *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p>
    *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
    *       reattaching the volume or stopping and restarting the instance.</p>
-   *          <p>If you reach the maximum volume modification rate per volume limit, you must wait
-   *       at least six hours before applying further modifications to the affected EBS volume.</p>
+   *          <p>After modifying a volume, you must wait at least six hours and ensure that the volume
+   *       is in the <code>in-use</code> or <code>available</code> state before you can modify the same
+   *       volume. This is sometimes referred to as a cooldown period.</p>
    */
   public modifyVolume(
     args: ModifyVolumeCommandInput,
@@ -18734,9 +18705,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify
-   *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see
-   *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
-   *                 Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information,
+   *             see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon Web Services PrivateLink
+   *                 Guide</a>.</p>
    */
   public modifyVpcEndpoint(
     args: ModifyVpcEndpointCommandInput,
@@ -18808,9 +18779,7 @@ export class EC2 extends EC2Client {
    *             required for requests to connect to your endpoint service through an interface VPC
    *             endpoint.</p>
    * 	        <p>If you set or modify the private DNS name, you must prove that you own the private DNS
-   *             domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
-   *                 Private DNS Name Verification</a> in the
-   *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             domain name.</p>
    */
   public modifyVpcEndpointServiceConfiguration(
     args: ModifyVpcEndpointServiceConfigurationCommandInput,
@@ -18878,8 +18847,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users,
-   * 	        IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
+   * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers
+   * 	        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
    * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
    * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
    * 	        attachments are automatically approved.</p>
@@ -21271,7 +21240,7 @@ export class EC2 extends EC2Client {
    * <p>Initiates the verification process to prove that the service provider owns the private
    *             DNS name domain for the endpoint service.</p>
    *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
-   *         <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see  <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>
+   *         <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
    */
   public startVpcEndpointServicePrivateDnsVerification(
     args: StartVpcEndpointServicePrivateDnsVerificationCommandInput,

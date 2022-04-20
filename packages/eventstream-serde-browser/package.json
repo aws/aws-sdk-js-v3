@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-browser",
-  "version": "3.58.0",
+  "version": "3.72.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

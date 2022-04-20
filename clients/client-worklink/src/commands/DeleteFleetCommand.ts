@@ -22,6 +22,8 @@ export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
 export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

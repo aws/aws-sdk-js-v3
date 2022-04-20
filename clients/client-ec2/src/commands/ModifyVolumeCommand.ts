@@ -33,8 +33,9 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p>
  *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
  *       reattaching the volume or stopping and restarting the instance.</p>
- *          <p>If you reach the maximum volume modification rate per volume limit, you must wait
- *       at least six hours before applying further modifications to the affected EBS volume.</p>
+ *          <p>After modifying a volume, you must wait at least six hours and ensure that the volume
+ *       is in the <code>in-use</code> or <code>available</code> state before you can modify the same
+ *       volume. This is sometimes referred to as a cooldown period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

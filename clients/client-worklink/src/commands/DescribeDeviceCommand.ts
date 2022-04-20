@@ -22,6 +22,8 @@ export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
 export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Provides information about a user's device.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -27,6 +27,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Retrieves a list of certificate authorities added for the current account and
  *             Region.</p>
  * @example

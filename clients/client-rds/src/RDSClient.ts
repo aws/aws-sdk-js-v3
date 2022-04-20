@@ -86,10 +86,6 @@ import {
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "./commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "./commands/CopyOptionGroupCommand";
 import {
-  CreateCustomAvailabilityZoneCommandInput,
-  CreateCustomAvailabilityZoneCommandOutput,
-} from "./commands/CreateCustomAvailabilityZoneCommand";
-import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
 } from "./commands/CreateCustomDBEngineVersionCommand";
@@ -139,10 +135,6 @@ import {
 } from "./commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand";
 import {
-  DeleteCustomAvailabilityZoneCommandInput,
-  DeleteCustomAvailabilityZoneCommandOutput,
-} from "./commands/DeleteCustomAvailabilityZoneCommand";
-import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
 } from "./commands/DeleteCustomDBEngineVersionCommand";
@@ -190,10 +182,6 @@ import {
   DeleteGlobalClusterCommandInput,
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
-import {
-  DeleteInstallationMediaCommandInput,
-  DeleteInstallationMediaCommandOutput,
-} from "./commands/DeleteInstallationMediaCommand";
 import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "./commands/DeleteOptionGroupCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
@@ -207,10 +195,6 @@ import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
 } from "./commands/DescribeCertificatesCommand";
-import {
-  DescribeCustomAvailabilityZonesCommandInput,
-  DescribeCustomAvailabilityZonesCommandOutput,
-} from "./commands/DescribeCustomAvailabilityZonesCommand";
 import {
   DescribeDBClusterBacktracksCommandInput,
   DescribeDBClusterBacktracksCommandOutput,
@@ -312,10 +296,6 @@ import {
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
 import {
-  DescribeInstallationMediaCommandInput,
-  DescribeInstallationMediaCommandOutput,
-} from "./commands/DescribeInstallationMediaCommand";
-import {
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
 } from "./commands/DescribeOptionGroupOptionsCommand";
@@ -356,10 +336,6 @@ import {
   FailoverGlobalClusterCommandInput,
   FailoverGlobalClusterCommandOutput,
 } from "./commands/FailoverGlobalClusterCommand";
-import {
-  ImportInstallationMediaCommandInput,
-  ImportInstallationMediaCommandOutput,
-} from "./commands/ImportInstallationMediaCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -523,7 +499,6 @@ export type ServiceInputTypes =
   | CopyDBParameterGroupCommandInput
   | CopyDBSnapshotCommandInput
   | CopyOptionGroupCommandInput
-  | CreateCustomAvailabilityZoneCommandInput
   | CreateCustomDBEngineVersionCommandInput
   | CreateDBClusterCommandInput
   | CreateDBClusterEndpointCommandInput
@@ -540,7 +515,6 @@ export type ServiceInputTypes =
   | CreateEventSubscriptionCommandInput
   | CreateGlobalClusterCommandInput
   | CreateOptionGroupCommandInput
-  | DeleteCustomAvailabilityZoneCommandInput
   | DeleteCustomDBEngineVersionCommandInput
   | DeleteDBClusterCommandInput
   | DeleteDBClusterEndpointCommandInput
@@ -556,12 +530,10 @@ export type ServiceInputTypes =
   | DeleteDBSubnetGroupCommandInput
   | DeleteEventSubscriptionCommandInput
   | DeleteGlobalClusterCommandInput
-  | DeleteInstallationMediaCommandInput
   | DeleteOptionGroupCommandInput
   | DeregisterDBProxyTargetsCommandInput
   | DescribeAccountAttributesCommandInput
   | DescribeCertificatesCommandInput
-  | DescribeCustomAvailabilityZonesCommandInput
   | DescribeDBClusterBacktracksCommandInput
   | DescribeDBClusterEndpointsCommandInput
   | DescribeDBClusterParameterGroupsCommandInput
@@ -590,7 +562,6 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeGlobalClustersCommandInput
-  | DescribeInstallationMediaCommandInput
   | DescribeOptionGroupOptionsCommandInput
   | DescribeOptionGroupsCommandInput
   | DescribeOrderableDBInstanceOptionsCommandInput
@@ -602,7 +573,6 @@ export type ServiceInputTypes =
   | DownloadDBLogFilePortionCommandInput
   | FailoverDBClusterCommandInput
   | FailoverGlobalClusterCommandInput
-  | ImportInstallationMediaCommandInput
   | ListTagsForResourceCommandInput
   | ModifyCertificatesCommandInput
   | ModifyCurrentDBClusterCapacityCommandInput
@@ -666,7 +636,6 @@ export type ServiceOutputTypes =
   | CopyDBParameterGroupCommandOutput
   | CopyDBSnapshotCommandOutput
   | CopyOptionGroupCommandOutput
-  | CreateCustomAvailabilityZoneCommandOutput
   | CreateCustomDBEngineVersionCommandOutput
   | CreateDBClusterCommandOutput
   | CreateDBClusterEndpointCommandOutput
@@ -683,7 +652,6 @@ export type ServiceOutputTypes =
   | CreateEventSubscriptionCommandOutput
   | CreateGlobalClusterCommandOutput
   | CreateOptionGroupCommandOutput
-  | DeleteCustomAvailabilityZoneCommandOutput
   | DeleteCustomDBEngineVersionCommandOutput
   | DeleteDBClusterCommandOutput
   | DeleteDBClusterEndpointCommandOutput
@@ -699,12 +667,10 @@ export type ServiceOutputTypes =
   | DeleteDBSubnetGroupCommandOutput
   | DeleteEventSubscriptionCommandOutput
   | DeleteGlobalClusterCommandOutput
-  | DeleteInstallationMediaCommandOutput
   | DeleteOptionGroupCommandOutput
   | DeregisterDBProxyTargetsCommandOutput
   | DescribeAccountAttributesCommandOutput
   | DescribeCertificatesCommandOutput
-  | DescribeCustomAvailabilityZonesCommandOutput
   | DescribeDBClusterBacktracksCommandOutput
   | DescribeDBClusterEndpointsCommandOutput
   | DescribeDBClusterParameterGroupsCommandOutput
@@ -733,7 +699,6 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeGlobalClustersCommandOutput
-  | DescribeInstallationMediaCommandOutput
   | DescribeOptionGroupOptionsCommandOutput
   | DescribeOptionGroupsCommandOutput
   | DescribeOrderableDBInstanceOptionsCommandOutput
@@ -745,7 +710,6 @@ export type ServiceOutputTypes =
   | DownloadDBLogFilePortionCommandOutput
   | FailoverDBClusterCommandOutput
   | FailoverGlobalClusterCommandOutput
-  | ImportInstallationMediaCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyCertificatesCommandOutput
   | ModifyCurrentDBClusterCapacityCommandOutput

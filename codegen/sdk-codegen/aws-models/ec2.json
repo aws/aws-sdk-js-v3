@@ -426,7 +426,7 @@
         "target": "com.amazonaws.ec2#AcceptVpcEndpointConnectionsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint\n            service.</p>"
+        "smithy.api#documentation": "<p>Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.</p>"
       }
     },
     "com.amazonaws.ec2#AcceptVpcEndpointConnectionsRequest": {
@@ -4087,6 +4087,9 @@
       "input": {
         "target": "com.amazonaws.ec2#AssociateDhcpOptionsRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p>\n         <p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html\">DHCP options sets</a>\n          in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
       }
@@ -4963,6 +4966,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#AttachInternetGatewayRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and\n\t\t\tthe VPC. For more information about your VPC and internet gateway, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/\">Amazon Virtual Private Cloud User Guide</a>.</p>"
@@ -6697,6 +6703,9 @@
       "input": {
         "target": "com.amazonaws.ec2#CancelConversionRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all\n   artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is\n   in the process of transferring the final disk image, the command fails and returns an exception.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html\">Importing a Virtual Machine Using the Amazon\n    EC2 CLI</a>.</p>"
       }
@@ -6705,6 +6714,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#CancelExportTaskRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created\n   Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the\n   command fails and returns an error.</p>"
@@ -10485,7 +10497,7 @@
         "target": "com.amazonaws.ec2#CreateCustomerGatewayResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides information to Amazon Web Services about your VPN customer gateway device. The\n            customer gateway is the appliance at your end of the VPN connection. (The device on the\n                Amazon Web Services side of the VPN connection is the virtual private gateway.) You\n            must provide the internet-routable IP address of the customer gateway's external\n            interface. The IP address must be static and can be behind a device performing network\n            address translation (NAT).</p>\n        <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's\n            BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your\n            network. If you don't have an ASN already, you can use a private ASN (in the 64512 -\n            65534 range).</p>\n        <note>\n            <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with\n                the exception of the following:</p>\n            <ul>\n               <li>\n                    <p>7224 - reserved in the <code>us-east-1</code> Region</p>\n                </li>\n               <li>\n                    <p>9059 - reserved in the <code>eu-west-1</code> Region</p>\n                </li>\n               <li>\n                    <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>\n                </li>\n               <li>\n                    <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>\n                </li>\n            </ul>\n        </note>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN\n                User Guide</i>.</p>\n        <important>\n            <p>To create more than one customer gateway with the same VPN type, IP address, and\n                BGP ASN, specify a unique device name for each customer gateway. Identical requests\n                return information about the existing customer gateway and do not create new\n                customer gateways.</p>\n        </important>"
+        "smithy.api#documentation": "<p>Provides information to Amazon Web Services about your VPN customer gateway device. The\n            customer gateway is the appliance at your end of the VPN connection. (The device on the\n                Amazon Web Services side of the VPN connection is the virtual private gateway.) You\n            must provide the internet-routable IP address of the customer gateway's external\n            interface. The IP address must be static and can be behind a device performing network\n            address translation (NAT).</p>\n        <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's\n            BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.\n            If you don't have an ASN already, you can use a private ASN. For more information, see \n            <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html\">Customer gateway \n                options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>\n        <p>To create more than one customer gateway with the same VPN type, IP address, and\n            BGP ASN, specify a unique device name for each customer gateway. An identical request\n            returns information about the existing customer gateway; it doesn't create a new customer\n            gateway.</p>"
       }
     },
     "com.amazonaws.ec2#CreateCustomerGatewayRequest": {
@@ -11222,7 +11234,7 @@
         "target": "com.amazonaws.ec2#CreateImageResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance \n     \tthat is either running or stopped.</p>\n         <important>\n            <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on \n         the instance is stopped and in a consistent state during the creation process. If you're confident that your \n         instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b> \n         parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p>\n         </important>\n     \n     \n   \n   \t\n   \t     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the \n     \tnew AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, \n     \tthe instance automatically launches with those additional volumes.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Creating Amazon EBS-Backed Linux AMIs</a> \n\t\t\t\tin the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance \n     \tthat is either running or stopped.</p>\n\t        <p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can \n\t\t\t\t\ttake snapshots of the attached volumes while data is at rest, in order to ensure a consistent \n\t\t\t\t\tstate. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, \n\t\t\t\t\tor use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and \n\t\t\t\t\trebooting the instance.</p>\n   \t     <important>\n\t\t\t\t\t       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> \n\t\t\t\t\tparameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option \n\t\t\t\t\tin the CLI, we can't guarantee the file system integrity of the created image.</p>\n\t\t\t\t     </important>\n     \n     \n   \n   \t\n   \t     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the \n     \tnew AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, \n     \tthe instance automatically launches with those additional volumes.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Creating Amazon EBS-Backed Linux AMIs</a> \n\t\t\t\tin the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateImageRequest": {
@@ -11274,7 +11286,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "NoReboot",
-            "smithy.api#documentation": "<p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. \n       If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating \n       the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted \n       at the same time), but not application consistent (all the operating system buffers are not flushed \n       to disk before the snapshots are created).</p>",
+            "smithy.api#documentation": "<p>By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it can \n\t\t\t\t\ttake snapshots of the attached volumes while data is at rest, in order to ensure a consistent \n\t\t\t\t\tstate. You can set the <code>NoReboot</code> parameter to <code>true</code> in the API request, \n\t\t\t\t\tor use the <code>--no-reboot</code> option in the CLI to prevent Amazon EC2 from shutting down and \n\t\t\t\t\trebooting the instance.</p>\n   \t     <important>\n\t\t\t\t\t       <p>If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code> \n\t\t\t\t\tparameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code> option \n\t\t\t\t\tin the CLI, we can't guarantee the file system integrity of the created image.</p>\n\t\t\t\t     </important>\n         <p>Default: <code>false</code> (follow standard reboot process)</p>",
             "smithy.api#xmlName": "noReboot"
           }
         },
@@ -11488,7 +11500,7 @@
         "target": "com.amazonaws.ec2#CreateIpamResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Create an IPAM. Amazon VCP IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use\n         to automate your IP address management workflows including assigning, tracking,\n         troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts\n         throughout your Amazon Web Services Organization.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/create-ipam.html\">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#CreateIpamPool": {
@@ -11763,7 +11775,7 @@
         "KeyType": {
           "target": "com.amazonaws.ec2#KeyType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p>\n        <p>Default: <code>rsa</code>\n         </p>"
+            "smithy.api#documentation": "<p>The type of key pair. Note that ED25519 keys are not supported for Windows instances.</p>\n        <p>Default: <code>rsa</code>\n         </p>"
           }
         },
         "TagSpecifications": {
@@ -11784,7 +11796,7 @@
         "target": "com.amazonaws.ec2#CreateLaunchTemplateResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a launch template. A launch template contains the parameters to launch an\n            instance. When you launch an instance using <a>RunInstances</a>, you can\n            specify a launch template instead of providing the launch parameters in the request. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launching an instance from a\n                launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a launch template.</p>\n        <p>A launch template contains the parameters to launch an\n            instance. When you launch an instance using <a>RunInstances</a>, you can\n            specify a launch template instead of providing the launch parameters in the request. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">Launching an instance from a\n                launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n        <p>If you want to clone an existing launch template as the basis for creating a new\n            launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support\n            cloning a template. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template\">Create a launch template from an existing launch template</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateLaunchTemplateRequest": {
@@ -12218,6 +12230,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#CreateNetworkAclEntryRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules \n\t\t        and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated \n\t\t        with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of \n\t\t        ingress rules and a separate set of egress rules.</p>\n\t\t       <p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the \n\t\t        other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p>\n\t\t       <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>\n         <p>For more information about network ACLs, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html\">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
@@ -13729,6 +13744,9 @@
       "input": {
         "target": "com.amazonaws.ec2#CreateTagsRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or\n         resources. When you specify an existing tag key, the value is overwritten with\n         the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and\n         optional value. Tag keys must be unique per resource.</p>\n      \n         <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Resources</a> in the\n            <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about\n         creating IAM policies that control users' access to resources based on tags, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\">Supported\n            Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon\n            Elastic Compute Cloud User Guide</i>.</p>"
       }
@@ -14923,7 +14941,7 @@
         "target": "com.amazonaws.ec2#CreateVpcEndpointResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a\n            private connection between your VPC and the service. The service may be provided by Amazon Web Services,\n            an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, \n            see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html\">VPC Endpoints</a> in the\n            <i>Amazon Virtual Private Cloud User Guide</i>.</p>\n        <p>A <code>gateway</code> endpoint serves as a target for a route in your route table for\n            traffic destined for the Amazon Web Service. You can specify an endpoint policy to attach \n            to the endpoint, which will control access to the service from your VPC. You can also\n            specify the VPC route tables that use the endpoint.</p>\n        <p>An <code>interface</code> endpoint is a network interface in your subnet that\n            serves as an endpoint for communicating with the specified service. You can specify the\n            subnets in which to create an endpoint, and the security groups to associate with the\n            endpoint network interface.</p>\n        <p>A <code>GatewayLoadBalancer</code> endpoint is a network interface in your subnet that serves an endpoint for communicating with a Gateway Load Balancer that you've configured as a VPC endpoint service.</p>\n        <p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported\n            services.</p>"
+        "smithy.api#documentation": "<p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a\n            private connection between your VPC and the service. The service may be provided by Amazon Web Services,\n            an Amazon Web Services Marketplace Partner, or another Amazon Web Services account. For more information, \n            see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink Guide</a>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateVpcEndpointConnectionNotification": {
@@ -15115,7 +15133,7 @@
         "target": "com.amazonaws.ec2#CreateVpcEndpointServiceConfigurationResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts,\n            IAM users, and IAM roles) can connect.</p>\n        <p>To create an endpoint service configuration, you must first create one of the\n            following for your service:</p>\n        <ul>\n            <li>\n                <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html\">Network Load Balancer</a>. Service consumers connect to your service using an\n                    interface endpoint.</p>\n            </li>\n            <li>\n                <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html\">Gateway Load Balancer</a>. Service consumers connect to your service using a\n                    Gateway Load Balancer endpoint.</p>\n            </li>\n         </ul>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html\">VPC Endpoint Services</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>. </p>\n        <p>If you set the private DNS name, you must prove that you own the private DNS domain\n            name. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html\">VPC Endpoint Service\n                Private DNS Name Verification</a> in the\n            <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,\n            IAM users, and IAM roles) can connect.</p>\n        <p>Before you create an endpoint service, you must create one of the following for your service:</p>\n        <ul>\n            <li>\n                <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/\">Network Load Balancer</a>. \n                    Service consumers connect to your service using an interface endpoint.</p>\n            </li>\n            <li>\n                <p>A <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/\">Gateway Load Balancer</a>. \n                    Service consumers connect to your service using a Gateway Load Balancer endpoint.</p>\n            </li>\n         </ul>\n        <p>If you set the private DNS name, you must prove that you own the private DNS domain\n            name.</p>\n\t        <p>For more information, see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink \n\t        Guide</a>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateVpcEndpointServiceConfigurationRequest": {
@@ -15130,7 +15148,7 @@
         "AcceptanceRequired": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether requests from service consumers to create an endpoint to your service must\n            be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>"
+            "smithy.api#documentation": "<p>Indicates whether requests from service consumers to create an endpoint to your service must\n            be accepted manually.</p>"
           }
         },
         "PrivateDnsName": {
@@ -15450,6 +15468,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#CreateVpnConnectionRouteRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Creates a static route associated with a VPN connection between an existing virtual\n            private gateway and a VPN customer gateway. The static route allows traffic to be routed\n            from the virtual private gateway to the VPN customer gateway.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\">Amazon Web Services Site-to-Site VPN</a> in the <i>Amazon Web Services Site-to-Site VPN\n                User Guide</i>.</p>"
@@ -15945,6 +15966,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteCustomerGatewayRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified customer gateway. You must delete the VPN connection before you\n            can delete the customer gateway.</p>"
       }
@@ -15976,6 +16000,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteDhcpOptionsRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>"
@@ -16366,6 +16393,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteInternetGatewayRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified internet gateway. You must detach the internet gateway from the\n\t\t\tVPC before you can delete it.</p>"
       }
@@ -16401,7 +16431,7 @@
         "target": "com.amazonaws.ec2#DeleteIpamResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>\n         <note>\n            <p>You cannot delete an IPAM if there are CIDRs provisioned to pools or if there are allocations in the pools within the IPAM. To deprovision pool \n               CIDRs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html\">DeprovisionIpamPoolCidr</a>. To release allocations, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html\">ReleaseIpamPoolAllocation</a>.\n            </p>\n         </note>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
+        "smithy.api#documentation": "<p>Delete an IPAM. Deleting an IPAM removes all monitored data associated with the IPAM including the historical data for CIDRs.</p>\n         <p>For more information, see <a href=\"/vpc/latest/ipam/delete-ipam.html\">Delete an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.\n      </p>"
       }
     },
     "com.amazonaws.ec2#DeleteIpamPool": {
@@ -16531,6 +16561,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteKeyPairRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>"
@@ -16948,6 +16981,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteNetworkAclRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>"
       }
@@ -16956,6 +16992,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteNetworkAclEntryRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>"
@@ -17200,6 +17239,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteNetworkInterfaceRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>"
       }
@@ -17288,6 +17330,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeletePlacementGroupRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified placement group. You must terminate all instances in the\n            placement group before you can delete the placement group. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>"
@@ -17473,6 +17518,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteRouteRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified route from the specified route table.</p>"
       }
@@ -17526,6 +17574,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteRouteTableRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified route table. You must disassociate the route table from any subnets before you can delete it. You can't delete the main route table.</p>"
       }
@@ -17556,6 +17607,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteSecurityGroupRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes a security group.</p>\n         <p>If you attempt to delete a security group that is associated with an instance, or is\n\t\t\t  referenced by another security group, the operation fails with\n\t\t\t\t<code>InvalidGroup.InUse</code> in EC2-Classic or\n\t\t\t\t<code>DependencyViolation</code> in EC2-VPC.</p>"
@@ -17591,6 +17645,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteSnapshotRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified snapshot.</p>\n         <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the\n      blocks on the device that have changed since your last snapshot are saved in the new snapshot.\n      When you delete a snapshot, only the data not needed for any other snapshot is removed. So\n      regardless of which prior snapshots have been deleted, all active snapshots will have access\n      to all the information needed to restore the volume.</p>\n         <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.\n      You must first de-register the AMI before you can delete the snapshot.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html\">Delete an Amazon EBS snapshot</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
@@ -17620,6 +17677,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteSpotDatafeedSubscriptionRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the data feed for Spot Instances.</p>"
       }
@@ -17644,6 +17704,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteSubnetRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>"
@@ -17716,6 +17779,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteTagsRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified set of tags from the specified set of resources.</p>\n         <p>To list the current tags, use <a>DescribeTags</a>. For more information about tags, see \n         <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Resources</a> \n         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
@@ -18329,6 +18395,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteVolumeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state\n      (not attached to an instance).</p>\n         <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html\">Delete an Amazon EBS volume</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
@@ -18357,6 +18426,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteVpcRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. For example, you must terminate all instances running in the VPC, delete all security groups associated with the VPC (except the default one), delete all route tables associated with the VPC (except the default one), and so on.</p>"
@@ -18572,6 +18644,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteVpnConnectionRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified VPN connection.</p>\n        <p>If you're deleting the VPC and its associated components, we recommend that you detach\n            the virtual private gateway from the VPC and delete the VPC before deleting the VPN\n            connection. If you believe that the tunnel credentials for your VPN connection have been\n            compromised, you can delete the VPN connection and create a new one that has new keys,\n            without needing to delete the VPC or virtual private gateway. If you create a new VPN\n            connection, you must reconfigure the customer gateway device using the new configuration\n            information returned with the new VPN connection ID.</p>\n        <p>For certificate-based authentication, delete all Certificate Manager (ACM) private\n            certificates used for the Amazon Web Services-side tunnel endpoints for the VPN\n            connection before deleting the VPN connection.</p>"
       }
@@ -18604,6 +18679,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DeleteVpnConnectionRouteRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified static route associated with a VPN connection between an\n            existing virtual private gateway and a VPN customer gateway. The static route allows\n            traffic to be routed from the virtual private gateway to the VPN customer\n            gateway.</p>"
       }
@@ -18634,6 +18712,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeleteVpnGatewayRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deletes the specified virtual private gateway. You must first detach the virtual\n            private gateway from the VPC. Note that you don't need to delete the virtual private\n            gateway if you plan to delete and recreate the VPN connection between your VPC and your\n            network.</p>"
@@ -18825,6 +18906,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DeregisterImageRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to \n       launch new instances.</p>\n     \n     \n         <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is \n      retained in the Recycle Bin for the specified retention period. For more information, \n      see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle\n        Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>\n     \n         <p>When you deregister an AMI, it doesn't affect any instances that you've already \n       launched from the AMI. You'll continue to incur usage costs for those instances until \n       you terminate them.</p>\n   \t     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was\n\t\t\tcreated for the root volume of the instance during the AMI creation process. When you\n\t\t\tderegister an instance store-backed AMI, it doesn't affect the files that you uploaded\n\t\t\tto Amazon S3 when you created the AMI.</p>"
@@ -22393,7 +22477,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>architecture</code> - The image architecture (<code>i386</code> |\n            <code>x86_64</code> | <code>arm64</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates\n        \twhether the Amazon EBS volume is deleted on instance termination.</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for\n          example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>\n            </li>\n            <li>\n               <p>\n        \t         <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS\n          volume.</p>\n            </li>\n            <li>\n               <p>\n        \t         <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume\n            (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1\n          </code>| <code>st1</code> | <code>standard</code>).</p>\n            </li>\n            <li>\n    \t\t         <p>\n    \t\t\t           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>\n    \t       </li>\n            <li>\n               <p>\n                  <code>description</code> - The description of the image (provided during image\n          creation).</p>\n            </li>\n            <li>\n               <p>\n                  <code>ena-support</code> - A Boolean that indicates whether enhanced networking\n          with ENA is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |\n          <code>xen</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>image-id</code> - The ID of the image.</p>\n            </li>\n            <li>\n               <p>\n                  <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |\n            <code>ramdisk</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>is-public</code> - A Boolean that indicates whether the image is public.</p>\n            </li>\n            <li>\n               <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>manifest-location</code> - The location of the image manifest.</p>\n            </li>\n            <li>\n               <p>\n                  <code>name</code> - The name of the AMI (provided during image creation).</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). \n          The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be \n        \tset using the IAM console. We recommend that you use the <b>Owner</b> \n        \trequest parameter instead of this filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the \n      \t\t<b>Owner</b> request parameter instead of this filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform. To only list Windows-based AMIs, use\n            <code>windows</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>product-code</code> - The product code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>ramdisk-id</code> - The RAM disk ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |\n            <code>instance-store</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>\n          | <code>failed</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>state-reason-code</code> - The reason code for the state change.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state-reason-message</code> - The message for the state change.</p>\n            </li>\n            <li>\n                <p>\n                  <code>sriov-net-support</code> - A value of <code>simple</code> indicates\n                    that enhanced networking with the Intel 82599 VF interface is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |\n            <code>hvm</code>).</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>architecture</code> - The image architecture (<code>i386</code> |\n            <code>x86_64</code> | <code>arm64</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates\n        \twhether the Amazon EBS volume is deleted on instance termination.</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for\n          example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>\n            </li>\n            <li>\n               <p>\n        \t         <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS\n          volume.</p>\n            </li>\n            <li>\n               <p>\n        \t         <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>\n            </li>\n            <li>\n               <p>\n                  <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume\n            (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1\n          </code>| <code>st1</code> | <code>standard</code>).</p>\n            </li>\n            <li>\n    \t\t         <p>\n    \t\t\t           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>\n    \t       </li>\n            <li>\n               <p>\n                  <code>creation-date</code> - The time when the image was created, in the ISO 8601\n          format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,\n            <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for\n          example, <code>2021-09-29T*</code>, which matches an entire day.</p>\n            </li>\n            <li>\n               <p>\n                  <code>description</code> - The description of the image (provided during image\n          creation).</p>\n            </li>\n            <li>\n               <p>\n                  <code>ena-support</code> - A Boolean that indicates whether enhanced networking\n          with ENA is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |\n          <code>xen</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>image-id</code> - The ID of the image.</p>\n            </li>\n            <li>\n               <p>\n                  <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |\n            <code>ramdisk</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>is-public</code> - A Boolean that indicates whether the image is public.</p>\n            </li>\n            <li>\n               <p>\n                  <code>kernel-id</code> - The kernel ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>manifest-location</code> - The location of the image manifest.</p>\n            </li>\n            <li>\n               <p>\n                  <code>name</code> - The name of the AMI (provided during image creation).</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). \n          The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be \n        \tset using the IAM console. We recommend that you use the <b>Owner</b> \n        \trequest parameter instead of this filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the \n      \t\t<b>Owner</b> request parameter instead of this filter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>platform</code> - The platform. To only list Windows-based AMIs, use\n            <code>windows</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>product-code</code> - The product code.</p>\n            </li>\n            <li>\n               <p>\n                  <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>ramdisk-id</code> - The RAM disk ID.</p>\n            </li>\n            <li>\n               <p>\n                  <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |\n            <code>instance-store</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>\n          | <code>failed</code>).</p>\n            </li>\n            <li>\n               <p>\n                  <code>state-reason-code</code> - The reason code for the state change.</p>\n            </li>\n            <li>\n               <p>\n                  <code>state-reason-message</code> - The message for the state change.</p>\n            </li>\n            <li>\n                <p>\n                  <code>sriov-net-support</code> - A value of <code>simple</code> indicates\n                    that enhanced networking with the Intel 82599 VF interface is enabled.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.\n    For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>\n            </li>\n            <li>\n               <p>\n                  <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |\n            <code>hvm</code>).</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -24364,7 +24448,7 @@
         "Filters": {
           "target": "com.amazonaws.ec2#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>One or more filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>local-address</code> - The local address.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) \n               of the local gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-gateway-id</code> - The ID of the local gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>peer-address</code> - The peer address.</p>\n            </li>\n            <li>\n               <p>\n                  <code>peer-bgp-asn</code> - The peer BGP ASN.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vlan</code> - The ID of the VLAN.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>One or more filters.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>local-address</code> - The local address.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN) \n               of the local gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-gateway-id</code> - The ID of the local gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>\n            </li>\n            <li>\n               <p>\n                  <code>peer-address</code> - The peer address.</p>\n            </li>\n            <li>\n               <p>\n                  <code>peer-bgp-asn</code> - The peer BGP ASN.</p>\n            </li>\n            <li>\n               <p>\n                  <code>vlan</code> - The ID of the VLAN.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "Filter"
           }
         },
@@ -30587,6 +30671,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DetachInternetGatewayRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Detaches an internet gateway from a VPC, disabling connectivity between the internet\n\t\t\tand the VPC. The VPC must not contain any running instances with Elastic IP addresses or\n\t\t\tpublic IPv4 addresses.</p>"
       }
@@ -30626,6 +30713,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DetachNetworkInterfaceRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Detaches a network interface from an instance.</p>"
@@ -30718,6 +30808,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DetachVpnGatewayRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Detaches a virtual private gateway from a VPC. You do this if you're planning to turn\n            off the VPC and not use it anymore. You can confirm a virtual private gateway has been\n            completely detached from a VPC by describing the virtual private gateway (any\n            attachments to the virtual private gateway are also described).</p>\n        <p>You must wait for the attachment's state to switch to <code>detached</code> before you\n            can delete the VPC or attach a different VPC to the virtual private gateway.</p>"
@@ -31482,6 +31575,9 @@
       "input": {
         "target": "com.amazonaws.ec2#DisableVgwRoutePropagationRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Disables a virtual private gateway (VGW) from propagating routes to a specified route\n            table of a VPC.</p>"
       }
@@ -31602,6 +31698,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DisassociateAddressRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>\n\t\t\t      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n\t\t\t\tAddresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>"
@@ -31829,6 +31928,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#DisassociateRouteTableRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Disassociates a subnet or gateway from a route table.</p>\n\t\t       <p>After you perform this action, the subnet no longer uses the routes in the route table.\n\t\t\t\tInstead, it uses the routes in the VPC's main route table. For more information\n\t\t\t\tabout route tables, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route\n\t\t\t\ttables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
@@ -32515,7 +32617,7 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "OutpostArn",
-            "smithy.api#documentation": "<p>The ARN of the Outpost on which the snapshot is stored.</p>",
+            "smithy.api#documentation": "<p>The ARN of the Outpost on which the snapshot is stored.</p>\n        <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called \n            by <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html\">\n                CreateImage</a>.</p>",
             "smithy.api#xmlName": "outpostArn"
           }
         },
@@ -33769,6 +33871,9 @@
       "input": {
         "target": "com.amazonaws.ec2#EnableVgwRoutePropagationRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Enables a virtual private gateway (VGW) to propagate routes to the specified route\n            table of a VPC.</p>"
       }
@@ -33805,6 +33910,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#EnableVolumeIORequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Enables I/O operations for a volume that had I/O operations disabled because the data on\n      the volume was potentially inconsistent.</p>"
@@ -47170,6 +47278,94 @@
           {
             "value": "z1d.metal",
             "name": "z1d_metal"
+          },
+          {
+            "value": "x2idn.16xlarge",
+            "name": "x2idn_16xlarge"
+          },
+          {
+            "value": "x2idn.24xlarge",
+            "name": "x2idn_24xlarge"
+          },
+          {
+            "value": "x2idn.32xlarge",
+            "name": "x2idn_32xlarge"
+          },
+          {
+            "value": "x2iedn.xlarge",
+            "name": "x2iedn_xlarge"
+          },
+          {
+            "value": "x2iedn.2xlarge",
+            "name": "x2iedn_2xlarge"
+          },
+          {
+            "value": "x2iedn.4xlarge",
+            "name": "x2iedn_4xlarge"
+          },
+          {
+            "value": "x2iedn.8xlarge",
+            "name": "x2iedn_8xlarge"
+          },
+          {
+            "value": "x2iedn.16xlarge",
+            "name": "x2iedn_16xlarge"
+          },
+          {
+            "value": "x2iedn.24xlarge",
+            "name": "x2iedn_24xlarge"
+          },
+          {
+            "value": "x2iedn.32xlarge",
+            "name": "x2iedn_32xlarge"
+          },
+          {
+            "value": "c6a.large",
+            "name": "c6a_large"
+          },
+          {
+            "value": "c6a.xlarge",
+            "name": "c6a_xlarge"
+          },
+          {
+            "value": "c6a.2xlarge",
+            "name": "c6a_2xlarge"
+          },
+          {
+            "value": "c6a.4xlarge",
+            "name": "c6a_4xlarge"
+          },
+          {
+            "value": "c6a.8xlarge",
+            "name": "c6a_8xlarge"
+          },
+          {
+            "value": "c6a.12xlarge",
+            "name": "c6a_12xlarge"
+          },
+          {
+            "value": "c6a.16xlarge",
+            "name": "c6a_16xlarge"
+          },
+          {
+            "value": "c6a.24xlarge",
+            "name": "c6a_24xlarge"
+          },
+          {
+            "value": "c6a.32xlarge",
+            "name": "c6a_32xlarge"
+          },
+          {
+            "value": "c6a.48xlarge",
+            "name": "c6a_48xlarge"
+          },
+          {
+            "value": "c6a.metal",
+            "name": "c6a_metal"
+          },
+          {
+            "value": "m6a.metal",
+            "name": "m6a_metal"
           }
         ]
       }
@@ -53676,6 +53872,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ModifyIdFormatRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the ID format for the specified resource on a per-Region basis. You can\n            specify that resources should receive longer IDs (17-character IDs) when they are\n            created.</p>\n         <p>This request can only be used to modify longer ID settings for resource types that\n            are within the opt-in period. Resources currently in their opt-in period include:\n            <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |\n            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |\n            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |\n            <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>\n            | <code>network-acl-association</code> | <code>network-interface</code> |\n            <code>network-interface-attachment</code> | <code>prefix-list</code> |\n            <code>route-table</code> | <code>route-table-association</code> |\n            <code>security-group</code> | <code>subnet</code> |\n            <code>subnet-cidr-block-association</code> | <code>vpc</code> |\n            <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>\n         <p>This setting applies to the IAM user who makes the request; it does not apply to the\n        entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If\n        you're using this action as the root user, then these settings apply to the entire account,\n        unless an IAM user explicitly overrides these settings for themselves. For more information,\n        see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> \n        in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>Resources created with longer IDs are visible to all IAM roles and users, regardless\n        of these settings and provided that they have permission to use the relevant\n        <code>Describe</code> command for the resource type.</p>"
       }
@@ -53703,6 +53902,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ModifyIdentityIdFormatRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root\n       user for an account; or all IAM users, IAM roles, and the root user for an account. You can\n       specify that resources should receive longer IDs (17-character IDs) when they are created. </p>\n         <p>This request can only be used to modify longer ID settings for resource types that are\n       within the opt-in period. Resources currently in their opt-in period include:\n                <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |\n                <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |\n                <code>export-task</code> | <code>flow-log</code> | <code>image</code> |\n                <code>import-task</code> | <code>internet-gateway</code> | <code>network-acl</code>\n            | <code>network-acl-association</code> | <code>network-interface</code> |\n                <code>network-interface-attachment</code> | <code>prefix-list</code> |\n                <code>route-table</code> | <code>route-table-association</code> |\n                <code>security-group</code> | <code>subnet</code> |\n                <code>subnet-cidr-block-association</code> | <code>vpc</code> |\n        <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html\">Resource IDs</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>. </p>\n         <p>This setting applies to the principal specified in the request; it does not apply to the\n      principal that makes the request. </p>\n         <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these\n      settings and provided that they have permission to use the relevant <code>Describe</code>\n      command for the resource type.</p>"
@@ -53744,6 +53946,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ModifyImageAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.\n       You can use the <code>Attribute</code> parameter to specify the attribute or one of the following parameters: \n       <code>Description</code> or <code>LaunchPermission</code>.</p>\n   \t     <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>\n         <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance \n       and create an AMI from the instance.</p>"
@@ -53841,6 +54046,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ModifyInstanceAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the specified attribute of the specified instance. You can specify only one\n            attribute at a time.</p>\n        <p>\n            <b>Note: </b>Using this action to change the security groups\n            associated with an elastic network interface (ENI) attached to an instance in a VPC can\n            result in an error if the instance has more than one ENI. To change the security groups\n            associated with an ENI attached to an instance that has multiple ENIs, we recommend that\n            you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>\n        <p>To modify some attributes, the instance must be stopped. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html\">Modify a stopped instance</a> in the\n            <i>Amazon EC2 User Guide</i>.</p>"
@@ -54844,6 +55052,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ModifyNetworkInterfaceAttributeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the specified network interface attribute. You can specify only one\n            attribute at a time. You can use this action to attach and detach security groups from\n            an existing EC2 instance.</p>"
       }
@@ -55080,6 +55291,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ModifySnapshotAttributeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Adds or removes permission settings for the specified snapshot. You may add or remove\n      specified Amazon Web Services account IDs from a snapshot's list of create volume permissions, but you cannot\n      do both in a single operation. If you need to both add and remove account IDs for a snapshot,\n      you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p>\n         <p>Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes cannot be made\n      public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p>\n         <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
@@ -55277,6 +55491,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ModifySubnetAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Modifies a subnet attribute. You can only modify one attribute at a time.</p>\n\t    \n\t        <p>Use this action to modify subnets on Amazon Web Services Outposts.</p>\n        <ul>\n            <li>\n                <p>To modify a subnet on an Outpost rack, set both\n                        <code>MapCustomerOwnedIpOnLaunch</code> and\n                        <code>CustomerOwnedIpv4Pool</code>. These two parameters act as a single\n                    attribute.</p>\n            </li>\n            <li>\n                <p>To modify a subnet on an Outpost server, set either\n                        <code>EnableLniAtDeviceIndex</code> or\n                    <code>DisableLniAtDeviceIndex</code>.</p>\n            </li>\n         </ul>\n\t    \n\t        <p>For more information about Amazon Web Services Outposts, see the following:</p>\n\t    \n\t        <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-servers-work.html\">Outpost servers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/outposts/latest/userguide/how-racks-work.html\">Outpost racks</a>\n               </p>\n            </li>\n         </ul>"
@@ -55877,13 +56094,16 @@
         "target": "com.amazonaws.ec2#ModifyVolumeResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>You can modify several parameters of an existing EBS volume, including volume size, volume\n      type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance\n      type, you might be able to apply these changes without stopping the instance or detaching the\n      volume from it. For more information about modifying EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> (Linux instances) \n      or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> (Windows instances).</p>\n         <p>When you complete a resize operation on your volume, you need to extend the volume's\n      file-system size to take advantage of the new storage capacity. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\">Extend a Linux file system</a> or \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\">Extend a Windows file system</a>.</p>\n         <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For\n      information about CloudWatch Events, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a\n      modification using <a>DescribeVolumesModifications</a>. For information\n      about tracking status changes using either method, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html\">Monitor the progress of volume modifications</a>.</p>\n         <p>With previous-generation instance types, resizing an EBS volume might require detaching and\n      reattaching the volume or stopping and restarting the instance.</p>\n         <p>If you reach the maximum volume modification rate per volume limit, you must wait\n      at least six hours before applying further modifications to the affected EBS volume.</p>"
+        "smithy.api#documentation": "<p>You can modify several parameters of an existing EBS volume, including volume size, volume\n      type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance\n      type, you might be able to apply these changes without stopping the instance or detaching the\n      volume from it. For more information about modifying EBS volumes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> (Linux instances) \n      or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html\">Amazon EBS Elastic Volumes</a> (Windows instances).</p>\n         <p>When you complete a resize operation on your volume, you need to extend the volume's\n      file-system size to take advantage of the new storage capacity. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux\">Extend a Linux file system</a> or \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows\">Extend a Windows file system</a>.</p>\n         <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For\n      information about CloudWatch Events, see the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/\">Amazon CloudWatch Events User Guide</a>. You can also track the status of a\n      modification using <a>DescribeVolumesModifications</a>. For information\n      about tracking status changes using either method, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html\">Monitor the progress of volume modifications</a>.</p>\n         <p>With previous-generation instance types, resizing an EBS volume might require detaching and\n      reattaching the volume or stopping and restarting the instance.</p>\n         <p>After modifying a volume, you must wait at least six hours and ensure that the volume \n      is in the <code>in-use</code> or <code>available</code> state before you can modify the same \n      volume. This is sometimes referred to as a cooldown period.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVolumeAttribute": {
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ModifyVolumeAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Modifies a volume attribute.</p>\n         <p>By default, all I/O operations for the volume are suspended when the data on the volume is\n      determined to be potentially inconsistent, to prevent undetectable, latent data corruption.\n      The I/O access to the volume can be resumed by first enabling I/O access and then checking the\n      data consistency on your volume.</p>\n         <p>You can change the default behavior to resume I/O operations. We recommend that you change\n      this only for boot volumes or for volumes that are stateless or disposable.</p>"
@@ -55981,6 +56201,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ModifyVpcAttributeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Modifies the specified attribute of the specified VPC.</p>"
       }
@@ -56020,7 +56243,7 @@
         "target": "com.amazonaws.ec2#ModifyVpcEndpointResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify\n            depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see\n            <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html\">VPC\n                Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify\n            depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, \n            see the <a href=\"https://docs.aws.amazon.com/vpc/latest/privatelink/\">Amazon Web Services PrivateLink \n                Guide</a>.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVpcEndpointConnectionNotification": {
@@ -56181,7 +56404,7 @@
         "target": "com.amazonaws.ec2#ModifyVpcEndpointServiceConfigurationResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the attributes of your VPC endpoint service configuration. You can change the\n            Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is\n            required for requests to connect to your endpoint service through an interface VPC\n            endpoint.</p>\n\t        <p>If you set or modify the private DNS name, you must prove that you own the private DNS\n            domain name. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html\">VPC Endpoint Service\n                Private DNS Name Verification</a> in the\n            <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Modifies the attributes of your VPC endpoint service configuration. You can change the\n            Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is\n            required for requests to connect to your endpoint service through an interface VPC\n            endpoint.</p>\n\t        <p>If you set or modify the private DNS name, you must prove that you own the private DNS\n            domain name.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVpcEndpointServiceConfigurationRequest": {
@@ -56320,7 +56543,7 @@
         "target": "com.amazonaws.ec2#ModifyVpcEndpointServicePermissionsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the permissions for your <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html\">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, \n\t        IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>\n\t        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a\n\t        public service can send a request to attach an endpoint. If the service does not require manual approval,\n\t        attachments are automatically approved.</p>"
+        "smithy.api#documentation": "<p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers \n\t        (IAM users, IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>\n\t        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a\n\t        public service can send a request to attach an endpoint. If the service does not require manual approval,\n\t        attachments are automatically approved.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVpcEndpointServicePermissionsRequest": {
@@ -60825,7 +61048,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the private DNS name for the service endpoint. For more information\n            about these parameters, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html\">VPC Endpoint Service\n                Private DNS Name Verification</a> in the\n            <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Information about the private DNS name for the service endpoint.</p>"
       }
     },
     "com.amazonaws.ec2#PrivateDnsNameOptionsOnLaunch": {
@@ -61930,6 +62153,9 @@
       "input": {
         "target": "com.amazonaws.ec2#RebootInstancesRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Requests a reboot of the specified instances. This operation is asynchronous; it only\n            queues a request to reboot the specified instances. The operation succeeds if the\n            instances are valid and belong to you. Requests to reboot terminated instances are\n            ignored.</p>\n        <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a\n            hard reboot.</p>\n        <p>For more information about troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html\">Troubleshoot an unreachable\n                instance</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
@@ -62665,6 +62891,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ReleaseAddressRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Releases the specified Elastic IP address.</p>\n         <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it\n\t\t\t\tfrom any instance that it's associated with. To disassociate an Elastic IP address without\n\t\t\t\treleasing it, use <a>DisassociateAddress</a>.</p>\n         <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address\n\t\t\t  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>\n         <p>After releasing an Elastic IP address, it is released to the IP address pool. \n        Be sure to update your DNS records and any servers or devices that communicate with the address. \n        If you attempt to release an Elastic IP address that you already released, you'll get an\n       <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>\n         <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.\n        For more information, see <a>AllocateAddress</a>.</p>"
       }
@@ -62962,6 +63191,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ReplaceNetworkAclEntryRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Replaces an entry (rule) in a network ACL. For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html\">Network ACLs</a> in the\n\t\t\t\t<i>Amazon Virtual Private Cloud User Guide</i>.</p>"
       }
@@ -63167,6 +63399,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ReplaceRouteRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Replaces an existing route within a route table in a VPC. You must provide only one of\n            the following: internet gateway, virtual private gateway, NAT instance, NAT gateway, VPC\n            peering connection, network interface, egress-only internet gateway, or transit\n            gateway.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\">Route tables</a> in the\n                <i>Amazon Virtual Private Cloud User Guide</i>.</p>"
@@ -63488,6 +63723,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ReportInstanceStatusRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Submits feedback about the status of an instance. The instance must be in the\n                <code>running</code> state. If your experience with the instance differs from the\n            instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon\n            EC2 collects this information to improve the accuracy of status checks.</p>\n        <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>"
@@ -63824,7 +64062,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The information to include in the launch template.</p>"
+        "smithy.api#documentation": "<p>The information to include in the launch template.</p>\n        <note>\n            <p>You must specify at least one parameter for the launch template data.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#RequestSpotFleet": {
@@ -65217,6 +65455,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ResetImageAttributeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Resets an attribute of an AMI to its default value.</p>"
       }
@@ -65267,6 +65508,9 @@
       "input": {
         "target": "com.amazonaws.ec2#ResetInstanceAttributeRequest"
       },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
       "traits": {
         "smithy.api#documentation": "<p>Resets an attribute of an instance to its default value. To reset the\n                <code>kernel</code> or <code>ramdisk</code>, the instance must be in a stopped\n            state. To reset the <code>sourceDestCheck</code>, the instance can be either running or\n            stopped.</p>\n        <p>The <code>sourceDestCheck</code> attribute controls whether source/destination\n            checking is enabled. The default value is <code>true</code>, which means checking is\n            enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For\n            more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\">NAT Instances</a> in the\n                <i>Amazon VPC User Guide</i>.</p>"
       }
@@ -65306,6 +65550,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ResetNetworkInterfaceAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Resets a network interface attribute. You can specify only one attribute at a time.</p>"
@@ -65348,6 +65595,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#ResetSnapshotAttributeRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Resets permission settings for the specified snapshot.</p>\n         <p>For more information about modifying snapshot permissions, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\">Share a snapshot</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
@@ -67232,7 +67482,7 @@
         "UserData": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The user data to make available to the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\">Run commands on\n                your Linux instance at launch</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html\">Run commands on your\n                Windows instance at launch</a>. If you are using a command line tool,\n            base64-encoding is performed for you, and you can load the text from a file. Otherwise,\n            you must provide base64-encoded text. User data is limited to 16 KB.</p>"
+            "smithy.api#documentation": "<p>The user data script to make available to the instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html\">Run commands\n                on your Linux instance at launch</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html\">Run commands on your Windows instance at launch</a>. If you are using a command line tool,\n            base64-encoding is performed for you, and you can load the text from a file. Otherwise,\n            you must provide base64-encoded text. User data is limited to 16 KB.</p>"
           }
         },
         "AdditionalInfo": {
@@ -68929,6 +69179,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#SendDiagnosticInterruptRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a\n                <i>kernel panic</i> (on Linux instances), or a <i>blue\n                screen</i>/<i>stop error</i> (on Windows instances). For\n            instances based on Intel and AMD processors, the interrupt is received as a\n                <i>non-maskable interrupt</i> (NMI).</p>\n\n        <p>In general, the operating system crashes and reboots when a kernel panic or stop error\n            is triggered. The operating system can also be configured to perform diagnostic tasks,\n            such as generating a memory dump file, loading a secondary kernel, or obtaining a call\n            trace.</p>\n\n        <p>Before sending a diagnostic interrupt to your instance, ensure that its operating\n            system is configured to perform the required diagnostic tasks.</p>\n\n        <p>For more information about configuring your operating system to generate a crash dump\n            when a kernel panic or stop error occurs, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html\">Send a diagnostic interrupt\n                (for advanced users)</a> (Linux instances) or <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html\">Send a diagnostic\n                interrupt (for advanced users)</a> (Windows instances).</p>"
@@ -71584,7 +71837,7 @@
         "target": "com.amazonaws.ec2#StartVpcEndpointServicePrivateDnsVerificationResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Initiates the verification process to prove that the service provider owns the private\n            DNS name domain for the endpoint service.</p>\n        <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>\n        <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see  <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record\">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Initiates the verification process to prove that the service provider owns the private\n            DNS name domain for the endpoint service.</p>\n        <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>\n        <p>Before the service provider runs this command, they must add a record to the DNS server.</p>"
       }
     },
     "com.amazonaws.ec2#StartVpcEndpointServicePrivateDnsVerificationRequest": {
@@ -76418,6 +76671,9 @@
       "type": "operation",
       "input": {
         "target": "com.amazonaws.ec2#UnassignPrivateIpAddressesRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
       },
       "traits": {
         "smithy.api#documentation": "<p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>"

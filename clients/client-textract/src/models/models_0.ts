@@ -114,6 +114,7 @@ export namespace Document {
 
 export enum FeatureType {
   FORMS = "FORMS",
+  QUERIES = "QUERIES",
   TABLES = "TABLES",
 }
 
@@ -174,11 +175,79 @@ export namespace HumanLoopConfig {
   });
 }
 
+/**
+ * <p>Each query contains the question you want to ask in the Text and the alias you want to associate.</p>
+ */
+export interface Query {
+  /**
+   * <p>Question that Amazon Textract will apply to the document. An example would be "What is the customer's SSN?"</p>
+   */
+  Text: string | undefined;
+
+  /**
+   * <p>Alias attached to the query, for ease of location.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>List of pages associated with the query. The following is a list of rules for using this parameter.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>The following characters are allowed in the parameter's string:
+   *                <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>When using <code>*</code> to indicate all pages, it must be the only element
+   *                in the string.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can use page intervals, such as <code>[“1-3”, “1-1”, “4-*”]</code>. Where <code>*</code> indicates last page of
+   *                document.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p>
+   *             </li>
+   *          </ul>
+   */
+  Pages?: string[];
+}
+
+export namespace Query {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Query): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface QueriesConfig {
+  /**
+   * <p></p>
+   */
+  Queries: Query[] | undefined;
+}
+
+export namespace QueriesConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueriesConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface AnalyzeDocumentRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
    *          to call Amazon Textract operations, you can't pass image bytes. The document must be an image
-   *          in JPEG or PNG format.</p>
+   *          in JPEG, PNG, PDF, or TIFF format.</p>
    *          <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
    *          image bytes that are passed using the <code>Bytes</code> field. </p>
    */
@@ -197,6 +266,11 @@ export interface AnalyzeDocumentRequest {
    * <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
    */
   HumanLoopConfig?: HumanLoopConfig;
+
+  /**
+   * <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
+   */
+  QueriesConfig?: QueriesConfig;
 }
 
 export namespace AnalyzeDocumentRequest {
@@ -214,6 +288,8 @@ export enum BlockType {
   LINE = "LINE",
   MERGED_CELL = "MERGED_CELL",
   PAGE = "PAGE",
+  QUERY = "QUERY",
+  QUERY_RESULT = "QUERY_RESULT",
   SELECTION_ELEMENT = "SELECTION_ELEMENT",
   TABLE = "TABLE",
   TITLE = "TITLE",
@@ -334,6 +410,7 @@ export namespace Geometry {
 }
 
 export enum RelationshipType {
+  ANSWER = "ANSWER",
   CHILD = "CHILD",
   COMPLEX_FEATURES = "COMPLEX_FEATURES",
   MERGED_CELL = "MERGED_CELL",
@@ -463,6 +540,17 @@ export interface Block {
    *                value of <code>SelectionStatus</code> to determine the status of the selection
    *                element.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>QUERY</i> - A question asked during the call of AnalyzeDocument. Contains an
+   *                alias and an ID that attachs it to its answer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>QUERY_RESULT</i> - A response to a question asked during the call
+   *                of analyze document. Comes with an alias and ID for ease of locating in a
+   *                response. Also contains location and confidence score.</p>
+   *             </li>
    *          </ul>
    */
   BlockType?: BlockType | string;
@@ -574,6 +662,11 @@ export interface Block {
    *          considered to be a single-page document.</p>
    */
   Page?: number;
+
+  /**
+   * <p></p>
+   */
+  Query?: Query;
 }
 
 export namespace Block {
@@ -880,8 +973,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The format of the input document isn't supported. Documents for synchronous operations can be in
- *          PNG or JPEG format only. Documents for asynchronous operations can be in PDF format.</p>
+ * <p>The format of the input document isn't supported. Documents for operations can be in
+ *          PNG, JPEG, PDF, or TIFF format.</p>
  */
 export class UnsupportedDocumentException extends __BaseException {
   readonly name: "UnsupportedDocumentException" = "UnsupportedDocumentException";
@@ -1826,6 +1919,11 @@ export interface StartDocumentAnalysisRequest {
    *          be encrypted server side,using SSE-S3.</p>
    */
   KMSKeyId?: string;
+
+  /**
+   * <p></p>
+   */
+  QueriesConfig?: QueriesConfig;
 }
 
 export namespace StartDocumentAnalysisRequest {

@@ -190,7 +190,7 @@ export namespace CopyStepDetails {
  *         <code>HomeDirectoryMappings</code>.</p>
  *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
  *          <p>
- *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+ *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
  *          </p>
  */
 export interface HomeDirectoryMapEntry {
@@ -286,7 +286,7 @@ export interface CreateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -1105,7 +1105,7 @@ export interface CreateUserRequest {
    *       parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -1376,19 +1376,19 @@ export interface WorkflowStep {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    */
@@ -1457,19 +1457,19 @@ export interface CreateWorkflowRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -1954,19 +1954,19 @@ export interface ExecutionStepResult {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Copy</i>: copy the file to another location</p>
+   *                   <i>COPY</i>: copy the file to another location</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Custom</i>: custom step with a lambda target</p>
+   *                   <i>CUSTOM</i>: custom step with a lambda target</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Delete</i>: delete the file</p>
+   *                   <i>DELETE</i>: delete the file</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Tag</i>: add a tag to the file</p>
+   *                   <i>TAG</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
    */
@@ -3721,7 +3721,7 @@ export interface UpdateAccessRequest {
    *         <code>HomeDirectory</code> parameter value.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
@@ -4064,8 +4064,7 @@ export interface UpdateUserRequest {
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "/directory1", "Target":
-   *         "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
@@ -4075,7 +4074,7 @@ export interface UpdateUserRequest {
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
    *          <p>
-   *             <code>[ { "Entry:": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];

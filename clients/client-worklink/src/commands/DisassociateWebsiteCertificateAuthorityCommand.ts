@@ -28,6 +28,8 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
     __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Removes a certificate authority (CA).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

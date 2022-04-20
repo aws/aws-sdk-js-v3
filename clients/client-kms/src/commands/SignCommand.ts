@@ -21,8 +21,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
 /**
  * <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
  *         signature</a> for a message or message digest by using the private key in an asymmetric
- *       KMS key. To verify the signature, use the <a>Verify</a> operation, or use the
- *       public key in the same asymmetric KMS key outside of KMS. For information about symmetric and asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
+ *       the public key in the same asymmetric KMS key outside of KMS. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>Digital signatures are generated and verified by using asymmetric key pair, such as an RSA
  *       or ECC pair that is represented by an asymmetric KMS key. The key owner (or an authorized
  *       user) uses their private key to sign a message. Anyone with the public key can verify that the
@@ -55,7 +55,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *       operation. Or use the <a>GetPublicKey</a> operation to download the public key and
  *       then use the public key to verify the signature outside of KMS. </p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *         <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>

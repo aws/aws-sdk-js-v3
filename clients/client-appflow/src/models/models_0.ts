@@ -221,6 +221,61 @@ export namespace CustomAuthConfig {
   });
 }
 
+export enum OAuth2CustomPropType {
+  AUTH_URL = "AUTH_URL",
+  TOKEN_URL = "TOKEN_URL",
+}
+
+/**
+ * <p>Custom parameter required for OAuth 2.0 authentication.</p>
+ */
+export interface OAuth2CustomParameter {
+  /**
+   * <p>The key of the custom parameter required for OAuth 2.0 authentication.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>Indicates whether the custom parameter for OAuth 2.0 authentication is required.</p>
+   */
+  isRequired?: boolean;
+
+  /**
+   * <p>The label of the custom parameter used for OAuth 2.0 authentication.</p>
+   */
+  label?: string;
+
+  /**
+   * <p>A description about the custom parameter used for OAuth 2.0 authentication.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates whether this authentication custom parameter is a sensitive field.</p>
+   */
+  isSensitiveField?: boolean;
+
+  /**
+   * <p>Contains default values for this authentication parameter that are supplied by the
+   *       connector.</p>
+   */
+  connectorSuppliedValues?: string[];
+
+  /**
+   * <p>Indicates whether custom parameter is used with TokenUrl or AuthUrl.</p>
+   */
+  type?: OAuth2CustomPropType | string;
+}
+
+export namespace OAuth2CustomParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuth2CustomParameter): any => ({
+    ...obj,
+  });
+}
+
 export enum OAuth2GrantType {
   AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
   CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
@@ -249,6 +304,11 @@ export interface OAuth2Defaults {
    * <p>OAuth 2.0 grant types supported by the connector.</p>
    */
   oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
+
+  /**
+   * <p>List of custom parameters required for OAuth 2.0 authentication.</p>
+   */
+  oauth2CustomProperties?: OAuth2CustomParameter[];
 }
 
 export namespace OAuth2Defaults {
@@ -1903,6 +1963,13 @@ export interface OAuth2Properties {
    * <p>The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.</p>
    */
   oAuth2GrantType: OAuth2GrantType | string | undefined;
+
+  /**
+   * <p>Associates your token URL with a map of properties that you define. Use this parameter
+   *       to provide any additional details that the connector requires to authenticate your
+   *       request.</p>
+   */
+  tokenUrlCustomProperties?: { [key: string]: string };
 }
 
 export namespace OAuth2Properties {

@@ -2881,7 +2881,9 @@ const deserializeAws_json1_1AclConfiguration = (output: any, context: __SerdeCon
 const deserializeAws_json1_1AthenaError = (output: any, context: __SerdeContext): AthenaError => {
   return {
     ErrorCategory: __expectInt32(output.ErrorCategory),
+    ErrorMessage: __expectString(output.ErrorMessage),
     ErrorType: __expectInt32(output.ErrorType),
+    Retryable: __expectBoolean(output.Retryable),
   } as any;
 };
 
