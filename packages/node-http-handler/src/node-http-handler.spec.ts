@@ -1,9 +1,7 @@
 import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Server as HttpServer } from "http";
-import http from "http";
-import { Server as HttpsServer } from "https";
-import https from "https";
+import http, { Server as HttpServer } from "http";
+import https, { Server as HttpsServer } from "https";
 import { AddressInfo } from "net";
 
 import { NodeHttpHandler } from "./node-http-handler";
@@ -16,7 +14,7 @@ import {
 } from "./server.mock";
 
 describe("NodeHttpHandler", () => {
-  describe("constructor", () => {
+  describe("constructor and #handle", () => {
     let hRequestSpy: jest.SpyInstance;
     let hsRequestSpy: jest.SpyInstance;
     const randomMaxSocket = Math.round(Math.random() * 50) + 1;
@@ -38,55 +36,87 @@ describe("NodeHttpHandler", () => {
       hRequestSpy.mockRestore();
       hsRequestSpy.mockRestore();
     });
+    describe("constructor", () => {
+      it.each([
+        ["empty", undefined],
+        ["a provider", async () => {}],
+      ])("sets keepAlive=true by default when input is %s", async (_, option) => {
+        const nodeHttpHandler = new NodeHttpHandler(option);
+        await nodeHttpHandler.handle({} as any);
+        expect(hRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(true);
+      });
 
-    it.each([
-      ["empty", undefined],
-      ["a provider", async () => {}],
-    ])("sets keepAlive=true by default when input is %s", async (_, option) => {
-      const nodeHttpHandler = new NodeHttpHandler(option);
-      await nodeHttpHandler.handle({} as any);
-      expect(hRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(true);
+      it.each([
+        ["empty", undefined],
+        ["a provider", async () => {}],
+      ])("sets maxSockets=50 by default when input is %s", async (_, option) => {
+        const nodeHttpHandler = new NodeHttpHandler(option);
+        await nodeHttpHandler.handle({} as any);
+        expect(hRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(50);
+      });
+
+      it.each([
+        ["an options hash", { httpAgent: new http.Agent({ keepAlive: false, maxSockets: randomMaxSocket }) }],
+        [
+          "a provider",
+          async () => ({
+            httpAgent: new http.Agent({ keepAlive: false, maxSockets: randomMaxSocket }),
+          }),
+        ],
+      ])("sets httpAgent when input is %s", async (_, option) => {
+        const nodeHttpHandler = new NodeHttpHandler(option);
+        await nodeHttpHandler.handle({ protocol: "http:", headers: {}, method: "GET", hostname: "localhost" } as any);
+        expect(hRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(false);
+        expect(hRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(randomMaxSocket);
+      });
+
+      it.each([
+        ["an option hash", { httpsAgent: new https.Agent({ keepAlive: true, maxSockets: randomMaxSocket }) }],
+        [
+          "a provider",
+          async () => ({
+            httpsAgent: new https.Agent({ keepAlive: true, maxSockets: randomMaxSocket }),
+          }),
+        ],
+      ])("sets httpsAgent when input is %s", async (_, option) => {
+        const nodeHttpHandler = new NodeHttpHandler(option);
+        await nodeHttpHandler.handle({ protocol: "https:" } as any);
+        expect(hsRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(true);
+        expect(hsRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(randomMaxSocket);
+      });
     });
 
-    it.each([
-      ["empty", undefined],
-      ["a provider", async () => {}],
-    ])("sets maxSockets=50 by default when input is %s", async (_, option) => {
-      const nodeHttpHandler = new NodeHttpHandler(option);
-      await nodeHttpHandler.handle({} as any);
-      expect(hRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(50);
-    });
+    describe("#handle", () => {
+      it("should only generate a single config when the config provider is async and it is not ready yet", async () => {
+        let providerInvokedCount = 0;
+        let providerResolvedCount = 0;
+        const slowConfigProvider = async () => {
+          providerInvokedCount += 1;
+          await new Promise((r) => setTimeout(r, 15));
+          providerResolvedCount += 1;
+          return {
+            connectionTimeout: 12345,
+            socketTimeout: 12345,
+            httpAgent: null,
+            httpsAgent: null,
+          };
+        };
 
-    it.each([
-      ["an options hash", { httpAgent: new http.Agent({ keepAlive: false, maxSockets: randomMaxSocket }) }],
-      [
-        "a provider",
-        async () => ({
-          httpAgent: new http.Agent({ keepAlive: false, maxSockets: randomMaxSocket }),
-        }),
-      ],
-    ])("sets httpAgent when input is %s", async (_, option) => {
-      const nodeHttpHandler = new NodeHttpHandler(option);
-      await nodeHttpHandler.handle({ protocol: "http:", headers: {}, method: "GET", hostname: "localhost" } as any);
-      expect(hRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(false);
-      expect(hRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(randomMaxSocket);
-    });
+        const nodeHttpHandler = new NodeHttpHandler(slowConfigProvider);
 
-    it.each([
-      ["an option hash", { httpsAgent: new https.Agent({ keepAlive: true, maxSockets: randomMaxSocket }) }],
-      [
-        "a provider",
-        async () => ({
-          httpsAgent: new https.Agent({ keepAlive: true, maxSockets: randomMaxSocket }),
-        }),
-      ],
-    ])("sets httpsAgent when input is %s", async (_, option) => {
-      const nodeHttpHandler = new NodeHttpHandler(option);
-      await nodeHttpHandler.handle({ protocol: "https:" } as any);
-      expect(hsRequestSpy.mock.calls[0][0]?.agent.keepAlive).toEqual(true);
-      expect(hsRequestSpy.mock.calls[0][0]?.agent.maxSockets).toEqual(randomMaxSocket);
+        const promises = Promise.all(
+          Array.from({ length: 20 }).map(() => nodeHttpHandler.handle({} as unknown as HttpRequest))
+        );
+
+        expect(providerInvokedCount).toBe(1);
+        expect(providerResolvedCount).toBe(0);
+        await promises;
+        expect(providerInvokedCount).toBe(1);
+        expect(providerResolvedCount).toBe(1);
+      });
     });
   });
+
   describe("http", () => {
     const mockHttpServer: HttpServer = createMockHttpServer().listen(54321);
 
