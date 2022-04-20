@@ -12,41 +12,41 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_1";
+import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_1";
 import {
-  deserializeAws_restJson1SearchVocabulariesCommand,
-  serializeAws_restJson1SearchVocabulariesCommand,
+  deserializeAws_restJson1UpdatePhoneNumberCommand,
+  serializeAws_restJson1UpdatePhoneNumberCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface SearchVocabulariesCommandInput extends SearchVocabulariesRequest {}
-export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
+export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
+export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+ * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchVocabulariesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchVocabulariesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, UpdatePhoneNumberCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdatePhoneNumberCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new SearchVocabulariesCommand(input);
+ * const command = new UpdatePhoneNumberCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link SearchVocabulariesCommandInput} for command's `input` shape.
- * @see {@link SearchVocabulariesCommandOutput} for command's `response` shape.
+ * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class SearchVocabulariesCommand extends $Command<
-  SearchVocabulariesCommandInput,
-  SearchVocabulariesCommandOutput,
+export class UpdatePhoneNumberCommand extends $Command<
+  UpdatePhoneNumberCommandInput,
+  UpdatePhoneNumberCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: SearchVocabulariesCommandInput) {
+  constructor(readonly input: UpdatePhoneNumberCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -59,20 +59,20 @@ export class SearchVocabulariesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput> {
+  ): Handler<UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "SearchVocabulariesCommand";
+    const commandName = "UpdatePhoneNumberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchVocabulariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchVocabulariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePhoneNumberRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePhoneNumberResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +82,12 @@ export class SearchVocabulariesCommand extends $Command<
     );
   }
 
-  private serialize(input: SearchVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchVocabulariesCommand(input, context);
+  private serialize(input: UpdatePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdatePhoneNumberCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchVocabulariesCommandOutput> {
-    return deserializeAws_restJson1SearchVocabulariesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePhoneNumberCommandOutput> {
+    return deserializeAws_restJson1UpdatePhoneNumberCommand(output, context);
   }
 
   // Start section: command_body_extra

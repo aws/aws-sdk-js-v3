@@ -12,41 +12,41 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_1";
+import { AssociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import {
-  deserializeAws_restJson1SearchVocabulariesCommand,
-  serializeAws_restJson1SearchVocabulariesCommand,
+  deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
+  serializeAws_restJson1AssociatePhoneNumberContactFlowCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface SearchVocabulariesCommandInput extends SearchVocabulariesRequest {}
-export interface SearchVocabulariesCommandOutput extends SearchVocabulariesResponse, __MetadataBearer {}
+export interface AssociatePhoneNumberContactFlowCommandInput extends AssociatePhoneNumberContactFlowRequest {}
+export interface AssociatePhoneNumberContactFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+ * <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchVocabulariesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchVocabulariesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, AssociatePhoneNumberContactFlowCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, AssociatePhoneNumberContactFlowCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new SearchVocabulariesCommand(input);
+ * const command = new AssociatePhoneNumberContactFlowCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link SearchVocabulariesCommandInput} for command's `input` shape.
- * @see {@link SearchVocabulariesCommandOutput} for command's `response` shape.
+ * @see {@link AssociatePhoneNumberContactFlowCommandInput} for command's `input` shape.
+ * @see {@link AssociatePhoneNumberContactFlowCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class SearchVocabulariesCommand extends $Command<
-  SearchVocabulariesCommandInput,
-  SearchVocabulariesCommandOutput,
+export class AssociatePhoneNumberContactFlowCommand extends $Command<
+  AssociatePhoneNumberContactFlowCommandInput,
+  AssociatePhoneNumberContactFlowCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: SearchVocabulariesCommandInput) {
+  constructor(readonly input: AssociatePhoneNumberContactFlowCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -59,20 +59,20 @@ export class SearchVocabulariesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput> {
+  ): Handler<AssociatePhoneNumberContactFlowCommandInput, AssociatePhoneNumberContactFlowCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "SearchVocabulariesCommand";
+    const commandName = "AssociatePhoneNumberContactFlowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchVocabulariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchVocabulariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePhoneNumberContactFlowRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +82,18 @@ export class SearchVocabulariesCommand extends $Command<
     );
   }
 
-  private serialize(input: SearchVocabulariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1SearchVocabulariesCommand(input, context);
+  private serialize(
+    input: AssociatePhoneNumberContactFlowCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1AssociatePhoneNumberContactFlowCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchVocabulariesCommandOutput> {
-    return deserializeAws_restJson1SearchVocabulariesCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<AssociatePhoneNumberContactFlowCommandOutput> {
+    return deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand(output, context);
   }
 
   // Start section: command_body_extra

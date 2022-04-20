@@ -31,6 +31,11 @@ import {
   AssociateLexBotCommandOutput,
 } from "./commands/AssociateLexBotCommand";
 import {
+  AssociatePhoneNumberContactFlowCommand,
+  AssociatePhoneNumberContactFlowCommandInput,
+  AssociatePhoneNumberContactFlowCommandOutput,
+} from "./commands/AssociatePhoneNumberContactFlowCommand";
+import {
   AssociateQueueQuickConnectsCommand,
   AssociateQueueQuickConnectsCommandInput,
   AssociateQueueQuickConnectsCommandOutput,
@@ -45,6 +50,11 @@ import {
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
+import {
+  ClaimPhoneNumberCommand,
+  ClaimPhoneNumberCommandInput,
+  ClaimPhoneNumberCommandOutput,
+} from "./commands/ClaimPhoneNumberCommand";
 import {
   CreateAgentStatusCommand,
   CreateAgentStatusCommandInput,
@@ -199,6 +209,11 @@ import {
   DescribeInstanceStorageConfigCommandOutput,
 } from "./commands/DescribeInstanceStorageConfigCommand";
 import {
+  DescribePhoneNumberCommand,
+  DescribePhoneNumberCommandInput,
+  DescribePhoneNumberCommandOutput,
+} from "./commands/DescribePhoneNumberCommand";
+import {
   DescribeQueueCommand,
   DescribeQueueCommandInput,
   DescribeQueueCommandOutput,
@@ -263,6 +278,11 @@ import {
   DisassociateLexBotCommandInput,
   DisassociateLexBotCommandOutput,
 } from "./commands/DisassociateLexBotCommand";
+import {
+  DisassociatePhoneNumberContactFlowCommand,
+  DisassociatePhoneNumberContactFlowCommandInput,
+  DisassociatePhoneNumberContactFlowCommandOutput,
+} from "./commands/DisassociatePhoneNumberContactFlowCommand";
 import {
   DisassociateQueueQuickConnectsCommand,
   DisassociateQueueQuickConnectsCommandInput,
@@ -365,6 +385,11 @@ import {
   ListPhoneNumbersCommandInput,
   ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
+import {
+  ListPhoneNumbersV2Command,
+  ListPhoneNumbersV2CommandInput,
+  ListPhoneNumbersV2CommandOutput,
+} from "./commands/ListPhoneNumbersV2Command";
 import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommand,
@@ -419,10 +444,20 @@ import {
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
+  ReleasePhoneNumberCommand,
+  ReleasePhoneNumberCommandInput,
+  ReleasePhoneNumberCommandOutput,
+} from "./commands/ReleasePhoneNumberCommand";
+import {
   ResumeContactRecordingCommand,
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
+import {
+  SearchAvailablePhoneNumbersCommand,
+  SearchAvailablePhoneNumbersCommandInput,
+  SearchAvailablePhoneNumbersCommandOutput,
+} from "./commands/SearchAvailablePhoneNumbersCommand";
 import {
   SearchVocabulariesCommand,
   SearchVocabulariesCommandInput,
@@ -535,6 +570,11 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdatePhoneNumberCommand,
+  UpdatePhoneNumberCommandInput,
+  UpdatePhoneNumberCommandOutput,
+} from "./commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommand,
   UpdateQueueHoursOfOperationCommandInput,
@@ -848,6 +888,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Associates a contact flow with a phone number claimed to your Amazon Connect instance.</p>
+   */
+  public associatePhoneNumberContactFlow(
+    args: AssociatePhoneNumberContactFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePhoneNumberContactFlowCommandOutput>;
+  public associatePhoneNumberContactFlow(
+    args: AssociatePhoneNumberContactFlowCommandInput,
+    cb: (err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void
+  ): void;
+  public associatePhoneNumberContactFlow(
+    args: AssociatePhoneNumberContactFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void
+  ): void;
+  public associatePhoneNumberContactFlow(
+    args: AssociatePhoneNumberContactFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void),
+    cb?: (err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void
+  ): Promise<AssociatePhoneNumberContactFlowCommandOutput> | void {
+    const command = new AssociatePhoneNumberContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Associates a set of quick connects with a queue.</p>
    */
@@ -935,6 +1007,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: AssociateSecurityKeyCommandOutput) => void
   ): Promise<AssociateSecurityKeyCommandOutput> | void {
     const command = new AssociateSecurityKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Claims an available phone number to your Amazon Connect instance.</p>
+   */
+  public claimPhoneNumber(
+    args: ClaimPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ClaimPhoneNumberCommandOutput>;
+  public claimPhoneNumber(
+    args: ClaimPhoneNumberCommandInput,
+    cb: (err: any, data?: ClaimPhoneNumberCommandOutput) => void
+  ): void;
+  public claimPhoneNumber(
+    args: ClaimPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ClaimPhoneNumberCommandOutput) => void
+  ): void;
+  public claimPhoneNumber(
+    args: ClaimPhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClaimPhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: ClaimPhoneNumberCommandOutput) => void
+  ): Promise<ClaimPhoneNumberCommandOutput> | void {
+    const command = new ClaimPhoneNumberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2028,6 +2132,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Gets details and status of a phone number that’s claimed to your Amazon Connect instance</p>
+   */
+  public describePhoneNumber(
+    args: DescribePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePhoneNumberCommandOutput>;
+  public describePhoneNumber(
+    args: DescribePhoneNumberCommandInput,
+    cb: (err: any, data?: DescribePhoneNumberCommandOutput) => void
+  ): void;
+  public describePhoneNumber(
+    args: DescribePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePhoneNumberCommandOutput) => void
+  ): void;
+  public describePhoneNumber(
+    args: DescribePhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: DescribePhoneNumberCommandOutput) => void
+  ): Promise<DescribePhoneNumberCommandOutput> | void {
+    const command = new DescribePhoneNumberCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Describes the specified queue.</p>
    */
@@ -2442,6 +2578,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DisassociateLexBotCommandOutput) => void
   ): Promise<DisassociateLexBotCommandOutput> | void {
     const command = new DisassociateLexBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the contact flow association from a phone number claimed to your Amazon Connect instance, if a contact flow association exists.</p>
+   */
+  public disassociatePhoneNumberContactFlow(
+    args: DisassociatePhoneNumberContactFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePhoneNumberContactFlowCommandOutput>;
+  public disassociatePhoneNumberContactFlow(
+    args: DisassociatePhoneNumberContactFlowCommandInput,
+    cb: (err: any, data?: DisassociatePhoneNumberContactFlowCommandOutput) => void
+  ): void;
+  public disassociatePhoneNumberContactFlow(
+    args: DisassociatePhoneNumberContactFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePhoneNumberContactFlowCommandOutput) => void
+  ): void;
+  public disassociatePhoneNumberContactFlow(
+    args: DisassociatePhoneNumberContactFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociatePhoneNumberContactFlowCommandOutput) => void),
+    cb?: (err: any, data?: DisassociatePhoneNumberContactFlowCommandOutput) => void
+  ): Promise<DisassociatePhoneNumberContactFlowCommandOutput> | void {
+    const command = new DisassociatePhoneNumberContactFlowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3186,6 +3354,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Lists phone numbers claimed to your Amazon Connect instance. </p>
+   *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
+   *    Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   */
+  public listPhoneNumbersV2(
+    args: ListPhoneNumbersV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPhoneNumbersV2CommandOutput>;
+  public listPhoneNumbersV2(
+    args: ListPhoneNumbersV2CommandInput,
+    cb: (err: any, data?: ListPhoneNumbersV2CommandOutput) => void
+  ): void;
+  public listPhoneNumbersV2(
+    args: ListPhoneNumbersV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPhoneNumbersV2CommandOutput) => void
+  ): void;
+  public listPhoneNumbersV2(
+    args: ListPhoneNumbersV2CommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPhoneNumbersV2CommandOutput) => void),
+    cb?: (err: any, data?: ListPhoneNumbersV2CommandOutput) => void
+  ): Promise<ListPhoneNumbersV2CommandOutput> | void {
+    const command = new ListPhoneNumbersV2Command(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
    */
   public listPrompts(args: ListPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListPromptsCommandOutput>;
@@ -3601,6 +3803,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Releases a phone number previously claimed to an Amazon Connect instance.</p>
+   */
+  public releasePhoneNumber(
+    args: ReleasePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReleasePhoneNumberCommandOutput>;
+  public releasePhoneNumber(
+    args: ReleasePhoneNumberCommandInput,
+    cb: (err: any, data?: ReleasePhoneNumberCommandOutput) => void
+  ): void;
+  public releasePhoneNumber(
+    args: ReleasePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReleasePhoneNumberCommandOutput) => void
+  ): void;
+  public releasePhoneNumber(
+    args: ReleasePhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReleasePhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: ReleasePhoneNumberCommandOutput) => void
+  ): Promise<ReleasePhoneNumberCommandOutput> | void {
+    const command = new ReleasePhoneNumberCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>When a contact is being recorded, and the recording has been suspended using
    *    SuspendContactRecording, this API resumes recording the call.</p>
    *
@@ -3625,6 +3859,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ResumeContactRecordingCommandOutput) => void
   ): Promise<ResumeContactRecordingCommandOutput> | void {
     const command = new ResumeContactRecordingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Searches for available phone numbers that you can claim to your Amazon Connect instance.</p>
+   */
+  public searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
+  public searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+  public searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+  public searchAvailablePhoneNumbers(
+    args: SearchAvailablePhoneNumbersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void),
+    cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
+  ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
+    const command = new SearchAvailablePhoneNumbersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4037,7 +4303,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Adds the specified tags to the specified resource.</p>
    *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
-   *    flows, agent status, and hours of operation.</p>
+   *    flows, agent status, hours of operation, and phone number.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -4503,6 +4769,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
   ): Promise<UpdateInstanceStorageConfigCommandOutput> | void {
     const command = new UpdateInstanceStorageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates your claimed phone number from its current Amazon Connect instance to another Amazon Connect instance in the same Region.</p>
+   */
+  public updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePhoneNumberCommandOutput>;
+  public updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): void;
+  public updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): void;
+  public updatePhoneNumber(
+    args: UpdatePhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
+  ): Promise<UpdatePhoneNumberCommandOutput> | void {
+    const command = new UpdatePhoneNumberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
