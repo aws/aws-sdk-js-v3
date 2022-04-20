@@ -6937,6 +6937,7 @@ const deserializeAws_restJson1ClassificationDetails = (output: any, context: __S
     detailedResultsLocation: __expectString(output.detailedResultsLocation),
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
+    originType: __expectString(output.originType),
     result:
       output.result !== undefined && output.result !== null
         ? deserializeAws_restJson1ClassificationResult(output.result, context)
