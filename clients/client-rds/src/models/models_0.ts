@@ -3436,6 +3436,36 @@ export namespace ScalingConfiguration {
 }
 
 /**
+ * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+ *             <i>Amazon Aurora User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfiguration {
+  /**
+   * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
+   *             that you can use is 0.5.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
+   *             that you can use is 128.</p>
+   */
+  MaxCapacity?: number;
+}
+
+export namespace ServerlessV2ScalingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface CreateDBClusterMessage {
@@ -4063,6 +4093,13 @@ export interface CreateDBClusterMessage {
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace CreateDBClusterMessage {
@@ -4342,6 +4379,36 @@ export namespace ScalingConfigurationInfo {
    * @internal
    */
   export const filterSensitiveLog = (obj: ScalingConfigurationInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Shows the scaling configuration for an Aurora Serverless v2 DB cluster.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+ *             <i>Amazon Aurora User Guide</i>.</p>
+ */
+export interface ServerlessV2ScalingConfigurationInfo {
+  /**
+   * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
+   *             that you can use is 0.5.</p>
+   */
+  MinCapacity?: number;
+
+  /**
+   * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
+   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
+   *             that you can use is 128.</p>
+   */
+  MaxCapacity?: number;
+}
+
+export namespace ServerlessV2ScalingConfigurationInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfigurationInfo): any => ({
     ...obj,
   });
 }
@@ -4765,6 +4832,13 @@ export interface DBCluster {
    *         <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Shows the scaling configuration for an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
 }
 
 export namespace DBCluster {
@@ -13349,53 +13423,6 @@ export namespace DBSnapshotAttributesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DBSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDBSnapshotAttributesResult {
-  /**
-   * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
-   *     API action.</p>
-   *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
-   *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
-   *       API action.</p>
-   */
-  DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
-}
-
-export namespace DescribeDBSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
- */
-export interface DBSnapshotMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>DBSnapshot</code> instances.</p>
-   */
-  DBSnapshots?: DBSnapshot[];
-}
-
-export namespace DBSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotMessage): any => ({
     ...obj,
   });
 }

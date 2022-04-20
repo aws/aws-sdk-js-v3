@@ -8,6 +8,7 @@ import {
   getValueFromTextNode as __getValueFromTextNode,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
@@ -595,7 +596,6 @@ import {
   DBSnapshotAlreadyExistsFault,
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
-  DBSnapshotMessage,
   DBSnapshotNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
@@ -659,7 +659,6 @@ import {
   DescribeDBProxyTargetsResponse,
   DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
-  DescribeDBSnapshotAttributesResult,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -719,6 +718,8 @@ import {
   RestoreWindow,
   ScalingConfiguration,
   ScalingConfigurationInfo,
+  ServerlessV2ScalingConfiguration,
+  ServerlessV2ScalingConfigurationInfo,
   SnapshotQuotaExceededFault,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
@@ -749,8 +750,10 @@ import {
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
   DBProxyTargetAlreadyRegisteredFault,
+  DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
@@ -12187,6 +12190,16 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
     entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -14401,6 +14414,16 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.PerformanceInsightsRetentionPeriod !== undefined && input.PerformanceInsightsRetentionPeriod !== null) {
     entries["PerformanceInsightsRetentionPeriod"] = input.PerformanceInsightsRetentionPeriod;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -15385,6 +15408,16 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   if (input.DomainIAMRoleName !== undefined && input.DomainIAMRoleName !== null) {
     entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -15491,6 +15524,16 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   if (input.PubliclyAccessible !== undefined && input.PubliclyAccessible !== null) {
     entries["PubliclyAccessible"] = input.PubliclyAccessible;
   }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -15589,6 +15632,16 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   }
   if (input.Iops !== undefined && input.Iops !== null) {
     entries["Iops"] = input.Iops;
+  }
+  if (input.ServerlessV2ScalingConfiguration !== undefined && input.ServerlessV2ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryServerlessV2ScalingConfiguration(
+      input.ServerlessV2ScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServerlessV2ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -16044,6 +16097,20 @@ const serializeAws_queryScalingConfiguration = (input: ScalingConfiguration, con
   }
   if (input.SecondsBeforeTimeout !== undefined && input.SecondsBeforeTimeout !== null) {
     entries["SecondsBeforeTimeout"] = input.SecondsBeforeTimeout;
+  }
+  return entries;
+};
+
+const serializeAws_queryServerlessV2ScalingConfiguration = (
+  input: ServerlessV2ScalingConfiguration,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MinCapacity !== undefined && input.MinCapacity !== null) {
+    entries["MinCapacity"] = __serializeFloat(input.MinCapacity);
+  }
+  if (input.MaxCapacity !== undefined && input.MaxCapacity !== null) {
+    entries["MaxCapacity"] = __serializeFloat(input.MaxCapacity);
   }
   return entries;
 };
@@ -17043,6 +17110,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsEnabled: undefined,
     PerformanceInsightsKMSKeyId: undefined,
     PerformanceInsightsRetentionPeriod: undefined,
+    ServerlessV2ScalingConfiguration: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -17321,6 +17389,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.PerformanceInsightsRetentionPeriod = __strictParseInt32(
       output["PerformanceInsightsRetentionPeriod"]
     ) as number;
+  }
+  if (output["ServerlessV2ScalingConfiguration"] !== undefined) {
+    contents.ServerlessV2ScalingConfiguration = deserializeAws_queryServerlessV2ScalingConfigurationInfo(
+      output["ServerlessV2ScalingConfiguration"],
+      context
+    );
   }
   return contents;
 };
@@ -23571,6 +23645,23 @@ const deserializeAws_queryScalingConfigurationInfo = (
   }
   if (output["SecondsBeforeTimeout"] !== undefined) {
     contents.SecondsBeforeTimeout = __strictParseInt32(output["SecondsBeforeTimeout"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_queryServerlessV2ScalingConfigurationInfo = (
+  output: any,
+  context: __SerdeContext
+): ServerlessV2ScalingConfigurationInfo => {
+  const contents: any = {
+    MinCapacity: undefined,
+    MaxCapacity: undefined,
+  };
+  if (output["MinCapacity"] !== undefined) {
+    contents.MinCapacity = __strictParseFloat(output["MinCapacity"]) as number;
+  }
+  if (output["MaxCapacity"] !== undefined) {
+    contents.MaxCapacity = __strictParseFloat(output["MaxCapacity"]) as number;
   }
   return contents;
 };
