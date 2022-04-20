@@ -386,7 +386,7 @@ export interface DescribeJobsRequest {
   /**
    * <p>Request to describe Job log filters.</p>
    */
-  filters: DescribeJobsRequestFilters | undefined;
+  filters?: DescribeJobsRequestFilters;
 
   /**
    * <p>Request to describe job log items by max results.</p>
@@ -848,7 +848,7 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   /**
    * <p>Request to describe Replication Configuration template by template IDs.</p>
    */
-  replicationConfigurationTemplateIDs: string[] | undefined;
+  replicationConfigurationTemplateIDs?: string[];
 
   /**
    * <p>Request to describe Replication Configuration template by max results.</p>
@@ -1841,7 +1841,7 @@ export interface DescribeSourceServersRequest {
   /**
    * <p>Request to filter Source Servers list.</p>
    */
-  filters: DescribeSourceServersRequestFilters | undefined;
+  filters?: DescribeSourceServersRequestFilters;
 
   /**
    * <p>Request to filter Source Servers list by maximum results.</p>
@@ -2275,6 +2275,11 @@ export class ServiceQuotaExceededException extends __BaseException {
   quotaCode?: string;
 
   /**
+   * <p>Exceeded the service quota value.</p>
+   */
+  quotaValue?: number;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
@@ -2289,6 +2294,7 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
+    this.quotaValue = opts.quotaValue;
   }
 }
 
