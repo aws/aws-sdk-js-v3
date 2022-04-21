@@ -1006,6 +1006,9 @@ export namespace GetWorkspaceResponse {
 
 /**
  * <p>An object that filters items in a list of component types.</p>
+ *          <note>
+ *             <p>Only one object is accepted as a valid input.</p>
+ *          </note>
  */
 export type ListComponentTypesFilter =
   | ListComponentTypesFilter.ExtendsFromMember
@@ -1263,6 +1266,9 @@ export interface ListEntitiesRequest {
 
   /**
    * <p>A list of objects that filter the request.</p>
+   *          <note>
+   *             <p>Only one object is accepted as a valid input.</p>
+   *          </note>
    */
   filters?: ListEntitiesFilter[];
 
@@ -1979,7 +1985,49 @@ export interface PropertyValue {
   value: DataValue | undefined;
 
   /**
-   * Timestamp represented in ISO 8601 format
+   * <p>ISO8601 DateTime of a value for a time series property.</p>
+   *          <p>The time for when the property value was recorded in ISO 8601 format: <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>[YYYY]</i>: year</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[MM]</i>: month</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[DD]</i>: day</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[hh]</i>: hour</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[mm]</i>: minute</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[ss]</i>: seconds</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>[.SSSSSSSSS]</i>: additional precision, where precedence is maintained. For
+   *                example: [.573123] is equal to 573123000 nanoseconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Z</i>: default timezone UTC</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>± HH:mm</i>: time zone offset in Hours and Minutes.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <i>Required sub-fields</i>: YYYY-MM-DDThh:mm:ss and [Z/±HH:mm]</p>
    */
   time?: string;
 }
@@ -2098,12 +2146,14 @@ export interface GetPropertyValueHistoryRequest {
   orderByTime?: OrderByTime | string;
 
   /**
-   * Timestamp represented in ISO 8601 format
+   * <p>The ISO8601 DateTime of the earliest property value to return.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   startTime?: string;
 
   /**
-   * Timestamp represented in ISO 8601 format
+   * <p>The ISO8601 DateTime of the latest property value to return.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   endTime?: string;
 }
@@ -2135,7 +2185,7 @@ export namespace GetPropertyValueResponse {
 }
 
 /**
- * <p>An object that specifies information about time series property values.</p>
+ * <p>An object that specifies information about time series property values. This object is used  and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
  */
 export interface PropertyValueEntry {
   /**
