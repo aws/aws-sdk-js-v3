@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+
+### Features
+
+* **client-wisdom:** This release updates the GetRecommendations API to include a trigger event list for classifying and grouping recommendations. ([6f1e5c3](https://github.com/aws/aws-sdk-js-v3/commit/6f1e5c3419678763f13a68bc71ec722a399ae2d9))
+
+
+
+
+
 # [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
 
 **Note:** Version bump only for package @aws-sdk/client-wisdom

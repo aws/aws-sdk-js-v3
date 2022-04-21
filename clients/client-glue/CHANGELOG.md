@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+
+### Features
+
+* **client-glue:** This release adds APIs to create, read, delete, list, and batch read of Glue custom entity types ([546dab6](https://github.com/aws/aws-sdk-js-v3/commit/546dab6995d14c3fbdc960a0131aab435dbe4188))
+
+
+
+
+
 # [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

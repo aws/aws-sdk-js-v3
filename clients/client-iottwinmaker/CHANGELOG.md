@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+
+### Features
+
+* **client-iottwinmaker:** General availability (GA) for AWS IoT TwinMaker. For more information, see https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/Welcome.html ([1103688](https://github.com/aws/aws-sdk-js-v3/commit/110368884c53331c9a15d6af9b57697aa282fe84))
+
+
+
+
+
 # [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
 
 **Note:** Version bump only for package @aws-sdk/client-iottwinmaker

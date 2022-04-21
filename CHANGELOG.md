@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+
+### Features
+
+* **client-glue:** This release adds APIs to create, read, delete, list, and batch read of Glue custom entity types ([546dab6](https://github.com/aws/aws-sdk-js-v3/commit/546dab6995d14c3fbdc960a0131aab435dbe4188))
+* **client-iotsitewise:** This release adds 3 new batch data query APIs : BatchGetAssetPropertyValue, BatchGetAssetPropertyValueHistory and BatchGetAssetPropertyAggregates ([f07f481](https://github.com/aws/aws-sdk-js-v3/commit/f07f48100a30d0450eab0b08e7a87f7e58f34e52))
+* **client-iottwinmaker:** General availability (GA) for AWS IoT TwinMaker. For more information, see https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/Welcome.html ([1103688](https://github.com/aws/aws-sdk-js-v3/commit/110368884c53331c9a15d6af9b57697aa282fe84))
+* **client-lookoutmetrics:** Added DetectMetricSetConfig API for detecting configuration required for creating metric set from provided S3 data source. ([902a074](https://github.com/aws/aws-sdk-js-v3/commit/902a074ea9ae938eaa06b0dc157f78741e2cb82a))
+* **client-mediatailor:** This release introduces tiered channels and adds support for live sources. Customers using a STANDARD channel can now create programs using live sources. ([75fac5e](https://github.com/aws/aws-sdk-js-v3/commit/75fac5e8a6789fd78f26f97e336b1a3df340ed33))
+* **client-storage-gateway:** This release adds support for minimum of 5 character length virtual tape barcodes. ([808b04f](https://github.com/aws/aws-sdk-js-v3/commit/808b04f70c60206a97b6bfbebda208181fd0a85b))
+* **client-wisdom:** This release updates the GetRecommendations API to include a trigger event list for classifying and grouping recommendations. ([6f1e5c3](https://github.com/aws/aws-sdk-js-v3/commit/6f1e5c3419678763f13a68bc71ec722a399ae2d9))
+
+
+
+
+
 # [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
 
 
