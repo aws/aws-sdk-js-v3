@@ -1,5 +1,5 @@
 import { AbortController } from "@aws-sdk/abort-controller";
-import { HttpRequest } from "@aws-sdk/protocol-http";
+import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
 import http2, { ClientHttp2Session, ClientHttp2Stream, constants, Http2Stream } from "http2";
 import { Duplex } from "stream";
@@ -61,6 +61,25 @@ describe(NodeHttp2Handler.name, () => {
       nodeH2Handler = new NodeHttp2Handler();
     });
 
+    const closeConnection = async (response: HttpResponse) => {
+      const responseBody = response.body as ClientHttp2Stream;
+      const closePromise = new Promise((resolve) => responseBody.once("close", resolve));
+      responseBody.destroy();
+      await closePromise;
+    };
+
+    // Keeping node alive while request is open.
+    const expectSessionCreatedAndReferred = (session: ClientHttp2Session, requestCount = 1) => {
+      expect(session.ref).toHaveBeenCalledTimes(requestCount);
+      expect(session.unref).toHaveBeenCalledTimes(1);
+    };
+
+    // No longer keeping node alive
+    const expectSessionCreatedAndUnreffed = (session: ClientHttp2Session, requestCount = 1) => {
+      expect(session.ref).toHaveBeenCalledTimes(requestCount);
+      expect(session.unref).toHaveBeenCalledTimes(requestCount + 1);
+    };
+
     afterEach(() => {
       nodeH2Handler.destroy();
     });
@@ -76,69 +95,49 @@ describe(NodeHttp2Handler.name, () => {
 
       it("is one when request is made", async () => {
         // Make single request.
-        const response = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        const responseBody = response.response.body as ClientHttp2Stream;
+        const { response } = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         const authority = `${protocol}//${hostname}:${port}`;
         expect(connectSpy).toHaveBeenCalledTimes(1);
         expect(connectSpy).toHaveBeenCalledWith(authority);
 
-        // Keeping node alive while request is open.
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(1);
-
-        const closed = new Promise<void>((resolve) => responseBody.once("close", resolve));
-        (response.response.body as ClientHttp2Stream).destroy();
-        await closed;
-
-        // No longer keeping node alive
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(2);
+        expectSessionCreatedAndReferred(createdSessions[0]);
+        await closeConnection(response);
+        expectSessionCreatedAndUnreffed(createdSessions[0]);
       });
 
       it("is one if multiple requests are made on same URL", async () => {
         const connectSpy = jest.spyOn(http2, "connect");
 
         // Make two requests.
-        const response1 = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        const response1Body = response1.response.body as ClientHttp2Stream;
-        const response2 = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        const response2Body = response2.response.body as ClientHttp2Stream;
+        const { response: response1 } = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
+        const { response: response2 } = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         const authority = `${protocol}//${hostname}:${port}`;
         expect(connectSpy).toHaveBeenCalledTimes(1);
         expect(connectSpy).toHaveBeenCalledWith(authority);
 
-        // Keeping node alive while requests are open.
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(1);
-
-        const closed1 = new Promise<void>((resolve) => response1Body.once("close", resolve));
-        response1Body.destroy();
-        await closed1;
-        const closed2 = new Promise<void>((resolve) => response2Body.once("close", resolve));
-        response2Body.destroy();
-        await closed2;
-
-        // No longer keeping node alive
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(3);
+        expectSessionCreatedAndReferred(createdSessions[0], 2);
+        await closeConnection(response1);
+        await closeConnection(response2);
+        expectSessionCreatedAndUnreffed(createdSessions[0], 2);
       });
 
       it("is many if requests are made on different URLs", async () => {
         const connectSpy = jest.spyOn(http2, "connect");
 
         // Make first request on default URL.
-        const response1 = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
-        const response1Body = response1.response.body as ClientHttp2Stream;
+        const { response: response1 } = await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         const port2 = port + 1;
         const mockH2Server2 = createMockHttp2Server().listen(port2);
         mockH2Server2.on("request", createResponseFunction(mockResponse));
 
         // Make second request on URL with port2.
-        const response2 = await nodeH2Handler.handle(new HttpRequest({ ...getMockReqOptions(), port: port2 }), {});
-        const response2Body = response2.response.body as ClientHttp2Stream;
+        const { response: response2 } = await nodeH2Handler.handle(
+          new HttpRequest({ ...getMockReqOptions(), port: port2 }),
+          {}
+        );
 
         const authorityPrefix = `${protocol}//${hostname}`;
         expect(connectSpy).toHaveBeenCalledTimes(2);
@@ -146,24 +145,12 @@ describe(NodeHttp2Handler.name, () => {
         expect(connectSpy).toHaveBeenNthCalledWith(2, `${authorityPrefix}:${port2}`);
         mockH2Server2.close();
 
-        // Keeping node alive while requests are open.
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[1].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[1].unref).toHaveBeenCalledTimes(1);
-
-        const closed1 = new Promise<void>((resolve) => response1Body.once("close", resolve));
-        response1Body.destroy();
-        await closed1;
-        const closed2 = new Promise<void>((resolve) => response2Body.once("close", resolve));
-        response2Body.destroy();
-        await closed2;
-
-        // No longer keeping node alive
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[1].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[1].unref).toHaveBeenCalledTimes(2);
+        expectSessionCreatedAndReferred(createdSessions[0]);
+        expectSessionCreatedAndReferred(createdSessions[1]);
+        await closeConnection(response1);
+        await closeConnection(response2);
+        expectSessionCreatedAndUnreffed(createdSessions[0]);
+        expectSessionCreatedAndUnreffed(createdSessions[1]);
       });
     });
 
@@ -214,12 +201,9 @@ describe(NodeHttp2Handler.name, () => {
 
         // Not keeping node alive
         expect(createdSessions).toHaveLength(3);
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[1].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[1].unref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[2].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[2].unref).toHaveBeenCalledTimes(2);
+        expectSessionCreatedAndUnreffed(createdSessions[0]);
+        expectSessionCreatedAndUnreffed(createdSessions[1]);
+        expectSessionCreatedAndUnreffed(createdSessions[2]);
 
         // should be able to recover from goaway after reconnecting to a server
         // that doesn't send goaway, and reuse the TCP connection (Http2Session)
@@ -230,8 +214,7 @@ describe(NodeHttp2Handler.name, () => {
 
         // Keeping node alive
         expect(createdSessions).toHaveLength(4);
-        expect(createdSessions[3].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[3].unref).toHaveBeenCalledTimes(1);
+        expectSessionCreatedAndReferred(createdSessions[3]);
 
         // ...and validate that the mocked response is received
         const responseBody = await new Promise((resolve) => {
@@ -248,8 +231,7 @@ describe(NodeHttp2Handler.name, () => {
 
         // Not keeping node alive
         expect(createdSessions).toHaveLength(4);
-        expect(createdSessions[3].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[3].unref).toHaveBeenCalledTimes(2);
+        expectSessionCreatedAndUnreffed(createdSessions[3]);
       });
 
       it("handles connections destroyed by servers", async () => {
@@ -294,12 +276,9 @@ describe(NodeHttp2Handler.name, () => {
 
         // Not keeping node alive
         expect(createdSessions).toHaveLength(3);
-        expect(createdSessions[0].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[0].unref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[1].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[1].unref).toHaveBeenCalledTimes(2);
-        expect(createdSessions[2].ref).toHaveBeenCalledTimes(1);
-        expect(createdSessions[2].unref).toHaveBeenCalledTimes(2);
+        expectSessionCreatedAndUnreffed(createdSessions[0]);
+        expectSessionCreatedAndUnreffed(createdSessions[1]);
+        expectSessionCreatedAndUnreffed(createdSessions[2]);
       });
     });
 
