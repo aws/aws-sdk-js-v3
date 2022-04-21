@@ -84,6 +84,10 @@ import {
   DescribeAnomalyDetectorCommandOutput,
 } from "./commands/DescribeAnomalyDetectorCommand";
 import { DescribeMetricSetCommandInput, DescribeMetricSetCommandOutput } from "./commands/DescribeMetricSetCommand";
+import {
+  DetectMetricSetConfigCommandInput,
+  DetectMetricSetConfigCommandOutput,
+} from "./commands/DetectMetricSetConfigCommand";
 import { GetAnomalyGroupCommandInput, GetAnomalyGroupCommandOutput } from "./commands/GetAnomalyGroupCommand";
 import { GetFeedbackCommandInput, GetFeedbackCommandOutput } from "./commands/GetFeedbackCommand";
 import { GetSampleDataCommandInput, GetSampleDataCommandOutput } from "./commands/GetSampleDataCommand";
@@ -132,6 +136,7 @@ export type ServiceInputTypes =
   | DescribeAnomalyDetectionExecutionsCommandInput
   | DescribeAnomalyDetectorCommandInput
   | DescribeMetricSetCommandInput
+  | DetectMetricSetConfigCommandInput
   | GetAnomalyGroupCommandInput
   | GetFeedbackCommandInput
   | GetSampleDataCommandInput
@@ -161,6 +166,7 @@ export type ServiceOutputTypes =
   | DescribeAnomalyDetectionExecutionsCommandOutput
   | DescribeAnomalyDetectorCommandOutput
   | DescribeMetricSetCommandOutput
+  | DetectMetricSetConfigCommandOutput
   | GetAnomalyGroupCommandOutput
   | GetFeedbackCommandOutput
   | GetSampleDataCommandOutput

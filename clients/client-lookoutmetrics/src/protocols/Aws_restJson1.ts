@@ -50,6 +50,10 @@ import {
   DescribeAnomalyDetectorCommandOutput,
 } from "../commands/DescribeAnomalyDetectorCommand";
 import { DescribeMetricSetCommandInput, DescribeMetricSetCommandOutput } from "../commands/DescribeMetricSetCommand";
+import {
+  DetectMetricSetConfigCommandInput,
+  DetectMetricSetConfigCommandOutput,
+} from "../commands/DetectMetricSetConfigCommand";
 import { GetAnomalyGroupCommandInput, GetAnomalyGroupCommandOutput } from "../commands/GetAnomalyGroupCommand";
 import { GetFeedbackCommandInput, GetFeedbackCommandOutput } from "../commands/GetFeedbackCommand";
 import { GetSampleDataCommandInput, GetSampleDataCommandOutput } from "../commands/GetSampleDataCommand";
@@ -98,10 +102,20 @@ import {
   AnomalyGroupTimeSeries,
   AnomalyGroupTimeSeriesFeedback,
   AppFlowConfig,
+  AttributeValue,
+  AutoDetectionMetricSource,
+  AutoDetectionS3SourceConfig,
   CloudWatchConfig,
   ConflictException,
   ContributionMatrix,
   CsvFormatDescriptor,
+  DetectedCsvFormatDescriptor,
+  DetectedField,
+  DetectedFileFormatDescriptor,
+  DetectedJsonFormatDescriptor,
+  DetectedMetricSetConfig,
+  DetectedMetricSource,
+  DetectedS3SourceConfig,
   DimensionContribution,
   DimensionNameValue,
   DimensionValueContribution,
@@ -461,6 +475,38 @@ export const serializeAws_restJson1DescribeMetricSetCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MetricSetArn !== undefined && input.MetricSetArn !== null && { MetricSetArn: input.MetricSetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DetectMetricSetConfigCommand = async (
+  input: DetectMetricSetConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DetectMetricSetConfig";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AnomalyDetectorArn !== undefined &&
+      input.AnomalyDetectorArn !== null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
+    ...(input.AutoDetectionMetricSource !== undefined &&
+      input.AutoDetectionMetricSource !== null && {
+        AutoDetectionMetricSource: serializeAws_restJson1AutoDetectionMetricSource(
+          input.AutoDetectionMetricSource,
+          context
+        ),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -1698,6 +1744,65 @@ const deserializeAws_restJson1DescribeMetricSetCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DetectMetricSetConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectMetricSetConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DetectMetricSetConfigCommandError(output, context);
+  }
+  const contents: DetectMetricSetConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    DetectedMetricSetConfig: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DetectedMetricSetConfig !== undefined && data.DetectedMetricSetConfig !== null) {
+    contents.DetectedMetricSetConfig = deserializeAws_restJson1DetectedMetricSetConfig(
+      data.DetectedMetricSetConfig,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DetectMetricSetConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectMetricSetConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutmetrics#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutmetrics#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.lookoutmetrics#TooManyRequestsException":
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutmetrics#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetAnomalyGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2760,6 +2865,34 @@ const serializeAws_restJson1AppFlowConfig = (input: AppFlowConfig, context: __Se
   };
 };
 
+const serializeAws_restJson1AutoDetectionMetricSource = (
+  input: AutoDetectionMetricSource,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3SourceConfig !== undefined &&
+      input.S3SourceConfig !== null && {
+        S3SourceConfig: serializeAws_restJson1AutoDetectionS3SourceConfig(input.S3SourceConfig, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1AutoDetectionS3SourceConfig = (
+  input: AutoDetectionS3SourceConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HistoricalDataPathList !== undefined &&
+      input.HistoricalDataPathList !== null && {
+        HistoricalDataPathList: serializeAws_restJson1HistoricalDataPathList(input.HistoricalDataPathList, context),
+      }),
+    ...(input.TemplatedPathList !== undefined &&
+      input.TemplatedPathList !== null && {
+        TemplatedPathList: serializeAws_restJson1TemplatedPathList(input.TemplatedPathList, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1CloudWatchConfig = (input: CloudWatchConfig, context: __SerdeContext): any => {
   return {
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
@@ -3211,6 +3344,38 @@ const deserializeAws_restJson1AppFlowConfig = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
+  return {
+    B: __expectString(output.B),
+    BS:
+      output.BS !== undefined && output.BS !== null
+        ? deserializeAws_restJson1BinaryListAttributeValue(output.BS, context)
+        : undefined,
+    N: __expectString(output.N),
+    NS:
+      output.NS !== undefined && output.NS !== null
+        ? deserializeAws_restJson1NumberListAttributeValue(output.NS, context)
+        : undefined,
+    S: __expectString(output.S),
+    SS:
+      output.SS !== undefined && output.SS !== null
+        ? deserializeAws_restJson1StringListAttributeValue(output.SS, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BinaryListAttributeValue = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CloudWatchConfig = (output: any, context: __SerdeContext): CloudWatchConfig => {
   return {
     RoleArn: __expectString(output.RoleArn),
@@ -3237,6 +3402,122 @@ const deserializeAws_restJson1CsvFormatDescriptor = (output: any, context: __Ser
         ? deserializeAws_restJson1HeaderList(output.HeaderList, context)
         : undefined,
     QuoteSymbol: __expectString(output.QuoteSymbol),
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedCsvFormatDescriptor = (
+  output: any,
+  context: __SerdeContext
+): DetectedCsvFormatDescriptor => {
+  return {
+    Charset:
+      output.Charset !== undefined && output.Charset !== null
+        ? deserializeAws_restJson1DetectedField(output.Charset, context)
+        : undefined,
+    ContainsHeader:
+      output.ContainsHeader !== undefined && output.ContainsHeader !== null
+        ? deserializeAws_restJson1DetectedField(output.ContainsHeader, context)
+        : undefined,
+    Delimiter:
+      output.Delimiter !== undefined && output.Delimiter !== null
+        ? deserializeAws_restJson1DetectedField(output.Delimiter, context)
+        : undefined,
+    FileCompression:
+      output.FileCompression !== undefined && output.FileCompression !== null
+        ? deserializeAws_restJson1DetectedField(output.FileCompression, context)
+        : undefined,
+    HeaderList:
+      output.HeaderList !== undefined && output.HeaderList !== null
+        ? deserializeAws_restJson1DetectedField(output.HeaderList, context)
+        : undefined,
+    QuoteSymbol:
+      output.QuoteSymbol !== undefined && output.QuoteSymbol !== null
+        ? deserializeAws_restJson1DetectedField(output.QuoteSymbol, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedField = (output: any, context: __SerdeContext): DetectedField => {
+  return {
+    Confidence: __expectString(output.Confidence),
+    Message: __expectString(output.Message),
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_restJson1AttributeValue(output.Value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedFileFormatDescriptor = (
+  output: any,
+  context: __SerdeContext
+): DetectedFileFormatDescriptor => {
+  return {
+    CsvFormatDescriptor:
+      output.CsvFormatDescriptor !== undefined && output.CsvFormatDescriptor !== null
+        ? deserializeAws_restJson1DetectedCsvFormatDescriptor(output.CsvFormatDescriptor, context)
+        : undefined,
+    JsonFormatDescriptor:
+      output.JsonFormatDescriptor !== undefined && output.JsonFormatDescriptor !== null
+        ? deserializeAws_restJson1DetectedJsonFormatDescriptor(output.JsonFormatDescriptor, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedJsonFormatDescriptor = (
+  output: any,
+  context: __SerdeContext
+): DetectedJsonFormatDescriptor => {
+  return {
+    Charset:
+      output.Charset !== undefined && output.Charset !== null
+        ? deserializeAws_restJson1DetectedField(output.Charset, context)
+        : undefined,
+    FileCompression:
+      output.FileCompression !== undefined && output.FileCompression !== null
+        ? deserializeAws_restJson1DetectedField(output.FileCompression, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedMetricSetConfig = (
+  output: any,
+  context: __SerdeContext
+): DetectedMetricSetConfig => {
+  return {
+    MetricSetFrequency:
+      output.MetricSetFrequency !== undefined && output.MetricSetFrequency !== null
+        ? deserializeAws_restJson1DetectedField(output.MetricSetFrequency, context)
+        : undefined,
+    MetricSource:
+      output.MetricSource !== undefined && output.MetricSource !== null
+        ? deserializeAws_restJson1DetectedMetricSource(output.MetricSource, context)
+        : undefined,
+    Offset:
+      output.Offset !== undefined && output.Offset !== null
+        ? deserializeAws_restJson1DetectedField(output.Offset, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedMetricSource = (output: any, context: __SerdeContext): DetectedMetricSource => {
+  return {
+    S3SourceConfig:
+      output.S3SourceConfig !== undefined && output.S3SourceConfig !== null
+        ? deserializeAws_restJson1DetectedS3SourceConfig(output.S3SourceConfig, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectedS3SourceConfig = (
+  output: any,
+  context: __SerdeContext
+): DetectedS3SourceConfig => {
+  return {
+    FileFormatDescriptor:
+      output.FileFormatDescriptor !== undefined && output.FileFormatDescriptor !== null
+        ? deserializeAws_restJson1DetectedFileFormatDescriptor(output.FileFormatDescriptor, context)
+        : undefined,
   } as any;
 };
 
@@ -3566,6 +3847,18 @@ const deserializeAws_restJson1MetricValueList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_restJson1NumberListAttributeValue = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1RDSSourceConfig = (output: any, context: __SerdeContext): RDSSourceConfig => {
   return {
     DBInstanceIdentifier: __expectString(output.DBInstanceIdentifier),
@@ -3657,6 +3950,18 @@ const deserializeAws_restJson1SNSConfiguration = (output: any, context: __SerdeC
     RoleArn: __expectString(output.RoleArn),
     SnsTopicArn: __expectString(output.SnsTopicArn),
   } as any;
+};
+
+const deserializeAws_restJson1StringListAttributeValue = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
