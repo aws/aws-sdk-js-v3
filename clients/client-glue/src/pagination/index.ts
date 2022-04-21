@@ -22,6 +22,7 @@ export * from "./GetUserDefinedFunctionsPaginator";
 export * from "./GetWorkflowRunsPaginator";
 export * from "./ListBlueprintsPaginator";
 export * from "./ListCrawlersPaginator";
+export * from "./ListCustomEntityTypesPaginator";
 export * from "./ListDevEndpointsPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListMLTransformsPaginator";

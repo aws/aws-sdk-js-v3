@@ -36,6 +36,11 @@ import {
   BatchGetCrawlersCommandOutput,
 } from "./commands/BatchGetCrawlersCommand";
 import {
+  BatchGetCustomEntityTypesCommand,
+  BatchGetCustomEntityTypesCommandInput,
+  BatchGetCustomEntityTypesCommandOutput,
+} from "./commands/BatchGetCustomEntityTypesCommand";
+import {
   BatchGetDevEndpointsCommand,
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
@@ -105,6 +110,11 @@ import {
   CreateCrawlerCommandInput,
   CreateCrawlerCommandOutput,
 } from "./commands/CreateCrawlerCommand";
+import {
+  CreateCustomEntityTypeCommand,
+  CreateCustomEntityTypeCommandInput,
+  CreateCustomEntityTypeCommandOutput,
+} from "./commands/CreateCustomEntityTypeCommand";
 import {
   CreateDatabaseCommand,
   CreateDatabaseCommandInput,
@@ -202,6 +212,11 @@ import {
   DeleteCrawlerCommandInput,
   DeleteCrawlerCommandOutput,
 } from "./commands/DeleteCrawlerCommand";
+import {
+  DeleteCustomEntityTypeCommand,
+  DeleteCustomEntityTypeCommandInput,
+  DeleteCustomEntityTypeCommandOutput,
+} from "./commands/DeleteCustomEntityTypeCommand";
 import {
   DeleteDatabaseCommand,
   DeleteDatabaseCommandInput,
@@ -336,6 +351,11 @@ import {
   GetCrawlerMetricsCommandOutput,
 } from "./commands/GetCrawlerMetricsCommand";
 import { GetCrawlersCommand, GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
+import {
+  GetCustomEntityTypeCommand,
+  GetCustomEntityTypeCommandInput,
+  GetCustomEntityTypeCommandOutput,
+} from "./commands/GetCustomEntityTypeCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDatabasesCommand,
@@ -522,6 +542,11 @@ import {
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
 } from "./commands/ListCrawlersCommand";
+import {
+  ListCustomEntityTypesCommand,
+  ListCustomEntityTypesCommandInput,
+  ListCustomEntityTypesCommandOutput,
+} from "./commands/ListCustomEntityTypesCommand";
 import {
   ListDevEndpointsCommand,
   ListDevEndpointsCommandInput,
@@ -1007,6 +1032,35 @@ export class Glue extends GlueClient {
     }
   }
 
+  public batchGetCustomEntityTypes(
+    args: BatchGetCustomEntityTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCustomEntityTypesCommandOutput>;
+  public batchGetCustomEntityTypes(
+    args: BatchGetCustomEntityTypesCommandInput,
+    cb: (err: any, data?: BatchGetCustomEntityTypesCommandOutput) => void
+  ): void;
+  public batchGetCustomEntityTypes(
+    args: BatchGetCustomEntityTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCustomEntityTypesCommandOutput) => void
+  ): void;
+  public batchGetCustomEntityTypes(
+    args: BatchGetCustomEntityTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCustomEntityTypesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetCustomEntityTypesCommandOutput) => void
+  ): Promise<BatchGetCustomEntityTypesCommandOutput> | void {
+    const command = new BatchGetCustomEntityTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Returns a list of resource metadata for a given list of development endpoint names. After
    *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
@@ -1452,6 +1506,35 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CreateCrawlerCommandOutput) => void
   ): Promise<CreateCrawlerCommandOutput> | void {
     const command = new CreateCrawlerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public createCustomEntityType(
+    args: CreateCustomEntityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomEntityTypeCommandOutput>;
+  public createCustomEntityType(
+    args: CreateCustomEntityTypeCommandInput,
+    cb: (err: any, data?: CreateCustomEntityTypeCommandOutput) => void
+  ): void;
+  public createCustomEntityType(
+    args: CreateCustomEntityTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomEntityTypeCommandOutput) => void
+  ): void;
+  public createCustomEntityType(
+    args: CreateCustomEntityTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomEntityTypeCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomEntityTypeCommandOutput) => void
+  ): Promise<CreateCustomEntityTypeCommandOutput> | void {
+    const command = new CreateCustomEntityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2125,6 +2208,35 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeleteCrawlerCommandOutput) => void
   ): Promise<DeleteCrawlerCommandOutput> | void {
     const command = new DeleteCrawlerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteCustomEntityType(
+    args: DeleteCustomEntityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomEntityTypeCommandOutput>;
+  public deleteCustomEntityType(
+    args: DeleteCustomEntityTypeCommandInput,
+    cb: (err: any, data?: DeleteCustomEntityTypeCommandOutput) => void
+  ): void;
+  public deleteCustomEntityType(
+    args: DeleteCustomEntityTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomEntityTypeCommandOutput) => void
+  ): void;
+  public deleteCustomEntityType(
+    args: DeleteCustomEntityTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomEntityTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomEntityTypeCommandOutput) => void
+  ): Promise<DeleteCustomEntityTypeCommandOutput> | void {
+    const command = new DeleteCustomEntityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3092,6 +3204,35 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: GetCrawlersCommandOutput) => void
   ): Promise<GetCrawlersCommandOutput> | void {
     const command = new GetCrawlersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getCustomEntityType(
+    args: GetCustomEntityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomEntityTypeCommandOutput>;
+  public getCustomEntityType(
+    args: GetCustomEntityTypeCommandInput,
+    cb: (err: any, data?: GetCustomEntityTypeCommandOutput) => void
+  ): void;
+  public getCustomEntityType(
+    args: GetCustomEntityTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomEntityTypeCommandOutput) => void
+  ): void;
+  public getCustomEntityType(
+    args: GetCustomEntityTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCustomEntityTypeCommandOutput) => void),
+    cb?: (err: any, data?: GetCustomEntityTypeCommandOutput) => void
+  ): Promise<GetCustomEntityTypeCommandOutput> | void {
+    const command = new GetCustomEntityTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4615,6 +4756,35 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: ListCrawlersCommandOutput) => void
   ): Promise<ListCrawlersCommandOutput> | void {
     const command = new ListCrawlersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public listCustomEntityTypes(
+    args: ListCustomEntityTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomEntityTypesCommandOutput>;
+  public listCustomEntityTypes(
+    args: ListCustomEntityTypesCommandInput,
+    cb: (err: any, data?: ListCustomEntityTypesCommandOutput) => void
+  ): void;
+  public listCustomEntityTypes(
+    args: ListCustomEntityTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomEntityTypesCommandOutput) => void
+  ): void;
+  public listCustomEntityTypes(
+    args: ListCustomEntityTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCustomEntityTypesCommandOutput) => void),
+    cb?: (err: any, data?: ListCustomEntityTypesCommandOutput) => void
+  ): Promise<ListCustomEntityTypesCommandOutput> | void {
+    const command = new ListCustomEntityTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

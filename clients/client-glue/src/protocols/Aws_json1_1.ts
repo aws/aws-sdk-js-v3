@@ -38,6 +38,10 @@ import {
 import { BatchGetBlueprintsCommandInput, BatchGetBlueprintsCommandOutput } from "../commands/BatchGetBlueprintsCommand";
 import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "../commands/BatchGetCrawlersCommand";
 import {
+  BatchGetCustomEntityTypesCommandInput,
+  BatchGetCustomEntityTypesCommandOutput,
+} from "../commands/BatchGetCustomEntityTypesCommand";
+import {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "../commands/BatchGetDevEndpointsCommand";
@@ -60,6 +64,10 @@ import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "../co
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "../commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "../commands/CreateCrawlerCommand";
+import {
+  CreateCustomEntityTypeCommandInput,
+  CreateCustomEntityTypeCommandOutput,
+} from "../commands/CreateCustomEntityTypeCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "../commands/CreateDatabaseCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "../commands/CreateDevEndpointCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
@@ -96,6 +104,10 @@ import {
 } from "../commands/DeleteColumnStatisticsForTableCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "../commands/DeleteCrawlerCommand";
+import {
+  DeleteCustomEntityTypeCommandInput,
+  DeleteCustomEntityTypeCommandOutput,
+} from "../commands/DeleteCustomEntityTypeCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "../commands/DeleteDatabaseCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "../commands/DeleteDevEndpointCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
@@ -150,6 +162,10 @@ import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "../comm
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "../commands/GetCrawlerCommand";
 import { GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput } from "../commands/GetCrawlerMetricsCommand";
 import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "../commands/GetCrawlersCommand";
+import {
+  GetCustomEntityTypeCommandInput,
+  GetCustomEntityTypeCommandOutput,
+} from "../commands/GetCustomEntityTypeCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "../commands/GetDatabaseCommand";
 import { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "../commands/GetDatabasesCommand";
 import {
@@ -242,6 +258,10 @@ import {
 } from "../commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "../commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "../commands/ListCrawlersCommand";
+import {
+  ListCustomEntityTypesCommandInput,
+  ListCustomEntityTypesCommandOutput,
+} from "../commands/ListCustomEntityTypesCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "../commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "../commands/ListMLTransformsCommand";
@@ -366,6 +386,8 @@ import {
   BatchGetBlueprintsResponse,
   BatchGetCrawlersRequest,
   BatchGetCrawlersResponse,
+  BatchGetCustomEntityTypesRequest,
+  BatchGetCustomEntityTypesResponse,
   BatchGetDevEndpointsRequest,
   BatchGetDevEndpointsResponse,
   BatchGetJobsRequest,
@@ -403,9 +425,6 @@ import {
   CodeGenNode,
   CodeGenNodeArg,
   Column,
-  ColumnError,
-  ColumnStatistics,
-  ColumnStatisticsData,
   ConcurrentModificationException,
   Condition,
   ConditionCheckFailureException,
@@ -427,6 +446,8 @@ import {
   CreateCrawlerRequest,
   CreateCrawlerResponse,
   CreateCsvClassifierRequest,
+  CreateCustomEntityTypeRequest,
+  CreateCustomEntityTypeResponse,
   CreateDatabaseRequest,
   CreateDatabaseResponse,
   CreateDevEndpointRequest,
@@ -461,6 +482,7 @@ import {
   CreateWorkflowResponse,
   CreateXMLClassifierRequest,
   CsvClassifier,
+  CustomEntityType,
   DatabaseIdentifier,
   DatabaseInput,
   DataLakePrincipal,
@@ -479,6 +501,8 @@ import {
   DeleteConnectionResponse,
   DeleteCrawlerRequest,
   DeleteCrawlerResponse,
+  DeleteCustomEntityTypeRequest,
+  DeleteCustomEntityTypeResponse,
   DeleteDatabaseRequest,
   DeleteDatabaseResponse,
   DeleteDevEndpointRequest,
@@ -538,9 +562,6 @@ import {
   GetClassifiersRequest,
   GetClassifiersResponse,
   GetColumnStatisticsForPartitionRequest,
-  GetColumnStatisticsForPartitionResponse,
-  GetColumnStatisticsForTableRequest,
-  GetColumnStatisticsForTableResponse,
   GlueEncryptionException,
   GlueTable,
   GrokClassifier,
@@ -616,8 +637,11 @@ import {
 import {
   BackfillError,
   CatalogEntry,
+  ColumnError,
   ColumnImportance,
   ColumnRowFilter,
+  ColumnStatistics,
+  ColumnStatisticsData,
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
   ConfusionMatrix,
@@ -634,6 +658,9 @@ import {
   ExportLabelsTaskRunProperties,
   FindMatchesMetrics,
   FindMatchesTaskRunProperties,
+  GetColumnStatisticsForPartitionResponse,
+  GetColumnStatisticsForTableRequest,
+  GetColumnStatisticsForTableResponse,
   GetConnectionRequest,
   GetConnectionResponse,
   GetConnectionsFilter,
@@ -645,6 +672,8 @@ import {
   GetCrawlerResponse,
   GetCrawlersRequest,
   GetCrawlersResponse,
+  GetCustomEntityTypeRequest,
+  GetCustomEntityTypeResponse,
   GetDatabaseRequest,
   GetDatabaseResponse,
   GetDatabasesRequest,
@@ -753,6 +782,8 @@ import {
   ListBlueprintsResponse,
   ListCrawlersRequest,
   ListCrawlersResponse,
+  ListCustomEntityTypesRequest,
+  ListCustomEntityTypesResponse,
   ListDevEndpointsRequest,
   ListDevEndpointsResponse,
   ListJobsRequest,
@@ -884,8 +915,14 @@ import {
   UpdateDevEndpointResponse,
   UpdateGrokClassifierRequest,
   UpdateJobRequest,
-  UpdateJobResponse,
   UpdateJsonClassifierRequest,
+  UpdateXMLClassifierRequest,
+  UserDefinedFunction,
+  VersionMismatchException,
+} from "../models/models_1";
+import {
+  TriggerUpdate,
+  UpdateJobResponse,
   UpdateMLTransformRequest,
   UpdateMLTransformResponse,
   UpdatePartitionRequest,
@@ -896,12 +933,6 @@ import {
   UpdateSchemaResponse,
   UpdateTableRequest,
   UpdateTableResponse,
-  UpdateXMLClassifierRequest,
-  UserDefinedFunction,
-  VersionMismatchException,
-} from "../models/models_1";
-import {
-  TriggerUpdate,
   UpdateTriggerRequest,
   UpdateTriggerResponse,
   UpdateUserDefinedFunctionRequest,
@@ -998,6 +1029,19 @@ export const serializeAws_json1_1BatchGetCrawlersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetCrawlersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchGetCustomEntityTypesCommand = async (
+  input: BatchGetCustomEntityTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.BatchGetCustomEntityTypes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchGetCustomEntityTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1180,6 +1224,19 @@ export const serializeAws_json1_1CreateCrawlerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCrawlerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateCustomEntityTypeCommand = async (
+  input: CreateCustomEntityTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.CreateCustomEntityType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1453,6 +1510,19 @@ export const serializeAws_json1_1DeleteCrawlerCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCrawlerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteCustomEntityTypeCommand = async (
+  input: DeleteCustomEntityTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.DeleteCustomEntityType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1843,6 +1913,19 @@ export const serializeAws_json1_1GetCrawlersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetCustomEntityTypeCommand = async (
+  input: GetCustomEntityTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.GetCustomEntityType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetCustomEntityTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2493,6 +2576,19 @@ export const serializeAws_json1_1ListCrawlersCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCrawlersRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListCustomEntityTypesCommand = async (
+  input: ListCustomEntityTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSGlue.ListCustomEntityTypes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListCustomEntityTypesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3588,6 +3684,55 @@ const deserializeAws_json1_1BatchGetCrawlersCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1BatchGetCustomEntityTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetCustomEntityTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchGetCustomEntityTypesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetCustomEntityTypesResponse(data, context);
+  const response: BatchGetCustomEntityTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchGetCustomEntityTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetCustomEntityTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1BatchGetDevEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4299,6 +4444,67 @@ const deserializeAws_json1_1CreateCrawlerCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.glue#AlreadyExistsException":
       throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      throw await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateCustomEntityTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomEntityTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateCustomEntityTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateCustomEntityTypeResponse(data, context);
+  const response: CreateCustomEntityTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateCustomEntityTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomEntityTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.glue#IdempotentParameterMismatchException":
+      throw await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.glue#InvalidInputException":
       throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
@@ -5517,6 +5723,61 @@ const deserializeAws_json1_1DeleteCrawlerCommandError = async (
     case "SchedulerTransitioningException":
     case "com.amazonaws.glue#SchedulerTransitioningException":
       throw await deserializeAws_json1_1SchedulerTransitioningExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1DeleteCustomEntityTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomEntityTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteCustomEntityTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteCustomEntityTypeResponse(data, context);
+  const response: DeleteCustomEntityTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteCustomEntityTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomEntityTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -7053,6 +7314,61 @@ const deserializeAws_json1_1GetCrawlersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1GetCustomEntityTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomEntityTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetCustomEntityTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetCustomEntityTypeResponse(data, context);
+  const response: GetCustomEntityTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetCustomEntityTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCustomEntityTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      throw await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
@@ -9695,6 +10011,55 @@ const deserializeAws_json1_1ListCrawlersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1ListCustomEntityTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomEntityTypesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListCustomEntityTypesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCustomEntityTypesResponse(data, context);
+  const response: ListCustomEntityTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListCustomEntityTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomEntityTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context);
@@ -13342,6 +13707,16 @@ const serializeAws_json1_1BatchGetCrawlersRequest = (input: BatchGetCrawlersRequ
   };
 };
 
+const serializeAws_json1_1BatchGetCustomEntityTypesRequest = (
+  input: BatchGetCustomEntityTypesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Names !== undefined &&
+      input.Names !== null && { Names: serializeAws_json1_1CustomEntityTypeNames(input.Names, context) }),
+  };
+};
+
 const serializeAws_json1_1BatchGetDevEndpointsRequest = (
   input: BatchGetDevEndpointsRequest,
   context: __SerdeContext
@@ -13818,6 +14193,17 @@ const serializeAws_json1_1ConnectionsList = (input: ConnectionsList, context: __
   };
 };
 
+const serializeAws_json1_1ContextWords = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1CrawlerNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -13954,6 +14340,18 @@ const serializeAws_json1_1CreateCsvClassifierRequest = (
       input.Header !== null && { Header: serializeAws_json1_1CsvHeader(input.Header, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.QuoteSymbol !== undefined && input.QuoteSymbol !== null && { QuoteSymbol: input.QuoteSymbol }),
+  };
+};
+
+const serializeAws_json1_1CreateCustomEntityTypeRequest = (
+  input: CreateCustomEntityTypeRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ContextWords !== undefined &&
+      input.ContextWords !== null && { ContextWords: serializeAws_json1_1ContextWords(input.ContextWords, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RegexString !== undefined && input.RegexString !== null && { RegexString: input.RegexString }),
   };
 };
 
@@ -14281,6 +14679,17 @@ const serializeAws_json1_1CsvHeader = (input: string[], context: __SerdeContext)
     });
 };
 
+const serializeAws_json1_1CustomEntityTypeNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1DagEdges = (input: CodeGenEdge[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14455,6 +14864,15 @@ const serializeAws_json1_1DeleteConnectionRequest = (input: DeleteConnectionRequ
 };
 
 const serializeAws_json1_1DeleteCrawlerRequest = (input: DeleteCrawlerRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DeleteCustomEntityTypeRequest = (
+  input: DeleteCustomEntityTypeRequest,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
@@ -14902,6 +15320,15 @@ const serializeAws_json1_1GetCrawlersRequest = (input: GetCrawlersRequest, conte
   return {
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1GetCustomEntityTypeRequest = (
+  input: GetCustomEntityTypeRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -15549,6 +15976,16 @@ const serializeAws_json1_1ListCrawlersRequest = (input: ListCrawlersRequest, con
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1ListCustomEntityTypesRequest = (
+  input: ListCustomEntityTypesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -17324,6 +17761,22 @@ const deserializeAws_json1_1BatchGetCrawlersResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchGetCustomEntityTypesResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchGetCustomEntityTypesResponse => {
+  return {
+    CustomEntityTypes:
+      output.CustomEntityTypes !== undefined && output.CustomEntityTypes !== null
+        ? deserializeAws_json1_1CustomEntityTypes(output.CustomEntityTypes, context)
+        : undefined,
+    CustomEntityTypesNotFound:
+      output.CustomEntityTypesNotFound !== undefined && output.CustomEntityTypesNotFound !== null
+        ? deserializeAws_json1_1CustomEntityTypeNames(output.CustomEntityTypesNotFound, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BatchGetDevEndpointsResponse = (
   output: any,
   context: __SerdeContext
@@ -18141,6 +18594,18 @@ const deserializeAws_json1_1ConnectionsList = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1ContextWords = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1Crawl = (output: any, context: __SerdeContext): Crawl => {
   return {
     CompletedOn:
@@ -18366,6 +18831,15 @@ const deserializeAws_json1_1CreateCrawlerResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1CreateCustomEntityTypeResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCustomEntityTypeResponse => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDatabaseResponse = (output: any, context: __SerdeContext): CreateDatabaseResponse => {
   return {} as any;
 };
@@ -18557,6 +19031,41 @@ const deserializeAws_json1_1CsvHeader = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_json1_1CustomEntityType = (output: any, context: __SerdeContext): CustomEntityType => {
+  return {
+    ContextWords:
+      output.ContextWords !== undefined && output.ContextWords !== null
+        ? deserializeAws_json1_1ContextWords(output.ContextWords, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    RegexString: __expectString(output.RegexString),
+  } as any;
+};
+
+const deserializeAws_json1_1CustomEntityTypeNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1CustomEntityTypes = (output: any, context: __SerdeContext): CustomEntityType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomEntityType(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1DagEdges = (output: any, context: __SerdeContext): CodeGenEdge[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -18732,6 +19241,15 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
 
 const deserializeAws_json1_1DeleteCrawlerResponse = (output: any, context: __SerdeContext): DeleteCrawlerResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteCustomEntityTypeResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteCustomEntityTypeResponse => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteDatabaseResponse = (output: any, context: __SerdeContext): DeleteDatabaseResponse => {
@@ -19295,6 +19813,20 @@ const deserializeAws_json1_1GetCrawlersResponse = (output: any, context: __Serde
         ? deserializeAws_json1_1CrawlerList(output.Crawlers, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1GetCustomEntityTypeResponse = (
+  output: any,
+  context: __SerdeContext
+): GetCustomEntityTypeResponse => {
+  return {
+    ContextWords:
+      output.ContextWords !== undefined && output.ContextWords !== null
+        ? deserializeAws_json1_1ContextWords(output.ContextWords, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    RegexString: __expectString(output.RegexString),
   } as any;
 };
 
@@ -20338,6 +20870,19 @@ const deserializeAws_json1_1ListCrawlersResponse = (output: any, context: __Serd
     CrawlerNames:
       output.CrawlerNames !== undefined && output.CrawlerNames !== null
         ? deserializeAws_json1_1CrawlerNameList(output.CrawlerNames, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListCustomEntityTypesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCustomEntityTypesResponse => {
+  return {
+    CustomEntityTypes:
+      output.CustomEntityTypes !== undefined && output.CustomEntityTypes !== null
+        ? deserializeAws_json1_1CustomEntityTypes(output.CustomEntityTypes, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
