@@ -89,6 +89,9 @@ export class NodeHttp2Handler implements HttpHandler {
         [constants.HTTP2_HEADER_METHOD]: method,
       });
 
+      // Keep node alive while request is in progress. Matched with unref() in close event.
+      session.ref();
+
       req.on("response", (headers) => {
         const httpResponse = new HttpResponse({
           statusCode: headers[":status"] || -1,
@@ -137,6 +140,7 @@ export class NodeHttp2Handler implements HttpHandler {
       // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
       // an 'error' event will have also been emitted.
       req.on("close", () => {
+        session.unref();
         if (this.disableConcurrentStreams) {
           session.destroy();
         }
@@ -164,6 +168,9 @@ export class NodeHttp2Handler implements HttpHandler {
     if (existingSessions.length > 0 && !disableConcurrentStreams) return existingSessions[0];
 
     const newSession = connect(authority);
+    // AWS SDK does not expect server push streams, don't keep node alive without a request.
+    newSession.unref();
+
     const destroySessionCb = () => {
       this.destroySession(newSession);
       this.deleteSessionFromCache(authority, newSession);
