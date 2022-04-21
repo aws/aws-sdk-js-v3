@@ -38,6 +38,18 @@ import {
   BatchDisassociateProjectAssetsCommandOutput,
 } from "../commands/BatchDisassociateProjectAssetsCommand";
 import {
+  BatchGetAssetPropertyAggregatesCommandInput,
+  BatchGetAssetPropertyAggregatesCommandOutput,
+} from "../commands/BatchGetAssetPropertyAggregatesCommand";
+import {
+  BatchGetAssetPropertyValueCommandInput,
+  BatchGetAssetPropertyValueCommandOutput,
+} from "../commands/BatchGetAssetPropertyValueCommand";
+import {
+  BatchGetAssetPropertyValueHistoryCommandInput,
+  BatchGetAssetPropertyValueHistoryCommandOutput,
+} from "../commands/BatchGetAssetPropertyValueHistoryCommand";
+import {
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
 } from "../commands/BatchPutAssetPropertyValueCommand";
@@ -160,6 +172,7 @@ import {
   AccessPolicySummary,
   AggregatedValue,
   Aggregates,
+  AggregateType,
   Alarms,
   AssetCompositeModel,
   AssetErrorDetails,
@@ -180,6 +193,21 @@ import {
   AssetSummary,
   AssociatedAssetsSummary,
   Attribute,
+  BatchGetAssetPropertyAggregatesEntry,
+  BatchGetAssetPropertyAggregatesErrorEntry,
+  BatchGetAssetPropertyAggregatesErrorInfo,
+  BatchGetAssetPropertyAggregatesSkippedEntry,
+  BatchGetAssetPropertyAggregatesSuccessEntry,
+  BatchGetAssetPropertyValueEntry,
+  BatchGetAssetPropertyValueErrorEntry,
+  BatchGetAssetPropertyValueErrorInfo,
+  BatchGetAssetPropertyValueHistoryEntry,
+  BatchGetAssetPropertyValueHistoryErrorEntry,
+  BatchGetAssetPropertyValueHistoryErrorInfo,
+  BatchGetAssetPropertyValueHistorySkippedEntry,
+  BatchGetAssetPropertyValueHistorySuccessEntry,
+  BatchGetAssetPropertyValueSkippedEntry,
+  BatchGetAssetPropertyValueSuccessEntry,
   BatchPutAssetPropertyError,
   BatchPutAssetPropertyErrorEntry,
   CompositeModelProperty,
@@ -225,6 +253,7 @@ import {
   PropertyNotification,
   PropertyType,
   PutAssetPropertyValueEntry,
+  Quality,
   Resource,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
@@ -394,6 +423,116 @@ export const serializeAws_restJson1BatchDisassociateProjectAssetsCommand = async
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetAssetPropertyAggregatesCommand = async (
+  input: BatchGetAssetPropertyAggregatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/aggregates";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1BatchGetAssetPropertyAggregatesEntries(input.entries, context),
+      }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetAssetPropertyValueCommand = async (
+  input: BatchGetAssetPropertyValueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/latest";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1BatchGetAssetPropertyValueEntries(input.entries, context),
+      }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand = async (
+  input: BatchGetAssetPropertyValueHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/properties/batch/history";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntries(input.entries, context),
+      }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2969,6 +3108,225 @@ const deserializeAws_restJson1BatchDisassociateProjectAssetsCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommandError(output, context);
+  }
+  const contents: BatchGetAssetPropertyAggregatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorEntries: undefined,
+    nextToken: undefined,
+    skippedEntries: undefined,
+    successEntries: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.errorEntries !== undefined && data.errorEntries !== null) {
+    contents.errorEntries = deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntries(
+      data.errorEntries,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.skippedEntries !== undefined && data.skippedEntries !== null) {
+    contents.skippedEntries = deserializeAws_restJson1BatchGetAssetPropertyAggregatesSkippedEntries(
+      data.skippedEntries,
+      context
+    );
+  }
+  if (data.successEntries !== undefined && data.successEntries !== null) {
+    contents.successEntries = deserializeAws_restJson1BatchGetAssetPropertyAggregatesSuccessEntries(
+      data.successEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchGetAssetPropertyValueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyValueCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetAssetPropertyValueCommandError(output, context);
+  }
+  const contents: BatchGetAssetPropertyValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorEntries: undefined,
+    nextToken: undefined,
+    skippedEntries: undefined,
+    successEntries: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.errorEntries !== undefined && data.errorEntries !== null) {
+    contents.errorEntries = deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntries(data.errorEntries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.skippedEntries !== undefined && data.skippedEntries !== null) {
+    contents.skippedEntries = deserializeAws_restJson1BatchGetAssetPropertyValueSkippedEntries(
+      data.skippedEntries,
+      context
+    );
+  }
+  if (data.successEntries !== undefined && data.successEntries !== null) {
+    contents.successEntries = deserializeAws_restJson1BatchGetAssetPropertyValueSuccessEntries(
+      data.successEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyValueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommandError(output, context);
+  }
+  const contents: BatchGetAssetPropertyValueHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorEntries: undefined,
+    nextToken: undefined,
+    skippedEntries: undefined,
+    successEntries: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.errorEntries !== undefined && data.errorEntries !== null) {
+    contents.errorEntries = deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntries(
+      data.errorEntries,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.skippedEntries !== undefined && data.skippedEntries !== null) {
+    contents.skippedEntries = deserializeAws_restJson1BatchGetAssetPropertyValueHistorySkippedEntries(
+      data.skippedEntries,
+      context
+    );
+  }
+  if (data.successEntries !== undefined && data.successEntries !== null) {
+    contents.successEntries = deserializeAws_restJson1BatchGetAssetPropertyValueHistorySuccessEntries(
+      data.successEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -6933,6 +7291,17 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AggregateTypes = (input: (AggregateType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Alarms = (input: Alarms, context: __SerdeContext): any => {
   return {
     ...(input.alarmRoleArn !== undefined && input.alarmRoleArn !== null && { alarmRoleArn: input.alarmRoleArn }),
@@ -7119,6 +7488,103 @@ const serializeAws_restJson1AssetPropertyValues = (input: AssetPropertyValue[], 
 const serializeAws_restJson1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
     ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+  };
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyAggregatesEntries = (
+  input: BatchGetAssetPropertyAggregatesEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BatchGetAssetPropertyAggregatesEntry(entry, context);
+    });
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyAggregatesEntry = (
+  input: BatchGetAssetPropertyAggregatesEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.aggregateTypes !== undefined &&
+      input.aggregateTypes !== null && {
+        aggregateTypes: serializeAws_restJson1AggregateTypes(input.aggregateTypes, context),
+      }),
+    ...(input.assetId !== undefined && input.assetId !== null && { assetId: input.assetId }),
+    ...(input.endDate !== undefined &&
+      input.endDate !== null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
+    ...(input.entryId !== undefined && input.entryId !== null && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
+    ...(input.qualities !== undefined &&
+      input.qualities !== null && { qualities: serializeAws_restJson1Qualities(input.qualities, context) }),
+    ...(input.resolution !== undefined && input.resolution !== null && { resolution: input.resolution }),
+    ...(input.startDate !== undefined &&
+      input.startDate !== null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
+    ...(input.timeOrdering !== undefined && input.timeOrdering !== null && { timeOrdering: input.timeOrdering }),
+  };
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyValueEntries = (
+  input: BatchGetAssetPropertyValueEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BatchGetAssetPropertyValueEntry(entry, context);
+    });
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyValueEntry = (
+  input: BatchGetAssetPropertyValueEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.assetId !== undefined && input.assetId !== null && { assetId: input.assetId }),
+    ...(input.entryId !== undefined && input.entryId !== null && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
+  };
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntries = (
+  input: BatchGetAssetPropertyValueHistoryEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntry(entry, context);
+    });
+};
+
+const serializeAws_restJson1BatchGetAssetPropertyValueHistoryEntry = (
+  input: BatchGetAssetPropertyValueHistoryEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.assetId !== undefined && input.assetId !== null && { assetId: input.assetId }),
+    ...(input.endDate !== undefined &&
+      input.endDate !== null && { endDate: Math.round(input.endDate.getTime() / 1000) }),
+    ...(input.entryId !== undefined && input.entryId !== null && { entryId: input.entryId }),
+    ...(input.propertyAlias !== undefined && input.propertyAlias !== null && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && input.propertyId !== null && { propertyId: input.propertyId }),
+    ...(input.qualities !== undefined &&
+      input.qualities !== null && { qualities: serializeAws_restJson1Qualities(input.qualities, context) }),
+    ...(input.startDate !== undefined &&
+      input.startDate !== null && { startDate: Math.round(input.startDate.getTime() / 1000) }),
+    ...(input.timeOrdering !== undefined && input.timeOrdering !== null && { timeOrdering: input.timeOrdering }),
   };
 };
 
@@ -7356,6 +7822,17 @@ const serializeAws_restJson1PutAssetPropertyValueEntry = (
         propertyValues: serializeAws_restJson1AssetPropertyValues(input.propertyValues, context),
       }),
   };
+};
+
+const serializeAws_restJson1Qualities = (input: (Quality | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext): any => {
@@ -7925,6 +8402,294 @@ const deserializeAws_restJson1BatchDisassociateProjectAssetsErrors = (
       return deserializeAws_restJson1AssetErrorDetails(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesErrorEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesErrorEntry => {
+  return {
+    entryId: __expectString(output.entryId),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorInfo = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesErrorInfo => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorTimestamp:
+      output.errorTimestamp !== undefined && output.errorTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesSkippedEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesSkippedEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyAggregatesSkippedEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesSkippedEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesSkippedEntry => {
+  return {
+    completionStatus: __expectString(output.completionStatus),
+    entryId: __expectString(output.entryId),
+    errorInfo:
+      output.errorInfo !== undefined && output.errorInfo !== null
+        ? deserializeAws_restJson1BatchGetAssetPropertyAggregatesErrorInfo(output.errorInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesSuccessEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesSuccessEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyAggregatesSuccessEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyAggregatesSuccessEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyAggregatesSuccessEntry => {
+  return {
+    aggregatedValues:
+      output.aggregatedValues !== undefined && output.aggregatedValues !== null
+        ? deserializeAws_restJson1AggregatedValues(output.aggregatedValues, context)
+        : undefined,
+    entryId: __expectString(output.entryId),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueErrorEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueErrorEntry => {
+  return {
+    entryId: __expectString(output.entryId),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueErrorInfo = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueErrorInfo => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorTimestamp:
+      output.errorTimestamp !== undefined && output.errorTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistoryErrorEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistoryErrorEntry => {
+  return {
+    entryId: __expectString(output.entryId),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorInfo = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistoryErrorInfo => {
+  return {
+    errorCode: __expectString(output.errorCode),
+    errorTimestamp:
+      output.errorTimestamp !== undefined && output.errorTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.errorTimestamp)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistorySkippedEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistorySkippedEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueHistorySkippedEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistorySkippedEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistorySkippedEntry => {
+  return {
+    completionStatus: __expectString(output.completionStatus),
+    entryId: __expectString(output.entryId),
+    errorInfo:
+      output.errorInfo !== undefined && output.errorInfo !== null
+        ? deserializeAws_restJson1BatchGetAssetPropertyValueHistoryErrorInfo(output.errorInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistorySuccessEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistorySuccessEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueHistorySuccessEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueHistorySuccessEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueHistorySuccessEntry => {
+  return {
+    assetPropertyValueHistory:
+      output.assetPropertyValueHistory !== undefined && output.assetPropertyValueHistory !== null
+        ? deserializeAws_restJson1AssetPropertyValueHistory(output.assetPropertyValueHistory, context)
+        : undefined,
+    entryId: __expectString(output.entryId),
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueSkippedEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueSkippedEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueSkippedEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueSkippedEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueSkippedEntry => {
+  return {
+    completionStatus: __expectString(output.completionStatus),
+    entryId: __expectString(output.entryId),
+    errorInfo:
+      output.errorInfo !== undefined && output.errorInfo !== null
+        ? deserializeAws_restJson1BatchGetAssetPropertyValueErrorInfo(output.errorInfo, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueSuccessEntries = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueSuccessEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetAssetPropertyValueSuccessEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1BatchGetAssetPropertyValueSuccessEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAssetPropertyValueSuccessEntry => {
+  return {
+    assetPropertyValue:
+      output.assetPropertyValue !== undefined && output.assetPropertyValue !== null
+        ? deserializeAws_restJson1AssetPropertyValue(output.assetPropertyValue, context)
+        : undefined,
+    entryId: __expectString(output.entryId),
+  } as any;
 };
 
 const deserializeAws_restJson1BatchPutAssetPropertyError = (
