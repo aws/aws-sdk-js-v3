@@ -11,6 +11,11 @@ import {
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  CreateLiveSourceCommand,
+  CreateLiveSourceCommandInput,
+  CreateLiveSourceCommandOutput,
+} from "./commands/CreateLiveSourceCommand";
+import {
   CreatePrefetchScheduleCommand,
   CreatePrefetchScheduleCommandInput,
   CreatePrefetchScheduleCommandOutput,
@@ -41,6 +46,11 @@ import {
   DeleteChannelPolicyCommandOutput,
 } from "./commands/DeleteChannelPolicyCommand";
 import {
+  DeleteLiveSourceCommand,
+  DeleteLiveSourceCommandInput,
+  DeleteLiveSourceCommandOutput,
+} from "./commands/DeleteLiveSourceCommand";
+import {
   DeletePlaybackConfigurationCommand,
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
@@ -70,6 +80,11 @@ import {
   DescribeChannelCommandInput,
   DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
+import {
+  DescribeLiveSourceCommand,
+  DescribeLiveSourceCommandInput,
+  DescribeLiveSourceCommandOutput,
+} from "./commands/DescribeLiveSourceCommand";
 import {
   DescribeProgramCommand,
   DescribeProgramCommandInput,
@@ -111,6 +126,11 @@ import {
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListLiveSourcesCommand,
+  ListLiveSourcesCommandInput,
+  ListLiveSourcesCommandOutput,
+} from "./commands/ListLiveSourcesCommand";
 import {
   ListPlaybackConfigurationsCommand,
   ListPlaybackConfigurationsCommandInput,
@@ -163,6 +183,11 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
+import {
+  UpdateLiveSourceCommand,
+  UpdateLiveSourceCommandInput,
+  UpdateLiveSourceCommandOutput,
+} from "./commands/UpdateLiveSourceCommand";
 import {
   UpdateSourceLocationCommand,
   UpdateSourceLocationCommandInput,
@@ -235,6 +260,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates name for a specific live source in a source location.</p>
+   */
+  public createLiveSource(
+    args: CreateLiveSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLiveSourceCommandOutput>;
+  public createLiveSource(
+    args: CreateLiveSourceCommandInput,
+    cb: (err: any, data?: CreateLiveSourceCommandOutput) => void
+  ): void;
+  public createLiveSource(
+    args: CreateLiveSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLiveSourceCommandOutput) => void
+  ): void;
+  public createLiveSource(
+    args: CreateLiveSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLiveSourceCommandOutput) => void),
+    cb?: (err: any, data?: CreateLiveSourceCommandOutput) => void
+  ): Promise<CreateLiveSourceCommandOutput> | void {
+    const command = new CreateLiveSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -438,6 +495,38 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * <p>Deletes a specific live source in a specific source location.</p>
+   */
+  public deleteLiveSource(
+    args: DeleteLiveSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLiveSourceCommandOutput>;
+  public deleteLiveSource(
+    args: DeleteLiveSourceCommandInput,
+    cb: (err: any, data?: DeleteLiveSourceCommandOutput) => void
+  ): void;
+  public deleteLiveSource(
+    args: DeleteLiveSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLiveSourceCommandOutput) => void
+  ): void;
+  public deleteLiveSource(
+    args: DeleteLiveSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLiveSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLiveSourceCommandOutput) => void
+  ): Promise<DeleteLiveSourceCommandOutput> | void {
+    const command = new DeleteLiveSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the playback configuration for the specified name.</p>
    */
   public deletePlaybackConfiguration(
@@ -619,6 +708,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides details about a specific live source in a specific source location.</p>
+   */
+  public describeLiveSource(
+    args: DescribeLiveSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLiveSourceCommandOutput>;
+  public describeLiveSource(
+    args: DescribeLiveSourceCommandInput,
+    cb: (err: any, data?: DescribeLiveSourceCommandOutput) => void
+  ): void;
+  public describeLiveSource(
+    args: DescribeLiveSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLiveSourceCommandOutput) => void
+  ): void;
+  public describeLiveSource(
+    args: DescribeLiveSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLiveSourceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLiveSourceCommandOutput) => void
+  ): Promise<DescribeLiveSourceCommandOutput> | void {
+    const command = new DescribeLiveSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -898,6 +1019,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>lists all the live sources in a source location.</p>
+   */
+  public listLiveSources(
+    args: ListLiveSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLiveSourcesCommandOutput>;
+  public listLiveSources(
+    args: ListLiveSourcesCommandInput,
+    cb: (err: any, data?: ListLiveSourcesCommandOutput) => void
+  ): void;
+  public listLiveSources(
+    args: ListLiveSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLiveSourcesCommandOutput) => void
+  ): void;
+  public listLiveSources(
+    args: ListLiveSourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLiveSourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListLiveSourcesCommandOutput) => void
+  ): Promise<ListLiveSourcesCommandOutput> | void {
+    const command = new ListLiveSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1267,6 +1420,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a specific live source in a specific source location.</p>
+   */
+  public updateLiveSource(
+    args: UpdateLiveSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLiveSourceCommandOutput>;
+  public updateLiveSource(
+    args: UpdateLiveSourceCommandInput,
+    cb: (err: any, data?: UpdateLiveSourceCommandOutput) => void
+  ): void;
+  public updateLiveSource(
+    args: UpdateLiveSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLiveSourceCommandOutput) => void
+  ): void;
+  public updateLiveSource(
+    args: UpdateLiveSourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLiveSourceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLiveSourceCommandOutput) => void
+  ): Promise<UpdateLiveSourceCommandOutput> | void {
+    const command = new UpdateLiveSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
