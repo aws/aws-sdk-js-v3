@@ -181,7 +181,7 @@ export function getSignedUrl({
     const base64EncodedPolicy = encodeToBase64(policy);
     cloudfrontQueryParams.push(`Policy=${base64EncodedPolicy}`);
   } else {
-    cloudfrontQueryParams.push(`Expires=${dateLessThan}`);
+    cloudfrontQueryParams.push(`Expires=${parsedDates.dateLessThan}`);
   }
   cloudfrontQueryParams.push(`Key-Pair-Id=${keyPairId}`);
   cloudfrontQueryParams.push(`Signature=${signature}`);
