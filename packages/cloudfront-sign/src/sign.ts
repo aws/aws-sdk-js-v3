@@ -148,8 +148,7 @@ function parseDateWindow(expiration: string, start?: string): PolicyDates {
   };
 }
 
-function signPolicy(policy: string, privateKey: string): string {
-  const privateKeyBuffer = readFileSync(privateKey);
+function signPolicy(policy: string, privateKeyBuffer: Buffer): string {
   return normalizeBase64(signData(policy, privateKeyBuffer));
 }
 
@@ -171,7 +170,8 @@ export function getSignedUrl({
       resource: url,
     })
   );
-  const signature = signPolicy(policy, privateKey);
+  const privateKeyBuffer = readFileSync(privateKey);
+  const signature = signPolicy(policy, privateKeyBuffer);
   const cloudfrontQueryParams = [];
   for (const key in parsedUrl.query) {
     cloudfrontQueryParams.push(`${key}=${parsedUrl.query[key]}`);
@@ -206,7 +206,8 @@ export function getSignedCookies({
       resource: url,
     })
   );
-  const signature = signPolicy(policy, privateKey);
+  const privateKeyBuffer = readFileSync(privateKey);
+  const signature = signPolicy(policy, privateKeyBuffer);
   const base64EncodedPolicy = encodeToBase64(policy);
   return {
     "CloudFront-Key-Pair-Id": keyPairId,
