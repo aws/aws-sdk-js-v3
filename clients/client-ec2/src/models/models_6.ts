@@ -1,3 +1,5 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   _InstanceType,
   AddressAttribute,
@@ -1501,6 +1503,7 @@ export namespace RunInstancesRequest {
    */
   export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
     ...obj,
+    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
   });
 }
 

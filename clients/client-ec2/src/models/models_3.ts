@@ -5482,6 +5482,11 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which the
+   *                     instance was launched.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                     <code>client-token</code> - The idempotency token you provided when you launched
    *                     the instance.</p>
    *             </li>
@@ -8908,8 +8913,7 @@ export interface KeyPairInfo {
    * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
    *          <ul>
    *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.
-   *                </p>
+   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
    *            </li>
    *             <li>
    *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which

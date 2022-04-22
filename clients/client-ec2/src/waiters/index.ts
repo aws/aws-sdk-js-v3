@@ -15,6 +15,7 @@ export * from "./waitForInstanceTerminated";
 export * from "./waitForInternetGatewayExists";
 export * from "./waitForKeyPairExists";
 export * from "./waitForNatGatewayAvailable";
+export * from "./waitForNatGatewayDeleted";
 export * from "./waitForNetworkInterfaceAvailable";
 export * from "./waitForSecurityGroupExists";
 export * from "./waitForSnapshotCompleted";
