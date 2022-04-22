@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* **node-http-handler:** http2 lets node exit ([#3541](https://github.com/aws/aws-sdk-js-v3/issues/3541)) ([7480667](https://github.com/aws/aws-sdk-js-v3/commit/74806672bcd462dae51197294f3160f32f867b62))
+
+
+
+
+
 # [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
 
 

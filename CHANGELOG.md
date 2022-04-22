@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* **node-http-handler:** http2 lets node exit ([#3541](https://github.com/aws/aws-sdk-js-v3/issues/3541)) ([7480667](https://github.com/aws/aws-sdk-js-v3/commit/74806672bcd462dae51197294f3160f32f867b62))
+* **util-dynamodb:** allow marshall function to handle more input types ([#3539](https://github.com/aws/aws-sdk-js-v3/issues/3539)) ([a5fa267](https://github.com/aws/aws-sdk-js-v3/commit/a5fa26783c7d061e2f32b985fdcf371487efaff4))
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Include additional exceptions types. ([89b90ef](https://github.com/aws/aws-sdk-js-v3/commit/89b90ef9527faef3b2ec72f36d0ab4637244a5fa))
+* **client-ec2:** Adds support for waiters that automatically poll for a deleted NAT Gateway until it reaches the deleted state. ([047c131](https://github.com/aws/aws-sdk-js-v3/commit/047c13158e4f43b53dd1525e028888907026a278))
+
+
+
+
+
 # [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
 
 

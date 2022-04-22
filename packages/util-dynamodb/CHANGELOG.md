@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* **util-dynamodb:** allow marshall function to handle more input types ([#3539](https://github.com/aws/aws-sdk-js-v3/issues/3539)) ([a5fa267](https://github.com/aws/aws-sdk-js-v3/commit/a5fa26783c7d061e2f32b985fdcf371487efaff4))
+
+
+
+
+
 # [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
 
 **Note:** Version bump only for package @aws-sdk/util-dynamodb
