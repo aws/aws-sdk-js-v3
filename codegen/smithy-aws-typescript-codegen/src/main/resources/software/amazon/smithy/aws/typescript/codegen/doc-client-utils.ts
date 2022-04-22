@@ -10,7 +10,7 @@ export type AllNodes = {
 };
 
 const processObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
-  if (obj) {
+  if (obj !== undefined) {
     if (!children || (Array.isArray(children) && children.length === 0)) {
       // Leaf of KeyNode, process the object.
       return processFunc(obj);
