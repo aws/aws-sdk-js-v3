@@ -13,7 +13,7 @@ const epochDateLessThan = Math.round(new Date(dateLessThan).getTime() / 1000);
 const dateGreaterThan = "2019-12-01";
 const epochDateGreaterThan = Math.round(new Date(dateGreaterThan).getTime() / 1000);
 const ipAddress = "10.0.0.0";
-const privateKeyBuffer = Buffer.from(`
+const privateKey = Buffer.from(`
 -----BEGIN RSA PRIVATE KEY-----
 MIIEowIBAAKCAQEAuHfxvylv0IgfsJkualzZtCqwLyg19Gcsy+jVAAioVtWBOgxE
 IYSsED+yzryecDnniJGokXiGTt6nlJk5o95jNSnKw9KOThWey95WudDnEcUWKJow
@@ -45,12 +45,12 @@ aoCHJ9c5Pnu6FwMAjP8aaKLQDvoHZKVWL2Ml6A6V3Ed95Itp/g2J
 function createSignature(data: string): string {
   const signer = createSign("RSA-SHA1");
   signer.update(data);
-  return normalizeBase64(signer.sign(privateKeyBuffer, "base64"));
+  return normalizeBase64(signer.sign(privateKey, "base64"));
 }
 function verifySignature(signature: string, data: string): boolean {
   const verifier = createVerify("RSA-SHA1");
   verifier.update(data);
-  return verifier.verify(privateKeyBuffer, signature, "base64");
+  return verifier.verify(privateKey, signature, "base64");
 }
 function encodeToBase64(str: string): string {
   return normalizeBase64(Buffer.from(str).toString("base64"));
@@ -63,16 +63,6 @@ function denormalizeBase64(str: string): string {
 }
 
 describe("getSignedUrl", () => {
-  let tmpDir = "";
-  let privateKeyPath = "";
-  beforeAll(() => {
-    tmpDir = mkdtempSync(resolve(tmpdir(), "cloudfront-request-signer"));
-    privateKeyPath = resolve(tmpDir, "test-private-key.pem");
-    writeFileSync(privateKeyPath, privateKeyBuffer);
-  });
-  afterAll(() => {
-    rmdirSync(tmpDir, { recursive: true });
-  });
   it("should maintain query params after signing a URL", () => {
     const url = "https://example.com/private.jpeg?foo=bar";
     const result = parseUrl(
@@ -80,7 +70,7 @@ describe("getSignedUrl", () => {
         url,
         keyPairId,
         dateLessThan,
-        privateKey: privateKeyPath,
+        privateKey,
       })
     );
     if (!result.query) {
@@ -95,7 +85,7 @@ describe("getSignedUrl", () => {
         url,
         keyPairId,
         dateLessThan,
-        privateKey: privateKeyPath,
+        privateKey,
       })
     );
     if (!result.query) {
@@ -122,7 +112,7 @@ describe("getSignedUrl", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -149,7 +139,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       dateGreaterThan,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -179,7 +169,7 @@ describe("getSignedUrl", () => {
       keyPairId,
       dateLessThan,
       ipAddress,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -210,7 +200,7 @@ describe("getSignedUrl", () => {
       dateLessThan,
       dateGreaterThan,
       ipAddress,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -242,7 +232,7 @@ describe("getSignedUrl", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     };
     expect(
       getSignedUrl({
@@ -262,7 +252,7 @@ describe("getSignedUrl", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     };
     expect(() =>
       getSignedUrl({
@@ -304,22 +294,12 @@ describe("getSignedUrl", () => {
 });
 
 describe("getSignedCookies", () => {
-  let tmpDir = "";
-  let privateKeyPath = "";
-  beforeAll(() => {
-    tmpDir = mkdtempSync(resolve(tmpdir(), "cloudfront-request-signer"));
-    privateKeyPath = resolve(tmpDir, "test-private-key.pem");
-    writeFileSync(privateKeyPath, privateKeyBuffer);
-  });
-  afterAll(() => {
-    rmdirSync(tmpDir, { recursive: true });
-  });
   it("should allow an ip address with and without a mask", () => {
     const baseArgs = {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     };
     expect(
       getSignedCookies({
@@ -339,7 +319,7 @@ describe("getSignedCookies", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     };
     expect(() =>
       getSignedCookies({
@@ -384,7 +364,7 @@ describe("getSignedCookies", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -405,7 +385,7 @@ describe("getSignedCookies", () => {
       url,
       keyPairId,
       dateLessThan,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -436,7 +416,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       dateGreaterThan,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -470,7 +450,7 @@ describe("getSignedCookies", () => {
       keyPairId,
       dateLessThan,
       ipAddress,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
@@ -505,7 +485,7 @@ describe("getSignedCookies", () => {
       dateLessThan,
       dateGreaterThan,
       ipAddress,
-      privateKey: privateKeyPath,
+      privateKey,
     });
     const policyStr = JSON.stringify({
       Statement: [
