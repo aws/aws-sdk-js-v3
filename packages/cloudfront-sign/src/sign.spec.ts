@@ -139,9 +139,7 @@ describe("getSignedUrl", () => {
     const signature = createSignature(policyStr);
     expect(result).toBe(`${url}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
-    if (!parsedUrl.query) {
-      throw new Error("query parameter is undefined");
-    }
+    expect(parsedUrl).toBeDefined();
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
@@ -171,9 +169,7 @@ describe("getSignedUrl", () => {
     const signature = createSignature(policyStr);
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
-    if (!parsedUrl.query) {
-      throw new Error("query parameter is undefined");
-    }
+    expect(parsedUrl).toBeDefined();
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
@@ -203,9 +199,7 @@ describe("getSignedUrl", () => {
     const signature = createSignature(policyStr);
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
-    if (!parsedUrl.query) {
-      throw new Error("query parameter is undefined");
-    }
+    expect(parsedUrl).toBeDefined();
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
@@ -239,9 +233,7 @@ describe("getSignedUrl", () => {
     const signature = createSignature(policyStr);
     expect(result).toBe(`${url}?Policy=${encodeToBase64(policyStr)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
-    if (!parsedUrl.query) {
-      throw new Error("query parameter is undefined");
-    }
+    expect(parsedUrl).toBeDefined();
     const signatureQueryParam = denormalizeBase64(parsedUrl.query["Signature"] as string);
     expect(verifySignature(signatureQueryParam, policyStr)).toBeTruthy();
   });
