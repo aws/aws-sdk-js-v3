@@ -140,7 +140,7 @@ function parseDate(date?: string): number | undefined {
 function parseDateWindow(expiration: string, start?: string): PolicyDates {
   const dateLessThan = parseDate(expiration);
   if (!dateLessThan) {
-    throw new Error("dateLessThan is invalid. Ensure a valid date string is provided.");
+    throw new Error("dateLessThan is invalid. Ensure the date string is compatible with the Date constructor.");
   }
   return {
     dateLessThan,
