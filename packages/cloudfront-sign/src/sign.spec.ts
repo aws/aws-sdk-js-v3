@@ -9,7 +9,9 @@ import { getSignedCookies, getSignedUrl } from "./index";
 const url = "https://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
 const keyPairId = "APKAEIBAERJR2EXAMPLE";
 const dateLessThan = "2020-01-01";
+const epochDateLessThan = Math.round(new Date(dateLessThan).getTime() / 1000);
 const dateGreaterThan = "2019-12-01";
+const epochDateGreaterThan = Math.round(new Date(dateGreaterThan).getTime() / 1000);
 const ipAddress = "10.0.0.0";
 const privateKeyBuffer = Buffer.from(`
 -----BEGIN RSA PRIVATE KEY-----
@@ -56,14 +58,8 @@ function encodeToBase64(str: string): string {
 function normalizeBase64(str: string): string {
   return str.replace(/\+/g, "-").replace(/=/g, "_").replace(/\//g, "~");
 }
-function decodeToUTF8(str: string): string {
-  return Buffer.from(denormalizeBase64(str), "base64").toString("utf-8");
-}
 function denormalizeBase64(str: string): string {
   return str.replace(/\-/g, "+").replace(/_/g, "=").replace(/~/g, "/");
-}
-function epochTime(date: string): number {
-  return new Date(date).getTime() / 1000;
 }
 
 describe("getSignedUrl", () => {
@@ -113,7 +109,7 @@ describe("getSignedUrl", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
           },
         },
@@ -134,14 +130,14 @@ describe("getSignedUrl", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
           },
         },
       ],
     });
     const signature = createSignature(policyStr);
-    expect(result).toBe(`${url}?Expires=${epochTime(dateLessThan)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
+    expect(result).toBe(`${url}?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
     const parsedUrl = parseUrl(result);
     if (!parsedUrl.query) {
       throw new Error("query parameter is undefined");
@@ -163,10 +159,10 @@ describe("getSignedUrl", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             DateGreaterThan: {
-              "AWS:EpochTime": epochTime(dateGreaterThan),
+              "AWS:EpochTime": epochDateGreaterThan,
             },
           },
         },
@@ -195,7 +191,7 @@ describe("getSignedUrl", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             IpAddress: {
               "AWS:SourceIp": `${ipAddress}/32`,
@@ -228,10 +224,10 @@ describe("getSignedUrl", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             DateGreaterThan: {
-              "AWS:EpochTime": epochTime(dateGreaterThan),
+              "AWS:EpochTime": epochDateGreaterThan,
             },
             IpAddress: {
               "AWS:SourceIp": `${ipAddress}/32`,
@@ -404,7 +400,7 @@ describe("getSignedCookies", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
           },
         },
@@ -425,7 +421,7 @@ describe("getSignedCookies", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
           },
         },
@@ -433,7 +429,7 @@ describe("getSignedCookies", () => {
     });
     const signature = createSignature(policyStr);
     const expected = {
-      "CloudFront-Expires": epochTime(dateLessThan),
+      "CloudFront-Expires": epochDateLessThan,
       "CloudFront-Key-Pair-Id": keyPairId,
       "CloudFront-Signature": signature,
     };
@@ -456,10 +452,10 @@ describe("getSignedCookies", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             DateGreaterThan: {
-              "AWS:EpochTime": epochTime(dateGreaterThan),
+              "AWS:EpochTime": epochDateGreaterThan,
             },
           },
         },
@@ -490,7 +486,7 @@ describe("getSignedCookies", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             IpAddress: {
               "AWS:SourceIp": `${ipAddress}/32`,
@@ -525,10 +521,10 @@ describe("getSignedCookies", () => {
           Resource: url,
           Condition: {
             DateLessThan: {
-              "AWS:EpochTime": epochTime(dateLessThan),
+              "AWS:EpochTime": epochDateLessThan,
             },
             DateGreaterThan: {
-              "AWS:EpochTime": epochTime(dateGreaterThan),
+              "AWS:EpochTime": epochDateGreaterThan,
             },
             IpAddress: {
               "AWS:SourceIp": `${ipAddress}/32`,

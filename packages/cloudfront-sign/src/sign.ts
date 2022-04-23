@@ -45,7 +45,7 @@ interface BuildPolicyInput extends PolicyDates, Pick<CloudfrontSignInput, "ipAdd
 }
 
 function epochTime(date: Date): number {
-  return date.getTime() / 1000;
+  return Math.round(date.getTime() / 1000);
 }
 
 function encodeToBase64(str: string): string {
