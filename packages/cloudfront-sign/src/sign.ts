@@ -133,8 +133,8 @@ function parseDate(date?: string): number | undefined {
   if (!date) {
     return undefined;
   }
-  const parsedDate = new Date(date);
-  return parsedDate instanceof Date ? epochTime(parsedDate) : undefined;
+  const parsedDate = Date.parse(date);
+  return isNaN(parsedDate) ? undefined : epochTime(new Date(parsedDate));
 }
 
 function parseDateWindow(expiration: string, start?: string): PolicyDates {
