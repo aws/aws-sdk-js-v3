@@ -10,7 +10,7 @@ interface PolicyDates {
 interface CloudfrontSignInput {
   url: string;
   keyPairId: string;
-  privateKey: string;
+  privateKey: string | Buffer;
   dateLessThan: string;
   ipAddress?: string;
   dateGreaterThan?: string;
@@ -123,10 +123,10 @@ function buildPolicy(args: BuildPolicyInput): Policy {
   return policy;
 }
 
-function signData(data: string, privateKeyBuffer: Buffer): string {
+function signData(data: string, privateKey: string | Buffer): string {
   const sign = createSign("RSA-SHA1");
   sign.update(data);
-  return sign.sign(privateKeyBuffer, "base64");
+  return sign.sign(privateKey, "base64");
 }
 
 function parseDate(date?: string): number | undefined {
@@ -148,8 +148,8 @@ function parseDateWindow(expiration: string, start?: string): PolicyDates {
   };
 }
 
-function signPolicy(policy: string, privateKeyBuffer: Buffer): string {
-  return normalizeBase64(signData(policy, privateKeyBuffer));
+function signPolicy(policy: string, privateKey: string | Buffer): string {
+  return normalizeBase64(signData(policy, privateKey));
 }
 
 export function getSignedUrl({
@@ -170,8 +170,7 @@ export function getSignedUrl({
       resource: url,
     })
   );
-  const privateKeyBuffer = readFileSync(privateKey);
-  const signature = signPolicy(policy, privateKeyBuffer);
+  const signature = signPolicy(policy, privateKey);
   const cloudfrontQueryParams = [];
   for (const key in parsedUrl.query) {
     cloudfrontQueryParams.push(`${key}=${parsedUrl.query[key]}`);
@@ -206,8 +205,7 @@ export function getSignedCookies({
       resource: url,
     })
   );
-  const privateKeyBuffer = readFileSync(privateKey);
-  const signature = signPolicy(policy, privateKeyBuffer);
+  const signature = signPolicy(policy, privateKey);
   const base64EncodedPolicy = encodeToBase64(policy);
   return {
     "CloudFront-Key-Pair-Id": keyPairId,
