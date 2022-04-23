@@ -1,4 +1,4 @@
-# @aws-sdk/cloudfront-sign
+# @aws-sdk/cloudfront-request-presigner
 
 This package provides functions to generate signed urls and cookies for accessing private content on CloudFront based on a CloudFront trusted key group key pair.
 
@@ -9,7 +9,7 @@ This package provides functions to generate signed urls and cookies for accessin
 JavaScript Example:
 
 ```javascript
-const { getSignedUrl } = require("@aws-sdk/cloudfront-sign");
+const { getSignedUrl } = require("@aws-sdk/cloudfront-request-presigner");
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
@@ -27,7 +27,7 @@ const signedUrl = getSignedUrl({
 ES6 Example
 
 ```javascript
-import { getSignedUrl } from "@aws-sdk/cloudfront-sign";
+import { getSignedUrl } from "@aws-sdk/cloudfront-request-presigner";
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
@@ -47,7 +47,7 @@ const signedUrl = getSignedUrl({
 JavaScript Example:
 
 ```javascript
-const { getSignedCookies } = require("@aws-sdk/cloudfront-sign");
+const { getSignedCookies } = require("@aws-sdk/cloudfront-request-presigner");
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
@@ -65,7 +65,7 @@ const cookies = getSignedCookies({
 ES6 Example
 
 ```javascript
-import { getSignedCookies } from "@aws-sdk/cloudfront-sign";
+import { getSignedCookies } from "@aws-sdk/cloudfront-request-presigner";
 const cloudfrontDistributionDomain = "https://d111111abcdef8.cloudfront.net";
 const s3ObjectKey = "private-content/private.jpeg";
 const url = `${cloudfrontDistributionDomain}/${s3ObjectKey}`;
