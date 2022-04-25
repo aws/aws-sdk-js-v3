@@ -36,11 +36,11 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             <code>PLACING</code>, where a new game session is created for the match. </p>
  *         <p>If any player rejects the match, or if acceptances are not received before a specified
  *             timeout, the proposed match is dropped. The matchmaking tickets are then handled in one
- *             of two ways: For tickets where one or more players rejected the match, the ticket status
- *             is returned to <code>SEARCHING</code> to find a new match. For tickets where one or more
- *             players failed to respond, the ticket status is set to <code>CANCELLED</code>, and
- *             processing is terminated. A new matchmaking request for these players can be submitted
- *             as needed. </p>
+ *             of two ways: For tickets where one or more players rejected the match or failed to
+ *             respond, the ticket status is set to <code>CANCELLED</code>, and processing is
+ *             terminated. For tickets where players have accepted or not yet responded, the ticket
+ *             status is returned to <code>SEARCHING</code> to find a new match. A new matchmaking
+ *             request for these players can be submitted as needed. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>

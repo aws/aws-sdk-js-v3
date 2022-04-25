@@ -37,23 +37,23 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *             <li>
  *                <p>An Amazon Simple Storage Service (Amazon S3) bucket under your Amazon Web Services account. Use the
  *                         <i>StorageLocation</i> parameter for this option. You'll need
- *                     to have an Identity Access Management (IAM) role that allows the Amazon Web Services
+ *                     to have an Identity Access Management (IAM) role that allows the Amazon GameLift
  *                     service to access your S3 bucket. </p>
  *             </li>
  *          </ul>
  *         <p>If the call is successful, a new script record is created with a unique script ID. If the
- *             script file is provided as a local file, the file is uploaded to an Amazon Web Services-owned S3 bucket
+ *             script file is provided as a local file, the file is uploaded to an Amazon GameLift-owned S3 bucket
  *             and the script record's storage location reflects this location. If the script file is provided
- *             as an S3 bucket, Amazon Web Services accesses the file at this storage location as needed for deployment.</p>
+ *             as an S3 bucket, Amazon GameLift accesses the file at this storage location as needed for deployment.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set Up a Role for Amazon Web Services Access</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set Up a Role for Amazon GameLift Access</a>
  *          </p>
  *         <p>
  *             <b>Related actions</b>
