@@ -821,6 +821,11 @@ export namespace AdminAccount {
   });
 }
 
+export enum AutoEnableStandards {
+  DEFAULT = "DEFAULT",
+  NONE = "NONE",
+}
+
 /**
  * <p>Information about an Availability Zone.</p>
  */
@@ -11451,35 +11456,6 @@ export namespace AwsRdsDbSubnetGroup {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the connection endpoint.</p>
- */
-export interface AwsRdsDbInstanceEndpoint {
-  /**
-   * <p>Specifies the DNS address of the DB instance.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>Specifies the port that the database engine is listening on.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
-   */
-  HostedZoneId?: string;
-}
-
-export namespace AwsRdsDbInstanceEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
     ...obj,
   });
 }

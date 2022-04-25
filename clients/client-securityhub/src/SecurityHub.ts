@@ -263,9 +263,10 @@ import { SecurityHubClient } from "./SecurityHubClient";
  *          of your environment based on controls from supported security standards. Security Hub collects
  *          security data from Amazon Web Services accounts, services, and integrated third-party products and helps
  *          you analyze security trends in your environment to identify the highest priority security
- *          issues. For more information about Security Hub, see the <i>Security Hub<a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">User
- *                Guide</a>
- *             </i>.</p>
+ *          issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+ *                <i>Security HubUser
+ *             Guide</i>
+ *             </a>.</p>
  *          <p>When you use operations in the Security Hub API, the requests are executed only in the Amazon Web Services
  *          Region that is currently active or in the specific Amazon Web Services Region that you specify in your
  *          request. Any configuration or settings change that results from the operation is applied
@@ -680,7 +681,7 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
-   *          <p>For more details about cross-Region replication, see <a href="securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
+   *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
    *       </p>
    */
   public createFindingAggregator(
