@@ -51,8 +51,9 @@ export async function* paginateListAssessmentTemplates(
       throw new Error("Invalid client, expected Inspector | InspectorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

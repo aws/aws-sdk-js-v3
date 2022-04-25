@@ -51,8 +51,9 @@ export async function* paginateDescribeDefaultClusterParameters(
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
+    const prevToken = token;
     token = page.DefaultClusterParameters!.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

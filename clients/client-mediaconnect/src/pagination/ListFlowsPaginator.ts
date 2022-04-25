@@ -47,8 +47,9 @@ export async function* paginateListFlows(
       throw new Error("Invalid client, expected MediaConnect | MediaConnectClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

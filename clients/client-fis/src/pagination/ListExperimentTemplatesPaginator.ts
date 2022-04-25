@@ -51,8 +51,9 @@ export async function* paginateListExperimentTemplates(
       throw new Error("Invalid client, expected Fis | FisClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

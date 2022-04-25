@@ -51,8 +51,9 @@ export async function* paginateDescribePendingMaintenanceActions(
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

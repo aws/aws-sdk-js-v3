@@ -51,8 +51,9 @@ export async function* paginateListSnapshotBlocks(
       throw new Error("Invalid client, expected EBS | EBSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

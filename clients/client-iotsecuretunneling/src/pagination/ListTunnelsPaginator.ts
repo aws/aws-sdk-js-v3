@@ -47,8 +47,9 @@ export async function* paginateListTunnels(
       throw new Error("Invalid client, expected IoTSecureTunneling | IoTSecureTunnelingClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

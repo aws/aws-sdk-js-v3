@@ -50,8 +50,9 @@ export async function* paginateListJobsByPipeline(
       throw new Error("Invalid client, expected ElasticTranscoder | ElasticTranscoderClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextPageToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

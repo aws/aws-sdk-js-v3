@@ -47,8 +47,9 @@ export async function* paginateListMembers(
       throw new Error("Invalid client, expected Macie2 | Macie2Client");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

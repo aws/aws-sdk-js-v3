@@ -47,8 +47,9 @@ export async function* paginateGetRestApis(
       throw new Error("Invalid client, expected APIGateway | APIGatewayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.position;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

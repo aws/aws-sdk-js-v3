@@ -51,8 +51,9 @@ export async function* paginateListHumanLoops(
       throw new Error("Invalid client, expected SageMakerA2IRuntime | SageMakerA2IRuntimeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

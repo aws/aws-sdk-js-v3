@@ -51,8 +51,9 @@ export async function* paginateListDataSets(
       throw new Error("Invalid client, expected DataExchange | DataExchangeClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

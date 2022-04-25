@@ -47,8 +47,9 @@ export async function* paginateGetServers(
       throw new Error("Invalid client, expected SMS | SMSClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

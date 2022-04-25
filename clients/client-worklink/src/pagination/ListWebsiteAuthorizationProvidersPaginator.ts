@@ -51,8 +51,9 @@ export async function* paginateListWebsiteAuthorizationProviders(
       throw new Error("Invalid client, expected WorkLink | WorkLinkClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

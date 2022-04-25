@@ -51,8 +51,9 @@ export async function* paginateListAssistantAssociations(
       throw new Error("Invalid client, expected Wisdom | WisdomClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

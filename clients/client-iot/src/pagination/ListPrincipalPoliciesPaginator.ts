@@ -51,8 +51,9 @@ export async function* paginateListPrincipalPolicies(
       throw new Error("Invalid client, expected IoT | IoTClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

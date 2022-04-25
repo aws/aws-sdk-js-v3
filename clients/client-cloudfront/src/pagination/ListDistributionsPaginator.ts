@@ -51,8 +51,9 @@ export async function* paginateListDistributions(
       throw new Error("Invalid client, expected CloudFront | CloudFrontClient");
     }
     yield page;
+    const prevToken = token;
     token = page.DistributionList!.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -47,8 +47,9 @@ export async function* paginateListTapes(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

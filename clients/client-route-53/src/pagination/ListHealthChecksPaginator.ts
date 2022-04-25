@@ -51,8 +51,9 @@ export async function* paginateListHealthChecks(
       throw new Error("Invalid client, expected Route53 | Route53Client");
     }
     yield page;
+    const prevToken = token;
     token = page.NextMarker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

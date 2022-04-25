@@ -51,8 +51,9 @@ export async function* paginateDescribeAffectedEntitiesForOrganization(
       throw new Error("Invalid client, expected Health | HealthClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -51,8 +51,9 @@ export async function* paginateDescribeDBClusters(
       throw new Error("Invalid client, expected DocDB | DocDBClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

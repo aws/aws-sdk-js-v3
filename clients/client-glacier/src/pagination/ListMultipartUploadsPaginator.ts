@@ -51,8 +51,9 @@ export async function* paginateListMultipartUploads(
       throw new Error("Invalid client, expected Glacier | GlacierClient");
     }
     yield page;
+    const prevToken = token;
     token = page.Marker;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

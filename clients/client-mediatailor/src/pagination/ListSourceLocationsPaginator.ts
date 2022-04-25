@@ -51,8 +51,9 @@ export async function* paginateListSourceLocations(
       throw new Error("Invalid client, expected MediaTailor | MediaTailorClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

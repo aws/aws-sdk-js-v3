@@ -51,8 +51,9 @@ export async function* paginateDescribeTestCases(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
+    const prevToken = token;
     token = page.nextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

@@ -47,8 +47,9 @@ export async function* paginateListQueries(
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;

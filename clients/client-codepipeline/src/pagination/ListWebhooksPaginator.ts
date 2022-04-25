@@ -51,8 +51,9 @@ export async function* paginateListWebhooks(
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");
     }
     yield page;
+    const prevToken = token;
     token = page.NextToken;
-    hasNext = !!token;
+    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
   }
   // @ts-ignore
   return undefined;
