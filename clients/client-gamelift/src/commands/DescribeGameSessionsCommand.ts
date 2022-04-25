@@ -64,7 +64,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             <a>DescribeGameSessions</a> should only be used for games in development
  *             with low matchmaking usage.</p>
  *         <p>
- *             <i>Available in Amazon Web Services Local.</i>
+ *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *         <p>
  *             <b>Learn more</b>

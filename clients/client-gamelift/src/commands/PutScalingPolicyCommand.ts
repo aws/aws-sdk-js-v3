@@ -24,7 +24,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
 /**
  * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to
  *             automatically scale a fleet's hosting capacity to meet player demand. An active scaling
- *             policy instructs Amazon Web Services to track a fleet metric and automatically change the fleet's
+ *             policy instructs Amazon GameLift to track a fleet metric and automatically change the fleet's
  *             capacity when a certain threshold is reached. There are two types of scaling policies:
  *             target-based and rule-based. Use a target-based policy to quickly and efficiently manage
  *             fleet scaling; this option is the most commonly used. Use rule-based policies when you
@@ -46,12 +46,12 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *             metric tells us how much of a fleet's hosting capacity is ready to host game sessions
  *             but is not currently in use. This is the fleet's buffer; it measures the additional
  *             player demand that the fleet could handle at current capacity. With a target-based
- *             policy, you set your ideal buffer size and leave it to Amazon Web Services to take whatever action
+ *             policy, you set your ideal buffer size and leave it to Amazon GameLift to take whatever action
  *             is needed to maintain that target. </p>
  *         <p>For example, you might choose to maintain a 10% buffer for a fleet that has the
- *             capacity to host 100 simultaneous game sessions. This policy tells Amazon Web Services to take
+ *             capacity to host 100 simultaneous game sessions. This policy tells Amazon GameLift to take
  *             action whenever the fleet's available capacity falls below or rises above 10 game
- *             sessions. Amazon Web Services will start new instances or stop unused instances in order to return
+ *             sessions. Amazon GameLift will start new instances or stop unused instances in order to return
  *             to the 10% buffer. </p>
  *         <p>To create or update a target-based policy, specify a fleet ID and name, and set the
  *             policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)

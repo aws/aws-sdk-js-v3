@@ -552,9 +552,6 @@ export interface AssignTapePoolInput {
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
    *          class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId: string | undefined;
 
@@ -831,9 +828,6 @@ export interface AutomaticTapeCreationRule {
    *          When you use your backup application to eject the tape, the tape is archived directly into
    *          the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the
    *          pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId: string | undefined;
 
@@ -1071,6 +1065,12 @@ export interface CachediSCSIVolume {
    *          <note>
    *             <p>This value is not available for volumes created prior to May 13, 2015, until you
    *             store data on the volume.</p>
+   *
+   *             <p>If you use a delete tool that overwrites the data on your volume with random data,
+   *             your usage will not be reduced. This is because the random data is not compressible. If
+   *             you want to reduce the amount of billed storage on your volume, we recommend overwriting
+   *             your files with zeros to compress the data to a negligible amount of actual
+   *             storage.</p>
    *          </note>
    */
   VolumeUsedInBytes?: number;
@@ -1480,7 +1480,7 @@ export interface CreateNFSFileShareInput {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
@@ -1739,7 +1739,7 @@ export interface CreateSMBFileShareInput {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
@@ -2447,9 +2447,6 @@ export interface CreateTapesInput {
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
    *          class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId?: string;
 
@@ -2553,9 +2550,6 @@ export interface CreateTapeWithBarcodeInput {
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
    *          class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId?: string;
 
@@ -3617,7 +3611,9 @@ export interface DescribeGatewayInformationOutput {
 
   /**
    * <p>The date on which the last software update was applied to the gateway. If the gateway
-   *          has never been updated, this field does not return a value in the response.</p>
+   *          has never been updated, this field does not return a value in the response. This only only
+   *          exist and returns once it have been chosen and set by the SGW service, based on the OS
+   *          version of the gateway VM</p>
    */
   LastSoftwareUpdate?: string;
 
@@ -3646,7 +3642,8 @@ export interface DescribeGatewayInformationOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
-   *          monitor events in the gateway.</p>
+   *          monitor events in the gateway. This field only only exist and returns once it have been
+   *          chosen and set by the SGW service, based on the OS version of the gateway VM</p>
    */
   CloudWatchLogGroupARN?: string;
 
@@ -3922,7 +3919,7 @@ export interface NFSFileShareInfo {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
@@ -4215,7 +4212,7 @@ export interface SMBFileShareInfo {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
@@ -5000,9 +4997,6 @@ export interface TapeArchive {
   /**
    * <p>The ID of the pool that was used to archive the tape. The tapes in this pool are
    *          archived in the S3 storage class that is associated with the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId?: string;
 
@@ -5278,9 +5272,6 @@ export interface Tape {
    *          archived in the S3 storage class that is associated with the pool. When you use your backup
    *          application to eject the tape, the tape is archived directly into the storage class (S3
    *          Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId?: string;
 
@@ -6588,9 +6579,6 @@ export interface TapeInfo {
    *          pool is archived in the S3 storage class that is associated with the pool. When you use
    *          your backup application to eject the tape, the tape is archived directly into the storage
    *          class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.</p>
-   *
-   *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
-   *          </p>
    */
   PoolId?: string;
 
@@ -7941,7 +7929,7 @@ export interface UpdateNFSFileShareInput {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>
@@ -8125,7 +8113,7 @@ export interface UpdateSMBFileShareInput {
 
   /**
    * <p>The default storage class for objects put into an Amazon S3 bucket by the S3
-   *          File Gateway. The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</p>
+   *          File Gateway. The default value is <code>S3_STANDARD</code>. Optional.</p>
    *
    *          <p>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> |
    *             <code>S3_STANDARD_IA</code> | <code>S3_ONEZONE_IA</code>

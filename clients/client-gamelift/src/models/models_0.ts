@@ -297,18 +297,18 @@ export namespace AttributeValue {
 }
 
 /**
- * <p>Temporary access credentials used for uploading game build files to Amazon Web Services. They
+ * <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They
  *             are valid for a limited time. If they expire before you upload your game build, get a
  *             new set by calling <a>RequestUploadCredentials</a>.</p>
  */
 export interface AwsCredentials {
   /**
-   * <p>Temporary key allowing access to the Amazon Web Services S3 account.</p>
+   * <p>Temporary key allowing access to the Amazon GameLift S3 account.</p>
    */
   AccessKeyId?: string;
 
   /**
-   * <p>Temporary secret key allowing access to the Amazon Web Services S3 account.</p>
+   * <p>Temporary secret key allowing access to the Amazon GameLift S3 account.</p>
    */
   SecretAccessKey?: string;
 
@@ -469,7 +469,6 @@ export interface CertificateConfiguration {
    *                     TLS/SSL certificate for this fleet. </p>
    *             </li>
    *          </ul>
-   *         <p> </p>
    */
   CertificateType: CertificateType | string | undefined;
 }
@@ -891,7 +890,7 @@ export class TaggingFailedException extends __BaseException {
 }
 
 /**
- * <p>The location in Amazon S3 where build or script files are stored for access by Amazon Web Services. This
+ * <p>The location in Amazon S3 where build or script files are stored for access by Amazon GameLift. This
  *             location is specified in <a>CreateBuild</a>, <a>CreateScript</a>,
  *             and <a>UpdateScript</a> requests. </p>
  */
@@ -911,12 +910,12 @@ export interface S3Location {
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
-   *             allows Amazon Web Services to access the S3 bucket.</p>
+   *             allows Amazon GameLift to access the S3 bucket.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>The version of the file, if object versioning is turned on for the bucket. Amazon Web Services uses
+   * <p>The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses
    *             this information when retrieving files from an S3 bucket that you own. Use this
    *             parameter to specify a specific version of the file. If not set, the latest version of
    *             the file is retrieved. </p>
@@ -953,10 +952,10 @@ export interface CreateBuildInput {
    * <p>Information indicating where your game build files are stored. Use this parameter only
    *             when creating a build with files stored in an Amazon S3 bucket that you own. The storage
    *             location must specify an Amazon S3 bucket name and key. The location must also specify a role
-   *             ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your
+   *             ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your
    *             new build must be in the same Region.</p>
    *         <p>If a <code>StorageLocation</code> is specified, the size of your file
-   *             can be found in your Amazon S3 bucket. Amazon Web Services will report a <code>SizeOnDisk</code> of 0.
+   *             can be found in your Amazon S3 bucket. Amazon GameLift will report a <code>SizeOnDisk</code> of 0.
    *         </p>
    */
   StorageLocation?: S3Location;
@@ -1005,7 +1004,7 @@ export interface CreateBuildOutput {
   /**
    * <p>This element is returned only when the operation is called without a storage
    *             location. It contains credentials to use when you are uploading a build file to an Amazon S3
-   *             bucket that is owned by Amazon Web Services. Credentials have a limited life span. To refresh these
+   *             bucket that is owned by Amazon GameLift. Credentials have a limited life span. To refresh these
    *             credentials, call <a>RequestUploadCredentials</a>. </p>
    */
   UploadCredentials?: AwsCredentials;
@@ -1048,16 +1047,14 @@ export enum IpProtocol {
 export interface IpPermission {
   /**
    * <p>A starting value for a range of allowed port numbers.</p>
-   *         <p>For fleets using Linux builds, only port 22, 443, 1026-60000 are valid.
-   *             For fleets using Windows builds, only port 443, 1026-60000 are valid.</p>
+   *         <p>For fleets using Windows and Linux builds, only ports 1026-60000 are valid.</p>
    */
   FromPort: number | undefined;
 
   /**
    * <p>An ending value for a range of allowed port numbers. Port numbers are end-inclusive.
    *             This value must be higher than <code>FromPort</code>.</p>
-   *         <p>For fleets using Linux builds, only port 22, 443, 1026-60000 are valid.
-   *             For fleets using Windows builds, only port 443, 1026-60000 are valid.</p>
+   *         <p>For fleets using Windows and Linux builds, only ports 1026-60000 are valid.</p>
    */
   ToPort: number | undefined;
 
@@ -2094,7 +2091,7 @@ export namespace InstanceDefinition {
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
  *          </p>
- *         <p>An Amazon EC2 launch template that contains configuration settings and game server code to
+ *         <p>An Amazon Elastic Compute Cloud launch template that contains configuration settings and game server code to
  *             be deployed to all instances in a game server group. The launch template is specified
  *             when creating a new game server group with <a>CreateGameServerGroup</a>. </p>
  */
@@ -2111,7 +2108,7 @@ export interface LaunchTemplateSpecification {
 
   /**
    * <p>The version of the Amazon EC2 launch template to use. If no version is specified, the
-   *             default version will be used. With Amazon Elastic Compute Cloud, you can specify a default version for a
+   *             default version will be used. With Amazon EC2, you can specify a default version for a
    *             launch template. If none is set, the default is the first version created.</p>
    */
   Version?: string;
@@ -2136,7 +2133,7 @@ export interface CreateGameServerGroupInput {
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
-   *             allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.</p>
+   *             allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.</p>
    */
   RoleArn: string | undefined;
 
@@ -2321,7 +2318,7 @@ export interface GameServerGroup {
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
-   *             allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.</p>
+   *             allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.</p>
    */
   RoleArn?: string;
 
@@ -3773,7 +3770,7 @@ export interface PlayerSession {
   DnsName?: string;
 
   /**
-   * <p>Port number for the game session. To connect to a Amazon Web Services server process, an app
+   * <p>Port number for the game session. To connect to a Amazon GameLift server process, an app
    *         needs both the IP address and port number.</p>
    */
   Port?: number;
@@ -3873,7 +3870,7 @@ export interface CreatePlayerSessionsInput {
 
   /**
    * <p>Map of string pairs, each specifying a player ID and a set of developer-defined
-   *             information related to the player. Amazon Web Services does not use this data, so it can be formatted
+   *             information related to the player. Amazon GameLift does not use this data, so it can be formatted
    *             as needed for use in the game. Any player data strings for player IDs that are not
    *             included in the <code>PlayerIds</code> parameter are ignored. </p>
    */
@@ -3924,9 +3921,9 @@ export interface CreateScriptInput {
   /**
    * <p>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is
    *             stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the
-   *             "key"), and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3
+   *             "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3
    *             bucket must be in the same Region where you want to create a new script. By default,
-   *             Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning
+   *             Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning
    *             turned on, you can use the <code>ObjectVersion</code> parameter to specify an earlier
    *             version. </p>
    */
@@ -4011,7 +4008,7 @@ export interface Script {
   CreationTime?: Date;
 
   /**
-   * <p>The location in Amazon S3 where build or script files are stored for access by Amazon Web Services. This
+   * <p>The location in Amazon S3 where build or script files are stored for access by Amazon GameLift. This
    *             location is specified in <a>CreateBuild</a>, <a>CreateScript</a>,
    *             and <a>UpdateScript</a> requests. </p>
    */
@@ -4034,7 +4031,7 @@ export interface CreateScriptOutput {
    *             bucket under your account, the storage location reflects the information that was
    *             provided in the <i>CreateScript</i> request; (2) If the script file was
    *             uploaded from a local zip file, the storage location reflects an S3 location controls by
-   *             the Amazon Web Services service.</p>
+   *             the Amazon GameLift service.</p>
    */
   Script?: Script;
 }
@@ -4078,7 +4075,7 @@ export namespace CreateVpcPeeringAuthorizationInput {
 
 /**
  * <p>Represents an authorization for a VPC peering connection between the VPC for an
- *             Amazon Web Services fleet and another VPC on an account you have access to. This authorization
+ *             Amazon GameLift fleet and another VPC on an account you have access to. This authorization
  *             must exist and be valid for the peering connection to be established. Authorizations are
  *             valid for 24 hours after they are issued.</p>
  *         <p>
@@ -4159,14 +4156,14 @@ export namespace CreateVpcPeeringAuthorizationOutput {
  */
 export interface CreateVpcPeeringConnectionInput {
   /**
-   * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon Web Services which GameLift
+   * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift which GameLift
    *             VPC to peer with. </p>
    */
   FleetId: string | undefined;
 
   /**
    * <p>A unique identifier for the Amazon Web Services account with the VPC that you want to peer your
-   *             Amazon Web Services fleet with. You can find your Account ID in the Amazon Web Services Management Console under account
+   *             Amazon GameLift fleet with. You can find your Account ID in the Amazon Web Services Management Console under account
    *             settings.</p>
    */
   PeerVpcAwsAccountId: string | undefined;
@@ -7341,7 +7338,7 @@ export enum ScalingAdjustmentType {
 /**
  * <p>Settings for a target-based scaling policy (see <a>ScalingPolicy</a>. A
  *         target-based policy tracks a particular fleet metric specifies a target value for the
- *         metric. As player usage changes, the policy triggers Amazon Web Services to adjust capacity so
+ *         metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so
  *         that the metric returns to the target value. The target configuration specifies settings
  *         as needed for the target based policy, including the target value. </p>
  *          <p>
@@ -7505,8 +7502,8 @@ export interface ScalingPolicy {
   EvaluationPeriods?: number;
 
   /**
-   * <p>Name of the Amazon Web Services-defined metric that is used to trigger a scaling adjustment. For
-   *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon Web Services
+   * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
+   *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon GameLift
    *                 with Amazon CloudWatch</a>. </p>
    *         <ul>
    *             <li>
@@ -7749,7 +7746,7 @@ export namespace VpcPeeringConnectionStatus {
 
 /**
  * <p>Represents a peering connection between a VPC on one of your Amazon Web Services accounts and the
- *             VPC for your Amazon Web Services fleets. This record may be for an active peering connection or a
+ *             VPC for your Amazon GameLift fleets. This record may be for an active peering connection or a
  *             pending connection that has not yet been established.</p>
  *         <p>
  *             <b>Related actions</b>
@@ -7766,7 +7763,7 @@ export namespace VpcPeeringConnectionStatus {
  */
 export interface VpcPeeringConnection {
   /**
-   * <p>A unique identifier for the fleet. This ID determines the ID of the Amazon Web Services VPC for your fleet.</p>
+   * <p>A unique identifier for the fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.</p>
    */
   FleetId?: string;
 
@@ -7806,8 +7803,8 @@ export interface VpcPeeringConnection {
   PeerVpcId?: string;
 
   /**
-   * <p>A unique identifier for the VPC that contains the Amazon Web Services fleet for this
-   *             connection. This VPC is managed by Amazon Web Services and does not appear in your Amazon Web Services account.
+   * <p>A unique identifier for the VPC that contains the Amazon GameLift fleet for this
+   *             connection. This VPC is managed by Amazon GameLift and does not appear in your Amazon Web Services account.
    *         </p>
    */
   GameLiftVpcId?: string;
@@ -8482,8 +8479,8 @@ export interface PutScalingPolicyInput {
   EvaluationPeriods?: number;
 
   /**
-   * <p>Name of the Amazon Web Services-defined metric that is used to trigger a scaling adjustment. For
-   *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon Web Services
+   * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
+   *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon GameLift
    *                 with Amazon CloudWatch</a>. </p>
    *         <ul>
    *             <li>
@@ -9088,7 +9085,7 @@ export namespace StartGameSessionPlacementOutput {
  */
 export interface StartMatchBackfillInput {
   /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon Web Services will generate one in the form of
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
    *             a UUID. Use this identifier to track the match backfill ticket status and retrieve match
    *             results.</p>
    */
@@ -9167,7 +9164,7 @@ export namespace StartMatchBackfillOutput {
  */
 export interface StartMatchmakingInput {
   /**
-   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon Web Services will generate one in the form of
+   * <p>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of
    *             a UUID. Use this identifier to track the matchmaking ticket status and retrieve match
    *             results.</p>
    */
@@ -9836,7 +9833,7 @@ export interface UpdateGameServerGroupInput {
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) for an IAM role that
-   *             allows Amazon Web Services to access your Amazon EC2 Auto Scaling groups.</p>
+   *             allows Amazon GameLift to access your Amazon EC2 Auto Scaling groups.</p>
    */
   RoleArn?: string;
 
@@ -10286,9 +10283,9 @@ export interface UpdateScriptInput {
   /**
    * <p>The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is
    *             stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the
-   *             "key"), and a role ARN that allows Amazon Web Services to access the Amazon S3 storage location. The S3
+   *             "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3
    *             bucket must be in the same Region where you want to create a new script. By default,
-   *             Amazon Web Services uploads the latest version of the zip file; if you have S3 object versioning
+   *             Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning
    *             turned on, you can use the <code>ObjectVersion</code> parameter to specify an earlier
    *             version. </p>
    */
@@ -10320,7 +10317,7 @@ export interface UpdateScriptOutput {
    *             location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket
    *             under your account, the storage location reflects the information that was provided in
    *             the <i>CreateScript</i> request; (2) If the script file was uploaded from
-   *             a local zip file, the storage location reflects an S3 location controls by the Amazon Web Services
+   *             a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift
    *             service.</p>
    */
   Script?: Script;

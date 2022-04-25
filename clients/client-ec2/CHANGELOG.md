@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+
+### Features
+
+* **client-ec2:** Adds support for waiters that automatically poll for a deleted NAT Gateway until it reaches the deleted state. ([047c131](https://github.com/aws/aws-sdk-js-v3/commit/047c13158e4f43b53dd1525e028888907026a278))
+
+
+
+
+
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

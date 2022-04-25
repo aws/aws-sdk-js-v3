@@ -3,6 +3,75 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.77.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.76.0...v3.77.0) (2022-04-25)
+
+
+### Features
+
+* **client-connect:** This release adds SearchUsers API which can be used to search for users with a Connect Instance ([15544b5](https://github.com/aws/aws-sdk-js-v3/commit/15544b5f4fbfe03a32a590aa0a7d6145e1c50998))
+* **client-mq:** This release adds the CRITICAL_ACTION_REQUIRED broker state and the ActionRequired API property. CRITICAL_ACTION_REQUIRED informs you when your broker is degraded. ActionRequired provides you with a code which you can use to find instructions in the Developer Guide on how to resolve the issue. ([0abb527](https://github.com/aws/aws-sdk-js-v3/commit/0abb5271bc2c7656c2cb66c7c97aa123a10266ca))
+* **client-rds-data:** Support to receive SQL query results in the form of a simplified JSON string. This enables developers using the new JSON string format to more easily convert it to an object using popular JSON string parsing libraries. ([7b173c3](https://github.com/aws/aws-sdk-js-v3/commit/7b173c3414e96ffb0f155b7deeb8c70295cc0f45))
+* **client-securityhub:** Security Hub now lets you opt-out of auto-enabling the defaults standards (CIS and FSBP) in accounts that are auto-enabled with Security Hub via Security Hub's integration with AWS Organizations. ([08a57e7](https://github.com/aws/aws-sdk-js-v3/commit/08a57e768229dae5671d1a9c216e33377be6c573))
+
+
+
+
+
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+
+### Bug Fixes
+
+* **node-http-handler:** http2 lets node exit ([#3541](https://github.com/aws/aws-sdk-js-v3/issues/3541)) ([7480667](https://github.com/aws/aws-sdk-js-v3/commit/74806672bcd462dae51197294f3160f32f867b62))
+* **util-dynamodb:** allow marshall function to handle more input types ([#3539](https://github.com/aws/aws-sdk-js-v3/issues/3539)) ([a5fa267](https://github.com/aws/aws-sdk-js-v3/commit/a5fa26783c7d061e2f32b985fdcf371487efaff4))
+
+
+### Features
+
+* **client-chime-sdk-meetings:** Include additional exceptions types. ([89b90ef](https://github.com/aws/aws-sdk-js-v3/commit/89b90ef9527faef3b2ec72f36d0ab4637244a5fa))
+* **client-ec2:** Adds support for waiters that automatically poll for a deleted NAT Gateway until it reaches the deleted state. ([047c131](https://github.com/aws/aws-sdk-js-v3/commit/047c13158e4f43b53dd1525e028888907026a278))
+
+
+
+
+
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+
+### Features
+
+* **client-glue:** This release adds APIs to create, read, delete, list, and batch read of Glue custom entity types ([546dab6](https://github.com/aws/aws-sdk-js-v3/commit/546dab6995d14c3fbdc960a0131aab435dbe4188))
+* **client-iotsitewise:** This release adds 3 new batch data query APIs : BatchGetAssetPropertyValue, BatchGetAssetPropertyValueHistory and BatchGetAssetPropertyAggregates ([f07f481](https://github.com/aws/aws-sdk-js-v3/commit/f07f48100a30d0450eab0b08e7a87f7e58f34e52))
+* **client-iottwinmaker:** General availability (GA) for AWS IoT TwinMaker. For more information, see https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/Welcome.html ([1103688](https://github.com/aws/aws-sdk-js-v3/commit/110368884c53331c9a15d6af9b57697aa282fe84))
+* **client-lookoutmetrics:** Added DetectMetricSetConfig API for detecting configuration required for creating metric set from provided S3 data source. ([902a074](https://github.com/aws/aws-sdk-js-v3/commit/902a074ea9ae938eaa06b0dc157f78741e2cb82a))
+* **client-mediatailor:** This release introduces tiered channels and adds support for live sources. Customers using a STANDARD channel can now create programs using live sources. ([75fac5e](https://github.com/aws/aws-sdk-js-v3/commit/75fac5e8a6789fd78f26f97e336b1a3df340ed33))
+* **client-storage-gateway:** This release adds support for minimum of 5 character length virtual tape barcodes. ([808b04f](https://github.com/aws/aws-sdk-js-v3/commit/808b04f70c60206a97b6bfbebda208181fd0a85b))
+* **client-wisdom:** This release updates the GetRecommendations API to include a trigger event list for classifying and grouping recommendations. ([6f1e5c3](https://github.com/aws/aws-sdk-js-v3/commit/6f1e5c3419678763f13a68bc71ec722a399ae2d9))
+
+
+
+
+
+# [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
+
+
+### Bug Fixes
+
+* **node-http-handler:** resolve config provider only once per NodeHttpHandler instance ([#3545](https://github.com/aws/aws-sdk-js-v3/issues/3545)) ([8ffd6b2](https://github.com/aws/aws-sdk-js-v3/commit/8ffd6b2e3e488f9827a98c970cd6901e2a3fbe93))
+
+
+### Features
+
+* **client-connect:** This release adds APIs to search, claim, release, list, update, and describe phone numbers. You can also use them to associate and disassociate contact flows to phone numbers. ([78e0c59](https://github.com/aws/aws-sdk-js-v3/commit/78e0c59d115eaaf1f9bc22c67cd1e3b53ae68272))
+* **client-macie2:** Sensitive data findings in Amazon Macie now indicate how Macie found the sensitive data that produced a finding (originType). ([cad1178](https://github.com/aws/aws-sdk-js-v3/commit/cad117897981d70479eb737b1c854ee5c332a994))
+* **client-mgn:** Removed required annotation from input fields in Describe operations requests. Added quotaValue to ServiceQuotaExceededException ([ee4defd](https://github.com/aws/aws-sdk-js-v3/commit/ee4defdb9c6cc74419b819c143bbdf4f383383c8))
+* **client-rds:** Added a new cluster-level attribute to set the capacity range for Aurora Serverless v2 instances. ([fd985ae](https://github.com/aws/aws-sdk-js-v3/commit/fd985aeb119dc51a433ee216340510d704331eb7))
+* **clients:** update client endpoints as of 2022-04-20 ([7781e4e](https://github.com/aws/aws-sdk-js-v3/commit/7781e4e9d7a501a90f55e8dbe3da1452c5168670))
+
+
+
+
+
 # [3.73.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.72.0...v3.73.0) (2022-04-19)
 
 

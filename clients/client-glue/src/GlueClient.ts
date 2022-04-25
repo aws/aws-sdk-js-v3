@@ -71,6 +71,10 @@ import {
 import { BatchGetBlueprintsCommandInput, BatchGetBlueprintsCommandOutput } from "./commands/BatchGetBlueprintsCommand";
 import { BatchGetCrawlersCommandInput, BatchGetCrawlersCommandOutput } from "./commands/BatchGetCrawlersCommand";
 import {
+  BatchGetCustomEntityTypesCommandInput,
+  BatchGetCustomEntityTypesCommandOutput,
+} from "./commands/BatchGetCustomEntityTypesCommand";
+import {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
@@ -93,6 +97,10 @@ import { CreateBlueprintCommandInput, CreateBlueprintCommandOutput } from "./com
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateCrawlerCommandInput, CreateCrawlerCommandOutput } from "./commands/CreateCrawlerCommand";
+import {
+  CreateCustomEntityTypeCommandInput,
+  CreateCustomEntityTypeCommandOutput,
+} from "./commands/CreateCustomEntityTypeCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
@@ -129,6 +137,10 @@ import {
 } from "./commands/DeleteColumnStatisticsForTableCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteCrawlerCommandInput, DeleteCrawlerCommandOutput } from "./commands/DeleteCrawlerCommand";
+import {
+  DeleteCustomEntityTypeCommandInput,
+  DeleteCustomEntityTypeCommandOutput,
+} from "./commands/DeleteCustomEntityTypeCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
@@ -183,6 +195,10 @@ import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./comma
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
 import { GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput } from "./commands/GetCrawlerMetricsCommand";
 import { GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
+import {
+  GetCustomEntityTypeCommandInput,
+  GetCustomEntityTypeCommandOutput,
+} from "./commands/GetCustomEntityTypeCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDatabasesCommandInput, GetDatabasesCommandOutput } from "./commands/GetDatabasesCommand";
 import {
@@ -275,6 +291,10 @@ import {
 } from "./commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
+import {
+  ListCustomEntityTypesCommandInput,
+  ListCustomEntityTypesCommandOutput,
+} from "./commands/ListCustomEntityTypesCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
@@ -389,6 +409,7 @@ export type ServiceInputTypes =
   | BatchDeleteTableVersionCommandInput
   | BatchGetBlueprintsCommandInput
   | BatchGetCrawlersCommandInput
+  | BatchGetCustomEntityTypesCommandInput
   | BatchGetDevEndpointsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
@@ -403,6 +424,7 @@ export type ServiceInputTypes =
   | CreateClassifierCommandInput
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
+  | CreateCustomEntityTypeCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
   | CreateJobCommandInput
@@ -424,6 +446,7 @@ export type ServiceInputTypes =
   | DeleteColumnStatisticsForTableCommandInput
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
+  | DeleteCustomEntityTypeCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
   | DeleteJobCommandInput
@@ -454,6 +477,7 @@ export type ServiceInputTypes =
   | GetCrawlerCommandInput
   | GetCrawlerMetricsCommandInput
   | GetCrawlersCommandInput
+  | GetCustomEntityTypeCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
   | GetDatabaseCommandInput
   | GetDatabasesCommandInput
@@ -504,6 +528,7 @@ export type ServiceInputTypes =
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
   | ListCrawlersCommandInput
+  | ListCustomEntityTypesCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
@@ -569,6 +594,7 @@ export type ServiceOutputTypes =
   | BatchDeleteTableVersionCommandOutput
   | BatchGetBlueprintsCommandOutput
   | BatchGetCrawlersCommandOutput
+  | BatchGetCustomEntityTypesCommandOutput
   | BatchGetDevEndpointsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
@@ -583,6 +609,7 @@ export type ServiceOutputTypes =
   | CreateClassifierCommandOutput
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
+  | CreateCustomEntityTypeCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
   | CreateJobCommandOutput
@@ -604,6 +631,7 @@ export type ServiceOutputTypes =
   | DeleteColumnStatisticsForTableCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
+  | DeleteCustomEntityTypeCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
   | DeleteJobCommandOutput
@@ -634,6 +662,7 @@ export type ServiceOutputTypes =
   | GetCrawlerCommandOutput
   | GetCrawlerMetricsCommandOutput
   | GetCrawlersCommandOutput
+  | GetCustomEntityTypeCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
   | GetDatabaseCommandOutput
   | GetDatabasesCommandOutput
@@ -684,6 +713,7 @@ export type ServiceOutputTypes =
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
   | ListCrawlersCommandOutput
+  | ListCustomEntityTypesCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput

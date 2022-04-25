@@ -1,3 +1,6 @@
+export * from "./BatchGetAssetPropertyAggregatesPaginator";
+export * from "./BatchGetAssetPropertyValueHistoryPaginator";
+export * from "./BatchGetAssetPropertyValuePaginator";
 export * from "./GetAssetPropertyAggregatesPaginator";
 export * from "./GetAssetPropertyValueHistoryPaginator";
 export * from "./GetInterpolatedAssetPropertyValuesPaginator";

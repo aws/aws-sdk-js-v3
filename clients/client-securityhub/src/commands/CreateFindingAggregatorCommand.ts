@@ -23,7 +23,7 @@ export interface CreateFindingAggregatorCommandOutput extends CreateFindingAggre
 
 /**
  * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
- *          <p>For more details about cross-Region replication, see <a href="securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
+ *          <p>For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

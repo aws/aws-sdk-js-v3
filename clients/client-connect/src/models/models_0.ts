@@ -759,6 +759,32 @@ export namespace AssociateLexBotRequest {
   });
 }
 
+export interface AssociatePhoneNumberContactFlowRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId: string | undefined;
+}
+
+export namespace AssociatePhoneNumberContactFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatePhoneNumberContactFlowRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -911,6 +937,85 @@ export namespace AssociateSecurityKeyResponse {
   export const filterSensitiveLog = (obj: AssociateSecurityKeyResponse): any => ({
     ...obj,
   });
+}
+
+export interface ClaimPhoneNumberRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The phone number you want to claim. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber: string | undefined;
+
+  /**
+   * <p>The description of the phone number.</p>
+   */
+  PhoneNumberDescription?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace ClaimPhoneNumberRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClaimPhoneNumberRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ClaimPhoneNumberResponse {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+}
+
+export namespace ClaimPhoneNumberResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClaimPhoneNumberResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An entity with the same name already exists.</p>
+ */
+export class IdempotencyException extends __BaseException {
+  readonly name: "IdempotencyException" = "IdempotencyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
+    super({
+      name: "IdempotencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAgentStatusRequest {
@@ -1175,27 +1280,6 @@ export namespace CreateContactFlowModuleResponse {
   export const filterSensitiveLog = (obj: CreateContactFlowModuleResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>An entity with the same name already exists.</p>
- */
-export class IdempotencyException extends __BaseException {
-  readonly name: "IdempotencyException" = "IdempotencyException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotencyException, __BaseException>) {
-    super({
-      name: "IdempotencyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotencyException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -3322,6 +3406,372 @@ export namespace DescribeInstanceStorageConfigResponse {
   });
 }
 
+export interface DescribePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+}
+
+export namespace DescribePhoneNumberRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePhoneNumberRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum PhoneNumberCountryCode {
+  AD = "AD",
+  AE = "AE",
+  AF = "AF",
+  AG = "AG",
+  AI = "AI",
+  AL = "AL",
+  AM = "AM",
+  AN = "AN",
+  AO = "AO",
+  AQ = "AQ",
+  AR = "AR",
+  AS = "AS",
+  AT = "AT",
+  AU = "AU",
+  AW = "AW",
+  AZ = "AZ",
+  BA = "BA",
+  BB = "BB",
+  BD = "BD",
+  BE = "BE",
+  BF = "BF",
+  BG = "BG",
+  BH = "BH",
+  BI = "BI",
+  BJ = "BJ",
+  BL = "BL",
+  BM = "BM",
+  BN = "BN",
+  BO = "BO",
+  BR = "BR",
+  BS = "BS",
+  BT = "BT",
+  BW = "BW",
+  BY = "BY",
+  BZ = "BZ",
+  CA = "CA",
+  CC = "CC",
+  CD = "CD",
+  CF = "CF",
+  CG = "CG",
+  CH = "CH",
+  CI = "CI",
+  CK = "CK",
+  CL = "CL",
+  CM = "CM",
+  CN = "CN",
+  CO = "CO",
+  CR = "CR",
+  CU = "CU",
+  CV = "CV",
+  CW = "CW",
+  CX = "CX",
+  CY = "CY",
+  CZ = "CZ",
+  DE = "DE",
+  DJ = "DJ",
+  DK = "DK",
+  DM = "DM",
+  DO = "DO",
+  DZ = "DZ",
+  EC = "EC",
+  EE = "EE",
+  EG = "EG",
+  EH = "EH",
+  ER = "ER",
+  ES = "ES",
+  ET = "ET",
+  FI = "FI",
+  FJ = "FJ",
+  FK = "FK",
+  FM = "FM",
+  FO = "FO",
+  FR = "FR",
+  GA = "GA",
+  GB = "GB",
+  GD = "GD",
+  GE = "GE",
+  GG = "GG",
+  GH = "GH",
+  GI = "GI",
+  GL = "GL",
+  GM = "GM",
+  GN = "GN",
+  GQ = "GQ",
+  GR = "GR",
+  GT = "GT",
+  GU = "GU",
+  GW = "GW",
+  GY = "GY",
+  HK = "HK",
+  HN = "HN",
+  HR = "HR",
+  HT = "HT",
+  HU = "HU",
+  ID = "ID",
+  IE = "IE",
+  IL = "IL",
+  IM = "IM",
+  IN = "IN",
+  IO = "IO",
+  IQ = "IQ",
+  IR = "IR",
+  IS = "IS",
+  IT = "IT",
+  JE = "JE",
+  JM = "JM",
+  JO = "JO",
+  JP = "JP",
+  KE = "KE",
+  KG = "KG",
+  KH = "KH",
+  KI = "KI",
+  KM = "KM",
+  KN = "KN",
+  KP = "KP",
+  KR = "KR",
+  KW = "KW",
+  KY = "KY",
+  KZ = "KZ",
+  LA = "LA",
+  LB = "LB",
+  LC = "LC",
+  LI = "LI",
+  LK = "LK",
+  LR = "LR",
+  LS = "LS",
+  LT = "LT",
+  LU = "LU",
+  LV = "LV",
+  LY = "LY",
+  MA = "MA",
+  MC = "MC",
+  MD = "MD",
+  ME = "ME",
+  MF = "MF",
+  MG = "MG",
+  MH = "MH",
+  MK = "MK",
+  ML = "ML",
+  MM = "MM",
+  MN = "MN",
+  MO = "MO",
+  MP = "MP",
+  MR = "MR",
+  MS = "MS",
+  MT = "MT",
+  MU = "MU",
+  MV = "MV",
+  MW = "MW",
+  MX = "MX",
+  MY = "MY",
+  MZ = "MZ",
+  NA = "NA",
+  NC = "NC",
+  NE = "NE",
+  NG = "NG",
+  NI = "NI",
+  NL = "NL",
+  NO = "NO",
+  NP = "NP",
+  NR = "NR",
+  NU = "NU",
+  NZ = "NZ",
+  OM = "OM",
+  PA = "PA",
+  PE = "PE",
+  PF = "PF",
+  PG = "PG",
+  PH = "PH",
+  PK = "PK",
+  PL = "PL",
+  PM = "PM",
+  PN = "PN",
+  PR = "PR",
+  PT = "PT",
+  PW = "PW",
+  PY = "PY",
+  QA = "QA",
+  RE = "RE",
+  RO = "RO",
+  RS = "RS",
+  RU = "RU",
+  RW = "RW",
+  SA = "SA",
+  SB = "SB",
+  SC = "SC",
+  SD = "SD",
+  SE = "SE",
+  SG = "SG",
+  SH = "SH",
+  SI = "SI",
+  SJ = "SJ",
+  SK = "SK",
+  SL = "SL",
+  SM = "SM",
+  SN = "SN",
+  SO = "SO",
+  SR = "SR",
+  ST = "ST",
+  SV = "SV",
+  SX = "SX",
+  SY = "SY",
+  SZ = "SZ",
+  TC = "TC",
+  TD = "TD",
+  TG = "TG",
+  TH = "TH",
+  TJ = "TJ",
+  TK = "TK",
+  TL = "TL",
+  TM = "TM",
+  TN = "TN",
+  TO = "TO",
+  TR = "TR",
+  TT = "TT",
+  TV = "TV",
+  TW = "TW",
+  TZ = "TZ",
+  UA = "UA",
+  UG = "UG",
+  US = "US",
+  UY = "UY",
+  UZ = "UZ",
+  VA = "VA",
+  VC = "VC",
+  VE = "VE",
+  VG = "VG",
+  VI = "VI",
+  VN = "VN",
+  VU = "VU",
+  WF = "WF",
+  WS = "WS",
+  YE = "YE",
+  YT = "YT",
+  ZA = "ZA",
+  ZM = "ZM",
+  ZW = "ZW",
+}
+
+export enum PhoneNumberWorkflowStatus {
+  Claimed = "CLAIMED",
+  Failed = "FAILED",
+  InProgress = "IN_PROGRESS",
+}
+
+/**
+ * <p>The status of the phone number.</p>
+ */
+export interface PhoneNumberStatus {
+  /**
+   * <p>The status.</p>
+   */
+  Status?: PhoneNumberWorkflowStatus | string;
+
+  /**
+   * <p>The status message.</p>
+   */
+  Message?: string;
+}
+
+export namespace PhoneNumberStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PhoneNumberStatus): any => ({
+    ...obj,
+  });
+}
+
+export enum PhoneNumberType {
+  DID = "DID",
+  TOLL_FREE = "TOLL_FREE",
+}
+
+/**
+ * <p>Information about a phone number that has been claimed to your Amazon Connect instance.</p>
+ */
+export interface ClaimedPhoneNumberSummary {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
+
+  /**
+   * <p>The description of the phone number.</p>
+   */
+  PhoneNumberDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The status of the phone number.</p>
+   */
+  PhoneNumberStatus?: PhoneNumberStatus;
+}
+
+export namespace ClaimedPhoneNumberSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClaimedPhoneNumberSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePhoneNumberResponse {
+  /**
+   * <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
+   */
+  ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
+}
+
+export namespace DescribePhoneNumberResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePhoneNumberResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeQueueRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -4248,6 +4698,27 @@ export namespace DisassociateLexBotRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateLexBotRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociatePhoneNumberContactFlowRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace DisassociatePhoneNumberContactFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociatePhoneNumberContactFlowRequest): any => ({
     ...obj,
   });
 }
@@ -6305,251 +6776,6 @@ export namespace ListLexBotsResponse {
   });
 }
 
-export enum PhoneNumberCountryCode {
-  AD = "AD",
-  AE = "AE",
-  AF = "AF",
-  AG = "AG",
-  AI = "AI",
-  AL = "AL",
-  AM = "AM",
-  AN = "AN",
-  AO = "AO",
-  AQ = "AQ",
-  AR = "AR",
-  AS = "AS",
-  AT = "AT",
-  AU = "AU",
-  AW = "AW",
-  AZ = "AZ",
-  BA = "BA",
-  BB = "BB",
-  BD = "BD",
-  BE = "BE",
-  BF = "BF",
-  BG = "BG",
-  BH = "BH",
-  BI = "BI",
-  BJ = "BJ",
-  BL = "BL",
-  BM = "BM",
-  BN = "BN",
-  BO = "BO",
-  BR = "BR",
-  BS = "BS",
-  BT = "BT",
-  BW = "BW",
-  BY = "BY",
-  BZ = "BZ",
-  CA = "CA",
-  CC = "CC",
-  CD = "CD",
-  CF = "CF",
-  CG = "CG",
-  CH = "CH",
-  CI = "CI",
-  CK = "CK",
-  CL = "CL",
-  CM = "CM",
-  CN = "CN",
-  CO = "CO",
-  CR = "CR",
-  CU = "CU",
-  CV = "CV",
-  CW = "CW",
-  CX = "CX",
-  CY = "CY",
-  CZ = "CZ",
-  DE = "DE",
-  DJ = "DJ",
-  DK = "DK",
-  DM = "DM",
-  DO = "DO",
-  DZ = "DZ",
-  EC = "EC",
-  EE = "EE",
-  EG = "EG",
-  EH = "EH",
-  ER = "ER",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FJ = "FJ",
-  FK = "FK",
-  FM = "FM",
-  FO = "FO",
-  FR = "FR",
-  GA = "GA",
-  GB = "GB",
-  GD = "GD",
-  GE = "GE",
-  GG = "GG",
-  GH = "GH",
-  GI = "GI",
-  GL = "GL",
-  GM = "GM",
-  GN = "GN",
-  GQ = "GQ",
-  GR = "GR",
-  GT = "GT",
-  GU = "GU",
-  GW = "GW",
-  GY = "GY",
-  HK = "HK",
-  HN = "HN",
-  HR = "HR",
-  HT = "HT",
-  HU = "HU",
-  ID = "ID",
-  IE = "IE",
-  IL = "IL",
-  IM = "IM",
-  IN = "IN",
-  IO = "IO",
-  IQ = "IQ",
-  IR = "IR",
-  IS = "IS",
-  IT = "IT",
-  JE = "JE",
-  JM = "JM",
-  JO = "JO",
-  JP = "JP",
-  KE = "KE",
-  KG = "KG",
-  KH = "KH",
-  KI = "KI",
-  KM = "KM",
-  KN = "KN",
-  KP = "KP",
-  KR = "KR",
-  KW = "KW",
-  KY = "KY",
-  KZ = "KZ",
-  LA = "LA",
-  LB = "LB",
-  LC = "LC",
-  LI = "LI",
-  LK = "LK",
-  LR = "LR",
-  LS = "LS",
-  LT = "LT",
-  LU = "LU",
-  LV = "LV",
-  LY = "LY",
-  MA = "MA",
-  MC = "MC",
-  MD = "MD",
-  ME = "ME",
-  MF = "MF",
-  MG = "MG",
-  MH = "MH",
-  MK = "MK",
-  ML = "ML",
-  MM = "MM",
-  MN = "MN",
-  MO = "MO",
-  MP = "MP",
-  MR = "MR",
-  MS = "MS",
-  MT = "MT",
-  MU = "MU",
-  MV = "MV",
-  MW = "MW",
-  MX = "MX",
-  MY = "MY",
-  MZ = "MZ",
-  NA = "NA",
-  NC = "NC",
-  NE = "NE",
-  NG = "NG",
-  NI = "NI",
-  NL = "NL",
-  NO = "NO",
-  NP = "NP",
-  NR = "NR",
-  NU = "NU",
-  NZ = "NZ",
-  OM = "OM",
-  PA = "PA",
-  PE = "PE",
-  PF = "PF",
-  PG = "PG",
-  PH = "PH",
-  PK = "PK",
-  PL = "PL",
-  PM = "PM",
-  PN = "PN",
-  PR = "PR",
-  PT = "PT",
-  PW = "PW",
-  PY = "PY",
-  QA = "QA",
-  RE = "RE",
-  RO = "RO",
-  RS = "RS",
-  RU = "RU",
-  RW = "RW",
-  SA = "SA",
-  SB = "SB",
-  SC = "SC",
-  SD = "SD",
-  SE = "SE",
-  SG = "SG",
-  SH = "SH",
-  SI = "SI",
-  SJ = "SJ",
-  SK = "SK",
-  SL = "SL",
-  SM = "SM",
-  SN = "SN",
-  SO = "SO",
-  SR = "SR",
-  ST = "ST",
-  SV = "SV",
-  SX = "SX",
-  SY = "SY",
-  SZ = "SZ",
-  TC = "TC",
-  TD = "TD",
-  TG = "TG",
-  TH = "TH",
-  TJ = "TJ",
-  TK = "TK",
-  TL = "TL",
-  TM = "TM",
-  TN = "TN",
-  TO = "TO",
-  TR = "TR",
-  TT = "TT",
-  TV = "TV",
-  TW = "TW",
-  TZ = "TZ",
-  UA = "UA",
-  UG = "UG",
-  US = "US",
-  UY = "UY",
-  UZ = "UZ",
-  VA = "VA",
-  VC = "VC",
-  VE = "VE",
-  VG = "VG",
-  VI = "VI",
-  VN = "VN",
-  VU = "VU",
-  WF = "WF",
-  WS = "WS",
-  YE = "YE",
-  YT = "YT",
-  ZA = "ZA",
-  ZM = "ZM",
-  ZW = "ZW",
-}
-
-export enum PhoneNumberType {
-  DID = "DID",
-  TOLL_FREE = "TOLL_FREE",
-}
-
 export interface ListPhoneNumbersRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -6643,6 +6869,113 @@ export namespace ListPhoneNumbersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPhoneNumbersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPhoneNumbersV2Request {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers claimed to all the Amazon Connect instances belonging to your account.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberTypes?: (PhoneNumberType | string)[];
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   */
+  PhoneNumberPrefix?: string;
+}
+
+export namespace ListPhoneNumbersV2Request {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPhoneNumbersV2Request): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about phone numbers that have been claimed to your Amazon Connect instance.</p>
+ */
+export interface ListPhoneNumbersSummary {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the phone number.</p>
+   */
+  PhoneNumberArn?: string;
+
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn?: string;
+}
+
+export namespace ListPhoneNumbersSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPhoneNumbersSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPhoneNumbersV2Response {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about phone numbers that have been claimed to your Amazon Connect instances.</p>
+   */
+  ListPhoneNumbersSummaryList?: ListPhoneNumbersSummary[];
+}
+
+export namespace ListPhoneNumbersV2Response {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPhoneNumbersV2Response): any => ({
     ...obj,
   });
 }
@@ -7589,6 +7922,28 @@ export namespace ListUsersResponse {
   });
 }
 
+export interface ReleasePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace ReleasePhoneNumberRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleasePhoneNumberRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface ResumeContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -7627,11 +7982,26 @@ export namespace ResumeContactRecordingResponse {
   });
 }
 
-export interface SearchVocabulariesRequest {
+export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
    */
-  InstanceId: string | undefined;
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode: PhoneNumberCountryCode | string | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType: PhoneNumberType | string | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   */
+  PhoneNumberPrefix?: string;
 
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -7643,396 +8013,42 @@ export interface SearchVocabulariesRequest {
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The current state of the custom vocabulary.</p>
-   */
-  State?: VocabularyState | string;
-
-  /**
-   * <p>The starting pattern of the name of the vocabulary.</p>
-   */
-  NameStartsWith?: string;
-
-  /**
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   */
-  LanguageCode?: VocabularyLanguageCode | string;
 }
 
-export namespace SearchVocabulariesRequest {
+export namespace SearchAvailablePhoneNumbersRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SearchVocabulariesRequest): any => ({
+  export const filterSensitiveLog = (obj: SearchAvailablePhoneNumbersRequest): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Contains summary information about the custom vocabulary.</p>
+ * <p>Information about available phone numbers.</p>
  */
-export interface VocabularySummary {
+export interface AvailableNumberSummary {
   /**
-   * <p>A unique name of the custom vocabulary.</p>
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
    */
-  Name: string | undefined;
+  PhoneNumber?: string;
 
   /**
-   * <p>The identifier of the custom vocabulary.</p>
+   * <p>The ISO country code.</p>
    */
-  Id: string | undefined;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   * <p>The type of phone number.</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
-   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
-   *          </p>
-   */
-  LanguageCode: VocabularyLanguageCode | string | undefined;
-
-  /**
-   * <p>The current state of the custom vocabulary.</p>
-   */
-  State: VocabularyState | string | undefined;
-
-  /**
-   * <p>The timestamp when the custom vocabulary was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The reason why the custom vocabulary was not created.</p>
-   */
-  FailureReason?: string;
+  PhoneNumberType?: PhoneNumberType | string;
 }
 
-export namespace VocabularySummary {
+export namespace AvailableNumberSummary {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: VocabularySummary): any => ({
+  export const filterSensitiveLog = (obj: AvailableNumberSummary): any => ({
     ...obj,
   });
-}
-
-export interface SearchVocabulariesResponse {
-  /**
-   * <p>The list of the available custom vocabularies.</p>
-   */
-  VocabularySummaryList?: VocabularySummary[];
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace SearchVocabulariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchVocabulariesResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A chat message.</p>
- */
-export interface ChatMessage {
-  /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>.</p>
-   */
-  ContentType: string | undefined;
-
-  /**
-   * <p>The content of the chat message.</p>
-   */
-  Content: string | undefined;
-}
-
-export namespace ChatMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChatMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The customer's details.</p>
- */
-export interface ParticipantDetails {
-  /**
-   * <p>Display name of the participant.</p>
-   */
-  DisplayName: string | undefined;
-}
-
-export namespace ParticipantDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParticipantDetails): any => ({
-    ...obj,
-  });
-}
-
-export interface StartChatContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact flow for initiating the chat.
-   *    To
-   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the
-   *    contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
-   *    the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes. They can be accessed in contact flows just like any other contact attributes. </p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>Information identifying the participant.</p>
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
-   * <p>The initial message to be sent to the newly created chat.</p>
-   */
-  InitialMessage?: ChatMessage;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25 hour.
-   *    The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
-   */
-  ChatDurationInMinutes?: number;
-
-  /**
-   * <p>The supported chat message content types. Content types can be text/plain or both text/plain and text/markdown.</p>
-   */
-  SupportedMessagingContentTypes?: string[];
-}
-
-export namespace StartChatContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChatContactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartChatContactResponse {
-  /**
-   * <p>The identifier of this contact within the Amazon Connect instance. </p>
-   */
-  ContactId?: string;
-
-  /**
-   * <p>The identifier for a chat participant. The participantId for a chat participant is the same
-   *    throughout the chat lifecycle.</p>
-   */
-  ParticipantId?: string;
-
-  /**
-   * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat
-   *    participant.</p>
-   */
-  ParticipantToken?: string;
-}
-
-export namespace StartChatContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChatContactResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum VoiceRecordingTrack {
-  ALL = "ALL",
-  FROM_AGENT = "FROM_AGENT",
-  TO_AGENT = "TO_AGENT",
-}
-
-/**
- * <p>Contains information about the recording configuration settings.</p>
- */
-export interface VoiceRecordingConfiguration {
-  /**
-   * <p>Identifies which track is being recorded.</p>
-   */
-  VoiceRecordingTrack?: VoiceRecordingTrack | string;
-}
-
-export namespace VoiceRecordingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceRecordingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface StartContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The person being recorded.</p>
-   */
-  VoiceRecordingConfiguration: VoiceRecordingConfiguration | undefined;
-}
-
-export namespace StartContactRecordingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContactRecordingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartContactRecordingResponse {}
-
-export namespace StartContactRecordingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContactRecordingResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
- */
-export interface ChatStreamingConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used
-   *    to publish real-time message streaming for chat conversations.</p>
-   */
-  StreamingEndpointArn: string | undefined;
-}
-
-export namespace ChatStreamingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChatStreamingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface StartContactStreamingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
-   */
-  ChatStreamingConfiguration: ChatStreamingConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
-}
-
-export namespace StartContactStreamingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContactStreamingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartContactStreamingResponse {
-  /**
-   * <p>The identifier of the streaming configuration enabled. </p>
-   */
-  StreamingId: string | undefined;
-}
-
-export namespace StartContactStreamingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContactStreamingResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Outbound calls to the destination number are not allowed.</p>
- */
-export class DestinationNotAllowedException extends __BaseException {
-  readonly name: "DestinationNotAllowedException" = "DestinationNotAllowedException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The message about the outbound calls.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DestinationNotAllowedException, __BaseException>) {
-    super({
-      name: "DestinationNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DestinationNotAllowedException.prototype);
-    this.Message = opts.Message;
-  }
 }

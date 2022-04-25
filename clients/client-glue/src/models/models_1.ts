@@ -4,11 +4,12 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
 import {
   AuditContext,
+  BinaryColumnStatisticsData,
+  BooleanColumnStatisticsData,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
   Column,
-  ColumnStatistics,
   Compatibility,
   ConnectionInput,
   ConnectionsList,
@@ -16,10 +17,14 @@ import {
   Crawler,
   CrawlerTargets,
   CsvHeaderOption,
+  CustomEntityType,
   DatabaseIdentifier,
   DatabaseInput,
   DataFormat,
+  DateColumnStatisticsData,
+  DecimalColumnStatisticsData,
   DevEndpoint,
+  DoubleColumnStatisticsData,
   EncryptionConfiguration,
   ErrorDetail,
   ExecutionProperty,
@@ -30,9 +35,9 @@ import {
   LakeFormationConfiguration,
   Language,
   LineageConfiguration,
+  LongColumnStatisticsData,
   NotificationProperty,
   Partition,
-  PartitionInput,
   PartitionValueList,
   PhysicalConnectionRequirements,
   PrincipalPermissions,
@@ -47,8 +52,8 @@ import {
   SchemaVersionStatus,
   Session,
   StorageDescriptor,
+  StringColumnStatisticsData,
   TableIdentifier,
-  TableInput,
   TaskStatusType,
   TransformEncryption,
   TransformParameters,
@@ -58,6 +63,202 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export enum ColumnStatisticsType {
+  BINARY = "BINARY",
+  BOOLEAN = "BOOLEAN",
+  DATE = "DATE",
+  DECIMAL = "DECIMAL",
+  DOUBLE = "DOUBLE",
+  LONG = "LONG",
+  STRING = "STRING",
+}
+
+/**
+ * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
+ */
+export interface ColumnStatisticsData {
+  /**
+   * <p>The type of column statistics data.</p>
+   */
+  Type: ColumnStatisticsType | string | undefined;
+
+  /**
+   * <p>Boolean column statistics data.</p>
+   */
+  BooleanColumnStatisticsData?: BooleanColumnStatisticsData;
+
+  /**
+   * <p>Date column statistics data.</p>
+   */
+  DateColumnStatisticsData?: DateColumnStatisticsData;
+
+  /**
+   * <p>Decimal column statistics data.</p>
+   */
+  DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
+
+  /**
+   * <p>Double column statistics data.</p>
+   */
+  DoubleColumnStatisticsData?: DoubleColumnStatisticsData;
+
+  /**
+   * <p>Long column statistics data.</p>
+   */
+  LongColumnStatisticsData?: LongColumnStatisticsData;
+
+  /**
+   * <p>String column statistics data.</p>
+   */
+  StringColumnStatisticsData?: StringColumnStatisticsData;
+
+  /**
+   * <p>Binary column statistics data.</p>
+   */
+  BinaryColumnStatisticsData?: BinaryColumnStatisticsData;
+}
+
+export namespace ColumnStatisticsData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnStatisticsData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the generated column-level statistics for a table or partition.</p>
+ */
+export interface ColumnStatistics {
+  /**
+   * <p>Name of column which statistics belong to.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   */
+  ColumnType: string | undefined;
+
+  /**
+   * <p>The timestamp of when column statistics were generated.</p>
+   */
+  AnalyzedTime: Date | undefined;
+
+  /**
+   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
+   */
+  StatisticsData: ColumnStatisticsData | undefined;
+}
+
+export namespace ColumnStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Encapsulates a column name that failed and the reason for failure.</p>
+ */
+export interface ColumnError {
+  /**
+   * <p>The name of the column that failed.</p>
+   */
+  ColumnName?: string;
+
+  /**
+   * <p>An error message with the reason for the failure of an operation.</p>
+   */
+  Error?: ErrorDetail;
+}
+
+export namespace ColumnError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnError): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForPartitionResponse {
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  ColumnStatisticsList?: ColumnStatistics[];
+
+  /**
+   * <p>Error occurred during retrieving column statistics data.</p>
+   */
+  Errors?: ColumnError[];
+}
+
+export namespace GetColumnStatisticsForPartitionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForTableRequest {
+  /**
+   * <p>The ID of the Data Catalog where the partitions in question reside.
+   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database where the partitions reside.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partitions' table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of the column names.</p>
+   */
+  ColumnNames: string[] | undefined;
+}
+
+export namespace GetColumnStatisticsForTableRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetColumnStatisticsForTableResponse {
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  ColumnStatisticsList?: ColumnStatistics[];
+
+  /**
+   * <p>List of ColumnStatistics that failed to be retrieved.</p>
+   */
+  Errors?: ColumnError[];
+}
+
+export namespace GetColumnStatisticsForTableResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetConnectionRequest {
   /**
@@ -559,6 +760,34 @@ export namespace GetCrawlersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCustomEntityTypeRequest {
+  Name: string | undefined;
+}
+
+export namespace GetCustomEntityTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomEntityTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCustomEntityTypeResponse {
+  Name?: string;
+  RegexString?: string;
+  ContextWords?: string[];
+}
+
+export namespace GetCustomEntityTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCustomEntityTypeResponse): any => ({
     ...obj,
   });
 }
@@ -4887,6 +5116,34 @@ export namespace ListCrawlersResponse {
   });
 }
 
+export interface ListCustomEntityTypesRequest {
+  NextToken?: string;
+  MaxResults?: number;
+}
+
+export namespace ListCustomEntityTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomEntityTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCustomEntityTypesResponse {
+  CustomEntityTypes?: CustomEntityType[];
+  NextToken?: string;
+}
+
+export namespace ListCustomEntityTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListCustomEntityTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListDevEndpointsRequest {
   /**
    * <p>A continuation token, if this is a continuation request.</p>
@@ -8035,334 +8292,6 @@ export namespace UpdateJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateJobResponse {
-  /**
-   * <p>Returns the name of the updated job definition.</p>
-   */
-  JobName?: string;
-}
-
-export namespace UpdateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMLTransformRequest {
-  /**
-   * <p>A unique identifier that was generated when the transform was created.</p>
-   */
-  TransformId: string | undefined;
-
-  /**
-   * <p>The unique name that you gave the transform when you created it.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of the transform. The default is an empty string.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The configuration parameters that are specific to the transform type (algorithm) used.
-   *       Conditionally dependent on the transform type.</p>
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
-   *         page</a>. </p>
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   */
-  MaxRetries?: number;
-}
-
-export namespace UpdateMLTransformRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLTransformRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMLTransformResponse {
-  /**
-   * <p>The unique identifier for the transform that was updated.</p>
-   */
-  TransformId?: string;
-}
-
-export namespace UpdateMLTransformResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLTransformResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePartitionRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partition to be updated resides. If none is provided,
-   *       the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which the table in question
-   *       resides.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table in which the partition to be updated is located.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>List of partition key values that define the partition to update.</p>
-   */
-  PartitionValueList: string[] | undefined;
-
-  /**
-   * <p>The new partition object to update the partition to.</p>
-   *
-   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
-   */
-  PartitionInput: PartitionInput | undefined;
-}
-
-export namespace UpdatePartitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePartitionResponse {}
-
-export namespace UpdatePartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRegistryInput {
-  /**
-   * <p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
-   */
-  RegistryId: RegistryId | undefined;
-
-  /**
-   * <p>A description of the registry. If description is not provided, this field will not be updated.</p>
-   */
-  Description: string | undefined;
-}
-
-export namespace UpdateRegistryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateRegistryResponse {
-  /**
-   * <p>The name of the updated registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The Amazon Resource name (ARN) of the updated registry.</p>
-   */
-  RegistryArn?: string;
-}
-
-export namespace UpdateRegistryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegistryResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSchemaInput {
-  /**
-   * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *             <li>
-   *                <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
-   *             </li>
-   *          </ul>
-   */
-  SchemaId: SchemaId | undefined;
-
-  /**
-   * <p>Version number required for check pointing. One of <code>VersionNumber</code> or <code>Compatibility</code> has to be provided.</p>
-   */
-  SchemaVersionNumber?: SchemaVersionNumber;
-
-  /**
-   * <p>The new compatibility setting for the schema.</p>
-   */
-  Compatibility?: Compatibility | string;
-
-  /**
-   * <p>The new description for the schema.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateSchemaInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateSchemaResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The name of the schema.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The name of the registry that contains the schema.</p>
-   */
-  RegistryName?: string;
-}
-
-export namespace UpdateSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchemaResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>An updated <code>TableInput</code> object to define the metadata table
-   *       in the catalog.</p>
-   */
-  TableInput: TableInput | undefined;
-
-  /**
-   * <p>By default, <code>UpdateTable</code> always creates an archived version of the table
-   *       before updating it. However, if <code>skipArchive</code> is set to true,
-   *         <code>UpdateTable</code> does not create the archived version.</p>
-   */
-  SkipArchive?: boolean;
-
-  /**
-   * <p>The transaction ID at which to update the table contents. </p>
-   */
-  TransactionId?: string;
-
-  VersionId?: string;
-}
-
-export namespace UpdateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTableResponse {}
-
-export namespace UpdateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
     ...obj,
   });
 }

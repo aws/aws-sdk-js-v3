@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/models_0";
+import { StartContactRecordingRequest, StartContactRecordingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StartContactRecordingCommand,
   serializeAws_restJson1StartContactRecordingCommand,

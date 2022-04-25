@@ -3930,7 +3930,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *                   <code>state</code> - The state of the Spot Instance request (<code>open</code>
    *                     | <code>active</code> | <code>closed</code> | <code>cancelled</code> |
    *                         <code>failed</code>). Spot request status information can help you track
-   *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
+   *                     your Amazon EC2 Spot Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot
    *                         request status</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *             </li>
    *             <li>
@@ -4067,7 +4067,7 @@ export interface LaunchSpecification {
   ImageId?: string;
 
   /**
-   * <p>The instance type.</p>
+   * <p>The instance type. Only one instance type can be specified.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -4124,7 +4124,7 @@ export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "
  */
 export interface SpotInstanceStatus {
   /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand">Spot request status codes</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   Code?: string;
 
@@ -4214,8 +4214,8 @@ export interface SpotInstanceRequest {
   SpotPrice?: string;
 
   /**
-   * <p>The state of the Spot Instance request. Spot status information helps track your Spot
-   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot status</a> in the
+   * <p>The state of the Spot Instance request. Spot request status information helps track your Spot
+   *             Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html">Spot request status</a> in the
    *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   State?: SpotInstanceState | string;

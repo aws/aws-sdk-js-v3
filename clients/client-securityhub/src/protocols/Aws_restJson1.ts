@@ -406,7 +406,6 @@ import {
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbDomainMembership,
   AwsRdsDbInstanceAssociatedRole,
-  AwsRdsDbInstanceEndpoint,
   AwsRdsDbInstanceVpcSecurityGroup,
   AwsRdsDbParameterGroup,
   AwsRdsDbSubnetGroup,
@@ -460,6 +459,7 @@ import {
 import {
   _Record,
   AwsRdsDbInstanceDetails,
+  AwsRdsDbInstanceEndpoint,
   AwsRdsDbOptionGroupMembership,
   AwsRdsDbPendingModifiedValues,
   AwsRdsDbProcessorFeature,
@@ -2118,6 +2118,8 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
   let body: any;
   body = JSON.stringify({
     ...(input.AutoEnable !== undefined && input.AutoEnable !== null && { AutoEnable: input.AutoEnable }),
+    ...(input.AutoEnableStandards !== undefined &&
+      input.AutoEnableStandards !== null && { AutoEnableStandards: input.AutoEnableStandards }),
   });
   return new __HttpRequest({
     protocol,
@@ -3233,11 +3235,15 @@ export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = 
   const contents: DescribeOrganizationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     AutoEnable: undefined,
+    AutoEnableStandards: undefined,
     MemberAccountLimitReached: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.AutoEnable !== undefined && data.AutoEnable !== null) {
     contents.AutoEnable = __expectBoolean(data.AutoEnable);
+  }
+  if (data.AutoEnableStandards !== undefined && data.AutoEnableStandards !== null) {
+    contents.AutoEnableStandards = __expectString(data.AutoEnableStandards);
   }
   if (data.MemberAccountLimitReached !== undefined && data.MemberAccountLimitReached !== null) {
     contents.MemberAccountLimitReached = __expectBoolean(data.MemberAccountLimitReached);

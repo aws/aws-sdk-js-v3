@@ -31,7 +31,7 @@ export interface CancelRotateSecretRequest {
   /**
    * <p>The ARN or name of the secret.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 }
@@ -578,7 +578,7 @@ export interface DeleteResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to delete the attached resource-based policy for.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 }
@@ -617,7 +617,7 @@ export interface DeleteSecretRequest {
   /**
    * <p>The ARN or name of the secret to delete.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -687,7 +687,7 @@ export interface DescribeSecretRequest {
   /**
    * <p>The ARN or name of the secret. </p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 }
@@ -1036,7 +1036,7 @@ export interface GetResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to retrieve the attached resource-based policy for.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 }
@@ -1082,7 +1082,7 @@ export interface GetSecretValueRequest {
   /**
    * <p>The ARN or name of the secret to retrieve.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1387,7 +1387,7 @@ export interface ListSecretVersionIdsRequest {
   /**
    * <p>The ARN or name of the secret whose versions you want to list.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1522,7 +1522,7 @@ export interface PutResourcePolicyRequest {
   /**
    * <p>The ARN or name of the secret to attach the resource-based policy.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1573,7 +1573,7 @@ export interface PutSecretValueRequest {
   /**
    * <p>The ARN or name of the secret to add a new version to.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    *          <p>If the secret doesn't already exist, use <code>CreateSecret</code> instead.</p>
    */
   SecretId: string | undefined;
@@ -1781,7 +1781,7 @@ export interface RestoreSecretRequest {
   /**
    * <p>The ARN or name of the secret to restore.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 }
@@ -1820,7 +1820,7 @@ export interface RotateSecretRequest {
   /**
    * <p>The ARN or name of the secret to rotate.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1935,7 +1935,7 @@ export interface TagResourceRequest {
    * <p>The identifier for the secret to attach tags to. You can specify either the
    *       Amazon Resource Name (ARN) or the friendly name of the secret.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1963,7 +1963,7 @@ export interface UntagResourceRequest {
   /**
    * <p>The ARN or name of the secret.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -1991,7 +1991,7 @@ export interface UpdateSecretRequest {
   /**
    * <p>The ARN or name of the secret.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 
@@ -2093,7 +2093,7 @@ export interface UpdateSecretVersionStageRequest {
   /**
    * <p>The ARN or the name of the secret with the version and staging labelsto modify.</p>
    *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN.</p>
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
   SecretId: string | undefined;
 

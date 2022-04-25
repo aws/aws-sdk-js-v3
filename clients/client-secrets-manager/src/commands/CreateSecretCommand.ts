@@ -22,8 +22,9 @@ export interface CreateSecretCommandInput extends CreateSecretRequest {}
 export interface CreateSecretCommandOutput extends CreateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new secret. A <i>secret</i> is a set of credentials, such as a
- *       user name and password, that you store in an encrypted form in Secrets Manager. The secret also
+ * <p>Creates a new secret. A <i>secret</i> can be a password, a set of
+ *       credentials such as a user name and password, an OAuth token, or other secret information
+ *       that you store in an encrypted form in Secrets Manager. The secret also
  *       includes the connection information to access a database or other service, which Secrets Manager
  *       doesn't encrypt. A secret in Secrets Manager consists of both the protected secret data and the
  *       important information needed to manage the secret.</p>
@@ -33,6 +34,9 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *       If you include <code>SecretString</code> or <code>SecretBinary</code>
  *       then Secrets Manager creates an initial secret version and automatically attaches the staging
  *       label <code>AWSCURRENT</code> to it.</p>
+ *          <p>For database credentials you want to rotate, for Secrets Manager to be able to rotate the secret,
+ *       you must make sure the JSON you store in the <code>SecretString</code> matches the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">JSON structure of
+ *         a database secret</a>.</p>
  *          <p>If you don't specify an KMS encryption key, Secrets Manager uses the Amazon Web Services managed key
  *       <code>aws/secretsmanager</code>. If this key
  *       doesn't already exist in your account, then Secrets Manager creates it for you automatically. All
@@ -44,10 +48,12 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *       and use a customer managed KMS key. </p>
  *          <p>
  *             <b>Required permissions: </b>
- *             <code>secretsmanager:CreateSecret</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *             <code>secretsmanager:CreateSecret</code>. If you
+ *       include tags in the secret, you also need <code>secretsmanager:TagResource</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>. </p>
+ *          <p>To encrypt the secret with a KMS key other than <code>aws/secretsmanager</code>, you need <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permission to the key. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

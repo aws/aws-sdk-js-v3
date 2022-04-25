@@ -45,7 +45,7 @@ export interface AppIntegrationsConfiguration {
    *           and <code>active</code>. </p>
    *             </li>
    *          </ul>
-   *          <p>Make sure to include additional field(s); these are indexed and used to source
+   *          <p>Make sure to include additional fields. These fields are indexed and used to source
    *       recommendations. </p>
    */
   objectFields: string[] | undefined;
@@ -91,7 +91,7 @@ export type AssistantAssociationInputData =
 
 export namespace AssistantAssociationInputData {
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   export interface KnowledgeBaseIdMember {
     knowledgeBaseId: string;
@@ -169,7 +169,7 @@ export namespace CreateAssistantAssociationRequest {
  */
 export interface KnowledgeBaseAssociationData {
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId?: string;
 
@@ -252,7 +252,7 @@ export interface AssistantAssociationData {
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant</p>
+   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
    */
   assistantArn: string | undefined;
 
@@ -349,7 +349,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints specified by a service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -486,7 +486,7 @@ export interface AssistantAssociationSummary {
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant</p>
+   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
    */
   assistantArn: string | undefined;
 
@@ -549,8 +549,7 @@ export namespace ListAssistantAssociationsResponse {
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a> in the
-   *         <i>AWS Key Management Service Developer Guide</i>. </p>
+   * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
    */
   kmsKeyId?: string;
 }
@@ -629,7 +628,7 @@ export interface AssistantData {
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant</p>
+   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
    */
   assistantArn: string | undefined;
 
@@ -792,7 +791,7 @@ export interface ContentReference {
   knowledgeBaseArn?: string;
 
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId?: string;
 
@@ -903,6 +902,10 @@ export enum RelevanceLevel {
   MEDIUM = "MEDIUM",
 }
 
+export enum RecommendationType {
+  KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
+}
+
 /**
  * <p>Information about the recommendation.</p>
  */
@@ -926,6 +929,11 @@ export interface RecommendationData {
    * <p>The relevance level of the recommendation.</p>
    */
   relevanceLevel?: RelevanceLevel | string;
+
+  /**
+   * <p>The type of recommendation.</p>
+   */
+  type?: RecommendationType | string;
 }
 
 export namespace RecommendationData {
@@ -938,11 +946,137 @@ export namespace RecommendationData {
   });
 }
 
+/**
+ * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+ */
+export interface QueryRecommendationTriggerData {
+  /**
+   * <p>The text associated with the recommendation trigger.</p>
+   */
+  text?: string;
+}
+
+export namespace QueryRecommendationTriggerData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryRecommendationTriggerData): any => ({
+    ...obj,
+    ...(obj.text && { text: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>A union type containing information related to the trigger.</p>
+ */
+export type RecommendationTriggerData =
+  | RecommendationTriggerData.QueryMember
+  | RecommendationTriggerData.$UnknownMember;
+
+export namespace RecommendationTriggerData {
+  /**
+   * <p>Data associated with the QUERY RecommendationTriggerType.</p>
+   */
+  export interface QueryMember {
+    query: QueryRecommendationTriggerData;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    query?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    query: (value: QueryRecommendationTriggerData) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RecommendationTriggerData, visitor: Visitor<T>): T => {
+    if (value.query !== undefined) return visitor.query(value.query);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationTriggerData): any => {
+    if (obj.query !== undefined) return { query: QueryRecommendationTriggerData.filterSensitiveLog(obj.query) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+export enum RecommendationSourceType {
+  ISSUE_DETECTION = "ISSUE_DETECTION",
+  OTHER = "OTHER",
+  RULE_EVALUATION = "RULE_EVALUATION",
+}
+
+export enum RecommendationTriggerType {
+  QUERY = "QUERY",
+}
+
+/**
+ * <p>A recommendation trigger provides context on the event that produced the referenced recommendations.
+ *       Recommendations are only referenced in <code>recommendationIds</code> by a single RecommendationTrigger.</p>
+ */
+export interface RecommendationTrigger {
+  /**
+   * <p>The identifier of the recommendation trigger.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of recommendation trigger.</p>
+   */
+  type: RecommendationTriggerType | string | undefined;
+
+  /**
+   * <p>The source of the recommendation trigger.</p>
+   *          <ul>
+   *             <li>
+   *                <p>ISSUE_DETECTION: The corresponding recommendations were triggered
+   *           by a Contact Lens issue.</p>
+   *             </li>
+   *             <li>
+   *                <p>RULE_EVALUATION: The corresponding recommendations were triggered
+   *           by a Contact Lens rule.</p>
+   *             </li>
+   *          </ul>
+   */
+  source: RecommendationSourceType | string | undefined;
+
+  /**
+   * <p>A union type containing information related to the trigger.</p>
+   */
+  data: RecommendationTriggerData | undefined;
+
+  /**
+   * <p>The identifiers of the recommendations.</p>
+   */
+  recommendationIds: string[] | undefined;
+}
+
+export namespace RecommendationTrigger {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationTrigger): any => ({
+    ...obj,
+    ...(obj.data && { data: RecommendationTriggerData.filterSensitiveLog(obj.data) }),
+  });
+}
+
 export interface GetRecommendationsResponse {
   /**
    * <p>The recommendations.</p>
    */
   recommendations: RecommendationData[] | undefined;
+
+  /**
+   * <p>The triggers corresponding to recommendations.</p>
+   */
+  triggers?: RecommendationTrigger[];
 }
 
 export namespace GetRecommendationsResponse {
@@ -954,6 +1088,7 @@ export namespace GetRecommendationsResponse {
     ...(obj.recommendations && {
       recommendations: obj.recommendations.map((item) => RecommendationData.filterSensitiveLog(item)),
     }),
+    ...(obj.triggers && { triggers: obj.triggers.map((item) => RecommendationTrigger.filterSensitiveLog(item)) }),
   });
 }
 
@@ -989,7 +1124,7 @@ export interface AssistantSummary {
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant</p>
+   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
    */
   assistantArn: string | undefined;
 
@@ -1318,7 +1453,7 @@ export interface SessionSummary {
   assistantId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant</p>
+   * <p>The Amazon Resource Name (ARN) of the Wisdom assistant.</p>
    */
   assistantArn: string | undefined;
 }
@@ -1484,7 +1619,7 @@ export namespace GetSessionResponse {
 
 export interface CreateContentRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -1568,7 +1703,7 @@ export interface ContentData {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -1653,7 +1788,7 @@ export namespace CreateContentResponse {
 
 export interface DeleteContentRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -1690,7 +1825,7 @@ export interface GetContentRequest {
   contentId: string | undefined;
 
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 }
@@ -1728,7 +1863,7 @@ export interface GetContentSummaryRequest {
   contentId: string | undefined;
 
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 }
@@ -1762,7 +1897,7 @@ export interface ContentSummary {
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -1841,7 +1976,7 @@ export interface ListContentsRequest {
   maxResults?: number;
 
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 }
@@ -1898,7 +2033,7 @@ export class PreconditionFailedException extends __BaseException {
 
 export interface UpdateContentRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -2124,7 +2259,7 @@ export enum KnowledgeBaseStatus {
  */
 export interface KnowledgeBaseData {
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -2238,7 +2373,7 @@ export namespace DeleteKnowledgeBaseResponse {
 
 export interface GetKnowledgeBaseRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 }
@@ -2296,7 +2431,7 @@ export namespace ListKnowledgeBasesRequest {
  */
 export interface KnowledgeBaseSummary {
   /**
-   * <p>The the identifier of the knowledge base.</p>
+   * <p>The identifier of the knowledge base.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -2321,7 +2456,7 @@ export interface KnowledgeBaseSummary {
   status: KnowledgeBaseStatus | string | undefined;
 
   /**
-   * <p>[KEVIN]</p>
+   * <p>Configuration information about the external data source.</p>
    */
   sourceConfiguration?: SourceConfiguration;
 
@@ -2384,7 +2519,7 @@ export namespace ListKnowledgeBasesResponse {
 
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 }
@@ -2422,7 +2557,7 @@ export interface SearchContentRequest {
   maxResults?: number;
 
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -2464,7 +2599,7 @@ export namespace SearchContentResponse {
 
 export interface StartContentUploadRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 
@@ -2517,7 +2652,7 @@ export namespace StartContentUploadResponse {
 
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The the identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
    */
   knowledgeBaseId: string | undefined;
 

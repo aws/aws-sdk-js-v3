@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.77.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.76.0...v3.77.0) (2022-04-25)
+
+
+### Features
+
+* **client-connect:** This release adds SearchUsers API which can be used to search for users with a Connect Instance ([15544b5](https://github.com/aws/aws-sdk-js-v3/commit/15544b5f4fbfe03a32a590aa0a7d6145e1c50998))
+
+
+
+
+
+# [3.76.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.75.0...v3.76.0) (2022-04-22)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.75.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.74.0...v3.75.0) (2022-04-21)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.74.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.73.0...v3.74.0) (2022-04-20)
+
+
+### Features
+
+* **client-connect:** This release adds APIs to search, claim, release, list, update, and describe phone numbers. You can also use them to associate and disassociate contact flows to phone numbers. ([78e0c59](https://github.com/aws/aws-sdk-js-v3/commit/78e0c59d115eaaf1f9bc22c67cd1e3b53ae68272))
+
+
+
+
+
 # [3.72.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.71.0...v3.72.0) (2022-04-15)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

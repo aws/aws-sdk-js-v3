@@ -21,6 +21,21 @@ import {
   BatchDisassociateProjectAssetsCommandOutput,
 } from "./commands/BatchDisassociateProjectAssetsCommand";
 import {
+  BatchGetAssetPropertyAggregatesCommand,
+  BatchGetAssetPropertyAggregatesCommandInput,
+  BatchGetAssetPropertyAggregatesCommandOutput,
+} from "./commands/BatchGetAssetPropertyAggregatesCommand";
+import {
+  BatchGetAssetPropertyValueCommand,
+  BatchGetAssetPropertyValueCommandInput,
+  BatchGetAssetPropertyValueCommandOutput,
+} from "./commands/BatchGetAssetPropertyValueCommand";
+import {
+  BatchGetAssetPropertyValueHistoryCommand,
+  BatchGetAssetPropertyValueHistoryCommandInput,
+  BatchGetAssetPropertyValueHistoryCommandOutput,
+} from "./commands/BatchGetAssetPropertyValueHistoryCommand";
+import {
   BatchPutAssetPropertyValueCommand,
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
@@ -428,6 +443,106 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: BatchDisassociateProjectAssetsCommandOutput) => void
   ): Promise<BatchDisassociateProjectAssetsCommandOutput> | void {
     const command = new BatchDisassociateProjectAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets aggregated values (for example, average, minimum, and maximum) for one or more asset properties.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
+   *     aggregates</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  public batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyAggregatesCommandOutput>;
+  public batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyAggregates(
+    args: BatchGetAssetPropertyAggregatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetAssetPropertyAggregatesCommandOutput) => void
+  ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> | void {
+    const command = new BatchGetAssetPropertyAggregatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the current value for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
+   *     current values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  public batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyValueCommandOutput>;
+  public batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyValue(
+    args: BatchGetAssetPropertyValueCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetAssetPropertyValueCommandOutput) => void
+  ): Promise<BatchGetAssetPropertyValueCommandOutput> | void {
+    const command = new BatchGetAssetPropertyValueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the historical values for one or more asset properties. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
+   *     historical values</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   */
+  public batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput>;
+  public batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
+  ): void;
+  public batchGetAssetPropertyValueHistory(
+    args: BatchGetAssetPropertyValueHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetAssetPropertyValueHistoryCommandOutput) => void
+  ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> | void {
+    const command = new BatchGetAssetPropertyValueHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

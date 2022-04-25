@@ -4,6 +4,30 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { MqServiceException as __BaseException } from "./MqServiceException";
 
 /**
+ * <p>The action required to resolve a broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
+ */
+export interface ActionRequired {
+  /**
+   * <p>The code you can use to resolve your broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state. You can find instructions by choosing the link for your code from the list of action required codes in <a href="https://docs.aws.amazon.com//latest/developer-guide/troubleshooting-action-required-codes.html">Amazon MQ action required codes</a>. Each code references a topic with detailed information, instructions, and recommendations for how to resolve the issue and prevent future occurrences.</p>
+   */
+  ActionRequiredCode?: string;
+
+  /**
+   * <p>Information about the action required to resolve your broker issue when the broker is in a CRITICAL_ACTION_REQUIRED state.</p>
+   */
+  ActionRequiredInfo?: string;
+}
+
+export namespace ActionRequired {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ActionRequired): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Name of the availability zone.</p>
  */
 export interface AvailabilityZone {
@@ -157,6 +181,7 @@ export namespace BrokerInstanceOption {
 export enum BrokerState {
   CREATION_FAILED = "CREATION_FAILED",
   CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  CRITICAL_ACTION_REQUIRED = "CRITICAL_ACTION_REQUIRED",
   DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
   REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
   RUNNING = "RUNNING",
@@ -1324,6 +1349,11 @@ export namespace LogsSummary {
 }
 
 export interface DescribeBrokerResponse {
+  /**
+   * <p>A list of actions required for a broker.</p>
+   */
+  ActionsRequired?: ActionRequired[];
+
   /**
    * <p>The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */

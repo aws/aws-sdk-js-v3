@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_0";
+import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetColumnStatisticsForTableCommand,
   serializeAws_json1_1GetColumnStatisticsForTableCommand,

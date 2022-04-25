@@ -30,10 +30,58 @@ import {
   ReplicaMode,
   ResourcePendingMaintenanceActions,
   ScalingConfiguration,
+  ServerlessV2ScalingConfiguration,
   Tag,
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+export interface DescribeDBSnapshotAttributesResult {
+  /**
+   * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+   *     API action.</p>
+   *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+   *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+   *       API action.</p>
+   */
+  DBSnapshotAttributesResult?: DBSnapshotAttributesResult;
+}
+
+export namespace DescribeDBSnapshotAttributesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSnapshots</code> action.</p>
+ */
+export interface DBSnapshotMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>DBSnapshot</code> instances.</p>
+   */
+  DBSnapshots?: DBSnapshot[];
+}
+
+export namespace DBSnapshotMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBSnapshotMessage): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p></p>
@@ -3683,6 +3731,13 @@ export interface ModifyDBClusterMessage {
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace ModifyDBClusterMessage {
@@ -6485,6 +6540,13 @@ export interface RestoreDBClusterFromS3Message {
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
    */
   DomainIAMRoleName?: string;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace RestoreDBClusterFromS3Message {
@@ -6915,6 +6977,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   PubliclyAccessible?: boolean;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -7284,6 +7353,13 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   Iops?: number;
+
+  /**
+   * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
+   *             <i>Amazon Aurora User Guide</i>.</p>
+   */
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {

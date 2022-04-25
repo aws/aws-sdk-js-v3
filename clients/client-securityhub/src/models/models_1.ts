@@ -7,6 +7,7 @@ import {
   ActionTarget,
   Adjustment,
   AdminAccount,
+  AutoEnableStandards,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
   AwsApiGatewayV2ApiDetails,
@@ -54,12 +55,40 @@ import {
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbDomainMembership,
   AwsRdsDbInstanceAssociatedRole,
-  AwsRdsDbInstanceEndpoint,
   AwsRdsDbInstanceVpcSecurityGroup,
   AwsRdsDbParameterGroup,
   AwsRdsDbSubnetGroup,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>Specifies the connection endpoint.</p>
+ */
+export interface AwsRdsDbInstanceEndpoint {
+  /**
+   * <p>Specifies the DNS address of the DB instance.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>Specifies the port that the database engine is listening on.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   */
+  HostedZoneId?: string;
+}
+
+export namespace AwsRdsDbInstanceEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>An option group membership.</p>
@@ -5298,19 +5327,15 @@ export interface AwsSecurityFinding {
 
   /**
    * <p>The name of the product that generated the finding.</p>
-   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update it using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is when you use a custom integration.</p>
-   *          <p>When you use the Security Hub console to filter findings by product name, you use this attribute.</p>
-   *          <p>When you use the Security Hub API to filter findings by product name, you use the <code>aws/securityhub/ProductName</code> attribute under <code>ProductFields</code>.</p>
-   *          <p>Security Hub does not synchronize those two attributes.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
+   *          <p>When you use the Security Hub console or API to filter findings by product name, you use this attribute.</p>
    */
   ProductName?: string;
 
   /**
    * <p>The name of the company for the product that generated the finding.</p>
-   *          <p>Security Hub populates this attribute automatically for each finding. You cannot be updated using <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is when you use a custom integration.</p>
-   *          <p>When you use the Security Hub console to filter findings by company name, you use this attribute.</p>
-   *          <p>When you use the Security Hub API to filter findings by company name, you use the <code>aws/securityhub/CompanyName</code> attribute under <code>ProductFields</code>.</p>
-   *          <p>Security Hub does not synchronize those two attributes.</p>
+   *          <p>Security Hub populates this attribute automatically for each finding. You cannot update this attribute with <code>BatchImportFindings</code> or <code>BatchUpdateFindings</code>. The exception to this is a custom integration.</p>
+   *          <p>When you use the Security Hub console or API to filter findings by company name, you use this attribute.</p>
    */
   CompanyName?: string;
 
@@ -5985,14 +6010,12 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>The name of the solution (product) that generates findings.</p>
-   *          <p>Note that this is a filter against the <code>aws/securityhub/ProductName</code> field in <code>ProductFields</code>. It is not a filter for the top-level <code>ProductName</code> field.</p>
    */
   ProductName?: StringFilter[];
 
   /**
    * <p>The name of the findings provider (company) that owns the solution (product) that
    *          generates findings.</p>
-   *          <p>Note that this is a filter against the <code>aws/securityhub/CompanyName</code> field in <code>ProductFields</code>. It is not a filter for the top-level <code>CompanyName</code> field.</p>
    */
   CompanyName?: StringFilter[];
 
@@ -7624,6 +7647,16 @@ export interface DescribeOrganizationConfigurationResponse {
    *          Security Hub administrator account.</p>
    */
   MemberAccountLimitReached?: boolean;
+
+  /**
+   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   *          for new member accounts in the organization.</p>
+   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
+   *          accounts.</p>
+   */
+  AutoEnableStandards?: AutoEnableStandards | string;
 }
 
 export namespace DescribeOrganizationConfigurationResponse {
@@ -9428,6 +9461,14 @@ export interface UpdateOrganizationConfigurationRequest {
    *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
    */
   AutoEnable: boolean | undefined;
+
+  /**
+   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   *          for new member accounts in the organization.</p>
+   *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
+   *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
+   */
+  AutoEnableStandards?: AutoEnableStandards | string;
 }
 
 export namespace UpdateOrganizationConfigurationRequest {

@@ -3,6 +3,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -39,6 +40,10 @@ import {
 } from "../commands/AssociateLambdaFunctionCommand";
 import { AssociateLexBotCommandInput, AssociateLexBotCommandOutput } from "../commands/AssociateLexBotCommand";
 import {
+  AssociatePhoneNumberContactFlowCommandInput,
+  AssociatePhoneNumberContactFlowCommandOutput,
+} from "../commands/AssociatePhoneNumberContactFlowCommand";
+import {
   AssociateQueueQuickConnectsCommandInput,
   AssociateQueueQuickConnectsCommandOutput,
 } from "../commands/AssociateQueueQuickConnectsCommand";
@@ -50,6 +55,7 @@ import {
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
 } from "../commands/AssociateSecurityKeyCommand";
+import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
 import {
@@ -134,6 +140,10 @@ import {
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
 } from "../commands/DescribeInstanceStorageConfigCommand";
+import {
+  DescribePhoneNumberCommandInput,
+  DescribePhoneNumberCommandOutput,
+} from "../commands/DescribePhoneNumberCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "../commands/DescribeQueueCommand";
 import {
   DescribeQuickConnectCommandInput,
@@ -171,6 +181,10 @@ import {
   DisassociateLambdaFunctionCommandOutput,
 } from "../commands/DisassociateLambdaFunctionCommand";
 import { DisassociateLexBotCommandInput, DisassociateLexBotCommandOutput } from "../commands/DisassociateLexBotCommand";
+import {
+  DisassociatePhoneNumberContactFlowCommandInput,
+  DisassociatePhoneNumberContactFlowCommandOutput,
+} from "../commands/DisassociatePhoneNumberContactFlowCommand";
 import {
   DisassociateQueueQuickConnectsCommandInput,
   DisassociateQueueQuickConnectsCommandOutput,
@@ -235,6 +249,7 @@ import {
 } from "../commands/ListLambdaFunctionsCommand";
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "../commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "../commands/ListPhoneNumbersCommand";
+import { ListPhoneNumbersV2CommandInput, ListPhoneNumbersV2CommandOutput } from "../commands/ListPhoneNumbersV2Command";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommandInput,
@@ -269,10 +284,16 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "../commands/ResumeContactRecordingCommand";
+import {
+  SearchAvailablePhoneNumbersCommandInput,
+  SearchAvailablePhoneNumbersCommandOutput,
+} from "../commands/SearchAvailablePhoneNumbersCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
@@ -345,6 +366,7 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "../commands/UpdateInstanceStorageConfigCommand";
+import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
   UpdateQueueHoursOfOperationCommandOutput,
@@ -423,9 +445,9 @@ import {
   AgentStatusSummary,
   AttachmentReference,
   Attribute,
+  AvailableNumberSummary,
   Channel,
-  ChatMessage,
-  ChatStreamingConfiguration,
+  ClaimedPhoneNumberSummary,
   Contact,
   ContactFlow,
   ContactFlowModule,
@@ -437,7 +459,6 @@ import {
   CurrentMetricData,
   CurrentMetricResult,
   DefaultVocabulary,
-  DestinationNotAllowedException,
   Dimensions,
   DuplicateResourceException,
   EncryptionConfig,
@@ -473,11 +494,14 @@ import {
   LexBotConfig,
   LexV2Bot,
   LimitExceededException,
+  ListPhoneNumbersSummary,
   MediaConcurrency,
   OutboundCallerConfig,
-  ParticipantDetails,
+  PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
+  PhoneNumberStatus,
   PhoneNumberSummary,
+  PhoneNumberType,
   ProblemDetail,
   PromptSummary,
   Queue,
@@ -513,16 +537,28 @@ import {
   UserQuickConnectConfig,
   UserSummary,
   Vocabulary,
-  VocabularySummary,
-  VoiceRecordingConfiguration,
 } from "../models/models_0";
 import {
   AnswerMachineDetectionConfig,
+  ChatMessage,
+  ChatStreamingConfiguration,
   ContactNotFoundException,
+  ControlPlaneTagFilter,
+  DestinationNotAllowedException,
+  HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   OutboundContactNotPermittedException,
+  ParticipantDetails,
   Reference,
+  StringCondition,
+  TagCondition,
+  UserIdentityInfoLite,
+  UserSearchCriteria,
+  UserSearchFilter,
+  UserSearchSummary,
+  VocabularySummary,
+  VoiceRecordingConfiguration,
 } from "../models/models_1";
 
 export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
@@ -747,6 +783,42 @@ export const serializeAws_restJson1AssociateLexBotCommand = async (
   });
 };
 
+export const serializeAws_restJson1AssociatePhoneNumberContactFlowCommand = async (
+  input: AssociatePhoneNumberContactFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/phone-number/{PhoneNumberId}/contact-flow";
+  if (input.PhoneNumberId !== undefined) {
+    const labelValue: string = input.PhoneNumberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PhoneNumberId.");
+    }
+    resolvedPath = resolvedPath.replace("{PhoneNumberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PhoneNumberId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ContactFlowId !== undefined && input.ContactFlowId !== null && { ContactFlowId: input.ContactFlowId }),
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1AssociateQueueQuickConnectsCommand = async (
   input: AssociateQueueQuickConnectsCommandInput,
   context: __SerdeContext
@@ -869,6 +941,35 @@ export const serializeAws_restJson1AssociateSecurityKeyCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ClaimPhoneNumberCommand = async (
+  input: ClaimPhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/claim";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.PhoneNumberDescription !== undefined &&
+      input.PhoneNumberDescription !== null && { PhoneNumberDescription: input.PhoneNumberDescription }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2175,6 +2276,35 @@ export const serializeAws_restJson1DescribeInstanceStorageConfigCommand = async 
   });
 };
 
+export const serializeAws_restJson1DescribePhoneNumberCommand = async (
+  input: DescribePhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
+  if (input.PhoneNumberId !== undefined) {
+    const labelValue: string = input.PhoneNumberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PhoneNumberId.");
+    }
+    resolvedPath = resolvedPath.replace("{PhoneNumberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PhoneNumberId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeQueueCommand = async (
   input: DescribeQueueCommandInput,
   context: __SerdeContext
@@ -2640,6 +2770,40 @@ export const serializeAws_restJson1DisassociateLexBotCommand = async (
   const query: any = {
     ...(input.BotName !== undefined && { botName: input.BotName }),
     ...(input.LexRegion !== undefined && { lexRegion: input.LexRegion }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand = async (
+  input: DisassociatePhoneNumberContactFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/phone-number/{PhoneNumberId}/contact-flow";
+  if (input.PhoneNumberId !== undefined) {
+    const labelValue: string = input.PhoneNumberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PhoneNumberId.");
+    }
+    resolvedPath = resolvedPath.replace("{PhoneNumberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PhoneNumberId.");
+  }
+  const query: any = {
+    ...(input.InstanceId !== undefined && { instanceId: input.InstanceId }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3477,6 +3641,42 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListPhoneNumbersV2Command = async (
+  input: ListPhoneNumbersV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/list";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PhoneNumberCountryCodes !== undefined &&
+      input.PhoneNumberCountryCodes !== null && {
+        PhoneNumberCountryCodes: serializeAws_restJson1PhoneNumberCountryCodes(input.PhoneNumberCountryCodes, context),
+      }),
+    ...(input.PhoneNumberPrefix !== undefined &&
+      input.PhoneNumberPrefix !== null && { PhoneNumberPrefix: input.PhoneNumberPrefix }),
+    ...(input.PhoneNumberTypes !== undefined &&
+      input.PhoneNumberTypes !== null && {
+        PhoneNumberTypes: serializeAws_restJson1PhoneNumberTypes(input.PhoneNumberTypes, context),
+      }),
+    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListPromptsCommand = async (
   input: ListPromptsCommandInput,
   context: __SerdeContext
@@ -3958,6 +4158,39 @@ export const serializeAws_restJson1ListUsersCommand = async (
   });
 };
 
+export const serializeAws_restJson1ReleasePhoneNumberCommand = async (
+  input: ReleasePhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
+  if (input.PhoneNumberId !== undefined) {
+    const labelValue: string = input.PhoneNumberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PhoneNumberId.");
+    }
+    resolvedPath = resolvedPath.replace("{PhoneNumberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PhoneNumberId.");
+  }
+  const query: any = {
+    ...(input.ClientToken !== undefined && { clientToken: input.ClientToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ResumeContactRecordingCommand = async (
   input: ResumeContactRecordingCommandInput,
   context: __SerdeContext
@@ -3974,6 +4207,73 @@ export const serializeAws_restJson1ResumeContactRecordingCommand = async (
     ...(input.InitialContactId !== undefined &&
       input.InitialContactId !== null && { InitialContactId: input.InitialContactId }),
     ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
+  input: SearchAvailablePhoneNumbersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/search-available";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PhoneNumberCountryCode !== undefined &&
+      input.PhoneNumberCountryCode !== null && { PhoneNumberCountryCode: input.PhoneNumberCountryCode }),
+    ...(input.PhoneNumberPrefix !== undefined &&
+      input.PhoneNumberPrefix !== null && { PhoneNumberPrefix: input.PhoneNumberPrefix }),
+    ...(input.PhoneNumberType !== undefined &&
+      input.PhoneNumberType !== null && { PhoneNumberType: input.PhoneNumberType }),
+    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchUsersCommand = async (
+  input: SearchUsersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-users";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SearchCriteria !== undefined &&
+      input.SearchCriteria !== null && {
+        SearchCriteria: serializeAws_restJson1UserSearchCriteria(input.SearchCriteria, context),
+      }),
+    ...(input.SearchFilter !== undefined &&
+      input.SearchFilter !== null && {
+        SearchFilter: serializeAws_restJson1UserSearchFilter(input.SearchFilter, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -4906,6 +5206,41 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePhoneNumberCommand = async (
+  input: UpdatePhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
+  if (input.PhoneNumberId !== undefined) {
+    const labelValue: string = input.PhoneNumberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PhoneNumberId.");
+    }
+    resolvedPath = resolvedPath.replace("{PhoneNumberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PhoneNumberId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -6106,6 +6441,58 @@ const deserializeAws_restJson1AssociateLexBotCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1AssociatePhoneNumberContactFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePhoneNumberContactFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociatePhoneNumberContactFlowCommandError(output, context);
+  }
+  const contents: AssociatePhoneNumberContactFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociatePhoneNumberContactFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePhoneNumberContactFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1AssociateQueueQuickConnectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6261,6 +6648,69 @@ const deserializeAws_restJson1AssociateSecurityKeyCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ClaimPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimPhoneNumberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ClaimPhoneNumberCommandError(output, context);
+  }
+  const contents: ClaimPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PhoneNumberArn: undefined,
+    PhoneNumberId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.PhoneNumberArn !== undefined && data.PhoneNumberArn !== null) {
+    contents.PhoneNumberArn = __expectString(data.PhoneNumberArn);
+  }
+  if (data.PhoneNumberId !== undefined && data.PhoneNumberId !== null) {
+    contents.PhoneNumberId = __expectString(data.PhoneNumberId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ClaimPhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await deserializeAws_restJson1IdempotencyExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -8235,6 +8685,65 @@ const deserializeAws_restJson1DescribeInstanceStorageConfigCommandError = async 
   }
 };
 
+export const deserializeAws_restJson1DescribePhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePhoneNumberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribePhoneNumberCommandError(output, context);
+  }
+  const contents: DescribePhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ClaimedPhoneNumberSummary: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ClaimedPhoneNumberSummary !== undefined && data.ClaimedPhoneNumberSummary !== null) {
+    contents.ClaimedPhoneNumberSummary = deserializeAws_restJson1ClaimedPhoneNumberSummary(
+      data.ClaimedPhoneNumberSummary,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribePhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DescribeQueueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8923,6 +9432,58 @@ const deserializeAws_restJson1DisassociateLexBotCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociatePhoneNumberContactFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommandError(output, context);
+  }
+  const contents: DisassociatePhoneNumberContactFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociatePhoneNumberContactFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociatePhoneNumberContactFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -10232,6 +10793,69 @@ const deserializeAws_restJson1ListPhoneNumbersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListPhoneNumbersV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPhoneNumbersV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPhoneNumbersV2CommandError(output, context);
+  }
+  const contents: ListPhoneNumbersV2CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ListPhoneNumbersSummaryList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ListPhoneNumbersSummaryList !== undefined && data.ListPhoneNumbersSummaryList !== null) {
+    contents.ListPhoneNumbersSummaryList = deserializeAws_restJson1ListPhoneNumbersSummaryList(
+      data.ListPhoneNumbersSummaryList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPhoneNumbersV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPhoneNumbersV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListPromptsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11023,6 +11647,64 @@ const deserializeAws_restJson1ListUsersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ReleasePhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleasePhoneNumberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ReleasePhoneNumberCommandError(output, context);
+  }
+  const contents: ReleasePhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ReleasePhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleasePhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await deserializeAws_restJson1IdempotencyExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ResumeContactRecordingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11058,6 +11740,127 @@ const deserializeAws_restJson1ResumeContactRecordingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchAvailablePhoneNumbersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError(output, context);
+  }
+  const contents: SearchAvailablePhoneNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AvailableNumbersList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AvailableNumbersList !== undefined && data.AvailableNumbersList !== null) {
+    contents.AvailableNumbersList = deserializeAws_restJson1AvailableNumbersList(data.AvailableNumbersList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchAvailablePhoneNumbersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1SearchUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchUsersCommandError(output, context);
+  }
+  const contents: SearchUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ApproximateTotalCount: undefined,
+    NextToken: undefined,
+    Users: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount !== undefined && data.ApproximateTotalCount !== null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Users !== undefined && data.Users !== null) {
+    contents.Users = deserializeAws_restJson1UserSearchSummaryList(data.Users, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchUsersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -12347,6 +13150,72 @@ const deserializeAws_restJson1UpdateInstanceStorageConfigCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1UpdatePhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePhoneNumberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePhoneNumberCommandError(output, context);
+  }
+  const contents: UpdatePhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PhoneNumberArn: undefined,
+    PhoneNumberId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.PhoneNumberArn !== undefined && data.PhoneNumberArn !== null) {
+    contents.PhoneNumberArn = __expectString(data.PhoneNumberArn);
+  }
+  if (data.PhoneNumberId !== undefined && data.PhoneNumberId !== null) {
+    contents.PhoneNumberId = __expectString(data.PhoneNumberId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdatePhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await deserializeAws_restJson1IdempotencyExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -13740,6 +14609,21 @@ const serializeAws_restJson1ContactReferences = (input: { [key: string]: Referen
   }, {});
 };
 
+const serializeAws_restJson1ControlPlaneTagFilter = (input: ControlPlaneTagFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AndConditions !== undefined &&
+      input.AndConditions !== null && {
+        AndConditions: serializeAws_restJson1TagAndConditionList(input.AndConditions, context),
+      }),
+    ...(input.OrConditions !== undefined &&
+      input.OrConditions !== null && {
+        OrConditions: serializeAws_restJson1TagOrConditionList(input.OrConditions, context),
+      }),
+    ...(input.TagCondition !== undefined &&
+      input.TagCondition !== null && { TagCondition: serializeAws_restJson1TagCondition(input.TagCondition, context) }),
+  };
+};
+
 const serializeAws_restJson1CurrentMetric = (input: CurrentMetric, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -13784,6 +14668,17 @@ const serializeAws_restJson1Groupings = (input: (Grouping | string)[], context: 
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1HierarchyGroupCondition = (
+  input: HierarchyGroupCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HierarchyGroupMatchType !== undefined &&
+      input.HierarchyGroupMatchType !== null && { HierarchyGroupMatchType: input.HierarchyGroupMatchType }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
 };
 
 const serializeAws_restJson1HierarchyLevelUpdate = (input: HierarchyLevelUpdate, context: __SerdeContext): any => {
@@ -13979,6 +14874,20 @@ const serializeAws_restJson1PermissionsList = (input: string[], context: __Serde
     });
 };
 
+const serializeAws_restJson1PhoneNumberCountryCodes = (
+  input: (PhoneNumberCountryCode | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1PhoneNumberQuickConnectConfig = (
   input: PhoneNumberQuickConnectConfig,
   context: __SerdeContext
@@ -13986,6 +14895,17 @@ const serializeAws_restJson1PhoneNumberQuickConnectConfig = (
   return {
     ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
   };
+};
+
+const serializeAws_restJson1PhoneNumberTypes = (input: (PhoneNumberType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1QueueQuickConnectConfig = (
@@ -14120,6 +15040,15 @@ const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __Se
     });
 };
 
+const serializeAws_restJson1StringCondition = (input: StringCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.ComparisonType !== undefined &&
+      input.ComparisonType !== null && { ComparisonType: input.ComparisonType }),
+    ...(input.FieldName !== undefined && input.FieldName !== null && { FieldName: input.FieldName }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
 const serializeAws_restJson1SupportedMessagingContentTypes = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14129,6 +15058,24 @@ const serializeAws_restJson1SupportedMessagingContentTypes = (input: string[], c
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1TagAndConditionList = (input: TagCondition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagCondition(entry, context);
+    });
+};
+
+const serializeAws_restJson1TagCondition = (input: TagCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValue !== undefined && input.TagValue !== null && { TagValue: input.TagValue }),
+  };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -14141,6 +15088,17 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1TagOrConditionList = (input: TagCondition[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagAndConditionList(entry, context);
+    });
 };
 
 const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeContext): any => {
@@ -14174,6 +15132,45 @@ const serializeAws_restJson1UserQuickConnectConfig = (input: UserQuickConnectCon
   return {
     ...(input.ContactFlowId !== undefined && input.ContactFlowId !== null && { ContactFlowId: input.ContactFlowId }),
     ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+  };
+};
+
+const serializeAws_restJson1UserSearchConditionList = (input: UserSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UserSearchCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.AndConditions !== undefined &&
+      input.AndConditions !== null && {
+        AndConditions: serializeAws_restJson1UserSearchConditionList(input.AndConditions, context),
+      }),
+    ...(input.HierarchyGroupCondition !== undefined &&
+      input.HierarchyGroupCondition !== null && {
+        HierarchyGroupCondition: serializeAws_restJson1HierarchyGroupCondition(input.HierarchyGroupCondition, context),
+      }),
+    ...(input.OrConditions !== undefined &&
+      input.OrConditions !== null && {
+        OrConditions: serializeAws_restJson1UserSearchConditionList(input.OrConditions, context),
+      }),
+    ...(input.StringCondition !== undefined &&
+      input.StringCondition !== null && {
+        StringCondition: serializeAws_restJson1StringCondition(input.StringCondition, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1UserSearchFilter = (input: UserSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.TagFilter !== undefined &&
+      input.TagFilter !== null && { TagFilter: serializeAws_restJson1ControlPlaneTagFilter(input.TagFilter, context) }),
   };
 };
 
@@ -14271,6 +15268,55 @@ const deserializeAws_restJson1AttributesList = (output: any, context: __SerdeCon
       return deserializeAws_restJson1Attribute(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AvailableNumbersList = (
+  output: any,
+  context: __SerdeContext
+): AvailableNumberSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AvailableNumberSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1AvailableNumberSummary = (
+  output: any,
+  context: __SerdeContext
+): AvailableNumberSummary => {
+  return {
+    PhoneNumber: __expectString(output.PhoneNumber),
+    PhoneNumberCountryCode: __expectString(output.PhoneNumberCountryCode),
+    PhoneNumberType: __expectString(output.PhoneNumberType),
+  } as any;
+};
+
+const deserializeAws_restJson1ClaimedPhoneNumberSummary = (
+  output: any,
+  context: __SerdeContext
+): ClaimedPhoneNumberSummary => {
+  return {
+    PhoneNumber: __expectString(output.PhoneNumber),
+    PhoneNumberArn: __expectString(output.PhoneNumberArn),
+    PhoneNumberCountryCode: __expectString(output.PhoneNumberCountryCode),
+    PhoneNumberDescription: __expectString(output.PhoneNumberDescription),
+    PhoneNumberId: __expectString(output.PhoneNumberId),
+    PhoneNumberStatus:
+      output.PhoneNumberStatus !== undefined && output.PhoneNumberStatus !== null
+        ? deserializeAws_restJson1PhoneNumberStatus(output.PhoneNumberStatus, context)
+        : undefined,
+    PhoneNumberType: __expectString(output.PhoneNumberType),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+    TargetArn: __expectString(output.TargetArn),
+  } as any;
 };
 
 const deserializeAws_restJson1Contact = (output: any, context: __SerdeContext): Contact => {
@@ -14966,6 +16012,35 @@ const deserializeAws_restJson1LexV2Bot = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1ListPhoneNumbersSummary = (
+  output: any,
+  context: __SerdeContext
+): ListPhoneNumbersSummary => {
+  return {
+    PhoneNumber: __expectString(output.PhoneNumber),
+    PhoneNumberArn: __expectString(output.PhoneNumberArn),
+    PhoneNumberCountryCode: __expectString(output.PhoneNumberCountryCode),
+    PhoneNumberId: __expectString(output.PhoneNumberId),
+    PhoneNumberType: __expectString(output.PhoneNumberType),
+    TargetArn: __expectString(output.TargetArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ListPhoneNumbersSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ListPhoneNumbersSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ListPhoneNumbersSummary(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MediaConcurrencies = (output: any, context: __SerdeContext): MediaConcurrency[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -15023,6 +16098,13 @@ const deserializeAws_restJson1PhoneNumberQuickConnectConfig = (
 ): PhoneNumberQuickConnectConfig => {
   return {
     PhoneNumber: __expectString(output.PhoneNumber),
+  } as any;
+};
+
+const deserializeAws_restJson1PhoneNumberStatus = (output: any, context: __SerdeContext): PhoneNumberStatus => {
+  return {
+    Message: __expectString(output.Message),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -15477,6 +16559,13 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1UserIdentityInfoLite = (output: any, context: __SerdeContext): UserIdentityInfoLite => {
+  return {
+    FirstName: __expectString(output.FirstName),
+    LastName: __expectString(output.LastName),
+  } as any;
+};
+
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
     AfterContactWorkTimeLimit: __expectInt32(output.AfterContactWorkTimeLimit),
@@ -15494,6 +16583,45 @@ const deserializeAws_restJson1UserQuickConnectConfig = (
     ContactFlowId: __expectString(output.ContactFlowId),
     UserId: __expectString(output.UserId),
   } as any;
+};
+
+const deserializeAws_restJson1UserSearchSummary = (output: any, context: __SerdeContext): UserSearchSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    DirectoryUserId: __expectString(output.DirectoryUserId),
+    HierarchyGroupId: __expectString(output.HierarchyGroupId),
+    Id: __expectString(output.Id),
+    IdentityInfo:
+      output.IdentityInfo !== undefined && output.IdentityInfo !== null
+        ? deserializeAws_restJson1UserIdentityInfoLite(output.IdentityInfo, context)
+        : undefined,
+    PhoneConfig:
+      output.PhoneConfig !== undefined && output.PhoneConfig !== null
+        ? deserializeAws_restJson1UserPhoneConfig(output.PhoneConfig, context)
+        : undefined,
+    RoutingProfileId: __expectString(output.RoutingProfileId),
+    SecurityProfileIds:
+      output.SecurityProfileIds !== undefined && output.SecurityProfileIds !== null
+        ? deserializeAws_restJson1SecurityProfileIds(output.SecurityProfileIds, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+    Username: __expectString(output.Username),
+  } as any;
+};
+
+const deserializeAws_restJson1UserSearchSummaryList = (output: any, context: __SerdeContext): UserSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserSearchSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserSummary = (output: any, context: __SerdeContext): UserSummary => {

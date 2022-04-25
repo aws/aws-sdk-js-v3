@@ -3073,7 +3073,14 @@ export namespace ImportKeyPairRequest {
 
 export interface ImportKeyPairResult {
   /**
-   * <p>The MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *            </li>
+   *          </ul>
    */
   KeyFingerprint?: string;
 
@@ -6224,10 +6231,9 @@ export interface ModifySubnetAttributeRequest {
   EnableDns64?: AttributeBooleanValue;
 
   /**
-   * <p>The type of hostnames to assign to instances in the subnet at launch. For IPv4 only subnets, an
-   *             instance DNS name must be based on the instance IPv4 address. For IPv6 only subnets, an instance
-   *             DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
+   * <p>The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an
+   *             instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance
+   *             DNS name must be based on the instance ID (resource-name).</p>
    */
   PrivateDnsHostnameTypeOnLaunch?: HostnameType | string;
 
@@ -9702,7 +9708,7 @@ export interface RequestSpotLaunchSpecification {
   ImageId?: string;
 
   /**
-   * <p>The instance type.</p>
+   * <p>The instance type. Only one instance type can be specified.</p>
    */
   InstanceType?: _InstanceType | string;
 

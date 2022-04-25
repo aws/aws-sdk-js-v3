@@ -70,6 +70,10 @@ import {
 } from "./commands/AssociateLambdaFunctionCommand";
 import { AssociateLexBotCommandInput, AssociateLexBotCommandOutput } from "./commands/AssociateLexBotCommand";
 import {
+  AssociatePhoneNumberContactFlowCommandInput,
+  AssociatePhoneNumberContactFlowCommandOutput,
+} from "./commands/AssociatePhoneNumberContactFlowCommand";
+import {
   AssociateQueueQuickConnectsCommandInput,
   AssociateQueueQuickConnectsCommandOutput,
 } from "./commands/AssociateQueueQuickConnectsCommand";
@@ -81,6 +85,7 @@ import {
   AssociateSecurityKeyCommandInput,
   AssociateSecurityKeyCommandOutput,
 } from "./commands/AssociateSecurityKeyCommand";
+import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "./commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import {
@@ -165,6 +170,10 @@ import {
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
 } from "./commands/DescribeInstanceStorageConfigCommand";
+import {
+  DescribePhoneNumberCommandInput,
+  DescribePhoneNumberCommandOutput,
+} from "./commands/DescribePhoneNumberCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "./commands/DescribeQueueCommand";
 import {
   DescribeQuickConnectCommandInput,
@@ -202,6 +211,10 @@ import {
   DisassociateLambdaFunctionCommandOutput,
 } from "./commands/DisassociateLambdaFunctionCommand";
 import { DisassociateLexBotCommandInput, DisassociateLexBotCommandOutput } from "./commands/DisassociateLexBotCommand";
+import {
+  DisassociatePhoneNumberContactFlowCommandInput,
+  DisassociatePhoneNumberContactFlowCommandOutput,
+} from "./commands/DisassociatePhoneNumberContactFlowCommand";
 import {
   DisassociateQueueQuickConnectsCommandInput,
   DisassociateQueueQuickConnectsCommandOutput,
@@ -266,6 +279,7 @@ import {
 } from "./commands/ListLambdaFunctionsCommand";
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import { ListPhoneNumbersV2CommandInput, ListPhoneNumbersV2CommandOutput } from "./commands/ListPhoneNumbersV2Command";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommandInput,
@@ -300,10 +314,16 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
+import {
+  SearchAvailablePhoneNumbersCommandInput,
+  SearchAvailablePhoneNumbersCommandOutput,
+} from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
@@ -376,6 +396,7 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
+import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "./commands/UpdatePhoneNumberCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
   UpdateQueueHoursOfOperationCommandOutput,
@@ -455,9 +476,11 @@ export type ServiceInputTypes =
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
+  | AssociatePhoneNumberContactFlowCommandInput
   | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
+  | ClaimPhoneNumberCommandInput
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleCommandInput
@@ -491,6 +514,7 @@ export type ServiceInputTypes =
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
+  | DescribePhoneNumberCommandInput
   | DescribeQueueCommandInput
   | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
@@ -504,6 +528,7 @@ export type ServiceInputTypes =
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
+  | DisassociatePhoneNumberContactFlowCommandInput
   | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
@@ -526,6 +551,7 @@ export type ServiceInputTypes =
   | ListLambdaFunctionsCommandInput
   | ListLexBotsCommandInput
   | ListPhoneNumbersCommandInput
+  | ListPhoneNumbersV2CommandInput
   | ListPromptsCommandInput
   | ListQueueQuickConnectsCommandInput
   | ListQueuesCommandInput
@@ -539,7 +565,10 @@ export type ServiceInputTypes =
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | ReleasePhoneNumberCommandInput
   | ResumeContactRecordingCommandInput
+  | SearchAvailablePhoneNumbersCommandInput
+  | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | StartChatContactCommandInput
   | StartContactRecordingCommandInput
@@ -564,6 +593,7 @@ export type ServiceInputTypes =
   | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
+  | UpdatePhoneNumberCommandInput
   | UpdateQueueHoursOfOperationCommandInput
   | UpdateQueueMaxContactsCommandInput
   | UpdateQueueNameCommandInput
@@ -591,9 +621,11 @@ export type ServiceOutputTypes =
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
+  | AssociatePhoneNumberContactFlowCommandOutput
   | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
+  | ClaimPhoneNumberCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleCommandOutput
@@ -627,6 +659,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
+  | DescribePhoneNumberCommandOutput
   | DescribeQueueCommandOutput
   | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
@@ -640,6 +673,7 @@ export type ServiceOutputTypes =
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
+  | DisassociatePhoneNumberContactFlowCommandOutput
   | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
@@ -662,6 +696,7 @@ export type ServiceOutputTypes =
   | ListLambdaFunctionsCommandOutput
   | ListLexBotsCommandOutput
   | ListPhoneNumbersCommandOutput
+  | ListPhoneNumbersV2CommandOutput
   | ListPromptsCommandOutput
   | ListQueueQuickConnectsCommandOutput
   | ListQueuesCommandOutput
@@ -675,7 +710,10 @@ export type ServiceOutputTypes =
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | ReleasePhoneNumberCommandOutput
   | ResumeContactRecordingCommandOutput
+  | SearchAvailablePhoneNumbersCommandOutput
+  | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | StartChatContactCommandOutput
   | StartContactRecordingCommandOutput
@@ -700,6 +738,7 @@ export type ServiceOutputTypes =
   | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
+  | UpdatePhoneNumberCommandOutput
   | UpdateQueueHoursOfOperationCommandOutput
   | UpdateQueueMaxContactsCommandOutput
   | UpdateQueueNameCommandOutput

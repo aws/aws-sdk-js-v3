@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_0";
+import { SearchVocabulariesRequest, SearchVocabulariesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchVocabulariesCommand,
   serializeAws_restJson1SearchVocabulariesCommand,

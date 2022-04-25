@@ -864,6 +864,93 @@ export namespace AppFlowConfig {
   });
 }
 
+/**
+ * <p>An attribute value.</p>
+ */
+export interface AttributeValue {
+  /**
+   * <p>A string.</p>
+   */
+  S?: string;
+
+  /**
+   * <p>A number.</p>
+   */
+  N?: string;
+
+  /**
+   * <p>A binary value.</p>
+   */
+  B?: string;
+
+  /**
+   * <p>A list of strings.</p>
+   */
+  SS?: string[];
+
+  /**
+   * <p>A list of numbers.</p>
+   */
+  NS?: string[];
+
+  /**
+   * <p>A list of binary values.</p>
+   */
+  BS?: string[];
+}
+
+export namespace AttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributeValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An auto detection source config.</p>
+ */
+export interface AutoDetectionS3SourceConfig {
+  /**
+   * <p>The config's templated path list.</p>
+   */
+  TemplatedPathList?: string[];
+
+  /**
+   * <p>The config's historical data path list.</p>
+   */
+  HistoricalDataPathList?: string[];
+}
+
+export namespace AutoDetectionS3SourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoDetectionS3SourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An auto detection metric source.</p>
+ */
+export interface AutoDetectionMetricSource {
+  /**
+   * <p>The source's source config.</p>
+   */
+  S3SourceConfig?: AutoDetectionS3SourceConfig;
+}
+
+export namespace AutoDetectionMetricSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoDetectionMetricSource): any => ({
+    ...obj,
+  });
+}
+
 export interface BackTestAnomalyDetectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
@@ -908,6 +995,12 @@ export namespace CloudWatchConfig {
   export const filterSensitiveLog = (obj: CloudWatchConfig): any => ({
     ...obj,
   });
+}
+
+export enum Confidence {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  NONE = "NONE",
 }
 
 export interface CreateAlertRequest {
@@ -1864,6 +1957,231 @@ export namespace DescribeMetricSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeMetricSetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An inferred field.</p>
+ */
+export interface DetectedField {
+  /**
+   * <p>The field's value.</p>
+   */
+  Value?: AttributeValue;
+
+  /**
+   * <p>The field's confidence.</p>
+   */
+  Confidence?: Confidence | string;
+
+  /**
+   * <p>The field's message.</p>
+   */
+  Message?: string;
+}
+
+export namespace DetectedField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedField): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Properties of an inferred CSV format.</p>
+ */
+export interface DetectedCsvFormatDescriptor {
+  /**
+   * <p>The format's file compression.</p>
+   */
+  FileCompression?: DetectedField;
+
+  /**
+   * <p>The format's charset.</p>
+   */
+  Charset?: DetectedField;
+
+  /**
+   * <p>Whether the format includes a header.</p>
+   */
+  ContainsHeader?: DetectedField;
+
+  /**
+   * <p>The format's delimiter.</p>
+   */
+  Delimiter?: DetectedField;
+
+  /**
+   * <p>The format's header list.</p>
+   */
+  HeaderList?: DetectedField;
+
+  /**
+   * <p>The format's quote symbol.</p>
+   */
+  QuoteSymbol?: DetectedField;
+}
+
+export namespace DetectedCsvFormatDescriptor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedCsvFormatDescriptor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A detected JSON format descriptor.</p>
+ */
+export interface DetectedJsonFormatDescriptor {
+  /**
+   * <p>The format's file compression.</p>
+   */
+  FileCompression?: DetectedField;
+
+  /**
+   * <p>The format's character set.</p>
+   */
+  Charset?: DetectedField;
+}
+
+export namespace DetectedJsonFormatDescriptor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedJsonFormatDescriptor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Properties of an inferred data format.</p>
+ */
+export interface DetectedFileFormatDescriptor {
+  /**
+   * <p>Details about a CSV format.</p>
+   */
+  CsvFormatDescriptor?: DetectedCsvFormatDescriptor;
+
+  /**
+   * <p>Details about a JSON format.</p>
+   */
+  JsonFormatDescriptor?: DetectedJsonFormatDescriptor;
+}
+
+export namespace DetectedFileFormatDescriptor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedFileFormatDescriptor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An inferred source configuration.</p>
+ */
+export interface DetectedS3SourceConfig {
+  /**
+   * <p>The source's file format descriptor.</p>
+   */
+  FileFormatDescriptor?: DetectedFileFormatDescriptor;
+}
+
+export namespace DetectedS3SourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedS3SourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An inferred data source.</p>
+ */
+export interface DetectedMetricSource {
+  /**
+   * <p>The data source's source configuration.</p>
+   */
+  S3SourceConfig?: DetectedS3SourceConfig;
+}
+
+export namespace DetectedMetricSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedMetricSource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An inferred dataset configuration.</p>
+ */
+export interface DetectedMetricSetConfig {
+  /**
+   * <p>The dataset's offset.</p>
+   */
+  Offset?: DetectedField;
+
+  /**
+   * <p>The dataset's interval.</p>
+   */
+  MetricSetFrequency?: DetectedField;
+
+  /**
+   * <p>The dataset's data source.</p>
+   */
+  MetricSource?: DetectedMetricSource;
+}
+
+export namespace DetectedMetricSetConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectedMetricSetConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface DetectMetricSetConfigRequest {
+  /**
+   * <p>An anomaly detector ARN.</p>
+   */
+  AnomalyDetectorArn: string | undefined;
+
+  /**
+   * <p>A data source.</p>
+   */
+  AutoDetectionMetricSource: AutoDetectionMetricSource | undefined;
+}
+
+export namespace DetectMetricSetConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectMetricSetConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DetectMetricSetConfigResponse {
+  /**
+   * <p>The inferred dataset configuration for the datasource.</p>
+   */
+  DetectedMetricSetConfig?: DetectedMetricSetConfig;
+}
+
+export namespace DetectMetricSetConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DetectMetricSetConfigResponse): any => ({
     ...obj,
   });
 }

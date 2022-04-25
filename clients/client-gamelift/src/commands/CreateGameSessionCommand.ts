@@ -53,7 +53,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *         <p>Game session logs are retained for all active game sessions for 14 days. To access the
  *             logs, call <a>GetGameSessionLogUrl</a> to download the log files.</p>
  *         <p>
- *             <i>Available in Amazon Web Services Local.</i>
+ *             <i>Available in Amazon GameLift Local.</i>
  *          </p>
  *         <p>
  *             <b>Learn more</b>

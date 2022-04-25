@@ -771,6 +771,10 @@ export enum FindingCategory {
   POLICY = "POLICY",
 }
 
+export enum OriginType {
+  SENSITIVE_DATA_DISCOVERY_JOB = "SENSITIVE_DATA_DISCOVERY_JOB",
+}
+
 /**
  * <p>Specifies the location of an occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.</p>
  */
@@ -1118,7 +1122,7 @@ export namespace ClassificationResult {
 }
 
 /**
- * <p>Provides information about a sensitive data finding, including the classification job that produced the finding.</p>
+ * <p>Provides information about a sensitive data finding and the details of the finding.</p>
  */
 export interface ClassificationDetails {
   /**
@@ -1135,6 +1139,11 @@ export interface ClassificationDetails {
    * <p>The unique identifier for the classification job that produced the finding.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>Specifies how Amazon Macie found the sensitive data that produced the finding: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job.</p>
+   */
+  originType?: OriginType | string;
 
   /**
    * <p>The status and other details of the finding.</p>
@@ -5053,7 +5062,7 @@ export namespace SortCriteria {
 
 export interface GetFindingsRequest {
   /**
-   * <p>An array of strings that lists the unique identifiers for the findings to retrieve.</p>
+   * <p>An array of strings that lists the unique identifiers for the findings to retrieve. You can specify as many as 50 unique identifiers in this array.</p>
    */
   findingIds: string[] | undefined;
 
@@ -6292,7 +6301,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
+   * <p>One or more tags (keys) to remove from the resource. In an HTTP request to remove multiple tags, append the tagKeys parameter and argument for each tag to remove, and separate them with an ampersand (&amp;).</p>
    */
   tagKeys: string[] | undefined;
 }

@@ -3483,7 +3483,14 @@ export namespace CreateKeyPairRequest {
  */
 export interface KeyPair {
   /**
-   * <p>The SHA-1 digest of the DER encoded private key.</p>
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with OpenSSH 6.8.</p>
+   *            </li>
+   *          </ul>
    */
   KeyFingerprint?: string;
 

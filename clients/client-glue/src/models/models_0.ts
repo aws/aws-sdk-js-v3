@@ -1768,6 +1768,48 @@ export namespace BatchGetCrawlersResponse {
   });
 }
 
+export interface BatchGetCustomEntityTypesRequest {
+  Names: string[] | undefined;
+}
+
+export namespace BatchGetCustomEntityTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetCustomEntityTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CustomEntityType {
+  Name: string | undefined;
+  RegexString: string | undefined;
+  ContextWords?: string[];
+}
+
+export namespace CustomEntityType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomEntityType): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetCustomEntityTypesResponse {
+  CustomEntityTypes?: CustomEntityType[];
+  CustomEntityTypesNotFound?: string[];
+}
+
+export namespace BatchGetCustomEntityTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetCustomEntityTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface BatchGetDevEndpointsRequest {
   /**
    * <p>The list of <code>DevEndpoint</code> names, which might be the names returned from the
@@ -4248,6 +4290,58 @@ export namespace CreateCrawlerResponse {
   });
 }
 
+export interface CreateCustomEntityTypeRequest {
+  Name: string | undefined;
+  RegexString: string | undefined;
+  ContextWords?: string[];
+}
+
+export namespace CreateCustomEntityTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCustomEntityTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCustomEntityTypeResponse {
+  Name?: string;
+}
+
+export namespace CreateCustomEntityTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCustomEntityTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The same unique identifier was associated with two different records.</p>
+ */
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 /**
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
@@ -4681,30 +4775,6 @@ export namespace CreateDevEndpointResponse {
   export const filterSensitiveLog = (obj: CreateDevEndpointResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The same unique identifier was associated with two different records.</p>
- */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -6823,6 +6893,32 @@ export class SchedulerTransitioningException extends __BaseException {
   }
 }
 
+export interface DeleteCustomEntityTypeRequest {
+  Name: string | undefined;
+}
+
+export namespace DeleteCustomEntityTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomEntityTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomEntityTypeResponse {
+  Name?: string;
+}
+
+export namespace DeleteCustomEntityTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomEntityTypeResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDatabaseRequest {
   /**
    * <p>The ID of the Data Catalog in which the database resides. If none is provided, the Amazon Web Services
@@ -8434,202 +8530,6 @@ export namespace StringColumnStatisticsData {
    * @internal
    */
   export const filterSensitiveLog = (obj: StringColumnStatisticsData): any => ({
-    ...obj,
-  });
-}
-
-export enum ColumnStatisticsType {
-  BINARY = "BINARY",
-  BOOLEAN = "BOOLEAN",
-  DATE = "DATE",
-  DECIMAL = "DECIMAL",
-  DOUBLE = "DOUBLE",
-  LONG = "LONG",
-  STRING = "STRING",
-}
-
-/**
- * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
- */
-export interface ColumnStatisticsData {
-  /**
-   * <p>The type of column statistics data.</p>
-   */
-  Type: ColumnStatisticsType | string | undefined;
-
-  /**
-   * <p>Boolean column statistics data.</p>
-   */
-  BooleanColumnStatisticsData?: BooleanColumnStatisticsData;
-
-  /**
-   * <p>Date column statistics data.</p>
-   */
-  DateColumnStatisticsData?: DateColumnStatisticsData;
-
-  /**
-   * <p>Decimal column statistics data.</p>
-   */
-  DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
-
-  /**
-   * <p>Double column statistics data.</p>
-   */
-  DoubleColumnStatisticsData?: DoubleColumnStatisticsData;
-
-  /**
-   * <p>Long column statistics data.</p>
-   */
-  LongColumnStatisticsData?: LongColumnStatisticsData;
-
-  /**
-   * <p>String column statistics data.</p>
-   */
-  StringColumnStatisticsData?: StringColumnStatisticsData;
-
-  /**
-   * <p>Binary column statistics data.</p>
-   */
-  BinaryColumnStatisticsData?: BinaryColumnStatisticsData;
-}
-
-export namespace ColumnStatisticsData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnStatisticsData): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the generated column-level statistics for a table or partition.</p>
- */
-export interface ColumnStatistics {
-  /**
-   * <p>Name of column which statistics belong to.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   */
-  ColumnType: string | undefined;
-
-  /**
-   * <p>The timestamp of when column statistics were generated.</p>
-   */
-  AnalyzedTime: Date | undefined;
-
-  /**
-   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
-   */
-  StatisticsData: ColumnStatisticsData | undefined;
-}
-
-export namespace ColumnStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnStatistics): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Encapsulates a column name that failed and the reason for failure.</p>
- */
-export interface ColumnError {
-  /**
-   * <p>The name of the column that failed.</p>
-   */
-  ColumnName?: string;
-
-  /**
-   * <p>An error message with the reason for the failure of an operation.</p>
-   */
-  Error?: ErrorDetail;
-}
-
-export namespace ColumnError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnError): any => ({
-    ...obj,
-  });
-}
-
-export interface GetColumnStatisticsForPartitionResponse {
-  /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
-   */
-  ColumnStatisticsList?: ColumnStatistics[];
-
-  /**
-   * <p>Error occurred during retrieving column statistics data.</p>
-   */
-  Errors?: ColumnError[];
-}
-
-export namespace GetColumnStatisticsForPartitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetColumnStatisticsForPartitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetColumnStatisticsForTableRequest {
-  /**
-   * <p>The ID of the Data Catalog where the partitions in question reside.
-   *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database where the partitions reside.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the partitions' table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of the column names.</p>
-   */
-  ColumnNames: string[] | undefined;
-}
-
-export namespace GetColumnStatisticsForTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetColumnStatisticsForTableResponse {
-  /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
-   */
-  ColumnStatisticsList?: ColumnStatistics[];
-
-  /**
-   * <p>List of ColumnStatistics that failed to be retrieved.</p>
-   */
-  Errors?: ColumnError[];
-}
-
-export namespace GetColumnStatisticsForTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetColumnStatisticsForTableResponse): any => ({
     ...obj,
   });
 }
