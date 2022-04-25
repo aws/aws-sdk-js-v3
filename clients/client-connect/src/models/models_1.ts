@@ -44,6 +44,280 @@ export namespace SearchAvailablePhoneNumbersResponse {
   });
 }
 
+export enum HierarchyGroupMatchType {
+  EXACT = "EXACT",
+  WITH_CHILD_GROUPS = "WITH_CHILD_GROUPS",
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+ */
+export interface HierarchyGroupCondition {
+  /**
+   * <p>The value in the hierarchy group condition.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of hierarchy group match.</p>
+   */
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | string;
+}
+
+export namespace HierarchyGroupCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HierarchyGroupCondition): any => ({
+    ...obj,
+  });
+}
+
+export enum StringComparisonType {
+  CONTAINS = "CONTAINS",
+  EXACT = "EXACT",
+  STARTS_WITH = "STARTS_WITH",
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a string condition, for example,
+ *    <code>username = 'abc'</code>. </p>
+ */
+export interface StringCondition {
+  /**
+   * <p>The name of the field in the string condition.</p>
+   */
+  FieldName?: string;
+
+  /**
+   * <p>The value of the string.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the string condition.</p>
+   */
+  ComparisonType?: StringComparisonType | string;
+}
+
+export namespace StringCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StringCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
+ *    BPO = 123</code>. </p>
+ */
+export interface TagCondition {
+  /**
+   * <p>The tag key in the tag condition.</p>
+   */
+  TagKey?: string;
+
+  /**
+   * <p>The tag value in the tag condition.</p>
+   */
+  TagValue?: string;
+}
+
+export namespace TagCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+ *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+ *          <ul>
+ *             <li>
+ *                <p>Top level list specifies conditions that need to be applied
+ *     with <code>OR</code> operator</p>
+ *             </li>
+ *             <li>
+ *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+ *     operator.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ControlPlaneTagFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition. </p>
+   */
+  OrConditions?: TagCondition[][];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   */
+  AndConditions?: TagCondition[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition. </p>
+   */
+  TagCondition?: TagCondition;
+}
+
+export namespace ControlPlaneTagFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ControlPlaneTagFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ */
+export interface UserSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *    <code>OR</code> of <code>AND</code> (List of List) input where:  </p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied
+   *     with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code>
+   *     operator.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagFilter?: ControlPlaneTagFilter;
+}
+
+export namespace UserSearchFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The user's first name and last name.</p>
+ */
+export interface UserIdentityInfoLite {
+  /**
+   * <p>The user's first name.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The user's last name.</p>
+   */
+  LastName?: string;
+}
+
+export namespace UserIdentityInfoLite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserIdentityInfoLite): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the returned users.</p>
+ */
+export interface UserSearchSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The directory identifier of the user.</p>
+   */
+  DirectoryUserId?: string;
+
+  /**
+   * <p>The identifier of the user's hierarchy group.</p>
+   */
+  HierarchyGroupId?: string;
+
+  /**
+   * <p>The identifier of the user's summary.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The user's first name and last name.</p>
+   */
+  IdentityInfo?: UserIdentityInfoLite;
+
+  /**
+   * <p>Contains information about the phone configuration settings for a user.</p>
+   */
+  PhoneConfig?: UserPhoneConfig;
+
+  /**
+   * <p>The identifier of the user's routing profile.</p>
+   */
+  RoutingProfileId?: string;
+
+  /**
+   * <p>The identifiers of the user's security profiles.</p>
+   */
+  SecurityProfileIds?: string[];
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  Username?: string;
+}
+
+export namespace UserSearchSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchUsersResponse {
+  /**
+   * <p>Information about the users.</p>
+   */
+  Users?: UserSearchSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The total number of users who matched your search query.</p>
+   */
+  ApproximateTotalCount?: number;
+}
+
+export namespace SearchUsersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchUsersResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface SearchVocabulariesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1383,7 +1657,7 @@ export namespace UpdateInstanceStorageConfigRequest {
 
 export interface UpdatePhoneNumberRequest {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId: string | undefined;
 
@@ -1410,7 +1684,7 @@ export namespace UpdatePhoneNumberRequest {
 
 export interface UpdatePhoneNumberResponse {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId?: string;
 
@@ -1996,6 +2270,77 @@ export namespace UpdateUserSecurityProfilesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateUserSecurityProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The search criteria to be used to return users.</p>
+ */
+export interface UserSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   */
+  OrConditions?: UserSearchCriteria[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition. </p>
+   */
+  AndConditions?: UserSearchCriteria[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   */
+  StringCondition?: StringCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+export namespace UserSearchCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSearchCriteria): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchUsersRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   */
+  SearchFilter?: UserSearchFilter;
+
+  /**
+   * <p>The search criteria to be used to return users.</p>
+   */
+  SearchCriteria?: UserSearchCriteria;
+}
+
+export namespace SearchUsersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchUsersRequest): any => ({
     ...obj,
   });
 }

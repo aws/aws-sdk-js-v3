@@ -96,6 +96,7 @@ export * from "./ListUsersCommand";
 export * from "./ReleasePhoneNumberCommand";
 export * from "./ResumeContactRecordingCommand";
 export * from "./SearchAvailablePhoneNumbersCommand";
+export * from "./SearchUsersCommand";
 export * from "./SearchVocabulariesCommand";
 export * from "./StartChatContactCommand";
 export * from "./StartContactRecordingCommand";

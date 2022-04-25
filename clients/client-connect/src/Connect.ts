@@ -458,6 +458,7 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   SearchVocabulariesCommand,
   SearchVocabulariesCommandInput,
@@ -3891,6 +3892,32 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): Promise<SearchAvailablePhoneNumbersCommandOutput> | void {
     const command = new SearchAvailablePhoneNumbersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
+   */
+  public searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
+  public searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
+  public searchUsers(
+    args: SearchUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchUsersCommandOutput) => void
+  ): void;
+  public searchUsers(
+    args: SearchUsersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchUsersCommandOutput) => void),
+    cb?: (err: any, data?: SearchUsersCommandOutput) => void
+  ): Promise<SearchUsersCommandOutput> | void {
+    const command = new SearchUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

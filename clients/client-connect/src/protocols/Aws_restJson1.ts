@@ -3,6 +3,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -292,6 +293,7 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
@@ -541,12 +543,20 @@ import {
   ChatMessage,
   ChatStreamingConfiguration,
   ContactNotFoundException,
+  ControlPlaneTagFilter,
   DestinationNotAllowedException,
+  HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   Reference,
+  StringCondition,
+  TagCondition,
+  UserIdentityInfoLite,
+  UserSearchCriteria,
+  UserSearchFilter,
+  UserSearchSummary,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_1";
@@ -4230,6 +4240,40 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
     ...(input.PhoneNumberType !== undefined &&
       input.PhoneNumberType !== null && { PhoneNumberType: input.PhoneNumberType }),
     ...(input.TargetArn !== undefined && input.TargetArn !== null && { TargetArn: input.TargetArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchUsersCommand = async (
+  input: SearchUsersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-users";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InstanceId !== undefined && input.InstanceId !== null && { InstanceId: input.InstanceId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SearchCriteria !== undefined &&
+      input.SearchCriteria !== null && {
+        SearchCriteria: serializeAws_restJson1UserSearchCriteria(input.SearchCriteria, context),
+      }),
+    ...(input.SearchFilter !== undefined &&
+      input.SearchFilter !== null && {
+        SearchFilter: serializeAws_restJson1UserSearchFilter(input.SearchFilter, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -11764,6 +11808,70 @@ const deserializeAws_restJson1SearchAvailablePhoneNumbersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SearchUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchUsersCommandError(output, context);
+  }
+  const contents: SearchUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ApproximateTotalCount: undefined,
+    NextToken: undefined,
+    Users: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ApproximateTotalCount !== undefined && data.ApproximateTotalCount !== null) {
+    contents.ApproximateTotalCount = __expectLong(data.ApproximateTotalCount);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.Users !== undefined && data.Users !== null) {
+    contents.Users = deserializeAws_restJson1UserSearchSummaryList(data.Users, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchUsersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1SearchVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14501,6 +14609,21 @@ const serializeAws_restJson1ContactReferences = (input: { [key: string]: Referen
   }, {});
 };
 
+const serializeAws_restJson1ControlPlaneTagFilter = (input: ControlPlaneTagFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.AndConditions !== undefined &&
+      input.AndConditions !== null && {
+        AndConditions: serializeAws_restJson1TagAndConditionList(input.AndConditions, context),
+      }),
+    ...(input.OrConditions !== undefined &&
+      input.OrConditions !== null && {
+        OrConditions: serializeAws_restJson1TagOrConditionList(input.OrConditions, context),
+      }),
+    ...(input.TagCondition !== undefined &&
+      input.TagCondition !== null && { TagCondition: serializeAws_restJson1TagCondition(input.TagCondition, context) }),
+  };
+};
+
 const serializeAws_restJson1CurrentMetric = (input: CurrentMetric, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -14545,6 +14668,17 @@ const serializeAws_restJson1Groupings = (input: (Grouping | string)[], context: 
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1HierarchyGroupCondition = (
+  input: HierarchyGroupCondition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HierarchyGroupMatchType !== undefined &&
+      input.HierarchyGroupMatchType !== null && { HierarchyGroupMatchType: input.HierarchyGroupMatchType }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
 };
 
 const serializeAws_restJson1HierarchyLevelUpdate = (input: HierarchyLevelUpdate, context: __SerdeContext): any => {
@@ -14906,6 +15040,15 @@ const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __Se
     });
 };
 
+const serializeAws_restJson1StringCondition = (input: StringCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.ComparisonType !== undefined &&
+      input.ComparisonType !== null && { ComparisonType: input.ComparisonType }),
+    ...(input.FieldName !== undefined && input.FieldName !== null && { FieldName: input.FieldName }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
 const serializeAws_restJson1SupportedMessagingContentTypes = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14915,6 +15058,24 @@ const serializeAws_restJson1SupportedMessagingContentTypes = (input: string[], c
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1TagAndConditionList = (input: TagCondition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagCondition(entry, context);
+    });
+};
+
+const serializeAws_restJson1TagCondition = (input: TagCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValue !== undefined && input.TagValue !== null && { TagValue: input.TagValue }),
+  };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -14927,6 +15088,17 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1TagOrConditionList = (input: TagCondition[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagAndConditionList(entry, context);
+    });
 };
 
 const serializeAws_restJson1Threshold = (input: Threshold, context: __SerdeContext): any => {
@@ -14960,6 +15132,45 @@ const serializeAws_restJson1UserQuickConnectConfig = (input: UserQuickConnectCon
   return {
     ...(input.ContactFlowId !== undefined && input.ContactFlowId !== null && { ContactFlowId: input.ContactFlowId }),
     ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+  };
+};
+
+const serializeAws_restJson1UserSearchConditionList = (input: UserSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UserSearchCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.AndConditions !== undefined &&
+      input.AndConditions !== null && {
+        AndConditions: serializeAws_restJson1UserSearchConditionList(input.AndConditions, context),
+      }),
+    ...(input.HierarchyGroupCondition !== undefined &&
+      input.HierarchyGroupCondition !== null && {
+        HierarchyGroupCondition: serializeAws_restJson1HierarchyGroupCondition(input.HierarchyGroupCondition, context),
+      }),
+    ...(input.OrConditions !== undefined &&
+      input.OrConditions !== null && {
+        OrConditions: serializeAws_restJson1UserSearchConditionList(input.OrConditions, context),
+      }),
+    ...(input.StringCondition !== undefined &&
+      input.StringCondition !== null && {
+        StringCondition: serializeAws_restJson1StringCondition(input.StringCondition, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1UserSearchFilter = (input: UserSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.TagFilter !== undefined &&
+      input.TagFilter !== null && { TagFilter: serializeAws_restJson1ControlPlaneTagFilter(input.TagFilter, context) }),
   };
 };
 
@@ -16348,6 +16559,13 @@ const deserializeAws_restJson1UserIdentityInfo = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1UserIdentityInfoLite = (output: any, context: __SerdeContext): UserIdentityInfoLite => {
+  return {
+    FirstName: __expectString(output.FirstName),
+    LastName: __expectString(output.LastName),
+  } as any;
+};
+
 const deserializeAws_restJson1UserPhoneConfig = (output: any, context: __SerdeContext): UserPhoneConfig => {
   return {
     AfterContactWorkTimeLimit: __expectInt32(output.AfterContactWorkTimeLimit),
@@ -16365,6 +16583,45 @@ const deserializeAws_restJson1UserQuickConnectConfig = (
     ContactFlowId: __expectString(output.ContactFlowId),
     UserId: __expectString(output.UserId),
   } as any;
+};
+
+const deserializeAws_restJson1UserSearchSummary = (output: any, context: __SerdeContext): UserSearchSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    DirectoryUserId: __expectString(output.DirectoryUserId),
+    HierarchyGroupId: __expectString(output.HierarchyGroupId),
+    Id: __expectString(output.Id),
+    IdentityInfo:
+      output.IdentityInfo !== undefined && output.IdentityInfo !== null
+        ? deserializeAws_restJson1UserIdentityInfoLite(output.IdentityInfo, context)
+        : undefined,
+    PhoneConfig:
+      output.PhoneConfig !== undefined && output.PhoneConfig !== null
+        ? deserializeAws_restJson1UserPhoneConfig(output.PhoneConfig, context)
+        : undefined,
+    RoutingProfileId: __expectString(output.RoutingProfileId),
+    SecurityProfileIds:
+      output.SecurityProfileIds !== undefined && output.SecurityProfileIds !== null
+        ? deserializeAws_restJson1SecurityProfileIds(output.SecurityProfileIds, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+    Username: __expectString(output.Username),
+  } as any;
+};
+
+const deserializeAws_restJson1UserSearchSummaryList = (output: any, context: __SerdeContext): UserSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserSearchSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserSummary = (output: any, context: __SerdeContext): UserSummary => {

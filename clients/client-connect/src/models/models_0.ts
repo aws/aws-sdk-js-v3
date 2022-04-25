@@ -978,7 +978,7 @@ export namespace ClaimPhoneNumberRequest {
 
 export interface ClaimPhoneNumberResponse {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId?: string;
 
@@ -3408,7 +3408,7 @@ export namespace DescribeInstanceStorageConfigResponse {
 
 export interface DescribePhoneNumberRequest {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId: string | undefined;
 }
@@ -3702,7 +3702,7 @@ export enum PhoneNumberType {
  */
 export interface ClaimedPhoneNumberSummary {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId?: string;
 
@@ -3758,8 +3758,7 @@ export namespace ClaimedPhoneNumberSummary {
 
 export interface DescribePhoneNumberResponse {
   /**
-   * <p>Information about a phone number that's been claimed to your Amazon Connect instance.
-   *  </p>
+   * <p>Information about a phone number that's been claimed to your Amazon Connect instance.</p>
    */
   ClaimedPhoneNumberSummary?: ClaimedPhoneNumberSummary;
 }
@@ -4705,7 +4704,7 @@ export namespace DisassociateLexBotRequest {
 
 export interface DisassociatePhoneNumberContactFlowRequest {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId: string | undefined;
 
@@ -6921,7 +6920,7 @@ export namespace ListPhoneNumbersV2Request {
  */
 export interface ListPhoneNumbersSummary {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId?: string;
 
@@ -7925,7 +7924,7 @@ export namespace ListUsersResponse {
 
 export interface ReleasePhoneNumberRequest {
   /**
-   * <p>The identifier of the phone number.</p>
+   * <p>A unique identifier for the phone number.</p>
    */
   PhoneNumberId: string | undefined;
 

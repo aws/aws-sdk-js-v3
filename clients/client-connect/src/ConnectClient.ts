@@ -323,6 +323,7 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand";
+import { SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
@@ -567,6 +568,7 @@ export type ServiceInputTypes =
   | ReleasePhoneNumberCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
+  | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | StartChatContactCommandInput
   | StartContactRecordingCommandInput
@@ -711,6 +713,7 @@ export type ServiceOutputTypes =
   | ReleasePhoneNumberCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput
+  | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | StartChatContactCommandOutput
   | StartContactRecordingCommandOutput
