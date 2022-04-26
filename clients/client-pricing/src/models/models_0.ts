@@ -99,7 +99,7 @@ export interface DescribeServicesResponse {
   FormatVersion?: string;
 
   /**
-   * <p>The pagination token for the next set of retreivable results.</p>
+   * <p>The pagination token for the next set of retrievable results.</p>
    */
   NextToken?: string;
 }
