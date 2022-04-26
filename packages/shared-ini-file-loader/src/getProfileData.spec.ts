@@ -15,6 +15,11 @@ describe(getProfileData.name, () => {
     expect(getProfileData(mockInput)).toStrictEqual({});
   });
 
+  it("skips profiles with different prefix", () => {
+    const mockInput = { "not-profile test": { key: "value" } };
+    expect(getProfileData(mockInput)).toStrictEqual({});
+  });
+
   describe("normalizes profile names", () => {
     const getMockProfileData = (profileName: string) =>
       [1, 2, 3]
