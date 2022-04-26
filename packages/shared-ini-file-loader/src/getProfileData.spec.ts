@@ -16,13 +16,13 @@ describe(getProfileData.name, () => {
   });
 
   describe("normalizes profile names", () => {
-    const getProfileData = (profileName: string) =>
+    const getMockProfileData = (profileName: string) =>
       [1, 2, 3]
         .map((num) => [`key_${profileName}_${num}`, `value_${profileName}_${num}`])
         .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
 
     const getMockOutput = (profileNames: string[]) =>
-      profileNames.reduce((acc, profileName) => ({ ...acc, [profileName]: getProfileData(profileName) }), {});
+      profileNames.reduce((acc, profileName) => ({ ...acc, [profileName]: getMockProfileData(profileName) }), {});
 
     const getMockInput = (mockOutput: { [key: string]: { [key: string]: string } }) =>
       Object.entries(mockOutput).reduce((acc, [key, value]) => ({ ...acc, [`profile ${key}`]: value }), {});
