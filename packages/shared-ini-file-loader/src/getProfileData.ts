@@ -7,20 +7,11 @@ const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
  * * Returns data for `default`
  * * Reads profileName after profile prefix including/excluding quotes
  */
-export const getProfileData = (data: ParsedIniData): ParsedIniData => {
-  const map: ParsedIniData = {};
-  for (const key of Object.keys(data)) {
-    let matches: Array<string> | null;
-    if (key === "default") {
-      map.default = data.default;
-    } else if ((matches = profileKeyRegex.exec(key))) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const [_1, _2, normalizedKey] = matches;
-      if (normalizedKey) {
-        map[normalizedKey] = data[key];
-      }
-    }
-  }
-
-  return map;
-};
+export const getProfileData = (data: ParsedIniData): ParsedIniData =>
+  Object.entries(data)
+    // filter out non-profile keys
+    .filter(([key]) => profileKeyRegex.test(key))
+    .reduce((acc, [key, value]) => ({ ...acc, [profileKeyRegex.exec(key)[2]]: value }), {
+      // Populate default profile, if present.
+      ...(data.default && { default: data.default }),
+    });
