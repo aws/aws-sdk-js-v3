@@ -2,6 +2,11 @@ import { ParsedIniData } from "@aws-sdk/types";
 
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 
+/**
+ * Returns the profile data from parsed ini data.
+ * * Returns data for `default`
+ * * Reads profileName after profile prefix including/excluding quotes
+ */
 export const getProfileData = (data: ParsedIniData): ParsedIniData => {
   const map: ParsedIniData = {};
   for (const key of Object.keys(data)) {
