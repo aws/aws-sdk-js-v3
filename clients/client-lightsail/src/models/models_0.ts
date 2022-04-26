@@ -1035,7 +1035,7 @@ export interface Operation {
   createdAt?: Date;
 
   /**
-   * <p>The AWS Region and Availability Zone.</p>
+   * <p>The Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -1106,8 +1106,9 @@ export namespace AllocateStaticIpResult {
  *       of an input field.</p>
  *          <note>
  *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) AWS Region. Please set your AWS Region configuration to
- *           <code>us-east-1</code> to create, view, or edit these resources.</p>
+ *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
+ *         Region configuration to <code>us-east-1</code> to create, view, or edit these
+ *         resources.</p>
  *          </note>
  */
 export class InvalidInputException extends __BaseException {
@@ -1679,8 +1680,8 @@ export interface BucketAccessLogConfig {
 
   /**
    * <p>The name of the bucket where the access logs are saved. The destination can be a
-   *       Lightsail bucket in the same account, and in the same AWS Region as the source
-   *       bucket.</p>
+   *       Lightsail bucket in the same account, and in the same Amazon Web Services Region as the
+   *       source bucket.</p>
    *          <note>
    *             <p>This parameter is required when enabling the access log for a bucket, and should be
    *         omitted when disabling the access log.</p>
@@ -1819,7 +1820,8 @@ export interface Bucket {
   url?: string;
 
   /**
-   * <p>Describes the resource location.</p>
+   * <p>An object that describes the location of the bucket, such as the Amazon Web Services Region
+   *       and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -1867,7 +1869,7 @@ export interface Bucket {
    * <p>Indicates whether the bundle that is currently applied to a bucket can be changed to
    *       another bundle.</p>
    *
-   *          <p>You can update a bucket's bundle only one time within a monthly AWS billing
+   *          <p>You can update a bucket's bundle only one time within a monthly Amazon Web Services billing
    *       cycle.</p>
    *
    *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html">UpdateBucketBundle</a> action to change a
@@ -1876,8 +1878,8 @@ export interface Bucket {
   ableToUpdateBundle?: boolean;
 
   /**
-   * <p>An array of strings that specify the AWS account IDs that have read-only access to the
-   *       bucket.</p>
+   * <p>An array of strings that specify the Amazon Web Services account IDs that have read-only
+   *       access to the bucket.</p>
    */
   readonlyAccessAccounts?: string[];
 
@@ -3087,8 +3089,8 @@ export interface CloudFormationStackRecord {
   createdAt?: Date;
 
   /**
-   * <p>A list of objects describing the Availability Zone and AWS Region of the CloudFormation
-   *       stack record.</p>
+   * <p>A list of objects describing the Availability Zone and Amazon Web Services Region of the
+   *       CloudFormation stack record.</p>
    */
   location?: ResourceLocation;
 
@@ -3183,7 +3185,7 @@ export interface ContactMethod {
   createdAt?: Date;
 
   /**
-   * <p>Describes the resource location.</p>
+   * <p>An object that describes the location of the contact method, such as the Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -3595,8 +3597,7 @@ export interface ContainerService {
   createdAt?: Date;
 
   /**
-   * <p>An object that describes the location of the container service, such as the AWS Region
-   *       and Availability Zone.</p>
+   * <p>An object that describes the location of the container service, such as the Amazon Web Services Region and Availability Zone.</p>
    */
   location?: ResourceLocation;
 
@@ -3703,9 +3704,8 @@ export interface ContainerService {
   /**
    * <p>The principal ARN of the container service.</p>
    *
-   *          <p>The principal ARN can be used to create a trust relationship between your standard AWS
-   *       account and your Lightsail container service. This allows you to give your service
-   *       permission to access resources in your standard AWS account.</p>
+   *          <p>The principal ARN can be used to create a trust relationship between your standard Amazon Web Services account and your Lightsail container service. This allows you to give your
+   *       service permission to access resources in your standard Amazon Web Services account.</p>
    */
   principalArn?: string;
 
@@ -4023,7 +4023,8 @@ export interface CopySnapshotRequest {
   targetSnapshotName: string | undefined;
 
   /**
-   * <p>The AWS Region where the source manual or automatic snapshot is located.</p>
+   * <p>The Amazon Web Services Region where the source manual or automatic snapshot is
+   *       located.</p>
    */
   sourceRegion: RegionName | string | undefined;
 }
@@ -4354,7 +4355,8 @@ export interface CreateContactMethodRequest {
   /**
    * <p>The protocol of the contact method, such as <code>Email</code> or <code>SMS</code> (text
    *       messaging).</p>
-   *          <p>The <code>SMS</code> protocol is supported only in the following AWS Regions.</p>
+   *          <p>The <code>SMS</code> protocol is supported only in the following Amazon Web Services
+   *       Regions.</p>
    *          <ul>
    *             <li>
    *                <p>US East (N. Virginia) (<code>us-east-1</code>)</p>
@@ -4375,8 +4377,8 @@ export interface CreateContactMethodRequest {
    *                <p>Asia Pacific (Sydney) (<code>ap-southeast-2</code>)</p>
    *             </li>
    *          </ul>
-   *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest AWS
-   *       Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
+   *          <p>For a list of countries/regions where SMS text messages can be sent, and the latest
+   *         Amazon Web Services Regions where SMS text messaging is supported, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-supported-regions-countries.html">Supported Regions and Countries</a> in the <i>Amazon SNS Developer
    *         Guide</i>.</p>
    *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
@@ -4437,7 +4439,8 @@ export interface CreateContainerServiceRequest {
    *
    *          <ul>
    *             <li>
-   *                <p>Must be unique within each AWS Region in your Lightsail account.</p>
+   *                <p>Must be unique within each Amazon Web Services Region in your Lightsail
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>Must contain 1 to 63 characters.</p>
@@ -5035,12 +5038,12 @@ export interface LightsailDistribution {
   createdAt?: Date;
 
   /**
-   * <p>An object that describes the location of the distribution, such as the AWS Region and
-   *       Availability Zone.</p>
+   * <p>An object that describes the location of the distribution, such as the Amazon Web Services
+   *       Region and Availability Zone.</p>
    *          <note>
-   *             <p>Lightsail distributions are global resources that can reference an origin in any AWS
-   *         Region, and distribute its content globally. However, all distributions are located in the
-   *           <code>us-east-1</code> Region.</p>
+   *             <p>Lightsail distributions are global resources that can reference an origin in any
+   *           Amazon Web Services Region, and distribute its content globally. However, all distributions
+   *         are located in the <code>us-east-1</code> Region.</p>
    *          </note>
    */
   location?: ResourceLocation;
@@ -5841,6 +5844,17 @@ export interface CreateLoadBalancerRequest {
    *          <p>The default value is <code>dualstack</code>.</p>
    */
   ipAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The name of the TLS policy to apply to the load balancer.</p>
+   *
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you can
+   *       specify.</p>
+   *
+   *          <p>For more information about load balancer TLS policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load balancer TLS security policies</a> in the <i>Amazon Lightsail Developer
+   *         Guide</i>.</p>
+   */
+  tlsPolicyName?: string;
 }
 
 export namespace CreateLoadBalancerRequest {
@@ -8434,8 +8448,8 @@ export interface GetBucketsRequest {
   /**
    * <p>The name of the bucket for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your buckets in the AWS Region where the
-   *       request is made.</p>
+   *          <p>When omitted, the response includes all of your buckets in the Amazon Web Services Region
+   *       where the request is made.</p>
    */
   bucketName?: string;
 
@@ -8553,8 +8567,8 @@ export interface GetCertificatesRequest {
    * <p>The status of the certificates for which to return information.</p>
    *          <p>For example, specify <code>ISSUED</code> to return only certificates with an
    *         <code>ISSUED</code> status.</p>
-   *          <p>When omitted, the response includes all of your certificates in the AWS Region where the
-   *       request is made, regardless of their current status.</p>
+   *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
+   *       Region where the request is made, regardless of their current status.</p>
    */
   certificateStatuses?: (CertificateStatus | string)[];
 
@@ -8568,8 +8582,8 @@ export interface GetCertificatesRequest {
 
   /**
    * <p>The name for the certificate for which to return information.</p>
-   *          <p>When omitted, the response includes all of your certificates in the AWS Region where the
-   *       request is made.</p>
+   *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
+   *       Region where the request is made.</p>
    */
   certificateName?: string;
 }
@@ -9054,8 +9068,7 @@ export interface GetContainerServicesRequest {
   /**
    * <p>The name of the container service for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your container services in the AWS Region
-   *       where the request is made.</p>
+   *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
    */
   serviceName?: string;
 }
@@ -9495,8 +9508,8 @@ export interface GetDistributionsRequest {
   /**
    * <p>The name of the distribution for which to return information.</p>
    *
-   *          <p>When omitted, the response includes all of your distributions in the AWS Region where
-   *       the request is made.</p>
+   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
+   *       Region where the request is made.</p>
    */
   distributionName?: string;
 

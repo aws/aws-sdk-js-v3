@@ -31,10 +31,11 @@ export interface AttachCertificateToDistributionCommandOutput
  *          <p>Use the <code>CreateCertificate</code> action to create a certificate that you can attach
  *       to your distribution.</p>
  *          <important>
- *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
- *         Lightsail distributions. Lightsail distributions are global resources that can reference
- *         an origin in any AWS Region, and distribute its content globally. However, all
- *         distributions are located in the <code>us-east-1</code> Region.</p>
+ *             <p>Only certificates created in the <code>us-east-1</code>
+ *         Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
+ *         distributions are global resources that can reference an origin in any Amazon Web Services
+ *         Region, and distribute its content globally. However, all distributions are located in the
+ *           <code>us-east-1</code> Region.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

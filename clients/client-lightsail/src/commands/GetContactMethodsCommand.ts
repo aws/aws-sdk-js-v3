@@ -25,9 +25,9 @@ export interface GetContactMethodsCommandOutput extends GetContactMethodsResult,
  * <p>Returns information about the configured contact methods. Specify a protocol in your
  *       request to return information about a specific contact method.</p>
  *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
- *       You can add one email address and one mobile phone number contact method in each AWS Region.
- *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
- *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+ *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
+ *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
+ *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -457,6 +457,11 @@ import {
   GetLoadBalancerTlsCertificatesCommandOutput,
 } from "./commands/GetLoadBalancerTlsCertificatesCommand";
 import {
+  GetLoadBalancerTlsPoliciesCommand,
+  GetLoadBalancerTlsPoliciesCommandInput,
+  GetLoadBalancerTlsPoliciesCommandOutput,
+} from "./commands/GetLoadBalancerTlsPoliciesCommand";
+import {
   GetOperationCommand,
   GetOperationCommandInput,
   GetOperationCommandOutput,
@@ -672,12 +677,12 @@ import {
 import { LightsailClient } from "./LightsailClient";
 
 /**
- * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
- *       who need to build websites or web applications. It includes everything you need to launch your
- *       project quickly - instances (virtual private servers), container services, storage buckets,
- *       managed databases, SSD-based block storage, static IP addresses, load balancers, content
- *       delivery network (CDN) distributions, DNS management of registered domains, and resource
- *       snapshots (backups) - for a low, predictable monthly price.</p>
+ * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (Amazon Web Services) for developers who need to build websites or web applications. It includes
+ *       everything you need to launch your project quickly - instances (virtual private servers),
+ *       container services, storage buckets, managed databases, SSD-based block storage, static IP
+ *       addresses, load balancers, content delivery network (CDN) distributions, DNS management of
+ *       registered domains, and resource snapshots (backups) - for a low, predictable monthly
+ *       price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
  *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
@@ -685,8 +690,9 @@ import { LightsailClient } from "./LightsailClient";
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
- *       AWS Regions, endpoints, and service quotas of the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
- *         Quotas</a> in the <i>AWS General Reference</i>.</p>
+ *         Amazon Web Services Regions, endpoints, and service quotas of the Lightsail service, see
+ *         <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints
+ *         and Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
  */
 export class Lightsail extends LightsailClient {
   /**
@@ -729,10 +735,11 @@ export class Lightsail extends LightsailClient {
    *          <p>Use the <code>CreateCertificate</code> action to create a certificate that you can attach
    *       to your distribution.</p>
    *          <important>
-   *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
-   *         Lightsail distributions. Lightsail distributions are global resources that can reference
-   *         an origin in any AWS Region, and distribute its content globally. However, all
-   *         distributions are located in the <code>us-east-1</code> Region.</p>
+   *             <p>Only certificates created in the <code>us-east-1</code>
+   *         Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
+   *         distributions are global resources that can reference an origin in any Amazon Web Services
+   *         Region, and distribute its content globally. However, all distributions are located in the
+   *           <code>us-east-1</code> Region.</p>
    *          </important>
    */
   public attachCertificateToDistribution(
@@ -941,8 +948,7 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an
    *       automatic snapshot of an instance or disk as a manual snapshot. This operation can also be
-   *       used to copy a manual or automatic snapshot of an instance or a disk from one AWS Region to
-   *       another in Amazon Lightsail.</p>
+   *       used to copy a manual or automatic snapshot of an instance or a disk from one Amazon Web Services Region to another in Amazon Lightsail.</p>
    *          <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source
    *         region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code>
    *       parameters.</p>
@@ -1064,10 +1070,11 @@ export class Lightsail extends LightsailClient {
    *         <code>UpdateContainerService</code> action to use the certificate and its domains with your
    *       container service.</p>
    *          <important>
-   *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
-   *         Lightsail distributions. Lightsail distributions are global resources that can reference
-   *         an origin in any AWS Region, and distribute its content globally. However, all
-   *         distributions are located in the <code>us-east-1</code> Region.</p>
+   *             <p>Only certificates created in the <code>us-east-1</code>
+   *         Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
+   *         distributions are global resources that can reference an origin in any Amazon Web Services
+   *         Region, and distribute its content globally. However, all distributions are located in the
+   *           <code>us-east-1</code> Region.</p>
    *          </important>
    */
   public createCertificate(
@@ -1141,9 +1148,9 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates an email or SMS text message contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
-   *       You can add one email address and one mobile phone number contact method in each AWS Region.
-   *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
-   *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
+   *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
+   *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
   public createContactMethod(
     args: CreateContactMethodCommandInput,
@@ -1924,7 +1931,7 @@ export class Lightsail extends LightsailClient {
    *
    *          <note>
    *             <p>When you delete your bucket, the bucket name is released and can be reused for a new
-   *         bucket in your account or another AWS account.</p>
+   *         bucket in your account or another Amazon Web Services account.</p>
    *          </note>
    */
   public deleteBucket(
@@ -2029,9 +2036,9 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Deletes a contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
-   *       You can add one email address and one mobile phone number contact method in each AWS Region.
-   *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
-   *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
+   *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
+   *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
   public deleteContactMethod(
     args: DeleteContactMethodCommandInput,
@@ -2823,8 +2830,8 @@ export class Lightsail extends LightsailClient {
    *         cloud formation stack</code> operation to create new Amazon EC2 instances.</p>
    *          <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the
    *       instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in
-   *       Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the
-   *       source Lightsail snapshot.</p>
+   *       Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in
+   *       Amazon EC2 as the source Lightsail snapshot.</p>
    *          <p></p>
    *          <p>The <code>export snapshot</code> operation supports tag-based access control via resource
    *       tags applied to the resource identified by <code>source snapshot name</code>. For more
@@ -3247,9 +3254,9 @@ export class Lightsail extends LightsailClient {
    * <p>Returns information about the configured contact methods. Specify a protocol in your
    *       request to return information about a specific contact method.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
-   *       You can add one email address and one mobile phone number contact method in each AWS Region.
-   *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
-   *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
+   *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
+   *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
   public getContactMethods(
     args: GetContactMethodsCommandInput,
@@ -4330,6 +4337,42 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Returns a list of TLS security policies that you can apply to Lightsail load
+   *       balancers.</p>
+   *
+   *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load balancer TLS security policies</a> in the <i>Amazon Lightsail Developer
+   *         Guide</i>.</p>
+   */
+  public getLoadBalancerTlsPolicies(
+    args: GetLoadBalancerTlsPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLoadBalancerTlsPoliciesCommandOutput>;
+  public getLoadBalancerTlsPolicies(
+    args: GetLoadBalancerTlsPoliciesCommandInput,
+    cb: (err: any, data?: GetLoadBalancerTlsPoliciesCommandOutput) => void
+  ): void;
+  public getLoadBalancerTlsPolicies(
+    args: GetLoadBalancerTlsPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLoadBalancerTlsPoliciesCommandOutput) => void
+  ): void;
+  public getLoadBalancerTlsPolicies(
+    args: GetLoadBalancerTlsPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoadBalancerTlsPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetLoadBalancerTlsPoliciesCommandOutput) => void
+  ): Promise<GetLoadBalancerTlsPoliciesCommandOutput> | void {
+    const command = new GetLoadBalancerTlsPoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a specific operation. Operations include events such as when you
    *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
    */
@@ -5288,9 +5331,9 @@ export class Lightsail extends LightsailClient {
    * <p>Sends a verification request to an email contact method to ensure it's owned by the
    *       requester. SMS contact methods don't need to be verified.</p>
    *          <p>A contact method is used to send you notifications about your Amazon Lightsail resources.
-   *       You can add one email address and one mobile phone number contact method in each AWS Region.
-   *       However, SMS text messaging is not supported in some AWS Regions, and SMS text messages
-   *       cannot be sent to some countries/regions. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
+   *       You can add one email address and one mobile phone number contact method in each Amazon Web Services Region. However, SMS text messaging is not supported in some Amazon Web Services
+   *       Regions, and SMS text messages cannot be sent to some countries/regions. For more information,
+   *       see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    *          <p>A verification request is sent to the contact method when you initially create it. Use
    *       this action to send another verification request if a previous verification request was
    *       deleted, or has expired.</p>
@@ -5369,7 +5412,7 @@ export class Lightsail extends LightsailClient {
    *       bucket.</p>
    *
    *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
-   *       AWS Region.</p>
+   *         Amazon Web Services Region.</p>
    */
   public setResourceAccessForBucket(
     args: SetResourceAccessForBucketCommandInput,
@@ -5679,7 +5722,7 @@ export class Lightsail extends LightsailClient {
    * <p>Updates an existing Amazon Lightsail bucket.</p>
    *
    *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
-   *       public accessibility, and the AWS accounts that can access the bucket.</p>
+   *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
    */
   public updateBucket(
     args: UpdateBucketCommandInput,

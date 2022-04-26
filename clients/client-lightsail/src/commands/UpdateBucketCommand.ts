@@ -25,7 +25,7 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  * <p>Updates an existing Amazon Lightsail bucket.</p>
  *
  *          <p>Use this action to update the configuration of an existing bucket, such as versioning,
- *       public accessibility, and the AWS accounts that can access the bucket.</p>
+ *       public accessibility, and the Amazon Web Services accounts that can access the bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

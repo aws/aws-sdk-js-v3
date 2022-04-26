@@ -26,7 +26,7 @@ export interface SetResourceAccessForBucketCommandOutput extends SetResourceAcce
  *       bucket.</p>
  *
  *          <p>Lightsail buckets currently support setting access for Lightsail instances in the same
- *       AWS Region.</p>
+ *         Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

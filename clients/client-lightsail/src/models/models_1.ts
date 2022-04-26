@@ -1433,8 +1433,10 @@ export namespace GetLoadBalancerRequest {
 
 export enum LoadBalancerAttributeName {
   HealthCheckPath = "HealthCheckPath",
+  HttpsRedirectionEnabled = "HttpsRedirectionEnabled",
   SessionStickinessEnabled = "SessionStickinessEnabled",
   SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
+  TlsPolicyName = "TlsPolicyName",
 }
 
 export enum InstanceHealthState {
@@ -1752,6 +1754,31 @@ export interface LoadBalancer {
    *       IPv4 and IPv6.</p>
    */
   ipAddressType?: IpAddressType | string;
+
+  /**
+   * <p>A Boolean value that indicates whether HTTPS redirection is enabled for the load
+   *       balancer.</p>
+   */
+  httpsRedirectionEnabled?: boolean;
+
+  /**
+   * <p>The name of the TLS security policy for the load balancer.</p>
+   *
+   *          <p>The following TLS security policy names are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TLS-2016-08</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS-FS-Res-1-2-2019-08</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  tlsPolicyName?: string;
 }
 
 export namespace LoadBalancer {
@@ -2630,6 +2657,134 @@ export namespace GetLoadBalancerTlsCertificatesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetLoadBalancerTlsCertificatesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLoadBalancerTlsPoliciesRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>To get a page token, perform an initial <code>GetLoadBalancerTlsPolicies</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export namespace GetLoadBalancerTlsPoliciesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the TLS security policies that are available for Lightsail load
+ *       balancers.</p>
+ *
+ *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load balancer TLS security policies</a> in the <i>Amazon Lightsail
+ *         Developer Guide</i>.</p>
+ */
+export interface LoadBalancerTlsPolicy {
+  /**
+   * <p>The name of the TLS security policy.</p>
+   *
+   *          <p>The following TLS security policy names are possible:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TLS-2016-08</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TLS-FS-Res-1-2-2019-08</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>You can specify either of these values for the <code>tlsSecurityPolicyName</code> request
+   *       parameter in the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateLoadBalancer.html">CreateLoadBalancer</a> action, and the <code>attributeValue</code> request parameter in
+   *       the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateLoadBalancerAttribute.html">UpdateLoadBalancerAttribute</a> action.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether the TLS security policy is the default.</p>
+   */
+  isDefault?: boolean;
+
+  /**
+   * <p>The description of the TLS security policy.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The protocols used in a given TLS security policy.</p>
+   *
+   *          <p>The following protocols are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Protocol-TLSv1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Protocol-TLSv1.1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Protocol-TLSv1.2</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  protocols?: string[];
+
+  /**
+   * <p>The ciphers used by the TLS security policy.</p>
+   *          <p>The ciphers are listed in order of preference.</p>
+   */
+  ciphers?: string[];
+}
+
+export namespace LoadBalancerTlsPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoadBalancerTlsPolicy): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLoadBalancerTlsPoliciesResult {
+  /**
+   * <p>An array of objects that describe the TLS security policies that are available.</p>
+   */
+  tlsPolicies?: LoadBalancerTlsPolicy[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *
+   *          <p>To get the next page of results, perform another <code>GetLoadBalancerTlsPolicies</code>
+   *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export namespace GetLoadBalancerTlsPoliciesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesResult): any => ({
     ...obj,
   });
 }
@@ -4582,10 +4737,10 @@ export interface PutAlarmRequest {
    *          <p>A notification is sent via the specified contact protocol if notifications are enabled for
    *       the alarm, and when the alarm is triggered.</p>
    *          <p>A notification is not sent if a contact protocol is not specified, if the specified
-   *       contact protocol is not configured in the AWS Region, or if notifications are not enabled
-   *       for the alarm using the <code>notificationEnabled</code> paramater.</p>
+   *       contact protocol is not configured in the Amazon Web Services Region, or if notifications are
+   *       not enabled for the alarm using the <code>notificationEnabled</code> paramater.</p>
    *          <p>Use the <code>CreateContactMethod</code> action to configure a contact protocol in an
-   *       AWS Region.</p>
+   *         Amazon Web Services Region.</p>
    */
   contactProtocols?: (ContactProtocol | string)[];
 
@@ -4818,8 +4973,8 @@ export namespace RegisterContainerImageRequest {
 
 export interface RegisterContainerImageResult {
   /**
-   * <p>Describes a container image that is registered to an Amazon Lightsail container
-   *       service.</p>
+   * <p>An object that describes a container image that is registered to a Lightsail container
+   *       service</p>
    */
   containerImage?: ContainerImage;
 }
@@ -4953,8 +5108,8 @@ export interface SetIpAddressTypeRequest {
    *         <code>LoadBalancer</code>.</p>
    *          <note>
    *             <p>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>)
-   *         AWS Region. Set your AWS Region configuration to <code>us-east-1</code> to create, view,
-   *         or edit distributions.</p>
+   *           Amazon Web Services Region. Set your Amazon Web Services Region configuration to
+   *           <code>us-east-1</code> to create, view, or edit distributions.</p>
    *          </note>
    */
   resourceType: ResourceType | string | undefined;
@@ -5409,9 +5564,10 @@ export interface UpdateBucketRequest {
   versioning?: string;
 
   /**
-   * <p>An array of strings to specify the AWS account IDs that can access the bucket.</p>
+   * <p>An array of strings to specify the Amazon Web Services account IDs that can access the
+   *       bucket.</p>
    *
-   *          <p>You can give a maximum of 10 AWS accounts access to a bucket.</p>
+   *          <p>You can give a maximum of 10 Amazon Web Services accounts access to a bucket.</p>
    */
   readonlyAccessAccounts?: string[];
 
@@ -5671,7 +5827,8 @@ export namespace UpdateDistributionBundleRequest {
 
 export interface UpdateDistributionBundleResult {
   /**
-   * <p>Describes the API operation.</p>
+   * <p>An object that describes the result of the action, such as the status of the request, the
+   *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
 }
@@ -5731,12 +5888,42 @@ export interface UpdateLoadBalancerAttributeRequest {
   loadBalancerName: string | undefined;
 
   /**
-   * <p>The name of the attribute you want to update. Valid values are below.</p>
+   * <p>The name of the attribute you want to update.</p>
    */
   attributeName: LoadBalancerAttributeName | string | undefined;
 
   /**
    * <p>The value that you want to specify for the attribute name.</p>
+   *          <p>The following values are supported depending on what you specify for the
+   *         <code>attributeName</code> request parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify <code>HealthCheckPath</code> for the <code>attributeName</code> request
+   *           parameter, then the <code>attributeValue</code> request parameter must be the path to ping
+   *           on the target (for example, <code>/weather/us/wa/seattle</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>SessionStickinessEnabled</code> for the
+   *             <code>attributeName</code> request parameter, then the <code>attributeValue</code>
+   *           request parameter must be <code>true</code> or <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the
+   *             <code>attributeName</code> request parameter, then the <code>attributeValue</code>
+   *           request parameter must be an interger that represents the cookie duration in
+   *           seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>HttpsRedirectionEnabled</code> for the <code>attributeName</code>
+   *           request parameter, then the <code>attributeValue</code> request parameter must be
+   *             <code>true</code> or <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request
+   *           parameter, then the <code>attributeValue</code> request parameter must be <code>TLS
+   *             version 1.0, 1.1, and 1.2</code> or <code>TLS version 1.2</code>.</p>
+   *             </li>
+   *          </ul>
    */
   attributeValue: string | undefined;
 }
