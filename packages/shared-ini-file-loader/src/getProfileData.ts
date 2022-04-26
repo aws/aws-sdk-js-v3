@@ -11,7 +11,8 @@ export const getProfileData = (data: ParsedIniData): ParsedIniData =>
   Object.entries(data)
     // filter out non-profile keys
     .filter(([key]) => profileKeyRegex.test(key))
-    .reduce((acc, [key, value]) => ({ ...acc, [profileKeyRegex.exec(key)[2]]: value }), {
+    // replace profile key with profile name
+    .reduce((acc, [key, value]) => ({ ...acc, [profileKeyRegex.exec(key)![2]]: value }), {
       // Populate default profile, if present.
       ...(data.default && { default: data.default }),
     });
