@@ -51,6 +51,22 @@ import {
   ViewerCertificate,
 } from "./models_0";
 
+export interface DeleteMonitoringSubscriptionRequest {
+  /**
+   * <p>The ID of the distribution that you are disabling metrics for.</p>
+   */
+  DistributionId: string | undefined;
+}
+
+export namespace DeleteMonitoringSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteMonitoringSubscriptionResult {}
 
 export namespace DeleteMonitoringSubscriptionResult {
