@@ -1,18 +1,18 @@
-import { normalizeConfigFile } from "./normalizeConfigFile";
+import { getProfileData } from "./getProfileData";
 
-describe(normalizeConfigFile.name, () => {
+describe(getProfileData.name, () => {
   it("returns empty for no data", () => {
-    expect(normalizeConfigFile({})).toStrictEqual({});
+    expect(getProfileData({})).toStrictEqual({});
   });
 
   it("returns default profile if present", () => {
     const mockInput = { default: { key: "value" } };
-    expect(normalizeConfigFile(mockInput)).toStrictEqual(mockInput);
+    expect(getProfileData(mockInput)).toStrictEqual(mockInput);
   });
 
   it("skips profiles without prefix profile", () => {
     const mockInput = { test: { key: "value" } };
-    expect(normalizeConfigFile(mockInput)).toStrictEqual({});
+    expect(getProfileData(mockInput)).toStrictEqual({});
   });
 
   describe("normalizes profile names", () => {
@@ -30,33 +30,33 @@ describe(normalizeConfigFile.name, () => {
     it("single profile", () => {
       const mockOutput = getMockOutput(["one"]);
       const mockInput = getMockInput(mockOutput);
-      expect(normalizeConfigFile(mockInput)).toStrictEqual(mockOutput);
+      expect(getProfileData(mockInput)).toStrictEqual(mockOutput);
     });
 
     it("two profiles", () => {
       const mockOutput = getMockOutput(["one", "two"]);
       const mockInput = getMockInput(mockOutput);
-      expect(normalizeConfigFile(mockInput)).toStrictEqual(mockOutput);
+      expect(getProfileData(mockInput)).toStrictEqual(mockOutput);
     });
 
     it("three profiles", () => {
       const mockOutput = getMockOutput(["one", "two", "three"]);
       const mockInput = getMockInput(mockOutput);
-      expect(normalizeConfigFile(mockInput)).toStrictEqual(mockOutput);
+      expect(getProfileData(mockInput)).toStrictEqual(mockOutput);
     });
 
     it("with default", () => {
       const defaultInput = { default: { key: "value" } };
       const mockOutput = getMockOutput(["one"]);
       const mockInput = getMockInput(mockOutput);
-      expect(normalizeConfigFile({ ...defaultInput, ...mockInput })).toStrictEqual({ ...defaultInput, ...mockOutput });
+      expect(getProfileData({ ...defaultInput, ...mockInput })).toStrictEqual({ ...defaultInput, ...mockOutput });
     });
 
     it("with profileName without prefix", () => {
       const profileWithPrefix = { test: { key: "value" } };
       const mockOutput = getMockOutput(["one"]);
       const mockInput = getMockInput(mockOutput);
-      expect(normalizeConfigFile({ ...profileWithPrefix, ...mockInput })).toStrictEqual(mockOutput);
+      expect(getProfileData({ ...profileWithPrefix, ...mockInput })).toStrictEqual(mockOutput);
     });
   });
 });

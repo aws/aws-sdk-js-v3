@@ -2,7 +2,7 @@ import { SharedConfigFiles } from "@aws-sdk/types";
 import { join } from "path";
 
 import { getHomeDir } from "./getHomeDir";
-import { normalizeConfigFile } from "./normalizeConfigFile";
+import { getProfileData } from "./getProfileData";
 import { parseIni } from "./parseIni";
 import { slurpFile } from "./slurpFile";
 
@@ -34,7 +34,7 @@ export const loadSharedConfigFiles = async (init: SharedConfigInit = {}): Promis
   } = init;
 
   const parsedFiles = await Promise.all([
-    slurpFile(configFilepath).then(parseIni).then(normalizeConfigFile).catch(swallowError),
+    slurpFile(configFilepath).then(parseIni).then(getProfileData).catch(swallowError),
     slurpFile(filepath).then(parseIni).catch(swallowError),
   ]);
 

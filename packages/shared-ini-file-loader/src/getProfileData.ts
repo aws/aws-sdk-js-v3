@@ -2,7 +2,7 @@ import { ParsedIniData } from "@aws-sdk/types";
 
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 
-export const normalizeConfigFile = (data: ParsedIniData): ParsedIniData => {
+export const getProfileData = (data: ParsedIniData): ParsedIniData => {
   const map: ParsedIniData = {};
   for (const key of Object.keys(data)) {
     let matches: Array<string> | null;
