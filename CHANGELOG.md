@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
+
+
+### Features
+
+* **client-cloudfront:** CloudFront now supports the Server-Timing header in HTTP responses sent from CloudFront. You can use this header to view metrics that help you gain insights about the behavior and performance of CloudFront. To use this header, enable it in a response headers policy. ([c70378d](https://github.com/aws/aws-sdk-js-v3/commit/c70378d3f9d8b97618cc7cf6ab6d54d074c8a970))
+* **client-ivschat:** Adds new APIs for IVS Chat, a feature for building interactive chat experiences alongside an IVS broadcast. ([1ee3b39](https://github.com/aws/aws-sdk-js-v3/commit/1ee3b39ac8983e9437f15eea1bd03a6baf4afabc))
+* **client-lightsail:** This release adds support for Lightsail load balancer HTTP to HTTPS redirect and TLS policy configuration. ([6bfdeba](https://github.com/aws/aws-sdk-js-v3/commit/6bfdeba122da641fc5c4e5db34731250ae0b6059))
+* **client-network-firewall:** AWS Network Firewall now enables customers to use a customer managed AWS KMS key for the encryption of their firewall resources. ([ba3e251](https://github.com/aws/aws-sdk-js-v3/commit/ba3e251ad993f3af46a182143ebe392dc20becab))
+* **client-sagemaker:** SageMaker Inference Recommender now accepts customer KMS key ID for encryption of endpoints and compilation outputs created during inference recommendation. ([85a8b9d](https://github.com/aws/aws-sdk-js-v3/commit/85a8b9d3f99c22f32ea92d019cbfc76cd73f02e5))
+* **types:** add pagination stopOnSameToken option ([#3524](https://github.com/aws/aws-sdk-js-v3/issues/3524)) ([9bf73e8](https://github.com/aws/aws-sdk-js-v3/commit/9bf73e81b8d9be9f12c72cbefbe26c502d1873c6))
+
+
+
+
+
 # [3.77.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.76.0...v3.77.0) (2022-04-25)
 
 
