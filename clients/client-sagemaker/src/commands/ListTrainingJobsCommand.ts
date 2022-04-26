@@ -11,7 +11,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTrainingJobsRequest, ListTrainingJobsResponse } from "../models/models_2";
+import { ListTrainingJobsRequest } from "../models/models_2";
+import { ListTrainingJobsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrainingJobsCommand,
   serializeAws_json1_1ListTrainingJobsCommand,

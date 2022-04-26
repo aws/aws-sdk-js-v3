@@ -93,7 +93,7 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
-  TrainingJobSortByOptions,
+  TrainingJobSummary,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -102,6 +102,36 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListTrainingJobsResponse {
+  /**
+   * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
+   *             job.</p>
+   */
+  TrainingJobSummaries: TrainingJobSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
+   *             training jobs, use it in the subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTrainingJobsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum TrainingJobSortByOptions {
+  CreationTime = "CreationTime",
+  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
+  Name = "Name",
+  Status = "Status",
+}
 
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
   /**

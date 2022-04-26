@@ -1038,8 +1038,6 @@ import {
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
   DescribeLineageGroupRequest,
-  DescribeLineageGroupResponse,
-  DescribeModelInput,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1124,7 +1122,9 @@ import {
   ProfilerConfig,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
+  RecommendationJobCompiledOutputConfig,
   RecommendationJobInputConfig,
+  RecommendationJobOutputConfig,
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
   RecommendationMetrics,
@@ -1146,10 +1146,12 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeLineageGroupResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
   DescribeModelExplainabilityJobDefinitionRequest,
   DescribeModelExplainabilityJobDefinitionResponse,
+  DescribeModelInput,
   DescribeModelOutput,
   DescribeModelPackageGroupInput,
   DescribeModelPackageGroupOutput,
@@ -1340,7 +1342,6 @@ import {
   ListTagsInput,
   ListTagsOutput,
   ListTrainingJobsRequest,
-  ListTrainingJobsResponse,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1391,6 +1392,7 @@ import {
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
+  ListTrainingJobsResponse,
   ListTransformJobsRequest,
   ListTransformJobsResponse,
   ListTrialComponentsRequest,
@@ -16691,6 +16693,10 @@ const serializeAws_json1_1CreateInferenceRecommendationsJobRequest = (
       input.JobDescription !== null && { JobDescription: input.JobDescription }),
     ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
     ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
+    ...(input.OutputConfig !== undefined &&
+      input.OutputConfig !== null && {
+        OutputConfig: serializeAws_json1_1RecommendationJobOutputConfig(input.OutputConfig, context),
+      }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.StoppingConditions !== undefined &&
       input.StoppingConditions !== null && {
@@ -22140,6 +22146,15 @@ const serializeAws_json1_1RealtimeInferenceInstanceTypes = (
     });
 };
 
+const serializeAws_json1_1RecommendationJobCompiledOutputConfig = (
+  input: RecommendationJobCompiledOutputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3OutputUri !== undefined && input.S3OutputUri !== null && { S3OutputUri: input.S3OutputUri }),
+  };
+};
+
 const serializeAws_json1_1RecommendationJobInputConfig = (
   input: RecommendationJobInputConfig,
   context: __SerdeContext
@@ -22161,6 +22176,24 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
       input.TrafficPattern !== null && {
         TrafficPattern: serializeAws_json1_1TrafficPattern(input.TrafficPattern, context),
       }),
+    ...(input.VolumeKmsKeyId !== undefined &&
+      input.VolumeKmsKeyId !== null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobOutputConfig = (
+  input: RecommendationJobOutputConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompiledOutputConfig !== undefined &&
+      input.CompiledOutputConfig !== null && {
+        CompiledOutputConfig: serializeAws_json1_1RecommendationJobCompiledOutputConfig(
+          input.CompiledOutputConfig,
+          context
+        ),
+      }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
@@ -32828,6 +32861,7 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
       output.TrafficPattern !== undefined && output.TrafficPattern !== null
         ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context)
         : undefined,
+    VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
   } as any;
 };
 

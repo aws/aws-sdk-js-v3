@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeModelInput } from "../models/models_1";
-import { DescribeModelOutput } from "../models/models_2";
+import { DescribeModelInput, DescribeModelOutput } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeModelCommand,
   serializeAws_json1_1DescribeModelCommand,

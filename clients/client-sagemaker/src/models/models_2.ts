@@ -134,6 +134,75 @@ import {
   TrialComponentStatus,
 } from "./models_1";
 
+export interface DescribeLineageGroupResponse {
+  /**
+   * <p>The name of the lineage group.</p>
+   */
+  LineageGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
+   */
+  LineageGroupArn?: string;
+
+  /**
+   * <p>The display name of the lineage group.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The description of the lineage group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The creation time of lineage group.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, or project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The last modified time of the lineage group.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, lineage group, or project.</p>
+   */
+  LastModifiedBy?: UserContext;
+}
+
+export namespace DescribeLineageGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLineageGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeModelInput {
+  /**
+   * <p>The name of the model.</p>
+   */
+  ModelName: string | undefined;
+}
+
+export namespace DescribeModelInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeModelInput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeModelOutput {
   /**
    * <p>Name of the Amazon SageMaker model.</p>
@@ -10809,34 +10878,4 @@ export namespace TrainingJobSummary {
   export const filterSensitiveLog = (obj: TrainingJobSummary): any => ({
     ...obj,
   });
-}
-
-export interface ListTrainingJobsResponse {
-  /**
-   * <p>An array of <code>TrainingJobSummary</code> objects, each listing a training
-   *             job.</p>
-   */
-  TrainingJobSummaries: TrainingJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of
-   *             training jobs, use it in the subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTrainingJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrainingJobsResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum TrainingJobSortByOptions {
-  CreationTime = "CreationTime",
-  FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Name = "Name",
-  Status = "Status",
 }

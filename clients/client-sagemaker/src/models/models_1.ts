@@ -243,6 +243,49 @@ export interface RecommendationJobInputConfig {
    * <p>Specifies the endpoint configuration to use for a job.</p>
    */
   EndpointConfigurations?: EndpointInputConfiguration[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key
+   *          that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+   *          This key will be passed to SageMaker Hosting for endpoint creation. </p>
+   *
+   *          <p>The SageMaker execution role must have <code>kms:CreateGrant</code> permission in order to encrypt data on the storage
+   *          volume of the endpoints created for inference recommendation. The inference recommendation job will fail
+   *          asynchronously during endpoint configuration creation if the role passed does not have
+   *          <code>kms:CreateGrant</code> permission.</p>
+   *
+   *          <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:<region>:<account>:key/<key-id-12ab-34cd-56ef-1234567890ab>"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// KMS Key Alias</p>
+   *                <p>
+   *                   <code>"alias/ExampleAlias"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:<region>:<account>:alias/<ExampleAlias>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about key identifiers, see
+   *          <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the
+   *          Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
+   */
+  VolumeKmsKeyId?: string;
 }
 
 export namespace RecommendationJobInputConfig {
@@ -257,6 +300,85 @@ export namespace RecommendationJobInputConfig {
 export enum RecommendationJobType {
   ADVANCED = "Advanced",
   DEFAULT = "Default",
+}
+
+/**
+ * <p>Provides information about the output configuration for the compiled
+ *          model.</p>
+ */
+export interface RecommendationJobCompiledOutputConfig {
+  /**
+   * <p>Identifies the Amazon S3 bucket where you want SageMaker to store the
+   *          compiled model artifacts.</p>
+   */
+  S3OutputUri?: string;
+}
+
+export namespace RecommendationJobCompiledOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationJobCompiledOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the output configuration for the compiled model.</p>
+ */
+export interface RecommendationJobOutputConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key
+   *          that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption.
+   *          The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
+   *
+   *          <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:<region>:<account>:key/<key-id-12ab-34cd-56ef-1234567890ab>"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// KMS Key Alias</p>
+   *                <p>
+   *                   <code>"alias/ExampleAlias"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:<region>:<account>:alias/<ExampleAlias>"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about key identifiers, see
+   *          <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key identifiers (KeyID)</a> in the
+   *          Amazon Web Services Key Management Service (Amazon Web Services KMS) documentation.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Provides information about the output configuration for the compiled
+   *          model.</p>
+   */
+  CompiledOutputConfig?: RecommendationJobCompiledOutputConfig;
+}
+
+export namespace RecommendationJobOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecommendationJobOutputConfig): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -347,6 +469,12 @@ export interface CreateInferenceRecommendationsJobRequest {
    *           the conditions are met, the job is automatically stopped.</p>
    */
   StoppingConditions?: RecommendationJobStoppingConditions;
+
+  /**
+   * <p>Provides information about the output artifacts and the KMS key
+   *          to use for Amazon S3 server-side encryption.</p>
+   */
+  OutputConfig?: RecommendationJobOutputConfig;
 
   /**
    * <p>The metadata that you apply to Amazon Web Services resources to help you
@@ -11368,75 +11496,6 @@ export namespace DescribeLineageGroupRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeLineageGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLineageGroupResponse {
-  /**
-   * <p>The name of the lineage group.</p>
-   */
-  LineageGroupName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
-   */
-  LineageGroupArn?: string;
-
-  /**
-   * <p>The display name of the lineage group.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The description of the lineage group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The creation time of lineage group.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>The last modified time of the lineage group.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
-   */
-  LastModifiedBy?: UserContext;
-}
-
-export namespace DescribeLineageGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLineageGroupResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeModelInput {
-  /**
-   * <p>The name of the model.</p>
-   */
-  ModelName: string | undefined;
-}
-
-export namespace DescribeModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeModelInput): any => ({
     ...obj,
   });
 }
