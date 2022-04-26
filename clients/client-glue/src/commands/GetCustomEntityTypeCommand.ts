@@ -21,6 +21,23 @@ import {
 export interface GetCustomEntityTypeCommandInput extends GetCustomEntityTypeRequest {}
 export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeResponse, __MetadataBearer {}
 
+/**
+ * <p>Retrieves the details of a custom pattern by specifying its name.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetCustomEntityTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCustomEntityTypeCommandInput} for command's `input` shape.
+ * @see {@link GetCustomEntityTypeCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class GetCustomEntityTypeCommand extends $Command<
   GetCustomEntityTypeCommandInput,
   GetCustomEntityTypeCommandOutput,

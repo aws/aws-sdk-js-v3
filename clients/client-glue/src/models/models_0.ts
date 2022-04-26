@@ -1185,8 +1185,18 @@ export namespace BatchGetCrawlersRequest {
   });
 }
 
+/**
+ * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+ */
 export interface LakeFormationConfiguration {
+  /**
+   * <p>Specifies whether to use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
+   */
   UseLakeFormationCredentials?: boolean;
+
+  /**
+   * <p>Required for cross account crawls. For same account crawls as the target data, this can be left as null.</p>
+   */
   AccountId?: string;
 }
 
@@ -1735,6 +1745,9 @@ export interface Crawler {
    */
   CrawlerSecurityConfiguration?: string;
 
+  /**
+   * <p>Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.</p>
+   */
   LakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
@@ -1769,6 +1782,9 @@ export namespace BatchGetCrawlersResponse {
 }
 
 export interface BatchGetCustomEntityTypesRequest {
+  /**
+   * <p>A list of names of the custom patterns that you want to retrieve.</p>
+   */
   Names: string[] | undefined;
 }
 
@@ -1781,9 +1797,25 @@ export namespace BatchGetCustomEntityTypesRequest {
   });
 }
 
+/**
+ * <p>An object representing a custom pattern for detecting sensitive data across the columns and rows of your structured data.</p>
+ */
 export interface CustomEntityType {
+  /**
+   * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
+   */
   Name: string | undefined;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   */
   RegexString: string | undefined;
+
+  /**
+   * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   *
+   * 	        <p>If no context words are passed only a regular expression is checked.</p>
+   */
   ContextWords?: string[];
 }
 
@@ -1797,7 +1829,14 @@ export namespace CustomEntityType {
 }
 
 export interface BatchGetCustomEntityTypesResponse {
+  /**
+   * <p>A list of <code>CustomEntityType</code> objects representing the custom patterns that have been created.</p>
+   */
   CustomEntityTypes?: CustomEntityType[];
+
+  /**
+   * <p>A list of the names of custom patterns that were not found.</p>
+   */
   CustomEntityTypesNotFound?: string[];
 }
 
@@ -4248,7 +4287,11 @@ export interface CreateCrawlerRequest {
    */
   LineageConfiguration?: LineageConfiguration;
 
+  /**
+   * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+   */
   LakeFormationConfiguration?: LakeFormationConfiguration;
+
   /**
    * <p>Crawler configuration information. This versioned JSON
    *       string allows users to specify aspects of a crawler's behavior.
@@ -4291,8 +4334,21 @@ export namespace CreateCrawlerResponse {
 }
 
 export interface CreateCustomEntityTypeRequest {
+  /**
+   * <p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>
+   */
   Name: string | undefined;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   */
   RegexString: string | undefined;
+
+  /**
+   * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   *
+   * 	        <p>If no context words are passed only a regular expression is checked.</p>
+   */
   ContextWords?: string[];
 }
 
@@ -4306,6 +4362,9 @@ export namespace CreateCustomEntityTypeRequest {
 }
 
 export interface CreateCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern you created.</p>
+   */
   Name?: string;
 }
 
@@ -6894,6 +6953,9 @@ export class SchedulerTransitioningException extends __BaseException {
 }
 
 export interface DeleteCustomEntityTypeRequest {
+  /**
+   * <p>The name of the custom pattern that you want to delete.</p>
+   */
   Name: string | undefined;
 }
 
@@ -6907,6 +6969,9 @@ export namespace DeleteCustomEntityTypeRequest {
 }
 
 export interface DeleteCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern you deleted.</p>
+   */
   Name?: string;
 }
 

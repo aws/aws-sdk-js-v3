@@ -765,6 +765,9 @@ export namespace GetCrawlersResponse {
 }
 
 export interface GetCustomEntityTypeRequest {
+  /**
+   * <p>The name of the custom pattern that you want to retrieve.</p>
+   */
   Name: string | undefined;
 }
 
@@ -778,8 +781,19 @@ export namespace GetCustomEntityTypeRequest {
 }
 
 export interface GetCustomEntityTypeResponse {
+  /**
+   * <p>The name of the custom pattern that you retrieved.</p>
+   */
   Name?: string;
+
+  /**
+   * <p>A regular expression string that is used for detecting sensitive data in a custom pattern.</p>
+   */
   RegexString?: string;
+
+  /**
+   * <p>A list of context words if specified when you created the custom pattern. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
+   */
   ContextWords?: string[];
 }
 
@@ -5117,7 +5131,14 @@ export namespace ListCrawlersResponse {
 }
 
 export interface ListCustomEntityTypesRequest {
+  /**
+   * <p>A paginated token to offset the results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
   MaxResults?: number;
 }
 
@@ -5131,7 +5152,14 @@ export namespace ListCustomEntityTypesRequest {
 }
 
 export interface ListCustomEntityTypesResponse {
+  /**
+   * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
+   */
   CustomEntityTypes?: CustomEntityType[];
+
+  /**
+   * <p>A pagination token, if more results are available.</p>
+   */
   NextToken?: string;
 }
 
@@ -7903,7 +7931,11 @@ export interface UpdateCrawlerRequest {
    */
   LineageConfiguration?: LineageConfiguration;
 
+  /**
+   * <p>Specifies AWS Lake Formation configuration settings for the crawler.</p>
+   */
   LakeFormationConfiguration?: LakeFormationConfiguration;
+
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
    *         to specify aspects of a crawler's behavior.

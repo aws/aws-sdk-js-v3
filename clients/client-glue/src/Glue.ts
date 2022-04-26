@@ -1032,6 +1032,9 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
+   */
   public batchGetCustomEntityTypes(
     args: BatchGetCustomEntityTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -1516,6 +1519,11 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
+   *
+   * 	        <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
+   */
   public createCustomEntityType(
     args: CreateCustomEntityTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -2218,6 +2226,9 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Deletes a custom pattern by specifying its name.</p>
+   */
   public deleteCustomEntityType(
     args: DeleteCustomEntityTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -3214,6 +3225,9 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Retrieves the details of a custom pattern by specifying its name.</p>
+   */
   public getCustomEntityType(
     args: GetCustomEntityTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -4766,6 +4780,9 @@ export class Glue extends GlueClient {
     }
   }
 
+  /**
+   * <p>Lists all the custom patterns that have been created.</p>
+   */
   public listCustomEntityTypes(
     args: ListCustomEntityTypesCommandInput,
     options?: __HttpHandlerOptions

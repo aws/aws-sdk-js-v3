@@ -21,6 +21,23 @@ import {
 export interface DeleteCustomEntityTypeCommandInput extends DeleteCustomEntityTypeRequest {}
 export interface DeleteCustomEntityTypeCommandOutput extends DeleteCustomEntityTypeResponse, __MetadataBearer {}
 
+/**
+ * <p>Deletes a custom pattern by specifying its name.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, DeleteCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new DeleteCustomEntityTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomEntityTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomEntityTypeCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class DeleteCustomEntityTypeCommand extends $Command<
   DeleteCustomEntityTypeCommandInput,
   DeleteCustomEntityTypeCommandOutput,

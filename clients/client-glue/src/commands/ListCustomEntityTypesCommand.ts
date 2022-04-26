@@ -21,6 +21,23 @@ import {
 export interface ListCustomEntityTypesCommandInput extends ListCustomEntityTypesRequest {}
 export interface ListCustomEntityTypesCommandOutput extends ListCustomEntityTypesResponse, __MetadataBearer {}
 
+/**
+ * <p>Lists all the custom patterns that have been created.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, ListCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ListCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new ListCustomEntityTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCustomEntityTypesCommandInput} for command's `input` shape.
+ * @see {@link ListCustomEntityTypesCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class ListCustomEntityTypesCommand extends $Command<
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,

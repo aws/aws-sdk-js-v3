@@ -21,6 +21,25 @@ import {
 export interface CreateCustomEntityTypeCommandInput extends CreateCustomEntityTypeRequest {}
 export interface CreateCustomEntityTypeCommandOutput extends CreateCustomEntityTypeResponse, __MetadataBearer {}
 
+/**
+ * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
+ *
+ * 	        <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, CreateCustomEntityTypeCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CreateCustomEntityTypeCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new CreateCustomEntityTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomEntityTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomEntityTypeCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class CreateCustomEntityTypeCommand extends $Command<
   CreateCustomEntityTypeCommandInput,
   CreateCustomEntityTypeCommandOutput,

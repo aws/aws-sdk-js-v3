@@ -21,6 +21,23 @@ import {
 export interface BatchGetCustomEntityTypesCommandInput extends BatchGetCustomEntityTypesRequest {}
 export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEntityTypesResponse, __MetadataBearer {}
 
+/**
+ * <p>Retrieves the details for the custom patterns specified by a list of names.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, BatchGetCustomEntityTypesCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, BatchGetCustomEntityTypesCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new BatchGetCustomEntityTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetCustomEntityTypesCommandInput} for command's `input` shape.
+ * @see {@link BatchGetCustomEntityTypesCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ */
 export class BatchGetCustomEntityTypesCommand extends $Command<
   BatchGetCustomEntityTypesCommandInput,
   BatchGetCustomEntityTypesCommandOutput,
