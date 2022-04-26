@@ -23,6 +23,7 @@ export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateFirewallDeleteProtectionCommand";
 export * from "./UpdateFirewallDescriptionCommand";
+export * from "./UpdateFirewallEncryptionConfigurationCommand";
 export * from "./UpdateFirewallPolicyChangeProtectionCommand";
 export * from "./UpdateFirewallPolicyCommand";
 export * from "./UpdateLoggingConfigurationCommand";

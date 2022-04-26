@@ -77,6 +77,10 @@ import {
   UpdateFirewallDescriptionCommandOutput,
 } from "../commands/UpdateFirewallDescriptionCommand";
 import {
+  UpdateFirewallEncryptionConfigurationCommandInput,
+  UpdateFirewallEncryptionConfigurationCommandOutput,
+} from "../commands/UpdateFirewallEncryptionConfigurationCommand";
+import {
   UpdateFirewallPolicyChangeProtectionCommandInput,
   UpdateFirewallPolicyChangeProtectionCommandOutput,
 } from "../commands/UpdateFirewallPolicyChangeProtectionCommand";
@@ -131,6 +135,7 @@ import {
   Dimension,
   DisassociateSubnetsRequest,
   DisassociateSubnetsResponse,
+  EncryptionConfiguration,
   Firewall,
   FirewallMetadata,
   FirewallPolicy,
@@ -198,6 +203,8 @@ import {
   UpdateFirewallDeleteProtectionResponse,
   UpdateFirewallDescriptionRequest,
   UpdateFirewallDescriptionResponse,
+  UpdateFirewallEncryptionConfigurationRequest,
+  UpdateFirewallEncryptionConfigurationResponse,
   UpdateFirewallPolicyChangeProtectionRequest,
   UpdateFirewallPolicyChangeProtectionResponse,
   UpdateFirewallPolicyRequest,
@@ -533,6 +540,19 @@ export const serializeAws_json1_0UpdateFirewallDescriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateFirewallDescriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand = async (
+  input: UpdateFirewallEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallEncryptionConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0UpdateFirewallEncryptionConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1958,6 +1978,64 @@ const deserializeAws_json1_0UpdateFirewallDescriptionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0UpdateFirewallEncryptionConfigurationResponse(data, context);
+  const response: UpdateFirewallEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFirewallEncryptionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.networkfirewall#InternalServerError":
+      throw await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.networkfirewall#InvalidRequestException":
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
+    case "InvalidTokenException":
+    case "com.amazonaws.networkfirewall#InvalidTokenException":
+      throw await deserializeAws_json1_0InvalidTokenExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.networkfirewall#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceOwnerCheckException":
+    case "com.amazonaws.networkfirewall#ResourceOwnerCheckException":
+      throw await deserializeAws_json1_0ResourceOwnerCheckExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.networkfirewall#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_0UpdateFirewallPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2468,6 +2546,10 @@ const serializeAws_json1_0CreateFirewallPolicyRequest = (
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
     ...(input.FirewallPolicy !== undefined &&
       input.FirewallPolicy !== null && {
         FirewallPolicy: serializeAws_json1_0FirewallPolicy(input.FirewallPolicy, context),
@@ -2483,6 +2565,10 @@ const serializeAws_json1_0CreateFirewallRequest = (input: CreateFirewallRequest,
     ...(input.DeleteProtection !== undefined &&
       input.DeleteProtection !== null && { DeleteProtection: input.DeleteProtection }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
     ...(input.FirewallName !== undefined && input.FirewallName !== null && { FirewallName: input.FirewallName }),
     ...(input.FirewallPolicyArn !== undefined &&
       input.FirewallPolicyArn !== null && { FirewallPolicyArn: input.FirewallPolicyArn }),
@@ -2506,6 +2592,10 @@ const serializeAws_json1_0CreateRuleGroupRequest = (input: CreateRuleGroupReques
     ...(input.Capacity !== undefined && input.Capacity !== null && { Capacity: input.Capacity }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
     ...(input.RuleGroup !== undefined &&
       input.RuleGroup !== null && { RuleGroup: serializeAws_json1_0RuleGroup(input.RuleGroup, context) }),
     ...(input.RuleGroupName !== undefined && input.RuleGroupName !== null && { RuleGroupName: input.RuleGroupName }),
@@ -2659,6 +2749,13 @@ const serializeAws_json1_0DisassociateSubnetsRequest = (
     ...(input.SubnetIds !== undefined &&
       input.SubnetIds !== null && { SubnetIds: serializeAws_json1_0AzSubnets(input.SubnetIds, context) }),
     ...(input.UpdateToken !== undefined && input.UpdateToken !== null && { UpdateToken: input.UpdateToken }),
+  };
+};
+
+const serializeAws_json1_0EncryptionConfiguration = (input: EncryptionConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -3292,6 +3389,21 @@ const serializeAws_json1_0UpdateFirewallDescriptionRequest = (
   };
 };
 
+const serializeAws_json1_0UpdateFirewallEncryptionConfigurationRequest = (
+  input: UpdateFirewallEncryptionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
+    ...(input.FirewallArn !== undefined && input.FirewallArn !== null && { FirewallArn: input.FirewallArn }),
+    ...(input.FirewallName !== undefined && input.FirewallName !== null && { FirewallName: input.FirewallName }),
+    ...(input.UpdateToken !== undefined && input.UpdateToken !== null && { UpdateToken: input.UpdateToken }),
+  };
+};
+
 const serializeAws_json1_0UpdateFirewallPolicyChangeProtectionRequest = (
   input: UpdateFirewallPolicyChangeProtectionRequest,
   context: __SerdeContext
@@ -3314,6 +3426,10 @@ const serializeAws_json1_0UpdateFirewallPolicyRequest = (
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
     ...(input.FirewallPolicy !== undefined &&
       input.FirewallPolicy !== null && {
         FirewallPolicy: serializeAws_json1_0FirewallPolicy(input.FirewallPolicy, context),
@@ -3344,6 +3460,10 @@ const serializeAws_json1_0UpdateRuleGroupRequest = (input: UpdateRuleGroupReques
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_json1_0EncryptionConfiguration(input.EncryptionConfiguration, context),
+      }),
     ...(input.RuleGroup !== undefined &&
       input.RuleGroup !== null && { RuleGroup: serializeAws_json1_0RuleGroup(input.RuleGroup, context) }),
     ...(input.RuleGroupArn !== undefined && input.RuleGroupArn !== null && { RuleGroupArn: input.RuleGroupArn }),
@@ -3679,10 +3799,24 @@ const deserializeAws_json1_0DisassociateSubnetsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0EncryptionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): EncryptionConfiguration => {
+  return {
+    KeyId: __expectString(output.KeyId),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_json1_0Firewall = (output: any, context: __SerdeContext): Firewall => {
   return {
     DeleteProtection: __expectBoolean(output.DeleteProtection),
     Description: __expectString(output.Description),
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
     FirewallArn: __expectString(output.FirewallArn),
     FirewallId: __expectString(output.FirewallId),
     FirewallName: __expectString(output.FirewallName),
@@ -3765,6 +3899,10 @@ const deserializeAws_json1_0FirewallPolicyResponse = (output: any, context: __Se
     ConsumedStatefulRuleCapacity: __expectInt32(output.ConsumedStatefulRuleCapacity),
     ConsumedStatelessRuleCapacity: __expectInt32(output.ConsumedStatelessRuleCapacity),
     Description: __expectString(output.Description),
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
     FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
     FirewallPolicyId: __expectString(output.FirewallPolicyId),
     FirewallPolicyName: __expectString(output.FirewallPolicyName),
@@ -4161,6 +4299,10 @@ const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeCo
     Capacity: __expectInt32(output.Capacity),
     ConsumedCapacity: __expectInt32(output.ConsumedCapacity),
     Description: __expectString(output.Description),
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
     NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
     RuleGroupArn: __expectString(output.RuleGroupArn),
     RuleGroupId: __expectString(output.RuleGroupId),
@@ -4595,6 +4737,21 @@ const deserializeAws_json1_0UpdateFirewallDescriptionResponse = (
 ): UpdateFirewallDescriptionResponse => {
   return {
     Description: __expectString(output.Description),
+    FirewallArn: __expectString(output.FirewallArn),
+    FirewallName: __expectString(output.FirewallName),
+    UpdateToken: __expectString(output.UpdateToken),
+  } as any;
+};
+
+const deserializeAws_json1_0UpdateFirewallEncryptionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateFirewallEncryptionConfigurationResponse => {
+  return {
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
+        ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
+        : undefined,
     FirewallArn: __expectString(output.FirewallArn),
     FirewallName: __expectString(output.FirewallName),
     UpdateToken: __expectString(output.UpdateToken),
