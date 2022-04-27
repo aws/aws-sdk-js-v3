@@ -33,7 +33,7 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  *        topic is <code>SUCCEEDED</code>. If so, call  <a>GetFaceDetection</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.</p>
  *
- *          <p>For more information, see Detecting Faces in a Stored Video in the
+ *          <p>For more information, see Detecting faces in a stored video in the
  *      Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

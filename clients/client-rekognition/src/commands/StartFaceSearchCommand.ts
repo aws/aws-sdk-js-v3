@@ -31,7 +31,8 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *       To get the search results, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see
- *       <a>procedure-person-search-videos</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html">Searching stored videos for faces</a>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
