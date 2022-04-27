@@ -12,41 +12,43 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import { ListSensorStatisticsRequest, ListSensorStatisticsResponse } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeDatasetCommand,
-  serializeAws_json1_0DescribeDatasetCommand,
+  deserializeAws_json1_0ListSensorStatisticsCommand,
+  serializeAws_json1_0ListSensorStatisticsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
-export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
+export interface ListSensorStatisticsCommandInput extends ListSensorStatisticsRequest {}
+export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a JSON description of the data in each time series dataset, including names, column names, and data types.</p>
+ * <p>
+ * Lists statistics about the data collected for each of the sensors that have been successfully ingested in the particular dataset. Can also be used to retreive Sensor Statistics for a previous ingestion job.
+ * </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LookoutEquipmentClient, DescribeDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
- * // const { LookoutEquipmentClient, DescribeDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * import { LookoutEquipmentClient, ListSensorStatisticsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ListSensorStatisticsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
- * const command = new DescribeDatasetCommand(input);
+ * const command = new ListSensorStatisticsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
- * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
+ * @see {@link ListSensorStatisticsCommandInput} for command's `input` shape.
+ * @see {@link ListSensorStatisticsCommandOutput} for command's `response` shape.
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
-export class DescribeDatasetCommand extends $Command<
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
+export class ListSensorStatisticsCommand extends $Command<
+  ListSensorStatisticsCommandInput,
+  ListSensorStatisticsCommandOutput,
   LookoutEquipmentClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeDatasetCommandInput) {
+  constructor(readonly input: ListSensorStatisticsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -59,20 +61,20 @@ export class DescribeDatasetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LookoutEquipmentClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDatasetCommandInput, DescribeDatasetCommandOutput> {
+  ): Handler<ListSensorStatisticsCommandInput, ListSensorStatisticsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LookoutEquipmentClient";
-    const commandName = "DescribeDatasetCommand";
+    const commandName = "ListSensorStatisticsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSensorStatisticsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListSensorStatisticsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +84,12 @@ export class DescribeDatasetCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeDatasetCommand(input, context);
+  private serialize(input: ListSensorStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0ListSensorStatisticsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDatasetCommandOutput> {
-    return deserializeAws_json1_0DescribeDatasetCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSensorStatisticsCommandOutput> {
+    return deserializeAws_json1_0ListSensorStatisticsCommand(output, context);
   }
 
   // Start section: command_body_extra

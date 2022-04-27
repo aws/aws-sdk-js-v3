@@ -4,3 +4,4 @@ export * from "./ListDatasetsPaginator";
 export * from "./ListInferenceExecutionsPaginator";
 export * from "./ListInferenceSchedulersPaginator";
 export * from "./ListModelsPaginator";
+export * from "./ListSensorStatisticsPaginator";

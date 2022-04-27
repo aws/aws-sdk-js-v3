@@ -23,7 +23,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
 
 /**
  * <p>Provides information on a specific data ingestion job such as creation time, dataset
- *          ARN, status, and so on. </p>
+ *          ARN, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

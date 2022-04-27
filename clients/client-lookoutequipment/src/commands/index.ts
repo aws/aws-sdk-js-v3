@@ -13,6 +13,7 @@ export * from "./ListDatasetsCommand";
 export * from "./ListInferenceExecutionsCommand";
 export * from "./ListInferenceSchedulersCommand";
 export * from "./ListModelsCommand";
+export * from "./ListSensorStatisticsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartDataIngestionJobCommand";
 export * from "./StartInferenceSchedulerCommand";
