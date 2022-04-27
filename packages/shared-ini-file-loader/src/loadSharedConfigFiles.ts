@@ -1,13 +1,10 @@
 import { SharedConfigFiles } from "@aws-sdk/types";
-import { join } from "path";
 
-import { getHomeDir } from "./getHomeDir";
+import { getConfigFilepath } from "./getConfigFilepath";
+import { getCredentialsFilepath } from "./getCredentialsFilepath";
 import { getProfileData } from "./getProfileData";
 import { parseIni } from "./parseIni";
 import { slurpFile } from "./slurpFile";
-
-export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
-export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
 
 export interface SharedConfigInit {
   /**
@@ -28,10 +25,7 @@ export interface SharedConfigInit {
 const swallowError = () => ({});
 
 export const loadSharedConfigFiles = async (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
-  const {
-    filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
-    configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
-  } = init;
+  const { filepath = getCredentialsFilepath(), configFilepath = getConfigFilepath() } = init;
 
   const parsedFiles = await Promise.all([
     slurpFile(configFilepath).then(parseIni).then(getProfileData).catch(swallowError),
