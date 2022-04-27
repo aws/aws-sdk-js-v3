@@ -19,7 +19,7 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the tags for the specified Amazon SageMaker resource.</p>
+ * <p>Returns the tags for the specified SageMaker resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

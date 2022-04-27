@@ -684,6 +684,7 @@ import {
   AutoMLChannel,
   AutoMLContainerDefinition,
   AutoMLDataSource,
+  AutoMLDataSplitConfig,
   AutoMLJobArtifacts,
   AutoMLJobCompletionCriteria,
   AutoMLJobConfig,
@@ -769,7 +770,6 @@ import {
   CreateImageRequest,
   CreateImageResponse,
   CreateImageVersionRequest,
-  CreateImageVersionResponse,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -781,7 +781,6 @@ import {
   DomainSettings,
   EdgeOutputConfig,
   EndpointInput,
-  EnvironmentParameterRanges,
   FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
@@ -878,6 +877,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateImageVersionResponse,
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
   CreateLabelingJobRequest,
@@ -1036,8 +1036,6 @@ import {
   DescribeInferenceRecommendationsJobRequest,
   DescribeInferenceRecommendationsJobResponse,
   DescribeLabelingJobRequest,
-  DescribeLabelingJobResponse,
-  DescribeLineageGroupRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1048,6 +1046,7 @@ import {
   EndpointInputConfiguration,
   EndpointOutputConfiguration,
   EnvironmentParameter,
+  EnvironmentParameterRanges,
   ExperimentConfig,
   ExperimentSource,
   Explainability,
@@ -1146,6 +1145,8 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeLabelingJobResponse,
+  DescribeLineageGroupRequest,
   DescribeLineageGroupResponse,
   DescribeModelBiasJobDefinitionRequest,
   DescribeModelBiasJobDefinitionResponse,
@@ -1341,7 +1342,6 @@ import {
   ListSubscribedWorkteamsResponse,
   ListTagsInput,
   ListTagsOutput,
-  ListTrainingJobsRequest,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1380,7 +1380,6 @@ import {
   SubscribedWorkteam,
   SuggestionQuery,
   TrainingJobStepMetadata,
-  TrainingJobSummary,
   TransformJobStepMetadata,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -1392,6 +1391,7 @@ import {
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
+  ListTrainingJobsRequest,
   ListTrainingJobsResponse,
   ListTransformJobsRequest,
   ListTransformJobsResponse,
@@ -1453,6 +1453,7 @@ import {
   StopTrainingJobRequest,
   StopTransformJobRequest,
   TrainingJob,
+  TrainingJobSummary,
   TransformJob,
   TransformJobSummary,
   Trial,
@@ -15707,6 +15708,7 @@ const serializeAws_json1_1AttributeNames = (input: string[], context: __SerdeCon
 
 const serializeAws_json1_1AutoMLChannel = (input: AutoMLChannel, context: __SerdeContext): any => {
   return {
+    ...(input.ChannelType !== undefined && input.ChannelType !== null && { ChannelType: input.ChannelType }),
     ...(input.CompressionType !== undefined &&
       input.CompressionType !== null && { CompressionType: input.CompressionType }),
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
@@ -15723,6 +15725,13 @@ const serializeAws_json1_1AutoMLDataSource = (input: AutoMLDataSource, context: 
       input.S3DataSource !== null && {
         S3DataSource: serializeAws_json1_1AutoMLS3DataSource(input.S3DataSource, context),
       }),
+  };
+};
+
+const serializeAws_json1_1AutoMLDataSplitConfig = (input: AutoMLDataSplitConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.ValidationFraction !== undefined &&
+      input.ValidationFraction !== null && { ValidationFraction: __serializeFloat(input.ValidationFraction) }),
   };
 };
 
@@ -15759,6 +15768,10 @@ const serializeAws_json1_1AutoMLJobConfig = (input: AutoMLJobConfig, context: __
     ...(input.CompletionCriteria !== undefined &&
       input.CompletionCriteria !== null && {
         CompletionCriteria: serializeAws_json1_1AutoMLJobCompletionCriteria(input.CompletionCriteria, context),
+      }),
+    ...(input.DataSplitConfig !== undefined &&
+      input.DataSplitConfig !== null && {
+        DataSplitConfig: serializeAws_json1_1AutoMLDataSplitConfig(input.DataSplitConfig, context),
       }),
     ...(input.SecurityConfig !== undefined &&
       input.SecurityConfig !== null && {
@@ -24264,6 +24277,7 @@ const deserializeAws_json1_1AutoMLCandidateStep = (output: any, context: __Serde
 
 const deserializeAws_json1_1AutoMLChannel = (output: any, context: __SerdeContext): AutoMLChannel => {
   return {
+    ChannelType: __expectString(output.ChannelType),
     CompressionType: __expectString(output.CompressionType),
     ContentType: __expectString(output.ContentType),
     DataSource:
@@ -24312,6 +24326,12 @@ const deserializeAws_json1_1AutoMLDataSource = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1AutoMLDataSplitConfig = (output: any, context: __SerdeContext): AutoMLDataSplitConfig => {
+  return {
+    ValidationFraction: __limitedParseFloat32(output.ValidationFraction),
+  } as any;
+};
+
 const deserializeAws_json1_1AutoMLInputDataConfig = (output: any, context: __SerdeContext): AutoMLChannel[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -24347,6 +24367,10 @@ const deserializeAws_json1_1AutoMLJobConfig = (output: any, context: __SerdeCont
     CompletionCriteria:
       output.CompletionCriteria !== undefined && output.CompletionCriteria !== null
         ? deserializeAws_json1_1AutoMLJobCompletionCriteria(output.CompletionCriteria, context)
+        : undefined,
+    DataSplitConfig:
+      output.DataSplitConfig !== undefined && output.DataSplitConfig !== null
+        ? deserializeAws_json1_1AutoMLDataSplitConfig(output.DataSplitConfig, context)
         : undefined,
     SecurityConfig:
       output.SecurityConfig !== undefined && output.SecurityConfig !== null

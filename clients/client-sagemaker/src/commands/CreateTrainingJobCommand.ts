@@ -22,11 +22,11 @@ export interface CreateTrainingJobCommandInput extends CreateTrainingJobRequest 
 export interface CreateTrainingJobCommandOutput extends CreateTrainingJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
+ * <p>Starts a model training job. After training completes, SageMaker saves the resulting
  *             model artifacts to an Amazon S3 location that you specify. </p>
- *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
+ *         <p>If you choose to host your model using SageMaker hosting services, you can use the
  *             resulting model artifacts as part of the model. You can also use the artifacts in a
- *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
+ *             machine learning service other than SageMaker, provided that you know how to use them for
  *             inference.
  *         </p>
  *         <p>In the request body, you provide the following: </p>
@@ -42,7 +42,7 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                     <code>HyperParameters</code> - Specify these algorithm-specific parameters to
  *                     enable the estimation of model parameters during training. Hyperparameters can
  *                     be tuned to optimize this learning process. For a list of hyperparameters for
- *                     each training algorithm provided by Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+ *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
  *             </li>
  *             <li>
  *                 <p>
@@ -52,7 +52,7 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *             <li>
  *                 <p>
  *                   <code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want
- *                     Amazon SageMaker to save the results of model training. </p>
+ *                     SageMaker to save the results of model training. </p>
  *             </li>
  *             <li>
  *                 <p>
@@ -70,10 +70,10 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on
+ *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks on
  *                     your behalf during model training.
  *
- *                     You must grant this role the necessary permissions so that Amazon SageMaker can successfully
+ *                     You must grant this role the necessary permissions so that SageMaker can successfully
  *                     complete model training. </p>
  *             </li>
  *             <li>
@@ -94,7 +94,7 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                     fails due to an <code>InternalServerError</code>.</p>
  *             </li>
  *          </ul>
- *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+ *         <p> For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
