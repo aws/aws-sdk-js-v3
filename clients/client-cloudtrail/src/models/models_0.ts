@@ -29,11 +29,11 @@ export namespace Tag {
 }
 
 /**
- * <p>Specifies the tags to add to a trail.</p>
+ * <p>Specifies the tags to add to a trail or event data store.</p>
  */
 export interface AddTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail to which one or more tags will be added. The format of a trail ARN is:</p>
+   * <p>Specifies the ARN of the trail or event data store to which one or more tags will be added. The format of a trail ARN is:</p>
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
@@ -98,7 +98,7 @@ export class CloudTrailARNInvalidException extends __BaseException {
 
 /**
  * <p>This exception is thrown when the specified resource is not ready for an operation.
- *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
+ *          This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource.
  *          If this exception occurs, wait a few minutes, and then try the operation again.</p>
  */
 export class ConflictException extends __BaseException {
@@ -147,7 +147,7 @@ export class EventDataStoreNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The event data store against which you ran your query is inactive.</p>
+ * <p>The event data store is inactive.</p>
  */
 export class InactiveEventDataStoreException extends __BaseException {
   readonly name: "InactiveEventDataStoreException" = "InactiveEventDataStoreException";
@@ -238,9 +238,10 @@ export class InvalidTrailNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail is not the management account for an
+ * <p>This exception is thrown when the Amazon Web Services account making the request to create
+ *          or update an organization trail or event data store is not the management account for an
  *          organization in Organizations. For more information, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
  */
 export class NotOrganizationMasterAccountException extends __BaseException {
   readonly name: "NotOrganizationMasterAccountException" = "NotOrganizationMasterAccountException";
@@ -1072,9 +1073,9 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the IAM user or role that is used to create the organization trail is lacking one or more required permissions for
- *          creating an organization trail in a required service. For more information, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
+ * <p>This exception is thrown when the IAM user or role that is used to create
+ *          the organization resource lacks one or more required permissions for
+ *          creating an organization resource in a required service.</p>
  */
 export class InsufficientDependencyServiceAccessPermissionException extends __BaseException {
   readonly name: "InsufficientDependencyServiceAccessPermissionException" =
@@ -1099,9 +1100,9 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
 }
 
 /**
- * <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support
- *          creating an organization trail. For more information, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
+ * <p>This exception is thrown when Organizations is not configured to support all
+ *          features. All features must be enabled in Organizations to support
+ *          creating an organization trail or event data store.</p>
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
   readonly name: "OrganizationNotInAllFeaturesModeException" = "OrganizationNotInAllFeaturesModeException";
@@ -3091,42 +3092,58 @@ export interface EventDataStore {
   Name?: string;
 
   /**
-   * <p>Indicates whether the event data store is protected from termination.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. Indicates whether the event data store is protected from termination.</p>
    */
   TerminationProtectionEnabled?: boolean;
 
   /**
-   * <p>The status of an event data store. Values are <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. The status of an event data store. Values are <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
    */
   Status?: EventDataStoreStatus | string;
 
   /**
-   * <p>The advanced event selectors that were used to select events for the data store.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. The advanced event selectors that were used to select events for the data store.</p>
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
 
   /**
-   * <p>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</p>
    */
   MultiRegionEnabled?: boolean;
 
   /**
-   * <p>Indicates that an event data store is collecting logged events for an organization.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. Indicates that an event data store is collecting logged events for an organization.</p>
    */
   OrganizationEnabled?: boolean;
 
   /**
-   * <p>The retention period, in days.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. The retention period, in days.</p>
    */
   RetentionPeriod?: number;
 
   /**
-   * <p>The timestamp of the event data store's creation.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. The timestamp of the event data store's creation.</p>
    */
   CreatedTimestamp?: Date;
 
   /**
-   * <p>The timestamp showing when an event data store was updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   * @deprecated
+   *
+   * <p>This field is being deprecated. The timestamp showing when an event data store was updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
    */
   UpdatedTimestamp?: Date;
 }
@@ -3302,7 +3319,8 @@ export namespace ListPublicKeysResponse {
 }
 
 /**
- * <p>A date range for the query was specified that is not valid. For more information
+ * <p>A date range for the query was specified that is not valid. Be sure that the start time is chronologically
+ *          before the end time. For more information
  *          about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
  *             or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
  */
@@ -3447,15 +3465,12 @@ export namespace ListQueriesResponse {
 }
 
 /**
- * <p>Specifies a list of trail tags to return.</p>
+ * <p>Specifies a list of tags to return.</p>
  */
 export interface ListTagsRequest {
   /**
-   * <p>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of 20 ARNs. The following is the format of
-   *          a trail ARN.</p>
-   *             <p>
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
-   *          </p>
+   * <p>Specifies a list of trail and event data store ARNs whose tags will be listed. The list
+   *          has a limit of 20 ARNs.</p>
    */
   ResourceIdList: string[] | undefined;
 
@@ -4044,13 +4059,15 @@ export namespace PutInsightSelectorsResponse {
 }
 
 /**
- * <p>Specifies the tags to remove from a trail.</p>
+ * <p>Specifies the tags to remove from a trail or event data store.</p>
  */
 export interface RemoveTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail from which tags should be removed. The format of a trail ARN is:</p>
+   * <p>Specifies the ARN of the trail or event data store from which tags should be removed.</p>
    *          <p>
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          Example trail ARN format: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          </p>
+   *          <p>Example event data store ARN format: <code>arn:aws:cloudtrail:us-east-2:12345678910:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
    *          </p>
    */
   ResourceId: string | undefined;
