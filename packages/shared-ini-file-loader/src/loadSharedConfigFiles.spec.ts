@@ -1,14 +1,14 @@
 import { join } from "path";
 
 import { getHomeDir } from "./getHomeDir";
+import { getProfileData } from "./getProfileData";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./loadSharedConfigFiles";
-import { normalizeConfigFile } from "./normalizeConfigFile";
 import { parseIni } from "./parseIni";
 import { slurpFile } from "./slurpFile";
 
 jest.mock("path");
 jest.mock("./getHomeDir");
-jest.mock("./normalizeConfigFile");
+jest.mock("./getProfileData");
 jest.mock("./parseIni");
 jest.mock("./slurpFile");
 
@@ -34,7 +34,7 @@ describe("loadSharedConfigFiles", () => {
     (join as jest.Mock).mockImplementation((...args) => args.join(mockSeparator));
     (getHomeDir as jest.Mock).mockReturnValue(mockHomeDir);
     (parseIni as jest.Mock).mockImplementation((args) => args);
-    (normalizeConfigFile as jest.Mock).mockImplementation((args) => args);
+    (getProfileData as jest.Mock).mockImplementation((args) => args);
     (slurpFile as jest.Mock).mockImplementation((path) => Promise.resolve(path));
   });
 
@@ -82,7 +82,7 @@ describe("loadSharedConfigFiles", () => {
     });
 
     it("when normalizeConfigFile throws error", async () => {
-      (normalizeConfigFile as jest.Mock).mockRejectedValue("error");
+      (getProfileData as jest.Mock).mockRejectedValue("error");
       const sharedConfigFiles = await loadSharedConfigFiles();
       expect(sharedConfigFiles).toStrictEqual({
         configFile: {},
