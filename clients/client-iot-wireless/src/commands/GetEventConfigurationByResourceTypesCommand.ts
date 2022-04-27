@@ -12,43 +12,46 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetNetworkAnalyzerConfigurationRequest, GetNetworkAnalyzerConfigurationResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand,
-  serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand,
+  GetEventConfigurationByResourceTypesRequest,
+  GetEventConfigurationByResourceTypesResponse,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand,
+  serializeAws_restJson1GetEventConfigurationByResourceTypesCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface GetNetworkAnalyzerConfigurationCommandInput extends GetNetworkAnalyzerConfigurationRequest {}
-export interface GetNetworkAnalyzerConfigurationCommandOutput
-  extends GetNetworkAnalyzerConfigurationResponse,
+export interface GetEventConfigurationByResourceTypesCommandInput extends GetEventConfigurationByResourceTypesRequest {}
+export interface GetEventConfigurationByResourceTypesCommandOutput
+  extends GetEventConfigurationByResourceTypesResponse,
     __MetadataBearer {}
 
 /**
- * <p>Get network analyzer configuration.</p>
+ * <p>Get the event configuration by resource types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, GetNetworkAnalyzerConfigurationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetEventConfigurationByResourceTypesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetEventConfigurationByResourceTypesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const command = new GetNetworkAnalyzerConfigurationCommand(input);
+ * const command = new GetEventConfigurationByResourceTypesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetNetworkAnalyzerConfigurationCommandInput} for command's `input` shape.
- * @see {@link GetNetworkAnalyzerConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link GetEventConfigurationByResourceTypesCommandInput} for command's `input` shape.
+ * @see {@link GetEventConfigurationByResourceTypesCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
-export class GetNetworkAnalyzerConfigurationCommand extends $Command<
-  GetNetworkAnalyzerConfigurationCommandInput,
-  GetNetworkAnalyzerConfigurationCommandOutput,
+export class GetEventConfigurationByResourceTypesCommand extends $Command<
+  GetEventConfigurationByResourceTypesCommandInput,
+  GetEventConfigurationByResourceTypesCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetNetworkAnalyzerConfigurationCommandInput) {
+  constructor(readonly input: GetEventConfigurationByResourceTypesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -61,20 +64,20 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTWirelessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetNetworkAnalyzerConfigurationCommandInput, GetNetworkAnalyzerConfigurationCommandOutput> {
+  ): Handler<GetEventConfigurationByResourceTypesCommandInput, GetEventConfigurationByResourceTypesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTWirelessClient";
-    const commandName = "GetNetworkAnalyzerConfigurationCommand";
+    const commandName = "GetEventConfigurationByResourceTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkAnalyzerConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkAnalyzerConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventConfigurationByResourceTypesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetEventConfigurationByResourceTypesResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -85,17 +88,17 @@ export class GetNetworkAnalyzerConfigurationCommand extends $Command<
   }
 
   private serialize(
-    input: GetNetworkAnalyzerConfigurationCommandInput,
+    input: GetEventConfigurationByResourceTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetNetworkAnalyzerConfigurationCommand(input, context);
+    return serializeAws_restJson1GetEventConfigurationByResourceTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetNetworkAnalyzerConfigurationCommandOutput> {
-    return deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand(output, context);
+  ): Promise<GetEventConfigurationByResourceTypesCommandOutput> {
+    return deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

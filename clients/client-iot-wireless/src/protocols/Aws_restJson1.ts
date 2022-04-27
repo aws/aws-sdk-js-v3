@@ -63,6 +63,10 @@ import {
   CreateMulticastGroupCommandOutput,
 } from "../commands/CreateMulticastGroupCommand";
 import {
+  CreateNetworkAnalyzerConfigurationCommandInput,
+  CreateNetworkAnalyzerConfigurationCommandOutput,
+} from "../commands/CreateNetworkAnalyzerConfigurationCommand";
+import {
   CreateServiceProfileCommandInput,
   CreateServiceProfileCommandOutput,
 } from "../commands/CreateServiceProfileCommand";
@@ -92,6 +96,10 @@ import {
   DeleteMulticastGroupCommandInput,
   DeleteMulticastGroupCommandOutput,
 } from "../commands/DeleteMulticastGroupCommand";
+import {
+  DeleteNetworkAnalyzerConfigurationCommandInput,
+  DeleteNetworkAnalyzerConfigurationCommandOutput,
+} from "../commands/DeleteNetworkAnalyzerConfigurationCommand";
 import {
   DeleteQueuedMessagesCommandInput,
   DeleteQueuedMessagesCommandOutput,
@@ -146,6 +154,10 @@ import {
 } from "../commands/DisassociateWirelessGatewayFromThingCommand";
 import { GetDestinationCommandInput, GetDestinationCommandOutput } from "../commands/GetDestinationCommand";
 import { GetDeviceProfileCommandInput, GetDeviceProfileCommandOutput } from "../commands/GetDeviceProfileCommand";
+import {
+  GetEventConfigurationByResourceTypesCommandInput,
+  GetEventConfigurationByResourceTypesCommandOutput,
+} from "../commands/GetEventConfigurationByResourceTypesCommand";
 import { GetFuotaTaskCommandInput, GetFuotaTaskCommandOutput } from "../commands/GetFuotaTaskCommand";
 import {
   GetLogLevelsByResourceTypesCommandInput,
@@ -199,6 +211,10 @@ import {
 } from "../commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "../commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "../commands/ListDeviceProfilesCommand";
+import {
+  ListEventConfigurationsCommandInput,
+  ListEventConfigurationsCommandOutput,
+} from "../commands/ListEventConfigurationsCommand";
 import { ListFuotaTasksCommandInput, ListFuotaTasksCommandOutput } from "../commands/ListFuotaTasksCommand";
 import {
   ListMulticastGroupsByFuotaTaskCommandInput,
@@ -208,6 +224,10 @@ import {
   ListMulticastGroupsCommandInput,
   ListMulticastGroupsCommandOutput,
 } from "../commands/ListMulticastGroupsCommand";
+import {
+  ListNetworkAnalyzerConfigurationsCommandInput,
+  ListNetworkAnalyzerConfigurationsCommandOutput,
+} from "../commands/ListNetworkAnalyzerConfigurationsCommand";
 import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
@@ -270,6 +290,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "../commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "../commands/UpdateDestinationCommand";
+import {
+  UpdateEventConfigurationByResourceTypesCommandInput,
+  UpdateEventConfigurationByResourceTypesCommandOutput,
+} from "../commands/UpdateEventConfigurationByResourceTypesCommand";
 import { UpdateFuotaTaskCommandInput, UpdateFuotaTaskCommandOutput } from "../commands/UpdateFuotaTaskCommand";
 import {
   UpdateLogLevelsByResourceTypesCommandInput,
@@ -306,13 +330,22 @@ import {
   AccessDeniedException,
   CertificateList,
   ConflictException,
+  ConnectionStatusEventConfiguration,
+  ConnectionStatusResourceTypeEventConfiguration,
   Destinations,
   DeviceProfile,
   DeviceRegistrationStateEventConfiguration,
+  DeviceRegistrationStateResourceTypeEventConfiguration,
   DownlinkQueueMessage,
+  EventConfigurationItem,
+  EventNotificationItemConfigurations,
   FPorts,
   FuotaTask,
   InternalServerException,
+  JoinEventConfiguration,
+  JoinResourceTypeEventConfiguration,
+  LoRaWANConnectionStatusEventNotificationConfigurations,
+  LoRaWANConnectionStatusResourceTypeEventConfiguration,
   LoRaWANDevice,
   LoRaWANDeviceMetadata,
   LoRaWANDeviceProfile,
@@ -323,6 +356,8 @@ import {
   LoRaWANGatewayMetadata,
   LoRaWANGatewayVersion,
   LoRaWANGetServiceProfileInfo,
+  LoRaWANJoinEventNotificationConfigurations,
+  LoRaWANJoinResourceTypeEventConfiguration,
   LoRaWANListDevice,
   LoRaWANMulticast,
   LoRaWANMulticastGet,
@@ -337,9 +372,11 @@ import {
   MulticastGroup,
   MulticastGroupByFuotaTask,
   MulticastWirelessMetadata,
+  NetworkAnalyzerConfigurations,
   OtaaV1_0_x,
   OtaaV1_1,
   ProximityEventConfiguration,
+  ProximityResourceTypeEventConfiguration,
   ResourceNotFoundException,
   ServiceProfile,
   SessionKeysAbpV1_0_x,
@@ -350,12 +387,15 @@ import {
   SidewalkDeviceMetadata,
   SidewalkEventNotificationConfigurations,
   SidewalkListDevice,
+  SidewalkResourceTypeEventConfiguration,
   SidewalkSendDataToDevice,
   SidewalkUpdateAccount,
   Tag,
   ThrottlingException,
   TooManyTagsException,
   TraceContent,
+  UpdateAbpV1_0_x,
+  UpdateAbpV1_1,
   UpdateWirelessGatewayTaskCreate,
   UpdateWirelessGatewayTaskEntry,
   ValidationException,
@@ -758,6 +798,45 @@ export const serializeAws_restJson1CreateMulticastGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand = async (
+  input: CreateNetworkAnalyzerConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/network-analyzer-configurations";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.TraceContent !== undefined &&
+      input.TraceContent !== null && { TraceContent: serializeAws_restJson1TraceContent(input.TraceContent, context) }),
+    ...(input.WirelessDevices !== undefined &&
+      input.WirelessDevices !== null && {
+        WirelessDevices: serializeAws_restJson1WirelessDeviceList(input.WirelessDevices, context),
+      }),
+    ...(input.WirelessGateways !== undefined &&
+      input.WirelessGateways !== null && {
+        WirelessGateways: serializeAws_restJson1WirelessGatewayList(input.WirelessGateways, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateServiceProfileCommand = async (
   input: CreateServiceProfileCommandInput,
   context: __SerdeContext
@@ -1020,6 +1099,36 @@ export const serializeAws_restJson1DeleteMulticastGroupCommand = async (
     resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand = async (
+  input: DeleteNetworkAnalyzerConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/network-analyzer-configurations/{ConfigurationName}";
+  if (input.ConfigurationName !== undefined) {
+    const labelValue: string = input.ConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationName.");
   }
   let body: any;
   return new __HttpRequest({
@@ -1491,6 +1600,29 @@ export const serializeAws_restJson1GetDeviceProfileCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetEventConfigurationByResourceTypesCommand = async (
+  input: GetEventConfigurationByResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
+  let body: any;
+  body = "";
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2081,6 +2213,31 @@ export const serializeAws_restJson1ListDeviceProfilesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListEventConfigurationsCommand = async (
+  input: ListEventConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations";
+  const query: any = {
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListFuotaTasksCommand = async (
   input: ListFuotaTasksCommandInput,
   context: __SerdeContext
@@ -2149,6 +2306,31 @@ export const serializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand = async
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand = async (
+  input: ListNetworkAnalyzerConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/network-analyzer-configurations";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   return new __HttpRequest({
@@ -2779,6 +2961,50 @@ export const serializeAws_restJson1UpdateDestinationCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand = async (
+  input: UpdateEventConfigurationByResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations-resource-types";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ConnectionStatus !== undefined &&
+      input.ConnectionStatus !== null && {
+        ConnectionStatus: serializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration(
+          input.ConnectionStatus,
+          context
+        ),
+      }),
+    ...(input.DeviceRegistrationState !== undefined &&
+      input.DeviceRegistrationState !== null && {
+        DeviceRegistrationState: serializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration(
+          input.DeviceRegistrationState,
+          context
+        ),
+      }),
+    ...(input.Join !== undefined &&
+      input.Join !== null && { Join: serializeAws_restJson1JoinResourceTypeEventConfiguration(input.Join, context) }),
+    ...(input.Proximity !== undefined &&
+      input.Proximity !== null && {
+        Proximity: serializeAws_restJson1ProximityResourceTypeEventConfiguration(input.Proximity, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateFuotaTaskCommand = async (
   input: UpdateFuotaTaskCommandInput,
   context: __SerdeContext
@@ -2916,6 +3142,7 @@ export const serializeAws_restJson1UpdateNetworkAnalyzerConfigurationCommand = a
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.TraceContent !== undefined &&
       input.TraceContent !== null && { TraceContent: serializeAws_restJson1TraceContent(input.TraceContent, context) }),
     ...(input.WirelessDevicesToAdd !== undefined &&
@@ -3010,6 +3237,10 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
   };
   let body: any;
   body = JSON.stringify({
+    ...(input.ConnectionStatus !== undefined &&
+      input.ConnectionStatus !== null && {
+        ConnectionStatus: serializeAws_restJson1ConnectionStatusEventConfiguration(input.ConnectionStatus, context),
+      }),
     ...(input.DeviceRegistrationState !== undefined &&
       input.DeviceRegistrationState !== null && {
         DeviceRegistrationState: serializeAws_restJson1DeviceRegistrationStateEventConfiguration(
@@ -3017,6 +3248,8 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
           context
         ),
       }),
+    ...(input.Join !== undefined &&
+      input.Join !== null && { Join: serializeAws_restJson1JoinEventConfiguration(input.Join, context) }),
     ...(input.Proximity !== undefined &&
       input.Proximity !== null && {
         Proximity: serializeAws_restJson1ProximityEventConfiguration(input.Proximity, context),
@@ -3813,6 +4046,69 @@ const deserializeAws_restJson1CreateMulticastGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommandError(output, context);
+  }
+  const contents: CreateNetworkAnalyzerConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Name: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateNetworkAnalyzerConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateNetworkAnalyzerConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1CreateServiceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4302,6 +4598,61 @@ const deserializeAws_restJson1DeleteMulticastGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommandError(output, context);
+  }
+  const contents: DeleteNetworkAnalyzerConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNetworkAnalyzerConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5168,6 +5519,74 @@ const deserializeAws_restJson1GetDeviceProfileCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventConfigurationByResourceTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetEventConfigurationByResourceTypesCommandError(output, context);
+  }
+  const contents: GetEventConfigurationByResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ConnectionStatus: undefined,
+    DeviceRegistrationState: undefined,
+    Join: undefined,
+    Proximity: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
+    contents.ConnectionStatus = deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration(
+      data.ConnectionStatus,
+      context
+    );
+  }
+  if (data.DeviceRegistrationState !== undefined && data.DeviceRegistrationState !== null) {
+    contents.DeviceRegistrationState = deserializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration(
+      data.DeviceRegistrationState,
+      context
+    );
+  }
+  if (data.Join !== undefined && data.Join !== null) {
+    contents.Join = deserializeAws_restJson1JoinResourceTypeEventConfiguration(data.Join, context);
+  }
+  if (data.Proximity !== undefined && data.Proximity !== null) {
+    contents.Proximity = deserializeAws_restJson1ProximityResourceTypeEventConfiguration(data.Proximity, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetEventConfigurationByResourceTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventConfigurationByResourceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1GetFuotaTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5471,11 +5890,23 @@ export const deserializeAws_restJson1GetNetworkAnalyzerConfigurationCommand = as
   }
   const contents: GetNetworkAnalyzerConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Description: undefined,
+    Name: undefined,
     TraceContent: undefined,
     WirelessDevices: undefined,
     WirelessGateways: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Description !== undefined && data.Description !== null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
   if (data.TraceContent !== undefined && data.TraceContent !== null) {
     contents.TraceContent = deserializeAws_restJson1TraceContent(data.TraceContent, context);
   }
@@ -5592,15 +6023,26 @@ export const deserializeAws_restJson1GetResourceEventConfigurationCommand = asyn
   }
   const contents: GetResourceEventConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ConnectionStatus: undefined,
     DeviceRegistrationState: undefined,
+    Join: undefined,
     Proximity: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectionStatus !== undefined && data.ConnectionStatus !== null) {
+    contents.ConnectionStatus = deserializeAws_restJson1ConnectionStatusEventConfiguration(
+      data.ConnectionStatus,
+      context
+    );
+  }
   if (data.DeviceRegistrationState !== undefined && data.DeviceRegistrationState !== null) {
     contents.DeviceRegistrationState = deserializeAws_restJson1DeviceRegistrationStateEventConfiguration(
       data.DeviceRegistrationState,
       context
     );
+  }
+  if (data.Join !== undefined && data.Join !== null) {
+    contents.Join = deserializeAws_restJson1JoinEventConfiguration(data.Join, context);
   }
   if (data.Proximity !== undefined && data.Proximity !== null) {
     contents.Proximity = deserializeAws_restJson1ProximityEventConfiguration(data.Proximity, context);
@@ -6505,6 +6947,66 @@ const deserializeAws_restJson1ListDeviceProfilesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListEventConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListEventConfigurationsCommandError(output, context);
+  }
+  const contents: ListEventConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EventConfigurationsList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.EventConfigurationsList !== undefined && data.EventConfigurationsList !== null) {
+    contents.EventConfigurationsList = deserializeAws_restJson1EventConfigurationsList(
+      data.EventConfigurationsList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListEventConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListFuotaTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6665,6 +7167,66 @@ const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.iotwireless#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommandError(output, context);
+  }
+  const contents: ListNetworkAnalyzerConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NetworkAnalyzerConfigurationList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NetworkAnalyzerConfigurationList !== undefined && data.NetworkAnalyzerConfigurationList !== null) {
+    contents.NetworkAnalyzerConfigurationList = deserializeAws_restJson1NetworkAnalyzerConfigurationList(
+      data.NetworkAnalyzerConfigurationList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListNetworkAnalyzerConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNetworkAnalyzerConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iotwireless#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -7786,6 +8348,55 @@ const deserializeAws_restJson1UpdateDestinationCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommandError(output, context);
+  }
+  const contents: UpdateEventConfigurationByResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateEventConfigurationByResourceTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventConfigurationByResourceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateFuotaTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8341,6 +8952,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 const serializeAws_restJson1AbpV1_0_x = (input: AbpV1_0_x, context: __SerdeContext): any => {
   return {
     ...(input.DevAddr !== undefined && input.DevAddr !== null && { DevAddr: input.DevAddr }),
+    ...(input.FCntStart !== undefined && input.FCntStart !== null && { FCntStart: input.FCntStart }),
     ...(input.SessionKeys !== undefined &&
       input.SessionKeys !== null && {
         SessionKeys: serializeAws_restJson1SessionKeysAbpV1_0_x(input.SessionKeys, context),
@@ -8351,9 +8963,36 @@ const serializeAws_restJson1AbpV1_0_x = (input: AbpV1_0_x, context: __SerdeConte
 const serializeAws_restJson1AbpV1_1 = (input: AbpV1_1, context: __SerdeContext): any => {
   return {
     ...(input.DevAddr !== undefined && input.DevAddr !== null && { DevAddr: input.DevAddr }),
+    ...(input.FCntStart !== undefined && input.FCntStart !== null && { FCntStart: input.FCntStart }),
     ...(input.SessionKeys !== undefined &&
       input.SessionKeys !== null && {
         SessionKeys: serializeAws_restJson1SessionKeysAbpV1_1(input.SessionKeys, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1ConnectionStatusEventConfiguration = (
+  input: ConnectionStatusEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && {
+        LoRaWAN: serializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations(input.LoRaWAN, context),
+      }),
+    ...(input.WirelessGatewayIdEventTopic !== undefined &&
+      input.WirelessGatewayIdEventTopic !== null && { WirelessGatewayIdEventTopic: input.WirelessGatewayIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration = (
+  input: ConnectionStatusResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && {
+        LoRaWAN: serializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration(input.LoRaWAN, context),
       }),
   };
 };
@@ -8366,6 +9005,20 @@ const serializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
     ...(input.Sidewalk !== undefined &&
       input.Sidewalk !== null && {
         Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
+      }),
+    ...(input.WirelessDeviceIdEventTopic !== undefined &&
+      input.WirelessDeviceIdEventTopic !== null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration = (
+  input: DeviceRegistrationStateResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk !== undefined &&
+      input.Sidewalk !== null && {
+        Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
       }),
   };
 };
@@ -8409,6 +9062,49 @@ const serializeAws_restJson1JoinEuiRange = (input: string[], context: __SerdeCon
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1JoinEventConfiguration = (input: JoinEventConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && {
+        LoRaWAN: serializeAws_restJson1LoRaWANJoinEventNotificationConfigurations(input.LoRaWAN, context),
+      }),
+    ...(input.WirelessDeviceIdEventTopic !== undefined &&
+      input.WirelessDeviceIdEventTopic !== null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1JoinResourceTypeEventConfiguration = (
+  input: JoinResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && {
+        LoRaWAN: serializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration(input.LoRaWAN, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations = (
+  input: LoRaWANConnectionStatusEventNotificationConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayEuiEventTopic !== undefined &&
+      input.GatewayEuiEventTopic !== null && { GatewayEuiEventTopic: input.GatewayEuiEventTopic }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration = (
+  input: LoRaWANConnectionStatusResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WirelessGatewayEventTopic !== undefined &&
+      input.WirelessGatewayEventTopic !== null && { WirelessGatewayEventTopic: input.WirelessGatewayEventTopic }),
+  };
 };
 
 const serializeAws_restJson1LoRaWANDevice = (input: LoRaWANDevice, context: __SerdeContext): any => {
@@ -8493,6 +9189,26 @@ const serializeAws_restJson1LoRaWANGatewayVersion = (input: LoRaWANGatewayVersio
   };
 };
 
+const serializeAws_restJson1LoRaWANJoinEventNotificationConfigurations = (
+  input: LoRaWANJoinEventNotificationConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DevEuiEventTopic !== undefined &&
+      input.DevEuiEventTopic !== null && { DevEuiEventTopic: input.DevEuiEventTopic }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration = (
+  input: LoRaWANJoinResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WirelessDeviceEventTopic !== undefined &&
+      input.WirelessDeviceEventTopic !== null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
+  };
+};
+
 const serializeAws_restJson1LoRaWANMulticast = (input: LoRaWANMulticast, context: __SerdeContext): any => {
   return {
     ...(input.DlClass !== undefined && input.DlClass !== null && { DlClass: input.DlClass }),
@@ -8549,6 +9265,10 @@ const serializeAws_restJson1LoRaWANStartFuotaTask = (input: LoRaWANStartFuotaTas
 
 const serializeAws_restJson1LoRaWANUpdateDevice = (input: LoRaWANUpdateDevice, context: __SerdeContext): any => {
   return {
+    ...(input.AbpV1_0_x !== undefined &&
+      input.AbpV1_0_x !== null && { AbpV1_0_x: serializeAws_restJson1UpdateAbpV1_0_x(input.AbpV1_0_x, context) }),
+    ...(input.AbpV1_1 !== undefined &&
+      input.AbpV1_1 !== null && { AbpV1_1: serializeAws_restJson1UpdateAbpV1_1(input.AbpV1_1, context) }),
     ...(input.DeviceProfileId !== undefined &&
       input.DeviceProfileId !== null && { DeviceProfileId: input.DeviceProfileId }),
     ...(input.ServiceProfileId !== undefined &&
@@ -8621,6 +9341,20 @@ const serializeAws_restJson1ProximityEventConfiguration = (
       input.Sidewalk !== null && {
         Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
       }),
+    ...(input.WirelessDeviceIdEventTopic !== undefined &&
+      input.WirelessDeviceIdEventTopic !== null && { WirelessDeviceIdEventTopic: input.WirelessDeviceIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1ProximityResourceTypeEventConfiguration = (
+  input: ProximityResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk !== undefined &&
+      input.Sidewalk !== null && {
+        Sidewalk: serializeAws_restJson1SidewalkResourceTypeEventConfiguration(input.Sidewalk, context),
+      }),
   };
 };
 
@@ -8655,6 +9389,16 @@ const serializeAws_restJson1SidewalkEventNotificationConfigurations = (
   return {
     ...(input.AmazonIdEventTopic !== undefined &&
       input.AmazonIdEventTopic !== null && { AmazonIdEventTopic: input.AmazonIdEventTopic }),
+  };
+};
+
+const serializeAws_restJson1SidewalkResourceTypeEventConfiguration = (
+  input: SidewalkResourceTypeEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.WirelessDeviceEventTopic !== undefined &&
+      input.WirelessDeviceEventTopic !== null && { WirelessDeviceEventTopic: input.WirelessDeviceEventTopic }),
   };
 };
 
@@ -8709,6 +9453,18 @@ const serializeAws_restJson1TraceContent = (input: TraceContent, context: __Serd
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
     ...(input.WirelessDeviceFrameInfo !== undefined &&
       input.WirelessDeviceFrameInfo !== null && { WirelessDeviceFrameInfo: input.WirelessDeviceFrameInfo }),
+  };
+};
+
+const serializeAws_restJson1UpdateAbpV1_0_x = (input: UpdateAbpV1_0_x, context: __SerdeContext): any => {
+  return {
+    ...(input.FCntStart !== undefined && input.FCntStart !== null && { FCntStart: input.FCntStart }),
+  };
+};
+
+const serializeAws_restJson1UpdateAbpV1_1 = (input: UpdateAbpV1_1, context: __SerdeContext): any => {
+  return {
+    ...(input.FCntStart !== undefined && input.FCntStart !== null && { FCntStart: input.FCntStart }),
   };
 };
 
@@ -8866,6 +9622,7 @@ const serializeAws_restJson1WirelessMetadata = (input: WirelessMetadata, context
 const deserializeAws_restJson1AbpV1_0_x = (output: any, context: __SerdeContext): AbpV1_0_x => {
   return {
     DevAddr: __expectString(output.DevAddr),
+    FCntStart: __expectInt32(output.FCntStart),
     SessionKeys:
       output.SessionKeys !== undefined && output.SessionKeys !== null
         ? deserializeAws_restJson1SessionKeysAbpV1_0_x(output.SessionKeys, context)
@@ -8876,6 +9633,7 @@ const deserializeAws_restJson1AbpV1_0_x = (output: any, context: __SerdeContext)
 const deserializeAws_restJson1AbpV1_1 = (output: any, context: __SerdeContext): AbpV1_1 => {
   return {
     DevAddr: __expectString(output.DevAddr),
+    FCntStart: __expectInt32(output.FCntStart),
     SessionKeys:
       output.SessionKeys !== undefined && output.SessionKeys !== null
         ? deserializeAws_restJson1SessionKeysAbpV1_1(output.SessionKeys, context)
@@ -8887,6 +9645,31 @@ const deserializeAws_restJson1CertificateList = (output: any, context: __SerdeCo
   return {
     SigningAlg: __expectString(output.SigningAlg),
     Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectionStatusEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConnectionStatusEventConfiguration => {
+  return {
+    LoRaWAN:
+      output.LoRaWAN !== undefined && output.LoRaWAN !== null
+        ? deserializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations(output.LoRaWAN, context)
+        : undefined,
+    WirelessGatewayIdEventTopic: __expectString(output.WirelessGatewayIdEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectionStatusResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConnectionStatusResourceTypeEventConfiguration => {
+  return {
+    LoRaWAN:
+      output.LoRaWAN !== undefined && output.LoRaWAN !== null
+        ? deserializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration(output.LoRaWAN, context)
+        : undefined,
   } as any;
 };
 
@@ -8954,6 +9737,19 @@ const deserializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
       output.Sidewalk !== undefined && output.Sidewalk !== null
         ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
         : undefined,
+    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1DeviceRegistrationStateResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DeviceRegistrationStateResourceTypeEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk !== undefined && output.Sidewalk !== null
+        ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
+        : undefined,
   } as any;
 };
 
@@ -8982,6 +9778,60 @@ const deserializeAws_restJson1DownlinkQueueMessagesList = (
       return deserializeAws_restJson1DownlinkQueueMessage(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1EventConfigurationItem = (
+  output: any,
+  context: __SerdeContext
+): EventConfigurationItem => {
+  return {
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_restJson1EventNotificationItemConfigurations(output.Events, context)
+        : undefined,
+    Identifier: __expectString(output.Identifier),
+    IdentifierType: __expectString(output.IdentifierType),
+    PartnerType: __expectString(output.PartnerType),
+  } as any;
+};
+
+const deserializeAws_restJson1EventConfigurationsList = (
+  output: any,
+  context: __SerdeContext
+): EventConfigurationItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventConfigurationItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EventNotificationItemConfigurations = (
+  output: any,
+  context: __SerdeContext
+): EventNotificationItemConfigurations => {
+  return {
+    ConnectionStatus:
+      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
+        ? deserializeAws_restJson1ConnectionStatusEventConfiguration(output.ConnectionStatus, context)
+        : undefined,
+    DeviceRegistrationState:
+      output.DeviceRegistrationState !== undefined && output.DeviceRegistrationState !== null
+        ? deserializeAws_restJson1DeviceRegistrationStateEventConfiguration(output.DeviceRegistrationState, context)
+        : undefined,
+    Join:
+      output.Join !== undefined && output.Join !== null
+        ? deserializeAws_restJson1JoinEventConfiguration(output.Join, context)
+        : undefined,
+    Proximity:
+      output.Proximity !== undefined && output.Proximity !== null
+        ? deserializeAws_restJson1ProximityEventConfiguration(output.Proximity, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __SerdeContext): number[] => {
@@ -9046,6 +9896,49 @@ const deserializeAws_restJson1JoinEuiRange = (output: any, context: __SerdeConte
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1JoinEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): JoinEventConfiguration => {
+  return {
+    LoRaWAN:
+      output.LoRaWAN !== undefined && output.LoRaWAN !== null
+        ? deserializeAws_restJson1LoRaWANJoinEventNotificationConfigurations(output.LoRaWAN, context)
+        : undefined,
+    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1JoinResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): JoinResourceTypeEventConfiguration => {
+  return {
+    LoRaWAN:
+      output.LoRaWAN !== undefined && output.LoRaWAN !== null
+        ? deserializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration(output.LoRaWAN, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LoRaWANConnectionStatusEventNotificationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANConnectionStatusEventNotificationConfigurations => {
+  return {
+    GatewayEuiEventTopic: __expectString(output.GatewayEuiEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1LoRaWANConnectionStatusResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANConnectionStatusResourceTypeEventConfiguration => {
+  return {
+    WirelessGatewayEventTopic: __expectString(output.WirelessGatewayEventTopic),
+  } as any;
 };
 
 const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeContext): LoRaWANDevice => {
@@ -9222,6 +10115,24 @@ const deserializeAws_restJson1LoRaWANGetServiceProfileInfo = (
   } as any;
 };
 
+const deserializeAws_restJson1LoRaWANJoinEventNotificationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANJoinEventNotificationConfigurations => {
+  return {
+    DevEuiEventTopic: __expectString(output.DevEuiEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1LoRaWANJoinResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANJoinResourceTypeEventConfiguration => {
+  return {
+    WirelessDeviceEventTopic: __expectString(output.WirelessDeviceEventTopic),
+  } as any;
+};
+
 const deserializeAws_restJson1LoRaWANListDevice = (output: any, context: __SerdeContext): LoRaWANListDevice => {
   return {
     DevEui: __expectString(output.DevEui),
@@ -9351,6 +10262,31 @@ const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_restJson1NetworkAnalyzerConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): NetworkAnalyzerConfigurations[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1NetworkAnalyzerConfigurations(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1NetworkAnalyzerConfigurations = (
+  output: any,
+  context: __SerdeContext
+): NetworkAnalyzerConfigurations => {
+  return {
+    Arn: __expectString(output.Arn),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_restJson1OtaaV1_0_x = (output: any, context: __SerdeContext): OtaaV1_0_x => {
   return {
     AppEui: __expectString(output.AppEui),
@@ -9375,6 +10311,19 @@ const deserializeAws_restJson1ProximityEventConfiguration = (
     Sidewalk:
       output.Sidewalk !== undefined && output.Sidewalk !== null
         ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
+        : undefined,
+    WirelessDeviceIdEventTopic: __expectString(output.WirelessDeviceIdEventTopic),
+  } as any;
+};
+
+const deserializeAws_restJson1ProximityResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ProximityResourceTypeEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk !== undefined && output.Sidewalk !== null
+        ? deserializeAws_restJson1SidewalkResourceTypeEventConfiguration(output.Sidewalk, context)
         : undefined,
   } as any;
 };
@@ -9490,6 +10439,15 @@ const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __Serd
         : undefined,
     SidewalkId: __expectString(output.SidewalkId),
     SidewalkManufacturingSn: __expectString(output.SidewalkManufacturingSn),
+  } as any;
+};
+
+const deserializeAws_restJson1SidewalkResourceTypeEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SidewalkResourceTypeEventConfiguration => {
+  return {
+    WirelessDeviceEventTopic: __expectString(output.WirelessDeviceEventTopic),
   } as any;
 };
 

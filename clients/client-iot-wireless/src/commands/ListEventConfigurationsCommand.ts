@@ -12,41 +12,41 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
+import { ListEventConfigurationsRequest, ListEventConfigurationsResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListQueuedMessagesCommand,
-  serializeAws_restJson1ListQueuedMessagesCommand,
+  deserializeAws_restJson1ListEventConfigurationsCommand,
+  serializeAws_restJson1ListEventConfigurationsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListQueuedMessagesCommandInput extends ListQueuedMessagesRequest {}
-export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesResponse, __MetadataBearer {}
+export interface ListEventConfigurationsCommandInput extends ListEventConfigurationsRequest {}
+export interface ListEventConfigurationsCommandOutput extends ListEventConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>List queued messages in the downlink queue.</p>
+ * <p>List event configurations where at least one event topic has been enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, ListQueuedMessagesCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, ListQueuedMessagesCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, ListEventConfigurationsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, ListEventConfigurationsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const command = new ListQueuedMessagesCommand(input);
+ * const command = new ListEventConfigurationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListQueuedMessagesCommandInput} for command's `input` shape.
- * @see {@link ListQueuedMessagesCommandOutput} for command's `response` shape.
+ * @see {@link ListEventConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListEventConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
-export class ListQueuedMessagesCommand extends $Command<
-  ListQueuedMessagesCommandInput,
-  ListQueuedMessagesCommandOutput,
+export class ListEventConfigurationsCommand extends $Command<
+  ListEventConfigurationsCommandInput,
+  ListEventConfigurationsCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListQueuedMessagesCommandInput) {
+  constructor(readonly input: ListEventConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -59,20 +59,20 @@ export class ListQueuedMessagesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTWirelessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListQueuedMessagesCommandInput, ListQueuedMessagesCommandOutput> {
+  ): Handler<ListEventConfigurationsCommandInput, ListEventConfigurationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTWirelessClient";
-    const commandName = "ListQueuedMessagesCommand";
+    const commandName = "ListEventConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuedMessagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuedMessagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventConfigurationsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListEventConfigurationsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,12 +82,12 @@ export class ListQueuedMessagesCommand extends $Command<
     );
   }
 
-  private serialize(input: ListQueuedMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListQueuedMessagesCommand(input, context);
+  private serialize(input: ListEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListEventConfigurationsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListQueuedMessagesCommandOutput> {
-    return deserializeAws_restJson1ListQueuedMessagesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventConfigurationsCommandOutput> {
+    return deserializeAws_restJson1ListEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra
