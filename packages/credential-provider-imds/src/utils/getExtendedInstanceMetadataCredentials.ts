@@ -2,7 +2,7 @@ import { Logger } from "@aws-sdk/types";
 
 import { InstanceMetadataCredentials } from "../types";
 
-const STATIC_STABILITY_REFRESH_INTERVAL_SECONDS = 15 * 60;
+const STATIC_STABILITY_REFRESH_INTERVAL_SECONDS = 5 * 60;
 const STATIC_STABILITY_REFRESH_INTERVAL_JITTER_WINDOW_SECONDS = 5 * 60;
 const STATIC_STABILITY_DOC_URL = "https://docs.aws.amazon.com/sdkref/latest/guide/feature-static-credentials.html";
 
