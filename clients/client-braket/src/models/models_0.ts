@@ -50,7 +50,8 @@ export enum CompressionType {
 }
 
 /**
- * <p>Contains information about the Python scripts used for entry and by an Amazon Braket job.</p>
+ * <p>Contains information about the Python scripts used for entry and by an Amazon Braket
+ *          job.</p>
  */
 export interface ScriptModeConfig {
   /**
@@ -81,8 +82,8 @@ export namespace ScriptModeConfig {
 }
 
 /**
- * <p>Defines the Amazon Braket job to be created. Specifies the container image the job uses and the paths to
- *          the Python scripts used for entry and training.</p>
+ * <p>Defines the Amazon Braket job to be created. Specifies the container image the job uses
+ *          and the paths to the Python scripts used for entry and training.</p>
  */
 export interface AlgorithmSpecification {
   /**
@@ -174,7 +175,8 @@ export namespace GetDeviceResponse {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
  */
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
@@ -275,7 +277,8 @@ export namespace SearchDevicesFilter {
 
 export interface SearchDevicesRequest {
   /**
-   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
+   * <p>A token used for pagination of results returned in the response. Use the token returned
+   *          from the previous request continue results where the previous request ended.</p>
    */
   nextToken?: string;
 
@@ -340,12 +343,15 @@ export namespace DeviceSummary {
 
 export interface SearchDevicesResponse {
   /**
-   * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified filter values.</p>
+   * <p>An array of <code>DeviceSummary</code> objects for devices that match the specified
+   *          filter values.</p>
    */
   devices: DeviceSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination of results, or null if there are no additional results. Use the token value in a subsequent request to continue results where the previous request ended.</p>
+   * <p>A token used for pagination of results, or null if there are no additional results. Use
+   *          the token value in a subsequent request to continue results where the previous request
+   *          ended.</p>
    */
   nextToken?: string;
 }
@@ -425,12 +431,14 @@ export class ConflictException extends __BaseException {
  */
 export interface JobCheckpointConfig {
   /**
-   * <p>(Optional) The local directory where checkpoints are written. The default directory is <code>/opt/braket/checkpoints/</code>.</p>
+   * <p>(Optional) The local directory where checkpoints are written. The default directory is
+   *             <code>/opt/braket/checkpoints/</code>.</p>
    */
   localPath?: string;
 
   /**
-   * <p>Identifies the S3 path where you want Amazon Braket to store checkpoints. For example, <code>s3://bucket-name/key-name-prefix</code>.</p>
+   * <p>Identifies the S3 path where you want Amazon Braket to store checkpoints. For example,
+   *             <code>s3://bucket-name/key-name-prefix</code>.</p>
    */
   s3Uri: string | undefined;
 }
@@ -445,11 +453,13 @@ export namespace JobCheckpointConfig {
 }
 
 /**
- * <p>Configures the quantum processing units (QPUs) or simulator used to create and run an Amazon Braket job.</p>
+ * <p>Configures the quantum processing units (QPUs) or simulator used to create and run an
+ *          Amazon Braket job.</p>
  */
 export interface DeviceConfig {
   /**
-   * <p>The primary quantum processing unit (QPU) or simulator used to create and run an Amazon Braket job.</p>
+   * <p>The primary quantum processing unit (QPU) or simulator used to create and run an Amazon
+   *          Braket job.</p>
    */
   device: string | undefined;
 }
@@ -575,12 +585,13 @@ export enum _InstanceType {
 }
 
 /**
- * <p>Configures the resource instances to use while running the Amazon Braket hybrid job on Amazon
- *          Braket.</p>
+ * <p>Configures the resource instances to use while running the Amazon Braket hybrid job on
+ *          Amazon Braket.</p>
  */
 export interface InstanceConfig {
   /**
-   * <p>Configures the type resource instances to use while running an Amazon Braket hybrid job.</p>
+   * <p>Configures the type resource instances to use while running an Amazon Braket hybrid
+   *          job.</p>
    */
   instanceType: _InstanceType | string | undefined;
 
@@ -588,6 +599,12 @@ export interface InstanceConfig {
    * <p>The size of the storage volume, in GB, that user wants to provision.</p>
    */
   volumeSizeInGb: number | undefined;
+
+  /**
+   * <p>Configures the number of resource instances to use while running an Amazon Braket job on
+   *          Amazon Braket. The default value is 1.</p>
+   */
+  instanceCount?: number;
 }
 
 export namespace InstanceConfig {
@@ -605,14 +622,14 @@ export namespace InstanceConfig {
  */
 export interface JobOutputDataConfig {
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key that Amazon Braket uses to encrypt the
-   *          job training artifacts at rest using Amazon S3 server-side encryption.</p>
+   * <p>The AWS Key Management Service (AWS KMS) key that Amazon Braket uses to encrypt the job
+   *          training artifacts at rest using Amazon S3 server-side encryption.</p>
    */
   kmsKeyId?: string;
 
   /**
-   * <p>Identifies the S3 path where you want Amazon Braket to store the job training artifacts. For
-   *          example, <code>s3://bucket-name/key-name-prefix</code>.</p>
+   * <p>Identifies the S3 path where you want Amazon Braket to store the job training artifacts.
+   *          For example, <code>s3://bucket-name/key-name-prefix</code>.</p>
    */
   s3Path: string | undefined;
 }
@@ -652,8 +669,8 @@ export interface CreateJobRequest {
   clientToken?: string;
 
   /**
-   * <p>Definition of the Amazon Braket job to be created. Specifies the container image the job uses and information
-   *          about the Python scripts used for entry and training.</p>
+   * <p>Definition of the Amazon Braket job to be created. Specifies the container image the job
+   *          uses and information about the Python scripts used for entry and training.</p>
    */
   algorithmSpecification: AlgorithmSpecification | undefined;
 
@@ -664,8 +681,8 @@ export interface CreateJobRequest {
   inputDataConfig?: InputFileConfig[];
 
   /**
-   * <p>The path to the S3 location where you want to store job artifacts and the
-   *          encryption key used to store them.</p>
+   * <p>The path to the S3 location where you want to store job artifacts and the encryption key
+   *          used to store them.</p>
    */
   outputDataConfig: JobOutputDataConfig | undefined;
 
@@ -699,18 +716,20 @@ export interface CreateJobRequest {
 
   /**
    * <p>Algorithm-specific parameters used by an Amazon Braket job that influence the quality of
-   *          the training job. The values are set with a string of JSON key:value pairs, where the key is the
-   *          name of the hyperparameter and the value is the value of th hyperparameter.</p>
+   *          the training job. The values are set with a string of JSON key:value pairs, where the key
+   *          is the name of the hyperparameter and the value is the value of th hyperparameter.</p>
    */
   hyperParameters?: { [key: string]: string };
 
   /**
-   * <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket job.</p>
+   * <p>The quantum processing unit (QPU) or simulator used to create an Amazon Braket
+   *          job.</p>
    */
   deviceConfig: DeviceConfig | undefined;
 
   /**
-   * <p>A tag object that consists of a key and an optional value, used to manage metadata for Amazon Braket resources.</p>
+   * <p>A tag object that consists of a key and an optional value, used to manage metadata for
+   *          Amazon Braket resources.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -876,8 +895,8 @@ export interface GetJobResponse {
 
   /**
    * <p>Algorithm-specific parameters used by an Amazon Braket job that influence the quality of
-   *          the traiing job. The values are set with a string of JSON key:value pairs, where the key is the
-   *          name of the hyperparameter and the value is the value of th hyperparameter.</p>
+   *          the traiing job. The values are set with a string of JSON key:value pairs, where the key is
+   *          the name of the hyperparameter and the value is the value of th hyperparameter.</p>
    */
   hyperParameters?: { [key: string]: string };
 
@@ -888,8 +907,8 @@ export interface GetJobResponse {
   inputDataConfig?: InputFileConfig[];
 
   /**
-   * <p>The path to the S3 location where job artifacts are stored and the encryption
-   *          key used to store them there.</p>
+   * <p>The path to the S3 location where job artifacts are stored and the encryption key used
+   *          to store them there.</p>
    */
   outputDataConfig: JobOutputDataConfig | undefined;
 
@@ -904,15 +923,14 @@ export interface GetJobResponse {
   checkpointConfig?: JobCheckpointConfig;
 
   /**
-   * <p>Definition of the Amazon Braket job created. Specifies the container image the job uses, information about
-   *          the Python scripts used for entry and training, and the user-defined metrics used to
-   *          evaluation the job.</p>
+   * <p>Definition of the Amazon Braket job created. Specifies the container image the job uses,
+   *          information about the Python scripts used for entry and training, and the user-defined
+   *          metrics used to evaluation the job.</p>
    */
   algorithmSpecification: AlgorithmSpecification | undefined;
 
   /**
-   * <p>The resource instances to use while running the hybrid job on Amazon
-   *          Braket.</p>
+   * <p>The resource instances to use while running the hybrid job on Amazon Braket.</p>
    */
   instanceConfig: InstanceConfig | undefined;
 
@@ -947,7 +965,8 @@ export interface GetJobResponse {
   events?: JobEventDetails[];
 
   /**
-   * <p>A tag object that consists of a key and an optional value, used to manage metadata for Amazon Braket resources.</p>
+   * <p>A tag object that consists of a key and an optional value, used to manage metadata for
+   *          Amazon Braket resources.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -1047,7 +1066,8 @@ export interface JobSummary {
   jobName: string | undefined;
 
   /**
-   * <p>Provides summary information about the primary device used by an Amazon Braket job.</p>
+   * <p>Provides summary information about the primary device used by an Amazon Braket
+   *          job.</p>
    */
   device: string | undefined;
 
@@ -1067,7 +1087,8 @@ export interface JobSummary {
   endedAt?: Date;
 
   /**
-   * <p>A tag object that consists of a key and an optional value, used to manage metadata for Amazon Braket resources.</p>
+   * <p>A tag object that consists of a key and an optional value, used to manage metadata for
+   *          Amazon Braket resources.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -1089,9 +1110,9 @@ export interface SearchJobsResponse {
   jobs: JobSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination of results, or <code>null</code> if there are no additional results. Use
-   *          the token value in a subsequent request to continue results where the previous request
-   *          ended.</p>
+   * <p>A token used for pagination of results, or <code>null</code> if there are no additional
+   *          results. Use the token value in a subsequent request to continue results where the previous
+   *          request ended.</p>
    */
   nextToken?: string;
 }
@@ -1407,7 +1428,8 @@ export namespace SearchQuantumTasksFilter {
 
 export interface SearchQuantumTasksRequest {
   /**
-   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
+   * <p>A token used for pagination of results returned in the response. Use the token returned
+   *          from the previous request continue results where the previous request ended.</p>
    */
   nextToken?: string;
 
@@ -1492,12 +1514,15 @@ export namespace QuantumTaskSummary {
 
 export interface SearchQuantumTasksResponse {
   /**
-   * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified filters.</p>
+   * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified
+   *          filters.</p>
    */
   quantumTasks: QuantumTaskSummary[] | undefined;
 
   /**
-   * <p>A token used for pagination of results, or null if there are no additional results. Use the token value in a subsequent request to continue results where the previous request ended.</p>
+   * <p>A token used for pagination of results, or null if there are no additional results. Use
+   *          the token value in a subsequent request to continue results where the previous request
+   *          ended.</p>
    */
   nextToken?: string;
 }
@@ -1513,7 +1538,8 @@ export namespace SearchQuantumTasksResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</p>
+   * <p>Specify the <code>resourceArn</code> of the resource to which a tag will be
+   *          added.</p>
    */
   resourceArn: string | undefined;
 
@@ -1545,7 +1571,8 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</p>
+   * <p>Specify the <code>resourceArn</code> for the resource from which to remove the
+   *          tags.</p>
    */
   resourceArn: string | undefined;
 
