@@ -21,13 +21,13 @@ describe("getExtendedInstanceMetadataCredentials()", () => {
     nowMock.mockRestore();
   });
 
-  it("should extend the expiration random time(~15 mins) from now", () => {
+  it("should extend the expiration random time(5~10 mins) from now", () => {
     const anyDate: Date = "any date" as unknown as Date;
     (Math.random as jest.Mock).mockReturnValue(0.5);
     expect(getExtendedInstanceMetadataCredentials({ ...staticSecret, expiration: anyDate }, logger)).toEqual({
       ...staticSecret,
       originalExpiration: anyDate,
-      expiration: new Date("2022-02-22T00:17:30Z"),
+      expiration: new Date("2022-02-22T00:07:30Z"),
     });
     expect(Math.random).toBeCalledTimes(1);
   });
