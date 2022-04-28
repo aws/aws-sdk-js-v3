@@ -492,7 +492,7 @@ export interface EncryptionConfiguration {
   /**
    * <p>The type of Amazon Web Services KMS key to use for encryption of your Network Firewall resources.</p>
    */
-  Type?: EncryptionType | string;
+  Type: EncryptionType | string | undefined;
 }
 
 export namespace EncryptionConfiguration {
@@ -1230,6 +1230,11 @@ export interface FirewallPolicyResponse {
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your firewall policy.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>The last time that the firewall policy was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace FirewallPolicyResponse {
@@ -1930,6 +1935,30 @@ export namespace RuleGroup {
   });
 }
 
+/**
+ * <p>High-level information about the managed rule group that your own rule group is copied from. You can use the the metadata to track version updates made to the originating rule group. You can retrieve all objects for a rule group by calling <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html">DescribeRuleGroup</a>.</p>
+ */
+export interface SourceMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule group that your own rule group is copied from.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken">DescribeRuleGroup</a>.</p>
+   */
+  SourceUpdateToken?: string;
+}
+
+export namespace SourceMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceMetadata): any => ({
+    ...obj,
+  });
+}
+
 export enum RuleGroupType {
   STATEFUL = "STATEFUL",
   STATELESS = "STATELESS",
@@ -2035,6 +2064,11 @@ export interface CreateRuleGroupRequest {
    * <p>A complex type that contains settings for encryption of your rule group resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
 }
 
 export namespace CreateRuleGroupRequest {
@@ -2114,6 +2148,24 @@ export interface RuleGroupResponse {
    * <p>A complex type that contains the Amazon Web Services KMS encryption configuration settings for your rule group.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to track the version updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the Amazon Simple Notification Service SNS topic that's
+   * used to record changes to the managed rule group. You can subscribe to the SNS topic to receive
+   * notifications when the managed rule group is modified, such as for new versions and for version
+   * expiration. For more information, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service Developer Guide.</a>.</p>
+   */
+  SnsTopic?: string;
+
+  /**
+   * <p>The last time that the rule group was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace RuleGroupResponse {
@@ -2762,6 +2814,11 @@ export interface DescribeRuleGroupMetadataResponse {
    * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
    */
   StatefulRuleOptions?: StatefulRuleOptions;
+
+  /**
+   * <p>The last time that the rule group was changed.</p>
+   */
+  LastModifiedTime?: Date;
 }
 
 export namespace DescribeRuleGroupMetadataResponse {
@@ -2998,6 +3055,11 @@ export namespace ListFirewallsResponse {
   });
 }
 
+export enum ResourceManagedType {
+  AWS_MANAGED_DOMAIN_LISTS = "AWS_MANAGED_DOMAIN_LISTS",
+  AWS_MANAGED_THREAT_SIGNATURES = "AWS_MANAGED_THREAT_SIGNATURES",
+}
+
 export enum ResourceManagedStatus {
   ACCOUNT = "ACCOUNT",
   MANAGED = "MANAGED",
@@ -3024,6 +3086,16 @@ export interface ListRuleGroupsRequest {
    *          <code>MANAGED</code> returns all available managed rule groups.</p>
    */
   Scope?: ResourceManagedStatus | string;
+
+  /**
+   * <p>Indicates the general category of the Amazon Web Services managed rule group.</p>
+   */
+  ManagedType?: ResourceManagedType | string;
+
+  /**
+   * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules.</p>
+   */
+  Type?: RuleGroupType | string;
 }
 
 export namespace ListRuleGroupsRequest {
@@ -3781,6 +3853,11 @@ export interface UpdateRuleGroupRequest {
    * <p>A complex type that contains settings for encryption of your rule group resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>A complex type that contains metadata about the rule group that your own rule group is copied from. You can use the metadata to keep track of updates made to the originating rule group.</p>
+   */
+  SourceMetadata?: SourceMetadata;
 }
 
 export namespace UpdateRuleGroupRequest {

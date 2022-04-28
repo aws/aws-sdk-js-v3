@@ -3,7 +3,10 @@ import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -179,6 +182,7 @@ import {
   RulesSource,
   RulesSourceList,
   RuleVariables,
+  SourceMetadata,
   StatefulEngineOptions,
   StatefulRule,
   StatefulRuleGroupOverride,
@@ -2600,6 +2604,10 @@ const serializeAws_json1_0CreateRuleGroupRequest = (input: CreateRuleGroupReques
       input.RuleGroup !== null && { RuleGroup: serializeAws_json1_0RuleGroup(input.RuleGroup, context) }),
     ...(input.RuleGroupName !== undefined && input.RuleGroupName !== null && { RuleGroupName: input.RuleGroupName }),
     ...(input.Rules !== undefined && input.Rules !== null && { Rules: input.Rules }),
+    ...(input.SourceMetadata !== undefined &&
+      input.SourceMetadata !== null && {
+        SourceMetadata: serializeAws_json1_0SourceMetadata(input.SourceMetadata, context),
+      }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
@@ -2866,9 +2874,11 @@ const serializeAws_json1_0ListFirewallsRequest = (input: ListFirewallsRequest, c
 
 const serializeAws_json1_0ListRuleGroupsRequest = (input: ListRuleGroupsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ManagedType !== undefined && input.ManagedType !== null && { ManagedType: input.ManagedType }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -3119,6 +3129,14 @@ const serializeAws_json1_0Settings = (input: string[], context: __SerdeContext):
       }
       return entry;
     });
+};
+
+const serializeAws_json1_0SourceMetadata = (input: SourceMetadata, context: __SerdeContext): any => {
+  return {
+    ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
+    ...(input.SourceUpdateToken !== undefined &&
+      input.SourceUpdateToken !== null && { SourceUpdateToken: input.SourceUpdateToken }),
+  };
 };
 
 const serializeAws_json1_0StatefulActions = (input: string[], context: __SerdeContext): any => {
@@ -3469,6 +3487,10 @@ const serializeAws_json1_0UpdateRuleGroupRequest = (input: UpdateRuleGroupReques
     ...(input.RuleGroupArn !== undefined && input.RuleGroupArn !== null && { RuleGroupArn: input.RuleGroupArn }),
     ...(input.RuleGroupName !== undefined && input.RuleGroupName !== null && { RuleGroupName: input.RuleGroupName }),
     ...(input.Rules !== undefined && input.Rules !== null && { Rules: input.Rules }),
+    ...(input.SourceMetadata !== undefined &&
+      input.SourceMetadata !== null && {
+        SourceMetadata: serializeAws_json1_0SourceMetadata(input.SourceMetadata, context),
+      }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
     ...(input.UpdateToken !== undefined && input.UpdateToken !== null && { UpdateToken: input.UpdateToken }),
   };
@@ -3739,6 +3761,10 @@ const deserializeAws_json1_0DescribeRuleGroupMetadataResponse = (
   return {
     Capacity: __expectInt32(output.Capacity),
     Description: __expectString(output.Description),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
     RuleGroupArn: __expectString(output.RuleGroupArn),
     RuleGroupName: __expectString(output.RuleGroupName),
     StatefulRuleOptions:
@@ -3907,6 +3933,10 @@ const deserializeAws_json1_0FirewallPolicyResponse = (output: any, context: __Se
     FirewallPolicyId: __expectString(output.FirewallPolicyId),
     FirewallPolicyName: __expectString(output.FirewallPolicyName),
     FirewallPolicyStatus: __expectString(output.FirewallPolicyStatus),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
     NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -4303,11 +4333,20 @@ const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeCo
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
         ? deserializeAws_json1_0EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
     NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
     RuleGroupArn: __expectString(output.RuleGroupArn),
     RuleGroupId: __expectString(output.RuleGroupId),
     RuleGroupName: __expectString(output.RuleGroupName),
     RuleGroupStatus: __expectString(output.RuleGroupStatus),
+    SnsTopic: __expectString(output.SnsTopic),
+    SourceMetadata:
+      output.SourceMetadata !== undefined && output.SourceMetadata !== null
+        ? deserializeAws_json1_0SourceMetadata(output.SourceMetadata, context)
+        : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -4417,6 +4456,13 @@ const deserializeAws_json1_0Settings = (output: any, context: __SerdeContext): s
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_0SourceMetadata = (output: any, context: __SerdeContext): SourceMetadata => {
+  return {
+    SourceArn: __expectString(output.SourceArn),
+    SourceUpdateToken: __expectString(output.SourceUpdateToken),
+  } as any;
 };
 
 const deserializeAws_json1_0StatefulActions = (output: any, context: __SerdeContext): string[] => {
