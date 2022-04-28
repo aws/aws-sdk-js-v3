@@ -4,7 +4,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
   AgentStatusState,
-  AvailableNumberSummary,
   ContactFlowModuleState,
   ContactFlowState,
   HoursOfOperationConfig,
@@ -13,6 +12,8 @@ import {
   InstanceStorageResourceType,
   MediaConcurrency,
   OutboundCallerConfig,
+  PhoneNumberCountryCode,
+  PhoneNumberType,
   QueueStatus,
   QuickConnectConfig,
   ReferenceType,
@@ -22,6 +23,77 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+export interface SearchAvailablePhoneNumbersRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.</p>
+   */
+  TargetArn: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode: PhoneNumberCountryCode | string | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType: PhoneNumberType | string | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   */
+  PhoneNumberPrefix?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchAvailablePhoneNumbersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchAvailablePhoneNumbersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about available phone numbers.</p>
+ */
+export interface AvailableNumberSummary {
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ISO country code.</p>
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
+}
+
+export namespace AvailableNumberSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AvailableNumberSummary): any => ({
+    ...obj,
+  });
+}
 
 export interface SearchAvailablePhoneNumbersResponse {
   /**

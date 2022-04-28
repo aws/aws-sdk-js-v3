@@ -284,6 +284,7 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import {
   ResumeContactRecordingCommandInput,
@@ -445,7 +446,6 @@ import {
   AgentStatusSummary,
   AttachmentReference,
   Attribute,
-  AvailableNumberSummary,
   Channel,
   ClaimedPhoneNumberSummary,
   Contact,
@@ -540,6 +540,7 @@ import {
 } from "../models/models_0";
 import {
   AnswerMachineDetectionConfig,
+  AvailableNumberSummary,
   ChatMessage,
   ChatStreamingConfiguration,
   ContactNotFoundException,
@@ -4154,6 +4155,49 @@ export const serializeAws_restJson1ListUsersCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutUserStatusCommand = async (
+  input: PutUserStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/status";
+  if (input.UserId !== undefined) {
+    const labelValue: string = input.UserId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: UserId.");
+    }
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AgentStatusId !== undefined && input.AgentStatusId !== null && { AgentStatusId: input.AgentStatusId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -11621,6 +11665,61 @@ const deserializeAws_restJson1ListUsersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1PutUserStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutUserStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutUserStatusCommandError(output, context);
+  }
+  const contents: PutUserStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutUserStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutUserStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.connect#InternalServiceException":
       throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);

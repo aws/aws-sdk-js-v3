@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { SearchAvailablePhoneNumbersRequest } from "../models/models_0";
-import { SearchAvailablePhoneNumbersResponse } from "../models/models_1";
+import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
   serializeAws_restJson1SearchAvailablePhoneNumbersCommand,

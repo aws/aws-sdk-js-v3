@@ -93,6 +93,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./ListUseCasesCommand";
 export * from "./ListUserHierarchyGroupsCommand";
 export * from "./ListUsersCommand";
+export * from "./PutUserStatusCommand";
 export * from "./ReleasePhoneNumberCommand";
 export * from "./ResumeContactRecordingCommand";
 export * from "./SearchAvailablePhoneNumbersCommand";
