@@ -92,7 +92,12 @@ function parseCIDR(cidrStr: string): string {
     }
     return `${cidrParts[0]}/${mask}`;
   } catch (error) {
-    throw new Error(`IP address "${cidrStr}" is invalid due to ${error.message}.`);
+    const errMessage = `IP address "${cidrStr}" is invalid`;
+    if (error instanceof Error) {
+      throw new Error(`${errMessage} due to ${error.message}.`);
+    } else {
+      throw new Error(`${errMessage}.`);
+    }
   }
 }
 
