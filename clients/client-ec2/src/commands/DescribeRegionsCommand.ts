@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_3";
+import { DescribeRegionsRequest } from "../models/models_3";
+import { DescribeRegionsResult } from "../models/models_4";
 import { deserializeAws_ec2DescribeRegionsCommand, serializeAws_ec2DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}

@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RequestSpotInstancesRequest, RequestSpotInstancesResult } from "../models/models_5";
+import { RequestSpotInstancesRequest } from "../models/models_5";
+import { RequestSpotInstancesResult } from "../models/models_6";
 import {
   deserializeAws_ec2RequestSpotInstancesCommand,
   serializeAws_ec2RequestSpotInstancesCommand,

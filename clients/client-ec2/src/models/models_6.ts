@@ -42,8 +42,28 @@ import {
   InstanceNetworkInterfaceSpecification,
   RunInstancesMonitoringEnabled,
   SnapshotAttributeName,
+  SpotInstanceRequest,
 } from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+
+/**
+ * <p>Contains the output of RequestSpotInstances.</p>
+ */
+export interface RequestSpotInstancesResult {
+  /**
+   * <p>One or more Spot Instance requests.</p>
+   */
+  SpotInstanceRequests?: SpotInstanceRequest[];
+}
+
+export namespace RequestSpotInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
+    ...obj,
+  });
+}
 
 export interface ResetAddressAttributeRequest {
   /**

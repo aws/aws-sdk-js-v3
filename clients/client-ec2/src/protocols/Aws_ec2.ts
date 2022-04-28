@@ -2088,7 +2088,6 @@ import {
   CreateTrafficMirrorSessionResult,
   CreateTrafficMirrorTargetRequest,
   CreateTrafficMirrorTargetResult,
-  CreateTransitGatewayConnectRequest,
   CreateTransitGatewayConnectRequestOptions,
   CreateTransitGatewayRequest,
   CreateTransitGatewayResult,
@@ -2254,6 +2253,7 @@ import {
   ConnectionNotification,
   CreateTransitGatewayConnectPeerRequest,
   CreateTransitGatewayConnectPeerResult,
+  CreateTransitGatewayConnectRequest,
   CreateTransitGatewayConnectResult,
   CreateTransitGatewayMulticastDomainRequest,
   CreateTransitGatewayMulticastDomainRequestOptions,
@@ -2441,7 +2441,6 @@ import {
   DescribeClientVpnRoutesResult,
   DescribeClientVpnTargetNetworksRequest,
   DescribeClientVpnTargetNetworksResult,
-  DescribeCoipPoolsRequest,
   DirectoryServiceAuthentication,
   DnsEntry,
   FailedQueuedPurchaseDeletion,
@@ -2512,6 +2511,7 @@ import {
   CoipPool,
   ConversionTask,
   CpuOptions,
+  DescribeCoipPoolsRequest,
   DescribeCoipPoolsResult,
   DescribeConversionTasksRequest,
   DescribeConversionTasksResult,
@@ -2640,7 +2640,6 @@ import {
   DescribePublicIpv4PoolsRequest,
   DescribePublicIpv4PoolsResult,
   DescribeRegionsRequest,
-  DescribeRegionsResult,
   DestinationOptionsResponse,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2763,6 +2762,7 @@ import {
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   CreateVolumePermission,
+  DescribeRegionsResult,
   DescribeReplaceRootVolumeTasksRequest,
   DescribeReplaceRootVolumeTasksResult,
   DescribeReservedInstancesListingsRequest,
@@ -2972,7 +2972,6 @@ import {
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
   GetFlowLogsIntegrationTemplateRequest,
-  GetFlowLogsIntegrationTemplateResult,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -3045,6 +3044,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetFlowLogsIntegrationTemplateResult,
   GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
   GetHostReservationPurchasePreviewRequest,
@@ -3295,7 +3295,6 @@ import {
   RequestSpotFleetRequest,
   RequestSpotFleetResponse,
   RequestSpotInstancesRequest,
-  RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
   ReservationValue,
   ReservedInstanceLimitPrice,
@@ -3335,6 +3334,7 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RequestSpotInstancesResult,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -35083,6 +35083,9 @@ const serializeAws_ec2CreateKeyPairRequest = (input: CreateKeyPairRequest, conte
       entries[loc] = value;
     });
   }
+  if (input.KeyFormat !== undefined && input.KeyFormat !== null) {
+    entries["KeyFormat"] = input.KeyFormat;
+  }
   return entries;
 };
 
@@ -39356,6 +39359,9 @@ const serializeAws_ec2DescribeKeyPairsRequest = (input: DescribeKeyPairsRequest,
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.IncludePublicKey !== undefined && input.IncludePublicKey !== null) {
+    entries["IncludePublicKey"] = input.IncludePublicKey;
   }
   return entries;
 };
@@ -69490,6 +69496,8 @@ const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): Ke
     KeyName: undefined,
     KeyType: undefined,
     Tags: undefined,
+    PublicKey: undefined,
+    CreateTime: undefined,
   };
   if (output["keyPairId"] !== undefined) {
     contents.KeyPairId = __expectString(output["keyPairId"]);
@@ -69508,6 +69516,12 @@ const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): Ke
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["publicKey"] !== undefined) {
+    contents.PublicKey = __expectString(output["publicKey"]);
+  }
+  if (output["createTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
   }
   return contents;
 };

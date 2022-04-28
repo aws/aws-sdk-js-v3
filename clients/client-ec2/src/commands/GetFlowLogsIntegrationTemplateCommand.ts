@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetFlowLogsIntegrationTemplateRequest, GetFlowLogsIntegrationTemplateResult } from "../models/models_4";
+import { GetFlowLogsIntegrationTemplateRequest } from "../models/models_4";
+import { GetFlowLogsIntegrationTemplateResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
   serializeAws_ec2GetFlowLogsIntegrationTemplateCommand,

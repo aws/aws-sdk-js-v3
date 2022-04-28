@@ -90,7 +90,24 @@ import {
   FastSnapshotRestoreStateCode,
   PermissionGroup,
   ProductCode,
+  Region,
 } from "./models_3";
+
+export interface DescribeRegionsResult {
+  /**
+   * <p>Information about the Regions.</p>
+   */
+  Regions?: Region[];
+}
+
+export namespace DescribeRegionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeReplaceRootVolumeTasksRequest {
   /**
@@ -11274,22 +11291,6 @@ export namespace GetFlowLogsIntegrationTemplateRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFlowLogsIntegrationTemplateResult {
-  /**
-   * <p>The generated CloudFormation template.</p>
-   */
-  Result?: string;
-}
-
-export namespace GetFlowLogsIntegrationTemplateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateResult): any => ({
     ...obj,
   });
 }

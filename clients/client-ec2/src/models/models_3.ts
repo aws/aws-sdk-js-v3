@@ -72,6 +72,55 @@ import {
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
 
+export interface DescribeCoipPoolsRequest {
+  /**
+   * <p>The IDs of the address pools.</p>
+   */
+  PoolIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeCoipPoolsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes a customer-owned address pool.</p>
  */
@@ -8889,6 +8938,13 @@ export interface DescribeKeyPairsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>If <code>true</code>, the public key material is included in the response.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  IncludePublicKey?: boolean;
 }
 
 export namespace DescribeKeyPairsRequest {
@@ -8947,6 +9003,21 @@ export interface KeyPairInfo {
    * <p>Any tags applied to the key pair.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The public key material.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>If you used Amazon EC2 to create the key pair, this is the date and time when the key
+   *             was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                 8601 date-time format</a>, in the UTC time zone.</p>
+   *         <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key
+   *             was imported, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                 8601 date-time format</a>, in the UTC time zone.</p>
+   */
+  CreateTime?: Date;
 }
 
 export namespace KeyPairInfo {
@@ -12054,22 +12125,6 @@ export namespace Region {
    * @internal
    */
   export const filterSensitiveLog = (obj: Region): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeRegionsResult {
-  /**
-   * <p>Information about the Regions.</p>
-   */
-  Regions?: Region[];
-}
-
-export namespace DescribeRegionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
     ...obj,
   });
 }

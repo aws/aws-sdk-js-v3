@@ -37,6 +37,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  CreateTransitGatewayConnectRequestOptions,
   GroupIdentifier,
   Ipam,
   IpamPool,
@@ -50,6 +51,39 @@ import {
   TransitGateway,
   VolumeType,
 } from "./models_1";
+
+export interface CreateTransitGatewayConnectRequest {
+  /**
+   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
+   */
+  TransportTransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The Connect attachment options.</p>
+   */
+  Options: CreateTransitGatewayConnectRequestOptions | undefined;
+
+  /**
+   * <p>The tags to apply to the Connect attachment.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateTransitGatewayConnectRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the Connect attachment options.</p>
@@ -8547,55 +8581,6 @@ export namespace DescribeClientVpnTargetNetworksResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeCoipPoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeCoipPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCoipPoolsRequest): any => ({
     ...obj,
   });
 }
