@@ -22,9 +22,38 @@ export interface DeleteWebACLCommandInput extends DeleteWebACLRequest {}
 export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified <a>WebACL</a>.</p>
+ * <p>Deletes the specified <a>WebACL</a>. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
  *             <a>WebACL</a>. </p>
+ *         <note>
+ *             <p>Before deleting any web ACL, first disassociate it from all resources.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>To retrieve a list of the resources that are associated with a web ACL, use the following calls:</p>
+ *                   <ul>
+ *                      <li>
+ *                         <p>For regional resources, call <a>ListResourcesForWebACL</a>.</p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For Amazon CloudFront distributions, use the CloudFront call <code>ListDistributionsByWebACLId</code>.
+ *                       For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>.</p>
+ *                      </li>
+ *                   </ul>
+ *                </li>
+ *                <li>
+ *                   <p>To disassociate a resource from a web ACL, use the following calls:</p>
+ *                   <ul>
+ *                      <li>
+ *                         <p>For regional resources, call <a>DisassociateWebACL</a>.</p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call
+ *             <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ *                      </li>
+ *                   </ul>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
