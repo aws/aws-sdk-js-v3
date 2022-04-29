@@ -7,7 +7,9 @@ interface PolicyDates {
   dateGreaterThan?: number;
 }
 
-interface CloudfrontSignInput {
+export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
+
+export interface CloudfrontSignInputBase {
   url: string;
   keyPairId: string;
   privateKey: string | Buffer;
@@ -16,7 +18,18 @@ interface CloudfrontSignInput {
   dateGreaterThan?: string;
 }
 
-interface CloudfrontSignedCookiesOutput {
+export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
+  policy?: never;
+};
+
+export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
+  policy: string;
+  dateLessThan?: never;
+  ipAddress?: never;
+  dateGreaterThan?: never;
+};
+
+export interface CloudfrontSignedCookiesOutput {
   "CloudFront-Key-Pair-Id": string;
   "CloudFront-Signature": string;
   "CloudFront-Expires"?: number;
