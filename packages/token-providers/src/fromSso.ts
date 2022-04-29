@@ -2,6 +2,7 @@ import { TokenProviderError } from "@aws-sdk/property-provider";
 import {
   getProfileName,
   getSSOTokenFromFile,
+  loadSsoSessionData,
   parseKnownFiles,
   SourceProfileInit,
   SSOToken,
@@ -34,20 +35,40 @@ export const fromSso =
     if (!profile) {
       // Profile not found. This is a terminal error.
       throw new TokenProviderError(`Profile '${profileName}' could not be found in shared credentials file.`, false);
-    } else if (!profile["sso_start_url"]) {
-      // Profile found but it does not contain sso_start_url. Not a terminal error.
-      throw new TokenProviderError(`Profile '${profileName}' is missing required property 'sso_start_url'.`);
-    } else if (!profile["sso_region"]) {
-      // Profile found and contains sso_start_url, but no sso_region. This is a terminal error.
-      throw new TokenProviderError(`Profile '${profileName}' is missing required property 'sso_region'.`, false);
+    } else if (!profile["sso_session"]) {
+      // Profile found but it does not contain sso_session. Not a terminal error.
+      throw new TokenProviderError(`Profile '${profileName}' is missing required property 'sso_session'.`);
     }
 
-    const ssoStartUrl = profile["sso_start_url"];
-    const ssoRegion = profile["sso_region"];
+    // read sso-session from config file.
+    const ssoSessionName = profile["sso_session"];
+    const ssoSessions = await loadSsoSessionData(init);
+    const ssoSession = ssoSessions[ssoSessionName];
+
+    if (!ssoSession) {
+      // Sso Session not found. This is a terminal error.
+      throw new TokenProviderError(
+        `Sso session '${ssoSessionName}' could not be found in shared credentials file.`,
+        false
+      );
+    }
+
+    for (const ssoSessionRequiredKey of ["sso_start_url", "sso_region"]) {
+      if (!ssoSession[ssoSessionRequiredKey]) {
+        // Sso session found but it does not contain ssoSessionRequiredKey. This is a terminal error.
+        throw new TokenProviderError(
+          `Sso session '${ssoSessionName}' is missing required property '${ssoSessionRequiredKey}'.`,
+          false
+        );
+      }
+    }
+
+    const ssoStartUrl = ssoSession["sso_start_url"] as string;
+    const ssoRegion = ssoSession["sso_region"] as string;
 
     let ssoToken: SSOToken;
     try {
-      ssoToken = await getSSOTokenFromFile(ssoStartUrl);
+      ssoToken = await getSSOTokenFromFile(ssoSessionName);
     } catch (e) {
       throw new TokenProviderError(
         `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}`,
@@ -84,7 +105,7 @@ export const fromSso =
       const newTokenExpiration = new Date(Date.now() + newSsoOidcToken.expiresIn! * 1000);
 
       try {
-        await writeSSOTokenToFile(ssoStartUrl, {
+        await writeSSOTokenToFile(ssoSessionName, {
           ...ssoToken,
           accessToken: newSsoOidcToken.accessToken!,
           expiresAt: newTokenExpiration.toISOString(),
