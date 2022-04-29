@@ -10,6 +10,6 @@ describe("@aws-sdk/client-kinesis", () => {
       const { StreamNames } = await client.send(new ListStreamsCommand({}));
       expect(StreamNames).toBeInstanceOf(Array);
     },
-    ONE_SECOND
+    ONE_SECOND // prevent issue https://github.com/aws/aws-sdk-js-v3/issues/1206
   );
 });
