@@ -8,9 +8,69 @@ import {
   Queue,
   QueueStatus,
   ReservationPlanSettings,
-  ResourceTags,
   StatusUpdateInterval,
 } from "./models_1";
+
+export interface ListQueuesResponse {
+  /**
+   * Use this string to request the next batch of queues.
+   */
+  NextToken?: string;
+
+  /**
+   * List of queues.
+   */
+  Queues?: Queue[];
+}
+
+export namespace ListQueuesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
+   */
+  Arn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
+ */
+export interface ResourceTags {
+  /**
+   * The Amazon Resource Name (ARN) of the resource.
+   */
+  Arn?: string;
+
+  /**
+   * The tags for the resource.
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ResourceTags {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceTags): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTagsForResourceResponse {
   /**
