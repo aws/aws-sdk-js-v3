@@ -1,14 +1,14 @@
-export interface ParsedIniSection {
+export interface IniSection {
   [key: string]: string | undefined;
 }
 
 /**
- * @deprecated: Please use ParsedIniSection
+ * @deprecated: Please use IniSection
  */
-export interface Profile extends ParsedIniSection {}
+export interface Profile extends IniSection {}
 
 export interface ParsedIniData {
-  [key: string]: ParsedIniSection;
+  [key: string]: IniSection;
 }
 
 export interface SharedConfigFiles {
