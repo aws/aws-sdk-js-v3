@@ -595,7 +595,6 @@ import {
   DBSnapshot,
   DBSnapshotAlreadyExistsFault,
   DBSnapshotAttribute,
-  DBSnapshotAttributesResult,
   DBSnapshotNotFoundFault,
   DBSubnetGroup,
   DBSubnetGroupAlreadyExistsFault,
@@ -699,6 +698,7 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  NetworkTypeNotSupported,
   Option,
   OptionGroup,
   OptionGroupAlreadyExistsFault,
@@ -750,6 +750,7 @@ import {
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
   DBProxyTargetAlreadyRegisteredFault,
+  DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
@@ -4108,6 +4109,9 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -4205,6 +4209,9 @@ const deserializeAws_queryCreateDBInstanceReadReplicaCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -7794,6 +7801,9 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9303,6 +9313,9 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9394,6 +9407,9 @@ const deserializeAws_queryRestoreDBInstanceFromS3CommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -9500,6 +9516,9 @@ const deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError = async (
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context);
+    case "NetworkTypeNotSupported":
+    case "com.amazonaws.rds#NetworkTypeNotSupported":
+      throw await deserializeAws_queryNetworkTypeNotSupportedResponse(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.rds#OptionGroupNotFoundFault":
       throw await deserializeAws_queryOptionGroupNotFoundFaultResponse(parsedOutput, context);
@@ -11323,6 +11342,19 @@ const deserializeAws_queryKMSKeyNotAccessibleFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryNetworkTypeNotSupportedResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NetworkTypeNotSupported> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryNetworkTypeNotSupported(body.Error, context);
+  const exception = new NetworkTypeNotSupported({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryOptionGroupAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12420,6 +12452,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -12542,6 +12577,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
     entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -14635,6 +14673,9 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   if (input.ResumeFullAutomationModeMinutes !== undefined && input.ResumeFullAutomationModeMinutes !== null) {
     entries["ResumeFullAutomationModeMinutes"] = input.ResumeFullAutomationModeMinutes;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -15760,6 +15801,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -15920,6 +15964,9 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   if (input.MaxAllocatedStorage !== undefined && input.MaxAllocatedStorage !== null) {
     entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
   }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
   return entries;
 };
 
@@ -16051,6 +16098,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.BackupTarget !== undefined && input.BackupTarget !== null) {
     entries["BackupTarget"] = input.BackupTarget;
+  }
+  if (input.NetworkType !== undefined && input.NetworkType !== null) {
+    entries["NetworkType"] = input.NetworkType;
   }
   return entries;
 };
@@ -18445,6 +18495,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     ResumeFullAutomationModeTime: undefined,
     CustomIamInstanceProfile: undefined,
     BackupTarget: undefined,
+    NetworkType: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -18769,6 +18820,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["BackupTarget"] !== undefined) {
     contents.BackupTarget = __expectString(output["BackupTarget"]);
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
   }
   return contents;
 };
@@ -20089,6 +20143,7 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
     SubnetGroupStatus: undefined,
     Subnets: undefined,
     DBSubnetGroupArn: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["DBSubnetGroupName"] !== undefined) {
     contents.DBSubnetGroupName = __expectString(output["DBSubnetGroupName"]);
@@ -20110,6 +20165,15 @@ const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext)
   }
   if (output["DBSubnetGroupArn"] !== undefined) {
     contents.DBSubnetGroupArn = __expectString(output["DBSubnetGroupArn"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  }
+  if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -21968,6 +22032,16 @@ const deserializeAws_queryModifyOptionGroupResult = (output: any, context: __Ser
   return contents;
 };
 
+const deserializeAws_queryNetworkTypeNotSupported = (output: any, context: __SerdeContext): NetworkTypeNotSupported => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryOption = (output: any, context: __SerdeContext): Option => {
   const contents: any = {
     OptionName: undefined,
@@ -22519,6 +22593,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportedActivityStreamModes: undefined,
     SupportsGlobalDatabases: undefined,
     SupportsClusters: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22636,6 +22711,15 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   }
   if (output["SupportsClusters"] !== undefined) {
     contents.SupportsClusters = __parseBoolean(output["SupportsClusters"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  }
+  if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryStringList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };

@@ -6198,7 +6198,7 @@ export interface CreateDBInstanceMessage {
    *         <p>
    *             <b>Amazon RDS Custom for SQL Server</b>
    *          </p>
-   *         <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS Custom for SQL Server general requirements</a>
+   *         <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html">RDS Custom for SQL Server general requirements</a>
    *           in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>
    *             <b>MariaDB</b>
@@ -6587,6 +6587,31 @@ export interface CreateDBInstanceMessage {
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace CreateDBInstanceMessage {
@@ -6844,6 +6869,30 @@ export interface DBSubnetGroup {
    * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
    */
   DBSubnetGroupArn?: string;
+
+  /**
+   * <p>The network type of the DB subnet group.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  SupportedNetworkTypes?: string[];
 }
 
 export namespace DBSubnetGroup {
@@ -7578,6 +7627,34 @@ export interface DBInstance {
    * <p>Specifies where automated backups and manual snapshots are stored: Amazon Web Services Outposts or the Amazon Web Services Region.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *                 Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace DBInstance {
@@ -7666,6 +7743,25 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientDBInstanceCapacityFault.prototype);
+  }
+}
+
+/**
+ * <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ */
+export class NetworkTypeNotSupported extends __BaseException {
+  readonly name: "NetworkTypeNotSupported" = "NetworkTypeNotSupported";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NetworkTypeNotSupported, __BaseException>) {
+    super({
+      name: "NetworkTypeNotSupported",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NetworkTypeNotSupported.prototype);
   }
 }
 
@@ -8143,6 +8239,31 @@ export interface CreateDBInstanceReadReplicaMessage {
    *         <p>This setting is required for RDS Custom.</p>
    */
   CustomIamInstanceProfile?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for read replica.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace CreateDBInstanceReadReplicaMessage {
@@ -13395,34 +13516,6 @@ export namespace DBSnapshotAttribute {
    * @internal
    */
   export const filterSensitiveLog = (obj: DBSnapshotAttribute): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
- *     API action.</p>
- *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
- *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
- *       API action.</p>
- */
-export interface DBSnapshotAttributesResult {
-  /**
-   * <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
-   */
-  DBSnapshotIdentifier?: string;
-
-  /**
-   * <p>The list of attributes and values for the manual DB snapshot.</p>
-   */
-  DBSnapshotAttributes?: DBSnapshotAttribute[];
-}
-
-export namespace DBSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAttributesResult): any => ({
     ...obj,
   });
 }
