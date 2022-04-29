@@ -14441,6 +14441,8 @@ const serializeAws_json1_1Runbook = (input: Runbook, context: __SerdeContext): a
       input.TargetLocations !== null && {
         TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
       }),
+    ...(input.TargetMaps !== undefined &&
+      input.TargetMaps !== null && { TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context) }),
     ...(input.TargetParameterName !== undefined &&
       input.TargetParameterName !== null && { TargetParameterName: input.TargetParameterName }),
     ...(input.Targets !== undefined &&
@@ -20675,6 +20677,10 @@ const deserializeAws_json1_1Runbook = (output: any, context: __SerdeContext): Ru
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
         ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
+    TargetMaps:
+      output.TargetMaps !== undefined && output.TargetMaps !== null
+        ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context)
         : undefined,
     TargetParameterName: __expectString(output.TargetParameterName),
     Targets:
