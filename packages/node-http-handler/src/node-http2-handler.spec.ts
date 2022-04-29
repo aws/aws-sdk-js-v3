@@ -43,7 +43,12 @@ describe(NodeHttp2Handler.name, () => {
     mockH2Server.close();
   });
 
-  describe("without options", () => {
+  describe.each([
+    ["undefined", undefined],
+    ["empty object", {}],
+    ["undefined provider", async () => void 0],
+    ["empty object provider", async () => ({})],
+  ])("without options in constructor parameter of %s", (_, option) => {
     let createdSessions!: ClientHttp2Session[];
     const connectReal = http2.connect;
     let connectSpy!: jest.SpiedFunction<typeof http2.connect>;
@@ -58,7 +63,7 @@ describe(NodeHttp2Handler.name, () => {
         return session;
       });
 
-      nodeH2Handler = new NodeHttp2Handler();
+      nodeH2Handler = new NodeHttp2Handler(option);
     });
 
     const closeConnection = async (response: HttpResponse) => {
@@ -357,36 +362,48 @@ describe(NodeHttp2Handler.name, () => {
     const requestTimeout = 200;
 
     describe("does not throw error when request not timed out", () => {
-      it("disableConcurrentStreams: false (default)", async () => {
+      it.each([
+        ["static object", { requestTimeout }],
+        ["object provider", async () => ({ requestTimeout })],
+      ])("disableConcurrentStreams: false (default) in constructor parameter of %s", async (_, options) => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
 
-        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        nodeH2Handler = new NodeHttp2Handler(options);
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
 
-      it("disableConcurrentStreams: true", async () => {
+      it.each([
+        ["static object", { requestTimeout, disableConcurrentStreams: true }],
+        ["object provider", async () => ({ requestTimeout, disableConcurrentStreams: true })],
+      ])("disableConcurrentStreams: true in constructor parameter of %s", async (_, options) => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout - 100));
 
-        nodeH2Handler = new NodeHttp2Handler({ requestTimeout, disableConcurrentStreams: true });
+        nodeH2Handler = new NodeHttp2Handler(options);
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
       });
     });
 
     describe("throws timeoutError on requestTimeout", () => {
-      it("disableConcurrentStreams: false (default)", async () => {
+      it.each([
+        ["static object", { requestTimeout }],
+        ["object provider", async () => ({ requestTimeout })],
+      ])("disableConcurrentStreams: false (default) in constructor parameter of %s", async (_, options) => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
-        nodeH2Handler = new NodeHttp2Handler({ requestTimeout });
+        nodeH2Handler = new NodeHttp2Handler(options);
         await rejects(nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {}), {
           name: "TimeoutError",
           message: `Stream timed out because of no activity for ${requestTimeout} ms`,
         });
       });
 
-      it("disableConcurrentStreams: true", async () => {
+      it.each([
+        ["object provider", async () => ({ requestTimeout })],
+        ["static object", { requestTimeout }],
+      ])("disableConcurrentStreams: true in constructor parameter of %s", async () => {
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", createResponseFunctionWithDelay(mockResponse, requestTimeout + 100));
 
@@ -403,8 +420,11 @@ describe(NodeHttp2Handler.name, () => {
     const sessionTimeout = 200;
 
     describe("destroys sessions on sessionTimeout", () => {
-      it("disableConcurrentStreams: false (default)", async () => {
-        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
+      it.each([
+        ["object provider", async () => ({ sessionTimeout })],
+        ["static object", { sessionTimeout }],
+      ])("disableConcurrentStreams: false (default) in constructor parameter of %s", async (_, options) => {
+        nodeH2Handler = new NodeHttp2Handler(options);
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         const authority = `${protocol}//${hostname}:${port}`;
@@ -419,11 +439,14 @@ describe(NodeHttp2Handler.name, () => {
         expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(0);
       });
 
-      it("disableConcurrentStreams: true", async () => {
+      it.each([
+        ["object provider", async () => ({ sessionTimeout, disableConcurrentStreams: true })],
+        ["static object", { sessionTimeout, disableConcurrentStreams: true }],
+      ])("disableConcurrentStreams: true in constructor parameter of %s", async (_, options) => {
         let session;
         const authority = `${protocol}//${hostname}:${port}`;
 
-        nodeH2Handler = new NodeHttp2Handler({ sessionTimeout, disableConcurrentStreams: true });
+        nodeH2Handler = new NodeHttp2Handler(options);
 
         mockH2Server.removeAllListeners("request");
         mockH2Server.on("request", (request: any, response: any) => {
@@ -487,11 +510,12 @@ describe(NodeHttp2Handler.name, () => {
     );
   });
 
-  describe("disableConcurrentStreams", () => {
+  describe.each([
+    ["object provider", async () => ({ disableConcurrentStreams: true })],
+    ["static object", { disableConcurrentStreams: true }],
+  ])("disableConcurrentStreams in constructor parameter of %s", (_, options) => {
     beforeEach(() => {
-      nodeH2Handler = new NodeHttp2Handler({
-        disableConcurrentStreams: true,
-      });
+      nodeH2Handler = new NodeHttp2Handler(options);
     });
 
     describe("number calls to http2.connect", () => {
