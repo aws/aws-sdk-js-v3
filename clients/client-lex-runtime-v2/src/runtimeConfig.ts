@@ -18,7 +18,7 @@ import {
   NODE_RETRY_MODE_CONFIG_OPTIONS,
 } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
-import { NodeHttp2Handler, streamCollector } from "@aws-sdk/node-http-handler";
+import { NodeHttp2Handler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -52,7 +52,7 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
-    requestHandler: config?.requestHandler ?? new NodeHttp2Handler(),
+    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode:
       config?.retryMode ??
       loadNodeConfig({
