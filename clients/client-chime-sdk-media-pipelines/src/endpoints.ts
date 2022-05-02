@@ -1,7 +1,24 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "media-pipelines-chime-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "media-pipelines-chime-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -25,9 +42,11 @@ const partitionHash: PartitionHash = {
       "me-south-1",
       "sa-east-1",
       "us-east-1",
+      "us-east-1-fips",
       "us-east-2",
       "us-west-1",
       "us-west-2",
+      "us-west-2-fips",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     variants: [
