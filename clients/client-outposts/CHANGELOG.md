@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
+
+
+### Features
+
+* **client-outposts:** This release adds a new API called ListAssets to the Outposts SDK, which lists the hardware assets in an Outpost. ([e04ca4d](https://github.com/aws/aws-sdk-js-v3/commit/e04ca4d26cbef61789ec754bf86e2b0dfc97d56b))
+
+
+
+
+
 # [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts

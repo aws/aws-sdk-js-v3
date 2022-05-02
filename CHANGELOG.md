@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
+
+
+### Bug Fixes
+
+* **client-kinesis:** disable Kinesis ResourceNotFoundException test ([#3584](https://github.com/aws/aws-sdk-js-v3/issues/3584)) ([aeb63b3](https://github.com/aws/aws-sdk-js-v3/commit/aeb63b3c6df9e594031c22376cf2c8a3b6c4c237))
+
+
+### Features
+
+* **client-organizations:** This release adds the INVALID_PAYMENT_INSTRUMENT as a fail reason and an error message. ([00e2222](https://github.com/aws/aws-sdk-js-v3/commit/00e22229adff429913d23f77eebd75e30e0478e2))
+* **client-outposts:** This release adds a new API called ListAssets to the Outposts SDK, which lists the hardware assets in an Outpost. ([e04ca4d](https://github.com/aws/aws-sdk-js-v3/commit/e04ca4d26cbef61789ec754bf86e2b0dfc97d56b))
+* **client-synthetics:** CloudWatch Synthetics has introduced a new feature to provide customers with an option to delete the underlying resources that Synthetics canary creates when the user chooses to delete the canary. ([329a23a](https://github.com/aws/aws-sdk-js-v3/commit/329a23aee12a01b78612fa67fcc100f4bca1f0fa))
+* **clients:** update client endpoints as of 2022-05-02 ([e550cec](https://github.com/aws/aws-sdk-js-v3/commit/e550cec66ed8fc4c0f93faf7e8fc3a9ebaccff1d))
+* **smithy-client:** update client defaults provider ([02d4564](https://github.com/aws/aws-sdk-js-v3/commit/02d45649bb0400495b3c8de418c792e0e136fbdf))
+
+
+
+
+
 # [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
 
 

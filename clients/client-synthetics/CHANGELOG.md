@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
+
+
+### Features
+
+* **client-synthetics:** CloudWatch Synthetics has introduced a new feature to provide customers with an option to delete the underlying resources that Synthetics canary creates when the user chooses to delete the canary. ([329a23a](https://github.com/aws/aws-sdk-js-v3/commit/329a23aee12a01b78612fa67fcc100f4bca1f0fa))
+
+
+
+
+
 # [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
 
 **Note:** Version bump only for package @aws-sdk/client-synthetics
