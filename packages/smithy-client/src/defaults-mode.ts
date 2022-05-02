@@ -50,7 +50,20 @@ export type ResolvedDefaultsMode = Exclude<DefaultsMode, "auto">;
  * @internal
  */
 export interface DefaultsModeConfigs {
+  /**
+   * The retry mode describing how the retry strategy control the traffic flow.
+   */
   retryMode?: string;
+  /**
+   * The maximum time in milliseconds that the connection phase of a request
+   * may take before the connection attempt is abandoned.
+   */
   connectionTimeout?: number;
+  /**
+   * This timeout measures the time between when the first byte is sent over an
+   * established, open connection and when the last byte is received from the
+   * service. If the response is not received by the timeout, then the request
+   * is considered timed out.
+   */
   requestTimeout?: number;
 }

@@ -4,6 +4,7 @@ export * from "./ListDeviceProfilesPaginator";
 export * from "./ListFuotaTasksPaginator";
 export * from "./ListMulticastGroupsByFuotaTaskPaginator";
 export * from "./ListMulticastGroupsPaginator";
+export * from "./ListNetworkAnalyzerConfigurationsPaginator";
 export * from "./ListQueuedMessagesPaginator";
 export * from "./ListServiceProfilesPaginator";
 export * from "./ListWirelessDevicesPaginator";

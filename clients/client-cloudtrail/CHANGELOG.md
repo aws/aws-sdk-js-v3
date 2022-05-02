@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudtrail
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudtrail
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+
+### Features
+
+* **client-cloudtrail:** Increases the retention period maximum to 2557 days. Deprecates unused fields of the ListEventDataStores API response. Updates documentation. ([13baee3](https://github.com/aws/aws-sdk-js-v3/commit/13baee38c049a4934b390f5a49c1feb8d55b652b))
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+
+### Features
+
+* **client-ec2:** This release adds support to query the public key and creation date of EC2 Key Pairs. Additionally, the format (pem or ppk) of a key pair can be specified when creating a new key pair. ([61e9e39](https://github.com/aws/aws-sdk-js-v3/commit/61e9e39be52d91cca705d0386a119bd62ab748c8))
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-ec2
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

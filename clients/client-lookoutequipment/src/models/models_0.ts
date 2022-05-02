@@ -104,7 +104,7 @@ export interface CreateDatasetRequest {
    * <p>A JSON description of the data that is in each time series dataset, including names,
    *          column names, and data types. </p>
    */
-  DatasetSchema: DatasetSchema | undefined;
+  DatasetSchema?: DatasetSchema;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout for Equipment. </p>
@@ -302,18 +302,18 @@ export namespace InferenceS3InputConfiguration {
 }
 
 /**
- * <p>Specifies configuration information for the input data for the inference, including S3
+ * <p>Specifies configuration information for the input data for the inference, including Amazon S3
  *          location of input data.. </p>
  */
 export interface InferenceInputConfiguration {
   /**
-   * <p> Specifies configuration information for the input data for the inference, including S3
-   *          location of input data.. </p>
+   * <p> Specifies configuration information for the input data for the inference, including Amazon S3
+   *          location of input data.</p>
    */
   S3InputConfiguration?: InferenceS3InputConfiguration;
 
   /**
-   * <p>Indicates the difference between your time zone and Greenwich Mean Time (GMT). </p>
+   * <p>Indicates the difference between your time zone and Coordinated Universal Time (UTC).</p>
    */
   InputTimeZoneOffset?: string;
 
@@ -809,6 +809,337 @@ export namespace DescribeDataIngestionJobRequest {
 }
 
 /**
+ * <p>
+ *
+ * Entity that comprises information abount duplicate timestamps in the dataset.
+ *
+ * </p>
+ */
+export interface DuplicateTimestamps {
+  /**
+   * <p>
+   * Indicates the total number of duplicate timestamps.
+   * </p>
+   */
+  TotalNumberOfDuplicateTimestamps: number | undefined;
+}
+
+export namespace DuplicateTimestamps {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DuplicateTimestamps): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises information on sensors that have sensor data completely missing.
+ *
+ * </p>
+ */
+export interface MissingCompleteSensorData {
+  /**
+   * <p>
+   *
+   * Indicates the number of sensors that have data missing completely.
+   *
+   * </p>
+   */
+  AffectedSensorCount: number | undefined;
+}
+
+export namespace MissingCompleteSensorData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MissingCompleteSensorData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises information on sensors that have shorter date range.
+ *
+ * </p>
+ */
+export interface SensorsWithShortDateRange {
+  /**
+   * <p>
+   *
+   * Indicates the number of sensors that have less than 90 days of data.
+   *
+   * </p>
+   */
+  AffectedSensorCount: number | undefined;
+}
+
+export namespace SensorsWithShortDateRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SensorsWithShortDateRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises aggregated information on sensors having insufficient data.
+ *
+ * </p>
+ */
+export interface InsufficientSensorData {
+  /**
+   * <p>
+   *
+   * Parameter that describes the total number of sensors that have data completely missing for it.
+   *
+   * </p>
+   */
+  MissingCompleteSensorData: MissingCompleteSensorData | undefined;
+
+  /**
+   * <p>
+   *
+   * Parameter that describes the total number of sensors that have a short date range of less than 90 days of data overall.
+   *
+   * </p>
+   */
+  SensorsWithShortDateRange: SensorsWithShortDateRange | undefined;
+}
+
+export namespace InsufficientSensorData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InsufficientSensorData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises aggregated information on sensors having insufficient data.
+ *
+ * </p>
+ */
+export interface InvalidSensorData {
+  /**
+   * <p>
+   *
+   * Indicates the number of sensors that have at least some invalid values.
+   *
+   * </p>
+   */
+  AffectedSensorCount: number | undefined;
+
+  /**
+   * <p>
+   *
+   * Indicates the total number of invalid values across all the sensors.
+   *
+   * </p>
+   */
+  TotalNumberOfInvalidValues: number | undefined;
+}
+
+export namespace InvalidSensorData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidSensorData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises aggregated information on sensors having missing data.
+ *
+ * </p>
+ */
+export interface MissingSensorData {
+  /**
+   * <p>
+   *
+   * Indicates the number of sensors that have atleast some data missing.
+   *
+   * </p>
+   */
+  AffectedSensorCount: number | undefined;
+
+  /**
+   * <p>
+   *
+   * Indicates the total number of missing values across all the sensors.
+   *
+   * </p>
+   */
+  TotalNumberOfMissingValues: number | undefined;
+}
+
+export namespace MissingSensorData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MissingSensorData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises information abount unsupported timestamps in the dataset.
+ *
+ * </p>
+ */
+export interface UnsupportedTimestamps {
+  /**
+   * <p>
+   *
+   * Indicates the total number of unsupported timestamps across the ingested data.
+   *
+   * </p>
+   */
+  TotalNumberOfUnsupportedTimestamps: number | undefined;
+}
+
+export namespace UnsupportedTimestamps {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedTimestamps): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * DataQualitySummary gives aggregated statistics over all the sensors about a completed ingestion job. It primarily gives more information about statistics over different incorrect data like MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, DuplicateTimeStamps.
+ *
+ * </p>
+ */
+export interface DataQualitySummary {
+  /**
+   * <p>
+   *
+   * Parameter that gives information about insufficient data for sensors in the dataset. This includes information about those sensors that have complete data missing and those with a short date range.
+   *
+   * </p>
+   */
+  InsufficientSensorData: InsufficientSensorData | undefined;
+
+  /**
+   * <p>
+   *
+   * Parameter that gives information about data that is missing over all the sensors in the input data.
+   *
+   * </p>
+   */
+  MissingSensorData: MissingSensorData | undefined;
+
+  /**
+   * <p>
+   *
+   * Parameter that gives information about data that is invalid over all the sensors in the input data.
+   *
+   * </p>
+   */
+  InvalidSensorData: InvalidSensorData | undefined;
+
+  /**
+   * <p>
+   *
+   * Parameter that gives information about unsupported timestamps in the input data.
+   *
+   * </p>
+   */
+  UnsupportedTimestamps: UnsupportedTimestamps | undefined;
+
+  /**
+   * <p>
+   *
+   * Parameter that gives information about duplicate timestamps in the input data.
+   *
+   * </p>
+   */
+  DuplicateTimestamps: DuplicateTimestamps | undefined;
+}
+
+export namespace DataQualitySummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataQualitySummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about an S3 bucket. </p>
+ */
+export interface S3Object {
+  /**
+   * <p>The name of the specific S3 bucket. </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) key being used to encrypt the S3 object.
+   *          Without this key, data in the bucket is not accessible. </p>
+   */
+  Key: string | undefined;
+}
+
+export namespace S3Object {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Object): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Gives statistics about how many files have been ingested, and which files have not been ingested, for a particular ingestion job.</p>
+ */
+export interface IngestedFilesSummary {
+  /**
+   * <p>Indicates the total number of files that were submitted for ingestion.</p>
+   */
+  TotalNumberOfFiles: number | undefined;
+
+  /**
+   * <p>Indicates the number of files that were successfully ingested.</p>
+   */
+  IngestedNumberOfFiles: number | undefined;
+
+  /**
+   * <p>Indicates the number of files that were discarded. A file could be discarded because its format is invalid (for example, a jpg or pdf) or not readable.</p>
+   */
+  DiscardedFiles?: S3Object[];
+}
+
+export namespace IngestedFilesSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IngestedFilesSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Specifies S3 configuration information for the input data for the data ingestion job.
  *       </p>
  */
@@ -823,6 +1154,14 @@ export interface IngestionS3InputConfiguration {
    *       </p>
    */
   Prefix?: string;
+
+  /**
+   * <p>
+   * Pattern for matching the Amazon S3 files which will be used for ingestion.
+   * If no KeyPattern is provided, we will use the default hierarchy file structure, which is same as KeyPattern {prefix}/{component_name}/*
+   * </p>
+   */
+  KeyPattern?: string;
 }
 
 export namespace IngestionS3InputConfiguration {
@@ -899,6 +1238,46 @@ export interface DescribeDataIngestionJobResponse {
    * <p>Specifies the reason for failure when a data ingestion job has failed. </p>
    */
   FailedReason?: string;
+
+  /**
+   * <p>
+   * Gives statistics about a completed ingestion job. These statistics primarily relate to quantifying incorrect data such as MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps.
+   * </p>
+   */
+  DataQualitySummary?: DataQualitySummary;
+
+  /**
+   * <p>Gives statistics about how many files have been ingested, and which files have not been ingested, for a particular ingestion job.</p>
+   */
+  IngestedFilesSummary?: IngestedFilesSummary;
+
+  /**
+   * <p>
+   *          Provides details about status of the ingestion job that is currently in progress.
+   *       </p>
+   */
+  StatusDetail?: string;
+
+  /**
+   * <p>
+   *          Indicates the size of the ingested dataset.
+   *       </p>
+   */
+  IngestedDataSize?: number;
+
+  /**
+   * <p>
+   *          Indicates the earliest timestamp corresponding to data that was successfully ingested during this specific ingestion job.
+   *       </p>
+   */
+  DataStartTime?: Date;
+
+  /**
+   * <p>
+   *          Indicates the latest timestamp corresponding to data that was successfully ingested during this specific ingestion job.
+   *       </p>
+   */
+  DataEndTime?: Date;
 }
 
 export namespace DescribeDataIngestionJobResponse {
@@ -967,6 +1346,41 @@ export interface DescribeDatasetResponse {
    * <p>Specifies the S3 location configuration for the data input for the data ingestion job. </p>
    */
   IngestionInputConfiguration?: IngestionInputConfiguration;
+
+  /**
+   * <p>
+   * Gives statistics associated with the given dataset for the latest successful associated ingestion job id. These statistics primarily relate to quantifying incorrect data such as MissingCompleteSensorData, MissingSensorData, UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps.
+   * </p>
+   */
+  DataQualitySummary?: DataQualitySummary;
+
+  /**
+   * <p>
+   * IngestedFilesSummary associated with the given dataset for the latest successful associated ingestion job id.
+   * </p>
+   */
+  IngestedFilesSummary?: IngestedFilesSummary;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the IAM role that you are using for this the data ingestion job.
+   *       </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>
+   *          Indicates the earliest timestamp corresponding to data that was successfully ingested during the most recent ingestion of this particular dataset.
+   *       </p>
+   */
+  DataStartTime?: Date;
+
+  /**
+   * <p>
+   *          Indicates the latest timestamp corresponding to data that was successfully ingested during the most recent ingestion of this particular dataset.
+   *       </p>
+   */
+  DataEndTime?: Date;
 }
 
 export namespace DescribeDatasetResponse {
@@ -1290,7 +1704,7 @@ export interface DataIngestionJobSummary {
   DatasetArn?: string;
 
   /**
-   * <p> Specifies information for the input data for the data inference job, including data S3
+   * <p> Specifies information for the input data for the data inference job, including data Amazon S3
    *          location parameters. </p>
    */
   IngestionInputConfiguration?: IngestionInputConfiguration;
@@ -1469,31 +1883,6 @@ export namespace ListInferenceExecutionsRequest {
 }
 
 /**
- * <p>Contains information about an S3 bucket. </p>
- */
-export interface S3Object {
-  /**
-   * <p>The name of the specific S3 bucket. </p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) key being used to encrypt the S3 object.
-   *          Without this key, data in the bucket is not accessible. </p>
-   */
-  Key: string | undefined;
-}
-
-export namespace S3Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Object): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Contains information about the specific inference execution, including input and output
  *          data configuration, inference scheduling information, status, and so on. </p>
  */
@@ -1545,7 +1934,7 @@ export interface InferenceExecutionSummary {
 
   /**
    * <p> Specifies configuration information for the output results from for the inference
-   *          execution, including the output S3 location. </p>
+   *          execution, including the output Amazon S3 location. </p>
    */
   DataOutputConfiguration?: InferenceOutputConfiguration;
 
@@ -1815,6 +2204,358 @@ export namespace ListModelsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListModelsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSensorStatisticsRequest {
+  /**
+   * <p>
+   * The name of the dataset associated with the list of Sensor Statistics.
+   * </p>
+   */
+  DatasetName: string | undefined;
+
+  /**
+   * <p>
+   * The ingestion job id associated with the list of Sensor Statistics. To get sensor statistics for a particular ingestion job id, both dataset name and ingestion job id must be submitted as inputs.
+   * </p>
+   */
+  IngestionJobId?: string;
+
+  /**
+   * <p>
+   * Specifies the maximum number of sensors for which to retrieve statistics.
+   * </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of sensor statistics.
+   * </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSensorStatisticsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSensorStatisticsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum StatisticalIssueStatus {
+  NO_ISSUE_DETECTED = "NO_ISSUE_DETECTED",
+  POTENTIAL_ISSUE_DETECTED = "POTENTIAL_ISSUE_DETECTED",
+}
+
+/**
+ * <p>
+ * Entity that comprises information on categorical values in data.
+ * </p>
+ */
+export interface CategoricalValues {
+  /**
+   * <p>
+   * Indicates whether there is a potential data issue related to categorical values.
+   * </p>
+   */
+  Status: StatisticalIssueStatus | string | undefined;
+
+  /**
+   * <p>
+   * Indicates the number of categories in the data.
+   * </p>
+   */
+  NumberOfCategory?: number;
+}
+
+export namespace CategoricalValues {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CategoricalValues): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Entity that comprises information of count and percentage.
+ *
+ * </p>
+ */
+export interface CountPercent {
+  /**
+   * <p>
+   *
+   * Indicates the count of occurences of the given statistic.
+   *
+   * </p>
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>
+   *
+   * Indicates the percentage of occurances of the given statistic.
+   *
+   * </p>
+   */
+  Percentage: number | undefined;
+}
+
+export namespace CountPercent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CountPercent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Entity that comprises information on large gaps between consecutive timestamps in data.
+ * </p>
+ */
+export interface LargeTimestampGaps {
+  /**
+   * <p>
+   * Indicates whether there is a potential data issue related to large gaps in timestamps.
+   * </p>
+   */
+  Status: StatisticalIssueStatus | string | undefined;
+
+  /**
+   * <p>
+   * Indicates the number of large timestamp gaps, if there are any.
+   * </p>
+   */
+  NumberOfLargeTimestampGaps?: number;
+
+  /**
+   * <p>
+   * Indicates the size of the largest timestamp gap, in days.
+   * </p>
+   */
+  MaxTimestampGapInDays?: number;
+}
+
+export namespace LargeTimestampGaps {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LargeTimestampGaps): any => ({
+    ...obj,
+  });
+}
+
+export enum Monotonicity {
+  DECREASING = "DECREASING",
+  INCREASING = "INCREASING",
+  STATIC = "STATIC",
+}
+
+/**
+ * <p>
+ * Entity that comprises information on monotonic values in the data.
+ * </p>
+ */
+export interface MonotonicValues {
+  /**
+   * <p>
+   * Indicates whether there is a potential data issue related to having monotonic values.
+   * </p>
+   */
+  Status: StatisticalIssueStatus | string | undefined;
+
+  /**
+   * <p>
+   * Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC.
+   * </p>
+   */
+  Monotonicity?: Monotonicity | string;
+}
+
+export namespace MonotonicValues {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonotonicValues): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Entity that comprises information on operating modes in data.
+ * </p>
+ */
+export interface MultipleOperatingModes {
+  /**
+   * <p>
+   *     Indicates whether there is a potential data issue related to having multiple operating modes.
+   * </p>
+   */
+  Status: StatisticalIssueStatus | string | undefined;
+}
+
+export namespace MultipleOperatingModes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultipleOperatingModes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *
+ * Summary of ingestion statistics like whether data exists, number of missing values, number of invalid values and so on related to the particular sensor.
+ *
+ * </p>
+ */
+export interface SensorStatisticsSummary {
+  /**
+   * <p>
+   *
+   * Name of the component to which the particular sensor belongs for which the statistics belong to.
+   *
+   * </p>
+   */
+  ComponentName?: string;
+
+  /**
+   * <p>
+   *
+   * Name of the sensor that the statistics belong to.
+   *
+   * </p>
+   */
+  SensorName?: string;
+
+  /**
+   * <p>
+   *
+   * Parameter that indicates whether data exists for the sensor that the statistics belong to.
+   *
+   * </p>
+   */
+  DataExists?: boolean;
+
+  /**
+   * <p>
+   *
+   * Parameter that describes the total number of, and percentage of, values that are missing for the sensor that the statistics belong to.
+   *
+   * </p>
+   */
+  MissingValues?: CountPercent;
+
+  /**
+   * <p>
+   *
+   * Parameter that describes the total number of, and percentage of, values that are invalid for the sensor that the statistics belong to.
+   *
+   * </p>
+   */
+  InvalidValues?: CountPercent;
+
+  /**
+   * <p>
+   *
+   * Parameter that describes the total number of invalid date entries associated with the sensor that the statistics belong to.
+   *
+   * </p>
+   */
+  InvalidDateEntries?: CountPercent;
+
+  /**
+   * <p>
+   * Parameter that describes the total number of duplicate timestamp records associated with the sensor that the statistics belong to.
+   * </p>
+   */
+  DuplicateTimestamps?: CountPercent;
+
+  /**
+   * <p>
+   * Parameter that describes potential risk about whether data associated with the sensor is categorical.
+   * </p>
+   */
+  CategoricalValues?: CategoricalValues;
+
+  /**
+   * <p>
+   * Parameter that describes potential risk about whether data associated with the sensor has more than one operating mode.
+   * </p>
+   */
+  MultipleOperatingModes?: MultipleOperatingModes;
+
+  /**
+   * <p>
+   * Parameter that describes potential risk about whether data associated with the sensor contains one or more large gaps between consecutive timestamps.
+   * </p>
+   */
+  LargeTimestampGaps?: LargeTimestampGaps;
+
+  /**
+   * <p>
+   * Parameter that describes potential risk about whether data associated with the sensor is mostly monotonic.
+   * </p>
+   */
+  MonotonicValues?: MonotonicValues;
+
+  /**
+   * <p>
+   * Indicates the time reference to indicate the beginning of valid data associated with the sensor that the statistics belong to.
+   * </p>
+   */
+  DataStartTime?: Date;
+
+  /**
+   * <p>
+   * Indicates the time reference to indicate the end of valid data associated with the sensor that the statistics belong to.
+   * </p>
+   */
+  DataEndTime?: Date;
+}
+
+export namespace SensorStatisticsSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SensorStatisticsSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSensorStatisticsResponse {
+  /**
+   * <p>
+   * Provides ingestion-based statistics regarding the specified sensor with respect to various validation types, such as whether data exists, the number and percentage of missing values, and the number and percentage of duplicate timestamps.
+   * </p>
+   */
+  SensorStatisticsSummaries?: SensorStatisticsSummary[];
+
+  /**
+   * <p>
+   * An opaque pagination token indicating where to continue the listing of sensor statistics.
+   * </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSensorStatisticsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSensorStatisticsResponse): any => ({
     ...obj,
   });
 }

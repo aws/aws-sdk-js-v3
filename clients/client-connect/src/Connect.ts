@@ -444,6 +444,11 @@ import {
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
+  PutUserStatusCommand,
+  PutUserStatusCommandInput,
+  PutUserStatusCommandOutput,
+} from "./commands/PutUserStatusCommand";
+import {
   ReleasePhoneNumberCommand,
   ReleasePhoneNumberCommandInput,
   ReleasePhoneNumberCommandOutput,
@@ -3793,6 +3798,42 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the current status of a user or agent in Amazon Connect.
+   *    If the agent is currently handling a contact, this sets the agent's next status.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-agent-status.html">Agent status</a>
+   *    and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-next-status.html">Set your next status</a>
+   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
+   */
+  public putUserStatus(
+    args: PutUserStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutUserStatusCommandOutput>;
+  public putUserStatus(
+    args: PutUserStatusCommandInput,
+    cb: (err: any, data?: PutUserStatusCommandOutput) => void
+  ): void;
+  public putUserStatus(
+    args: PutUserStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutUserStatusCommandOutput) => void
+  ): void;
+  public putUserStatus(
+    args: PutUserStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutUserStatusCommandOutput) => void),
+    cb?: (err: any, data?: PutUserStatusCommandOutput) => void
+  ): Promise<PutUserStatusCommandOutput> | void {
+    const command = new PutUserStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

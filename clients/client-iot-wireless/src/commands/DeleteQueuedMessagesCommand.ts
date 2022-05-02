@@ -22,7 +22,7 @@ export interface DeleteQueuedMessagesCommandInput extends DeleteQueuedMessagesRe
 export interface DeleteQueuedMessagesCommandOutput extends DeleteQueuedMessagesResponse, __MetadataBearer {}
 
 /**
- * <p> The operation to delete queued messages. </p>
+ * <p>Remove queued messages from the downlink queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

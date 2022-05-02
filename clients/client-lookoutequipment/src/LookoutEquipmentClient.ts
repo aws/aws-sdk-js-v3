@@ -88,6 +88,10 @@ import {
 } from "./commands/ListInferenceSchedulersCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
+  ListSensorStatisticsCommandInput,
+  ListSensorStatisticsCommandOutput,
+} from "./commands/ListSensorStatisticsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -127,6 +131,7 @@ export type ServiceInputTypes =
   | ListInferenceExecutionsCommandInput
   | ListInferenceSchedulersCommandInput
   | ListModelsCommandInput
+  | ListSensorStatisticsCommandInput
   | ListTagsForResourceCommandInput
   | StartDataIngestionJobCommandInput
   | StartInferenceSchedulerCommandInput
@@ -151,6 +156,7 @@ export type ServiceOutputTypes =
   | ListInferenceExecutionsCommandOutput
   | ListInferenceSchedulersCommandOutput
   | ListModelsCommandOutput
+  | ListSensorStatisticsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartDataIngestionJobCommandOutput
   | StartInferenceSchedulerCommandOutput

@@ -44,7 +44,7 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  *       and populate the <code>NextToken</code> request parameter with the token value returned from the previous
  *       call to <code>GetSegmentDetection</code>.</p>
  *
- *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

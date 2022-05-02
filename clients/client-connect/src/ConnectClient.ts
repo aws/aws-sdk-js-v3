@@ -314,6 +314,7 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import {
   ResumeContactRecordingCommandInput,
@@ -565,6 +566,7 @@ export type ServiceInputTypes =
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | PutUserStatusCommandInput
   | ReleasePhoneNumberCommandInput
   | ResumeContactRecordingCommandInput
   | SearchAvailablePhoneNumbersCommandInput
@@ -710,6 +712,7 @@ export type ServiceOutputTypes =
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | PutUserStatusCommandOutput
   | ReleasePhoneNumberCommandOutput
   | ResumeContactRecordingCommandOutput
   | SearchAvailablePhoneNumbersCommandOutput

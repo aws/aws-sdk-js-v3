@@ -3437,6 +3437,11 @@ export namespace CreateIpamScopeResult {
   });
 }
 
+export enum KeyFormat {
+  pem = "pem",
+  ppk = "ppk",
+}
+
 export enum KeyType {
   ed25519 = "ed25519",
   rsa = "rsa",
@@ -3467,6 +3472,13 @@ export interface CreateKeyPairRequest {
    * <p>The tags to apply to the new key pair.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The format of the key pair.</p>
+   *         <p>Default: <code>pem</code>
+   *          </p>
+   */
+  KeyFormat?: KeyFormat | string;
 }
 
 export namespace CreateKeyPairRequest {
@@ -10316,39 +10328,6 @@ export namespace CreateTransitGatewayConnectRequestOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequestOptions): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateTransitGatewayConnectRequest {
-  /**
-   * <p>The ID of the transit gateway attachment. You can specify a VPC attachment or Amazon Web Services Direct Connect attachment.</p>
-   */
-  TransportTransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The Connect attachment options.</p>
-   */
-  Options: CreateTransitGatewayConnectRequestOptions | undefined;
-
-  /**
-   * <p>The tags to apply to the Connect attachment.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace CreateTransitGatewayConnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitGatewayConnectRequest): any => ({
     ...obj,
   });
 }

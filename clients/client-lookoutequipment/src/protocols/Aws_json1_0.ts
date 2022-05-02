@@ -1,11 +1,14 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   LazyJsonString as __LazyJsonString,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -53,6 +56,10 @@ import {
 } from "../commands/ListInferenceSchedulersCommand";
 import { ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import {
+  ListSensorStatisticsCommandInput,
+  ListSensorStatisticsCommandOutput,
+} from "../commands/ListSensorStatisticsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -77,7 +84,9 @@ import {
 import { LookoutEquipmentServiceException as __BaseException } from "../models/LookoutEquipmentServiceException";
 import {
   AccessDeniedException,
+  CategoricalValues,
   ConflictException,
+  CountPercent,
   CreateDatasetRequest,
   CreateDatasetResponse,
   CreateInferenceSchedulerRequest,
@@ -86,6 +95,7 @@ import {
   CreateModelResponse,
   DataIngestionJobSummary,
   DataPreProcessingConfiguration,
+  DataQualitySummary,
   DatasetSchema,
   DatasetSummary,
   DeleteDatasetRequest,
@@ -99,6 +109,7 @@ import {
   DescribeInferenceSchedulerResponse,
   DescribeModelRequest,
   DescribeModelResponse,
+  DuplicateTimestamps,
   InferenceExecutionSummary,
   InferenceInputConfiguration,
   InferenceInputNameConfiguration,
@@ -106,11 +117,15 @@ import {
   InferenceS3InputConfiguration,
   InferenceS3OutputConfiguration,
   InferenceSchedulerSummary,
+  IngestedFilesSummary,
   IngestionInputConfiguration,
   IngestionS3InputConfiguration,
+  InsufficientSensorData,
   InternalServerException,
+  InvalidSensorData,
   LabelsInputConfiguration,
   LabelsS3InputConfiguration,
+  LargeTimestampGaps,
   ListDataIngestionJobsRequest,
   ListDataIngestionJobsResponse,
   ListDatasetsRequest,
@@ -121,11 +136,19 @@ import {
   ListInferenceSchedulersResponse,
   ListModelsRequest,
   ListModelsResponse,
+  ListSensorStatisticsRequest,
+  ListSensorStatisticsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  MissingCompleteSensorData,
+  MissingSensorData,
   ModelSummary,
+  MonotonicValues,
+  MultipleOperatingModes,
   ResourceNotFoundException,
   S3Object,
+  SensorStatisticsSummary,
+  SensorsWithShortDateRange,
   ServiceQuotaExceededException,
   StartDataIngestionJobRequest,
   StartDataIngestionJobResponse,
@@ -137,6 +160,7 @@ import {
   TagResourceRequest,
   TagResourceResponse,
   ThrottlingException,
+  UnsupportedTimestamps,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateInferenceSchedulerRequest,
@@ -335,6 +359,19 @@ export const serializeAws_json1_0ListModelsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListModelsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListSensorStatisticsCommand = async (
+  input: ListSensorStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AWSLookoutEquipmentFrontendService.ListSensorStatistics",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListSensorStatisticsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1251,6 +1288,61 @@ const deserializeAws_json1_0ListModelsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_0ListSensorStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSensorStatisticsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListSensorStatisticsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListSensorStatisticsResponse(data, context);
+  const response: ListSensorStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListSensorStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSensorStatisticsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutequipment#AccessDeniedException":
+      throw await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.lookoutequipment#InternalServerException":
+      throw await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutequipment#ResourceNotFoundException":
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.lookoutequipment#ThrottlingException":
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1985,6 +2077,7 @@ const serializeAws_json1_0IngestionS3InputConfiguration = (
 ): any => {
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
     ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
   };
 };
@@ -2075,6 +2168,19 @@ const serializeAws_json1_0ListModelsRequest = (input: ListModelsRequest, context
       input.ModelNameBeginsWith !== null && { ModelNameBeginsWith: input.ModelNameBeginsWith }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_json1_0ListSensorStatisticsRequest = (
+  input: ListSensorStatisticsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
+    ...(input.IngestionJobId !== undefined &&
+      input.IngestionJobId !== null && { IngestionJobId: input.IngestionJobId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2201,9 +2307,23 @@ const deserializeAws_json1_0AccessDeniedException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0CategoricalValues = (output: any, context: __SerdeContext): CategoricalValues => {
+  return {
+    NumberOfCategory: __expectInt32(output.NumberOfCategory),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0CountPercent = (output: any, context: __SerdeContext): CountPercent => {
+  return {
+    Count: __expectInt32(output.Count),
+    Percentage: __limitedParseFloat32(output.Percentage),
   } as any;
 };
 
@@ -2273,6 +2393,31 @@ const deserializeAws_json1_0DataPreProcessingConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_0DataQualitySummary = (output: any, context: __SerdeContext): DataQualitySummary => {
+  return {
+    DuplicateTimestamps:
+      output.DuplicateTimestamps !== undefined && output.DuplicateTimestamps !== null
+        ? deserializeAws_json1_0DuplicateTimestamps(output.DuplicateTimestamps, context)
+        : undefined,
+    InsufficientSensorData:
+      output.InsufficientSensorData !== undefined && output.InsufficientSensorData !== null
+        ? deserializeAws_json1_0InsufficientSensorData(output.InsufficientSensorData, context)
+        : undefined,
+    InvalidSensorData:
+      output.InvalidSensorData !== undefined && output.InvalidSensorData !== null
+        ? deserializeAws_json1_0InvalidSensorData(output.InvalidSensorData, context)
+        : undefined,
+    MissingSensorData:
+      output.MissingSensorData !== undefined && output.MissingSensorData !== null
+        ? deserializeAws_json1_0MissingSensorData(output.MissingSensorData, context)
+        : undefined,
+    UnsupportedTimestamps:
+      output.UnsupportedTimestamps !== undefined && output.UnsupportedTimestamps !== null
+        ? deserializeAws_json1_0UnsupportedTimestamps(output.UnsupportedTimestamps, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DatasetSummaries = (output: any, context: __SerdeContext): DatasetSummary[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -2306,8 +2451,25 @@ const deserializeAws_json1_0DescribeDataIngestionJobResponse = (
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
+    DataEndTime:
+      output.DataEndTime !== undefined && output.DataEndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
+        : undefined,
+    DataQualitySummary:
+      output.DataQualitySummary !== undefined && output.DataQualitySummary !== null
+        ? deserializeAws_json1_0DataQualitySummary(output.DataQualitySummary, context)
+        : undefined,
+    DataStartTime:
+      output.DataStartTime !== undefined && output.DataStartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
+        : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     FailedReason: __expectString(output.FailedReason),
+    IngestedDataSize: __expectLong(output.IngestedDataSize),
+    IngestedFilesSummary:
+      output.IngestedFilesSummary !== undefined && output.IngestedFilesSummary !== null
+        ? deserializeAws_json1_0IngestedFilesSummary(output.IngestedFilesSummary, context)
+        : undefined,
     IngestionInputConfiguration:
       output.IngestionInputConfiguration !== undefined && output.IngestionInputConfiguration !== null
         ? deserializeAws_json1_0IngestionInputConfiguration(output.IngestionInputConfiguration, context)
@@ -2315,6 +2477,7 @@ const deserializeAws_json1_0DescribeDataIngestionJobResponse = (
     JobId: __expectString(output.JobId),
     RoleArn: __expectString(output.RoleArn),
     Status: __expectString(output.Status),
+    StatusDetail: __expectString(output.StatusDetail),
   } as any;
 };
 
@@ -2327,8 +2490,24 @@ const deserializeAws_json1_0DescribeDatasetResponse = (
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
+    DataEndTime:
+      output.DataEndTime !== undefined && output.DataEndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
+        : undefined,
+    DataQualitySummary:
+      output.DataQualitySummary !== undefined && output.DataQualitySummary !== null
+        ? deserializeAws_json1_0DataQualitySummary(output.DataQualitySummary, context)
+        : undefined,
+    DataStartTime:
+      output.DataStartTime !== undefined && output.DataStartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
+        : undefined,
     DatasetArn: __expectString(output.DatasetArn),
     DatasetName: __expectString(output.DatasetName),
+    IngestedFilesSummary:
+      output.IngestedFilesSummary !== undefined && output.IngestedFilesSummary !== null
+        ? deserializeAws_json1_0IngestedFilesSummary(output.IngestedFilesSummary, context)
+        : undefined,
     IngestionInputConfiguration:
       output.IngestionInputConfiguration !== undefined && output.IngestionInputConfiguration !== null
         ? deserializeAws_json1_0IngestionInputConfiguration(output.IngestionInputConfiguration, context)
@@ -2337,6 +2516,7 @@ const deserializeAws_json1_0DescribeDatasetResponse = (
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
+    RoleArn: __expectString(output.RoleArn),
     Schema: output.Schema !== undefined && output.Schema !== null ? new __LazyJsonString(output.Schema) : undefined,
     ServerSideKmsKeyId: __expectString(output.ServerSideKmsKeyId),
     Status: __expectString(output.Status),
@@ -2432,6 +2612,12 @@ const deserializeAws_json1_0DescribeModelResponse = (output: any, context: __Ser
       output.TrainingExecutionStartTime !== undefined && output.TrainingExecutionStartTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.TrainingExecutionStartTime)))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0DuplicateTimestamps = (output: any, context: __SerdeContext): DuplicateTimestamps => {
+  return {
+    TotalNumberOfDuplicateTimestamps: __expectInt32(output.TotalNumberOfDuplicateTimestamps),
   } as any;
 };
 
@@ -2578,6 +2764,17 @@ const deserializeAws_json1_0InferenceSchedulerSummary = (
   } as any;
 };
 
+const deserializeAws_json1_0IngestedFilesSummary = (output: any, context: __SerdeContext): IngestedFilesSummary => {
+  return {
+    DiscardedFiles:
+      output.DiscardedFiles !== undefined && output.DiscardedFiles !== null
+        ? deserializeAws_json1_0ListOfDiscardedFiles(output.DiscardedFiles, context)
+        : undefined,
+    IngestedNumberOfFiles: __expectInt32(output.IngestedNumberOfFiles),
+    TotalNumberOfFiles: __expectInt32(output.TotalNumberOfFiles),
+  } as any;
+};
+
 const deserializeAws_json1_0IngestionInputConfiguration = (
   output: any,
   context: __SerdeContext
@@ -2596,7 +2793,21 @@ const deserializeAws_json1_0IngestionS3InputConfiguration = (
 ): IngestionS3InputConfiguration => {
   return {
     Bucket: __expectString(output.Bucket),
+    KeyPattern: __expectString(output.KeyPattern),
     Prefix: __expectString(output.Prefix),
+  } as any;
+};
+
+const deserializeAws_json1_0InsufficientSensorData = (output: any, context: __SerdeContext): InsufficientSensorData => {
+  return {
+    MissingCompleteSensorData:
+      output.MissingCompleteSensorData !== undefined && output.MissingCompleteSensorData !== null
+        ? deserializeAws_json1_0MissingCompleteSensorData(output.MissingCompleteSensorData, context)
+        : undefined,
+    SensorsWithShortDateRange:
+      output.SensorsWithShortDateRange !== undefined && output.SensorsWithShortDateRange !== null
+        ? deserializeAws_json1_0SensorsWithShortDateRange(output.SensorsWithShortDateRange, context)
+        : undefined,
   } as any;
 };
 
@@ -2606,6 +2817,13 @@ const deserializeAws_json1_0InternalServerException = (
 ): InternalServerException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0InvalidSensorData = (output: any, context: __SerdeContext): InvalidSensorData => {
+  return {
+    AffectedSensorCount: __expectInt32(output.AffectedSensorCount),
+    TotalNumberOfInvalidValues: __expectInt32(output.TotalNumberOfInvalidValues),
   } as any;
 };
 
@@ -2628,6 +2846,14 @@ const deserializeAws_json1_0LabelsS3InputConfiguration = (
   return {
     Bucket: __expectString(output.Bucket),
     Prefix: __expectString(output.Prefix),
+  } as any;
+};
+
+const deserializeAws_json1_0LargeTimestampGaps = (output: any, context: __SerdeContext): LargeTimestampGaps => {
+  return {
+    MaxTimestampGapInDays: __expectInt32(output.MaxTimestampGapInDays),
+    NumberOfLargeTimestampGaps: __expectInt32(output.NumberOfLargeTimestampGaps),
+    Status: __expectString(output.Status),
   } as any;
 };
 
@@ -2690,6 +2916,31 @@ const deserializeAws_json1_0ListModelsResponse = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_0ListOfDiscardedFiles = (output: any, context: __SerdeContext): S3Object[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0S3Object(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0ListSensorStatisticsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSensorStatisticsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    SensorStatisticsSummaries:
+      output.SensorStatisticsSummaries !== undefined && output.SensorStatisticsSummaries !== null
+        ? deserializeAws_json1_0SensorStatisticsSummaries(output.SensorStatisticsSummaries, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -2699,6 +2950,22 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0MissingCompleteSensorData = (
+  output: any,
+  context: __SerdeContext
+): MissingCompleteSensorData => {
+  return {
+    AffectedSensorCount: __expectInt32(output.AffectedSensorCount),
+  } as any;
+};
+
+const deserializeAws_json1_0MissingSensorData = (output: any, context: __SerdeContext): MissingSensorData => {
+  return {
+    AffectedSensorCount: __expectInt32(output.AffectedSensorCount),
+    TotalNumberOfMissingValues: __expectInt32(output.TotalNumberOfMissingValues),
   } as any;
 };
 
@@ -2728,6 +2995,19 @@ const deserializeAws_json1_0ModelSummary = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0MonotonicValues = (output: any, context: __SerdeContext): MonotonicValues => {
+  return {
+    Monotonicity: __expectString(output.Monotonicity),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_json1_0MultipleOperatingModes = (output: any, context: __SerdeContext): MultipleOperatingModes => {
+  return {
+    Status: __expectString(output.Status),
+  } as any;
+};
+
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -2741,6 +3021,81 @@ const deserializeAws_json1_0S3Object = (output: any, context: __SerdeContext): S
   return {
     Bucket: __expectString(output.Bucket),
     Key: __expectString(output.Key),
+  } as any;
+};
+
+const deserializeAws_json1_0SensorStatisticsSummaries = (
+  output: any,
+  context: __SerdeContext
+): SensorStatisticsSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0SensorStatisticsSummary(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_0SensorStatisticsSummary = (
+  output: any,
+  context: __SerdeContext
+): SensorStatisticsSummary => {
+  return {
+    CategoricalValues:
+      output.CategoricalValues !== undefined && output.CategoricalValues !== null
+        ? deserializeAws_json1_0CategoricalValues(output.CategoricalValues, context)
+        : undefined,
+    ComponentName: __expectString(output.ComponentName),
+    DataEndTime:
+      output.DataEndTime !== undefined && output.DataEndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataEndTime)))
+        : undefined,
+    DataExists: __expectBoolean(output.DataExists),
+    DataStartTime:
+      output.DataStartTime !== undefined && output.DataStartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DataStartTime)))
+        : undefined,
+    DuplicateTimestamps:
+      output.DuplicateTimestamps !== undefined && output.DuplicateTimestamps !== null
+        ? deserializeAws_json1_0CountPercent(output.DuplicateTimestamps, context)
+        : undefined,
+    InvalidDateEntries:
+      output.InvalidDateEntries !== undefined && output.InvalidDateEntries !== null
+        ? deserializeAws_json1_0CountPercent(output.InvalidDateEntries, context)
+        : undefined,
+    InvalidValues:
+      output.InvalidValues !== undefined && output.InvalidValues !== null
+        ? deserializeAws_json1_0CountPercent(output.InvalidValues, context)
+        : undefined,
+    LargeTimestampGaps:
+      output.LargeTimestampGaps !== undefined && output.LargeTimestampGaps !== null
+        ? deserializeAws_json1_0LargeTimestampGaps(output.LargeTimestampGaps, context)
+        : undefined,
+    MissingValues:
+      output.MissingValues !== undefined && output.MissingValues !== null
+        ? deserializeAws_json1_0CountPercent(output.MissingValues, context)
+        : undefined,
+    MonotonicValues:
+      output.MonotonicValues !== undefined && output.MonotonicValues !== null
+        ? deserializeAws_json1_0MonotonicValues(output.MonotonicValues, context)
+        : undefined,
+    MultipleOperatingModes:
+      output.MultipleOperatingModes !== undefined && output.MultipleOperatingModes !== null
+        ? deserializeAws_json1_0MultipleOperatingModes(output.MultipleOperatingModes, context)
+        : undefined,
+    SensorName: __expectString(output.SensorName),
+  } as any;
+};
+
+const deserializeAws_json1_0SensorsWithShortDateRange = (
+  output: any,
+  context: __SerdeContext
+): SensorsWithShortDateRange => {
+  return {
+    AffectedSensorCount: __expectInt32(output.AffectedSensorCount),
   } as any;
 };
 
@@ -2815,6 +3170,12 @@ const deserializeAws_json1_0TagResourceResponse = (output: any, context: __Serde
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0UnsupportedTimestamps = (output: any, context: __SerdeContext): UnsupportedTimestamps => {
+  return {
+    TotalNumberOfUnsupportedTimestamps: __expectInt32(output.TotalNumberOfUnsupportedTimestamps),
   } as any;
 };
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-braket
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+
+### Features
+
+* **client-braket:** This release enables Braket Hybrid Jobs with Embedded Simulators to have multiple instances. ([2de9086](https://github.com/aws/aws-sdk-js-v3/commit/2de908637ea560d2abb9b99c0ca5f4cd19dabc12))
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-braket
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

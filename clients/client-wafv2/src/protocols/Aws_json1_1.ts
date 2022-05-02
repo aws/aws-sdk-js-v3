@@ -156,6 +156,8 @@ import {
   CheckCapacityRequest,
   CheckCapacityResponse,
   Condition,
+  CookieMatchPattern,
+  Cookies,
   CountAction,
   CountryCode,
   CreateIPSetRequest,
@@ -220,6 +222,8 @@ import {
   GetWebACLForResourceResponse,
   GetWebACLRequest,
   GetWebACLResponse,
+  HeaderMatchPattern,
+  Headers,
   HTTPHeader,
   HTTPRequest,
   ImmunityTimeProperty,
@@ -321,6 +325,7 @@ import {
   VersionToPublish,
   VisibilityConfig,
   WAFAssociatedItemException,
+  WAFConfigurationWarningException,
   WAFDuplicateItemException,
   WAFExpiredManagedRuleGroupVersionException,
   WAFInternalErrorException,
@@ -1316,6 +1321,9 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "WAFConfigurationWarningException":
+    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
+      throw await deserializeAws_json1_1WAFConfigurationWarningExceptionResponse(parsedOutput, context);
     case "WAFDuplicateItemException":
     case "com.amazonaws.wafv2#WAFDuplicateItemException":
       throw await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(parsedOutput, context);
@@ -3559,6 +3567,9 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "WAFConfigurationWarningException":
+    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
+      throw await deserializeAws_json1_1WAFConfigurationWarningExceptionResponse(parsedOutput, context);
     case "WAFDuplicateItemException":
     case "com.amazonaws.wafv2#WAFDuplicateItemException":
       throw await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(parsedOutput, context);
@@ -3626,6 +3637,9 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "WAFConfigurationWarningException":
+    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
+      throw await deserializeAws_json1_1WAFConfigurationWarningExceptionResponse(parsedOutput, context);
     case "WAFDuplicateItemException":
     case "com.amazonaws.wafv2#WAFDuplicateItemException":
       throw await deserializeAws_json1_1WAFDuplicateItemExceptionResponse(parsedOutput, context);
@@ -3677,6 +3691,19 @@ const deserializeAws_json1_1WAFAssociatedItemExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1WAFAssociatedItemException(body, context);
   const exception = new WAFAssociatedItemException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1WAFConfigurationWarningExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WAFConfigurationWarningException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1WAFConfigurationWarningException(body, context);
+  const exception = new WAFConfigurationWarningException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3938,7 +3965,10 @@ const serializeAws_json1_1BlockAction = (input: BlockAction, context: __SerdeCon
 };
 
 const serializeAws_json1_1Body = (input: Body, context: __SerdeContext): any => {
-  return {};
+  return {
+    ...(input.OversizeHandling !== undefined &&
+      input.OversizeHandling !== null && { OversizeHandling: input.OversizeHandling }),
+  };
 };
 
 const serializeAws_json1_1ByteMatchStatement = (input: ByteMatchStatement, context: __SerdeContext): any => {
@@ -4004,6 +4034,43 @@ const serializeAws_json1_1Conditions = (input: Condition[], context: __SerdeCont
       }
       return serializeAws_json1_1Condition(entry, context);
     });
+};
+
+const serializeAws_json1_1CookieMatchPattern = (input: CookieMatchPattern, context: __SerdeContext): any => {
+  return {
+    ...(input.All !== undefined && input.All !== null && { All: serializeAws_json1_1All(input.All, context) }),
+    ...(input.ExcludedCookies !== undefined &&
+      input.ExcludedCookies !== null && {
+        ExcludedCookies: serializeAws_json1_1CookieNames(input.ExcludedCookies, context),
+      }),
+    ...(input.IncludedCookies !== undefined &&
+      input.IncludedCookies !== null && {
+        IncludedCookies: serializeAws_json1_1CookieNames(input.IncludedCookies, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CookieNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1Cookies = (input: Cookies, context: __SerdeContext): any => {
+  return {
+    ...(input.MatchPattern !== undefined &&
+      input.MatchPattern !== null && {
+        MatchPattern: serializeAws_json1_1CookieMatchPattern(input.MatchPattern, context),
+      }),
+    ...(input.MatchScope !== undefined && input.MatchScope !== null && { MatchScope: input.MatchScope }),
+    ...(input.OversizeHandling !== undefined &&
+      input.OversizeHandling !== null && { OversizeHandling: input.OversizeHandling }),
+  };
 };
 
 const serializeAws_json1_1CountAction = (input: CountAction, context: __SerdeContext): any => {
@@ -4285,6 +4352,10 @@ const serializeAws_json1_1FieldToMatch = (input: FieldToMatch, context: __SerdeC
         AllQueryArguments: serializeAws_json1_1AllQueryArguments(input.AllQueryArguments, context),
       }),
     ...(input.Body !== undefined && input.Body !== null && { Body: serializeAws_json1_1Body(input.Body, context) }),
+    ...(input.Cookies !== undefined &&
+      input.Cookies !== null && { Cookies: serializeAws_json1_1Cookies(input.Cookies, context) }),
+    ...(input.Headers !== undefined &&
+      input.Headers !== null && { Headers: serializeAws_json1_1Headers(input.Headers, context) }),
     ...(input.JsonBody !== undefined &&
       input.JsonBody !== null && { JsonBody: serializeAws_json1_1JsonBody(input.JsonBody, context) }),
     ...(input.Method !== undefined &&
@@ -4466,6 +4537,43 @@ const serializeAws_json1_1GetWebACLRequest = (input: GetWebACLRequest, context: 
   };
 };
 
+const serializeAws_json1_1HeaderMatchPattern = (input: HeaderMatchPattern, context: __SerdeContext): any => {
+  return {
+    ...(input.All !== undefined && input.All !== null && { All: serializeAws_json1_1All(input.All, context) }),
+    ...(input.ExcludedHeaders !== undefined &&
+      input.ExcludedHeaders !== null && {
+        ExcludedHeaders: serializeAws_json1_1HeaderNames(input.ExcludedHeaders, context),
+      }),
+    ...(input.IncludedHeaders !== undefined &&
+      input.IncludedHeaders !== null && {
+        IncludedHeaders: serializeAws_json1_1HeaderNames(input.IncludedHeaders, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1HeaderNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1Headers = (input: Headers, context: __SerdeContext): any => {
+  return {
+    ...(input.MatchPattern !== undefined &&
+      input.MatchPattern !== null && {
+        MatchPattern: serializeAws_json1_1HeaderMatchPattern(input.MatchPattern, context),
+      }),
+    ...(input.MatchScope !== undefined && input.MatchScope !== null && { MatchScope: input.MatchScope }),
+    ...(input.OversizeHandling !== undefined &&
+      input.OversizeHandling !== null && { OversizeHandling: input.OversizeHandling }),
+  };
+};
+
 const serializeAws_json1_1ImmunityTimeProperty = (input: ImmunityTimeProperty, context: __SerdeContext): any => {
   return {
     ...(input.ImmunityTime !== undefined && input.ImmunityTime !== null && { ImmunityTime: input.ImmunityTime }),
@@ -4511,6 +4619,8 @@ const serializeAws_json1_1JsonBody = (input: JsonBody, context: __SerdeContext):
         MatchPattern: serializeAws_json1_1JsonMatchPattern(input.MatchPattern, context),
       }),
     ...(input.MatchScope !== undefined && input.MatchScope !== null && { MatchScope: input.MatchScope }),
+    ...(input.OversizeHandling !== undefined &&
+      input.OversizeHandling !== null && { OversizeHandling: input.OversizeHandling }),
   };
 };
 
@@ -5365,7 +5475,9 @@ const deserializeAws_json1_1BlockAction = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1Body = (output: any, context: __SerdeContext): Body => {
-  return {} as any;
+  return {
+    OversizeHandling: __expectString(output.OversizeHandling),
+  } as any;
 };
 
 const deserializeAws_json1_1ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchStatement => {
@@ -5441,6 +5553,43 @@ const deserializeAws_json1_1Conditions = (output: any, context: __SerdeContext):
       return deserializeAws_json1_1Condition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CookieMatchPattern = (output: any, context: __SerdeContext): CookieMatchPattern => {
+  return {
+    All: output.All !== undefined && output.All !== null ? deserializeAws_json1_1All(output.All, context) : undefined,
+    ExcludedCookies:
+      output.ExcludedCookies !== undefined && output.ExcludedCookies !== null
+        ? deserializeAws_json1_1CookieNames(output.ExcludedCookies, context)
+        : undefined,
+    IncludedCookies:
+      output.IncludedCookies !== undefined && output.IncludedCookies !== null
+        ? deserializeAws_json1_1CookieNames(output.IncludedCookies, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CookieNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Cookies = (output: any, context: __SerdeContext): Cookies => {
+  return {
+    MatchPattern:
+      output.MatchPattern !== undefined && output.MatchPattern !== null
+        ? deserializeAws_json1_1CookieMatchPattern(output.MatchPattern, context)
+        : undefined,
+    MatchScope: __expectString(output.MatchScope),
+    OversizeHandling: __expectString(output.OversizeHandling),
+  } as any;
 };
 
 const deserializeAws_json1_1CountAction = (output: any, context: __SerdeContext): CountAction => {
@@ -5682,6 +5831,14 @@ const deserializeAws_json1_1FieldToMatch = (output: any, context: __SerdeContext
         : undefined,
     Body:
       output.Body !== undefined && output.Body !== null ? deserializeAws_json1_1Body(output.Body, context) : undefined,
+    Cookies:
+      output.Cookies !== undefined && output.Cookies !== null
+        ? deserializeAws_json1_1Cookies(output.Cookies, context)
+        : undefined,
+    Headers:
+      output.Headers !== undefined && output.Headers !== null
+        ? deserializeAws_json1_1Headers(output.Headers, context)
+        : undefined,
     JsonBody:
       output.JsonBody !== undefined && output.JsonBody !== null
         ? deserializeAws_json1_1JsonBody(output.JsonBody, context)
@@ -5949,6 +6106,43 @@ const deserializeAws_json1_1GetWebACLResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1HeaderMatchPattern = (output: any, context: __SerdeContext): HeaderMatchPattern => {
+  return {
+    All: output.All !== undefined && output.All !== null ? deserializeAws_json1_1All(output.All, context) : undefined,
+    ExcludedHeaders:
+      output.ExcludedHeaders !== undefined && output.ExcludedHeaders !== null
+        ? deserializeAws_json1_1HeaderNames(output.ExcludedHeaders, context)
+        : undefined,
+    IncludedHeaders:
+      output.IncludedHeaders !== undefined && output.IncludedHeaders !== null
+        ? deserializeAws_json1_1HeaderNames(output.IncludedHeaders, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1HeaderNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Headers = (output: any, context: __SerdeContext): Headers => {
+  return {
+    MatchPattern:
+      output.MatchPattern !== undefined && output.MatchPattern !== null
+        ? deserializeAws_json1_1HeaderMatchPattern(output.MatchPattern, context)
+        : undefined,
+    MatchScope: __expectString(output.MatchScope),
+    OversizeHandling: __expectString(output.OversizeHandling),
+  } as any;
+};
+
 const deserializeAws_json1_1HTTPHeader = (output: any, context: __SerdeContext): HTTPHeader => {
   return {
     Name: __expectString(output.Name),
@@ -6065,6 +6259,7 @@ const deserializeAws_json1_1JsonBody = (output: any, context: __SerdeContext): J
         ? deserializeAws_json1_1JsonMatchPattern(output.MatchPattern, context)
         : undefined,
     MatchScope: __expectString(output.MatchScope),
+    OversizeHandling: __expectString(output.OversizeHandling),
   } as any;
 };
 
@@ -7211,6 +7406,15 @@ const deserializeAws_json1_1WAFAssociatedItemException = (
   output: any,
   context: __SerdeContext
 ): WAFAssociatedItemException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1WAFConfigurationWarningException = (
+  output: any,
+  context: __SerdeContext
+): WAFConfigurationWarningException => {
   return {
     Message: __expectString(output.Message),
   } as any;

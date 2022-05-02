@@ -1562,6 +1562,7 @@ const serializeAws_restJson1InputFileConfig = (input: InputFileConfig, context: 
 
 const serializeAws_restJson1InstanceConfig = (input: InstanceConfig, context: __SerdeContext): any => {
   return {
+    ...(input.instanceCount !== undefined && input.instanceCount !== null && { instanceCount: input.instanceCount }),
     ...(input.instanceType !== undefined && input.instanceType !== null && { instanceType: input.instanceType }),
     ...(input.volumeSizeInGb !== undefined &&
       input.volumeSizeInGb !== null && { volumeSizeInGb: input.volumeSizeInGb }),
@@ -1788,6 +1789,7 @@ const deserializeAws_restJson1InputFileConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1InstanceConfig = (output: any, context: __SerdeContext): InstanceConfig => {
   return {
+    instanceCount: __expectInt32(output.instanceCount),
     instanceType: __expectString(output.instanceType),
     volumeSizeInGb: __expectInt32(output.volumeSizeInGb),
   } as any;

@@ -11751,7 +11751,7 @@
         "target": "com.amazonaws.ec2#KeyPair"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an ED25519 or 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public\n            key and displays the private key for you to save to a file. The private key is returned\n            as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name\n            already exists, Amazon EC2 returns an error.</p>\n\t\t       <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.\n            If you prefer, you can create your own key pair using a third-party tool and upload it\n            to any Region using <a>ImportKeyPair</a>.</p>\n         <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates an ED25519 or 2048-bit RSA key pair with the specified name and in the\n            specified PEM or PPK format. Amazon EC2 stores the public key and displays the private\n            key for you to save to a file. The private key is returned as an unencrypted PEM encoded\n            PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a\n            key with the specified name already exists, Amazon EC2 returns an error.</p>\n\t\t       <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.\n            If you prefer, you can create your own key pair using a third-party tool and upload it\n            to any Region using <a>ImportKeyPair</a>.</p>\n         <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs</a> in the\n                <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateKeyPairRequest": {
@@ -11783,6 +11783,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags to apply to the new key pair.</p>",
             "smithy.api#xmlName": "TagSpecification"
+          }
+        },
+        "KeyFormat": {
+          "target": "com.amazonaws.ec2#KeyFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the key pair.</p>\n        <p>Default: <code>pem</code>\n         </p>"
           }
         }
       }
@@ -23904,6 +23910,12 @@
             "aws.protocols#ec2QueryName": "DryRun",
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
+          }
+        },
+        "IncludePublicKey": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>If <code>true</code>, the public key material is included in the response.</p>\n        <p>Default: <code>false</code>\n         </p>"
           }
         }
       }
@@ -49627,6 +49639,21 @@
     "com.amazonaws.ec2#KernelId": {
       "type": "string"
     },
+    "com.amazonaws.ec2#KeyFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "pem",
+            "name": "pem"
+          },
+          {
+            "value": "ppk",
+            "name": "ppk"
+          }
+        ]
+      }
+    },
     "com.amazonaws.ec2#KeyNameStringList": {
       "type": "list",
       "member": {
@@ -49737,6 +49764,22 @@
             "aws.protocols#ec2QueryName": "TagSet",
             "smithy.api#documentation": "<p>Any tags applied to the key pair.</p>",
             "smithy.api#xmlName": "tagSet"
+          }
+        },
+        "PublicKey": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "PublicKey",
+            "smithy.api#documentation": "<p>The public key material.</p>",
+            "smithy.api#xmlName": "publicKey"
+          }
+        },
+        "CreateTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CreateTime",
+            "smithy.api#documentation": "<p>If you used Amazon EC2 to create the key pair, this is the date and time when the key\n            was created, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO\n                8601 date-time format</a>, in the UTC time zone.</p>\n        <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key\n            was imported, in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO\n                8601 date-time format</a>, in the UTC time zone.</p>",
+            "smithy.api#xmlName": "createTime"
           }
         }
       },

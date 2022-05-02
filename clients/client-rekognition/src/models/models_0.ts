@@ -67,7 +67,7 @@ export namespace AgeRange {
  *       Amazon Rekognition operations.</p>
  *
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
- *       access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition
+ *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
  *       Developer Guide. </p>
  */
 export interface S3Object {
@@ -107,7 +107,7 @@ export interface GroundTruthManifest {
    *       Amazon Rekognition operations.</p>
    *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
-   *       access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
    *       Developer Guide. </p>
    */
   S3Object?: S3Object;
@@ -258,7 +258,7 @@ export enum BodyPart {
 }
 
 /**
- * <p>Identifies the bounding box around the label, face, text or personal protective equipment.
+ * <p>Identifies the bounding box around the label, face, text, object of interest, or personal protective equipment.
  *       The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and
  *       left sides of the bounding box. Note that the upper-left corner of the image is the origin
  *       (0,0). </p>
@@ -788,7 +788,7 @@ export enum GenderType {
  *          <p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be
  *       analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform. </p>
  *
- *          <p>We don't recommend using gender binary predictions to make decisions that impact  an individual's rights, privacy, or access to services.</p>
+ *          <p>We don't recommend using gender binary predictions to make decisions that impact an individual's rights, privacy, or access to services.</p>
  */
 export interface Gender {
   /**
@@ -1146,7 +1146,7 @@ export enum QualityFilter {
  *       call the operation using the S3Object property.</p>
  *
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3
- *       object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide.
+ *       object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide.
  *     </p>
  */
 export interface Image {
@@ -1320,7 +1320,7 @@ export namespace CompareFacesResponse {
 /**
  * <p>The input image size exceeds the allowed limit. If you are calling
  *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see
- *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
 export class ImageTooLargeException extends __BaseException {
   readonly name: "ImageTooLargeException" = "ImageTooLargeException";
@@ -1517,6 +1517,70 @@ export class ThrottlingException extends __BaseException {
   }
 }
 
+/**
+ * <p>
+ *             Label detection settings to use on a streaming video. Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.
+ *             Including this setting in the <code>CreateStreamProcessor</code> request enables you to use the stream processor for label detection.
+ *             You can then select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification
+ *             is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected
+ *             and one SNS notification is published the first time a pet is detected, as well as an end-of-session summary.
+ *         </p>
+ */
+export interface ConnectedHomeSettings {
+  /**
+   * <p>
+   *             Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+   *         </p>
+   */
+  Labels: string[] | undefined;
+
+  /**
+   * <p>
+   *             The minimum confidence required to label an object in the video.
+   *         </p>
+   */
+  MinConfidence?: number;
+}
+
+export namespace ConnectedHomeSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectedHomeSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             The label detection settings you want to use in your stream processor. This includes the labels you want the stream processor to detect and the minimum confidence level allowed to label objects.
+ *         </p>
+ */
+export interface ConnectedHomeSettingsForUpdate {
+  /**
+   * <p>
+   *             Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
+   *         </p>
+   */
+  Labels?: string[];
+
+  /**
+   * <p>
+   *             The minimum confidence required to label an object in the video.
+   *         </p>
+   */
+  MinConfidence?: number;
+}
+
+export namespace ConnectedHomeSettingsForUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectedHomeSettingsForUpdate): any => ({
+    ...obj,
+  });
+}
+
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
   FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
@@ -1623,7 +1687,7 @@ export interface CreateCollectionResponse {
   CollectionArn?: string;
 
   /**
-   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
+   * <p>Version number of the face detection model associated with the collection you are creating.</p>
    */
   FaceModelVersion?: string;
 }
@@ -1670,7 +1734,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
  *
  *
  *          <p>The size of the collection exceeds the allowed limit. For more information, see
- *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -2076,6 +2140,31 @@ export namespace CreateProjectVersionResponse {
 }
 
 /**
+ * <p>
+ *             Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
+ *                 Note that if you opt out at the account level this setting is ignored on individual streams.
+ *
+ *         </p>
+ */
+export interface StreamProcessorDataSharingPreference {
+  /**
+   * <p>
+   *             If this option is set to true, you choose to share data with Rekognition to improve model performance.
+   *         </p>
+   */
+  OptIn: boolean | undefined;
+}
+
+export namespace StreamProcessorDataSharingPreference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamProcessorDataSharingPreference): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -2115,6 +2204,31 @@ export namespace StreamProcessorInput {
 }
 
 /**
+ * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
+ *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+ *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
+ *             one for a person at second 2 and one for a pet at second 4.</p>
+ *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+ */
+export interface StreamProcessorNotificationChannel {
+  /**
+   * <p>
+   *             The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+   *         </p>
+   */
+  SNSTopicArn: string | undefined;
+}
+
+export namespace StreamProcessorNotificationChannel {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamProcessorNotificationChannel): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see
  *             CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -2135,6 +2249,39 @@ export namespace KinesisDataStream {
 }
 
 /**
+ * <p>
+ *             The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
+ *             These results include the name of the stream processor resource, the session ID of the stream processing session,
+ *             and labeled timestamps and bounding boxes for detected labels.
+ *         </p>
+ */
+export interface S3Destination {
+  /**
+   * <p>
+   *             The name of the Amazon S3 bucket you want to associate with the streaming video project. You must be the owner of the Amazon S3 bucket.
+   *         </p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>
+   *             The prefix value of the location within the bucket that you want the information to be published to.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Using prefixes</a>.
+   *         </p>
+   */
+  KeyPrefix?: string;
+}
+
+export namespace S3Destination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Destination): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more
  *            information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
@@ -2143,6 +2290,13 @@ export interface StreamProcessorOutput {
    * <p>The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.</p>
    */
   KinesisDataStream?: KinesisDataStream;
+
+  /**
+   * <p>
+   *             The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation.
+   *         </p>
+   */
+  S3Destination?: S3Destination;
 }
 
 export namespace StreamProcessorOutput {
@@ -2155,8 +2309,71 @@ export namespace StreamProcessorOutput {
 }
 
 /**
- * <p>Input face recognition parameters for an Amazon Rekognition stream processor. <code>FaceRecognitionSettings</code> is a request
- *         parameter for <a>CreateStreamProcessor</a>.</p>
+ * <p>The X and Y coordinates of a point on an image or video frame. The X and Y values are ratios
+ *       of the overall image size or video resolution. For example, if an input image is 700x200 and the
+ *       values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p>
+ *
+ *          <p>An array of <code>Point</code> objects makes up a <code>Polygon</code>.
+ *       A <code>Polygon</code> is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>
+ *             <code>Polygon</code>
+ *       represents a fine-grained polygon around a detected item. For more information, see Geometry in the
+ *       Amazon Rekognition Developer Guide. </p>
+ */
+export interface Point {
+  /**
+   * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
+   */
+  X?: number;
+
+  /**
+   * <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
+   */
+  Y?: number;
+}
+
+export namespace Point {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Point): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a location within the frame that Rekognition checks for objects of interest such as text, labels, or faces. It uses a <code>BoundingBox</code>
+ *       or object or <code>Polygon</code> to set a region of the screen.</p>
+ *          <p>A word, face, or label is included in the region if it is more than half in that region. If there is more than
+ *       one region, the word, face, or label is compared with all regions of the screen. Any object of interest that is more than half in a region
+ *       is kept in the results.</p>
+ */
+export interface RegionOfInterest {
+  /**
+   * <p>The box representing a region of interest on screen.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>
+   *             Specifies a shape made up of up to 10 <code>Point</code> objects to define a region of interest.
+   *         </p>
+   */
+  Polygon?: Point[];
+}
+
+export namespace RegionOfInterest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegionOfInterest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Input face recognition parameters for an Amazon Rekognition stream processor.
+ *             Includes the collection to use for face recognition and the face attributes to detect.
+ *             Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.</p>
  */
 export interface FaceSearchSettings {
   /**
@@ -2181,13 +2398,25 @@ export namespace FaceSearchSettings {
 }
 
 /**
- * <p>Input parameters used to recognize faces in a streaming video analyzed by a Amazon Rekognition stream processor.</p>
+ * <p>Input parameters used in a streaming video analyzed by a Amazon Rekognition stream processor.
+ *             You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels. </p>
  */
 export interface StreamProcessorSettings {
   /**
    * <p>Face search settings to use on a streaming video. </p>
    */
   FaceSearch?: FaceSearchSettings;
+
+  /**
+   * <p>
+   *             Label detection settings to use on a streaming video. Defining the settings is required in the request parameter for <a>CreateStreamProcessor</a>.
+   *             Including this setting in the <code>CreateStreamProcessor</code> request enables you to use the stream processor for label detection.
+   *             You can then select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification
+   *             is sent for each object class specified. For example, if packages and pets are selected, one SNS notification is published the first time a package is detected
+   *             and one SNS notification is published the first time a pet is detected, as well as an end-of-session summary.
+   *         </p>
+   */
+  ConnectedHome?: ConnectedHomeSettings;
 }
 
 export namespace StreamProcessorSettings {
@@ -2201,31 +2430,33 @@ export namespace StreamProcessorSettings {
 
 export interface CreateStreamProcessorRequest {
   /**
-   * <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>
+   * <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>. This is required for both face search and label detection stream processors.</p>
    */
   Input: StreamProcessorInput | undefined;
 
   /**
-   * <p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
+   * <p>Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.
+   *             This must be a <a>S3Destination</a> of an Amazon S3 bucket that you own for a label detection stream processor or a Kinesis data stream ARN for a face search stream processor.</p>
    */
   Output: StreamProcessorOutput | undefined;
 
   /**
    * <p>An identifier you assign to the stream processor. You can use <code>Name</code> to
    *             manage the stream processor. For example, you can get the current status of the stream processor by calling <a>DescribeStreamProcessor</a>.
-   *              <code>Name</code> is idempotent.
+   *             <code>Name</code> is idempotent. This is required for both face search and label detection stream processors.
    *        </p>
    */
   Name: string | undefined;
 
   /**
-   * <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face
-   *         attributes to detect.</p>
+   * <p>Input parameters used in a streaming video analyzed by a stream processor. You can use <code>FaceSearch</code> to recognize faces in a streaming video, or you can use <code>ConnectedHome</code> to detect labels.</p>
    */
   Settings: StreamProcessorSettings | undefined;
 
   /**
-   * <p>ARN of the IAM role that allows access to the stream processor.</p>
+   * <p>The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor.
+   *             The IAM role provides Rekognition read permissions for a Kinesis stream.
+   *             It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.</p>
    */
   RoleArn: string | undefined;
 
@@ -2235,6 +2466,41 @@ export interface CreateStreamProcessorRequest {
    *     </p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
+   *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+   *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
+   *             one for a person at second 2 and one for a pet at second 4.</p>
+   *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+   */
+  NotificationChannel?: StreamProcessorNotificationChannel;
+
+  /**
+   * <p>
+   *             The identifier for your AWS Key Management Service key (AWS KMS key). This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor.
+   *             You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
+   *             The key is used to encrypt results and data published to your Amazon S3 bucket, which includes  image frames and hero images. Your source images are unaffected.
+   *         </p>
+   *         <p>
+   *             </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. You can specify up to 10 regions of interest. This is an optional parameter for label detection stream processors and should not be used to create a face search stream processor.
+   *         </p>
+   */
+  RegionsOfInterest?: RegionOfInterest[];
+
+  /**
+   * <p>
+   *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
+   *             Note that if you opt out at the account level this setting is ignored on individual streams.
+   *         </p>
+   */
+  DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
 export namespace CreateStreamProcessorRequest {
@@ -2248,7 +2514,7 @@ export namespace CreateStreamProcessorRequest {
 
 export interface CreateStreamProcessorResponse {
   /**
-   * <p>ARN for the newly create stream processor.</p>
+   * <p>Amazon Resource Number for the newly created stream processor.</p>
    */
   StreamProcessorArn?: string;
 }
@@ -2258,37 +2524,6 @@ export namespace CreateStreamProcessorResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateStreamProcessorResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios
- *       of the overall image size. For example, if the input image is 700x200 and the
- *       operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p>
- *
- *          <p>An array of <code>Point</code> objects,
- *       <code>Polygon</code>, is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>. <code>Polygon</code>
- *       represents a fine-grained polygon around a detected item. For more information, see Geometry in the
- *       Amazon Rekognition Developer Guide. </p>
- */
-export interface Point {
-  /**
-   * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
-   */
-  X?: number;
-
-  /**
-   * <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
-   */
-  Y?: number;
-}
-
-export namespace Point {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Point): any => ({
     ...obj,
   });
 }
@@ -2861,7 +3096,7 @@ export interface DescribeCollectionResponse {
   /**
    * <p>The version of the face model that's used by the collection for face detection.</p>
    *
-   *          <p>For more information, see Model Versioning in the
+   *          <p>For more information, see Model versioning in the
    *      Amazon Rekognition Developer Guide.</p>
    */
   FaceModelVersion?: string;
@@ -3093,7 +3328,7 @@ export interface Summary {
    *       Amazon Rekognition operations.</p>
    *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
-   *       access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
    *       Developer Guide. </p>
    */
   S3Object?: S3Object;
@@ -3352,6 +3587,7 @@ export enum StreamProcessorStatus {
   STARTING = "STARTING",
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
+  UPDATING = "UPDATING",
 }
 
 export interface DescribeStreamProcessorResponse {
@@ -3402,11 +3638,41 @@ export interface DescribeStreamProcessorResponse {
   RoleArn?: string;
 
   /**
-   * <p>Face recognition input parameters that are being used by the stream processor.
-   *             Includes the collection to use for face recognition and the face
-   *             attributes to detect.</p>
+   * <p>Input parameters used in a streaming video analyzed by a stream processor. You can use <code>FaceSearch</code> to recognize faces
+   *             in a streaming video, or you can use <code>ConnectedHome</code> to detect labels.</p>
    */
   Settings?: StreamProcessorSettings;
+
+  /**
+   * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
+   *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+   *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
+   *             one for a person at second 2 and one for a pet at second 4.</p>
+   *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+   */
+  NotificationChannel?: StreamProcessorNotificationChannel;
+
+  /**
+   * <p>
+   *             The identifier for your AWS Key Management Service key (AWS KMS key). This is an optional parameter for label detection stream processors.
+   *         </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors.
+   *         </p>
+   */
+  RegionsOfInterest?: RegionOfInterest[];
+
+  /**
+   * <p>
+   *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
+   *             Note that if you opt out at the account level this setting is ignored on individual streams.
+   *         </p>
+   */
+  DataSharingPreference?: StreamProcessorDataSharingPreference;
 }
 
 export namespace DescribeStreamProcessorResponse {
@@ -3446,7 +3712,7 @@ export interface DetectCustomLabelsRequest {
    *       call the operation using the S3Object property.</p>
    *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3
-   *       object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide.
+   *       object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide.
    *     </p>
    */
   Image: Image | undefined;
@@ -3592,9 +3858,9 @@ export namespace DetectFacesResponse {
  */
 export interface DetectionFilter {
   /**
-   * <p>Sets the confidence of word detection. Words with detection confidence below this will be excluded
-   *       from the result. Values should be between 50 and 100 as Text in Video will not return any result below
-   *       50.</p>
+   * <p>Sets the confidence of word detection. Words with detection confidence below this will be
+   *       excluded from the result. Values should be between 0 and 100. The default MinConfidence is
+   *       80.</p>
    */
   MinConfidence?: number;
 
@@ -4139,29 +4405,6 @@ export namespace DetectProtectiveEquipmentResponse {
 }
 
 /**
- * <p>Specifies a location within the frame that Rekognition checks for text. Uses a <code>BoundingBox</code>
- *       object to set a region of the screen.</p>
- *          <p>A word is included in the region if the word is more than half in that region. If there is more than
- *       one region, the word will be compared with all regions of the screen. Any word more than half in a region
- *       is kept in the results.</p>
- */
-export interface RegionOfInterest {
-  /**
-   * <p>The box representing a region of interest on screen.</p>
-   */
-  BoundingBox?: BoundingBox;
-}
-
-export namespace RegionOfInterest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionOfInterest): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response.
  *       <code>WordFilter</code> looks at a word’s height, width, and minimum confidence. <code>RegionOfInterest</code>
  *       lets you set a specific region of the image to look for text in.
@@ -4228,7 +4471,7 @@ export enum TextTypes {
  *       the word appears. The word <code>Id</code> is also an index for the word within a line of
  *       words. </p>
  *
- *          <p>For more information, see Detecting Text in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>
  */
 export interface TextDetection {
   /**
@@ -5743,7 +5986,8 @@ export interface IndexFacesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 
   /**
-   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
+   * <p>The version number of the face detection model that's associated with the input
+   *       collection (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 
@@ -5761,6 +6005,38 @@ export namespace IndexFacesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: IndexFacesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             Specifies the starting point in a Kinesis stream to start processing.
+ *             You can use the producer timestamp or the fragment number.
+ *             For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
+ *         </p>
+ */
+export interface KinesisVideoStreamStartSelector {
+  /**
+   * <p>
+   *             The timestamp from the producer corresponding to the fragment.
+   *         </p>
+   */
+  ProducerTimestamp?: number;
+
+  /**
+   * <p>
+   *             The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
+   *         </p>
+   */
+  FragmentNumber?: string;
+}
+
+export namespace KinesisVideoStreamStartSelector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KinesisVideoStreamStartSelector): any => ({
     ...obj,
   });
 }
@@ -5799,7 +6075,7 @@ export interface ListCollectionsResponse {
   NextToken?: string;
 
   /**
-   * <p>Latest face models being used with the corresponding collections in the array. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.
+   * <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>.
    *     For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used
    *       by the collection in <code>CollectionId[2]</code>.</p>
    */
@@ -5999,7 +6275,7 @@ export interface ListFacesResponse {
   NextToken?: string;
 
   /**
-   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -6036,7 +6312,7 @@ export namespace ListStreamProcessorsRequest {
 }
 
 /**
- * <p>An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to <a>CreateStreamProcessor</a>.  The request
+ * <p>An object that recognizes faces or labels in a streaming video. An Amazon Rekognition stream processor is created by a call to <a>CreateStreamProcessor</a>.  The request
  *         parameters for <code>CreateStreamProcessor</code> describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts.
  *
  *         </p>
@@ -6122,12 +6398,12 @@ export namespace ListTagsForResourceResponse {
 
 /**
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
- *           <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
+ *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
  *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
  */
 export interface NotificationChannel {
   /**
-   * <p>The Amazon SNS topic to which Amazon Rekognition to posts the completion status.</p>
+   * <p>The Amazon SNS topic to which Amazon Rekognition posts the completion status.</p>
    */
   SNSTopicArn: string | undefined;
 
@@ -6260,7 +6536,7 @@ export interface SearchFacesResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -6350,7 +6626,7 @@ export interface SearchFacesByImageResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Latest face model being used with the collection. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-detection-model.html">Model versioning</a>.</p>
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -6955,11 +7231,75 @@ export namespace StartSegmentDetectionResponse {
   });
 }
 
+/**
+ * <p></p>
+ */
+export interface StreamProcessingStartSelector {
+  /**
+   * <p>
+   *             Specifies the starting point in the stream to start processing. This can be done with a timestamp or a fragment number in a Kinesis stream.
+   *         </p>
+   */
+  KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
+}
+
+export namespace StreamProcessingStartSelector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamProcessingStartSelector): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             Specifies when to stop processing the stream. You can specify a maximum amount
+ *             of time to process the video.
+ *         </p>
+ */
+export interface StreamProcessingStopSelector {
+  /**
+   * <p>
+   *             Specifies the maximum amount of time in seconds that you want the stream to be processed. The largest amount of time is 2 minutes. The default is 10 seconds.
+   *         </p>
+   */
+  MaxDurationInSeconds?: number;
+}
+
+export namespace StreamProcessingStopSelector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamProcessingStopSelector): any => ({
+    ...obj,
+  });
+}
+
 export interface StartStreamProcessorRequest {
   /**
    * <p>The name of the stream processor to start processing.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>
+   *             Specifies the starting point in the Kinesis stream to start processing.
+   *             You can use the producer timestamp or the fragment number.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
+   *         </p>
+   *         <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
+   */
+  StartSelector?: StreamProcessingStartSelector;
+
+  /**
+   * <p>
+   *             Specifies when to stop processing the stream. You can specify a
+   *             maximum amount of time to process the video.
+   *         </p>
+   *         <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
+   */
+  StopSelector?: StreamProcessingStopSelector;
 }
 
 export namespace StartStreamProcessorRequest {
@@ -6971,7 +7311,14 @@ export namespace StartStreamProcessorRequest {
   });
 }
 
-export interface StartStreamProcessorResponse {}
+export interface StartStreamProcessorResponse {
+  /**
+   * <p>
+   *             A unique identifier for the stream processing session.
+   *         </p>
+   */
+  SessionId?: string;
+}
 
 export namespace StartStreamProcessorResponse {
   /**
@@ -7025,7 +7372,7 @@ export interface StartTextDetectionRequest {
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
-   *           <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
+   *           <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html">Calling Amazon Rekognition Video operations</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.
    *           For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
    */
   NotificationChannel?: NotificationChannel;
@@ -7231,6 +7578,92 @@ export namespace UpdateDatasetEntriesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDatasetEntriesResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum StreamProcessorParameterToDelete {
+  ConnectedHomeMinConfidence = "ConnectedHomeMinConfidence",
+  RegionsOfInterest = "RegionsOfInterest",
+}
+
+/**
+ * <p>
+ *             The stream processor settings that you want to update. <code>ConnectedHome</code> settings can be updated to detect different labels with a different minimum confidence.
+ *         </p>
+ */
+export interface StreamProcessorSettingsForUpdate {
+  /**
+   * <p>
+   *             The label detection settings you want to use for your stream processor.
+   *         </p>
+   */
+  ConnectedHomeForUpdate?: ConnectedHomeSettingsForUpdate;
+}
+
+export namespace StreamProcessorSettingsForUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamProcessorSettingsForUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateStreamProcessorRequest {
+  /**
+   * <p>
+   *             Name of the stream processor that you want to update.
+   *         </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *             The stream processor settings that you want to update. Label detection settings can be updated to detect different labels with a different minimum confidence.
+   *         </p>
+   */
+  SettingsForUpdate?: StreamProcessorSettingsForUpdate;
+
+  /**
+   * <p>
+   *             Specifies locations in the frames where Amazon Rekognition checks for objects or people. This is an optional parameter for label detection stream processors.
+   *         </p>
+   */
+  RegionsOfInterestForUpdate?: RegionOfInterest[];
+
+  /**
+   * <p>
+   *             Shows whether you are sharing data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis.
+   *             Note that if you opt out at the account level this setting is ignored on individual streams.
+   *         </p>
+   */
+  DataSharingPreferenceForUpdate?: StreamProcessorDataSharingPreference;
+
+  /**
+   * <p>
+   *             A list of parameters you want to delete from the stream processor.
+   *         </p>
+   */
+  ParametersToDelete?: (StreamProcessorParameterToDelete | string)[];
+}
+
+export namespace UpdateStreamProcessorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStreamProcessorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateStreamProcessorResponse {}
+
+export namespace UpdateStreamProcessorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStreamProcessorResponse): any => ({
     ...obj,
   });
 }

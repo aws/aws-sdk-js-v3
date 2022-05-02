@@ -1020,6 +1020,12 @@ export namespace CreateCodeReviewRequest {
   });
 }
 
+export enum ConfigFileState {
+  ABSENT = "Absent",
+  PRESENT = "Present",
+  PRESENT_WITH_ERRORS = "PresentWithErrors",
+}
+
 /**
  * <p>
  *          Information about the statistics from the code review.
@@ -1028,11 +1034,21 @@ export namespace CreateCodeReviewRequest {
 export interface Metrics {
   /**
    * <p>
-   *             <code>MeteredLinesOfCode</code> is the number of lines of code in the repository where the code review happened.
+   *             <code>MeteredLinesOfCodeCount</code> is the number of lines of code in the repository where the code review happened.
    *          This does not include non-code lines such as comments and blank lines.
    *       </p>
    */
   MeteredLinesOfCodeCount?: number;
+
+  /**
+   * <p>
+   *             <code>SuppressedLinesOfCodeCount</code> is the number of lines of code in the repository
+   *          where the code review happened that CodeGuru Reviewer did not analyze. The lines suppressed in the
+   *          analysis is based on the <code>excludeFiles</code> variable in the
+   *             <code>aws-codeguru-reviewer.yml</code> file. This number does not include non-code lines
+   *          such as comments and blank lines. </p>
+   */
+  SuppressedLinesOfCodeCount?: number;
 
   /**
    * <p>
@@ -1196,10 +1212,17 @@ export interface CodeReview {
   Metrics?: Metrics;
 
   /**
-   * <p>They types of analysis performed during a repository analysis or a pull request review. You can specify either
+   * <p>The types of analysis performed during a repository analysis or a pull request review. You can specify either
    *          <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
   AnalysisTypes?: (AnalysisType | string)[];
+
+  /**
+   * <p>The state of the <code>aws-codeguru-reviewer.yml</code> configuration file that allows
+   *          the configuration of the CodeGuru Reviewer analysis. The file either exists, doesn't exist, or exists
+   *          with errors at the root directory of your repository.</p>
+   */
+  ConfigFileState?: ConfigFileState | string;
 }
 
 export namespace CodeReview {
@@ -1652,6 +1675,24 @@ export interface MetricsSummary {
    *       </p>
    */
   MeteredLinesOfCodeCount?: number;
+
+  /**
+   * <p>Lines of code suppressed in the code review based on the <code>excludeFiles</code>
+   *          element in the <code>aws-codeguru-reviewer.yml</code> file. For full repository analyses,
+   *          this number includes all lines of code in the files that are suppressed. For pull requests,
+   *          this number only includes the <i>changed</i> lines of code that are
+   *          suppressed. In both cases, this number does not include non-code lines such as comments and
+   *          import statements. For example, if you initiate a full repository analysis on a repository
+   *          containing 5 files, each file with 100 lines of code, and 2 files are listed as excluded in
+   *          the <code>aws-codeguru-reviewer.yml</code> file, then
+   *             <code>SuppressedLinesOfCodeCount</code> returns 200 (2 * 100) as the total number of
+   *          lines of code suppressed. However, if you submit a pull request for the same repository,
+   *          then  <code>SuppressedLinesOfCodeCount</code> only includes the lines in the 2 files
+   *          that changed. If only 1 of the 2 files changed in the pull request, then
+   *             <code>SuppressedLinesOfCodeCount</code>  returns 100 (1 * 100) as the total number of
+   *          lines of code suppressed.</p>
+   */
+  SuppressedLinesOfCodeCount?: number;
 
   /**
    * <p>

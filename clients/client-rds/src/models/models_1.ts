@@ -17,7 +17,7 @@ import {
   DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
-  DBSnapshotAttributesResult,
+  DBSnapshotAttribute,
   DBSubnetGroup,
   EventSubscription,
   ExportTask,
@@ -35,6 +35,34 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+/**
+ * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
+ *     API action.</p>
+ *         <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
+ *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
+ *       API action.</p>
+ */
+export interface DBSnapshotAttributesResult {
+  /**
+   * <p>The identifier of the manual DB snapshot that the attributes apply to.</p>
+   */
+  DBSnapshotIdentifier?: string;
+
+  /**
+   * <p>The list of attributes and values for the manual DB snapshot.</p>
+   */
+  DBSnapshotAttributes?: DBSnapshotAttribute[];
+}
+
+export namespace DBSnapshotAttributesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBSnapshotAttributesResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeDBSnapshotAttributesResult {
   /**
@@ -1976,6 +2004,17 @@ export interface OrderableDBInstanceOption {
    *          </p>
    */
   SupportsClusters?: boolean;
+
+  /**
+   * <p>The network types supported by the DB instance (<code>IPV4</code> or <code>DUAL</code>).</p>
+   *         <p>A DB instance can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  SupportedNetworkTypes?: string[];
 }
 
 export namespace OrderableDBInstanceOption {
@@ -4682,6 +4721,31 @@ export interface ModifyDBInstanceMessage {
    *             full automation. The minimum value is <code>60</code> (default). The maximum value is <code>1,440</code>.</p>
    */
   ResumeFullAutomationModeMinutes?: number;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -7778,6 +7842,31 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace RestoreDBInstanceFromDBSnapshotMessage {
@@ -8213,6 +8302,31 @@ export interface RestoreDBInstanceFromS3Message {
    *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   MaxAllocatedStorage?: number;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace RestoreDBInstanceFromS3Message {
@@ -8674,6 +8788,31 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *             with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   BackupTarget?: string;
+
+  /**
+   * <p>The network type of the DB instance.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>IPV4</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DUAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the DB instance.
+   *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6
+   *             protocols (<code>DUAL</code>).</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html">
+   *             Working with a DB instance in a VPC</a> in the
+   *             <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  NetworkType?: string;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {

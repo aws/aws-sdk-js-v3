@@ -447,7 +447,11 @@ export interface AwsApiCallAction {
    */
   ErrorCode?: string;
 
+  /**
+   * <p>The agent through which the API request was made.</p>
+   */
   UserAgent?: string;
+
   /**
    * <p>The remote IP information of the connection that initiated the Amazon Web Services API call.</p>
    */
@@ -1365,6 +1369,9 @@ export interface CreateFilterRequest {
    *             </li>
    *             <li>
    *                <p>service.action.awsApiCallAction.errorCode</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.userAgent</p>
    *             </li>
    *             <li>
    *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>

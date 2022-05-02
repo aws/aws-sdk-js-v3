@@ -134,12 +134,27 @@ import {
   ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
-  SpotInstanceRequest,
   SpotPlacement,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_4";
+
+export interface GetFlowLogsIntegrationTemplateResult {
+  /**
+   * <p>The generated CloudFormation template.</p>
+   */
+  Result?: string;
+}
+
+export namespace GetFlowLogsIntegrationTemplateResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateResult): any => ({
+    ...obj,
+  });
+}
 
 export interface GetGroupsForCapacityReservationRequest {
   /**
@@ -9886,25 +9901,6 @@ export namespace RequestSpotInstancesRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of RequestSpotInstances.</p>
- */
-export interface RequestSpotInstancesResult {
-  /**
-   * <p>One or more Spot Instance requests.</p>
-   */
-  SpotInstanceRequests?: SpotInstanceRequest[];
-}
-
-export namespace RequestSpotInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
     ...obj,
   });
 }

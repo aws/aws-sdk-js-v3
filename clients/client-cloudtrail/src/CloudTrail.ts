@@ -119,10 +119,15 @@ import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput }
  */
 export class CloudTrail extends CloudTrailClient {
   /**
-   * <p>Adds one or more tags to a trail, up to a limit of 50. Overwrites an existing tag's value when a new value is specified for an existing tag key.
-   *          Tag key names must be unique for a trail; you cannot have two keys with the same name but different values.
-   *           If you specify a key without a value, the tag will be created with the specified key and a value of null.
-   *           You can tag a trail that applies to all Amazon Web Services Regions only from the Region in which the trail was created (also known as its home region).</p>
+   * <p>Adds one or more tags to a trail or event data store, up to a limit of 50. Overwrites an
+   *          existing tag's value when a new value is specified for an existing tag key.
+   *          Tag key names must be unique for a trail; you cannot have two keys with the same name but
+   *          different values.
+   *           If you specify a key without a value, the tag will be created with the specified key and a
+   *           value of null.
+   *           You can tag a trail or event data store that applies to all Amazon Web Services Regions
+   *          only from the Region in which the trail or event data store was created (also known as its
+   *          home region).</p>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -674,7 +679,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Lists the tags for the trail in the current region.</p>
+   * <p>Lists the tags for the trail or event data store in the current region.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
   public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
@@ -913,7 +918,7 @@ export class CloudTrail extends CloudTrailClient {
   }
 
   /**
-   * <p>Removes the specified tags from a trail.</p>
+   * <p>Removes the specified tags from a trail or event data store.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;
   public removeTags(args: RemoveTagsCommandInput, cb: (err: any, data?: RemoveTagsCommandOutput) => void): void;

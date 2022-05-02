@@ -56,3 +56,4 @@ export * from "./StopStreamProcessorCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDatasetEntriesCommand";
+export * from "./UpdateStreamProcessorCommand";

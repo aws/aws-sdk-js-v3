@@ -16,9 +16,10 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsProtocolTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -38,8 +39,7 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
+            LanguageTarget target) {
         if (!isHttp2Applicable(settings.getService(model))) {
             return Collections.emptyMap();
         }
@@ -57,9 +57,8 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
     }
 
     private static boolean isHttp2Applicable(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        // TODO: Add "Kinesis" service to http2 applicable, but blocked by potential breaking change.
-        // Reference: https://github.com/aws/aws-sdk-js-v3/issues/1206
-        return ListUtils.of("Lex Runtime V2", "Transcribe Streaming").contains(serviceId);
+        List<String> eventStreamFlag = service.getTrait(AwsProtocolTrait.class)
+                .map(AwsProtocolTrait::getEventStreamHttp).orElse(ListUtils.of());
+        return eventStreamFlag.contains("h2");
     }
 }

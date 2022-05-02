@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+
+### Features
+
+* **client-rds:** Feature - Adds support for Internet Protocol Version 6 (IPv6) on RDS database instances. ([6224806](https://github.com/aws/aws-sdk-js-v3/commit/6224806fb2d3d104a947c7cfb9a930fb65bf4132))
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

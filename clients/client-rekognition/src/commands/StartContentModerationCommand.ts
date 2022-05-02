@@ -33,7 +33,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *         topic is <code>SUCCEEDED</code>. If so, call <a>GetContentModeration</a> and pass the job identifier
  *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
  *
- *          <p>For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Moderating content in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

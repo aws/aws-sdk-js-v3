@@ -2954,6 +2954,25 @@ export enum InputTimecodeSource {
   ZEROBASED = "ZEROBASED",
 }
 
+/**
+ * Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both.
+ */
+export interface InputVideoGenerator {
+  /**
+   * Specify an integer value for Black video duration from 50 to 86400000 to generate a black video input for that many milliseconds. Required when you include Video generator.
+   */
+  Duration?: number;
+}
+
+export namespace InputVideoGenerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputVideoGenerator): any => ({
+    ...obj,
+  });
+}
+
 export enum AlphaBehavior {
   DISCARD = "DISCARD",
   REMAP_TO_LUMA = "REMAP_TO_LUMA",
@@ -3051,6 +3070,11 @@ export namespace Hdr10Metadata {
   });
 }
 
+export enum PadVideo {
+  BLACK = "BLACK",
+  DISABLED = "DISABLED",
+}
+
 export enum InputRotate {
   AUTO = "AUTO",
   DEGREES_180 = "DEGREES_180",
@@ -3093,6 +3117,11 @@ export interface VideoSelector {
    * Use these settings to provide HDR 10 metadata that is missing or inaccurate in your input video. Appropriate values vary depending on the input video and must be provided by a color grader. The color grader generates these values during the HDR 10 mastering process. The valid range for each of these settings is 0 to 50,000. Each increment represents 0.00002 in CIE1931 color coordinate. Related settings - When you specify these values, you must also set Color space (ColorSpace) to HDR 10 (HDR10). To specify whether the the values you specify here take precedence over the values in the metadata of your input file, set Color space usage (ColorSpaceUsage). To specify whether color metadata is included in an output, set Color metadata (ColorMetadata). For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
    */
   Hdr10Metadata?: Hdr10Metadata;
+
+  /**
+   * Use this setting if your input has video and audio durations that don't align, and your output or player has strict alignment requirements. Examples: Input audio track has a delayed start. Input video track ends before audio ends. When you set Pad video (padVideo) to Black (BLACK), MediaConvert generates black video frames so that output video and audio durations match. Black video frames are added at the beginning or end, depending on your input. To keep the default behavior and not generate black video, set Pad video to Disabled (DISABLED) or leave blank.
+   */
+  PadVideo?: PadVideo | string;
 
   /**
    * Use PID (Pid) to select specific video data from an input file. Specify this value as an integer; the system automatically converts it to the hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet identifier, is an identifier for a set of data in an MPEG-2 transport stream container.
@@ -3227,6 +3256,11 @@ export interface Input {
    * Specify the timecode that you want the service to use for this input's initial frame. To use this setting, you must set the Timecode source setting, located under the input settings (InputTimecodeSource), to Specified start (SPECIFIEDSTART). For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
    */
   TimecodeStart?: string;
+
+  /**
+   * Use this setting if you do not have a video input or if you want to add black video frames before, or after, other inputs. When you include Video generator, MediaConvert creates a video input with black frames and without an audio track. You can specify a value for Video generator, or you can specify an Input file, but you cannot specify both.
+   */
+  VideoGenerator?: InputVideoGenerator;
 
   /**
    * Input video selectors contain the video settings for the input. Each of your inputs can have up to one video selector.
@@ -5606,218 +5640,4 @@ export enum M2tsSegmentationMarkers {
 export enum M2tsSegmentationStyle {
   MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
   RESET_CADENCE = "RESET_CADENCE",
-}
-
-/**
- * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
- */
-export interface M2tsSettings {
-  /**
-   * Selects between the DVB and ATSC buffer models for Dolby Digital audio.
-   */
-  AudioBufferModel?: M2tsAudioBufferModel | string;
-
-  /**
-   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-   */
-  AudioDuration?: M2tsAudioDuration | string;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   */
-  AudioFramesPerPes?: number;
-
-  /**
-   * Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
-   */
-  AudioPids?: number[];
-
-  /**
-   * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
-   */
-  Bitrate?: number;
-
-  /**
-   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
-   */
-  BufferModel?: M2tsBufferModel | string;
-
-  /**
-   * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value (AUTO) to allow all PTS values.
-   */
-  DataPTSControl?: M2tsDataPtsControl | string;
-
-  /**
-   * Use these settings to insert a DVB Network Information Table (NIT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
-   */
-  DvbNitSettings?: DvbNitSettings;
-
-  /**
-   * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
-   */
-  DvbSdtSettings?: DvbSdtSettings;
-
-  /**
-   * Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
-   */
-  DvbSubPids?: number[];
-
-  /**
-   * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
-   */
-  DvbTdtSettings?: DvbTdtSettings;
-
-  /**
-   * Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
-   */
-  DvbTeletextPid?: number;
-
-  /**
-   * When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
-   */
-  EbpAudioInterval?: M2tsEbpAudioInterval | string;
-
-  /**
-   * Selects which PIDs to place EBP markers on. They can either be placed only on the video PID, or on both the video PID and all audio PIDs. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
-   */
-  EbpPlacement?: M2tsEbpPlacement | string;
-
-  /**
-   * Controls whether to include the ES Rate field in the PES header.
-   */
-  EsRateInPes?: M2tsEsRateInPes | string;
-
-  /**
-   * Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
-   */
-  ForceTsVideoEbpOrder?: M2tsForceTsVideoEbpOrder | string;
-
-  /**
-   * The length, in seconds, of each fragment. Only used with EBP markers.
-   */
-  FragmentTime?: number;
-
-  /**
-   * Applies to MPEG-TS outputs. Use this setting to specify whether the service inserts the KLV metadata from the input in this output.
-   */
-  KlvMetadata?: M2tsKlvMetadata | string;
-
-  /**
-   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
-   */
-  MaxPcrInterval?: number;
-
-  /**
-   * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
-   */
-  MinEbpInterval?: number;
-
-  /**
-   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   */
-  NielsenId3?: M2tsNielsenId3 | string;
-
-  /**
-   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
-   */
-  NullPacketBitrate?: number;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PatInterval?: number;
-
-  /**
-   * When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
-   */
-  PcrControl?: M2tsPcrControl | string;
-
-  /**
-   * Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
-   */
-  PcrPid?: number;
-
-  /**
-   * Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
-   */
-  PmtInterval?: number;
-
-  /**
-   * Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
-   */
-  PmtPid?: number;
-
-  /**
-   * Specify the packet identifier (PID) of the private metadata stream. Default is 503.
-   */
-  PrivateMetadataPid?: number;
-
-  /**
-   * Use Program number (programNumber) to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
-   */
-  ProgramNumber?: number;
-
-  /**
-   * When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
-   */
-  RateMode?: M2tsRateMode | string;
-
-  /**
-   * Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
-   */
-  Scte35Esam?: M2tsScte35Esam;
-
-  /**
-   * Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
-   */
-  Scte35Pid?: number;
-
-  /**
-   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
-   */
-  Scte35Source?: M2tsScte35Source | string;
-
-  /**
-   * Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-   */
-  SegmentationMarkers?: M2tsSegmentationMarkers | string;
-
-  /**
-   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
-   */
-  SegmentationStyle?: M2tsSegmentationStyle | string;
-
-  /**
-   * Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
-   */
-  SegmentationTime?: number;
-
-  /**
-   * Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
-   */
-  TimedMetadataPid?: number;
-
-  /**
-   * Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
-   */
-  TransportStreamId?: number;
-
-  /**
-   * Specify the packet identifier (PID) of the elementary video stream in the transport stream.
-   */
-  VideoPid?: number;
-}
-
-export namespace M2tsSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M2tsSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum M3u8AudioDuration {
-  DEFAULT_CODEC_DURATION = "DEFAULT_CODEC_DURATION",
-  MATCH_VIDEO_DURATION = "MATCH_VIDEO_DURATION",
 }

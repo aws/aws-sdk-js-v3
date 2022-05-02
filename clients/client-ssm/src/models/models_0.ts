@@ -1235,7 +1235,9 @@ export interface CreateAssociationRequest {
   /**
    * <p>Number of days to wait after the scheduled day to run an association. For example, if you
    *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
-   *    to run the association each Sunday after the second Thursday of the month. For more information about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   *    to run the association each Sunday after the second Thursday of the month. For more information
+   *    about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron
+   *     and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    *          <note>
    *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
    *     option tells the system not to run an association immediately after you create it. </p>
@@ -5383,6 +5385,12 @@ export interface Runbook {
    *    Required if you specify <code>TargetParameterName</code>.</p>
    */
   Targets?: Target[];
+
+  /**
+   * <p>A key-value mapping of runbook parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 
   /**
    * <p>The <code>MaxConcurrency</code> value specified by the user when the operation started,

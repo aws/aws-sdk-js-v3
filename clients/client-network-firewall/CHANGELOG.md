@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-network-firewall
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+
+### Features
+
+* **client-network-firewall:** AWS Network Firewall adds support for stateful threat signature AWS managed rule groups. ([790c085](https://github.com/aws/aws-sdk-js-v3/commit/790c085ed85d1154cffc6aced1f32ed9f6e3e66b))
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+**Note:** Version bump only for package @aws-sdk/client-network-firewall
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

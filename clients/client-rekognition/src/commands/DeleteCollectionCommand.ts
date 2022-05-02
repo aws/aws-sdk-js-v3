@@ -23,7 +23,7 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
 
 /**
  * <p>Deletes the specified collection. Note that this operation
- *       removes all faces in the collection. For an example, see <a>delete-collection-procedure</a>.</p>
+ *       removes all faces in the collection. For an example, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/delete-collection-procedure.html">Deleting a collection</a>.</p>
  *
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DeleteCollection</code> action.</p>

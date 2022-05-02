@@ -27,7 +27,7 @@ export interface UpdateNetworkAnalyzerConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update NetworkAnalyzer configuration.</p>
+ * <p>Update network analyzer configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

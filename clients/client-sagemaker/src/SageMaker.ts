@@ -1170,12 +1170,12 @@ import {
 import { SageMakerClient } from "./SageMakerClient";
 
 /**
- * <p>Provides APIs for creating and managing Amazon SageMaker resources. </p>
+ * <p>Provides APIs for creating and managing SageMaker resources. </p>
  *         <p>Other Resources:</p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">Amazon SageMaker Developer
+ *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer
  *                         Guide</a>
  *                </p>
  *             </li>
@@ -1225,7 +1225,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You can add
+   * <p>Adds or overwrites one or more tags for the specified SageMaker resource. You can add
    *             tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform
    *             jobs, models, labeling jobs, work teams, endpoint configurations, and
    *             endpoints.</p>
@@ -1374,7 +1374,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the Amazon Web Services
+   * <p>Create a machine learning algorithm that you can use in SageMaker and list in the Amazon Web Services
    *             Marketplace.</p>
    */
   public createAlgorithm(
@@ -1541,9 +1541,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the
+   * <p>Creates a Git repository as a resource in your SageMaker account. You can associate the
    *             repository with notebook instances so that you can use Git source control for the
-   *             notebooks you create. The Git repository is a resource in your Amazon SageMaker account, so it can
+   *             notebooks you create. The Git repository is a resource in your SageMaker account, so it can
    *             be associated with more than one notebook instance, and it persists independently from
    *             the lifecycle of any notebook instances it is associated with.</p>
    *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any
@@ -1850,11 +1850,11 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker
+   * <p>Creates an endpoint using the endpoint configuration specified in the request. SageMaker
    *             uses the endpoint to provision resources and deploy models. You create the endpoint
    *             configuration with the <a>CreateEndpointConfig</a> API. </p>
-   *         <p> Use this API to deploy models using Amazon SageMaker hosting services. </p>
-   *         <p>For an example that calls this method when deploying a model to Amazon SageMaker hosting services,
+   *         <p> Use this API to deploy models using SageMaker hosting services. </p>
+   *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
    *             see the <a href="https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-fundamentals/create-endpoint/create_endpoint.ipynb">Create Endpoint example notebook.</a>
    *          </p>
    *         <note>
@@ -1864,7 +1864,7 @@ export class SageMaker extends SageMakerClient {
    *                 create a new <code>EndpointConfig</code>.</p>
    *         </note>
    *         <p>The endpoint name must be unique within an Amazon Web Services Region in your Amazon Web Services account. </p>
-   *         <p>When it receives the request, Amazon SageMaker creates the endpoint, launches the resources (ML
+   *         <p>When it receives the request, SageMaker creates the endpoint, launches the resources (ML
    *             compute instances), and deploys the model(s) on them. </p>
    *
    *         <note>
@@ -1879,13 +1879,13 @@ export class SageMaker extends SageMakerClient {
    *                 response should return the latest data. So retry logic is recommended to handle
    *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
    *         </note>
-   *         <p>When Amazon SageMaker receives the request, it sets the endpoint status to
+   *         <p>When SageMaker receives the request, it sets the endpoint status to
    *                 <code>Creating</code>. After it creates the endpoint, it sets the status to
-   *                 <code>InService</code>. Amazon SageMaker can then process incoming requests for inferences. To
+   *                 <code>InService</code>. SageMaker can then process incoming requests for inferences. To
    *             check the status of an endpoint, use the <a>DescribeEndpoint</a>
    *             API.</p>
    *         <p>If any of the models hosted at this endpoint get model data from an Amazon S3 location,
-   *             Amazon SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
+   *             SageMaker uses Amazon Web Services Security Token Service to download model artifacts from the S3 path you
    *             provided. Amazon Web Services STS is activated in your IAM user account by default. If you previously
    *             deactivated Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS for that region. For
    *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
@@ -1958,22 +1958,22 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In
+   * <p>Creates an endpoint configuration that SageMaker hosting services uses to deploy models. In
    *             the configuration, you identify one or more models, created using the
-   *                 <code>CreateModel</code> API, to deploy and the resources that you want Amazon SageMaker to
+   *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
    *             provision. Then you call the <a>CreateEndpoint</a> API.</p>
    *         <note>
-   *             <p> Use this API if you want to use Amazon SageMaker hosting services to deploy models into
+   *             <p> Use this API if you want to use SageMaker hosting services to deploy models into
    *                 production. </p>
    *         </note>
    *         <p>In the request, you define a <code>ProductionVariant</code>, for each model that you
    *             want to deploy. Each <code>ProductionVariant</code> parameter also describes the
-   *             resources that you want Amazon SageMaker to provision. This includes the number and type of ML
+   *             resources that you want SageMaker to provision. This includes the number and type of ML
    *             compute instances to deploy. </p>
    *         <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
    *             specify how much traffic you want to allocate to each model. For example, suppose that
    *             you want to host two models, A and B, and you assign traffic weight 2 for model A and 1
-   *             for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to
+   *             for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third to
    *             model B. </p>
    *         <note>
    *             <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to
@@ -2211,7 +2211,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a custom SageMaker image. A SageMaker image is a set of image versions. Each image
-   *         version represents a container image stored in Amazon Container Registry (ECR). For more information, see
+   *         version represents a container image stored in Amazon Elastic Container Registry (ECR). For more information, see
    *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
@@ -2239,7 +2239,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
-   *         represents the Amazon Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
+   *         represents the Amazon Elastic Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
    */
   public createImageVersion(
     args: CreateImageVersionCommandInput,
@@ -2373,27 +2373,25 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a model in Amazon SageMaker. In the request, you name the model and describe a primary
+   * <p>Creates a model in SageMaker. In the request, you name the model and describe a primary
    *             container. For the primary container, you specify the Docker image that
    *             contains inference code, artifacts (from prior training), and a custom environment map
    *             that the inference code uses when you deploy the model for predictions.</p>
-   *         <p>Use this API to create a model if you want to use Amazon SageMaker hosting services or run a batch
+   *         <p>Use this API to create a model if you want to use SageMaker hosting services or run a batch
    *             transform job.</p>
    *         <p>To host your model, you create an endpoint configuration with the
    *                 <code>CreateEndpointConfig</code> API, and then create an endpoint with the
-   *                 <code>CreateEndpoint</code> API. Amazon SageMaker then deploys all of the containers that you
+   *                 <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you
    *             defined for the model in the hosting environment. </p>
-   *         <p>For an example that calls this method when deploying a model to Amazon SageMaker hosting services,
+   *         <p>For an example that calls this method when deploying a model to SageMaker hosting services,
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy the
    *                 Model to Amazon SageMaker Hosting Services (Amazon Web Services SDK for Python (Boto
    *             3)).</a>
    *          </p>
    *         <p>To run a batch transform using your model, you start a job with the
-   *                 <code>CreateTransformJob</code> API. Amazon SageMaker uses your model and your dataset to get
+   *                 <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get
    *             inferences which are then saved to a specified S3 location.</p>
-   *         <p>In the <code>CreateModel</code> request, you must define a container with the
-   *                 <code>PrimaryContainer</code> parameter.</p>
-   *         <p>In the request, you also provide an IAM role that Amazon SageMaker can assume to access model
+   *         <p>In the request, you also provide an IAM role that SageMaker can assume to access model
    *             artifacts and docker image for deployment on ML compute hosting instances or for batch
    *             transform jobs. In addition, you also use the IAM role to manage permissions the
    *             inference code needs. For example, if the inference code access any other Amazon Web Services resources,
@@ -2489,14 +2487,14 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a model package that you can use to create Amazon SageMaker models or list on Amazon Web Services
+   * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services
    *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
-   *             model packages listed on Amazon Web Services Marketplace to create models in Amazon SageMaker.</p>
+   *             model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
    *         <p>To create a model package by specifying a Docker container that contains your
    *             inference code and the Amazon S3 location of your model artifacts, provide values for
-   *                 <code>InferenceSpecification</code>. To create a model from an algorithm resource
+   *             <code>InferenceSpecification</code>. To create a model from an algorithm resource
    *             that you created or subscribed to in Amazon Web Services Marketplace, provide a value for
-   *                 <code>SourceAlgorithmSpecification</code>.</p>
+   *             <code>SourceAlgorithmSpecification</code>.</p>
    *         <note>
    *             <p>There are two types of model packages:</p>
    *             <ul>
@@ -2638,41 +2636,41 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an Amazon SageMaker notebook instance. A notebook instance is a machine learning (ML)
+   * <p>Creates an SageMaker notebook instance. A notebook instance is a machine learning (ML)
    *             compute instance running on a Jupyter notebook. </p>
    *         <p>In a <code>CreateNotebookInstance</code> request, specify the type of ML compute
-   *             instance that you want to run. Amazon SageMaker launches the instance, installs common libraries
+   *             instance that you want to run. SageMaker launches the instance, installs common libraries
    *             that you can use to explore datasets for model training, and attaches an ML storage
    *             volume to the notebook instance. </p>
-   *         <p>Amazon SageMaker also provides a set of example notebooks. Each notebook demonstrates how to
-   *             use Amazon SageMaker with a specific algorithm or with a machine learning framework. </p>
-   *         <p>After receiving the request, Amazon SageMaker does the following:</p>
+   *         <p>SageMaker also provides a set of example notebooks. Each notebook demonstrates how to
+   *             use SageMaker with a specific algorithm or with a machine learning framework. </p>
+   *         <p>After receiving the request, SageMaker does the following:</p>
    *         <ol>
    *             <li>
-   *                 <p>Creates a network interface in the Amazon SageMaker VPC.</p>
+   *                 <p>Creates a network interface in the SageMaker VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>(Option) If you specified <code>SubnetId</code>, Amazon SageMaker creates a network
+   *                 <p>(Option) If you specified <code>SubnetId</code>, SageMaker creates a network
    *                     interface in your own VPC, which is inferred from the subnet ID that you provide
-   *                     in the input. When creating this network interface, Amazon SageMaker attaches the security
+   *                     in the input. When creating this network interface, SageMaker attaches the security
    *                     group that you specified in the request to the network interface that it creates
    *                     in your VPC.</p>
    *
    *             </li>
    *             <li>
-   *                 <p>Launches an EC2 instance of the type specified in the request in the Amazon SageMaker
-   *                     VPC. If you specified <code>SubnetId</code> of your VPC, Amazon SageMaker specifies both
+   *                 <p>Launches an EC2 instance of the type specified in the request in the SageMaker
+   *                     VPC. If you specified <code>SubnetId</code> of your VPC, SageMaker specifies both
    *                     network interfaces when launching this instance. This enables inbound traffic
    *                     from your own VPC to the notebook instance, assuming that the security groups
    *                     allow it.</p>
    *             </li>
    *          </ol>
    *
-   *         <p>After creating the notebook instance, Amazon SageMaker returns its Amazon Resource Name (ARN).
+   *         <p>After creating the notebook instance, SageMaker returns its Amazon Resource Name (ARN).
    *             You can't change the name of a notebook instance after you create it.</p>
-   *         <p>After Amazon SageMaker creates the notebook instance, you can connect to the Jupyter server and
+   *         <p>After SageMaker creates the notebook instance, you can connect to the Jupyter server and
    *             work in Jupyter notebooks. For example, you can write code to explore a dataset that you
-   *             can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and
+   *             can use for model training, train a model, host models by creating SageMaker endpoints, and
    *             validate hosted models. </p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
    */
@@ -2834,8 +2832,8 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Returns a URL that you can use to connect to the Jupyter server from a notebook
-   *             instance. In the Amazon SageMaker console, when you choose <code>Open</code> next to a notebook
-   *             instance, Amazon SageMaker opens a new tab showing the Jupyter server home page from the notebook
+   *             instance. In the SageMaker console, when you choose <code>Open</code> next to a notebook
+   *             instance, SageMaker opens a new tab showing the Jupyter server home page from the notebook
    *             instance. The console uses this API to get the URL and show the page.</p>
    *         <p> The IAM role or user used to call this API defines the permissions to access the
    *             notebook instance. Once the presigned URL is created, no additional permission is
@@ -2979,11 +2977,11 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting
+   * <p>Starts a model training job. After training completes, SageMaker saves the resulting
    *             model artifacts to an Amazon S3 location that you specify. </p>
-   *         <p>If you choose to host your model using Amazon SageMaker hosting services, you can use the
+   *         <p>If you choose to host your model using SageMaker hosting services, you can use the
    *             resulting model artifacts as part of the model. You can also use the artifacts in a
-   *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
+   *             machine learning service other than SageMaker, provided that you know how to use them for
    *             inference.
    *         </p>
    *         <p>In the request body, you provide the following: </p>
@@ -2999,7 +2997,7 @@ export class SageMaker extends SageMakerClient {
    *                     <code>HyperParameters</code> - Specify these algorithm-specific parameters to
    *                     enable the estimation of model parameters during training. Hyperparameters can
    *                     be tuned to optimize this learning process. For a list of hyperparameters for
-   *                     each training algorithm provided by Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+   *                     each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3009,7 +3007,7 @@ export class SageMaker extends SageMakerClient {
    *             <li>
    *                 <p>
    *                   <code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want
-   *                     Amazon SageMaker to save the results of model training. </p>
+   *                     SageMaker to save the results of model training. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3027,10 +3025,10 @@ export class SageMaker extends SageMakerClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform tasks on
+   *                   <code>RoleArn</code> - The Amazon Resource Name (ARN) that SageMaker assumes to perform tasks on
    *                     your behalf during model training.
    *
-   *                     You must grant this role the necessary permissions so that Amazon SageMaker can successfully
+   *                     You must grant this role the necessary permissions so that SageMaker can successfully
    *                     complete model training. </p>
    *             </li>
    *             <li>
@@ -3051,7 +3049,7 @@ export class SageMaker extends SageMakerClient {
    *                     fails due to an <code>InternalServerError</code>.</p>
    *             </li>
    *          </ul>
-   *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+   *         <p> For more information about SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
    */
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
@@ -3696,10 +3694,17 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Deletes an endpoint. Amazon SageMaker frees up all of the resources that were deployed when the
+   * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
    *             endpoint was created. </p>
-   *         <p>Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
+   *         <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
    *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
+   *         <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants.
+   *             You might still see these resources in your account for a few minutes after deleting your endpoint.
+   *             Do not delete or revoke the permissions for your
+   *             <code>
+   *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a>
+   *             </code>,
+   *             otherwise SageMaker cannot delete these resources.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -3971,7 +3976,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
-   *             was created in Amazon SageMaker when you called the <code>CreateModel</code> API. It does not
+   *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not
    *             delete model artifacts, inference code, or the IAM role that you specified when
    *             creating the model. </p>
    */
@@ -4066,8 +4071,8 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Deletes a model package.</p>
-   *         <p>A model package is used to create Amazon SageMaker models or list on Amazon Web Services Marketplace. Buyers can
-   *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in Amazon SageMaker.</p>
+   *         <p>A model package is used to create SageMaker models or list on Amazon Web Services Marketplace. Buyers can
+   *             subscribe to model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
    */
   public deleteModelPackage(
     args: DeleteModelPackageCommandInput,
@@ -4228,10 +4233,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p> Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you
+   * <p> Deletes an SageMaker notebook instance. Before you can delete a notebook instance, you
    *             must call the <code>StopNotebookInstance</code> API. </p>
    *         <important>
-   *             <p>When you delete a notebook instance, you lose all of your data. Amazon SageMaker removes
+   *             <p>When you delete a notebook instance, you lose all of your data. SageMaker removes
    *                 the ML compute instance, and deletes the ML storage volume and the network interface
    *                 associated with the notebook instance. </p>
    *         </important>
@@ -4399,7 +4404,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Deletes the specified tags from an Amazon SageMaker resource.</p>
+   * <p>Deletes the specified tags from an SageMaker resource.</p>
    *         <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
    *         <note>
    *             <p>When you call this API to delete tags from a hyperparameter tuning job, the
@@ -7736,7 +7741,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an Amazon Web Services
+   * <p>Returns a list of the SageMaker notebook instances in the requester's account in an Amazon Web Services
    *             Region. </p>
    */
   public listNotebookInstances(
@@ -8024,7 +8029,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns the tags for the specified Amazon SageMaker resource.</p>
+   * <p>Returns the tags for the specified SageMaker resource.</p>
    */
   public listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
   public listTags(args: ListTagsCommandInput, cb: (err: any, data?: ListTagsCommandOutput) => void): void;
@@ -8645,7 +8650,7 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Launches an ML compute instance with the latest version of the libraries and
-   *             attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the
+   *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
    *             notebook instance status to <code>InService</code>. A notebook instance's status must be
    *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
    */
@@ -8947,8 +8952,8 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker
-   *             disconnects the ML storage volume from it. Amazon SageMaker preserves the ML storage volume. Amazon SageMaker
+   * <p>Terminates the ML compute instance. Before terminating the instance, SageMaker
+   *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
    *             stops charging you for the ML compute instance when you call
    *                 <code>StopNotebookInstance</code>.</p>
    *         <p>To access data on the ML storage volume for a notebook instance that has been
@@ -9075,12 +9080,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the
+   * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the
    *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
    *             Algorithms might use this 120-second window to save the model artifacts, so the results
    *             of the training is not lost. </p>
-   *         <p>When it receives a <code>StopTrainingJob</code> request, Amazon SageMaker changes the status of
-   *             the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the status to
+   *         <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of
+   *             the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to
    *                 <code>Stopped</code>.</p>
    */
   public stopTrainingJob(
@@ -9403,7 +9408,7 @@ export class SageMaker extends SageMakerClient {
    * <p>Deploys the new <code>EndpointConfig</code> specified in the request, switches to
    *             using newly created endpoint, and then deletes resources provisioned for the endpoint
    *             using the previous <code>EndpointConfig</code> (there is no availability loss). </p>
-   *         <p>When Amazon SageMaker receives the request, it sets the endpoint status to
+   *         <p>When SageMaker receives the request, it sets the endpoint status to
    *                 <code>Updating</code>. After updating the endpoint, it sets the status to
    *                 <code>InService</code>. To check the status of an endpoint, use the <a>DescribeEndpoint</a> API.
    *
@@ -9450,7 +9455,7 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Updates variant weight of one or more variants associated with an existing
    *             endpoint, or capacity of one variant associated with an existing endpoint. When it
-   *             receives the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After
+   *             receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After
    *             updating the endpoint, it sets the status to <code>InService</code>. To check the status
    *             of an endpoint, use the <a>DescribeEndpoint</a> API. </p>
    */

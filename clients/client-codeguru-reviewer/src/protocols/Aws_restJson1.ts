@@ -1691,6 +1691,7 @@ const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext
         : undefined,
     AssociationArn: __expectString(output.AssociationArn),
     CodeReviewArn: __expectString(output.CodeReviewArn),
+    ConfigFileState: __expectString(output.ConfigFileState),
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimeStamp)))
@@ -1788,6 +1789,7 @@ const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): 
   return {
     FindingsCount: __expectLong(output.FindingsCount),
     MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
+    SuppressedLinesOfCodeCount: __expectLong(output.SuppressedLinesOfCodeCount),
   } as any;
 };
 
@@ -1795,6 +1797,7 @@ const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeCon
   return {
     FindingsCount: __expectLong(output.FindingsCount),
     MeteredLinesOfCodeCount: __expectLong(output.MeteredLinesOfCodeCount),
+    SuppressedLinesOfCodeCount: __expectLong(output.SuppressedLinesOfCodeCount),
   } as any;
 };
 

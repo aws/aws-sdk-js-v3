@@ -1,38 +1,27 @@
-import { join } from "path";
-
-import { getHomeDir } from "./getHomeDir";
+import { getConfigFilepath } from "./getConfigFilepath";
+import { getCredentialsFilepath } from "./getCredentialsFilepath";
 import { getProfileData } from "./getProfileData";
-import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./loadSharedConfigFiles";
+import { loadSharedConfigFiles } from "./loadSharedConfigFiles";
 import { parseIni } from "./parseIni";
 import { slurpFile } from "./slurpFile";
 
-jest.mock("path");
-jest.mock("./getHomeDir");
+jest.mock("./getConfigFilepath");
+jest.mock("./getCredentialsFilepath");
 jest.mock("./getProfileData");
 jest.mock("./parseIni");
 jest.mock("./slurpFile");
 
 describe("loadSharedConfigFiles", () => {
-  const mockSeparator = "/";
-  const mockHomeDir = "/mock/home/dir";
-
   const mockConfigFilepath = "/mock/file/path/config";
   const mockCredsFilepath = "/mock/file/path/credentials";
-  const mockCustomSharedConfigFiles = {
+  const mockSharedConfigFiles = {
     configFile: mockConfigFilepath,
     credentialsFile: mockCredsFilepath,
   };
 
-  const defaultConfigFilepath = `${mockHomeDir}/.aws/config`;
-  const defaultCredsFilepath = `${mockHomeDir}/.aws/credentials`;
-  const mockDefaultSharedConfigFiles = {
-    configFile: defaultConfigFilepath,
-    credentialsFile: defaultCredsFilepath,
-  };
-
   beforeEach(() => {
-    (join as jest.Mock).mockImplementation((...args) => args.join(mockSeparator));
-    (getHomeDir as jest.Mock).mockReturnValue(mockHomeDir);
+    (getConfigFilepath as jest.Mock).mockReturnValue(mockConfigFilepath);
+    (getCredentialsFilepath as jest.Mock).mockReturnValue(mockCredsFilepath);
     (parseIni as jest.Mock).mockImplementation((args) => args);
     (getProfileData as jest.Mock).mockImplementation((args) => args);
     (slurpFile as jest.Mock).mockImplementation((path) => Promise.resolve(path));
@@ -45,19 +34,9 @@ describe("loadSharedConfigFiles", () => {
 
   it("returns configFile and credentialsFile from default locations", async () => {
     const sharedConfigFiles = await loadSharedConfigFiles();
-    expect(sharedConfigFiles).toStrictEqual(mockDefaultSharedConfigFiles);
-  });
-
-  it("returns configFile and credentialsFile from locations defined in environment", async () => {
-    const OLD_ENV = process.env;
-    process.env = {
-      ...OLD_ENV,
-      [ENV_CONFIG_PATH]: mockConfigFilepath,
-      [ENV_CREDENTIALS_PATH]: mockCredsFilepath,
-    };
-    const sharedConfigFiles = await loadSharedConfigFiles({});
-    expect(sharedConfigFiles).toStrictEqual(mockCustomSharedConfigFiles);
-    process.env = OLD_ENV;
+    expect(sharedConfigFiles).toStrictEqual(mockSharedConfigFiles);
+    expect(getConfigFilepath).toHaveBeenCalledWith();
+    expect(getCredentialsFilepath).toHaveBeenCalledWith();
   });
 
   it("returns configFile and credentialsFile from init if defined", async () => {
@@ -65,7 +44,9 @@ describe("loadSharedConfigFiles", () => {
       filepath: mockCredsFilepath,
       configFilepath: mockConfigFilepath,
     });
-    expect(sharedConfigFiles).toStrictEqual(mockCustomSharedConfigFiles);
+    expect(sharedConfigFiles).toStrictEqual(mockSharedConfigFiles);
+    expect(getConfigFilepath).not.toHaveBeenCalled();
+    expect(getCredentialsFilepath).not.toHaveBeenCalled();
   });
 
   describe("swallows error and returns empty configuration", () => {
@@ -86,7 +67,7 @@ describe("loadSharedConfigFiles", () => {
       const sharedConfigFiles = await loadSharedConfigFiles();
       expect(sharedConfigFiles).toStrictEqual({
         configFile: {},
-        credentialsFile: defaultCredsFilepath,
+        credentialsFile: mockCredsFilepath,
       });
     });
   });

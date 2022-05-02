@@ -64,6 +64,11 @@ import {
 } from "./commands/ListInferenceSchedulersCommand";
 import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
+  ListSensorStatisticsCommand,
+  ListSensorStatisticsCommandInput,
+  ListSensorStatisticsCommandOutput,
+} from "./commands/ListSensorStatisticsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -304,7 +309,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
 
   /**
    * <p>Provides information on a specific data ingestion job such as creation time, dataset
-   *          ARN, status, and so on. </p>
+   *          ARN, and status.</p>
    */
   public describeDataIngestionJob(
     args: DescribeDataIngestionJobCommandInput,
@@ -336,7 +341,7 @@ export class LookoutEquipment extends LookoutEquipmentClient {
   }
 
   /**
-   * <p>Provides a JSON description of the data that is in each time series dataset, including names, column names, and data types.</p>
+   * <p>Provides a JSON description of the data in each time series dataset, including names, column names, and data types.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -579,6 +584,40 @@ export class LookoutEquipment extends LookoutEquipmentClient {
     cb?: (err: any, data?: ListModelsCommandOutput) => void
   ): Promise<ListModelsCommandOutput> | void {
     const command = new ListModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   * Lists statistics about the data collected for each of the sensors that have been successfully ingested in the particular dataset. Can also be used to retreive Sensor Statistics for a previous ingestion job.
+   * </p>
+   */
+  public listSensorStatistics(
+    args: ListSensorStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSensorStatisticsCommandOutput>;
+  public listSensorStatistics(
+    args: ListSensorStatisticsCommandInput,
+    cb: (err: any, data?: ListSensorStatisticsCommandOutput) => void
+  ): void;
+  public listSensorStatistics(
+    args: ListSensorStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSensorStatisticsCommandOutput) => void
+  ): void;
+  public listSensorStatistics(
+    args: ListSensorStatisticsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSensorStatisticsCommandOutput) => void),
+    cb?: (err: any, data?: ListSensorStatisticsCommandOutput) => void
+  ): Promise<ListSensorStatisticsCommandOutput> | void {
+    const command = new ListSensorStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

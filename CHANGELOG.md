@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.81.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.80.0...v3.81.0) (2022-04-29)
+
+
+### Features
+
+* **client-codeguru-reviewer:** Amazon CodeGuru Reviewer now supports suppressing recommendations from being generated on specific files and directories. ([0aabfad](https://github.com/aws/aws-sdk-js-v3/commit/0aabfad35c348e5b5c4aa2c93827990ca1f9688b))
+* **client-mediaconvert:** AWS Elemental MediaConvert SDK nows supports creation of Dolby Vision profile 8.1, the ability to generate black frames of video, and introduces audio-only DASH and CMAF support. ([ec8aea0](https://github.com/aws/aws-sdk-js-v3/commit/ec8aea08bedcead82d905ace58cc73d40026e6e8))
+* **client-rds:** Feature - Adds support for Internet Protocol Version 6 (IPv6) on RDS database instances. ([6224806](https://github.com/aws/aws-sdk-js-v3/commit/6224806fb2d3d104a947c7cfb9a930fb65bf4132))
+* **client-ssm:** Update the StartChangeRequestExecution, adding TargetMaps to the Runbook parameter ([1a4fe40](https://github.com/aws/aws-sdk-js-v3/commit/1a4fe402dd33b685b9a7c8d6e4fa080871283f1a))
+* **client-wafv2:** You can now inspect all request headers and all cookies. You can now specify how to handle oversize body contents in your rules that inspect the body. ([5bea879](https://github.com/aws/aws-sdk-js-v3/commit/5bea87975d7b9ae9371a6e958956ef9efbd30f10))
+* **credential-provider-imds:** adjust static stability expiration to 5-10 mins ([#3575](https://github.com/aws/aws-sdk-js-v3/issues/3575)) ([0a12a1e](https://github.com/aws/aws-sdk-js-v3/commit/0a12a1e2ef88037d4c4a456f6be65afb57c796ab))
+
+
+
+
+
+# [3.80.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.79.0...v3.80.0) (2022-04-28)
+
+
+### Features
+
+* **client-braket:** This release enables Braket Hybrid Jobs with Embedded Simulators to have multiple instances. ([2de9086](https://github.com/aws/aws-sdk-js-v3/commit/2de908637ea560d2abb9b99c0ca5f4cd19dabc12))
+* **client-connect:** This release introduces an API for changing the current agent status of a user in Connect. ([9a4c9f8](https://github.com/aws/aws-sdk-js-v3/commit/9a4c9f807eb4f2607e4f2c084e5e9aa42cc3f106))
+* **client-ec2:** This release adds support to query the public key and creation date of EC2 Key Pairs. Additionally, the format (pem or ppk) of a key pair can be specified when creating a new key pair. ([61e9e39](https://github.com/aws/aws-sdk-js-v3/commit/61e9e39be52d91cca705d0386a119bd62ab748c8))
+* **client-network-firewall:** AWS Network Firewall adds support for stateful threat signature AWS managed rule groups. ([790c085](https://github.com/aws/aws-sdk-js-v3/commit/790c085ed85d1154cffc6aced1f32ed9f6e3e66b))
+
+
+
+
+
+# [3.79.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.78.0...v3.79.0) (2022-04-27)
+
+
+### Features
+
+* **client-chime-sdk-media-pipelines:** For Amazon Chime SDK meetings, the Amazon Chime Media Pipelines SDK allows builders to capture audio, video, and content share streams. You can also capture meeting events, live transcripts, and data messages. The pipelines save the artifacts to an Amazon S3 bucket that you designate. ([12667a7](https://github.com/aws/aws-sdk-js-v3/commit/12667a7d181d7402f250da778e68e817286e32a8))
+* **client-cloudtrail:** Increases the retention period maximum to 2557 days. Deprecates unused fields of the ListEventDataStores API response. Updates documentation. ([13baee3](https://github.com/aws/aws-sdk-js-v3/commit/13baee38c049a4934b390f5a49c1feb8d55b652b))
+* **client-iot-wireless:** Add list support for event configurations, allow to get and update event configurations by resource type, support LoRaWAN events; Make NetworkAnalyzerConfiguration as a resource, add List, Create, Delete API support; Add FCntStart attribute support for ABP WirelessDevice. ([12fb21d](https://github.com/aws/aws-sdk-js-v3/commit/12fb21db84e42021601e462beb87cf8702db3539))
+* **client-lookoutequipment:** This release adds the following new features: 1) Introduces an option for automatic schema creation 2) Now allows for Ingestion of data containing most common errors and allows automatic data cleaning 3) Introduces new API ListSensorStatistics that gives further information about the ingested data ([f35b0f3](https://github.com/aws/aws-sdk-js-v3/commit/f35b0f31b7cdbff7276da2ad6098895f3f0e22a6))
+* **client-rekognition:** This release adds support to configure stream-processor resources for label detections on streaming-videos. UpateStreamProcessor API is also launched with this release, which could be used to update an existing stream-processor. ([f0564dc](https://github.com/aws/aws-sdk-js-v3/commit/f0564dc3bc21b968b86fec7a25cb56f75b89793b))
+* **client-sagemaker:** Amazon SageMaker Autopilot adds support for custom validation dataset and validation ratio through the CreateAutoMLJob and DescribeAutoMLJob APIs. ([a13c9a0](https://github.com/aws/aws-sdk-js-v3/commit/a13c9a0cbd0be631d39e75939086f17da24bbb82))
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 

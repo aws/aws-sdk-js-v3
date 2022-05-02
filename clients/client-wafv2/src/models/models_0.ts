@@ -33,12 +33,9 @@ export namespace ActionCondition {
 
 /**
  * <p>Inspect all of the elements that WAF has parsed and extracted from the web request
- *          JSON body that are within the <a>JsonBody</a>
- *             <code>MatchScope</code>. This is used with the <a>FieldToMatch</a> option
- *             <code>JsonBody</code>.
- *
+ *          component that you've identified in your <a>FieldToMatch</a> specifications.
  *       </p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"All": {}</code>
  *          </p>
  */
@@ -129,8 +126,8 @@ export namespace AllowAction {
 }
 
 /**
- * <p>All query arguments of a web request. </p>
- *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect all query arguments of the web request. </p>
+ *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"AllQueryArguments": {}</code>
  *          </p>
  */
@@ -145,19 +142,238 @@ export namespace AllQueryArguments {
   });
 }
 
+export enum OversizeHandling {
+  CONTINUE = "CONTINUE",
+  MATCH = "MATCH",
+  NO_MATCH = "NO_MATCH",
+}
+
 /**
- * <p>The body of a web request. This immediately follows the request headers.</p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
- *          <p>JSON specification: <code>"Body": {}</code>
- *          </p>
+ * <p>Inspect the body of the web request. The body immediately follows the request headers.</p>
+ *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  */
-export interface Body {}
+export interface Body {
+  /**
+   * <p>What WAF should do if the body is larger than WAF can inspect.
+   *     WAF does not support inspecting the entire contents of the body of a web request
+   *       when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to
+   *     WAF by the underlying host service. </p>
+   *          <p>The options for oversize handling are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Inspect the body normally, according to the rule inspection criteria. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
+   *                applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                statement.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can combine the <code>MATCH</code> or <code>NO_MATCH</code>
+   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB. </p>
+   *          <p>Default: <code>CONTINUE</code>
+   *          </p>
+   */
+  OversizeHandling?: OversizeHandling | string;
+}
 
 export namespace Body {
   /**
    * @internal
    */
   export const filterSensitiveLog = (obj: Body): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
+ *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
+ *          <p>Example JSON: <code>"CookieMatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
+ *          </p>
+ */
+export interface CookieMatchPattern {
+  /**
+   * <p>Inspect all cookies. </p>
+   */
+  All?: All;
+
+  /**
+   * <p>Inspect only the cookies that have a key that matches one of the strings specified here. </p>
+   */
+  IncludedCookies?: string[];
+
+  /**
+   * <p>Inspect only the cookies whose keys don't match any of the strings specified here. </p>
+   */
+  ExcludedCookies?: string[];
+}
+
+export namespace CookieMatchPattern {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CookieMatchPattern): any => ({
+    ...obj,
+  });
+}
+
+export enum MapMatchScope {
+  ALL = "ALL",
+  KEY = "KEY",
+  VALUE = "VALUE",
+}
+
+/**
+ * <p>Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow
+ *    the set of cookies to inspect by including or excluding specific keys.</p>
+ *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Example JSON: <code>"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }</code>
+ *          </p>
+ */
+export interface Cookies {
+  /**
+   * <p>The filter to use to identify the subset of cookies to inspect in a web request. </p>
+   *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p>
+   *          <p>Example JSON: <code>"CookieMatchPattern": { "IncludedCookies": {"KeyToInclude1", "KeyToInclude2", "KeyToInclude3"} }</code>
+   *          </p>
+   */
+  MatchPattern: CookieMatchPattern | undefined;
+
+  /**
+   * <p>The parts of the cookies to inspect with the rule inspection criteria. If you
+   *          specify <code>All</code>, WAF inspects both keys and values. </p>
+   */
+  MatchScope: MapMatchScope | string | undefined;
+
+  /**
+   * <p>What WAF should do if the cookies of the request are larger than WAF can inspect.
+   *     WAF does not support inspecting the entire contents of request cookies
+   *       when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies
+   *       and at most 8 KB of cookie contents to WAF. </p>
+   *          <p>The options for oversize handling are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Inspect the cookies normally, according to the rule inspection criteria. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
+   *                applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  OversizeHandling: OversizeHandling | string | undefined;
+}
+
+export namespace Cookies {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Cookies): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
+ *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
+ *          <p>Example JSON: <code>"HeaderMatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
+ *          </p>
+ */
+export interface HeaderMatchPattern {
+  /**
+   * <p>Inspect all headers. </p>
+   */
+  All?: All;
+
+  /**
+   * <p>Inspect only the headers that have a key that matches one of the strings specified here. </p>
+   */
+  IncludedHeaders?: string[];
+
+  /**
+   * <p>Inspect only the headers whose keys don't match any of the strings specified here. </p>
+   */
+  ExcludedHeaders?: string[];
+}
+
+export namespace HeaderMatchPattern {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HeaderMatchPattern): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Inspect the headers in the web request. You can specify the parts of the headers to inspect and you can narrow
+ *    the set of headers to inspect by including or excluding specific keys.</p>
+ *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ *          <p>Alternately, you can use the <code>SingleHeader</code>
+ *             <code>FieldToMatch</code> setting to inspect the value of a single header, identified by its key. </p>
+ *          <p>Example JSON: <code>"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }</code>
+ *          </p>
+ */
+export interface Headers {
+  /**
+   * <p>The filter to use to identify the subset of headers to inspect in a web request. </p>
+   *          <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p>
+   *          <p>Example JSON: <code>"HeaderMatchPattern": { "ExcludedHeaders": {"KeyToExclude1", "KeyToExclude2"} }</code>
+   *          </p>
+   */
+  MatchPattern: HeaderMatchPattern | undefined;
+
+  /**
+   * <p>The parts of the headers to match with the rule inspection criteria. If you
+   *          specify <code>All</code>, WAF inspects both keys and values. </p>
+   */
+  MatchScope: MapMatchScope | string | undefined;
+
+  /**
+   * <p>What WAF should do if the headers of the request are larger than WAF can inspect.
+   *     WAF does not support inspecting the entire contents of request headers
+   *       when they exceed 8 KB (8192 bytes) or 200 total headers. The underlying host service forwards a maximum of 200 headers
+   *       and at most 8 KB of header contents to WAF. </p>
+   *          <p>The options for oversize handling are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Inspect the headers normally, according to the rule inspection criteria. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
+   *                applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                statement.</p>
+   *             </li>
+   *          </ul>
+   */
+  OversizeHandling: OversizeHandling | string | undefined;
+}
+
+export namespace Headers {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Headers): any => ({
     ...obj,
   });
 }
@@ -216,8 +432,9 @@ export enum JsonMatchScope {
 }
 
 /**
- * <p>The body of a web request, inspected as JSON. The body immediately follows the request
- *          headers. This is used in the <a>FieldToMatch</a> specification.</p>
+ * <p>Inspect the body of the web request as JSON. The body immediately follows the request
+ *          headers. </p>
+ *           <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Use the specifications in this object to indicate which parts of the JSON body to
  *          inspect using the rule's inspection criteria. WAF inspects only the parts of the JSON
  *          that result from the matches that you
@@ -282,6 +499,35 @@ export interface JsonBody {
    *          </ul>
    */
   InvalidFallbackBehavior?: BodyParsingFallbackBehavior | string;
+
+  /**
+   * <p>What WAF should do if the body is larger than WAF can inspect.
+   *     WAF does not support inspecting the entire contents of the body of a web request
+   *       when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to
+   *     WAF by the underlying host service. </p>
+   *          <p>The options for oversize handling are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTINUE</code> - Inspect the body normally, according to the rule inspection criteria. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MATCH</code> - Treat the web request as matching the rule statement. WAF
+   *                applies the rule action to the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_MATCH</code> - Treat the web request as not matching the rule
+   *                statement.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can combine the <code>MATCH</code> or <code>NO_MATCH</code>
+   *       settings for oversize handling with your rule and web ACL action settings, so that you block any request whose body is over 8 KB. </p>
+   *          <p>Default: <code>CONTINUE</code>
+   *          </p>
+   */
+  OversizeHandling?: OversizeHandling | string;
 }
 
 export namespace JsonBody {
@@ -294,8 +540,8 @@ export namespace JsonBody {
 }
 
 /**
- * <p>The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
- *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect the HTTP method of the web request. The method indicates the type of operation that the request is asking the origin to perform. </p>
+ *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"Method": {}</code>
  *          </p>
  */
@@ -311,8 +557,8 @@ export namespace Method {
 }
 
 /**
- * <p>The query string of a web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
- *            <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect the query string of the web request. This is the part of a URL that appears after a <code>?</code> character, if any.</p>
+ *            <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"QueryString": {}</code>
  *          </p>
  */
@@ -328,10 +574,10 @@ export namespace QueryString {
 }
 
 /**
- * <p>One of the headers in a web request, identified by name, for example,
- *             <code>User-Agent</code> or <code>Referer</code>. This setting isn't case
- *          sensitive.</p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect one of the headers in the web request, identified by name, for example,
+ *             <code>User-Agent</code> or <code>Referer</code>. The name isn't case sensitive.</p>
+ *          <p>You can filter and inspect all headers with the <code>FieldToMatch</code> setting <code>Headers</code>.</p>
+ *          <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Example JSON: <code>"SingleHeader": { "Name": "haystack" }</code>
  *          </p>
  */
@@ -352,9 +598,9 @@ export namespace SingleHeader {
 }
 
 /**
- * <p>One query argument in a web request, identified by name, for example
- *             <i>UserName</i> or <i>SalesRegion</i>. The name can be up to
- *          30 characters long and isn't case sensitive. </p>
+ * <p>Inspect one query argument in the web request, identified by name, for example
+ *             <i>UserName</i> or <i>SalesRegion</i>. The name isn't case sensitive. </p>
+ *           <p>This is used to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
  *          <p>Example JSON: <code>"SingleQueryArgument": { "Name": "myArgument" }</code>
  *          </p>
  */
@@ -375,8 +621,8 @@ export namespace SingleQueryArgument {
 }
 
 /**
- * <p>The path component of the URI of a web request. This is the part of a web request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
- *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
+ * <p>Inspect the path component of the URI of the web request. This is the part of the web request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>
+ *          <p>This is used only in the <a>FieldToMatch</a> specification for some web request component types. </p>
  *          <p>JSON specification: <code>"UriPath": {}</code>
  *          </p>
  */
@@ -392,8 +638,8 @@ export namespace UriPath {
 }
 
 /**
- * <p>The part of a web request that you want WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of a web request, create a separate rule statement for each component.</p>
- *          <p>JSON specification for a <code>QueryString</code> field to match: </p>
+ * <p>The part of the web request that you want WAF to inspect. Include the single <code>FieldToMatch</code> type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in <code>FieldToMatch</code> for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.</p>
+ *          <p>Example JSON for a <code>QueryString</code> field to match: </p>
  *          <p>
  *             <code>    "FieldToMatch": { "QueryString": {} }</code>
  *          </p>
@@ -409,6 +655,8 @@ export interface FieldToMatch {
    *          sensitive.</p>
    *          <p>Example JSON: <code>"SingleHeader": { "Name": "haystack" }</code>
    *          </p>
+   *          <p>Alternately, you can filter and inspect all headers with the <code>Headers</code>
+   *             <code>FieldToMatch</code> setting. </p>
    */
   SingleHeader?: SingleHeader;
 
@@ -416,7 +664,6 @@ export interface FieldToMatch {
    * <p>Inspect a single query argument. Provide the name of the query argument to inspect, such
    *          as <i>UserName</i> or <i>SalesRegion</i>. The name can be up to
    *          30 characters long and isn't case sensitive. </p>
-   *          <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p>
    *          <p>Example JSON: <code>"SingleQueryArgument": { "Name": "myArgument" }</code>
    *          </p>
    */
@@ -428,7 +675,7 @@ export interface FieldToMatch {
   AllQueryArguments?: AllQueryArguments;
 
   /**
-   * <p>Inspect the request URI path. This is the part of a web request that identifies a
+   * <p>Inspect the request URI path. This is the part of the web request that identifies a
    *          resource, for example, <code>/images/daily-ad.jpg</code>.</p>
    */
   UriPath?: UriPath;
@@ -443,13 +690,9 @@ export interface FieldToMatch {
    * <p>Inspect the request body as plain text. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to
-   *          WAF for inspection by the underlying host service. If you don't need to inspect more
-   *          than 8 KB, you can guarantee that you don't allow additional bytes in by combining a
-   *          statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>,
-   *          with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the
-   *          body of the request. WAF doesn't support inspecting the entire contents of web requests
-   *          whose bodies exceed the 8 KB limit.</p>
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to
+   *           WAF for inspection by the underlying host service. For information about how to
+   *       handle oversized request bodies, see the <code>Body</code> object configuration. </p>
    */
   Body?: Body;
 
@@ -463,15 +706,31 @@ export interface FieldToMatch {
    * <p>Inspect the request body as JSON. The request body immediately follows the request
    *          headers. This is the part of a request that contains any additional data that you want to
    *          send to your web server as the HTTP request body, such as data from a form. </p>
-   *          <p>Note that only the first 8 KB (8192 bytes) of the request body are forwarded to
-   *          WAF for inspection by the underlying host service. If you don't need to inspect more
-   *          than 8 KB, you can guarantee that you don't allow additional bytes in by combining a
-   *          statement that inspects the body of the web request, such as <a>ByteMatchStatement</a> or <a>RegexPatternSetReferenceStatement</a>,
-   *          with a <a>SizeConstraintStatement</a> that enforces an 8 KB size limit on the
-   *          body of the request. WAF doesn't support inspecting the entire contents of web requests
-   *          whose bodies exceed the 8 KB limit.</p>
+   *          <p>Only the first 8 KB (8192 bytes) of the request body are forwarded to
+   *           WAF for inspection by the underlying host service. For information about how to
+   *       handle oversized request bodies, see the <code>JsonBody</code> object configuration. </p>
    */
   JsonBody?: JsonBody;
+
+  /**
+   * <p>Inspect the request headers. You must configure scope and pattern matching filters
+   *            in the <code>Headers</code> object, to define the set of headers to and the parts of the headers that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to
+   *           WAF for inspection by the underlying host service. You must configure
+   *           how to handle any oversize header content in the <code>Headers</code> object. WAF applies the pattern matching filters
+   *           to the headers that it receives from the underlying host service. </p>
+   */
+  Headers?: Headers;
+
+  /**
+   * <p>Inspect the request cookies. You must configure scope and pattern matching filters
+   *            in the <code>Cookies</code> object, to define the set of cookies and the parts of the cookies that WAF inspects. </p>
+   *          <p>Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to
+   *           WAF for inspection by the underlying host service. You must configure
+   *           how to handle any oversize cookie content in the <code>Cookies</code> object. WAF applies the pattern matching filters
+   *           to the cookies that it receives from the underlying host service. </p>
+   */
+  Cookies?: Cookies;
 }
 
 export namespace FieldToMatch {
@@ -735,7 +994,7 @@ export interface ByteMatchStatement {
   SearchString: Uint8Array | undefined;
 
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -747,7 +1006,7 @@ export interface ByteMatchStatement {
   TextTransformations: TextTransformation[] | undefined;
 
   /**
-   * <p>The area within the portion of a web request that you want WAF to search for
+   * <p>The area within the portion of the web request that you want WAF to search for
    *             <code>SearchString</code>. Valid values include the following:</p>
    *          <p>
    *             <b>CONTAINS</b>
@@ -1049,6 +1308,7 @@ export enum CountryCode {
   VU = "VU",
   WF = "WF",
   WS = "WS",
+  XK = "XK",
   YE = "YE",
   YT = "YT",
   ZA = "ZA",
@@ -1415,7 +1675,7 @@ export interface RegexMatchStatement {
   RegexString: string | undefined;
 
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1448,7 +1708,7 @@ export interface RegexPatternSetReferenceStatement {
   ARN: string | undefined;
 
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1513,7 +1773,7 @@ export enum ComparisonOperator {
  */
 export interface SizeConstraintStatement {
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1549,7 +1809,7 @@ export namespace SizeConstraintStatement {
  */
 export interface SqliMatchStatement {
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1579,7 +1839,7 @@ export namespace SqliMatchStatement {
  */
 export interface XssMatchStatement {
   /**
-   * <p>The part of a web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
+   * <p>The part of the web request that you want WAF to inspect. For more information, see <a>FieldToMatch</a>. </p>
    */
   FieldToMatch: FieldToMatch | undefined;
 
@@ -1701,6 +1961,7 @@ export enum ParameterExceptionField {
   BODY_PARSING_FALLBACK_BEHAVIOR = "BODY_PARSING_FALLBACK_BEHAVIOR",
   BYTE_MATCH_STATEMENT = "BYTE_MATCH_STATEMENT",
   CHANGE_PROPAGATION_STATUS = "CHANGE_PROPAGATION_STATUS",
+  COOKIE_MATCH_PATTERN = "COOKIE_MATCH_PATTERN",
   CUSTOM_REQUEST_HANDLING = "CUSTOM_REQUEST_HANDLING",
   CUSTOM_RESPONSE = "CUSTOM_RESPONSE",
   CUSTOM_RESPONSE_BODY = "CUSTOM_RESPONSE_BODY",
@@ -1714,6 +1975,7 @@ export enum ParameterExceptionField {
   FIREWALL_MANAGER_STATEMENT = "FIREWALL_MANAGER_STATEMENT",
   FORWARDED_IP_CONFIG = "FORWARDED_IP_CONFIG",
   GEO_MATCH_STATEMENT = "GEO_MATCH_STATEMENT",
+  HEADER_MATCH_PATTERN = "HEADER_MATCH_PATTERN",
   HEADER_NAME = "HEADER_NAME",
   IP_ADDRESS = "IP_ADDRESS",
   IP_ADDRESS_VERSION = "IP_ADDRESS_VERSION",
@@ -1728,10 +1990,12 @@ export enum ParameterExceptionField {
   MANAGED_RULE_GROUP_CONFIG = "MANAGED_RULE_GROUP_CONFIG",
   MANAGED_RULE_SET = "MANAGED_RULE_SET",
   MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT",
+  MAP_MATCH_SCOPE = "MAP_MATCH_SCOPE",
   METRIC_NAME = "METRIC_NAME",
   NOT_STATEMENT = "NOT_STATEMENT",
   OR_STATEMENT = "OR_STATEMENT",
   OVERRIDE_ACTION = "OVERRIDE_ACTION",
+  OVERSIZE_HANDLING = "OVERSIZE_HANDLING",
   PAYLOAD_TYPE = "PAYLOAD_TYPE",
   POSITION = "POSITION",
   RATE_BASED_STATEMENT = "RATE_BASED_STATEMENT",
@@ -1833,7 +2097,7 @@ export class WAFNonexistentItemException extends __BaseException {
 }
 
 /**
- * <p>WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
+ * <p>WAF couldn’t retrieve a resource that you specified for this operation. Verify the resources that you are specifying in your request parameters and then retry the operation.</p>
  */
 export class WAFUnavailableEntityException extends __BaseException {
   readonly name: "WAFUnavailableEntityException" = "WAFUnavailableEntityException";
@@ -2530,7 +2794,7 @@ export class WAFTagOperationException extends __BaseException {
 
 /**
  * <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
- *          your request.</p>
+ *          ybjectNoteWebRequestComponentour request.</p>
  */
 export class WAFTagOperationInternalErrorException extends __BaseException {
   readonly name: "WAFTagOperationInternalErrorException" = "WAFTagOperationInternalErrorException";
@@ -2842,6 +3106,32 @@ export namespace CreateWebACLResponse {
   });
 }
 
+/**
+ * <p>The operation failed because you are inspecting the web request body, headers, or cookies without specifying how to handle oversize components.
+ *        Rules that inspect the body must either provide an <code>OversizeHandling</code> configuration or they must
+ *        be preceded by a <code>SizeConstraintStatement</code> that blocks the body content from being too large.
+ *        Rules that inspect the headers or cookies must provide an <code>OversizeHandling</code> configuration. </p>
+ *          <p>Provide the handling configuration and retry your operation.</p>
+ *          <p>Alternately, you can suppress this warning by adding the following tag to the resource that you provide to this operation: <code>Tag</code> (key:<code>WAF:OversizeFieldsHandlingConstraintOptOut</code>, value:<code>true</code>).</p>
+ */
+export class WAFConfigurationWarningException extends __BaseException {
+  readonly name: "WAFConfigurationWarningException" = "WAFConfigurationWarningException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WAFConfigurationWarningException, __BaseException>) {
+    super({
+      name: "WAFConfigurationWarningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WAFConfigurationWarningException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeleteFirewallManagerRuleGroupsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL.</p>
@@ -2931,8 +3221,9 @@ export namespace DeleteIPSetResponse {
 }
 
 /**
- * <p>WAF couldn’t perform the operation because your resource is being used by another
- *          resource or it’s associated with another resource. </p>
+ * <p>WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
+ *          <p>For <code>DeleteWebACL</code>, you will only get this exception if the web ACL is still associated with
+ *           a regional resource. Deleting a web ACL that is still associated with an Amazon CloudFront distribution won't get this exception. </p>
  */
 export class WAFAssociatedItemException extends __BaseException {
   readonly name: "WAFAssociatedItemException" = "WAFAssociatedItemException";
