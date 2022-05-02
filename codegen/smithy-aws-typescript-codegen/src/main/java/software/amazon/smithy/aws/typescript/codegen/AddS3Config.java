@@ -163,7 +163,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckUploadBody",
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "CheckContentLengthHeader",
                                 HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> testServiceId(s) && o.getId().getName(s).equals("PutObject"))
                         .build(),

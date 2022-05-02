@@ -1,6 +1,6 @@
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { getCheckUploadBodyPlugin } from "@aws-sdk/middleware-sdk-s3";
+import { getCheckContentLengthHeaderPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -173,7 +173,7 @@ export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectC
     options?: __HttpHandlerOptions
   ): Handler<PutObjectCommandInput, PutObjectCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getCheckUploadBodyPlugin(configuration));
+    this.middlewareStack.use(getCheckContentLengthHeaderPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
     this.middlewareStack.use(
