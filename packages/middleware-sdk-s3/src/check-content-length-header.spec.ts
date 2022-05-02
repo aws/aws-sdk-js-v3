@@ -1,6 +1,6 @@
-import { checkUploadBodyMiddleware } from "./check-upload-body";
+import { checkContentLengthHeader } from "./check-content-length-header";
 
-describe("checkUploadBodyMiddleware", () => {
+describe("checkContentLengthHeaderMiddleware", () => {
   const mockNextHandler = jest.fn();
 
   let spy;
@@ -13,18 +13,19 @@ describe("checkUploadBodyMiddleware", () => {
     jest.clearAllMocks();
   });
 
-  it("warns if uploading a stream of unknown length", async () => {
-    const handler = checkUploadBodyMiddleware()(mockNextHandler, {});
+  it("warns if uploading a payload of unknown length", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {});
 
-    const result = await handler({
-      request: null,
-      input: {
-        Body: {
-          emit() {},
-          read() {},
-        },
-        ContentLength: undefined,
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {},
       },
+      input: {},
     });
 
     expect(spy).toHaveBeenCalledWith(
@@ -46,17 +47,18 @@ describe("checkUploadBodyMiddleware", () => {
         error() {},
       },
     };
-    const handler = checkUploadBodyMiddleware()(mockNextHandler, context);
+    const handler = checkContentLengthHeader()(mockNextHandler, context);
 
-    const result = await handler({
-      request: null,
-      input: {
-        Body: {
-          emit() {},
-          read() {},
-        },
-        ContentLength: undefined,
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {},
       },
+      input: {},
     });
 
     expect(spy).not.toHaveBeenCalled();
@@ -66,18 +68,21 @@ describe("checkUploadBodyMiddleware", () => {
     );
   });
 
-  it("does not warn if uploading a stream of known length", async () => {
-    const handler = checkUploadBodyMiddleware()(mockNextHandler, {});
+  it("does not warn if uploading a payload of known length", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {});
 
-    const result = await handler({
-      request: null,
-      input: {
-        Body: {
-          emit() {},
-          read() {},
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {
+          "content-length": "5",
         },
-        ContentLength: 5,
       },
+      input: {},
     });
 
     expect(spy).not.toHaveBeenCalled();
