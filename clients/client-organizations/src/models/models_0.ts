@@ -805,6 +805,7 @@ export enum ConstraintViolationExceptionReason {
   DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE = "DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE",
   EMAIL_VERIFICATION_CODE_EXPIRED = "EMAIL_VERIFICATION_CODE_EXPIRED",
   HANDSHAKE_RATE_LIMIT_EXCEEDED = "HANDSHAKE_RATE_LIMIT_EXCEEDED",
+  INVALID_PAYMENT_INSTRUMENT = "INVALID_PAYMENT_INSTRUMENT",
   MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE = "MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE",
   MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE = "MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE",
   MASTER_ACCOUNT_MISSING_CONTACT_INFO = "MASTER_ACCOUNT_MISSING_CONTACT_INFO",
@@ -877,10 +878,24 @@ export enum ConstraintViolationExceptionReason {
  *                     delegated administrator.</p>
  *             </li>
  *             <li>
+ *                 <p>CANNOT_CLOSE_MANAGEMENT_ACCOUNT: You attempted to close the management
+ *                     account. To close the management account for the organization, you must first
+ *                     either remove or close all member accounts in the organization. Follow standard
+ *                     account closure process using root credentials.​ </p>
+ *             </li>
+ *             <li>
  *                 <p>CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG: You attempted to remove an
  *                     account that is registered as a delegated administrator for a service integrated
  *                     with your organization. To complete this operation, you must first deregister
  *                     this account as a delegated administrator. </p>
+ *             </li>
+ *             <li>
+ *                 <p>CLOSE_ACCOUNT_QUOTA_EXCEEDED: You have exceeded close account quota for the
+ *                     past 30 days. </p>
+ *             </li>
+ *             <li>
+ *                 <p>CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED: You attempted to exceed the number of
+ *                     accounts that you can close at a time. ​ </p>
  *             </li>
  *             <li>
  *                 <p>CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION: To create an
@@ -900,6 +915,13 @@ export enum ConstraintViolationExceptionReason {
  *             <li>
  *                 <p>HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
  *                     handshakes that you can send in one day.</p>
+ *             </li>
+ *             <li>
+ *                 <p>INVALID_PAYMENT_INSTRUMENT: You cannot remove an account because no supported
+ *                     payment method is associated with the account. Amazon Web Services does not support cards
+ *                     issued by financial institutions in Russia or Belarus. For more information, see
+ *                         <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-general.html">Managing your
+ *                         Amazon Web Services payments</a>.</p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in
@@ -984,8 +1006,8 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>SERVICE_ACCESS_NOT_ENABLED: You attempted to register a delegated
- *                     administrator before you enabled service access. Call the <code>EnableAWSServiceAccess</code> API
- *                     first.</p>
+ *                     administrator before you enabled service access. Call the
+ *                         <code>EnableAWSServiceAccess</code> API first.</p>
  *             </li>
  *             <li>
  *                 <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
@@ -1171,7 +1193,8 @@ export namespace CancelHandshakeRequest {
 
 export interface CloseAccountRequest {
   /**
-   * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request. </p>
+   * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request.
+   *         </p>
    */
   AccountId: string | undefined;
 }
@@ -1186,7 +1209,8 @@ export namespace CloseAccountRequest {
 }
 
 /**
- * <p>The request failed because it conflicts with the current state of the specified resource.</p>
+ * <p>The request failed because it conflicts with the current state of the specified
+ *             resource.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1375,6 +1399,7 @@ export enum CreateAccountFailureReason {
   INVALID_ADDRESS = "INVALID_ADDRESS",
   INVALID_EMAIL = "INVALID_EMAIL",
   INVALID_IDENTITY_FOR_BUSINESS_VALIDATION = "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION",
+  INVALID_PAYMENT_INSTRUMENT = "INVALID_PAYMENT_INSTRUMENT",
   MISSING_BUSINESS_VALIDATION = "MISSING_BUSINESS_VALIDATION",
   MISSING_PAYMENT_INSTRUMENT = "MISSING_PAYMENT_INSTRUMENT",
   PENDING_BUSINESS_VALIDATIONv = "PENDING_BUSINESS_VALIDATION",
@@ -1471,6 +1496,13 @@ export interface CreateAccountStatus {
    *             <li>
    *                 <p>INVALID_EMAIL: The account could not be created because the email address you
    *                     provided is not valid.</p>
+   *             </li>
+   *             <li>
+   *                 <p>INVALID_PAYMENT_INSTRUMENT: The Amazon Web Services account that owns your organization does
+   *                     not have a supported payment method associated with the account. Amazon Web Services does not
+   *                     support cards issued by financial institutions in Russia or Belarus. For more
+   *                     information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-general.html">Managing your
+   *                         Amazon Web Services payments</a>.</p>
    *             </li>
    *             <li>
    *                 <p>INTERNAL_FAILURE: The account could not be created because of an internal
@@ -1601,7 +1633,9 @@ export interface CreateGovCloudAccountRequest {
   Email: string | undefined;
 
   /**
-   * <p>The friendly name of the member account.</p>
+   * <p>The friendly name of the member account. </p>
+   *         <p>The account name can consist of only the characters [a-z],[A-Z],[0-9], hyphen (-), or
+   *             dot (.) You can't separate characters with a dash (–).</p>
    */
   AccountName: string | undefined;
 
