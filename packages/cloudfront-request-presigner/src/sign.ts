@@ -170,6 +170,32 @@ function signPolicy(policy: string, privateKey: string | Buffer): string {
   return normalizeBase64(signData(policy, privateKey));
 }
 
+function determineScheme(url: string) {
+  const parts = url.split("://");
+  if (parts.length < 2) {
+    throw new Error("Invalid URL.");
+  }
+
+  return parts[0].replace("*", "");
+}
+
+function getRtmpUrl(rtmpUrl: string) {
+  const parsed = new URL(rtmpUrl);
+  return parsed.pathname.replace(/^\//, "") + parsed.search + parsed.hash;
+}
+
+function getResource(url: string): string {
+  switch (determineScheme(url)) {
+    case "http":
+    case "https":
+      return url;
+    case "rtmp":
+      return getRtmpUrl(url);
+    default:
+      throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
+  }
+}
+
 export function getSignedUrl({
   dateLessThan,
   dateGreaterThan,
@@ -185,7 +211,7 @@ export function getSignedUrl({
       dateLessThan: parsedDates.dateLessThan,
       dateGreaterThan: parsedDates.dateGreaterThan,
       ipAddress,
-      resource: url,
+      resource: getResource(url),
     })
   );
   const signature = signPolicy(policy, privateKey);
@@ -202,7 +228,11 @@ export function getSignedUrl({
   }
   cloudfrontQueryParams.push(`Key-Pair-Id=${keyPairId}`);
   cloudfrontQueryParams.push(`Signature=${signature}`);
-  return `${url.split("?")[0]}?${cloudfrontQueryParams.join("&")}`;
+  const urlWithQueryParams = `${url.split("?")[0]}?${cloudfrontQueryParams.join("&")}`;
+  if (determineScheme(url) === "rtmp") {
+    return getRtmpUrl(urlWithQueryParams);
+  }
+  return urlWithQueryParams;
 }
 
 export function getSignedCookies({
