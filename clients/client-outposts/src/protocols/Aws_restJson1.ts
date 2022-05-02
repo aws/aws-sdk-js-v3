@@ -31,6 +31,7 @@ import {
 } from "../commands/GetOutpostInstanceTypesCommand";
 import { GetSiteAddressCommandInput, GetSiteAddressCommandOutput } from "../commands/GetSiteAddressCommand";
 import { GetSiteCommandInput, GetSiteCommandOutput } from "../commands/GetSiteCommand";
+import { ListAssetsCommandInput, ListAssetsCommandOutput } from "../commands/ListAssetsCommand";
 import { ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput } from "../commands/ListCatalogItemsCommand";
 import { ListOrdersCommandInput, ListOrdersCommandOutput } from "../commands/ListOrdersCommand";
 import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "../commands/ListOutpostsCommand";
@@ -51,7 +52,9 @@ import {
 import {
   AccessDeniedException,
   Address,
+  AssetInfo,
   CatalogItem,
+  ComputeAttributes,
   ConflictException,
   EC2Capacity,
   InstanceTypeItem,
@@ -423,6 +426,43 @@ export const serializeAws_restJson1GetSiteAddressCommand = async (
   }
   const query: any = {
     ...(input.AddressType !== undefined && { AddressType: input.AddressType }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAssetsCommand = async (
+  input: ListAssetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts/{OutpostIdentifier}/assets";
+  if (input.OutpostIdentifier !== undefined) {
+    const labelValue: string = input.OutpostIdentifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: OutpostIdentifier.");
+    }
+    resolvedPath = resolvedPath.replace("{OutpostIdentifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: OutpostIdentifier.");
+  }
+  const query: any = {
+    ...(input.HostIdFilter !== undefined && {
+      HostIdFilter: (input.HostIdFilter || []).map((_entry) => _entry as any),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1470,6 +1510,63 @@ const deserializeAws_restJson1GetSiteAddressCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListAssetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssetsCommandError(output, context);
+  }
+  const contents: ListAssetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Assets: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Assets !== undefined && data.Assets !== null) {
+    contents.Assets = deserializeAws_restJson1AssetListDefinition(data.Assets, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAssetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.outposts#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.outposts#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.outposts#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.outposts#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1ListCatalogItemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2246,6 +2343,30 @@ const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_restJson1AssetInfo = (output: any, context: __SerdeContext): AssetInfo => {
+  return {
+    AssetId: __expectString(output.AssetId),
+    AssetType: __expectString(output.AssetType),
+    ComputeAttributes:
+      output.ComputeAttributes !== undefined && output.ComputeAttributes !== null
+        ? deserializeAws_restJson1ComputeAttributes(output.ComputeAttributes, context)
+        : undefined,
+    RackId: __expectString(output.RackId),
+  } as any;
+};
+
+const deserializeAws_restJson1AssetListDefinition = (output: any, context: __SerdeContext): AssetInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssetInfo(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1CatalogItem = (output: any, context: __SerdeContext): CatalogItem => {
   return {
     CatalogItemId: __expectString(output.CatalogItemId),
@@ -2277,6 +2398,12 @@ const deserializeAws_restJson1CatalogItemListDefinition = (output: any, context:
       return deserializeAws_restJson1CatalogItem(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ComputeAttributes = (output: any, context: __SerdeContext): ComputeAttributes => {
+  return {
+    HostId: __expectString(output.HostId),
+  } as any;
 };
 
 const deserializeAws_restJson1EC2Capacity = (output: any, context: __SerdeContext): EC2Capacity => {

@@ -22,7 +22,7 @@ export interface ListCatalogItemsCommandInput extends ListCatalogItemsInput {}
 export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, __MetadataBearer {}
 
 /**
- * <p>Use to create a list of every item in the catalog. Add filters to your request to return a
+ * <p>Lists the items in the catalog. Add filters to your request to return a
  *       more specific list of results. Use filters to match an item class, storage
  *       option, or EC2 family. </p>
  *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and

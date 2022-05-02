@@ -22,7 +22,7 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Create a list of the Outpost sites for your Amazon Web Services account. Add operating address filters to your request to
+ * <p>Lists the Outpost sites for your Amazon Web Services account. Add operating address filters to your request to
  *       return a more specific list of results. Use filters to match site city, country code, or state/region of the
  *       operating address. </p>
  *

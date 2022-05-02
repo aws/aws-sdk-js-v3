@@ -22,7 +22,7 @@ export interface GetOutpostInstanceTypesCommandInput extends GetOutpostInstanceT
 export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstanceTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the instance types for the specified Outpost.</p>
+ * <p>Gets the instance types for the specified Outpost.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -100,6 +100,77 @@ export enum AddressType {
   SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
 }
 
+export enum AssetType {
+  COMPUTE = "COMPUTE",
+}
+
+/**
+ * <p>
+ *       Information about compute hardware assets.
+ *     </p>
+ */
+export interface ComputeAttributes {
+  /**
+   * <p>
+   *       The host ID of any Dedicated Hosts on the asset.
+   *     </p>
+   */
+  HostId?: string;
+}
+
+export namespace ComputeAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ComputeAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Information about hardware assets.
+ *     </p>
+ */
+export interface AssetInfo {
+  /**
+   * <p>
+   *       The ID of the asset.
+   *     </p>
+   */
+  AssetId?: string;
+
+  /**
+   * <p>
+   *       The rack ID of the asset.
+   *     </p>
+   */
+  RackId?: string;
+
+  /**
+   * <p>
+   *       The type of the asset.
+   *     </p>
+   */
+  AssetType?: AssetType | string;
+
+  /**
+   * <p>
+   *       Information about compute hardware assets.
+   *     </p>
+   */
+  ComputeAttributes?: ComputeAttributes;
+}
+
+export namespace AssetInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssetInfo): any => ({
+    ...obj,
+  });
+}
+
 export interface CancelOrderInput {
   /**
    * <p>
@@ -1349,6 +1420,67 @@ export namespace GetSiteAddressOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetSiteAddressOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAssetsInput {
+  /**
+   * <p>
+   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *     </p>
+   */
+  OutpostIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *       A filter for the host ID of Dedicated Hosts on the Outpost.
+   *     </p>
+   *          <p>Filter values are case sensitive. If you specify multiple
+   *          values for a filter, the values are joined with an <code>OR</code>, and the request returns
+   *          all results that match any of the specified values.</p>
+   */
+  HostIdFilter?: string[];
+
+  /**
+   * <p>The maximum page size.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAssetsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssetsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAssetsOutput {
+  /**
+   * <p>
+   *       Information about hardware assets.
+   *     </p>
+   */
+  Assets?: AssetInfo[];
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAssetsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAssetsOutput): any => ({
     ...obj,
   });
 }

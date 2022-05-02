@@ -11,47 +11,46 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListOutpostsInput, ListOutpostsOutput } from "../models/models_0";
+import { ListAssetsInput, ListAssetsOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
-  deserializeAws_restJson1ListOutpostsCommand,
-  serializeAws_restJson1ListOutpostsCommand,
+  deserializeAws_restJson1ListAssetsCommand,
+  serializeAws_restJson1ListAssetsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListOutpostsCommandInput extends ListOutpostsInput {}
-export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __MetadataBearer {}
+export interface ListAssetsCommandInput extends ListAssetsInput {}
+export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outposts for your Amazon Web Services account. Add filters to your request to return
- *       a more specific list of results. Use filters to match an Outpost lifecycle status,
- *       Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>). </p>
- *
- *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
- *       results that match all of the specified filters.</p>
+ * <p>
+ *       Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on
+ *       Amazon Web Services Outposts, you can filter your request by host ID to return a list of hardware
+ *       assets that allocate resources for Dedicated Hosts.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OutpostsClient, ListOutpostsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
- * // const { OutpostsClient, ListOutpostsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * import { OutpostsClient, ListAssetsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
+ * // const { OutpostsClient, ListAssetsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
- * const command = new ListOutpostsCommand(input);
+ * const command = new ListAssetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListOutpostsCommandInput} for command's `input` shape.
- * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
+ * @see {@link ListAssetsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetsCommandOutput} for command's `response` shape.
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  */
-export class ListOutpostsCommand extends $Command<
-  ListOutpostsCommandInput,
-  ListOutpostsCommandOutput,
+export class ListAssetsCommand extends $Command<
+  ListAssetsCommandInput,
+  ListAssetsCommandOutput,
   OutpostsClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListOutpostsCommandInput) {
+  constructor(readonly input: ListAssetsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -64,20 +63,20 @@ export class ListOutpostsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListOutpostsCommandInput, ListOutpostsCommandOutput> {
+  ): Handler<ListAssetsCommandInput, ListAssetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OutpostsClient";
-    const commandName = "ListOutpostsCommand";
+    const commandName = "ListAssetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOutpostsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOutpostsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssetsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAssetsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,12 +86,12 @@ export class ListOutpostsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListOutpostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListOutpostsCommand(input, context);
+  private serialize(input: ListAssetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListAssetsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsCommandOutput> {
-    return deserializeAws_restJson1ListOutpostsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetsCommandOutput> {
+    return deserializeAws_restJson1ListAssetsCommand(output, context);
   }
 
   // Start section: command_body_extra

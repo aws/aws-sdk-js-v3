@@ -10,6 +10,7 @@ export * from "./GetOutpostCommand";
 export * from "./GetOutpostInstanceTypesCommand";
 export * from "./GetSiteAddressCommand";
 export * from "./GetSiteCommand";
+export * from "./ListAssetsCommand";
 export * from "./ListCatalogItemsCommand";
 export * from "./ListOrdersCommand";
 export * from "./ListOutpostsCommand";
