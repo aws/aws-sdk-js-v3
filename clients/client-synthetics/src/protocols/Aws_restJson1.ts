@@ -137,6 +137,9 @@ export const serializeAws_restJson1DeleteCanaryCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
+  const query: any = {
+    ...(input.DeleteLambda !== undefined && { deleteLambda: input.DeleteLambda.toString() }),
+  };
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -145,6 +148,7 @@ export const serializeAws_restJson1DeleteCanaryCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
