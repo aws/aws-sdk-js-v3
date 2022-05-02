@@ -291,6 +291,32 @@ describe("getSignedUrl", () => {
       })
     ).toThrow('IP address "10.0.0.256" is invalid due to invalid IP octets.');
   });
+  it("should sign a RTMP URL", () => {
+    const url = "rtmp://d111111abcdef8.cloudfront.net/private-content/private.jpeg";
+    const result = getSignedUrl({
+      url,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+    });
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: "private-content/private.jpeg",
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": epochDateLessThan,
+            },
+          },
+        },
+      ],
+    });
+    const signature = createSignature(policyStr);
+    expect(result).toBe(
+      `private-content/private.jpeg?Expires=${epochDateLessThan}&Key-Pair-Id=${keyPairId}&Signature=${signature}`
+    );
+    expect(verifySignature(denormalizeBase64(signature), policyStr)).toBeTruthy();
+  });
 });
 
 describe("getSignedCookies", () => {
