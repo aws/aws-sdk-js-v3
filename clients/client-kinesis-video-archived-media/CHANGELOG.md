@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.83.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.82.0...v3.83.0) (2022-05-03)
+
+
+### Features
+
+* **client-kinesis-video-archived-media:** Add support for GetImages API  for retrieving images from a video stream ([a775394](https://github.com/aws/aws-sdk-js-v3/commit/a7753942b4a4d2d76a094a2253da537a34462cd7))
+
+
+
+
+
 # [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-archived-media

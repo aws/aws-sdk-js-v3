@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.83.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.82.0...v3.83.0) (2022-05-03)
+
+
+### Features
+
+* **client-kinesis-video:** Add support for multiple image feature related APIs for configuring image generation and notification of a video stream. Add "GET_IMAGES" to the list of supported API names for the GetDataEndpoint API. ([9dfe418](https://github.com/aws/aws-sdk-js-v3/commit/9dfe41850fa304dc8f570f961983ccc1a34321a6))
+
+
+
+
+
 # [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video
