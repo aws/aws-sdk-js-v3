@@ -17675,7 +17675,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
   });
 
 const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {

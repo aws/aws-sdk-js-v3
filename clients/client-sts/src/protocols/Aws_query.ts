@@ -1330,7 +1330,7 @@ const buildFormUrlencodedString = (formEntries: { [key: string]: string }): stri
     .join("&");
 
 const loadQueryErrorCode = (output: __HttpResponse, data: any): string => {
-  if (data.Error.Code !== undefined) {
+  if (data.Error?.Code !== undefined) {
     return data.Error.Code;
   }
   if (output.statusCode == 404) {
