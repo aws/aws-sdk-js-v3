@@ -769,7 +769,6 @@ import {
   CreateHyperParameterTuningJobResponse,
   CreateImageRequest,
   CreateImageResponse,
-  CreateImageVersionRequest,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -877,6 +876,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateImageVersionRequest,
   CreateImageVersionResponse,
   CreateInferenceRecommendationsJobRequest,
   CreateInferenceRecommendationsJobResponse,
@@ -1341,7 +1341,6 @@ import {
   ListSubscribedWorkteamsRequest,
   ListSubscribedWorkteamsResponse,
   ListTagsInput,
-  ListTagsOutput,
   MetricData,
   ModelMetadataFilter,
   ModelMetadataSearchExpression,
@@ -1389,6 +1388,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListTagsOutput,
   ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
   ListTrainingJobsRequest,
@@ -22365,7 +22365,14 @@ const serializeAws_json1_1RetryStrategy = (input: RetryStrategy, context: __Serd
 };
 
 const serializeAws_json1_1RSessionAppSettings = (input: RSessionAppSettings, context: __SerdeContext): any => {
-  return {};
+  return {
+    ...(input.CustomImages !== undefined &&
+      input.CustomImages !== null && { CustomImages: serializeAws_json1_1CustomImages(input.CustomImages, context) }),
+    ...(input.DefaultResourceSpec !== undefined &&
+      input.DefaultResourceSpec !== null && {
+        DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1RStudioServerProAppSettings = (
@@ -30445,6 +30452,7 @@ const deserializeAws_json1_1MetricDatum = (output: any, context: __SerdeContext)
   return {
     MetricName: __expectString(output.MetricName),
     Set: __expectString(output.Set),
+    StandardMetricName: __expectString(output.StandardMetricName),
     Value: __limitedParseFloat32(output.Value),
   } as any;
 };
@@ -33070,7 +33078,16 @@ const deserializeAws_json1_1RetryStrategy = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1RSessionAppSettings = (output: any, context: __SerdeContext): RSessionAppSettings => {
-  return {} as any;
+  return {
+    CustomImages:
+      output.CustomImages !== undefined && output.CustomImages !== null
+        ? deserializeAws_json1_1CustomImages(output.CustomImages, context)
+        : undefined,
+    DefaultResourceSpec:
+      output.DefaultResourceSpec !== undefined && output.DefaultResourceSpec !== null
+        ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1RStudioServerProAppSettings = (

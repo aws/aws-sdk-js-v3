@@ -104,6 +104,37 @@ import {
   VpcConfig,
 } from "./models_0";
 
+export interface CreateImageVersionRequest {
+  /**
+   * <p>The registry path of the container image to use as the starting point for this
+   *         version. The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</p>
+   *          <p>
+   *             <code><acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]></code>
+   *          </p>
+   */
+  BaseImage: string | undefined;
+
+  /**
+   * <p>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services SDKs, such as the SDK for Python
+   *         (Boto3), add a unique value to the call.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The <code>ImageName</code> of the <code>Image</code> to create a version of.</p>
+   */
+  ImageName: string | undefined;
+}
+
+export namespace CreateImageVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateImageVersionRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateImageVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the image version.</p>
@@ -11329,13 +11360,4 @@ export namespace LabelingJobOutput {
   export const filterSensitiveLog = (obj: LabelingJobOutput): any => ({
     ...obj,
   });
-}
-
-export enum LabelingJobStatus {
-  COMPLETED = "Completed",
-  FAILED = "Failed",
-  INITIALIZING = "Initializing",
-  IN_PROGRESS = "InProgress",
-  STOPPED = "Stopped",
-  STOPPING = "Stopping",
 }

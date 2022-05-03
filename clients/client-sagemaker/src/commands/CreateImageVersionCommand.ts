@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateImageVersionRequest } from "../models/models_0";
-import { CreateImageVersionResponse } from "../models/models_1";
+import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateImageVersionCommand,
   serializeAws_json1_1CreateImageVersionCommand,

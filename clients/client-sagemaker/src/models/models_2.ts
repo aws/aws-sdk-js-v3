@@ -89,7 +89,6 @@ import {
   LabelingJobInputConfig,
   LabelingJobOutput,
   LabelingJobOutputConfig,
-  LabelingJobStatus,
   LabelingJobStoppingConditions,
   MemberDefinition,
   ModelArtifacts,
@@ -137,6 +136,15 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+export enum LabelingJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  INITIALIZING = "Initializing",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+}
 
 export interface DescribeLabelingJobResponse {
   /**
@@ -10913,28 +10921,6 @@ export namespace ListTagsInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsInput): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsOutput {
-  /**
-   * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p> If response is truncated, SageMaker includes a token in the response. You can use this
-   *             token in your subsequent request to fetch next set of tokens. </p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
     ...obj,
   });
 }

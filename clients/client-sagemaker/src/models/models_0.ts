@@ -4217,6 +4217,23 @@ export enum MetricSetSource {
   VALIDATION = "Validation",
 }
 
+export enum AutoMLMetricExtendedEnum {
+  ACCURACY = "Accuracy",
+  AUC = "AUC",
+  BALANCED_ACCURACY = "BalancedAccuracy",
+  F1 = "F1",
+  F1_MACRO = "F1macro",
+  LogLoss = "LogLoss",
+  MAE = "MAE",
+  MSE = "MSE",
+  PRECISION = "Precision",
+  PRECISION_MACRO = "PrecisionMacro",
+  R2 = "R2",
+  RECALL = "Recall",
+  RECALL_MACRO = "RecallMacro",
+  RMSE = "RMSE",
+}
+
 /**
  * <p>Information about the metric for a candidate produced by an AutoML job.</p>
  */
@@ -4235,6 +4252,11 @@ export interface MetricDatum {
    * <p>The dataset split from which the AutoML job produced the metric.</p>
    */
   Set?: MetricSetSource | string;
+
+  /**
+   * <p>The name of the standard metric.</p>
+   */
+  StandardMetricName?: AutoMLMetricExtendedEnum | string;
 }
 
 export namespace MetricDatum {
@@ -8990,7 +9012,18 @@ export namespace KernelGatewayAppSettings {
 /**
  * <p>A collection of settings that apply to an <code>RSessionGateway</code> app.</p>
  */
-export interface RSessionAppSettings {}
+export interface RSessionAppSettings {
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>A list of custom SageMaker images that are configured to run as a RSession app.</p>
+   */
+  CustomImages?: CustomImage[];
+}
 
 export namespace RSessionAppSettings {
   /**
@@ -11906,37 +11939,6 @@ export namespace CreateImageResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateImageVersionRequest {
-  /**
-   * <p>The registry path of the container image to use as the starting point for this
-   *         version. The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</p>
-   *          <p>
-   *             <code><acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]></code>
-   *          </p>
-   */
-  BaseImage: string | undefined;
-
-  /**
-   * <p>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services SDKs, such as the SDK for Python
-   *         (Boto3), add a unique value to the call.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The <code>ImageName</code> of the <code>Image</code> to create a version of.</p>
-   */
-  ImageName: string | undefined;
-}
-
-export namespace CreateImageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageVersionRequest): any => ({
     ...obj,
   });
 }

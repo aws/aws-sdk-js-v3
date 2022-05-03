@@ -102,6 +102,28 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface ListTagsOutput {
+  /**
+   * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p> If response is truncated, SageMaker includes a token in the response. You can use this
+   *             token in your subsequent request to fetch next set of tokens. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTagsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTrainingJobsRequest {
   /**
    * <p>If the result of the previous <code>ListTrainingJobs</code> request was truncated,
