@@ -4407,7 +4407,7 @@ export interface CreateInputRequest {
   /**
    * The different types of inputs that AWS Elemental MediaLive supports.
    */
-  Type?: InputType | string;
+  Type: InputType | string;
 
   /**
    * Settings for a private VPC Input.
