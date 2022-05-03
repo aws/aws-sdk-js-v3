@@ -8,7 +8,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export interface SignerConfig {
   credentials: Credentials | CredentialProvider;
   hostname: string;
-  port?: number;
+  port: number;
   region: string;
   sha256?: HashConstructor;
   username: string;
@@ -17,7 +17,7 @@ export interface SignerConfig {
 export class Signer {
   private readonly credentials: Credentials | CredentialProvider;
   private readonly hostname: string;
-  private readonly port?: number;
+  private readonly port: number;
   private readonly protocol: string = "https:";
   private readonly region: string;
   private readonly service: string = "rds-db";
