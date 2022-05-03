@@ -25,6 +25,14 @@ import {
 } from "../commands/DeleteSignalingChannelCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "../commands/DeleteStreamCommand";
 import {
+  DescribeImageGenerationConfigurationCommandInput,
+  DescribeImageGenerationConfigurationCommandOutput,
+} from "../commands/DescribeImageGenerationConfigurationCommand";
+import {
+  DescribeNotificationConfigurationCommandInput,
+  DescribeNotificationConfigurationCommandOutput,
+} from "../commands/DescribeNotificationConfigurationCommand";
+import {
   DescribeSignalingChannelCommandInput,
   DescribeSignalingChannelCommandOutput,
 } from "../commands/DescribeSignalingChannelCommand";
@@ -53,6 +61,14 @@ import {
   UpdateDataRetentionCommandOutput,
 } from "../commands/UpdateDataRetentionCommand";
 import {
+  UpdateImageGenerationConfigurationCommandInput,
+  UpdateImageGenerationConfigurationCommandOutput,
+} from "../commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateNotificationConfigurationCommandInput,
+  UpdateNotificationConfigurationCommandOutput,
+} from "../commands/UpdateNotificationConfigurationCommand";
+import {
   UpdateSignalingChannelCommandInput,
   UpdateSignalingChannelCommandOutput,
 } from "../commands/UpdateSignalingChannelCommand";
@@ -67,10 +83,16 @@ import {
   ChannelProtocol,
   ClientLimitExceededException,
   DeviceStreamLimitExceededException,
+  FormatConfigKey,
+  ImageGenerationConfiguration,
+  ImageGenerationDestinationConfig,
   InvalidArgumentException,
   InvalidDeviceException,
   InvalidResourceFormatException,
+  NoDataRetentionException,
   NotAuthorizedException,
+  NotificationConfiguration,
+  NotificationDestinationConfig,
   ResourceEndpointListItem,
   ResourceInUseException,
   ResourceNotFoundException,
@@ -190,6 +212,58 @@ export const serializeAws_restJson1DeleteStreamCommand = async (
     ...(input.CurrentVersion !== undefined &&
       input.CurrentVersion !== null && { CurrentVersion: input.CurrentVersion }),
     ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeImageGenerationConfigurationCommand = async (
+  input: DescribeImageGenerationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeImageGenerationConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeNotificationConfigurationCommand = async (
+  input: DescribeNotificationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeNotificationConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   return new __HttpRequest({
     protocol,
@@ -556,6 +630,72 @@ export const serializeAws_restJson1UpdateDataRetentionCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateImageGenerationConfigurationCommand = async (
+  input: UpdateImageGenerationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateImageGenerationConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ImageGenerationConfiguration !== undefined &&
+      input.ImageGenerationConfiguration !== null && {
+        ImageGenerationConfiguration: serializeAws_restJson1ImageGenerationConfiguration(
+          input.ImageGenerationConfiguration,
+          context
+        ),
+      }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateNotificationConfigurationCommand = async (
+  input: UpdateNotificationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateNotificationConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NotificationConfiguration !== undefined &&
+      input.NotificationConfiguration !== null && {
+        NotificationConfiguration: serializeAws_restJson1NotificationConfiguration(
+          input.NotificationConfiguration,
+          context
+        ),
+      }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateSignalingChannelCommand = async (
   input: UpdateSignalingChannelCommandInput,
   context: __SerdeContext
@@ -839,6 +979,118 @@ const deserializeAws_restJson1DeleteStreamCommandError = async (
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
       throw await deserializeAws_restJson1VersionMismatchExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeImageGenerationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeImageGenerationConfigurationCommandError(output, context);
+  }
+  const contents: DescribeImageGenerationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ImageGenerationConfiguration: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ImageGenerationConfiguration !== undefined && data.ImageGenerationConfiguration !== null) {
+    contents.ImageGenerationConfiguration = deserializeAws_restJson1ImageGenerationConfiguration(
+      data.ImageGenerationConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeImageGenerationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DescribeNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeNotificationConfigurationCommandError(output, context);
+  }
+  const contents: DescribeNotificationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NotificationConfiguration: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NotificationConfiguration !== undefined && data.NotificationConfiguration !== null) {
+    contents.NotificationConfiguration = deserializeAws_restJson1NotificationConfiguration(
+      data.NotificationConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeNotificationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       response = new __BaseException({
@@ -1550,6 +1802,116 @@ const deserializeAws_restJson1UpdateDataRetentionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateImageGenerationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateImageGenerationConfigurationCommandError(output, context);
+  }
+  const contents: UpdateImageGenerationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateImageGenerationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1UpdateNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateNotificationConfigurationCommandError(output, context);
+  }
+  const contents: UpdateNotificationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateNotificationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1788,6 +2150,22 @@ const deserializeAws_restJson1InvalidResourceFormatExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1NoDataRetentionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoDataRetentionException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new NoDataRetentionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1NotAuthorizedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1877,6 +2255,51 @@ const serializeAws_restJson1ChannelNameCondition = (input: ChannelNameCondition,
   };
 };
 
+const serializeAws_restJson1FormatConfig = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [FormatConfigKey | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1ImageGenerationConfiguration = (
+  input: ImageGenerationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationConfig !== undefined &&
+      input.DestinationConfig !== null && {
+        DestinationConfig: serializeAws_restJson1ImageGenerationDestinationConfig(input.DestinationConfig, context),
+      }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.FormatConfig !== undefined &&
+      input.FormatConfig !== null && { FormatConfig: serializeAws_restJson1FormatConfig(input.FormatConfig, context) }),
+    ...(input.HeightPixels !== undefined && input.HeightPixels !== null && { HeightPixels: input.HeightPixels }),
+    ...(input.ImageSelectorType !== undefined &&
+      input.ImageSelectorType !== null && { ImageSelectorType: input.ImageSelectorType }),
+    ...(input.SamplingInterval !== undefined &&
+      input.SamplingInterval !== null && { SamplingInterval: input.SamplingInterval }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.WidthPixels !== undefined && input.WidthPixels !== null && { WidthPixels: input.WidthPixels }),
+  };
+};
+
+const serializeAws_restJson1ImageGenerationDestinationConfig = (
+  input: ImageGenerationDestinationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationRegion !== undefined &&
+      input.DestinationRegion !== null && { DestinationRegion: input.DestinationRegion }),
+    ...(input.Uri !== undefined && input.Uri !== null && { Uri: input.Uri }),
+  };
+};
+
 const serializeAws_restJson1ListOfProtocols = (input: (ChannelProtocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1886,6 +2309,28 @@ const serializeAws_restJson1ListOfProtocols = (input: (ChannelProtocol | string)
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1NotificationConfiguration = (
+  input: NotificationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationConfig !== undefined &&
+      input.DestinationConfig !== null && {
+        DestinationConfig: serializeAws_restJson1NotificationDestinationConfig(input.DestinationConfig, context),
+      }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1NotificationDestinationConfig = (
+  input: NotificationDestinationConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Uri !== undefined && input.Uri !== null && { Uri: input.Uri }),
+  };
 };
 
 const serializeAws_restJson1ResourceTags = (input: { [key: string]: string }, context: __SerdeContext): any => {
@@ -1998,6 +2443,75 @@ const deserializeAws_restJson1ChannelInfoList = (output: any, context: __SerdeCo
       return deserializeAws_restJson1ChannelInfo(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1FormatConfig = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [FormatConfigKey | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: __expectString(value) as any,
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1ImageGenerationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ImageGenerationConfiguration => {
+  return {
+    DestinationConfig:
+      output.DestinationConfig !== undefined && output.DestinationConfig !== null
+        ? deserializeAws_restJson1ImageGenerationDestinationConfig(output.DestinationConfig, context)
+        : undefined,
+    Format: __expectString(output.Format),
+    FormatConfig:
+      output.FormatConfig !== undefined && output.FormatConfig !== null
+        ? deserializeAws_restJson1FormatConfig(output.FormatConfig, context)
+        : undefined,
+    HeightPixels: __expectInt32(output.HeightPixels),
+    ImageSelectorType: __expectString(output.ImageSelectorType),
+    SamplingInterval: __expectInt32(output.SamplingInterval),
+    Status: __expectString(output.Status),
+    WidthPixels: __expectInt32(output.WidthPixels),
+  } as any;
+};
+
+const deserializeAws_restJson1ImageGenerationDestinationConfig = (
+  output: any,
+  context: __SerdeContext
+): ImageGenerationDestinationConfig => {
+  return {
+    DestinationRegion: __expectString(output.DestinationRegion),
+    Uri: __expectString(output.Uri),
+  } as any;
+};
+
+const deserializeAws_restJson1NotificationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): NotificationConfiguration => {
+  return {
+    DestinationConfig:
+      output.DestinationConfig !== undefined && output.DestinationConfig !== null
+        ? deserializeAws_restJson1NotificationDestinationConfig(output.DestinationConfig, context)
+        : undefined,
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1NotificationDestinationConfig = (
+  output: any,
+  context: __SerdeContext
+): NotificationDestinationConfig => {
+  return {
+    Uri: __expectString(output.Uri),
+  } as any;
 };
 
 const deserializeAws_restJson1ResourceEndpointList = (

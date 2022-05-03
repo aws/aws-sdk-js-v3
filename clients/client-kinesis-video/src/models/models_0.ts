@@ -25,7 +25,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum limit of active signaling channels for this AWS account
+ * <p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account
  *             in this region.</p>
  */
 export class AccountChannelLimitExceededException extends __BaseException {
@@ -71,6 +71,7 @@ export enum APIName {
   GET_CLIP = "GET_CLIP",
   GET_DASH_STREAMING_SESSION_URL = "GET_DASH_STREAMING_SESSION_URL",
   GET_HLS_STREAMING_SESSION_URL = "GET_HLS_STREAMING_SESSION_URL",
+  GET_IMAGES = "GET_IMAGES",
   GET_MEDIA = "GET_MEDIA",
   GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
   LIST_FRAGMENTS = "LIST_FRAGMENTS",
@@ -85,6 +86,7 @@ export enum Status {
 }
 
 export enum ChannelType {
+  FULL_MESH = "FULL_MESH",
   SINGLE_MASTER = "SINGLE_MASTER",
 }
 
@@ -94,7 +96,7 @@ export enum ChannelType {
  */
 export interface SingleMasterConfiguration {
   /**
-   * <p>The period of time a signaling channel retains underlivered messages before they are
+   * <p>The period of time a signaling channel retains undelivered messages before they are
    *             discarded.</p>
    */
   MessageTtlSeconds?: number;
@@ -223,6 +225,11 @@ export class ClientLimitExceededException extends __BaseException {
   }
 }
 
+export enum ConfigurationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 /**
  * <p>A key and value pair that is associated with the specified signaling channel.</p>
  */
@@ -249,8 +256,7 @@ export namespace Tag {
 
 export interface CreateSignalingChannelInput {
   /**
-   * <p>A name for the signaling channel that you are creating. It must be unique for each AWS
-   *             account and AWS Region.</p>
+   * <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
    */
   ChannelName: string | undefined;
 
@@ -319,7 +325,12 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The signaling channel is currently not available for this operation.</p>
+ * <p>The resource is currently not available for this operation. New resources cannot be
+ *             created with the same name as existing resources. Also, resources cannot be updated or
+ *             deleted unless they are in an <code>ACTIVE</code> state.</p>
+ *         <p>If this exception is returned, do not use it to determine whether the requested
+ *             resource already exists. Instead, it is recommended you use the resource-specific
+ *             describe API, for example, <code>DescribeStream</code> for video streams.</p>
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -341,7 +352,7 @@ export class ResourceInUseException extends __BaseException {
 
 /**
  * <p>You have exceeded the limit of tags that you can associate with the resource.
- *             Kinesis video streams support up to 50 tags. </p>
+ *             A Kinesis video stream can support up to 50 tags. </p>
  */
 export class TagsPerResourceExceededLimitException extends __BaseException {
   readonly name: "TagsPerResourceExceededLimitException" = "TagsPerResourceExceededLimitException";
@@ -391,7 +402,7 @@ export interface CreateStreamInput {
   MediaType?: string;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video
+   * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
    *             Streams to use to encrypt stream data.</p>
    *         <p>If no key ID is specified, the default, Kinesis Video-managed key
    *                 (<code>aws/kinesisvideo</code>) is used.</p>
@@ -400,8 +411,7 @@ export interface CreateStreamInput {
   KmsKeyId?: string;
 
   /**
-   * <p>The number of hours that you want to retain the data in the stream. Kinesis Video
-   *             Streams retains the data in a data store that is associated with the stream.</p>
+   * <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p>
    *         <p>The default value is 0, indicating that the stream does not persist data.</p>
    *         <p>When the <code>DataRetentionInHours</code> value is 0, consumers can still consume
    *             the fragments that remain in the service host buffer, which has a retention time limit
@@ -621,6 +631,226 @@ export class NotAuthorizedException extends __BaseException {
   }
 }
 
+export interface DescribeImageGenerationConfigurationInput {
+  /**
+   * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamARN?: string;
+}
+
+export namespace DescribeImageGenerationConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImageGenerationConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure that contains the information required to deliver images to a customer.</p>
+ */
+export interface ImageGenerationDestinationConfig {
+  /**
+   * <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
+   */
+  DestinationRegion: string | undefined;
+}
+
+export namespace ImageGenerationDestinationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageGenerationDestinationConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum Format {
+  JPEG = "JPEG",
+  PNG = "PNG",
+}
+
+export enum FormatConfigKey {
+  JPEGQuality = "JPEGQuality",
+}
+
+export enum ImageSelectorType {
+  PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
+}
+
+/**
+ * <p>The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.</p>
+ */
+export interface ImageGenerationConfiguration {
+  /**
+   * <p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>
+   */
+  Status: ConfigurationStatus | string | undefined;
+
+  /**
+   * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
+   */
+  ImageSelectorType: ImageSelectorType | string | undefined;
+
+  /**
+   * <p>The structure that contains the information required to deliver images to a customer.</p>
+   */
+  DestinationConfig: ImageGenerationDestinationConfig | undefined;
+
+  /**
+   * <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 33 ms,
+   *             because a camera that generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range is less than the sampling interval, the
+   *             Image from the <code>StartTimestamp</code> will be returned if available. </p>
+   */
+  SamplingInterval: number | undefined;
+
+  /**
+   * <p>The accepted image format.</p>
+   */
+  Format: Format | string | undefined;
+
+  /**
+   * <p>The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated.
+   *             The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image.
+   *             The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression.
+   *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code>
+   *             key will be set to 80.</p>
+   */
+  FormatConfig?: { [key: string]: string };
+
+  /**
+   * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and
+   *             <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is
+   *             provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
+   */
+  WidthPixels?: number;
+
+  /**
+   * <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both
+   *             <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio.
+   *             If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio.
+   *             If neither parameter is provided, the original image size will be returned.</p>
+   */
+  HeightPixels?: number;
+}
+
+export namespace ImageGenerationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageGenerationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImageGenerationConfigurationOutput {
+  /**
+   * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
+   */
+  ImageGenerationConfiguration?: ImageGenerationConfiguration;
+}
+
+export namespace DescribeImageGenerationConfigurationOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImageGenerationConfigurationOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNotificationConfigurationInput {
+  /**
+   * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
+   */
+  StreamARN?: string;
+}
+
+export namespace DescribeNotificationConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure that contains the information required to deliver a notification to a customer.</p>
+ */
+export interface NotificationDestinationConfig {
+  /**
+   * <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
+   */
+  Uri: string | undefined;
+}
+
+export namespace NotificationDestinationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotificationDestinationConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.</p>
+ */
+export interface NotificationConfiguration {
+  /**
+   * <p>Indicates if a notification configuration is enabled or disabled.</p>
+   */
+  Status: ConfigurationStatus | string | undefined;
+
+  /**
+   * <p>The destination information required to deliver a notification to a customer.</p>
+   */
+  DestinationConfig: NotificationDestinationConfig | undefined;
+}
+
+export namespace NotificationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNotificationConfigurationOutput {
+  /**
+   * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+}
+
+export namespace DescribeNotificationConfigurationOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSignalingChannelInput {
   /**
    * <p>The name of the signaling channel that you want to describe.</p>
@@ -705,7 +935,7 @@ export interface StreamInfo {
   MediaType?: string;
 
   /**
-   * <p>The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams
+   * <p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams
    *             uses to encrypt data on the stream.</p>
    */
   KmsKeyId?: string;
@@ -1347,6 +1577,102 @@ export namespace UpdateDataRetentionOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDataRetentionOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Stream data retention in hours is equal to zero.</p>
+ */
+export class NoDataRetentionException extends __BaseException {
+  readonly name: "NoDataRetentionException" = "NoDataRetentionException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoDataRetentionException, __BaseException>) {
+    super({
+      name: "NoDataRetentionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoDataRetentionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface UpdateImageGenerationConfigurationInput {
+  /**
+   * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code>
+   *             or the <code>StreamARN</code>.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
+   */
+  ImageGenerationConfiguration?: ImageGenerationConfiguration;
+}
+
+export namespace UpdateImageGenerationConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageGenerationConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateImageGenerationConfigurationOutput {}
+
+export namespace UpdateImageGenerationConfigurationOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateImageGenerationConfigurationOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotificationConfigurationInput {
+  /**
+   * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+}
+
+export namespace UpdateNotificationConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotificationConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotificationConfigurationOutput {}
+
+export namespace UpdateNotificationConfigurationOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotificationConfigurationOutput): any => ({
     ...obj,
   });
 }

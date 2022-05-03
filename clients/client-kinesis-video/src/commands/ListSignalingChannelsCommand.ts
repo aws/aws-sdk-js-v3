@@ -23,8 +23,8 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
 
 /**
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
- *             signaling channel. To retrieve only those channels that satisfy a specific condition, you can
- *             specify a <code>ChannelNameCondition</code>.</p>
+ *             signaling channel. To retrieve only those channels that satisfy a specific condition,
+ *             you can specify a <code>ChannelNameCondition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -34,8 +34,8 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
  *             results in this API generating an endpoint that a client can use to communicate with any
  *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
- *             an endpoint that a client can use to communicate only with a
- *                 <code>MASTER</code>. </p>
+ *             an endpoint that a client can use to communicate only with a <code>MASTER</code>.
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
