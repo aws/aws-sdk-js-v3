@@ -5439,7 +5439,7 @@ export namespace LifecycleRuleFilter {
 export interface NoncurrentVersionExpiration {
   /**
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the
-   *          associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How
+   *          associated action. The value must be a non-zero positive integer. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How
    *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
@@ -9911,7 +9911,9 @@ export interface _Object {
    *             </li>
    *             <li>
    *                <p>If an object is created by either the Multipart Upload or Part Copy operation, the
-   *                ETag is not an MD5 digest, regardless of the method of encryption.</p>
+   *                ETag is not an MD5 digest, regardless of the method of encryption. If an object
+   *                is larger than 16 MB, the Amazon Web Services Management Console will upload or copy that object as a
+   *                Multipart Upload, and therefore the ETag will not be an MD5 digest.</p>
    *             </li>
    *          </ul>
    */
