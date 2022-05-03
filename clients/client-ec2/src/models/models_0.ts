@@ -2407,6 +2407,11 @@ export interface AllocateHostsRequest {
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace AllocateHostsRequest {

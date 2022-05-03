@@ -3695,6 +3695,11 @@ export interface Host {
    * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
    */
   MemberOfServiceLinkedResourceGroup?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the Dedicated Host is allocated.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace Host {

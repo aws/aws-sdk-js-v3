@@ -32859,6 +32859,9 @@ const serializeAws_ec2AllocateHostsRequest = (input: AllocateHostsRequest, conte
   if (input.HostRecovery !== undefined && input.HostRecovery !== null) {
     entries["HostRecovery"] = input.HostRecovery;
   }
+  if (input.OutpostArn !== undefined && input.OutpostArn !== null) {
+    entries["OutpostArn"] = input.OutpostArn;
+  }
   return entries;
 };
 
@@ -65522,6 +65525,7 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
     OwnerId: undefined,
     AvailabilityZoneId: undefined,
     MemberOfServiceLinkedResourceGroup: undefined,
+    OutpostArn: undefined,
   };
   if (output["autoPlacement"] !== undefined) {
     contents.AutoPlacement = __expectString(output["autoPlacement"]);
@@ -65582,6 +65586,9 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
   }
   if (output["memberOfServiceLinkedResourceGroup"] !== undefined) {
     contents.MemberOfServiceLinkedResourceGroup = __parseBoolean(output["memberOfServiceLinkedResourceGroup"]);
+  }
+  if (output["outpostArn"] !== undefined) {
+    contents.OutpostArn = __expectString(output["outpostArn"]);
   }
   return contents;
 };
