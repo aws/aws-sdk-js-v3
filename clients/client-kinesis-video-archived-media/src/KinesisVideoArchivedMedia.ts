@@ -11,6 +11,7 @@ import {
   GetHLSStreamingSessionURLCommandInput,
   GetHLSStreamingSessionURLCommandOutput,
 } from "./commands/GetHLSStreamingSessionURLCommand";
+import { GetImagesCommand, GetImagesCommandInput, GetImagesCommandOutput } from "./commands/GetImagesCommand";
 import {
   GetMediaForFragmentListCommand,
   GetMediaForFragmentListCommandInput,
@@ -472,6 +473,32 @@ export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient {
     cb?: (err: any, data?: GetHLSStreamingSessionURLCommandOutput) => void
   ): Promise<GetHLSStreamingSessionURLCommandOutput> | void {
     const command = new GetHLSStreamingSessionURLCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of Images corresponding to each timestamp for a given time range, sampling interval, and image format configuration.</p>
+   */
+  public getImages(args: GetImagesCommandInput, options?: __HttpHandlerOptions): Promise<GetImagesCommandOutput>;
+  public getImages(args: GetImagesCommandInput, cb: (err: any, data?: GetImagesCommandOutput) => void): void;
+  public getImages(
+    args: GetImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImagesCommandOutput) => void
+  ): void;
+  public getImages(
+    args: GetImagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImagesCommandOutput) => void),
+    cb?: (err: any, data?: GetImagesCommandOutput) => void
+  ): Promise<GetImagesCommandOutput> | void {
+    const command = new GetImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
