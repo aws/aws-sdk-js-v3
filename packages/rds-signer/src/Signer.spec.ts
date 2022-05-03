@@ -10,22 +10,24 @@ jest.mock("@aws-sdk/signature-v4", () => {
   };
 });
 
+jest.mock("@aws-sdk/node-config-provider");
+jest.mock("@aws-sdk/config-resolver");
+jest.mock("@aws-sdk/credential-providers");
 jest.mock("@aws-sdk/util-format-url");
 
+import { fromNodeJsProviderChain } from "@aws-sdk/credential-providers";
+import { loadConfig } from "@aws-sdk/node-config-provider";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
+import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { getRuntimeConfig as getRnRuntimeConfig } from "./runtimeConfig.native";
 import { Signer, SignerConfig } from "./Signer";
 
 describe("rds-signer", () => {
   const minimalParams: SignerConfig = {
-    region: "us-foo-1",
     username: "testuser",
     hostname: "https://testhost",
     port: 5432,
-    credentials: {
-      accessKeyId: "xyz",
-      secretAccessKey: "123",
-    },
   };
 
   beforeAll(() => {
@@ -37,12 +39,29 @@ describe("rds-signer", () => {
   });
 
   it("should provide correct parameters to the SigV4 signer", async () => {
+    const credentials = {
+      accessKeyId: "xyz",
+      secretAccessKey: "123",
+    };
+    (loadConfig as jest.Mock).mockReturnValue(async () => "us-foo-1");
+    (fromNodeJsProviderChain as jest.Mock).mockReturnValue(async () => credentials);
     const signer = new Signer(minimalParams);
     await signer.getAuthToken();
     //@ts-ignore
     expect(SignatureV4.mock.calls[0][0].service).toEqual("rds-db");
     //@ts-ignore
-    expect(SignatureV4.mock.calls[0][0].region).toEqual("us-foo-1");
+    expect(await SignatureV4.mock.calls[0][0].region()).toEqual("us-foo-1");
+    //@ts-ignore
+    expect(await SignatureV4.mock.calls[0][0].credentials()).toEqual(credentials);
+  });
+
+  it.each([
+    ["browser", getBrowserRuntimeConfig],
+    ["react native", getRnRuntimeConfig],
+  ])("should throw if credential or region is missing in %s", async (_, getRuntimeConfig) => {
+    const { credentials, region } = getRuntimeConfig(minimalParams);
+    expect(credentials).rejects.toEqual("Credential is missing");
+    expect(region).rejects.toEqual("Region is missing");
   });
 
   it("should use supplied credentials if present", async () => {

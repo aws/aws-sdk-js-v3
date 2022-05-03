@@ -9,7 +9,7 @@ This package provides utilities for interacting with RDS.
 
 ## Installation
 
-```js
+```console
 npm install @aws-sdk/rds-signer
 ```
 
@@ -17,13 +17,23 @@ npm install @aws-sdk/rds-signer
 
 ### Import
 
+ES6 import
+
 ```js
 import { Signer } from "@aws-sdk/rds-signer";
+```
+
+Or CommonJS import
+
+```js
+const { Signer } = require("@aws-sdk/rds-signer");
 ```
 
 ### Generate Authentication Token for RDS IAM Authentication
 
 ```js
+const signer = new Signer();
+
 const token = await signer.getAuthToken();
 // Use this token as the password for connecting to your RDS instance
 ```
