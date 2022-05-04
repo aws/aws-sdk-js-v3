@@ -1,4 +1,5 @@
 export * from "./ApplicationDiscoveryService";
+// smithy-typescript generated code
 export * from "./ApplicationDiscoveryServiceClient";
 export * from "./commands";
 export * from "./models";

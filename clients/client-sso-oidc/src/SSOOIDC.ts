@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";

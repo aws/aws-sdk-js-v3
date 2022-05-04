@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-migration-hub
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-migration-hub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-migration-hub)

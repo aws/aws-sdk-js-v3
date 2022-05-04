@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";

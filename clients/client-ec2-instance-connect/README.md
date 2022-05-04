@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-ec2-instance-connect
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ec2-instance-connect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)

@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-database-migration-service
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-database-migration-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-database-migration-service)

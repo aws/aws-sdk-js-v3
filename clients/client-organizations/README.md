@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-organizations
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-organizations/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-organizations)

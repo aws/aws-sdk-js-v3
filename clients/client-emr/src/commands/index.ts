@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddInstanceFleetCommand";
 export * from "./AddInstanceGroupsCommand";
 export * from "./AddJobFlowStepsCommand";

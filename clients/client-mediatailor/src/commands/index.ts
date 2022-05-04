@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ConfigureLogsForPlaybackConfigurationCommand";
 export * from "./CreateChannelCommand";
 export * from "./CreateLiveSourceCommand";

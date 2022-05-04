@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddRoleToDBClusterCommand";
 export * from "./AddRoleToDBInstanceCommand";
 export * from "./AddSourceIdentifierToSubscriptionCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptInboundCrossClusterSearchConnectionCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociatePackageCommand";

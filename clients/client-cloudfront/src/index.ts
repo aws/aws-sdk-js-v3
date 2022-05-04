@@ -1,4 +1,5 @@
 export * from "./CloudFront";
+// smithy-typescript generated code
 export * from "./CloudFrontClient";
 export * from "./commands";
 export * from "./models";

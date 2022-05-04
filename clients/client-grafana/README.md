@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-grafana
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-grafana/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-grafana)

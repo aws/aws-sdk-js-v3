@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-eventbridge
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-eventbridge/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-eventbridge)

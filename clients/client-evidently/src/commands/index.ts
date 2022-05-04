@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchEvaluateFeatureCommand";
 export * from "./CreateExperimentCommand";
 export * from "./CreateFeatureCommand";

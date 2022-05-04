@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-chime-sdk-messaging
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-chime-sdk-messaging/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-chime-sdk-messaging)

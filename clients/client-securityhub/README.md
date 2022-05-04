@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-securityhub
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-securityhub/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-securityhub)

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateApiCommand";
 export * from "./CreateApiMappingCommand";
 export * from "./CreateAuthorizerCommand";

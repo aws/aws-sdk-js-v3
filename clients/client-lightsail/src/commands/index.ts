@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AllocateStaticIpCommand";
 export * from "./AttachCertificateToDistributionCommand";
 export * from "./AttachDiskCommand";

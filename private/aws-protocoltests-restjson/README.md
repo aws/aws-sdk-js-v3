@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/aws-protocoltests-restjson
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restjson/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restjson)

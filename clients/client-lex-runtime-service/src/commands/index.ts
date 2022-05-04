@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteSessionCommand";
 export * from "./GetSessionCommand";
 export * from "./PostContentCommand";

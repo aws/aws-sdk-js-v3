@@ -1,4 +1,5 @@
 export * from "./Kendra";
+// smithy-typescript generated code
 export * from "./KendraClient";
 export * from "./commands";
 export * from "./models";

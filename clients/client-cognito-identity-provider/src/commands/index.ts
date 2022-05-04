@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddCustomAttributesCommand";
 export * from "./AdminAddUserToGroupCommand";
 export * from "./AdminConfirmSignUpCommand";

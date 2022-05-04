@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CloseTunnelCommand";
 export * from "./DescribeTunnelCommand";
 export * from "./ListTagsForResourceCommand";

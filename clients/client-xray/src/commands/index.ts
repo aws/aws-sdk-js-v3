@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchGetTracesCommand";
 export * from "./CreateGroupCommand";
 export * from "./CreateSamplingRuleCommand";

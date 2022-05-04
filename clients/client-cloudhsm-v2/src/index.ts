@@ -1,4 +1,5 @@
 export * from "./CloudHSMV2";
+// smithy-typescript generated code
 export * from "./CloudHSMV2Client";
 export * from "./commands";
 export * from "./models";

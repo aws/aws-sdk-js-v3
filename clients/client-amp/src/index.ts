@@ -1,4 +1,5 @@
 export * from "./Amp";
+// smithy-typescript generated code
 export * from "./AmpClient";
 export * from "./commands";
 export * from "./models";

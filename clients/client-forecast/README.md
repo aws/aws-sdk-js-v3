@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-forecast
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-forecast/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecast)

@@ -1,4 +1,5 @@
 export * from "./MediaConnect";
+// smithy-typescript generated code
 export * from "./MediaConnectClient";
 export * from "./commands";
 export * from "./models";

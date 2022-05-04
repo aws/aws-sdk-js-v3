@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchUpdateClusterCommand";
 export * from "./CopySnapshotCommand";
 export * from "./CreateACLCommand";

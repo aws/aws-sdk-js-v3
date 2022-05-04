@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptCertificateTransferCommand";
 export * from "./AddThingToBillingGroupCommand";
 export * from "./AddThingToThingGroupCommand";

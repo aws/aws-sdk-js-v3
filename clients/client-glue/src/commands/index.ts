@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchCreatePartitionCommand";
 export * from "./BatchDeleteConnectionCommand";
 export * from "./BatchDeletePartitionCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptPageCommand";
 export * from "./ActivateContactChannelCommand";
 export * from "./CreateContactChannelCommand";

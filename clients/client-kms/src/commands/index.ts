@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelKeyDeletionCommand";
 export * from "./ConnectCustomKeyStoreCommand";
 export * from "./CreateAliasCommand";

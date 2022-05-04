@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateLicenseCommand";
 export * from "./CreateWorkspaceCommand";
 export * from "./DeleteWorkspaceCommand";

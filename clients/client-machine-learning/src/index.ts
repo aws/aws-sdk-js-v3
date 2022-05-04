@@ -1,4 +1,5 @@
 export * from "./MachineLearning";
+// smithy-typescript generated code
 export * from "./MachineLearningClient";
 export * from "./commands";
 export * from "./models";

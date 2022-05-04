@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AttachManagedPolicyToPermissionSetCommand";
 export * from "./CreateAccountAssignmentCommand";
 export * from "./CreateInstanceAccessControlAttributeConfigurationCommand";

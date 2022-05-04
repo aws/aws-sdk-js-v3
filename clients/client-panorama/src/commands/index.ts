@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateApplicationInstanceCommand";
 export * from "./CreateJobForDevicesCommand";
 export * from "./CreateNodeFromTemplateJobCommand";

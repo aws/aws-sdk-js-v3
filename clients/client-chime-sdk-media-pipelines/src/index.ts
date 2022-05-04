@@ -1,4 +1,5 @@
 export * from "./ChimeSDKMediaPipelines";
+// smithy-typescript generated code
 export * from "./ChimeSDKMediaPipelinesClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateServiceRoleToAccountCommand";
 export * from "./BatchAssociateClientDeviceWithCoreDeviceCommand";
 export * from "./BatchDisassociateClientDeviceFromCoreDeviceCommand";

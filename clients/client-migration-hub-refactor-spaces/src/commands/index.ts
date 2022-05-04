@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateApplicationCommand";
 export * from "./CreateEnvironmentCommand";
 export * from "./CreateRouteCommand";

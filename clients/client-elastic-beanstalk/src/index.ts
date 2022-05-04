@@ -1,4 +1,5 @@
 export * from "./ElasticBeanstalk";
+// smithy-typescript generated code
 export * from "./ElasticBeanstalkClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-inspector
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-inspector/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-inspector)

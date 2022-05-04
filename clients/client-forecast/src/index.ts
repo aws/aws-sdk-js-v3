@@ -1,4 +1,5 @@
 export * from "./Forecast";
+// smithy-typescript generated code
 export * from "./ForecastClient";
 export * from "./commands";
 export * from "./models";

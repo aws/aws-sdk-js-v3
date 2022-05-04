@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";

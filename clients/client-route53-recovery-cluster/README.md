@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-route53-recovery-cluster
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53-recovery-cluster/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-cluster)

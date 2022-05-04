@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteReportDefinitionCommand";
 export * from "./GetReportDefinitionCommand";
 export * from "./ImportApplicationUsageCommand";

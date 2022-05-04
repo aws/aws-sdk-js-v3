@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateRuleCommand";
 export * from "./DeleteRuleCommand";
 export * from "./GetRuleCommand";

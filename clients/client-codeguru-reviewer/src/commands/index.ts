@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateRepositoryCommand";
 export * from "./CreateCodeReviewCommand";
 export * from "./DescribeCodeReviewCommand";

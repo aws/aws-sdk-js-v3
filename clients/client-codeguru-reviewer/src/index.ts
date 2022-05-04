@@ -1,4 +1,5 @@
 export * from "./CodeGuruReviewer";
+// smithy-typescript generated code
 export * from "./CodeGuruReviewerClient";
 export * from "./commands";
 export * from "./models";

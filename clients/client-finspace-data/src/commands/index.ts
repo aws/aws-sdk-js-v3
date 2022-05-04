@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateChangesetCommand";
 export * from "./CreateDataViewCommand";
 export * from "./CreateDatasetCommand";

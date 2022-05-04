@@ -1,4 +1,5 @@
 export * from "./AlexaForBusiness";
+// smithy-typescript generated code
 export * from "./AlexaForBusinessClient";
 export * from "./commands";
 export * from "./models";

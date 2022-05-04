@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateCellCommand";
 export * from "./CreateCrossAccountAuthorizationCommand";
 export * from "./CreateReadinessCheckCommand";

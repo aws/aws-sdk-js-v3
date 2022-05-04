@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-route-53-domains
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route-53-domains/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route-53-domains)

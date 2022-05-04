@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAlertManagerDefinitionCommand";
 export * from "./CreateRuleGroupsNamespaceCommand";
 export * from "./CreateWorkspaceCommand";

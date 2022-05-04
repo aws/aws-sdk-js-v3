@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";

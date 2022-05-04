@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDiscovererCommand";
 export * from "./CreateRegistryCommand";
 export * from "./CreateSchemaCommand";

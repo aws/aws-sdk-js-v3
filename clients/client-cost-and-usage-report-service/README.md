@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-cost-and-usage-report-service
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cost-and-usage-report-service/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cost-and-usage-report-service)

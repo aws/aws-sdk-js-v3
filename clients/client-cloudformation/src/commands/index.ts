@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivateTypeCommand";
 export * from "./BatchDescribeTypeConfigurationsCommand";
 export * from "./CancelUpdateStackCommand";

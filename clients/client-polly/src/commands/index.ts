@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteLexiconCommand";
 export * from "./DescribeVoicesCommand";
 export * from "./GetLexiconCommand";

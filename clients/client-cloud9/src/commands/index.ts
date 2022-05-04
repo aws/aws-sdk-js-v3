@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateEnvironmentEC2Command";
 export * from "./CreateEnvironmentMembershipCommand";
 export * from "./DeleteEnvironmentCommand";

@@ -1,4 +1,5 @@
 export * from "./Personalize";
+// smithy-typescript generated code
 export * from "./PersonalizeClient";
 export * from "./commands";
 export * from "./models";

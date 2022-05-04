@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   Condition,
   ScanCommand as __ScanCommand,

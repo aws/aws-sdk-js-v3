@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getPredictEndpointPlugin } from "@aws-sdk/middleware-sdk-machinelearning";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

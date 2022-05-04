@@ -1,4 +1,5 @@
 export * from "./ApplicationAutoScaling";
+// smithy-typescript generated code
 export * from "./ApplicationAutoScalingClient";
 export * from "./commands";
 export * from "./models";

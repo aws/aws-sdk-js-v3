@@ -1,4 +1,5 @@
 export * from "./Batch";
+// smithy-typescript generated code
 export * from "./BatchClient";
 export * from "./commands";
 export * from "./models";

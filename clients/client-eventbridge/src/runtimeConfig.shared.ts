@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";

@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-alexa-for-business
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-alexa-for-business/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-alexa-for-business)

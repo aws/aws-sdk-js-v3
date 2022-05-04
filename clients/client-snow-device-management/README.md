@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-snow-device-management
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-snow-device-management/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-snow-device-management)

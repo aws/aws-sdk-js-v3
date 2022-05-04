@@ -1,4 +1,5 @@
 export * from "./SSM";
+// smithy-typescript generated code
 export * from "./SSMClient";
 export * from "./commands";
 export * from "./models";

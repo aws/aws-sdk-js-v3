@@ -1,4 +1,5 @@
 export * from "./Chime";
+// smithy-typescript generated code
 export * from "./ChimeClient";
 export * from "./commands";
 export * from "./models";

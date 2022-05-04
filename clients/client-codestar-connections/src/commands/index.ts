@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateConnectionCommand";
 export * from "./CreateHostCommand";
 export * from "./DeleteConnectionCommand";

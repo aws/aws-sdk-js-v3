@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { PaginationConfiguration } from "@aws-sdk/types";
 
 import { SecurityHub } from "../SecurityHub";

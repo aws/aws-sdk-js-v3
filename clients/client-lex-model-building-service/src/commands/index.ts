@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBotVersionCommand";
 export * from "./CreateIntentVersionCommand";
 export * from "./CreateSlotTypeVersionCommand";

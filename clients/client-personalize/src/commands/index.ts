@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBatchInferenceJobCommand";
 export * from "./CreateBatchSegmentJobCommand";
 export * from "./CreateCampaignCommand";

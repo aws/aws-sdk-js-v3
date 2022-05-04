@@ -1,4 +1,5 @@
 export * from "./WorkSpacesWeb";
+// smithy-typescript generated code
 export * from "./WorkSpacesWebClient";
 export * from "./commands";
 export * from "./models";

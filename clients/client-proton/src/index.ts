@@ -1,4 +1,5 @@
 export * from "./Proton";
+// smithy-typescript generated code
 export * from "./ProtonClient";
 export * from "./commands";
 export * from "./models";

@@ -1,4 +1,5 @@
 export * from "./Panorama";
+// smithy-typescript generated code
 export * from "./PanoramaClient";
 export * from "./commands";
 export * from "./models";

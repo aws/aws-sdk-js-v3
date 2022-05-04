@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

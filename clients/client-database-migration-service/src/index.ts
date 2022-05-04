@@ -1,4 +1,5 @@
 export * from "./DatabaseMigrationService";
+// smithy-typescript generated code
 export * from "./DatabaseMigrationServiceClient";
 export * from "./commands";
 export * from "./models";

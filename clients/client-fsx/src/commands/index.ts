@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateFileSystemAliasesCommand";
 export * from "./CancelDataRepositoryTaskCommand";
 export * from "./CopyBackupCommand";

@@ -1,4 +1,5 @@
 export * from "./DeviceFarm";
+// smithy-typescript generated code
 export * from "./DeviceFarmClient";
 export * from "./commands";
 export * from "./models";

@@ -1,4 +1,5 @@
 export * from "./KafkaConnect";
+// smithy-typescript generated code
 export * from "./KafkaConnectClient";
 export * from "./commands";
 export * from "./models";

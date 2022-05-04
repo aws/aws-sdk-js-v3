@@ -1,4 +1,5 @@
 export * from "./Detective";
+// smithy-typescript generated code
 export * from "./DetectiveClient";
 export * from "./commands";
 export * from "./models";

@@ -1,4 +1,5 @@
 export * from "./Schemas";
+// smithy-typescript generated code
 export * from "./SchemasClient";
 export * from "./commands";
 export * from "./models";

@@ -1,5 +1,7 @@
 export * from "./DescribePortfolioSharesPaginator";
+
 export * from "./GetProvisionedProductOutputsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAcceptedPortfolioSharesPaginator";
 export * from "./ListBudgetsForResourcePaginator";

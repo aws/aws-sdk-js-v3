@@ -1,4 +1,5 @@
 export * from "./ResourceGroupsTaggingAPI";
+// smithy-typescript generated code
 export * from "./ResourceGroupsTaggingAPIClient";
 export * from "./commands";
 export * from "./models";

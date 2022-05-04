@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddLFTagsToResourceCommand";
 export * from "./BatchGrantPermissionsCommand";
 export * from "./BatchRevokePermissionsCommand";

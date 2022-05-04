@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelQueryCommand";
 export * from "./CreateScheduledQueryCommand";
 export * from "./DeleteScheduledQueryCommand";

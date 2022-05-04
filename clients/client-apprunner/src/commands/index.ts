@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateCustomDomainCommand";
 export * from "./CreateAutoScalingConfigurationCommand";
 export * from "./CreateConnectionCommand";

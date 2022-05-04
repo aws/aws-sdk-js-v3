@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   Action,
   Compatibility,

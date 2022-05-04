@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelIngestionCommand";
 export * from "./CreateAccountCustomizationCommand";
 export * from "./CreateAnalysisCommand";

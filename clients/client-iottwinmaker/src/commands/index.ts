@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchPutPropertyValuesCommand";
 export * from "./CreateComponentTypeCommand";
 export * from "./CreateEntityCommand";

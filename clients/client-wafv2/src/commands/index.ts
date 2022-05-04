@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateWebACLCommand";
 export * from "./CheckCapacityCommand";
 export * from "./CreateIPSetCommand";

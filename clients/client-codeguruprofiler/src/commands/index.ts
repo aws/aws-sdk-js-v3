@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddNotificationChannelsCommand";
 export * from "./BatchGetFrameMetricDataCommand";
 export * from "./ConfigureAgentCommand";

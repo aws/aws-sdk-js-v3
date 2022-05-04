@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-appconfigdata
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-appconfigdata/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-appconfigdata)

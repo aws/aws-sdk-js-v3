@@ -1,4 +1,5 @@
 export * from "./OpenSearch";
+// smithy-typescript generated code
 export * from "./OpenSearchClient";
 export * from "./commands";
 export * from "./models";

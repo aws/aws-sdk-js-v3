@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptReservedInstancesExchangeQuoteCommand";
 export * from "./AcceptTransitGatewayMulticastDomainAssociationsCommand";
 export * from "./AcceptTransitGatewayPeeringAttachmentCommand";

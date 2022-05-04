@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,

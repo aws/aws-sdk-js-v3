@@ -1,4 +1,5 @@
 export * from "./EMRContainers";
+// smithy-typescript generated code
 export * from "./EMRContainersClient";
 export * from "./commands";
 export * from "./models";

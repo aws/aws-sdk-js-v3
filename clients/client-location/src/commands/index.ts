@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateTrackerConsumerCommand";
 export * from "./BatchDeleteDevicePositionHistoryCommand";
 export * from "./BatchDeleteGeofenceCommand";

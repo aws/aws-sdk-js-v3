@@ -1,4 +1,5 @@
 export * from "./APIGateway";
+// smithy-typescript generated code
 export * from "./APIGatewayClient";
 export * from "./commands";
 export * from "./models";

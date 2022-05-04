@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BuildBotLocaleCommand";
 export * from "./CreateBotAliasCommand";
 export * from "./CreateBotCommand";

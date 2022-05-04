@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddPermissionCommand";
 export * from "./CheckIfPhoneNumberIsOptedOutCommand";
 export * from "./ConfirmSubscriptionCommand";

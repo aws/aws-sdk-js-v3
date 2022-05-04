@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { Paginator } from "@aws-sdk/types";
 
 import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "../commands/ListItemsCommand";

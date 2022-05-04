@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ConfigureLogsCommand";
 export * from "./CreateChannelCommand";
 export * from "./CreateHarvestJobCommand";

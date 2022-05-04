@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-lookoutmetrics
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lookoutmetrics/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lookoutmetrics)

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   BatchExecuteStatementCommand as __BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,

@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-global-accelerator
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-global-accelerator/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-global-accelerator)

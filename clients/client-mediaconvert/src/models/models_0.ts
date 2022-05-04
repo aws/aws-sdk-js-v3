@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export enum AudioChannelTag {
   C = "C",
   CS = "CS",

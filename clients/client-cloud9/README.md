@@ -1,3 +1,5 @@
+// smithy-typescript generated code
+
 # @aws-sdk/client-cloud9
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloud9/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloud9)

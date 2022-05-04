@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAnomalyMonitorCommand";
 export * from "./CreateAnomalySubscriptionCommand";
 export * from "./CreateCostCategoryDefinitionCommand";

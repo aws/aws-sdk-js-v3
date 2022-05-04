@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteScalingPolicyCommand";
 export * from "./DeleteScheduledActionCommand";
 export * from "./DeregisterScalableTargetCommand";

@@ -1,4 +1,5 @@
 export * from "./GetChannelSchedulePaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAlertsPaginator";
 export * from "./ListChannelsPaginator";

@@ -1,4 +1,5 @@
 export * from "./CreateBudgetActionCommand";
+// smithy-typescript generated code
 export * from "./CreateBudgetCommand";
 export * from "./CreateNotificationCommand";
 export * from "./CreateSubscriberCommand";

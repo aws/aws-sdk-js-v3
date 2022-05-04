@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddClientIDToOpenIDConnectProviderCommand";
 export * from "./AddRoleToInstanceProfileCommand";
 export * from "./AddUserToGroupCommand";

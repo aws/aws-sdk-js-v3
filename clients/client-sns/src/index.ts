@@ -1,4 +1,5 @@
 export * from "./SNS";
+// smithy-typescript generated code
 export * from "./SNSClient";
 export * from "./commands";
 export * from "./models";

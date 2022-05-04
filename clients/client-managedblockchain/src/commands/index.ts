@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateMemberCommand";
 export * from "./CreateNetworkCommand";
 export * from "./CreateNodeCommand";
