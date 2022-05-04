@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.84.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.83.0...v3.84.0) (2022-05-04)
+
+
+### Features
+
+* **client-backup:** Adds support to 2 new filters about job complete time for 3 list jobs APIs in AWS Backup ([164cdf7](https://github.com/aws/aws-sdk-js-v3/commit/164cdf71890150f74c87ee570787332fc07252ed))
+* **client-iotsecuretunneling:** This release introduces a new API RotateTunnelAccessToken that allow revoking the existing tokens and generate new tokens ([d77322a](https://github.com/aws/aws-sdk-js-v3/commit/d77322a3d86a528f7af55c7d048f50d8a78766d2))
+* **client-ssm:** This release adds the TargetMaps parameter in SSM State Manager API. ([f0b9bd4](https://github.com/aws/aws-sdk-js-v3/commit/f0b9bd497bcf5dff7f2bbd75c3bdcbee2ba1f9e0))
+* **clients:** update client endpoints as of 2022-05-04 ([699f5ad](https://github.com/aws/aws-sdk-js-v3/commit/699f5ad82febbc5312752f08002e1b9540b91fe0))
+
+
+
+
+
 # [3.83.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.82.0...v3.83.0) (2022-05-03)
 
 

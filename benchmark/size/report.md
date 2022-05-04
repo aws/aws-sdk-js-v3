@@ -1,7 +1,7 @@
 | Package | Version | Publish Size | browser:Webpack | browser:Rollup | browser:EsBuild |
 | :------ | :------ | :----------- | :------ | :----- | :------- |
 |@aws-sdk/abort-controller|3.55.0|43.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-app-mesh|3.81.0|1.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-app-mesh|3.82.0|1.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-application-insights|3.81.0|773.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-athena|3.81.0|970.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-auto-scaling|3.81.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -32,7 +32,7 @@
 |@aws-sdk/client-s3|3.82.0|3.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-ses|3.81.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-sns|3.81.0|1.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-ssm|3.81.0|4.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-ssm|3.82.0|4.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-sts|3.81.0|500.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-xray|3.81.0|918.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/credential-provider-cognito-identity|3.81.0|121.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
