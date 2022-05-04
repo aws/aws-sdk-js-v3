@@ -1342,6 +1342,12 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
     }),
     ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
     ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.ByCompleteAfter !== undefined && {
+      completeAfter: (input.ByCompleteAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.ByCompleteBefore !== undefined && {
+      completeBefore: (input.ByCompleteBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1518,6 +1524,12 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
     ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
     ...(input.ByDestinationVaultArn !== undefined && { destinationVaultArn: input.ByDestinationVaultArn }),
     ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.ByCompleteBefore !== undefined && {
+      completeBefore: (input.ByCompleteBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.ByCompleteAfter !== undefined && {
+      completeAfter: (input.ByCompleteAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1732,6 +1744,12 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByStatus !== undefined && { status: input.ByStatus }),
+    ...(input.ByCompleteBefore !== undefined && {
+      completeBefore: (input.ByCompleteBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.ByCompleteAfter !== undefined && {
+      completeAfter: (input.ByCompleteAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   return new __HttpRequest({

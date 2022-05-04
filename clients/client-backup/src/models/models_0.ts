@@ -1678,7 +1678,9 @@ export interface FrameworkControl {
   /**
    * <p>The scope of a control. The control scope defines what the control will evaluate. Three
    *          examples of control scopes are: a specific backup plan, all backup plans with a specific
-   *          tag, or all backup plans. For more information, see <code>ControlScope</code>.</p>
+   *          tag, or all backup plans. For more information, see <a href="aws-backup/latest/devguide/API_ControlScope.html">
+   *                <code>ControlScope</code>.</a>
+   *          </p>
    */
   ControlScope?: ControlScope;
 }
@@ -3942,6 +3944,18 @@ export interface ListBackupJobsInput {
    *          all jobs across the organization.</p>
    */
   ByAccountId?: string;
+
+  /**
+   * <p>Returns only backup jobs completed after a date expressed in Unix format and Coordinated
+   *          Universal Time (UTC).</p>
+   */
+  ByCompleteAfter?: Date;
+
+  /**
+   * <p>Returns only backup jobs completed before a date expressed in Unix format and
+   *          Coordinated Universal Time (UTC).</p>
+   */
+  ByCompleteBefore?: Date;
 }
 
 export namespace ListBackupJobsInput {
@@ -4339,6 +4353,18 @@ export interface ListCopyJobsInput {
    *          specified account ID.</p>
    */
   ByAccountId?: string;
+
+  /**
+   * <p>Returns only copy jobs completed before a date expressed in Unix format and Coordinated
+   *          Universal Time (UTC).</p>
+   */
+  ByCompleteBefore?: Date;
+
+  /**
+   * <p>Returns only copy jobs completed after a date expressed in Unix format and Coordinated
+   *          Universal Time (UTC).</p>
+   */
+  ByCompleteAfter?: Date;
 }
 
 export namespace ListCopyJobsInput {
@@ -5060,6 +5086,18 @@ export interface ListRestoreJobsInput {
    * <p>Returns only restore jobs associated with the specified job status.</p>
    */
   ByStatus?: RestoreJobStatus | string;
+
+  /**
+   * <p>Returns only copy jobs completed before a date expressed in Unix format and Coordinated
+   *          Universal Time (UTC).</p>
+   */
+  ByCompleteBefore?: Date;
+
+  /**
+   * <p>Returns only copy jobs completed after a date expressed in Unix format and Coordinated
+   *          Universal Time (UTC).</p>
+   */
+  ByCompleteAfter?: Date;
 }
 
 export namespace ListRestoreJobsInput {
