@@ -1,4 +1,4 @@
-// smithy-typescript generated code
+<!-- generated file, do not edit directly -->
 
 # @aws-sdk/client-route53-recovery-readiness
 
