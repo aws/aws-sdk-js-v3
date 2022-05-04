@@ -1244,6 +1244,12 @@ export interface CreateAssociationRequest {
    *          </note>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace CreateAssociationRequest {
@@ -1489,6 +1495,12 @@ export interface AssociationDescription {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace AssociationDescription {
@@ -1624,6 +1636,27 @@ export class InvalidTarget extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidTarget.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>TargetMap parameter isn't valid.</p>
+ */
+export class InvalidTargetMaps extends __BaseException {
+  readonly name: "InvalidTargetMaps" = "InvalidTargetMaps";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTargetMaps, __BaseException>) {
+    super({
+      name: "InvalidTargetMaps",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetMaps.prototype);
     this.Message = opts.Message;
   }
 }
@@ -1798,6 +1831,12 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace CreateAssociationBatchRequestEntry {
@@ -9517,10 +9556,4 @@ export namespace ParameterInlinePolicy {
   export const filterSensitiveLog = (obj: ParameterInlinePolicy): any => ({
     ...obj,
   });
-}
-
-export enum ParameterTier {
-  ADVANCED = "Advanced",
-  INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard",
 }

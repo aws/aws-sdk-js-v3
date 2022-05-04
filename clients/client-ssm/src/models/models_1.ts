@@ -32,7 +32,6 @@ import {
   OpsItemStatus,
   ParameterInlinePolicy,
   ParameterStringFilter,
-  ParameterTier,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -53,6 +52,12 @@ import {
   TargetLocation,
 } from "./models_0";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+export enum ParameterTier {
+  ADVANCED = "Advanced",
+  INTELLIGENT_TIERING = "Intelligent-Tiering",
+  STANDARD = "Standard",
+}
 
 export enum ParameterType {
   SECURE_STRING = "SecureString",
@@ -4523,6 +4528,12 @@ export interface Association {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace Association {
@@ -4712,6 +4723,12 @@ export interface AssociationVersionInfo {
    * <p>Number of days to wait after the scheduled day to run an association.</p>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace AssociationVersionInfo {
@@ -10340,6 +10357,12 @@ export interface UpdateAssociationRequest {
    *          </note>
    */
   ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: { [key: string]: string[] }[];
 }
 
 export namespace UpdateAssociationRequest {
@@ -10673,32 +10696,6 @@ export namespace DocumentReviews {
    * @internal
    */
   export const filterSensitiveLog = (obj: DocumentReviews): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateDocumentMetadataRequest {
-  /**
-   * <p>The name of the change template for which a version's metadata is to be updated.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The version of a change template in which to update approval metadata.</p>
-   */
-  DocumentVersion?: string;
-
-  /**
-   * <p>The change template review details to update.</p>
-   */
-  DocumentReviews: DocumentReviews | undefined;
-}
-
-export namespace UpdateDocumentMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
     ...obj,
   });
 }

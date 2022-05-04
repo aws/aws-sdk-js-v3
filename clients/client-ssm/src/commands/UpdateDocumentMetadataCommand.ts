@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDocumentMetadataRequest } from "../models/models_1";
-import { UpdateDocumentMetadataResponse } from "../models/models_2";
+import { UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateDocumentMetadataCommand,
   serializeAws_json1_1UpdateDocumentMetadataCommand,

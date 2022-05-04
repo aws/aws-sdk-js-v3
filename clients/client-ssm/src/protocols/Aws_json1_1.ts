@@ -600,6 +600,7 @@ import {
   InvalidResourceType,
   InvalidSchedule,
   InvalidTarget,
+  InvalidTargetMaps,
   InvalidTypeNameException,
   InventoryDeletionStatusItem,
   InventoryDeletionSummary,
@@ -940,7 +941,6 @@ import {
   UpdateAssociationStatusResult,
   UpdateDocumentDefaultVersionRequest,
   UpdateDocumentDefaultVersionResult,
-  UpdateDocumentMetadataRequest,
   UpdateDocumentRequest,
   UpdateDocumentResult,
 } from "../models/models_1";
@@ -951,6 +951,7 @@ import {
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  UpdateDocumentMetadataRequest,
   UpdateDocumentMetadataResponse,
   UpdateMaintenanceWindowRequest,
   UpdateMaintenanceWindowResult,
@@ -3041,6 +3042,9 @@ const deserializeAws_json1_1CreateAssociationCommandError = async (
     case "InvalidTarget":
     case "com.amazonaws.ssm#InvalidTarget":
       throw await deserializeAws_json1_1InvalidTargetResponse(parsedOutput, context);
+    case "InvalidTargetMaps":
+    case "com.amazonaws.ssm#InvalidTargetMaps":
+      throw await deserializeAws_json1_1InvalidTargetMapsResponse(parsedOutput, context);
     case "UnsupportedPlatformType":
     case "com.amazonaws.ssm#UnsupportedPlatformType":
       throw await deserializeAws_json1_1UnsupportedPlatformTypeResponse(parsedOutput, context);
@@ -3114,6 +3118,9 @@ const deserializeAws_json1_1CreateAssociationBatchCommandError = async (
     case "InvalidTarget":
     case "com.amazonaws.ssm#InvalidTarget":
       throw await deserializeAws_json1_1InvalidTargetResponse(parsedOutput, context);
+    case "InvalidTargetMaps":
+    case "com.amazonaws.ssm#InvalidTargetMaps":
+      throw await deserializeAws_json1_1InvalidTargetMapsResponse(parsedOutput, context);
     case "UnsupportedPlatformType":
     case "com.amazonaws.ssm#UnsupportedPlatformType":
       throw await deserializeAws_json1_1UnsupportedPlatformTypeResponse(parsedOutput, context);
@@ -8929,6 +8936,9 @@ const deserializeAws_json1_1UpdateAssociationCommandError = async (
     case "InvalidTarget":
     case "com.amazonaws.ssm#InvalidTarget":
       throw await deserializeAws_json1_1InvalidTargetResponse(parsedOutput, context);
+    case "InvalidTargetMaps":
+    case "com.amazonaws.ssm#InvalidTargetMaps":
+      throw await deserializeAws_json1_1InvalidTargetMapsResponse(parsedOutput, context);
     case "InvalidUpdate":
     case "com.amazonaws.ssm#InvalidUpdate":
       throw await deserializeAws_json1_1InvalidUpdateResponse(parsedOutput, context);
@@ -10581,6 +10591,19 @@ const deserializeAws_json1_1InvalidTargetResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1InvalidTargetMapsResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTargetMaps> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidTargetMaps(body, context);
+  const exception = new InvalidTargetMaps({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1InvalidTypeNameExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11713,6 +11736,8 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
       input.TargetLocations !== null && {
         TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
       }),
+    ...(input.TargetMaps !== undefined &&
+      input.TargetMaps !== null && { TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context) }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -11760,6 +11785,8 @@ const serializeAws_json1_1CreateAssociationRequest = (
       input.TargetLocations !== null && {
         TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
       }),
+    ...(input.TargetMaps !== undefined &&
+      input.TargetMaps !== null && { TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context) }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -14875,6 +14902,8 @@ const serializeAws_json1_1UpdateAssociationRequest = (
       input.TargetLocations !== null && {
         TargetLocations: serializeAws_json1_1TargetLocations(input.TargetLocations, context),
       }),
+    ...(input.TargetMaps !== undefined &&
+      input.TargetMaps !== null && { TargetMaps: serializeAws_json1_1TargetMaps(input.TargetMaps, context) }),
     ...(input.Targets !== undefined &&
       input.Targets !== null && { Targets: serializeAws_json1_1Targets(input.Targets, context) }),
   };
@@ -15268,6 +15297,10 @@ const deserializeAws_json1_1Association = (output: any, context: __SerdeContext)
         : undefined,
     ScheduleExpression: __expectString(output.ScheduleExpression),
     ScheduleOffset: __expectInt32(output.ScheduleOffset),
+    TargetMaps:
+      output.TargetMaps !== undefined && output.TargetMaps !== null
+        ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context)
+        : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
         ? deserializeAws_json1_1Targets(output.Targets, context)
@@ -15337,6 +15370,10 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
         ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
+    TargetMaps:
+      output.TargetMaps !== undefined && output.TargetMaps !== null
+        ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context)
         : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -15540,6 +15577,10 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
         ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
+    TargetMaps:
+      output.TargetMaps !== undefined && output.TargetMaps !== null
+        ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context)
         : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -16189,6 +16230,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
     TargetLocations:
       output.TargetLocations !== undefined && output.TargetLocations !== null
         ? deserializeAws_json1_1TargetLocations(output.TargetLocations, context)
+        : undefined,
+    TargetMaps:
+      output.TargetMaps !== undefined && output.TargetMaps !== null
+        ? deserializeAws_json1_1TargetMaps(output.TargetMaps, context)
         : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -18240,6 +18285,12 @@ const deserializeAws_json1_1InvalidSchedule = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1InvalidTarget = (output: any, context: __SerdeContext): InvalidTarget => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidTargetMaps = (output: any, context: __SerdeContext): InvalidTargetMaps => {
   return {
     Message: __expectString(output.Message),
   } as any;
