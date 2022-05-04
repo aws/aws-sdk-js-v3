@@ -22,6 +22,10 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { ListTunnelsCommandInput, ListTunnelsCommandOutput } from "../commands/ListTunnelsCommand";
 import { OpenTunnelCommandInput, OpenTunnelCommandOutput } from "../commands/OpenTunnelCommand";
+import {
+  RotateTunnelAccessTokenCommandInput,
+  RotateTunnelAccessTokenCommandOutput,
+} from "../commands/RotateTunnelAccessTokenCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { IoTSecureTunnelingServiceException as __BaseException } from "../models/IoTSecureTunnelingServiceException";
@@ -40,6 +44,8 @@ import {
   OpenTunnelRequest,
   OpenTunnelResponse,
   ResourceNotFoundException,
+  RotateTunnelAccessTokenRequest,
+  RotateTunnelAccessTokenResponse,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -112,6 +118,19 @@ export const serializeAws_json1_1OpenTunnelCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1OpenTunnelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RotateTunnelAccessTokenCommand = async (
+  input: RotateTunnelAccessTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "IoTSecuredTunneling.RotateTunnelAccessToken",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RotateTunnelAccessTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -353,6 +372,49 @@ const deserializeAws_json1_1OpenTunnelCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1RotateTunnelAccessTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RotateTunnelAccessTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RotateTunnelAccessTokenCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RotateTunnelAccessTokenResponse(data, context);
+  const response: RotateTunnelAccessTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RotateTunnelAccessTokenCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RotateTunnelAccessTokenCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -518,6 +580,20 @@ const serializeAws_json1_1OpenTunnelRequest = (input: OpenTunnelRequest, context
   };
 };
 
+const serializeAws_json1_1RotateTunnelAccessTokenRequest = (
+  input: RotateTunnelAccessTokenRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.clientMode !== undefined && input.clientMode !== null && { clientMode: input.clientMode }),
+    ...(input.destinationConfig !== undefined &&
+      input.destinationConfig !== null && {
+        destinationConfig: serializeAws_json1_1DestinationConfig(input.destinationConfig, context),
+      }),
+    ...(input.tunnelId !== undefined && input.tunnelId !== null && { tunnelId: input.tunnelId }),
+  };
+};
+
 const serializeAws_json1_1ServiceList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -656,6 +732,17 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1RotateTunnelAccessTokenResponse = (
+  output: any,
+  context: __SerdeContext
+): RotateTunnelAccessTokenResponse => {
+  return {
+    destinationAccessToken: __expectString(output.destinationAccessToken),
+    sourceAccessToken: __expectString(output.sourceAccessToken),
+    tunnelArn: __expectString(output.tunnelArn),
   } as any;
 };
 

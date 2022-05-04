@@ -3,6 +3,12 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IoTSecureTunnelingServiceException as __BaseException } from "./IoTSecureTunnelingServiceException";
 
+export enum ClientMode {
+  ALL = "ALL",
+  DESTINATION = "DESTINATION",
+  SOURCE = "SOURCE",
+}
+
 export interface CloseTunnelRequest {
   /**
    * <p>The ID of the tunnel to close.</p>
@@ -10,7 +16,7 @@ export interface CloseTunnelRequest {
   tunnelId: string | undefined;
 
   /**
-   * <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+   * <p>When set to true, IoT Secure Tunneling deletes the tunnel data
    * 			immediately.</p>
    */
   delete?: boolean;
@@ -111,10 +117,10 @@ export interface DestinationConfig {
   thingName?: string;
 
   /**
-   * <p>A list of service names that identity the target application. The AWS IoT client running on the destination device reads
-   * 			this value and uses it to look up a port or an IP address and a port. The AWS IoT client
-   * 			instantiates the local proxy which uses this information to connect to the destination
-   * 			application.</p>
+   * <p>A list of service names that identify the target application. The IoT client
+   * 			running on the destination device reads this value and uses it to look up a port or an
+   * 			IP address and a port. The IoT client instantiates the local proxy, which uses this
+   * 			information to connect to the destination application.</p>
    */
   services: string[] | undefined;
 }
@@ -189,9 +195,7 @@ export interface Tunnel {
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * <p>The Amazon Resource Name (ARN) of a tunnel.</p>
    */
   tunnelArn?: string;
 
@@ -312,7 +316,8 @@ export interface ListTunnelsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to retrieve the next set of results.</p>
+   * <p>To retrieve the next set of results, the nextToken value from a previous response;
+   * 			otherwise null to receive the first set of results.</p>
    */
   nextToken?: string;
 }
@@ -336,9 +341,7 @@ export interface TunnelSummary {
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * <p>The Amazon Resource Name of the tunnel. </p>
    */
   tunnelArn?: string;
 
@@ -374,12 +377,13 @@ export namespace TunnelSummary {
 
 export interface ListTunnelsResponse {
   /**
-   * <p>A short description of the tunnels in an AWS account.</p>
+   * <p>A short description of the tunnels in an Amazon Web Services account.</p>
    */
   tunnelSummaries?: TunnelSummary[];
 
   /**
-   * <p>A token to used to retrieve the next set of results.</p>
+   * <p>The token to use to get the next set of results, or null if there are no additional
+   * 			results.</p>
    */
   nextToken?: string;
 }
@@ -450,20 +454,18 @@ export interface OpenTunnelResponse {
   tunnelId?: string;
 
   /**
-   * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
-   * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
-   *          </p>
+   * <p>The Amazon Resource Name for the tunnel.</p>
    */
   tunnelArn?: string;
 
   /**
-   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
+   * <p>The access token the source local proxy uses to connect to IoT Secure
    * 			Tunneling.</p>
    */
   sourceAccessToken?: string;
 
   /**
-   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
+   * <p>The access token the destination local proxy uses to connect to IoT Secure
    * 			Tunneling.</p>
    */
   destinationAccessToken?: string;
@@ -474,6 +476,63 @@ export namespace OpenTunnelResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
+    ...obj,
+    ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface RotateTunnelAccessTokenRequest {
+  /**
+   * <p>The tunnel for which you want to rotate the access tokens.</p>
+   */
+  tunnelId: string | undefined;
+
+  /**
+   * <p>The mode of the client that will use the client token, which can be either the source
+   * 			or destination, or both source and destination.</p>
+   */
+  clientMode: ClientMode | string | undefined;
+
+  /**
+   * <p>The destination configuration.</p>
+   */
+  destinationConfig?: DestinationConfig;
+}
+
+export namespace RotateTunnelAccessTokenRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RotateTunnelAccessTokenRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RotateTunnelAccessTokenResponse {
+  /**
+   * <p>The Amazon Resource Name for the tunnel.</p>
+   */
+  tunnelArn?: string;
+
+  /**
+   * <p>The client access token that the source local proxy uses to connect to IoT Secure
+   * 			Tunneling.</p>
+   */
+  sourceAccessToken?: string;
+
+  /**
+   * <p>The client access token that the destination local proxy uses to connect to IoT
+   * 			Secure Tunneling.</p>
+   */
+  destinationAccessToken?: string;
+}
+
+export namespace RotateTunnelAccessTokenResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RotateTunnelAccessTokenResponse): any => ({
     ...obj,
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
     ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
