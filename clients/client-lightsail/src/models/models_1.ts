@@ -1763,20 +1763,6 @@ export interface LoadBalancer {
 
   /**
    * <p>The name of the TLS security policy for the load balancer.</p>
-   *
-   *          <p>The following TLS security policy names are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TLS-2016-08</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS-FS-Res-1-2-2019-08</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   tlsPolicyName?: string;
 }
@@ -2685,31 +2671,13 @@ export namespace GetLoadBalancerTlsPoliciesRequest {
  * <p>Describes the TLS security policies that are available for Lightsail load
  *       balancers.</p>
  *
- *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Load balancer TLS security policies</a> in the <i>Amazon Lightsail
- *         Developer Guide</i>.</p>
+ *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+ *         balancers</a> in the <i>Amazon Lightsail Developer
+ *       Guide</i>.</p>
  */
 export interface LoadBalancerTlsPolicy {
   /**
    * <p>The name of the TLS security policy.</p>
-   *
-   *          <p>The following TLS security policy names are possible:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>TLS-2016-08</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TLS-FS-Res-1-2-2019-08</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>You can specify either of these values for the <code>tlsSecurityPolicyName</code> request
-   *       parameter in the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateLoadBalancer.html">CreateLoadBalancer</a> action, and the <code>attributeValue</code> request parameter in
-   *       the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateLoadBalancerAttribute.html">UpdateLoadBalancerAttribute</a> action.</p>
    */
   name?: string;
 
@@ -2725,25 +2693,6 @@ export interface LoadBalancerTlsPolicy {
 
   /**
    * <p>The protocols used in a given TLS security policy.</p>
-   *
-   *          <p>The following protocols are possible:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Protocol-TLSv1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Protocol-TLSv1.1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Protocol-TLSv1.2</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   protocols?: string[];
 
@@ -5905,7 +5854,8 @@ export interface UpdateLoadBalancerAttributeRequest {
    *             <li>
    *                <p>If you specify <code>SessionStickinessEnabled</code> for the
    *             <code>attributeName</code> request parameter, then the <code>attributeValue</code>
-   *           request parameter must be <code>true</code> or <code>false</code>.</p>
+   *           request parameter must be <code>true</code> to activate session stickiness or
+   *             <code>false</code> to deactivate session stickiness.</p>
    *             </li>
    *             <li>
    *                <p>If you specify <code>SessionStickiness_LB_CookieDurationSeconds</code> for the
@@ -5916,12 +5866,15 @@ export interface UpdateLoadBalancerAttributeRequest {
    *             <li>
    *                <p>If you specify <code>HttpsRedirectionEnabled</code> for the <code>attributeName</code>
    *           request parameter, then the <code>attributeValue</code> request parameter must be
-   *             <code>true</code> or <code>false</code>.</p>
+   *             <code>true</code> to activate HTTP to HTTPS redirection or <code>false</code> to
+   *           deactivate HTTP to HTTPS redirection.</p>
    *             </li>
    *             <li>
    *                <p>If you specify <code>TlsPolicyName</code> for the <code>attributeName</code> request
-   *           parameter, then the <code>attributeValue</code> request parameter must be <code>TLS
-   *             version 1.0, 1.1, and 1.2</code> or <code>TLS version 1.2</code>.</p>
+   *           parameter, then the <code>attributeValue</code> request parameter must be the name of the
+   *           TLS policy.</p>
+   *                <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html">GetLoadBalancerTlsPolicies</a> action to get a list of TLS policy names that you
+   *           can specify.</p>
    *             </li>
    *          </ul>
    */
