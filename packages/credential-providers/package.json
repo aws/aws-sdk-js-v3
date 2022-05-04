@@ -33,6 +33,7 @@
     "@aws-sdk/credential-provider-env": "*",
     "@aws-sdk/credential-provider-imds": "*",
     "@aws-sdk/credential-provider-ini": "*",
+    "@aws-sdk/credential-provider-node": "*",
     "@aws-sdk/credential-provider-process": "*",
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",

@@ -208,7 +208,7 @@ Default credential provider is how SDK resolve the AWS credential if you DO NOT 
 
   In Browsers and ReactNative, the chain is empty, meaning you always need supply credentials explicitly.
 
-- **v3**: [defaultProvider](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_node.html#defaultprovider)
+- **v3**: [defaultProvider](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_providers#fromnodejsproviderchain-1)
   The credential sources and fallback order _does not_ change in v3. It also supports [AWS Single Sign-On credentials](https://aws.amazon.com/single-sign-on/).
 
 ### Temporary Credentials
