@@ -3,12 +3,12 @@ import { defaultProvider } from "@aws-sdk/credential-provider-node";
 
 import { fromNodeProviderChain } from "./fromNodeProviderChain";
 
-const ROLE_ASSUMER = "ROLE_ASSUMER";
-const ROLE_ASSUMER_WITH_WEB_IDENTITY = "ROLE_ASSUMER_WITH_WEB_IDENTITY";
+const mockRoleAssumer = jest.fn().mockResolvedValue("ROLE_ASSUMER");
+const mockRoleAssumerWithWebIdentity = jest.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
 
 jest.mock("@aws-sdk/client-sts", () => ({
-  getDefaultRoleAssumer: jest.fn().mockReturnValue(ROLE_ASSUMER),
-  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(ROLE_ASSUMER_WITH_WEB_IDENTITY),
+  getDefaultRoleAssumer: jest.fn().mockImplementation(() => mockRoleAssumer),
+  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
 }));
 
 jest.mock("@aws-sdk/credential-provider-node", () => ({
@@ -25,8 +25,8 @@ describe(fromNodeProviderChain.name, () => {
     fromNodeProviderChain({ profile });
     expect(defaultProvider).toBeCalledWith({
       profile,
-      roleAssumer: ROLE_ASSUMER,
-      roleAssumerWithWebIdentity: ROLE_ASSUMER_WITH_WEB_IDENTITY,
+      roleAssumer: mockRoleAssumer,
+      roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
     });
     expect(getDefaultRoleAssumer).toBeCalled();
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalled();

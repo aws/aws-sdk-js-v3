@@ -1,13 +1,13 @@
+import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import { fromCognitoIdentity as coreProvider } from "@aws-sdk/credential-provider-cognito-identity";
+
+import { fromCognitoIdentity } from "./fromCognitoIdentity";
+
 jest.mock("@aws-sdk/client-cognito-identity", () => ({
   CognitoIdentityClient: jest.fn().mockImplementation(function () {
     return "COGNITO_IDENTITY_CLIENT";
   }),
 }));
-
-import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
-import { fromCognitoIdentity as coreProvider } from "@aws-sdk/credential-provider-cognito-identity";
-
-import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
 jest.mock("@aws-sdk/credential-provider-cognito-identity", () => ({
   fromCognitoIdentity: jest.fn(),
