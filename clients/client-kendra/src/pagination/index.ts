@@ -6,4 +6,8 @@ export * from "./ListDataSourcesPaginator";
 export * from "./ListEntityPersonasPaginator";
 export * from "./ListExperienceEntitiesPaginator";
 export * from "./ListExperiencesPaginator";
+export * from "./ListFaqsPaginator";
+export * from "./ListGroupsOlderThanOrderingIdPaginator";
 export * from "./ListIndicesPaginator";
+export * from "./ListQuerySuggestionsBlockListsPaginator";
+export * from "./ListThesauriPaginator";

@@ -5710,6 +5710,9 @@ const serializeAws_json1_1Facet = (input: Facet, context: __SerdeContext): any =
   return {
     ...(input.DocumentAttributeKey !== undefined &&
       input.DocumentAttributeKey !== null && { DocumentAttributeKey: input.DocumentAttributeKey }),
+    ...(input.Facets !== undefined &&
+      input.Facets !== null && { Facets: serializeAws_json1_1FacetList(input.Facets, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
   };
 };
 
@@ -8519,6 +8522,10 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
     DocumentAttributeValue:
       output.DocumentAttributeValue !== undefined && output.DocumentAttributeValue !== null
         ? deserializeAws_json1_1DocumentAttributeValue(output.DocumentAttributeValue, context)
+        : undefined,
+    FacetResults:
+      output.FacetResults !== undefined && output.FacetResults !== null
+        ? deserializeAws_json1_1FacetResultList(output.FacetResults, context)
         : undefined,
   } as any;
 };

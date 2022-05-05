@@ -486,8 +486,8 @@ export namespace AssociatePersonasToEntitiesResponse {
 }
 
 /**
- * <p>The value of a custom document attribute. You can only provide one
- *             value for a custom attribute.</p>
+ * <p>The value of a document attribute. You can only provide one
+ *             value for a document attribute.</p>
  */
 export interface DocumentAttributeValue {
   /**
@@ -526,10 +526,8 @@ export namespace DocumentAttributeValue {
 }
 
 /**
- * <p>A custom attribute value assigned to a document.</p>
- *         <p>For more information on how to create custom document attributes, see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom
- *                 Attributes</a>.</p>
+ * <p>A document attribute or metadata field. To create custom document
+ *             attributes, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom attributes</a>.</p>
  */
 export interface DocumentAttribute {
   /**
@@ -2600,48 +2598,38 @@ export namespace OneDriveConfiguration {
  */
 export interface QuipConfiguration {
   /**
-   * <p>The configuration information to connect to your Quip data source domain.</p>
+   * <p>The Quip site domain.</p>
    */
   Domain: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that contains the
-   *             key-value pairs
-   *             that are
-   *             required to connect to your Quip file system. Windows is currently the
-   *             only supported type. The secret must contain a JSON structure with the following
-   *             keys:</p>
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret
+   *             that contains the key-value pairs that are required to connect to your
+   *             Quip. The secret must contain a JSON structure with the following keys:</p>
    *         <ul>
    *             <li>
-   *                 <p>username—The Active Directory user name, along with the Domain Name
-   *                     System (DNS) domain
-   *                     name. For example,
-   *                     <i>user@corp.example.com</i>.
-   *                     The Active Directory user account must have read and mounting access to the Quip
-   *                     file system for Windows.</p>
-   *             </li>
-   *             <li>
-   *                 <p>password—The password of the Active Directory user account with
-   *                     read and mounting access to the Quip Windows file system.</p>
+   *                 <p>accessToken—The token created in Quip. For more information,
+   *                     see <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-slack.html#quip-authentication">Authentication
+   *                         for a Quip data source</a>.</p>
    *             </li>
    *          </ul>
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>Specify whether to crawl file comments in your Quip data source.
+   * <p>Specify whether to crawl file comments in Quip.
    *             You can specify one or more of these options.</p>
    */
   CrawlFileComments?: boolean;
 
   /**
-   * <p>Specify whether to crawl chat rooms in your Quip data source.
+   * <p>Specify whether to crawl chat rooms in Quip.
    *             You can specify one or more of these options.</p>
    */
   CrawlChatRooms?: boolean;
 
   /**
-   * <p>Specify whether to crawl attachments in your Quip data source.
+   * <p>Specify whether to crawl attachments in Quip.
    *             You can specify one or more of these options.</p>
    */
   CrawlAttachments?: boolean;
@@ -2652,17 +2640,35 @@ export interface QuipConfiguration {
   FolderIds?: string[];
 
   /**
-   * <p>A list of field mappings to apply when indexing Quip threads.</p>
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip threads to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
    */
   ThreadFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of field mappings to apply when indexing Quip messages.</p>
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip messages to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
    */
   MessageFieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of field mappings to apply when indexing Quip attachments.</p>
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
+   *             attributes or field names of Quip attachments to Amazon Kendra index
+   *             field names. To create custom fields, use the <code>UpdateIndex</code>
+   *             API before you map to Quip fields. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Quip field names must exist in your
+   *             Quip custom metadata.</p>
    */
   AttachmentFieldMappings?: DataSourceToIndexFieldMapping[];
 
@@ -2671,8 +2677,7 @@ export interface QuipConfiguration {
    *             system. Files that match the patterns are included in the index. Files that don't match
    *             the patterns are excluded from the index. If a file matches both an inclusion pattern
    *             and an exclusion pattern, the exclusion pattern takes
-   *             precedence,
-   *             and the file isn't included in the index.</p>
+   *             precedence, and the file isn't included in the index.</p>
    */
   InclusionPatterns?: string[];
 
@@ -2681,15 +2686,15 @@ export interface QuipConfiguration {
    *             system. Files that match the patterns are excluded from the index. Files that don’t
    *             match the patterns are included in the index. If a file matches both an inclusion
    *             pattern and an exclusion pattern, the exclusion pattern takes
-   *             precedence,
-   *             and the file isn't included in the index.</p>
+   *             precedence, and the file isn't included in the index.</p>
    */
   ExclusionPatterns?: string[];
 
   /**
-   * <p>Configuration information for connecting to an Amazon Virtual Private Cloud
-   *             (VPC)
-   *             for your Quip. Your Quip instance must reside inside your VPC.</p>
+   * <p>Configuration information for an Amazon Virtual Private Cloud
+   *             (VPC) to connect to your Quip. For more information, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html">Configuring
+   *                 a VPC</a>.</p>
    */
   VpcConfiguration?: DataSourceVpcConfiguration;
 }
@@ -8208,25 +8213,6 @@ export namespace DocumentRelevanceConfiguration {
   });
 }
 
-/**
- * <p>Information about a document attribute</p>
- */
-export interface Facet {
-  /**
-   * <p>The unique key for the document attribute.</p>
-   */
-  DocumentAttributeKey?: string;
-}
-
-export namespace Facet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Facet): any => ({
-    ...obj,
-  });
-}
-
 export enum QueryResultType {
   ANSWER = "ANSWER",
   DOCUMENT = "DOCUMENT",
@@ -8413,65 +8399,6 @@ export namespace UserContext {
   });
 }
 
-/**
- * <p>Provides the count of documents that match a particular attribute
- *             when doing a faceted search.</p>
- */
-export interface DocumentAttributeValueCountPair {
-  /**
-   * <p>The value of the attribute. For example, "HR."</p>
-   */
-  DocumentAttributeValue?: DocumentAttributeValue;
-
-  /**
-   * <p>The number of documents in the response that have the attribute
-   *             value for the key.</p>
-   */
-  Count?: number;
-}
-
-export namespace DocumentAttributeValueCountPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The facet values for the documents in the response.</p>
- */
-export interface FacetResult {
-  /**
-   * <p>The key for the facet values. This is the same as the
-   *             <code>DocumentAttributeKey</code> provided in the query.</p>
-   */
-  DocumentAttributeKey?: string;
-
-  /**
-   * <p>The data type of the facet value. This is the same as the type
-   *          defined for the index field when it was created.</p>
-   */
-  DocumentAttributeValueType?: DocumentAttributeValueType | string;
-
-  /**
-   * <p>An array of key/value pairs, where the key is the value of the
-   *          attribute and the count is the number of documents that share the key
-   *          value.</p>
-   */
-  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
-}
-
-export namespace FacetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetResult): any => ({
-    ...obj,
-  });
-}
-
 export enum ScoreConfidence {
   HIGH = "HIGH",
   LOW = "LOW",
@@ -8548,9 +8475,9 @@ export interface QueryResultItem {
   DocumentURI?: string;
 
   /**
-   * <p>An array of document attributes for the document that the query
-   *          result maps to. For example, the document author (Author) or the source
-   *          URI (SourceUri) of the document.</p>
+   * <p>An array of document attributes assigned to a document in
+   *          the search results. For example, the document author (<code>_author</code>)
+   *          or the source URI (<code>_source_uri</code>) of the document.</p>
    */
   DocumentAttributes?: DocumentAttribute[];
 
@@ -8669,56 +8596,6 @@ export namespace Warning {
    * @internal
    */
   export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj,
-  });
-}
-
-export interface QueryResult {
-  /**
-   * <p>The unique identifier for the search. You use <code>QueryId</code>
-   *          to identify the search when using the feedback API.</p>
-   */
-  QueryId?: string;
-
-  /**
-   * <p>The results of the search.</p>
-   */
-  ResultItems?: QueryResultItem[];
-
-  /**
-   * <p>Contains the facet results. A <code>FacetResult</code> contains the
-   *          counts for each attribute key that was specified in the
-   *             <code>Facets</code> input parameter.</p>
-   */
-  FacetResults?: FacetResult[];
-
-  /**
-   * <p>The total number of items found by the search; however, you can only
-   *          retrieve up to 100 items. For example, if the search found 192 items,
-   *          you can only retrieve the first 100 of the items.</p>
-   */
-  TotalNumberOfResults?: number;
-
-  /**
-   * <p>A list of warning codes and their messages on problems with your query.</p>
-   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
-   *          on invalid syntax used in the query. For examples of invalid query syntax,
-   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
-   *             with advanced query syntax</a>.</p>
-   */
-  Warnings?: Warning[];
-
-  /**
-   * <p>A list of information related to suggested spell corrections for a query.</p>
-   */
-  SpellCorrectedQueries?: SpellCorrectedQuery[];
-}
-
-export namespace QueryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResult): any => ({
     ...obj,
   });
 }
@@ -9306,6 +9183,126 @@ export namespace UpdateThesaurusRequest {
 }
 
 /**
+ * <p>Information about a document attribute. You can use document
+ *          attributes as facets.</p>
+ *          <p>For example, the document attribute or facet "Department" includes
+ *          the values "HR", "Engineering", and "Accounting". You can display these
+ *          values in the search results so that documents can be searched by department.</p>
+ *          <p>You can display up to 10 facet values per facet for a query. If you want to
+ *          increase this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+ */
+export interface Facet {
+  /**
+   * <p>The unique key for the document attribute.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
+   * <p>An array of document attributes that are nested facets within a facet.</p>
+   *          <p>For example, the document attribute or facet "Department" includes a
+   *          value called "Engineering". In addition, the document attribute or
+   *          facet "SubDepartment" includes the values "Frontend" and "Backend" for documents
+   *          assigned to "Engineering". You can display nested facets in the search results
+   *          so that documents can be searched not only by department but also by a sub
+   *          department within a department. This helps your users further narrow their
+   *          search.</p>
+   *          <p>You can only have one nested facet within a facet. If you want to increase
+   *          this limit, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   */
+  Facets?: Facet[];
+
+  /**
+   * <p>Maximum number of facet values per facet. The default is 10. You can use
+   *          this to limit the number of facet values to less than 10. If you want to
+   *          increase the default, contact <a href="http://aws.amazon.com/contact-us/">Support</a>.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace Facet {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Facet): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the count of documents that match a particular attribute
+ *             when doing a faceted search.</p>
+ */
+export interface DocumentAttributeValueCountPair {
+  /**
+   * <p>The value of the attribute. For example, "HR".</p>
+   */
+  DocumentAttributeValue?: DocumentAttributeValue;
+
+  /**
+   * <p>The number of documents in the response that have the attribute
+   *             value for the key.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Contains the results of a document attribute that is a nested facet.
+   *             A <code>FacetResult</code> contains the counts for each facet nested
+   *             within a facet.</p>
+   *         <p>For example, the document attribute or facet "Department" includes a
+   *             value called "Engineering". In addition, the document attribute
+   *             or facet "SubDepartment" includes the values "Frontend" and "Backend"
+   *             for documents assigned to "Engineering". You can display nested facets
+   *             in the search results so that documents can be searched not only by
+   *             department but also by a sub department within a department. The counts
+   *             for documents that belong to "Frontend" and "Backend" within "Engineering"
+   *             are returned for a query.</p>
+   */
+  FacetResults?: FacetResult[];
+}
+
+export namespace DocumentAttributeValueCountPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentAttributeValueCountPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The facet values for the documents in the response.</p>
+ */
+export interface FacetResult {
+  /**
+   * <p>The key for the facet values. This is the same as the
+   *             <code>DocumentAttributeKey</code> provided in the query.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
+   * <p>The data type of the facet value. This is the same as the type
+   *          defined for the index field when it was created.</p>
+   */
+  DocumentAttributeValueType?: DocumentAttributeValueType | string;
+
+  /**
+   * <p>An array of key/value pairs, where the key is the value of the
+   *          attribute and the count is the number of documents that share the key
+   *          value.</p>
+   */
+  DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
+}
+
+export namespace FacetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FacetResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides filtering the query results based on document
  *          attributes.</p>
  *          <p>When you use the <code>AndAllFilters</code> or
@@ -9411,6 +9408,56 @@ export namespace AttributeFilter {
   });
 }
 
+export interface QueryResult {
+  /**
+   * <p>The unique identifier for the search. You use <code>QueryId</code>
+   *          to identify the search when using the feedback API.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The results of the search.</p>
+   */
+  ResultItems?: QueryResultItem[];
+
+  /**
+   * <p>Contains the facet results. A <code>FacetResult</code> contains the
+   *          counts for each attribute key that was specified in the
+   *             <code>Facets</code> input parameter.</p>
+   */
+  FacetResults?: FacetResult[];
+
+  /**
+   * <p>The total number of items found by the search; however, you can only
+   *          retrieve up to 100 items. For example, if the search found 192 items,
+   *          you can only retrieve the first 100 of the items.</p>
+   */
+  TotalNumberOfResults?: number;
+
+  /**
+   * <p>A list of warning codes and their messages on problems with your query.</p>
+   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
+   *          on invalid syntax used in the query. For examples of invalid query syntax,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+   *             with advanced query syntax</a>.</p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>A list of information related to suggested spell corrections for a query.</p>
+   */
+  SpellCorrectedQueries?: SpellCorrectedQuery[];
+}
+
+export namespace QueryResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryResult): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryRequest {
   /**
    * <p>The unique identifier of the index to search. The identifier is
@@ -9437,15 +9484,14 @@ export interface QueryRequest {
 
   /**
    * <p>An array of documents attributes. Amazon Kendra returns a count for
-   *          each attribute key specified. You can use this information to help
-   *          narrow the search for your user.</p>
+   *          each attribute key specified. This helps your users narrow their search.</p>
    */
   Facets?: Facet[];
 
   /**
-   * <p>An array of document attributes to include in the response. No other
-   *          document attributes are included in the response. By default all
-   *          document attributes are included in the response. </p>
+   * <p>An array of document attributes to include in the response.
+   *          You can limit the response to include certain document attributes.
+   *          By default all document attributes are included in the response.</p>
    */
   RequestedDocumentAttributes?: string[];
 
