@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([92a5c30](https://github.com/aws/aws-sdk-js-v3/commit/92a5c303da3558d1802ad5242599cfea74953c4f))
+
+
+
+
+
 # [3.78.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.77.0...v3.78.0) (2022-04-26)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

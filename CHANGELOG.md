@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports a new ObjectTags Task API option that can be used to control whether Object Tags are transferred. ([dfc58ea](https://github.com/aws/aws-sdk-js-v3/commit/dfc58ea4732b78fb464876a05439123ae69bce20))
+* **client-ec2:** Amazon EC2 I4i instances are powered by 3rd generation Intel Xeon Scalable processors and feature up to 30 TB of local AWS Nitro SSD storage ([1aefead](https://github.com/aws/aws-sdk-js-v3/commit/1aefead30f40900f31c31d8b8afb95ce8a1aeda2))
+* **client-iot:** AWS IoT Jobs now allows you to create up to 100,000 active continuous and snapshot jobs by using concurrency control. ([6506e14](https://github.com/aws/aws-sdk-js-v3/commit/6506e14ba608ae3ee0a892b7d494250f92bbf3fc))
+* **client-kendra:** AWS Kendra now supports hierarchical facets for a query. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/filtering.html ([d1a2c61](https://github.com/aws/aws-sdk-js-v3/commit/d1a2c61cca0122412de7c69a35260c370e74bc36))
+* **clients:** update client endpoints as of 2022-05-05 ([3e002c4](https://github.com/aws/aws-sdk-js-v3/commit/3e002c4424644ad8f676842b925e68b26966b96b))
+* **codegen:** add codegen indicator comment to all generated files ([#3592](https://github.com/aws/aws-sdk-js-v3/issues/3592)) ([567a530](https://github.com/aws/aws-sdk-js-v3/commit/567a5304232fcc1f9db3fd3df545054de8336b4b))
+* **smithy-client:** update client defaults provider ([92a5c30](https://github.com/aws/aws-sdk-js-v3/commit/92a5c303da3558d1802ad5242599cfea74953c4f))
+
+
+
+
+
 # [3.84.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.83.0...v3.84.0) (2022-05-04)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports a new ObjectTags Task API option that can be used to control whether Object Tags are transferred. ([dfc58ea](https://github.com/aws/aws-sdk-js-v3/commit/dfc58ea4732b78fb464876a05439123ae69bce20))
+* **codegen:** add codegen indicator comment to all generated files ([#3592](https://github.com/aws/aws-sdk-js-v3/issues/3592)) ([567a530](https://github.com/aws/aws-sdk-js-v3/commit/567a5304232fcc1f9db3fd3df545054de8336b4b))
+
+
+
+
+
 # [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
 
 **Note:** Version bump only for package @aws-sdk/client-datasync
