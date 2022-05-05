@@ -1,5 +1,7 @@
 export * from "./AdminListGroupsForUserPaginator";
+
 export * from "./AdminListUserAuthEventsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListGroupsPaginator";
 export * from "./ListIdentityProvidersPaginator";

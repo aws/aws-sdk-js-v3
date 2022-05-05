@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateCliTokenCommand";
 export * from "./CreateEnvironmentCommand";
 export * from "./CreateWebLoginTokenCommand";

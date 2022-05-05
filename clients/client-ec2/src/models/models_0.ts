@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 /**
  * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
  *          on an instance.</p>

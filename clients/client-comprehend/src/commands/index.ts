@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchDetectDominantLanguageCommand";
 export * from "./BatchDetectEntitiesCommand";
 export * from "./BatchDetectKeyPhrasesCommand";

@@ -1,4 +1,5 @@
 export * from "./Ivs";
+// smithy-typescript generated code
 export * from "./IvsClient";
 export * from "./commands";
 export * from "./models";

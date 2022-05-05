@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddLayerVersionPermissionCommand";
 export * from "./AddPermissionCommand";
 export * from "./CreateAliasCommand";

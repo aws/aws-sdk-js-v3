@@ -1,4 +1,5 @@
 export * from "./KMS";
+// smithy-typescript generated code
 export * from "./KMSClient";
 export * from "./commands";
 export * from "./models";

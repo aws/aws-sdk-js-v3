@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateAwsAccountWithPartnerAccountCommand";
 export * from "./AssociateMulticastGroupWithFuotaTaskCommand";
 export * from "./AssociateWirelessDeviceWithFuotaTaskCommand";

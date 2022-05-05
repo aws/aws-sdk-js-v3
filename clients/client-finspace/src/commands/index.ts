@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateEnvironmentCommand";
 export * from "./DeleteEnvironmentCommand";
 export * from "./GetEnvironmentCommand";

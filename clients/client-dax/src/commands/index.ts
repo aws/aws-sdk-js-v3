@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateClusterCommand";
 export * from "./CreateParameterGroupCommand";
 export * from "./CreateSubnetGroupCommand";

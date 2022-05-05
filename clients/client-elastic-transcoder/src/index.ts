@@ -1,4 +1,5 @@
 export * from "./ElasticTranscoder";
+// smithy-typescript generated code
 export * from "./ElasticTranscoderClient";
 export * from "./commands";
 export * from "./models";

@@ -1,13 +1,23 @@
 export * from "./DescribeAggregateComplianceByConfigRulesPaginator";
+
 export * from "./DescribeAggregateComplianceByConformancePacksPaginator";
+
 export * from "./DescribeAggregationAuthorizationsPaginator";
+
 export * from "./DescribeComplianceByConfigRulePaginator";
+
 export * from "./DescribeComplianceByResourcePaginator";
+
 export * from "./DescribeConfigRuleEvaluationStatusPaginator";
+
 export * from "./DescribeConfigRulesPaginator";
+
 export * from "./DescribeConfigurationAggregatorSourcesStatusPaginator";
+
 export * from "./DescribeConfigurationAggregatorsPaginator";
+
 export * from "./DescribeConformancePackCompliancePaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./DescribeConformancePackStatusPaginator";
 export * from "./DescribeConformancePacksPaginator";

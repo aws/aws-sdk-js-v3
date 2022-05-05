@@ -1,4 +1,5 @@
 export * from "./AssociatePhoneNumberWithUserCommand";
+// smithy-typescript generated code
 export * from "./AssociatePhoneNumbersWithVoiceConnectorCommand";
 export * from "./AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
 export * from "./AssociateSigninDelegateGroupsWithAccountCommand";

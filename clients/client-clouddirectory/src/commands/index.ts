@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddFacetToObjectCommand";
 export * from "./ApplySchemaCommand";
 export * from "./AttachObjectCommand";

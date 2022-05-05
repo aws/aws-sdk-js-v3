@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateFirewallPolicyCommand";
 export * from "./AssociateSubnetsCommand";
 export * from "./CreateFirewallCommand";

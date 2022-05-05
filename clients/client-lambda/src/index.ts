@@ -1,4 +1,5 @@
 export * from "./Lambda";
+// smithy-typescript generated code
 export * from "./LambdaClient";
 export * from "./commands";
 export * from "./models";

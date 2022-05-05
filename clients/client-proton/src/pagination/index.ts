@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListEnvironmentAccountConnectionsPaginator";
 export * from "./ListEnvironmentOutputsPaginator";

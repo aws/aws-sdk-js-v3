@@ -1,4 +1,5 @@
 export * from "./CodeStarConnections";
+// smithy-typescript generated code
 export * from "./CodeStarConnectionsClient";
 export * from "./commands";
 export * from "./models";

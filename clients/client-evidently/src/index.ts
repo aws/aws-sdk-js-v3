@@ -1,4 +1,5 @@
 export * from "./Evidently";
+// smithy-typescript generated code
 export * from "./EvidentlyClient";
 export * from "./commands";
 export * from "./models";

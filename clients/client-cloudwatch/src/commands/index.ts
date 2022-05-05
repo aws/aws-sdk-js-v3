@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./DeleteAlarmsCommand";
 export * from "./DeleteAnomalyDetectorCommand";
 export * from "./DeleteDashboardsCommand";

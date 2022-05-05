@@ -1,4 +1,5 @@
 export * from "./Resiliencehub";
+// smithy-typescript generated code
 export * from "./ResiliencehubClient";
 export * from "./commands";
 export * from "./models";

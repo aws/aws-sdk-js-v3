@@ -1,4 +1,5 @@
 export * from "./MediaStoreData";
+// smithy-typescript generated code
 export * from "./MediaStoreDataClient";
 export * from "./commands";
 export * from "./models";

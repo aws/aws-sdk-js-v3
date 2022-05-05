@@ -1,4 +1,5 @@
 export * from "./Redshift";
+// smithy-typescript generated code
 export * from "./RedshiftClient";
 export * from "./commands";
 export * from "./models";

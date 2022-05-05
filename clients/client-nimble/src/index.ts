@@ -1,4 +1,5 @@
 export * from "./Nimble";
+// smithy-typescript generated code
 export * from "./NimbleClient";
 export * from "./commands";
 export * from "./models";

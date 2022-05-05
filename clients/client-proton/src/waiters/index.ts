@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./waitForEnvironmentDeployed";
 export * from "./waitForEnvironmentTemplateVersionRegistered";
 export * from "./waitForServiceCreated";

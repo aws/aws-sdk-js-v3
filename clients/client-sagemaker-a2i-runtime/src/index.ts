@@ -1,4 +1,5 @@
 export * from "./SageMakerA2IRuntime";
+// smithy-typescript generated code
 export * from "./SageMakerA2IRuntimeClient";
 export * from "./commands";
 export * from "./models";

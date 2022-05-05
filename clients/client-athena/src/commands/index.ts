@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchGetNamedQueryCommand";
 export * from "./BatchGetQueryExecutionCommand";
 export * from "./CreateDataCatalogCommand";

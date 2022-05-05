@@ -1,4 +1,5 @@
 export * from "./IoT1ClickProjects";
+// smithy-typescript generated code
 export * from "./IoT1ClickProjectsClient";
 export * from "./commands";
 export * from "./models";

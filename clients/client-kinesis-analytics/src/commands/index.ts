@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddApplicationCloudWatchLoggingOptionCommand";
 export * from "./AddApplicationInputCommand";
 export * from "./AddApplicationInputProcessingConfigurationCommand";

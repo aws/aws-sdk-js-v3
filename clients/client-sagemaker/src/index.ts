@@ -1,4 +1,5 @@
 export * from "./SageMaker";
+// smithy-typescript generated code
 export * from "./SageMakerClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
 
 import { CloudFormationClient } from "../CloudFormationClient";

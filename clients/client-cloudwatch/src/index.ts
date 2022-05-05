@@ -1,4 +1,5 @@
 export * from "./CloudWatch";
+// smithy-typescript generated code
 export * from "./CloudWatchClient";
 export * from "./commands";
 export * from "./models";

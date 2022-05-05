@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CompareFacesCommand";
 export * from "./CreateCollectionCommand";
 export * from "./CreateDatasetCommand";

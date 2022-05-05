@@ -1,4 +1,5 @@
 export * from "./DescribeCustomDomainsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAutoScalingConfigurationsPaginator";
 export * from "./ListConnectionsPaginator";

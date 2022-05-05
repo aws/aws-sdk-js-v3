@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/aws-protocoltests-restxml
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restxml/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)

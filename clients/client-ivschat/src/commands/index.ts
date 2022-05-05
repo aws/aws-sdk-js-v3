@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateChatTokenCommand";
 export * from "./CreateRoomCommand";
 export * from "./DeleteMessageCommand";

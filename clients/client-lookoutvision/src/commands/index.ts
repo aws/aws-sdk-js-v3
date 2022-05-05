@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateDatasetCommand";
 export * from "./CreateModelCommand";
 export * from "./CreateProjectCommand";

@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-networkmanager
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-networkmanager/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-networkmanager)

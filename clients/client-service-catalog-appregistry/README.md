@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-service-catalog-appregistry
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-service-catalog-appregistry/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-service-catalog-appregistry)

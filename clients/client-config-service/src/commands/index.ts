@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchGetAggregateResourceConfigCommand";
 export * from "./BatchGetResourceConfigCommand";
 export * from "./DeleteAggregationAuthorizationCommand";

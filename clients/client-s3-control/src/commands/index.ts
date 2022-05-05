@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAccessPointCommand";
 export * from "./CreateAccessPointForObjectLambdaCommand";
 export * from "./CreateBucketCommand";

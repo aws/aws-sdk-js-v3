@@ -1,4 +1,5 @@
 export * from "./ElasticLoadBalancingV2";
+// smithy-typescript generated code
 export * from "./ElasticLoadBalancingV2Client";
 export * from "./commands";
 export * from "./models";

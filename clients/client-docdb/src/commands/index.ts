@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddSourceIdentifierToSubscriptionCommand";
 export * from "./AddTagsToResourceCommand";
 export * from "./ApplyPendingMaintenanceActionCommand";

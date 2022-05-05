@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-route53-recovery-control-config
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-route53-recovery-control-config/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-route53-recovery-control-config)

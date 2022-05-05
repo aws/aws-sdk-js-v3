@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateEntityToThingCommand";
 export * from "./CreateFlowTemplateCommand";
 export * from "./CreateSystemInstanceCommand";

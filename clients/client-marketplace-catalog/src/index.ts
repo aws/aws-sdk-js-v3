@@ -1,4 +1,5 @@
 export * from "./MarketplaceCatalog";
+// smithy-typescript generated code
 export * from "./MarketplaceCatalogClient";
 export * from "./commands";
 export * from "./models";

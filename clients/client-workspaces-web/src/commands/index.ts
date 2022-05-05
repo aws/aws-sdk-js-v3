@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateBrowserSettingsCommand";
 export * from "./AssociateNetworkSettingsCommand";
 export * from "./AssociateTrustStoreCommand";

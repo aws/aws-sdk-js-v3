@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-kinesis-video-archived-media
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kinesis-video-archived-media/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-kinesis-video-archived-media)

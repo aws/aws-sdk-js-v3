@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddAttachmentsToSetCommand";
 export * from "./AddCommunicationToCaseCommand";
 export * from "./CreateCaseCommand";

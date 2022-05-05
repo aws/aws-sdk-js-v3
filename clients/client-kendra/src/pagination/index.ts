@@ -1,4 +1,5 @@
 export * from "./GetSnapshotsPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListDataSourceSyncJobsPaginator";
 export * from "./ListDataSourcesPaginator";

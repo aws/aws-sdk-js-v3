@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateApiCommand";
 export * from "./CreateApiCacheCommand";
 export * from "./CreateApiKeyCommand";

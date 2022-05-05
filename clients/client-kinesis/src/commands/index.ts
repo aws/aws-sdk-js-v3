@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddTagsToStreamCommand";
 export * from "./CreateStreamCommand";
 export * from "./DecreaseStreamRetentionPeriodCommand";

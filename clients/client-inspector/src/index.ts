@@ -1,4 +1,5 @@
 export * from "./Inspector";
+// smithy-typescript generated code
 export * from "./InspectorClient";
 export * from "./commands";
 export * from "./models";

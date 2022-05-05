@@ -1,4 +1,5 @@
 export * from "./MigrationHubStrategy";
+// smithy-typescript generated code
 export * from "./MigrationHubStrategyClient";
 export * from "./commands";
 export * from "./models";

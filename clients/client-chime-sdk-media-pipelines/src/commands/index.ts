@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateMediaCapturePipelineCommand";
 export * from "./DeleteMediaCapturePipelineCommand";
 export * from "./GetMediaCapturePipelineCommand";

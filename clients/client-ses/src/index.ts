@@ -1,4 +1,5 @@
 export * from "./SES";
+// smithy-typescript generated code
 export * from "./SESClient";
 export * from "./commands";
 export * from "./models";

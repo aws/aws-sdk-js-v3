@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

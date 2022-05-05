@@ -1,4 +1,5 @@
 export * from "./GetBehaviorModelTrainingSummariesPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListActiveViolationsPaginator";
 export * from "./ListAttachedPoliciesPaginator";

@@ -1,4 +1,5 @@
 export * from "./GlobalAccelerator";
+// smithy-typescript generated code
 export * from "./GlobalAcceleratorClient";
 export * from "./commands";
 export * from "./models";

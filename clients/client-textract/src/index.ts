@@ -1,4 +1,5 @@
 export * from "./Textract";
+// smithy-typescript generated code
 export * from "./TextractClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchAssociateScramSecretCommand";
 export * from "./BatchDisassociateScramSecretCommand";
 export * from "./CreateClusterCommand";

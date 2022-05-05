@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateComponentCommand";
 export * from "./CreateThemeCommand";
 export * from "./DeleteComponentCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateSavingsPlanCommand";
 export * from "./DeleteQueuedSavingsPlanCommand";
 export * from "./DescribeSavingsPlanRatesCommand";

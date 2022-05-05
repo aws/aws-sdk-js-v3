@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelTaskExecutionCommand";
 export * from "./CreateAgentCommand";
 export * from "./CreateLocationEfsCommand";

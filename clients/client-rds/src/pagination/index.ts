@@ -1,13 +1,23 @@
 export * from "./DescribeCertificatesPaginator";
+
 export * from "./DescribeDBClusterBacktracksPaginator";
+
 export * from "./DescribeDBClusterEndpointsPaginator";
+
 export * from "./DescribeDBClusterParameterGroupsPaginator";
+
 export * from "./DescribeDBClusterParametersPaginator";
+
 export * from "./DescribeDBClusterSnapshotsPaginator";
+
 export * from "./DescribeDBClustersPaginator";
+
 export * from "./DescribeDBEngineVersionsPaginator";
+
 export * from "./DescribeDBInstanceAutomatedBackupsPaginator";
+
 export * from "./DescribeDBInstancesPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./DescribeDBLogFilesPaginator";
 export * from "./DescribeDBParameterGroupsPaginator";

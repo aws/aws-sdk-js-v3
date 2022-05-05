@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateBackupPlanCommand";
 export * from "./CreateBackupSelectionCommand";
 export * from "./CreateBackupVaultCommand";

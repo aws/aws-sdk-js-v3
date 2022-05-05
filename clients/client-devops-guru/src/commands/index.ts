@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddNotificationChannelCommand";
 export * from "./DeleteInsightCommand";
 export * from "./DescribeAccountHealthCommand";

@@ -1,4 +1,5 @@
 export * from "./SSO";
+// smithy-typescript generated code
 export * from "./SSOClient";
 export * from "./commands";
 export * from "./models";

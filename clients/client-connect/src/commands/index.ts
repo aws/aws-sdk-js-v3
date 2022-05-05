@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateApprovedOriginCommand";
 export * from "./AssociateBotCommand";
 export * from "./AssociateDefaultVocabularyCommand";

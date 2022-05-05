@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-lakeformation
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lakeformation/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lakeformation)

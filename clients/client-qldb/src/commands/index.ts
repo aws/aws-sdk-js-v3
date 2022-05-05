@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelJournalKinesisStreamCommand";
 export * from "./CreateLedgerCommand";
 export * from "./DeleteLedgerCommand";

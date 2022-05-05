@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AttachInstancesCommand";
 export * from "./AttachLoadBalancerTargetGroupsCommand";
 export * from "./AttachLoadBalancersCommand";

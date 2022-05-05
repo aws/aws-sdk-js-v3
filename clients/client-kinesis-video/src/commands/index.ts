@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateSignalingChannelCommand";
 export * from "./CreateStreamCommand";
 export * from "./DeleteSignalingChannelCommand";

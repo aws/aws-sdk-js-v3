@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateAdminAccountCommand";
 export * from "./AssociateThirdPartyFirewallCommand";
 export * from "./DeleteAppsListCommand";

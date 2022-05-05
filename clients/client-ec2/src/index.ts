@@ -1,4 +1,5 @@
 export * from "./EC2";
+// smithy-typescript generated code
 export * from "./EC2Client";
 export * from "./commands";
 export * from "./models";

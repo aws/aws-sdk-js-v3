@@ -1,4 +1,5 @@
 export * from "./PI";
+// smithy-typescript generated code
 export * from "./PIClient";
 export * from "./commands";
 export * from "./models";

@@ -1,4 +1,5 @@
 export * from "./GetDevicePositionHistoryPaginator";
+// smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListDevicePositionsPaginator";
 export * from "./ListGeofenceCollectionsPaginator";

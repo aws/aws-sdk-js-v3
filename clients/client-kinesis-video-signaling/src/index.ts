@@ -1,4 +1,5 @@
 export * from "./KinesisVideoSignaling";
+// smithy-typescript generated code
 export * from "./KinesisVideoSignalingClient";
 export * from "./commands";
 export * from "./models";

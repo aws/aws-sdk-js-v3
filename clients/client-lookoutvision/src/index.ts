@@ -1,4 +1,5 @@
 export * from "./LookoutVision";
+// smithy-typescript generated code
 export * from "./LookoutVisionClient";
 export * from "./commands";
 export * from "./models";

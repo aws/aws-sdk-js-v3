@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CancelClusterCommand";
 export * from "./CancelJobCommand";
 export * from "./CreateAddressCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getLocationConstraintPlugin } from "@aws-sdk/middleware-location-constraint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,

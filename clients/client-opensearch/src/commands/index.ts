@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AcceptInboundConnectionCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociatePackageCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateGatewayToServerCommand";
 export * from "./CreateGatewayCommand";
 export * from "./DeleteGatewayCommand";

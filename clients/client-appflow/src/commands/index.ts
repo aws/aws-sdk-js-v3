@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateConnectorProfileCommand";
 export * from "./CreateFlowCommand";
 export * from "./DeleteConnectorProfileCommand";

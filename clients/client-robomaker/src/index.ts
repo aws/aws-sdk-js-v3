@@ -1,4 +1,5 @@
 export * from "./RoboMaker";
+// smithy-typescript generated code
 export * from "./RoboMakerClient";
 export * from "./commands";
 export * from "./models";

@@ -1,4 +1,5 @@
 export * from "./DocDB";
+// smithy-typescript generated code
 export * from "./DocDBClient";
 export * from "./commands";
 export * from "./models";

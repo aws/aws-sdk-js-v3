@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAppMonitorCommand";
 export * from "./DeleteAppMonitorCommand";
 export * from "./GetAppMonitorCommand";

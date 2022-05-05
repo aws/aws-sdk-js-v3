@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateWebACLCommand";
 export * from "./CreateByteMatchSetCommand";
 export * from "./CreateGeoMatchSetCommand";

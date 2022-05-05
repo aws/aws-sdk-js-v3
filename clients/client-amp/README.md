@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-amp
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-amp/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-amp)

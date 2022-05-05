@@ -1,4 +1,5 @@
 export * from "./IoTWireless";
+// smithy-typescript generated code
 export * from "./IoTWirelessClient";
 export * from "./commands";
 export * from "./models";

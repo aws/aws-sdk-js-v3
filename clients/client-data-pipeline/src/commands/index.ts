@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./ActivatePipelineCommand";
 export * from "./AddTagsCommand";
 export * from "./CreatePipelineCommand";

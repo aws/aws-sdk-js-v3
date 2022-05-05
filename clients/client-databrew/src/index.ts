@@ -1,4 +1,5 @@
 export * from "./DataBrew";
+// smithy-typescript generated code
 export * from "./DataBrewClient";
 export * from "./commands";
 export * from "./models";

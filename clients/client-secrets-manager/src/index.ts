@@ -1,4 +1,5 @@
 export * from "./SecretsManager";
+// smithy-typescript generated code
 export * from "./SecretsManagerClient";
 export * from "./commands";
 export * from "./models";

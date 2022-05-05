@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CloneReceiptRuleSetCommand";
 export * from "./CreateConfigurationSetCommand";
 export * from "./CreateConfigurationSetEventDestinationCommand";

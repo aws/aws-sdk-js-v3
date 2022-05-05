@@ -1,4 +1,5 @@
 export * from "./RDS";
+// smithy-typescript generated code
 export * from "./RDSClient";
 export * from "./commands";
 export * from "./models";

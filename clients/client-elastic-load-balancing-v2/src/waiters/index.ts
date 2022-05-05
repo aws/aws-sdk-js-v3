@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./waitForLoadBalancerAvailable";
 export * from "./waitForLoadBalancerExists";
 export * from "./waitForLoadBalancersDeleted";

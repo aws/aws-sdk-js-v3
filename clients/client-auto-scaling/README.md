@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-auto-scaling
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-auto-scaling/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-auto-scaling)

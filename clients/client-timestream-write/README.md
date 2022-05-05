@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-timestream-write
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-timestream-write/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-timestream-write)

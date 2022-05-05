@@ -1,3 +1,5 @@
+<!-- generated file, do not edit directly -->
+
 # @aws-sdk/client-lightsail
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lightsail/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-lightsail)

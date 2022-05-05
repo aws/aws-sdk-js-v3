@@ -1,4 +1,5 @@
 export * from "./Neptune";
+// smithy-typescript generated code
 export * from "./NeptuneClient";
 export * from "./commands";
 export * from "./models";

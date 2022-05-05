@@ -1,4 +1,5 @@
 export * from "./IAM";
+// smithy-typescript generated code
 export * from "./IAMClient";
 export * from "./commands";
 export * from "./models";

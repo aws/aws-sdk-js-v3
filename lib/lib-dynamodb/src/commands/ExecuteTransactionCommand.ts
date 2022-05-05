@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import {
   ExecuteTransactionCommand as __ExecuteTransactionCommand,
   ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,

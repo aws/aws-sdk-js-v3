@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { ApiGatewayV2Client } from "./ApiGatewayV2Client";

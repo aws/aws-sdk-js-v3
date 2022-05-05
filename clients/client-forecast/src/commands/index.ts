@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateAutoPredictorCommand";
 export * from "./CreateDatasetCommand";
 export * from "./CreateDatasetGroupCommand";

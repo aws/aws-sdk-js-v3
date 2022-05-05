@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./CreateGameCommand";
 export * from "./CreateSnapshotCommand";
 export * from "./CreateStageCommand";

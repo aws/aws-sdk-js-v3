@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateConnectionAliasCommand";
 export * from "./AssociateIpGroupsCommand";
 export * from "./AuthorizeIpRulesCommand";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AddCustomRoutingEndpointsCommand";
 export * from "./AdvertiseByoipCidrCommand";
 export * from "./AllowCustomRoutingTrafficCommand";

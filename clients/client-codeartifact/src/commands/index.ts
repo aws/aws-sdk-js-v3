@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./AssociateExternalConnectionCommand";
 export * from "./CopyPackageVersionsCommand";
 export * from "./CreateDomainCommand";

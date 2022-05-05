@@ -1,4 +1,5 @@
 export * from "./LexModelBuildingService";
+// smithy-typescript generated code
 export * from "./LexModelBuildingServiceClient";
 export * from "./commands";
 export * from "./models";

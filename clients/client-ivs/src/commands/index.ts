@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 export * from "./BatchGetChannelCommand";
 export * from "./BatchGetStreamKeyCommand";
 export * from "./CreateChannelCommand";

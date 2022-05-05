@@ -1,4 +1,5 @@
 export * from "./SSMIncidents";
+// smithy-typescript generated code
 export * from "./SSMIncidentsClient";
 export * from "./commands";
 export * from "./models";

@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 /**
  * Input Channel Level
  */

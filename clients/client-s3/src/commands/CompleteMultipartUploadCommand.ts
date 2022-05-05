@@ -1,3 +1,4 @@
+// smithy-typescript generated code
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
