@@ -47413,6 +47413,34 @@
           {
             "value": "m6a.metal",
             "name": "m6a_metal"
+          },
+          {
+            "value": "i4i.large",
+            "name": "i4i_large"
+          },
+          {
+            "value": "i4i.xlarge",
+            "name": "i4i_xlarge"
+          },
+          {
+            "value": "i4i.2xlarge",
+            "name": "i4i_2xlarge"
+          },
+          {
+            "value": "i4i.4xlarge",
+            "name": "i4i_4xlarge"
+          },
+          {
+            "value": "i4i.8xlarge",
+            "name": "i4i_8xlarge"
+          },
+          {
+            "value": "i4i.16xlarge",
+            "name": "i4i_16xlarge"
+          },
+          {
+            "value": "i4i.32xlarge",
+            "name": "i4i_32xlarge"
           }
         ]
       }
