@@ -1,3 +1,8 @@
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
+import { defaultProvider } from "@aws-sdk/credential-provider-node";
+
+import { fromNodeProviderChain } from "./fromNodeProviderChain";
+
 const ROLE_ASSUMER = "ROLE_ASSUMER";
 const ROLE_ASSUMER_WITH_WEB_IDENTITY = "ROLE_ASSUMER_WITH_WEB_IDENTITY";
 
@@ -6,23 +11,18 @@ jest.mock("@aws-sdk/client-sts", () => ({
   getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(ROLE_ASSUMER_WITH_WEB_IDENTITY),
 }));
 
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
-import { defaultProvider } from "@aws-sdk/credential-provider-node";
-
-import { fromNodeJsProviderChain } from "./fromNodeJsProviderChain";
-
 jest.mock("@aws-sdk/credential-provider-node", () => ({
   defaultProvider: jest.fn(),
 }));
 
-describe(fromNodeJsProviderChain.name, () => {
+describe(fromNodeProviderChain.name, () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("should inject default role assumers", () => {
     const profile = "profile";
-    fromNodeJsProviderChain({ profile });
+    fromNodeProviderChain({ profile });
     expect(defaultProvider).toBeCalledWith({
       profile,
       roleAssumer: ROLE_ASSUMER,
@@ -36,7 +36,7 @@ describe(fromNodeJsProviderChain.name, () => {
     const profile = "profile";
     const roleAssumer = jest.fn();
     const roleAssumerWithWebIdentity = jest.fn();
-    fromNodeJsProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    fromNodeProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
     expect(defaultProvider).toBeCalledWith({
       profile,
       roleAssumer,
@@ -51,7 +51,7 @@ describe(fromNodeJsProviderChain.name, () => {
     const clientConfig = {
       region: "US_BAR_1",
     };
-    fromNodeJsProviderChain({ profile, clientConfig });
+    fromNodeProviderChain({ profile, clientConfig });
     expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig);
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
   });

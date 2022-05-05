@@ -4,7 +4,7 @@ export * from "./fromContainerMetadata";
 export * from "./fromEnv";
 export * from "./fromIni";
 export * from "./fromInstanceMetadata";
-export * from "./fromNodeJsProviderChain";
+export * from "./fromNodeProviderChain";
 export * from "./fromProcess";
 export * from "./fromSSO";
 export * from "./fromTemporaryCredentials";

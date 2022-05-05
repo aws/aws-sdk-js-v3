@@ -2,7 +2,7 @@ import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity, STSClientC
 import { defaultProvider, DefaultProviderInit } from "@aws-sdk/credential-provider-node";
 import { CredentialProvider } from "@aws-sdk/types";
 
-export interface FromNodeJsProviderChainInit extends DefaultProviderInit {
+export interface fromNodeProviderChainInit extends DefaultProviderInit {
   clientConfig?: STSClientConfig;
 }
 
@@ -16,10 +16,10 @@ export interface FromNodeJsProviderChainInit extends DefaultProviderInit {
  * or RDS signer.
  *
  * ```js
- * import { fromNodeJsProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
- * // const { fromNodeJsProviderChain } = require "@aws-sdk/credential-providers" // CommonJS import
+ * import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
+ * // const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
  *
- * const credentialProvider = fromNodeJsProviderChain({
+ * const credentialProvider = fromNodeProviderChain({
  *   //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
  *   // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
  *
@@ -27,11 +27,8 @@ export interface FromNodeJsProviderChainInit extends DefaultProviderInit {
  *   clientConfig: { region },
  * })
  * ```
- *
- * @param init
- * @returns
  */
-export const fromNodeJsProviderChain = (init: FromNodeJsProviderChainInit = {}): CredentialProvider =>
+export const fromNodeProviderChain = (init: fromNodeProviderChainInit = {}): CredentialProvider =>
   defaultProvider({
     ...init,
     roleAssumer: init.roleAssumer ?? getDefaultRoleAssumer(init.clientConfig),

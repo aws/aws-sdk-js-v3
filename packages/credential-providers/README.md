@@ -23,7 +23,7 @@ A collection of all credential providers, with default clients.
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
-1. [From Node.js default credentials provider chain](#fromnodejsproviderchain)
+1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
 
 ## `fromCognitoIdentity()`
 
@@ -616,7 +616,7 @@ sso_role_name = SampleRole
 sso_start_url = https://d-abc123.awsapps.com/start
 ```
 
-## `fromNodeJsProviderChain()`
+## `fromNodeProviderChain()`
 
 The credential provider used as default in the Node.js clients, but with default role assumers so
 you don't need to import them from STS client and supply them manually. You normally don't need
@@ -640,9 +640,9 @@ the process finds values defined via the `AWS_ACCESS_KEY_ID` and
 messages be sent to the Instance Metadata Service
 
 ```js
-import { fromNodeJsProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromNodeJsProviderChain } = require "@aws-sdk/credential-providers" // CommonJS import
-const credentialProvider = fromNodeJsProviderChain({
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
+// const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
+const credentialProvider = fromNodeProviderChain({
   //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
   // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
   // Optional. Custom STS client configurations overriding the default ones.
