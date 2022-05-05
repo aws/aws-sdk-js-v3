@@ -2185,6 +2185,8 @@ export interface Job {
    *             to specify the inputs during runtime when creating a job.</p>
    */
   documentParameters?: { [key: string]: string };
+
+  isConcurrent?: boolean;
 }
 
 export namespace Job {
@@ -6701,6 +6703,8 @@ export interface JobSummary {
    * <p>The time, in seconds since the epoch, when the job completed.</p>
    */
   completedAt?: Date;
+
+  isConcurrent?: boolean;
 }
 
 export namespace JobSummary {

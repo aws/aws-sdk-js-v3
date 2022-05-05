@@ -9291,6 +9291,9 @@ const deserializeAws_restJson1CancelJobCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -27082,6 +27085,7 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? deserializeAws_restJson1ParameterMap(output.documentParameters, context)
         : undefined,
     forceCanceled: __expectBoolean(output.forceCanceled),
+    isConcurrent: __expectBoolean(output.isConcurrent),
     jobArn: __expectString(output.jobArn),
     jobExecutionsRetryConfig:
       output.jobExecutionsRetryConfig !== undefined && output.jobExecutionsRetryConfig !== null
@@ -27288,6 +27292,7 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
       output.createdAt !== undefined && output.createdAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
         : undefined,
+    isConcurrent: __expectBoolean(output.isConcurrent),
     jobArn: __expectString(output.jobArn),
     jobId: __expectString(output.jobId),
     lastUpdatedAt:
