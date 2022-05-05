@@ -104,6 +104,7 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   errorCode?: string;
+  datasyncErrorCode?: string;
   /**
    * @internal
    */
@@ -115,6 +116,7 @@ export class InvalidRequestException extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.errorCode = opts.errorCode;
+    this.datasyncErrorCode = opts.datasyncErrorCode;
   }
 }
 
@@ -1328,6 +1330,11 @@ export enum Mtime {
   PRESERVE = "PRESERVE",
 }
 
+export enum ObjectTags {
+  NONE = "NONE",
+  PRESERVE = "PRESERVE",
+}
+
 export enum OverwriteMode {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
@@ -1403,7 +1410,7 @@ export interface Options {
    *          <p>POINT_IN_TIME_CONSISTENT: Scan the entire source and entire destination
    *       at the end of the transfer
    *       to verify that source and destination are fully
-   *       synchronized. This option isn't supported when transferring to S3 Glacier or S3 Glacier Deep Archive storage classes.</p>
+   *       synchronized. This option isn't supported when transferring to S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes.</p>
    *          <p>NONE: No additional verification is done at the end of the
    *       transfer, but all data transmissions are integrity-checked with
    *       checksum verification during the transfer.</p>
@@ -1443,7 +1450,8 @@ export interface Options {
    * <p>A value that indicates the last time that a file was modified (that is, a file was
    *       written to) before the PREPARING phase. This option is required for cases when you need to run
    *       the same task more than one time. </p>
-   *          <p>Default value: PRESERVE. </p>
+   *          <p>Default Value: <code>PRESERVE</code>
+   *          </p>
    *          <p>PRESERVE: Preserve original <code>Mtime</code> (recommended)</p>
    *          <p> NONE: Ignore <code>Mtime</code>. </p>
    *          <note>
@@ -1606,6 +1614,13 @@ export interface Options {
    *     </p>
    */
   SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | string;
+
+  /**
+   * <p>Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the <code>NONE</code> value.</p>
+   *          <p>Default Value: <code>PRESERVE</code>
+   *          </p>
+   */
+  ObjectTags?: ObjectTags | string;
 }
 
 export namespace Options {

@@ -3268,6 +3268,7 @@ const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): a
     ...(input.Gid !== undefined && input.Gid !== null && { Gid: input.Gid }),
     ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
     ...(input.Mtime !== undefined && input.Mtime !== null && { Mtime: input.Mtime }),
+    ...(input.ObjectTags !== undefined && input.ObjectTags !== null && { ObjectTags: input.ObjectTags }),
     ...(input.OverwriteMode !== undefined && input.OverwriteMode !== null && { OverwriteMode: input.OverwriteMode }),
     ...(input.PosixPermissions !== undefined &&
       input.PosixPermissions !== null && { PosixPermissions: input.PosixPermissions }),
@@ -4069,6 +4070,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
+    datasyncErrorCode: __expectString(output.datasyncErrorCode),
     errorCode: __expectString(output.errorCode),
     message: __expectString(output.message),
   } as any;
@@ -4171,6 +4173,7 @@ const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Op
     Gid: __expectString(output.Gid),
     LogLevel: __expectString(output.LogLevel),
     Mtime: __expectString(output.Mtime),
+    ObjectTags: __expectString(output.ObjectTags),
     OverwriteMode: __expectString(output.OverwriteMode),
     PosixPermissions: __expectString(output.PosixPermissions),
     PreserveDeletedFiles: __expectString(output.PreserveDeletedFiles),
