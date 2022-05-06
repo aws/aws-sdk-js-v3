@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.82.0|2.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cognito-sync|3.82.0|639.3 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-dynamodb|3.82.0|2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-ec2|3.83.0|14.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-ec2|3.85.0|14.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-efs|3.82.0|1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-eventbridge|3.82.0|1.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-firehose|3.82.0|783.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -29,7 +29,7 @@
 |@aws-sdk/client-opsworks|3.82.0|1.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-pinpoint|3.82.0|3.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-resource-groups-tagging-api|3.82.0|411.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-s3|3.83.0|3.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-s3|3.85.0|3.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-ses|3.82.0|1.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-sns|3.82.0|1.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-ssm|3.84.0|4.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -46,11 +46,11 @@
 |@aws-sdk/credential-providers|3.82.0|83.1 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/fetch-http-handler|3.58.0|75.2 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/lib-dynamodb|3.82.0|161.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/lib-storage|3.83.0|72.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/lib-storage|3.85.0|74.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/node-http-handler|3.78.0|110.9 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.82.0|41.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/s3-presigned-post|3.83.0|43.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/s3-request-presigner|3.83.0|84.7 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/s3-presigned-post|3.85.0|43.8 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/s3-request-presigner|3.85.0|84.9 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/signature-v4|3.58.0|180.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/signature-v4-crt|3.66.0|80.6 KB|N/A|N/A|N/A|
 |@aws-sdk/smithy-client|3.78.0|128.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|

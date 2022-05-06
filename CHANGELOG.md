@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **lib-storage:** add missing return keys ([#2700](https://github.com/aws/aws-sdk-js-v3/issues/2700)) ([cbab94e](https://github.com/aws/aws-sdk-js-v3/commit/cbab94e901aec4650ab9e0eb19a4515e44d4ba62))
+* **middleware-sdk-s3:** improve error message on stream upload ([#3571](https://github.com/aws/aws-sdk-js-v3/issues/3571)) ([c0ed833](https://github.com/aws/aws-sdk-js-v3/commit/c0ed83347f571b3f5d1e41dc91c172abafb44b7b))
+
+
+### Features
+
+* **client-ec2:** Add new state values for IPAMs, IPAM Scopes, and IPAM Pools. ([6c6525c](https://github.com/aws/aws-sdk-js-v3/commit/6c6525cf6f4f7bd129bb202a1b338af01dc5e57f))
+* **client-location:** Amazon Location Service now includes a MaxResults parameter for ListGeofences requests. ([5c0e234](https://github.com/aws/aws-sdk-js-v3/commit/5c0e234f03c9ea3748229dd87ca8fed349b36ea3))
+* **client-mediapackage:** This release adds Dvb Dash 2014 as an available profile option for Dash Origin Endpoints. ([7f9f845](https://github.com/aws/aws-sdk-js-v3/commit/7f9f845ff78df7d741eff68c6257c82265ee90c4))
+* **client-redshift:** Introduces new field 'LoadSampleData' in CreateCluster operation. Customers can now specify 'LoadSampleData' option during creation of a cluster, which results in loading of sample data in the cluster that is created. ([9b91388](https://github.com/aws/aws-sdk-js-v3/commit/9b913886571cba3f680deab3dc8cc9a23a21cb95))
+* **clients:** update client endpoints as of 2022-05-06 ([79ad41b](https://github.com/aws/aws-sdk-js-v3/commit/79ad41b313273283c91f9c1358b0d1dd7b8686c1))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 

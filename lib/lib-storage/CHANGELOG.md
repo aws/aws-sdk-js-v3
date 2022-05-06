@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **lib-storage:** add missing return keys ([#2700](https://github.com/aws/aws-sdk-js-v3/issues/2700)) ([cbab94e](https://github.com/aws/aws-sdk-js-v3/commit/cbab94e901aec4650ab9e0eb19a4515e44d4ba62))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

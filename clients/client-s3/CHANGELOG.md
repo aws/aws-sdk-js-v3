@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** improve error message on stream upload ([#3571](https://github.com/aws/aws-sdk-js-v3/issues/3571)) ([c0ed833](https://github.com/aws/aws-sdk-js-v3/commit/c0ed83347f571b3f5d1e41dc91c172abafb44b7b))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 

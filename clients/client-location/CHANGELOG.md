@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Features
+
+* **client-location:** Amazon Location Service now includes a MaxResults parameter for ListGeofences requests. ([5c0e234](https://github.com/aws/aws-sdk-js-v3/commit/5c0e234f03c9ea3748229dd87ca8fed349b36ea3))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 

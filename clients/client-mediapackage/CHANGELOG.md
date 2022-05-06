@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
+
+
+### Features
+
+* **client-mediapackage:** This release adds Dvb Dash 2014 as an available profile option for Dash Origin Endpoints. ([7f9f845](https://github.com/aws/aws-sdk-js-v3/commit/7f9f845ff78df7d741eff68c6257c82265ee90c4))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 
