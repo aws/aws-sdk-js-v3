@@ -24,7 +24,7 @@ export interface DisassociateDataShareConsumerCommandInput extends DisassociateD
 export interface DisassociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * <p>From a consumer account, remove association for the specified datashare.
+ * <p>From a datashare consumer account, remove association for the specified datashare.
  *             </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

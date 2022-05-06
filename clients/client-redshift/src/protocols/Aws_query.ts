@@ -10736,6 +10736,9 @@ const serializeAws_queryCreateClusterMessage = (input: CreateClusterMessage, con
   if (input.DefaultIamRoleArn !== undefined && input.DefaultIamRoleArn !== null) {
     entries["DefaultIamRoleArn"] = input.DefaultIamRoleArn;
   }
+  if (input.LoadSampleData !== undefined && input.LoadSampleData !== null) {
+    entries["LoadSampleData"] = input.LoadSampleData;
+  }
   return entries;
 };
 
