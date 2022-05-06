@@ -24,9 +24,9 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
 
 /**
  * <p>Deletes a place index resource from your AWS account.</p>
- *          <note>
+ *         <note>
  *             <p>This operation deletes the resource permanently.</p>
- *          </note>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

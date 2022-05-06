@@ -24,15 +24,15 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
 
 /**
  * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
- *          search for Places or points of interest. </p>
- *          <p>Optional parameters let you narrow your search results by bounding box or
- *          country, or bias your search toward a specific position on the globe.</p>
- *          <note>
- *             <p>You can search for places near a given position using <code>BiasPosition</code>, or
- *             filter results within a bounding box using <code>FilterBBox</code>. Providing both
- *             parameters simultaneously returns an error.</p>
- *          </note>
- *          <p>Search results are returned in order of highest to lowest relevance.</p>
+ *             search for Places or points of interest. </p>
+ *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+ *             bias your search toward a specific position on the globe.</p>
+ *         <note>
+ *             <p>You can search for places near a given position using <code>BiasPosition</code>,
+ *                 or filter results within a bounding box using <code>FilterBBox</code>. Providing
+ *                 both parameters simultaneously returns an error.</p>
+ *         </note>
+ *         <p>Search results are returned in order of highest to lowest relevance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

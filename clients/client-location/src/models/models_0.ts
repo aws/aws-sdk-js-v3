@@ -1078,12 +1078,14 @@ export namespace CalculateRouteTruckModeOptions {
 
 export interface CalculateRouteRequest {
   /**
-   * <p>The name of the route calculator resource that you want to use to calculate the route. </p>
+   * <p>The name of the route calculator resource that you want to use to calculate the route.
+   *         </p>
    */
   CalculatorName: string | undefined;
 
   /**
-   * <p>The start position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   * <p>The start position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
+   *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
    *         <ul>
    *             <li>
@@ -1092,9 +1094,10 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the
-   *                 position to the nearest road</a>. If Esri is the provider for your route calculator,
-   *                 specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p>
+   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *                     to the nearest road</a>. If Esri is the provider for your route calculator,
+   *                 specifying a route that is longer than 400 km returns a <code>400
+   *                     RoutesValidationException</code> error.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1102,7 +1105,8 @@ export interface CalculateRouteRequest {
   DeparturePosition: number[] | undefined;
 
   /**
-   * <p>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   * <p>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/index.php?dir=wgs84&amp;action=wgs84">World Geodetic
+   *             System (WGS 84)</a> format:
    *                 <code>[longitude, latitude]</code>.</p>
    *         <ul>
    *             <li>
@@ -1111,7 +1115,8 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position to the nearest road</a>. </p>
+   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *                     to the nearest road</a>. </p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1130,11 +1135,13 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position to the nearest road</a>. </p>
+   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position
+   *                     to the nearest road</a>. </p>
    *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
    *                 error.</p>
-   *             <p>If Esri is the provider for your route calculator, specifying a
-   *                 route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p>
+   *             <p>If Esri is the provider for your route calculator, specifying a route that is
+   *                 longer than 400 km returns a <code>400 RoutesValidationException</code>
+   *                 error.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1322,7 +1329,8 @@ export namespace Step {
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
  *         <p>For example, a route with a departure position and destination position returns one
- *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p>
+ *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
+ *                 road</a>:</p>
  *         <ul>
  *             <li>
  *                 <p>The <code>StartPosition</code> is the departure position.</p>
@@ -1349,7 +1357,8 @@ export interface Leg {
    * <p>The starting position of the leg. Follows the format
    *             <code>[longitude,latitude]</code>.</p>
    *         <note>
-   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>. </p>
+   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a
+   *                     nearby road</a>. </p>
    *         </note>
    */
   StartPosition: number[] | undefined;
@@ -1358,7 +1367,8 @@ export interface Leg {
    * <p>The terminating position of the leg. Follows the format
    *                 <code>[longitude,latitude]</code>.</p>
    *         <note>
-   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby road</a>. </p>
+   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby
+   *                     road</a>. </p>
    *         </note>
    */
   EndPosition: number[] | undefined;
@@ -1463,9 +1473,9 @@ export interface CalculateRouteSummary {
    * <p>The total distance covered by the route. The sum of the distance travelled between
    *             every stop on the route.</p>
    *         <note>
-   *             <p>If Esri is the data source for the route calculator, the route distance can’t
-   *                 be greater than 400 km. If the route exceeds 400 km, the response is a
-   *                 <code>400 RoutesValidationException</code> error.</p>
+   *             <p>If Esri is the data source for the route calculator, the route distance can’t be
+   *                 greater than 400 km. If the route exceeds 400 km, the response is a <code>400
+   *                     RoutesValidationException</code> error.</p>
    *         </note>
    */
   Distance: number | undefined;
@@ -1505,7 +1515,8 @@ export interface CalculateRouteResponse {
    *             number of legs returned corresponds to one fewer than the total number of positions in
    *             the request. </p>
    *         <p>For example, a route with a departure position and destination position returns one
-   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p>
+   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby
+   *                 road</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>The <code>StartPosition</code> is the departure position.</p>
@@ -1550,25 +1561,26 @@ export namespace CalculateRouteResponse {
 
 export interface CalculateRouteMatrixRequest {
   /**
-   * <p>The name of the route calculator resource that you want to use to calculate the route matrix. </p>
+   * <p>The name of the route calculator resource that you want to use to calculate the route
+   *             matrix. </p>
    */
   CalculatorName: string | undefined;
 
   /**
    * <p>The list of departure (origin) positions for the route matrix. An array of points,
    *             each of which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
-   *             <code>[longitude, latitude]</code>. For example, <code>[-123.115,
+   *                 <code>[longitude, latitude]</code>. For example, <code>[-123.115,
    *             49.285]</code>.</p>
    *         <important>
-   *             <p>Depending on the data provider selected in the route calculator resource there may be additional
-   *                 restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
-   *                     Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *             <p>Depending on the data provider selected in the route calculator resource there may
+   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
+   *                     Guide</i>.</p>
    *         </important>
    *         <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
-   *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the position
-   *                 to the nearest road</a>. The snapped value is available in the result in
-   *                 <code>SnappedDeparturePositions</code>.</p>
+   *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
+   *                     position to the nearest road</a>. The snapped value is available in the
+   *                 result in <code>SnappedDeparturePositions</code>.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1578,19 +1590,19 @@ export interface CalculateRouteMatrixRequest {
   /**
    * <p>The list of destination positions for the route matrix. An array of points, each of
    *             which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
-   *             <code>[longitude, latitude]</code>. For example, <code>[-122.339,
+   *                 <code>[longitude, latitude]</code>. For example, <code>[-122.339,
    *             47.615]</code>
    *          </p>
    *         <important>
-   *             <p>Depending on the data provider selected in the route calculator resource there may be additional
-   *                 restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
-   *                     Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *             <p>Depending on the data provider selected in the route calculator resource there may
+   *                 be additional restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits"> Position restrictions</a> in the <i>Amazon Location Service Developer
+   *                     Guide</i>.</p>
    *         </important>
    *         <note>
    *             <p>For route calculators that use Esri as the data provider, if you specify a
-   *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the position
-   *                 to the nearest road</a>. The snapped value is available in the result in
-   *                 <code>SnappedDestinationPositions</code>.</p>
+   *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the
+   *                     position to the nearest road</a>. The snapped value is available in the
+   *                 result in <code>SnappedDestinationPositions</code>.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1693,48 +1705,48 @@ export type RouteMatrixErrorCode =
 
 /**
  * <p>An error corresponding to the calculation of a route between the
- *         <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
+ *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
  *         <p>The error code can be one of the following:</p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>RouteNotFound</code> - Unable to find a
- *                     valid route with the given parameters.</p>
+ *                   <code>RouteNotFound</code> - Unable to find a valid route with the given
+ *                     parameters.</p>
  *             </li>
  *          </ul>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>RouteTooLong</code> - Route calculation went
- *                     beyond the maximum size of a route and was terminated before completion.</p>
+ *                   <code>RouteTooLong</code> - Route calculation went beyond the maximum size of
+ *                     a route and was terminated before completion.</p>
  *             </li>
  *          </ul>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>PositionsNotFound</code> - One or more of the
- *                     input positions were not found on the route network.</p>
+ *                   <code>PositionsNotFound</code> - One or more of the input positions were not
+ *                     found on the route network.</p>
  *             </li>
  *          </ul>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>DestinationPositionNotFound</code> - The
- *                     destination position was not found on the route network.</p>
+ *                   <code>DestinationPositionNotFound</code> - The destination position was not
+ *                     found on the route network.</p>
  *             </li>
  *          </ul>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>DeparturePositionNotFound</code> - The
- *                     departure position was not found on the route network.</p>
+ *                   <code>DeparturePositionNotFound</code> - The departure position was not found
+ *                     on the route network.</p>
  *             </li>
  *          </ul>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <code>OtherValidationError</code> - The given inputs were not valid or a
- *                     route was not found. More information is given in the error
+ *                   <code>OtherValidationError</code> - The given inputs were not valid or a route
+ *                     was not found. More information is given in the error
  *                     <code>Message</code>
  *                </p>
  *             </li>
@@ -1778,7 +1790,7 @@ export interface RouteMatrixEntry {
 
   /**
    * <p>An error corresponding to the calculation of a route between the
-   *             <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
+   *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
    */
   Error?: RouteMatrixEntryError;
 }
@@ -1811,18 +1823,21 @@ export interface CalculateRouteMatrixSummary {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data
+   *                 providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
-   * <p>The count of cells in the route matrix. Equal to the number of <code>DeparturePositions</code>
-   *          multiplied by the number of <code>DestinationPositions</code>.</p>
+   * <p>The count of cells in the route matrix. Equal to the number of
+   *                 <code>DeparturePositions</code> multiplied by the number of
+   *                 <code>DestinationPositions</code>.</p>
    */
   RouteCount: number | undefined;
 
   /**
-   * <p>The count of error results in the route matrix. If this number is 0, all routes were calculated successfully.</p>
+   * <p>The count of error results in the route matrix. If this number is 0, all routes were
+   *             calculated successfully.</p>
    */
   ErrorCount: number | undefined;
 
@@ -1847,30 +1862,31 @@ export namespace CalculateRouteMatrixSummary {
 export interface CalculateRouteMatrixResponse {
   /**
    * <p>The calculated route matrix containing the results for all pairs of
-   *         <code>DeparturePositions</code> to <code>DestinationPositions</code>.
-   *             Each row corresponds to one entry in <code>DeparturePositions</code>. Each
-   *             entry in the row corresponds to the route from that entry in
-   *             <code>DeparturePositions</code> to an entry in <code>DestinationPositions</code>.
-   *         </p>
+   *                 <code>DeparturePositions</code> to <code>DestinationPositions</code>. Each row
+   *             corresponds to one entry in <code>DeparturePositions</code>. Each entry in the row
+   *             corresponds to the route from that entry in <code>DeparturePositions</code> to an entry
+   *             in <code>DestinationPositions</code>. </p>
    */
   RouteMatrix: RouteMatrixEntry[][] | undefined;
 
   /**
-   * <p>For routes calculated using an Esri route calculator resource, departure positions
-   *             are snapped to the closest road. For Esri route calculator resources, this returns
-   *             the list of departure/origin positions used for calculation of the
+   * <p>For routes calculated using an Esri route calculator resource, departure positions are
+   *             snapped to the closest road. For Esri route calculator resources, this returns the list
+   *             of departure/origin positions used for calculation of the
    *             <code>RouteMatrix</code>.</p>
    */
   SnappedDeparturePositions?: number[][];
 
   /**
-   * <p>The list of destination positions for the route matrix used for calculation of the <code>RouteMatrix</code>.</p>
+   * <p>The list of destination positions for the route matrix used for calculation of the
+   *                 <code>RouteMatrix</code>.</p>
    */
   SnappedDestinationPositions?: number[][];
 
   /**
    * <p>Contains information about the route matrix, <code>DataSource</code>,
-   *         <code>DistanceUnit</code>, <code>RouteCount</code> and <code>ErrorCount</code>.</p>
+   *                 <code>DistanceUnit</code>, <code>RouteCount</code> and
+   *             <code>ErrorCount</code>.</p>
    */
   Summary: CalculateRouteMatrixSummary | undefined;
 }
@@ -2205,39 +2221,40 @@ export type IntendedUse = "SingleUse" | "Storage";
 
 /**
  * <p>Specifies the data storage option chosen for requesting Places.</p>
- *          <important>
+ *         <important>
  *             <p>When using Amazon Location Places:</p>
  *             <ul>
  *                <li>
- *                   <p>If using HERE Technologies as a data provider, you can't store results for
- *                   locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>.
- *                   parameter.</p>
- *                </li>
+ *                     <p>If using HERE Technologies as a data provider, you can't store results for
+ *                         locations in Japan by setting <code>IntendedUse</code> to
+ *                             <code>Storage</code>. parameter.</p>
+ *                 </li>
  *                <li>
- *                   <p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code>
- *                   pricing plan, you can't store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This
- *                   returns a validation exception error.</p>
- *                </li>
+ *                     <p>Under the <code>MobileAssetTracking</code> or
+ *                             <code>MobilAssetManagement</code> pricing plan, you can't store results
+ *                         from your place index resources by setting <code>IntendedUse</code> to
+ *                             <code>Storage</code>. This returns a validation exception error.</p>
+ *                 </li>
  *             </ul>
- *             <p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for
- *             Amazon Location Service.</p>
- *          </important>
+ *             <p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p>
+ *         </important>
  */
 export interface DataSourceConfiguration {
   /**
    * <p>Specifies how the results of an operation will be stored by the caller. </p>
-   *          <p>Valid values include:</p>
-   *          <ul>
+   *         <p>Valid values include:</p>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>SingleUse</code> specifies that the results won't be stored. </p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>Storage</code> specifies that the result can be cached or stored in a database.</p>
+   *                 <p>
+   *                   <code>Storage</code> specifies that the result can be cached or stored in a
+   *                     database.</p>
    *             </li>
    *          </ul>
-   *          <p>Default value: <code>SingleUse</code>
+   *         <p>Default value: <code>SingleUse</code>
    *          </p>
    */
   IntendedUse?: IntendedUse | string;
@@ -2255,17 +2272,17 @@ export namespace DataSourceConfiguration {
 export interface CreatePlaceIndexRequest {
   /**
    * <p>The name of the place index resource. </p>
-   *          <p>Requirements:</p>
-   *          <ul>
+   *         <p>Requirements:</p>
+   *         <ul>
    *             <li>
-   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
-   *                underscores (_).</p>
+   *                 <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                     (.), and underscores (_).</p>
    *             </li>
    *             <li>
-   *                <p>Must be a unique place index resource name.</p>
+   *                 <p>Must be a unique place index resource name.</p>
    *             </li>
    *             <li>
-   *                <p>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</p>
+   *                 <p>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2273,31 +2290,30 @@ export interface CreatePlaceIndexRequest {
 
   /**
    * <p>Specifies the geospatial data provider for the new place index.</p>
-   *          <note>
-   *             <p>This field is case-sensitive. Enter the valid values as shown. For example, entering
-   *                <code>HERE</code> returns an error.</p>
-   *          </note>
-   *          <p>Valid values include:</p>
-   *          <ul>
+   *         <note>
+   *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
+   *                 entering <code>HERE</code> returns an error.</p>
+   *         </note>
+   *         <p>Valid values include:</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your
-   *                region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
+   *                 <p>
+   *                   <code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri details on geocoding coverage</a>.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>'
-   *                coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
-   *                <important>
-   *                   <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
-   *                   you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see the
-   *                      <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
-   *                   for Amazon Location Service.</p>
-   *                </important>
+   *                 <p>
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+   *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
+   *                 <important>
+   *                     <p>If you specify HERE Technologies (<code>Here</code>) as the data provider,
+   *                         you may not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see
+   *                         the <a href="https://aws.amazon.com/service-terms/">AWS Service
+   *                             Terms</a> for Amazon Location Service.</p>
+   *                 </important>
    *             </li>
    *          </ul>
-   *          <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data providers</a>
-   *          on the <i>Amazon Location Service Developer Guide</i>.</p>
+   *         <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+   *                 providers</a> on the <i>Amazon Location Service Developer Guide</i>.</p>
    */
   DataSource: string | undefined;
 
@@ -2305,7 +2321,7 @@ export interface CreatePlaceIndexRequest {
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
-   *          <code>RequestBasedUsage</code>.</p>
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -2320,30 +2336,30 @@ export interface CreatePlaceIndexRequest {
   DataSourceConfiguration?: DataSourceConfiguration;
 
   /**
-   * <p>Applies one or more tags to the place index resource. A tag is a key-value pair that helps you
-   *          manage, identify, search, and filter your resources.</p>
-   *          <p>Format: <code>"key" : "value"</code>
+   * <p>Applies one or more tags to the place index resource. A tag is a key-value pair that
+   *             helps you manage, identify, search, and filter your resources.</p>
+   *         <p>Format: <code>"key" : "value"</code>
    *          </p>
-   *          <p>Restrictions:</p>
-   *          <ul>
+   *         <p>Restrictions:</p>
+   *         <ul>
    *             <li>
-   *                <p>Maximum 50 tags per resource.</p>
+   *                 <p>Maximum 50 tags per resource.</p>
    *             </li>
    *             <li>
-   *                <p>Each tag key must be unique and must have exactly one associated value.</p>
+   *                 <p>Each tag key must be unique and must have exactly one associated value.</p>
    *             </li>
    *             <li>
-   *                <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8.</p>
    *             </li>
    *             <li>
-   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
-   *                = . _ : / @</p>
+   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @</p>
    *             </li>
    *             <li>
-   *                <p>Cannot use "aws:" as a prefix for a key.</p>
+   *                 <p>Cannot use "aws:" as a prefix for a key.</p>
    *             </li>
    *          </ul>
    */
@@ -2366,12 +2382,12 @@ export interface CreatePlaceIndexResponse {
   IndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
-   *          across AWS. </p>
-   *          <ul>
+   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
+   *             resource across AWS. </p>
+   *         <ul>
    *             <li>
-   *                <p>Format example:
-   *                   <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2379,8 +2395,8 @@ export interface CreatePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
-   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 }
@@ -2400,11 +2416,11 @@ export interface CreateRouteCalculatorRequest {
    *         <p>Requirements:</p>
    *         <ul>
    *             <li>
-   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores
-   *                     (_).</p>
+   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.),
+   *                     and underscores (_).</p>
    *             </li>
    *             <li>
-   *                <p>Must be a unique Route calculator resource name.</p>
+   *                 <p>Must be a unique Route calculator resource name.</p>
    *             </li>
    *             <li>
    *                 <p>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</p>
@@ -2417,8 +2433,8 @@ export interface CreateRouteCalculatorRequest {
    * <p>Specifies the data provider of traffic and road network data.</p>
    *         <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
-   *                 entering <code>HERE</code> returns an error. Route calculators that use Esri as a data source
-   *                only calculate routes that are shorter than 400 km.</p>
+   *                 entering <code>HERE</code> returns an error. Route calculators that use Esri as a
+   *                 data source only calculate routes that are shorter than 400 km.</p>
    *         </note>
    *         <p>Valid values include:</p>
    *         <ul>
@@ -3027,12 +3043,12 @@ export interface DescribePlaceIndexResponse {
   IndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
-   *          across AWS. </p>
-   *          <ul>
+   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a
+   *             resource across AWS. </p>
+   *         <ul>
    *             <li>
-   *                <p>Format example:
-   *                   <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3052,32 +3068,32 @@ export interface DescribePlaceIndexResponse {
   Description: string | undefined;
 
   /**
-   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
-   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 
   /**
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -3682,6 +3698,13 @@ export interface ListGeofencesRequest {
    *          </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An optional limit for the number of geofences returned in a single call. </p>
+   *         <p>Default value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListGeofencesRequest {
@@ -4522,15 +4545,15 @@ export namespace ListMapsResponse {
 export interface ListPlaceIndexesRequest {
   /**
    * <p>An optional limit for the maximum number of results returned in a single call.</p>
-   *          <p>Default value: <code>100</code>
+   *         <p>Default value: <code>100</code>
    *          </p>
    */
   MaxResults?: number;
 
   /**
    * <p>The pagination token specifying which page of results to return in the response. If no
-   *          token is provided, the default page is the first page.</p>
-   *          <p>Default value: <code>null</code>
+   *             token is provided, the default page is the first page.</p>
+   *         <p>Default value: <code>null</code>
    *          </p>
    */
   NextToken?: string;
@@ -4561,19 +4584,19 @@ export interface ListPlaceIndexesResponseEntry {
 
   /**
    * <p>The data provider of geospatial data. Values can be one of the following:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>Esri</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>Here</code>
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -4585,14 +4608,14 @@ export interface ListPlaceIndexesResponseEntry {
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
-   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 }
@@ -4613,8 +4636,8 @@ export interface ListPlaceIndexesResponse {
   Entries: ListPlaceIndexesResponseEntry[] | undefined;
 
   /**
-   * <p>A pagination token indicating that there are additional pages available. You can use the
-   *          token in a new request to fetch the next page of results.</p>
+   * <p>A pagination token indicating that there are additional pages available. You can use
+   *             the token in a new request to fetch the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -4973,28 +4996,36 @@ export interface SearchPlaceIndexForPositionRequest {
 
   /**
    * <p>Specifies the longitude and latitude of the position to query.</p>
-   *          <p>
-   *          This parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude;
-   *             the second number represents the Y coordinate, or latitude.</p>
-   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents a position with
-   *          longitude <code>-123.1174</code> and
-   *          latitude <code>49.2847</code>.</p>
+   *         <p> This parameter must contain a pair of numbers. The first number represents the X
+   *             coordinate, or longitude; the second number represents the Y coordinate, or
+   *             latitude.</p>
+   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents a position with longitude
+   *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   Position: number[] | undefined;
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request.</p>
-   *          <p>Default value: <code>50</code>
+   *         <p>Default value: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
-   *          <p>This setting affects the languages used in the results. It does not change which
-   *          results are returned. If the language is not specified, or not supported for a
-   *          particular result, the partner automatically chooses a language for the result.</p>
+   *                 <code>en</code> for English.</p>
+   *         <p>This setting affects the languages used in the results, but not the results
+   *             themselves. If no language is specified, or not supported for a particular result, the
+   *             partner automatically chooses a language for the result.</p>
+   *         <p>For an example, we'll use the Greek language. You search for a location around Athens,
+   *             Greece, with the <code>language</code> parameter set to <code>en</code>. The
+   *                 <code>city</code> in the results will most likely be returned as
+   *             <code>Athens</code>.</p>
+   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *                 <code>city</code> in the results will more likely be returned as
+   *             <code>Αθήνα</code>.</p>
+   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *             that the provider does support.</p>
    */
   Language?: string;
 }
@@ -5015,14 +5046,14 @@ export namespace SearchPlaceIndexForPositionRequest {
 export interface PlaceGeometry {
   /**
    * <p>A single point geometry specifies a location for a Place using <a href="https://gisgeography.com/wgs84-world-geodetic-system/">WGS 84</a>
-   *          coordinates:</p>
-   *          <ul>
+   *             coordinates:</p>
+   *         <ul>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <i>x</i> — Specifies the x coordinate or longitude. </p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <i>y</i> — Specifies the y coordinate or latitude. </p>
    *             </li>
    *          </ul>
@@ -5041,13 +5072,14 @@ export namespace PlaceGeometry {
 }
 
 /**
- * <p>Information about a time zone. Includes the name of the time zone and the offset
- *          from UTC in seconds.</p>
+ * <p>Information about a time zone. Includes the name of the time zone and the offset from
+ *             UTC in seconds.</p>
  */
 export interface TimeZone {
   /**
    * <p>The name of the time zone, following the <a href="https://www.iana.org/time-zones">
-   *          IANA time zone standard</a>. For example, <code>America/Los_Angeles</code>.</p>
+   *                 IANA time zone standard</a>. For example,
+   *             <code>America/Los_Angeles</code>.</p>
    */
   Name: string | undefined;
 
@@ -5068,12 +5100,14 @@ export namespace TimeZone {
 
 /**
  * <p>Contains details about addresses or points of interest that match the search
- *          criteria.</p>
+ *             criteria.</p>
+ *         <p>Not all details are included with all responses. Some details may only be returned
+ *             by specific data partners.</p>
  */
 export interface Place {
   /**
-   * <p>The full name and address of the point of interest such as a city,
-   *          region, or country. For example, <code>123 Any Street, Any Town, USA</code>.</p>
+   * <p>The full name and address of the point of interest such as a city, region, or country.
+   *             For example, <code>123 Any Street, Any Town, USA</code>.</p>
    */
   Label?: string;
 
@@ -5089,7 +5123,7 @@ export interface Place {
 
   /**
    * <p>The name for a street or a road to identify a location. For example, <code>Main
-   *          Street</code>.</p>
+   *                 Street</code>.</p>
    */
   Street?: string;
 
@@ -5100,50 +5134,50 @@ export interface Place {
 
   /**
    * <p>A name for a local area, such as a city or town name. For example,
-   *          <code>Toronto</code>.</p>
+   *                 <code>Toronto</code>.</p>
    */
   Municipality?: string;
 
   /**
-   * <p>A country, or an area that's part of a larger region.  For example, <code>Metro
-   *             Vancouver</code>.</p>
+   * <p>A country, or an area that's part of a larger region. For example, <code>Metro
+   *                 Vancouver</code>.</p>
    */
   SubRegion?: string;
 
   /**
    * <p>A name for an area or geographical division, such as a province or state name. For
-   *          example, <code>British Columbia</code>.</p>
+   *             example, <code>British Columbia</code>.</p>
    */
   Region?: string;
 
   /**
    * <p>A country/region specified using <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
-   *          country/region code. For example, <code>CAN</code>.</p>
+   *             country/region code. For example, <code>CAN</code>.</p>
    */
   Country?: string;
 
   /**
    * <p>A group of numbers and letters in a country-specific format, which accompanies the
-   *          address for the purpose of identifying a location. </p>
+   *             address for the purpose of identifying a location. </p>
    */
   PostalCode?: string;
 
   /**
    * <p>
    *             <code>True</code> if the result is interpolated from other known places.</p>
-   *          <p>
+   *         <p>
    *             <code>False</code> if the Place is a known place.</p>
-   *          <p>Not returned when the partner does not provide the information.</p>
-   *          <p>For example, returns <code>False</code> for an address location that is found in the
-   *          partner data, but returns <code>True</code> if an address does not exist in the partner
-   *          data and its location is calculated by interpolating between other known addresses.
-   *       </p>
+   *         <p>Not returned when the partner does not provide the information.</p>
+   *         <p>For example, returns <code>False</code> for an address location that is found in the
+   *             partner data, but returns <code>True</code> if an address does not exist in the partner
+   *             data and its location is calculated by interpolating between other known addresses.
+   *         </p>
    */
   Interpolated?: boolean;
 
   /**
    * <p>The time zone in which the <code>Place</code> is located. Returned only when using
-   *          Here as the selected partner.</p>
+   *             Here as the selected partner.</p>
    */
   TimeZone?: TimeZone;
 }
@@ -5159,7 +5193,8 @@ export namespace Place {
 }
 
 /**
- * <p>Contains a search result from a position search query that is run on a place index resource.</p>
+ * <p>Contains a search result from a position search query that is run on a place index
+ *             resource.</p>
  */
 export interface SearchForPositionResult {
   /**
@@ -5169,11 +5204,11 @@ export interface SearchForPositionResult {
 
   /**
    * <p>The distance in meters of a great-circle arc between the query position and the
-   *          result.</p>
-   *          <note>
-   *             <p>A great-circle arc is the shortest path on a sphere, in this case the
-   *             Earth. This returns the shortest distance between two locations.</p>
-   *          </note>
+   *             result.</p>
+   *         <note>
+   *             <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This
+   *                 returns the shortest distance between two locations.</p>
+   *         </note>
    */
   Distance: number | undefined;
 }
@@ -5189,7 +5224,8 @@ export namespace SearchForPositionResult {
 }
 
 /**
- * <p>A summary of the request sent by using <code>SearchPlaceIndexForPosition</code>.</p>
+ * <p>A summary of the request sent by using
+ *             <code>SearchPlaceIndexForPosition</code>.</p>
  */
 export interface SearchPlaceIndexForPositionSummary {
   /**
@@ -5199,30 +5235,30 @@ export interface SearchPlaceIndexForPositionSummary {
 
   /**
    * <p>Contains the optional result count limit that is specified in the request.</p>
-   *          <p>Default value: <code>50</code>
+   *         <p>Default value: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The geospatial data provider attached to the place index resource specified in the request.
-   *          Values can be one of the following:</p>
-   *          <ul>
+   * <p>The geospatial data provider attached to the place index resource specified in the
+   *             request. Values can be one of the following:</p>
+   *         <ul>
    *             <li>
-   *                <p>Esri</p>
+   *                 <p>Esri</p>
    *             </li>
    *             <li>
-   *                <p>Here</p>
+   *                 <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
    * <p>The preferred language used to return results. Matches the language in the request.
-   *          The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
+   *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
+   *             language tag, for example, <code>en</code> for English.</p>
    */
   Language?: string;
 }
@@ -5240,14 +5276,14 @@ export namespace SearchPlaceIndexForPositionSummary {
 export interface SearchPlaceIndexForPositionResponse {
   /**
    * <p>Contains a summary of the request. Echoes the input values for <code>Position</code>,
-   *          <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of the place index.
-   *       </p>
+   *                 <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of
+   *             the place index. </p>
    */
   Summary: SearchPlaceIndexForPositionSummary | undefined;
 
   /**
    * <p>Returns a list of Places closest to the specified position. Each result contains
-   *          additional information about the Places returned.</p>
+   *             additional information about the Places returned.</p>
    */
   Results: SearchForPositionResult[] | undefined;
 }
@@ -5271,51 +5307,54 @@ export interface SearchPlaceIndexForSuggestionsRequest {
 
   /**
    * <p>The free-form partial text to use to generate place suggestions. For example,
-   *          <code>eiffel tow</code>.</p>
+   *                 <code>eiffel tow</code>.</p>
    */
   Text: string | undefined;
 
   /**
-   * <p>An optional parameter that indicates a preference for place suggestions that are closer to a specified position.</p>
-   *          <p>
-   *          If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude;
-   *            the second number represents the Y coordinate, or latitude.</p>
-   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
-   *             longitude <code>-123.1174</code> and
-   *             latitude <code>49.2847</code>.</p>
-   *          <note>
+   * <p>An optional parameter that indicates a preference for place suggestions that are
+   *             closer to a specified position.</p>
+   *         <p> If provided, this parameter must contain a pair of numbers. The first number
+   *             represents the X coordinate, or longitude; the second number represents the Y
+   *             coordinate, or latitude.</p>
+   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+   *         <note>
    *             <p>
-   *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options results in an error.
-   *          </p>
-   *          </note>
+   *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive.
+   *                 Specifying both options results in an error. </p>
+   *         </note>
    */
   BiasPosition?: number[];
 
   /**
-   * <p>An optional parameter that limits the search results by returning only suggestions within a specified bounding box.</p>
-   *          <p>
-   *          If provided, this parameter must contain a total of four consecutive numbers in two pairs.
-   *          The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
-   *          of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
-   *          of the northeast corner of the bounding box.</p>
-   *          <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents
-   *          a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>,
-   *          and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p>
-   *          <note>
+   * <p>An optional parameter that limits the search results by returning only suggestions
+   *             within a specified bounding box.</p>
+   *         <p> If provided, this parameter must contain a total of four consecutive numbers in two
+   *             pairs. The first pair of numbers represents the X and Y coordinates (longitude and
+   *             latitude, respectively) of the southwest corner of the bounding box; the second pair of
+   *             numbers represents the X and Y coordinates (longitude and latitude, respectively) of the
+   *             northeast corner of the bounding box.</p>
+   *         <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
+   *             bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude
+   *                 <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code>
+   *             and latitude <code>-36.9542</code>.</p>
+   *         <note>
    *             <p>
-   *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error.
-   *          </p>
-   *          </note>
+   *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive.
+   *                 Specifying both options results in an error. </p>
+   *         </note>
    */
   FilterBBox?: number[];
 
   /**
-   * <p>An optional parameter that limits the search results by returning only suggestions within the provided list of countries.</p>
-   *          <ul>
+   * <p>An optional parameter that limits the search results by returning only suggestions
+   *             within the provided list of countries.</p>
+   *         <ul>
    *             <li>
-   *                <p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
-   *             country code. For example, Australia uses three upper-case characters:
-   *             <code>AUS</code>.</p>
+   *                 <p>Use the <a href="https://www.iso.org/iso-3166-country-codes.html">ISO
+   *                         3166</a> 3-digit country code. For example, Australia uses three
+   *                     upper-case characters: <code>AUS</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5323,18 +5362,24 @@ export interface SearchPlaceIndexForSuggestionsRequest {
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
-   *          <p>The default: <code>5</code>
+   *         <p>The default: <code>5</code>
    *          </p>
    */
   MaxResults?: number;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
-   *          <p>This setting affects the languages used in the results. It does not change which
-   *          results are returned. If the language is not specified, or not supported for a
-   *          particular result, the partner automatically chooses a language for the result.</p>
-   *          <p>Used only when the partner selected is Here.</p>
+   *                 <code>en</code> for English.</p>
+   *         <p>This setting affects the languages used in the results. If no language is specified,
+   *             or not supported for a particular result, the partner automatically chooses a language
+   *             for the result.</p>
+   *         <p>For an example, we'll use the Greek language. You search for <code>Athens, Gr</code>
+   *             to get suggestions with the <code>language</code> parameter set to <code>en</code>. The
+   *             results found will most likely be returned as <code>Athens, Greece</code>.</p>
+   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *             result found will more likely be returned as <code>Αθήνα, Ελλάδα</code>.</p>
+   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *             that the provider does support.</p>
    */
   Language?: string;
 }
@@ -5352,7 +5397,8 @@ export namespace SearchPlaceIndexForSuggestionsRequest {
 }
 
 /**
- * <p>Contains a place suggestion resulting from a place suggestion query that is run on a place index resource.</p>
+ * <p>Contains a place suggestion resulting from a place suggestion query that is run on a
+ *             place index resource.</p>
  */
 export interface SearchForSuggestionsResult {
   /**
@@ -5371,7 +5417,8 @@ export namespace SearchForSuggestionsResult {
 }
 
 /**
- * <p>A summary of the request sent by using <code>SearchPlaceIndexForSuggestions</code>.</p>
+ * <p>A summary of the request sent by using
+ *             <code>SearchPlaceIndexForSuggestions</code>.</p>
  */
 export interface SearchPlaceIndexForSuggestionsSummary {
   /**
@@ -5380,16 +5427,19 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   Text: string | undefined;
 
   /**
-   * <p>Contains the coordinates for the optional bias position specified in the request.</p>
-   *          <p>This parameter contains a pair of numbers. The first number represents the X
-   *          coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p>
-   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
-   *          longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+   * <p>Contains the coordinates for the optional bias position specified in the
+   *             request.</p>
+   *         <p>This parameter contains a pair of numbers. The first number represents the X
+   *             coordinate, or longitude; the second number represents the Y coordinate, or
+   *             latitude.</p>
+   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   BiasPosition?: number[];
 
   /**
-   * <p>Contains the coordinates for the optional bounding box specified in the request.</p>
+   * <p>Contains the coordinates for the optional bounding box specified in the
+   *             request.</p>
    */
   FilterBBox?: number[];
 
@@ -5404,24 +5454,24 @@ export interface SearchPlaceIndexForSuggestionsSummary {
   MaxResults?: number;
 
   /**
-   * <p>The geospatial data provider attached to the place index resource specified in the request.
-   *          Values can be one of the following:</p>
-   *          <ul>
+   * <p>The geospatial data provider attached to the place index resource specified in the
+   *             request. Values can be one of the following:</p>
+   *         <ul>
    *             <li>
-   *                <p>Esri</p>
+   *                 <p>Esri</p>
    *             </li>
    *             <li>
-   *                <p>Here</p>
+   *                 <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
    * <p>The preferred language used to return results. Matches the language in the request.
-   *          The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
+   *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
+   *             language tag, for example, <code>en</code> for English.</p>
    */
   Language?: string;
 }
@@ -5440,10 +5490,10 @@ export namespace SearchPlaceIndexForSuggestionsSummary {
 
 export interface SearchPlaceIndexForSuggestionsResponse {
   /**
-   * <p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>,
-   *          <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>,
-   *          and <code>Text</code>. Also includes the <code>DataSource</code> of the place index.
-   *       </p>
+   * <p>Contains a summary of the request. Echoes the input values for
+   *                 <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>,
+   *                 <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes
+   *             the <code>DataSource</code> of the place index. </p>
    */
   Summary: SearchPlaceIndexForSuggestionsSummary | undefined;
 
@@ -5470,54 +5520,55 @@ export interface SearchPlaceIndexForTextRequest {
   IndexName: string | undefined;
 
   /**
-   * <p>The address, name,
-   *          city, or region to be used in the search in free-form text format. For example, <code>123 Any
-   *             Street</code>.</p>
+   * <p>The address, name, city, or region to be used in the search in free-form text format.
+   *             For example, <code>123 Any Street</code>.</p>
    */
   Text: string | undefined;
 
   /**
-   * <p>An optional parameter that indicates a preference for places that are closer to a specified position.</p>
-   *          <p>
-   *          If provided, this parameter must contain a pair of numbers. The first number represents the X coordinate, or longitude; the
-   *          second number represents the Y coordinate, or latitude.</p>
-   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
-   *          longitude <code>-123.1174</code> and
-   *          latitude <code>49.2847</code>.</p>
-   *          <note>
+   * <p>An optional parameter that indicates a preference for places that are closer to a
+   *             specified position.</p>
+   *         <p> If provided, this parameter must contain a pair of numbers. The first number
+   *             represents the X coordinate, or longitude; the second number represents the Y
+   *             coordinate, or latitude.</p>
+   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+   *         <note>
    *             <p>
-   *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive. Specifying both options
-   *             results in an error.
-   *          </p>
-   *          </note>
+   *                <code>BiasPosition</code> and <code>FilterBBox</code> are mutually exclusive.
+   *                 Specifying both options results in an error. </p>
+   *         </note>
    */
   BiasPosition?: number[];
 
   /**
-   * <p>An optional parameter that limits the search results by returning only places that are within the provided bounding box.</p>
-   *          <p>
-   *          If provided, this parameter must contain a total of four consecutive numbers in two pairs.
-   *          The first pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
-   *          of the southwest corner of the bounding box; the second pair of numbers represents the X and Y coordinates (longitude and latitude, respectively)
-   *          of the northeast corner of the bounding box.</p>
-   *          <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents
-   *          a bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude <code>-37.4835</code>,
-   *          and the northeast corner has longitude <code>-12.0684</code> and latitude <code>-36.9542</code>.</p>
-   *          <note>
+   * <p>An optional parameter that limits the search results by returning only places that are
+   *             within the provided bounding box.</p>
+   *         <p> If provided, this parameter must contain a total of four consecutive numbers in two
+   *             pairs. The first pair of numbers represents the X and Y coordinates (longitude and
+   *             latitude, respectively) of the southwest corner of the bounding box; the second pair of
+   *             numbers represents the X and Y coordinates (longitude and latitude, respectively) of the
+   *             northeast corner of the bounding box.</p>
+   *         <p>For example, <code>[-12.7935, -37.4835, -12.0684, -36.9542]</code> represents a
+   *             bounding box where the southwest corner has longitude <code>-12.7935</code> and latitude
+   *                 <code>-37.4835</code>, and the northeast corner has longitude <code>-12.0684</code>
+   *             and latitude <code>-36.9542</code>.</p>
+   *         <note>
    *             <p>
-   *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive. Specifying both options results in an error.
-   *          </p>
-   *          </note>
+   *                <code>FilterBBox</code> and <code>BiasPosition</code> are mutually exclusive.
+   *                 Specifying both options results in an error. </p>
+   *         </note>
    */
   FilterBBox?: number[];
 
   /**
-   * <p>An optional parameter that limits the search results by returning only places that are in a specified list of countries.</p>
-   *          <ul>
+   * <p>An optional parameter that limits the search results by returning only places that are
+   *             in a specified list of countries.</p>
+   *         <ul>
    *             <li>
-   *                <p>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a> 3-digit
-   *             country codes. For example, Australia uses three upper-case characters:
-   *             <code>AUS</code>.</p>
+   *                 <p>Valid values include <a href="https://www.iso.org/iso-3166-country-codes.html">ISO 3166</a>
+   *                     3-digit country codes. For example, Australia uses three upper-case characters:
+   *                         <code>AUS</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5525,17 +5576,24 @@ export interface SearchPlaceIndexForTextRequest {
 
   /**
    * <p>An optional parameter. The maximum number of results returned per request. </p>
-   *          <p>The default: <code>50</code>
+   *         <p>The default: <code>50</code>
    *          </p>
    */
   MaxResults?: number;
 
   /**
    * <p>The preferred language used to return results. The value must be a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
-   *          <p>This setting affects the languages used in the results. It does not change which
-   *          results are returned. If the language is not specified, or not supported for a
-   *          particular result, the partner automatically chooses a language for the result.</p>
+   *                 <code>en</code> for English.</p>
+   *         <p>This setting affects the languages used in the results, but not the results
+   *             themselves. If no language is specified, or not supported for a particular result, the
+   *             partner automatically chooses a language for the result.</p>
+   *         <p>For an example, we'll use the Greek language. You search for <code>Athens,
+   *                 Greece</code>, with the <code>language</code> parameter set to <code>en</code>. The
+   *             result found will most likely be returned as <code>Athens</code>.</p>
+   *         <p>If you set the <code>language</code> parameter to <code>el</code>, for Greek, then the
+   *             result found will more likely be returned as <code>Αθήνα</code>.</p>
+   *         <p>If the data provider does not have a value for Greek, the result will be in a language
+   *             that the provider does support.</p>
    */
   Language?: string;
 }
@@ -5553,7 +5611,8 @@ export namespace SearchPlaceIndexForTextRequest {
 }
 
 /**
- * <p>Contains a search result from a text search query that is run on a place index resource.</p>
+ * <p>Contains a search result from a text search query that is run on a place index
+ *             resource.</p>
  */
 export interface SearchForTextResult {
   /**
@@ -5562,21 +5621,21 @@ export interface SearchForTextResult {
   Place: Place | undefined;
 
   /**
-   * <p>The distance in meters of a great-circle arc between the bias position specified
-   *          and the result. <code>Distance</code> will be returned only if a bias position was
-   *          specified in the query.</p>
-   *          <note>
-   *             <p>A great-circle arc is the shortest path on a sphere, in this case the
-   *             Earth. This returns the shortest distance between two locations.</p>
-   *          </note>
+   * <p>The distance in meters of a great-circle arc between the bias position specified and
+   *             the result. <code>Distance</code> will be returned only if a bias position was specified
+   *             in the query.</p>
+   *         <note>
+   *             <p>A great-circle arc is the shortest path on a sphere, in this case the Earth. This
+   *                 returns the shortest distance between two locations.</p>
+   *         </note>
    */
   Distance?: number;
 
   /**
    * <p>The relative confidence in the match for a result among the results returned. For
-   *          example, if more fields for an address match (including house number, street, city,
-   *          country/region, and postal code), the relevance score is closer to 1.</p>
-   *          <p>Returned only when the partner selected is Esri.</p>
+   *             example, if more fields for an address match (including house number, street, city,
+   *             country/region, and postal code), the relevance score is closer to 1.</p>
+   *         <p>Returned only when the partner selected is Esri.</p>
    */
   Relevance?: number;
 }
@@ -5601,16 +5660,19 @@ export interface SearchPlaceIndexForTextSummary {
   Text: string | undefined;
 
   /**
-   * <p>Contains the coordinates for the optional bias position specified in the request.</p>
-   *          <p>This parameter contains a pair of numbers. The first number represents the X
-   *          coordinate, or longitude; the second number represents the Y coordinate, or latitude.</p>
-   *          <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with
-   *          longitude <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
+   * <p>Contains the coordinates for the optional bias position specified in the
+   *             request.</p>
+   *         <p>This parameter contains a pair of numbers. The first number represents the X
+   *             coordinate, or longitude; the second number represents the Y coordinate, or
+   *             latitude.</p>
+   *         <p>For example, <code>[-123.1174, 49.2847]</code> represents the position with longitude
+   *                 <code>-123.1174</code> and latitude <code>49.2847</code>.</p>
    */
   BiasPosition?: number[];
 
   /**
-   * <p>Contains the coordinates for the optional bounding box specified in the request.</p>
+   * <p>Contains the coordinates for the optional bounding box specified in the
+   *             request.</p>
    */
   FilterBBox?: number[];
 
@@ -5626,32 +5688,32 @@ export interface SearchPlaceIndexForTextSummary {
 
   /**
    * <p>The bounding box that fully contains all search results.</p>
-   *          <note>
-   *             <p>If you specified the optional <code>FilterBBox</code> parameter in the request, <code>ResultBBox</code>
-   *             is contained within <code>FilterBBox</code>.</p>
-   *          </note>
+   *         <note>
+   *             <p>If you specified the optional <code>FilterBBox</code> parameter in the request,
+   *                     <code>ResultBBox</code> is contained within <code>FilterBBox</code>.</p>
+   *         </note>
    */
   ResultBBox?: number[];
 
   /**
-   * <p>The geospatial data provider attached to the place index resource specified in the request.
-   *          Values can be one of the following:</p>
-   *          <ul>
+   * <p>The geospatial data provider attached to the place index resource specified in the
+   *             request. Values can be one of the following:</p>
+   *         <ul>
    *             <li>
-   *                <p>Esri</p>
+   *                 <p>Esri</p>
    *             </li>
    *             <li>
-   *                <p>Here</p>
+   *                 <p>Here</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
    * <p>The preferred language used to return results. Matches the language in the request.
-   *          The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a> language tag, for example,
-   *          <code>en</code> for English.</p>
+   *             The value is a valid <a href="https://tools.ietf.org/search/bcp47">BCP 47</a>
+   *             language tag, for example, <code>en</code> for English.</p>
    */
   Language?: string;
 }
@@ -5671,17 +5733,19 @@ export namespace SearchPlaceIndexForTextSummary {
 
 export interface SearchPlaceIndexForTextResponse {
   /**
-   * <p>Contains a summary of the request. Echoes the input values for <code>BiasPosition</code>,
-   *          <code>FilterBBox</code>, <code>FilterCountries</code>, <code>Language</code>, <code>MaxResults</code>,
-   *          and <code>Text</code>. Also includes the <code>DataSource</code> of the place index and
-   *          the bounding box, <code>ResultBBox</code>, which surrounds the search results.
-   *       </p>
+   * <p>Contains a summary of the request. Echoes the input values for
+   *                 <code>BiasPosition</code>, <code>FilterBBox</code>, <code>FilterCountries</code>,
+   *                 <code>Language</code>, <code>MaxResults</code>, and <code>Text</code>. Also includes
+   *             the <code>DataSource</code> of the place index and the bounding box,
+   *                 <code>ResultBBox</code>, which surrounds the search results. </p>
    */
   Summary: SearchPlaceIndexForTextSummary | undefined;
 
   /**
-   * <p>A list of Places matching the input text. Each result contains additional
-   *          information about the specific point of interest. </p>
+   * <p>A list of Places matching the input text. Each result contains additional information
+   *             about the specific point of interest. </p>
+   *         <p>Not all response properties are included with all responses. Some properties may
+   *             only be returned by specific data partners.</p>
    */
   Results: SearchForTextResult[] | undefined;
 }
@@ -5707,7 +5771,7 @@ export interface UpdatePlaceIndexRequest {
    * @deprecated
    *
    * <p>No longer used. If included, the only allowed value is
-   *          <code>RequestBasedUsage</code>.</p>
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -5739,11 +5803,11 @@ export interface UpdatePlaceIndexResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the upated place index resource. Used to specify a
-   *          resource across AWS.</p>
-   *          <ul>
+   *             resource across AWS.</p>
+   *         <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:place-
-   *             index/ExamplePlaceIndex</code>
+   *                 <p>Format example: <code>arn:aws:geo:region:account-id:place-
+   *                         index/ExamplePlaceIndex</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -5751,8 +5815,8 @@ export interface UpdatePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
-   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a> format:
-   *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
 }
@@ -5802,12 +5866,12 @@ export interface UpdateRouteCalculatorResponse {
   CalculatorName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to specify a resource
-   *             across AWS.</p>
+   * <p>The Amazon Resource Name (ARN) of the updated route calculator resource. Used to
+   *             specify a resource across AWS.</p>
    *         <ul>
    *             <li>
-   *                <p>Format example: <code>arn:aws:geo:region:account-id:route-
-   *                 calculator/ExampleCalculator</code>
+   *                 <p>Format example: <code>arn:aws:geo:region:account-id:route-
+   *                         calculator/ExampleCalculator</code>
    *                </p>
    *             </li>
    *          </ul>

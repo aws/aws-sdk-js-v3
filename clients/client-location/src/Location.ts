@@ -362,6 +362,10 @@ export class Location extends LocationClient {
    *             <p>Geofence evaluation uses the given device position. It does not account for the
    *                 optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>
    *         </note>
+   *         <note>
+   *             <p>The <code>DeviceID</code> is used as a string to represent the device. You do not
+   *                 need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.</p>
+   *         </note>
    */
   public batchEvaluateGeofences(
     args: BatchEvaluateGeofencesCommandInput,
@@ -519,8 +523,9 @@ export class Location extends LocationClient {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code>
-   *                     or <code>DepartNow</code>. This calculates a route based on predictive traffic
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a
+   *                         departure time</a> using either <code>DepartureTime</code> or
+   *                         <code>DepartNow</code>. This calculates a route based on predictive traffic
    *                     data at the given time. </p>
    *                 <note>
    *                     <p>You can't specify both <code>DepartureTime</code> and
@@ -530,9 +535,10 @@ export class Location extends LocationClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation
-   *                     mode used to calculate the routes. This also lets you specify additional route
-   *                     preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
+   *                         mode</a> using TravelMode sets the transportation mode used to calculate
+   *                     the routes. This also lets you specify additional route preferences in
+   *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
    *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
    *             </li>
    *          </ul>
@@ -568,30 +574,31 @@ export class Location extends LocationClient {
 
   /**
    * <p>
-   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a
-   *             route matrix</a> given the following required parameters:
-   *             <code>DeparturePositions</code> and <code>DestinationPositions</code>.
-   *             <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a route
+   *                 matrix</a> given the following required parameters:
+   *                 <code>DeparturePositions</code> and <code>DestinationPositions</code>.
+   *                 <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and
    *             travel distance from each departure position to each destination position in the
-   *             request. For example, given departure positions A and B, and destination positions
-   *             X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes
-   *             from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned
-   *             (and routes calculated) will be the number of <code>DeparturePositions</code>
-   *             times the number of <code>DestinationPositions</code>.</p>
+   *             request. For example, given departure positions A and B, and destination positions X and
+   *             Y, <code>CalculateRouteMatrix</code> will return time and distance for routes from A to
+   *             X, A to Y, B to X, and B to Y (in that order). The number of results returned (and
+   *             routes calculated) will be the number of <code>DeparturePositions</code> times the
+   *             number of <code>DestinationPositions</code>.</p>
    *         <note>
-   *             <p>Your account is charged for each route calculated, not the number of requests.</p>
+   *             <p>Your account is charged for each route calculated, not the number of
+   *                 requests.</p>
    *         </note>
    *         <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
-   *             route calculator resource</a>.</p>
+   *                 route calculator resource</a>.</p>
    *         <p>By default, a request that doesn't specify a departure time uses the best time of day
    *             to travel with the best traffic conditions when calculating routes.</p>
    *         <p>Additional options include:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">
-   *                         Specifying a departure time</a> using either <code>DepartureTime</code>
-   *                     or <code>DepartNow</code>. This calculates routes based on predictive traffic
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html"> Specifying a
+   *                         departure time</a> using either <code>DepartureTime</code> or
+   *                         <code>DepartNow</code>. This calculates routes based on predictive traffic
    *                     data at the given time. </p>
    *                 <note>
    *                     <p>You can't specify both <code>DepartureTime</code> and
@@ -601,9 +608,10 @@ export class Location extends LocationClient {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation
-   *                     mode used to calculate the routes. This also lets you specify additional route
-   *                     preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel
+   *                         mode</a> using TravelMode sets the transportation mode used to calculate
+   *                     the routes. This also lets you specify additional route preferences in
+   *                         <code>CarModeOptions</code> if traveling by <code>Car</code>, or
    *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
    *             </li>
    *          </ul>
@@ -704,15 +712,16 @@ export class Location extends LocationClient {
 
   /**
    * <p>Creates a place index resource in your AWS account. Use a place index resource to
-   *             geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation,
-   *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and
-   *             enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
-   *          <note>
+   *             geocode addresses and other text queries by using the
+   *                 <code>SearchPlaceIndexForText</code> operation, and reverse geocode coordinates by
+   *             using the <code>SearchPlaceIndexForPosition</code> operation, and enable autosuggestions
+   *             by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+   *         <note>
    *             <p>If your application is tracking or routing assets you use in your business, such
-   *             as delivery vehicles or employees, you may only use HERE as your geolocation
-   *             provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
-   *                service terms</a> for more details.</p>
-   *          </note>
+   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                     service terms</a> for more details.</p>
+   *         </note>
    */
   public createPlaceIndex(
     args: CreatePlaceIndexCommandInput,
@@ -752,7 +761,7 @@ export class Location extends LocationClient {
    *             <p>If your application is tracking or routing assets you use in your business, such
    *                 as delivery vehicles or employees, you may only use HERE as your geolocation
    *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
-   *                 service terms</a> for more details.</p>
+   *                     service terms</a> for more details.</p>
    *         </note>
    */
   public createRouteCalculator(
@@ -885,9 +894,9 @@ export class Location extends LocationClient {
 
   /**
    * <p>Deletes a place index resource from your AWS account.</p>
-   *          <note>
+   *         <note>
    *             <p>This operation deletes the resource permanently.</p>
-   *          </note>
+   *         </note>
    */
   public deletePlaceIndex(
     args: DeletePlaceIndexCommandInput,
@@ -922,7 +931,7 @@ export class Location extends LocationClient {
    * <p>Deletes a route calculator resource from your AWS account.</p>
    *         <note>
    *             <p>This operation deletes the resource permanently.</p>
-   *          </note>
+   *         </note>
    */
   public deleteRouteCalculator(
     args: DeleteRouteCalculatorCommandInput,
@@ -1713,8 +1722,8 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search
-   *          for Places or points of interest near a given position.</p>
+   * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to
+   *             search for Places or points of interest near a given position.</p>
    */
   public searchPlaceIndexForPosition(
     args: SearchPlaceIndexForPositionCommandInput,
@@ -1747,15 +1756,17 @@ export class Location extends LocationClient {
 
   /**
    * <p>Generates suggestions for addresses and points of interest based on partial or
-   *          misspelled free-form text. This operation is also known as autocomplete, autosuggest,
-   *          or fuzzy matching.</p>
-   *          <p>Optional parameters let you narrow your search results by bounding box or
-   *          country, or bias your search toward a specific position on the globe.</p>
-   *          <note>
-   *             <p>You can search for suggested place names near a specified position by using <code>BiasPosition</code>, or
-   *             filter results within a bounding box by using <code>FilterBBox</code>. These parameters are mutually exclusive;
-   *             using both <code>BiasPosition</code> and <code>FilterBBox</code> in the same command returns an error.</p>
-   *          </note>
+   *             misspelled free-form text. This operation is also known as autocomplete, autosuggest, or
+   *             fuzzy matching.</p>
+   *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+   *             bias your search toward a specific position on the globe.</p>
+   *         <note>
+   *             <p>You can search for suggested place names near a specified position by using
+   *                     <code>BiasPosition</code>, or filter results within a bounding box by using
+   *                     <code>FilterBBox</code>. These parameters are mutually exclusive; using both
+   *                     <code>BiasPosition</code> and <code>FilterBBox</code> in the same command
+   *                 returns an error.</p>
+   *         </note>
    */
   public searchPlaceIndexForSuggestions(
     args: SearchPlaceIndexForSuggestionsCommandInput,
@@ -1788,15 +1799,15 @@ export class Location extends LocationClient {
 
   /**
    * <p>Geocodes free-form text, such as an address, name, city, or region to allow you to
-   *          search for Places or points of interest. </p>
-   *          <p>Optional parameters let you narrow your search results by bounding box or
-   *          country, or bias your search toward a specific position on the globe.</p>
-   *          <note>
-   *             <p>You can search for places near a given position using <code>BiasPosition</code>, or
-   *             filter results within a bounding box using <code>FilterBBox</code>. Providing both
-   *             parameters simultaneously returns an error.</p>
-   *          </note>
-   *          <p>Search results are returned in order of highest to lowest relevance.</p>
+   *             search for Places or points of interest. </p>
+   *         <p>Optional parameters let you narrow your search results by bounding box or country, or
+   *             bias your search toward a specific position on the globe.</p>
+   *         <note>
+   *             <p>You can search for places near a given position using <code>BiasPosition</code>,
+   *                 or filter results within a bounding box using <code>FilterBBox</code>. Providing
+   *                 both parameters simultaneously returns an error.</p>
+   *         </note>
+   *         <p>Search results are returned in order of highest to lowest relevance.</p>
    */
   public searchPlaceIndexForText(
     args: SearchPlaceIndexForTextCommandInput,

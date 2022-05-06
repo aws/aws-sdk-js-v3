@@ -25,8 +25,8 @@ export interface SearchPlaceIndexForPositionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search
- *          for Places or points of interest near a given position.</p>
+ * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to
+ *             search for Places or points of interest near a given position.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
