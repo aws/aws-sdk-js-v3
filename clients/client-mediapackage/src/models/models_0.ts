@@ -682,6 +682,7 @@ export enum ManifestLayout {
 }
 
 export enum Profile {
+  DVB_DASH_2014 = "DVB_DASH_2014",
   HBBTV_1_5 = "HBBTV_1_5",
   HYBRIDCAST = "HYBRIDCAST",
   NONE = "NONE",
@@ -696,6 +697,7 @@ export enum SegmentTemplateFormat {
 export enum UtcTiming {
   HTTP_HEAD = "HTTP-HEAD",
   HTTP_ISO = "HTTP-ISO",
+  HTTP_XSDATE = "HTTP-XSDATE",
   NONE = "NONE",
 }
 
@@ -756,7 +758,7 @@ export interface DashPackage {
   PeriodTriggers?: (__PeriodTriggersElement | string)[];
 
   /**
-   * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+   * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled. When set to "DVB-DASH_2014", DVB-DASH 2014 compliant output is enabled.
    */
   Profile?: Profile | string;
 
@@ -787,7 +789,7 @@ export interface DashPackage {
   UtcTiming?: UtcTiming | string;
 
   /**
-   * Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+   * Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
    */
   UtcTimingUri?: string;
 }
