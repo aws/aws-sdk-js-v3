@@ -2886,9 +2886,12 @@ export enum IpamState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**
@@ -3145,9 +3148,12 @@ export enum IpamPoolState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**
@@ -3346,9 +3352,12 @@ export enum IpamScopeState {
   delete_complete = "delete-complete",
   delete_failed = "delete-failed",
   delete_in_progress = "delete-in-progress",
+  isolate_complete = "isolate-complete",
+  isolate_in_progress = "isolate-in-progress",
   modify_complete = "modify-complete",
   modify_failed = "modify-failed",
   modify_in_progress = "modify-in-progress",
+  restore_in_progress = "restore-in-progress",
 }
 
 /**

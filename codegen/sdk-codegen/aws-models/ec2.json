@@ -48913,6 +48913,18 @@
           {
             "value": "delete-failed",
             "name": "delete_failed"
+          },
+          {
+            "value": "isolate-in-progress",
+            "name": "isolate_in_progress"
+          },
+          {
+            "value": "isolate-complete",
+            "name": "isolate_complete"
+          },
+          {
+            "value": "restore-in-progress",
+            "name": "restore_in_progress"
           }
         ]
       }
@@ -49261,6 +49273,18 @@
           {
             "value": "delete-failed",
             "name": "delete_failed"
+          },
+          {
+            "value": "isolate-in-progress",
+            "name": "isolate_in_progress"
+          },
+          {
+            "value": "isolate-complete",
+            "name": "isolate_complete"
+          },
+          {
+            "value": "restore-in-progress",
+            "name": "restore_in_progress"
           }
         ]
       }
@@ -49328,6 +49352,18 @@
           {
             "value": "delete-failed",
             "name": "delete_failed"
+          },
+          {
+            "value": "isolate-in-progress",
+            "name": "isolate_in_progress"
+          },
+          {
+            "value": "isolate-complete",
+            "name": "isolate_complete"
+          },
+          {
+            "value": "restore-in-progress",
+            "name": "restore_in_progress"
           }
         ]
       }
