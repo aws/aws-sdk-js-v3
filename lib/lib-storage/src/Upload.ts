@@ -1,5 +1,6 @@
 import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 import {
+  AbortMultipartUploadCommandOutput,
   CompletedPart,
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -8,7 +9,7 @@ import {
   PutObjectCommand,
   PutObjectCommandInput,
   PutObjectTaggingCommand,
-  ServiceOutputTypes,
+  S3Client,
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
@@ -17,7 +18,7 @@ import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
 import { getChunk } from "./chunker";
-import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
+import { BodyDataTypes, Options, Progress } from "./types";
 
 export interface RawDataPart {
   partNumber: number;
@@ -39,7 +40,7 @@ export class Upload extends EventEmitter {
   private leavePartsOnError = false;
   private tags: Tag[] = [];
 
-  private client: ServiceClients;
+  private client: S3Client;
   private params: PutObjectCommandInput;
 
   // used for reporting progress.
@@ -56,9 +57,9 @@ export class Upload extends EventEmitter {
   uploadEvent?: string;
 
   private isMultiPart = true;
-  private putResponse?: CompleteMultipartUploadCommandOutput;
+  private singleUploadResult?: CompleteMultipartUploadCommandOutput;
 
-  constructor(options: Options) {
+  constructor(options: Options & { client: S3Client }) {
     super();
 
     // set defaults from options.
@@ -86,16 +87,16 @@ export class Upload extends EventEmitter {
     this.abortController.abort();
   }
 
-  async done(): Promise<ServiceOutputTypes> {
+  public async done(): Promise<CompleteMultipartUploadCommandOutput | AbortMultipartUploadCommandOutput> {
     return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
-  on(event: "httpUploadProgress", listener: (progress: Progress) => void): any {
+  public on(event: "httpUploadProgress", listener: (progress: Progress) => void): this {
     this.uploadEvent = event;
-    super.on(event, listener);
+    return super.on(event, listener);
   }
 
-  async __uploadUsingPut(dataPart: RawDataPart) {
+  private async __uploadUsingPut(dataPart: RawDataPart): Promise<void> {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
     const [putResult, endpoint] = await Promise.all([
@@ -113,7 +114,7 @@ export class Upload extends EventEmitter {
       ? `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`
       : `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
 
-    this.putResponse = {
+    this.singleUploadResult = {
       ...putResult,
       Bucket: this.params.Bucket,
       Key: this.params.Key,
@@ -129,7 +130,7 @@ export class Upload extends EventEmitter {
     });
   }
 
-  async __createMultipartUpload() {
+  private async __createMultipartUpload(): Promise<void> {
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
       this.createMultiPartPromise = this.client.send(new CreateMultipartUploadCommand(createCommandParams));
@@ -138,7 +139,7 @@ export class Upload extends EventEmitter {
     this.uploadId = createMultipartUploadResult.UploadId;
   }
 
-  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
+  private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
       if (this.uploadedParts.length > this.MAX_PARTS) {
         throw new Error(
@@ -207,7 +208,7 @@ export class Upload extends EventEmitter {
     }
   }
 
-  async __doMultipartUpload(): Promise<ServiceOutputTypes> {
+  private async __doMultipartUpload(): Promise<CompleteMultipartUploadCommandOutput> {
     // Set up data input chunks.
     const dataFeeder = getChunk(this.params.Body, this.partSize);
 
@@ -237,7 +238,7 @@ export class Upload extends EventEmitter {
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
     } else {
-      result = this.putResponse!;
+      result = this.singleUploadResult!;
     }
 
     // Add tags to the object after it's completed the upload.
@@ -255,13 +256,13 @@ export class Upload extends EventEmitter {
     return result;
   }
 
-  __notifyProgress(progress: Progress) {
+  private __notifyProgress(progress: Progress): void {
     if (this.uploadEvent) {
       this.emit(this.uploadEvent, progress);
     }
   }
 
-  async __abortTimeout(abortSignal: AbortSignal): Promise<ServiceOutputTypes> {
+  private async __abortTimeout(abortSignal: AbortSignal): Promise<AbortMultipartUploadCommandOutput> {
     return new Promise((resolve, reject) => {
       abortSignal.onabort = () => {
         const abortError = new Error("Upload aborted.");
@@ -271,7 +272,7 @@ export class Upload extends EventEmitter {
     });
   }
 
-  __validateInput() {
+  private __validateInput(): void {
     if (!this.params) {
       throw new Error(`InputError: Upload requires params to be passed to upload.`);
     }
