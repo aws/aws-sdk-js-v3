@@ -2,16 +2,17 @@ import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
 import {
   CompletedPart,
   CompleteMultipartUploadCommand,
+  CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
   CreateMultipartUploadCommandOutput,
   PutObjectCommand,
   PutObjectCommandInput,
-  PutObjectCommandOutput,
   PutObjectTaggingCommand,
   ServiceOutputTypes,
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
+import { extendedEncodeURIComponent } from "@aws-sdk/smithy-client";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
@@ -55,7 +56,7 @@ export class Upload extends EventEmitter {
   uploadEvent?: string;
 
   private isMultiPart = true;
-  private putResponse?: PutObjectCommandOutput;
+  private putResponse?: CompleteMultipartUploadCommandOutput;
 
   constructor(options: Options) {
     super();
@@ -97,8 +98,27 @@ export class Upload extends EventEmitter {
   async __uploadUsingPut(dataPart: RawDataPart) {
     this.isMultiPart = false;
     const params = { ...this.params, Body: dataPart.data };
-    const putResult = await this.client.send(new PutObjectCommand(params));
-    this.putResponse = putResult;
+    const [putResult, endpoint] = await Promise.all([
+      this.client.send(new PutObjectCommand(params)),
+      this.client.config.endpoint(),
+    ]);
+
+    const locationKey = this.params
+      .Key!.split("/")
+      .map((segment) => extendedEncodeURIComponent(segment))
+      .join("/");
+    const locationBucket = extendedEncodeURIComponent(this.params.Bucket!);
+
+    const Location: string = this.client.config.forcePathStyle
+      ? `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`
+      : `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+
+    this.putResponse = {
+      ...putResult,
+      Bucket: this.params.Bucket,
+      Key: this.params.Key,
+      Location,
+    };
     const totalSize = byteLength(dataPart.data);
     this.__notifyProgress({
       loaded: totalSize,
