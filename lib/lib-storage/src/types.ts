@@ -11,6 +11,9 @@ export interface Progress {
 // string | Uint8Array | Buffer | Readable | ReadableStream | Blob.
 export type BodyDataTypes = PutObjectCommandInput["Body"];
 
+/**
+ * @deprecated redundant, use {@link S3Client} directly.
+ */
 export type ServiceClients = S3Client;
 
 export interface Configuration {
@@ -49,5 +52,5 @@ export interface Options extends Partial<Configuration> {
    * A service client.
    * This the target where we upload data.
    */
-  client: ServiceClients;
+  client: S3Client;
 }

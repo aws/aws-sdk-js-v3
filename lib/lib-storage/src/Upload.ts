@@ -59,7 +59,7 @@ export class Upload extends EventEmitter {
   private isMultiPart = true;
   private singleUploadResult?: CompleteMultipartUploadCommandOutput;
 
-  constructor(options: Options & { client: S3Client }) {
+  constructor(options: Options) {
     super();
 
     // set defaults from options.
