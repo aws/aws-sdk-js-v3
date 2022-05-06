@@ -40,8 +40,13 @@ request per second, <code>BurstLimit</code> of 1 request per second.</p>
 </li>
 <li>
 <p>
-<code>UpdateFindings</code> - <code>RateLimit</code> of 1 request per
-second. <code>BurstLimit</code> of 5 requests per second.</p>
+<code>BatchImportFindings</code> - <code>RateLimit</code> of 10 requests per second.
+<code>BurstLimit</code> of 30 requests per second.</p>
+</li>
+<li>
+<p>
+<code>BatchUpdateFindings</code> - <code>RateLimit</code> of 10 requests per second.
+<code>BurstLimit</code> of 30 requests per second.</p>
 </li>
 <li>
 <p>
