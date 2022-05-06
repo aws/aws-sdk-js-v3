@@ -6014,15 +6014,6 @@ export interface CreateDBInstanceMessage {
    *          </p>
    *         <p>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
    *             The specified Availability Zone must be in the same Amazon Web Services Region as the current endpoint.</p>
-   *         <note>
-   *             <p>If you're creating a DB instance in an RDS on VMware environment,
-   *                 specify the identifier of the custom Availability Zone to create the DB instance
-   *                 in.</p>
-   *             <p>For more information about RDS on VMware, see the
-   *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
-   *                   RDS on VMware User Guide.</a>
-   *             </p>
-   *         </note>
    */
   AvailabilityZone?: string;
 
