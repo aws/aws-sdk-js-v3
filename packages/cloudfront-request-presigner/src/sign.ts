@@ -1,39 +1,136 @@
 import { parseUrl } from "@aws-sdk/url-parser";
 import { createSign } from "crypto";
 
-interface PolicyDates {
-  dateLessThan: number;
-  dateGreaterThan?: number;
-}
-
+/** Input type to getSignedUrl and getSignedCookies */
 export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
 
 export interface CloudfrontSignInputBase {
+  /** The URL string to sign */
   url: string;
+  /** The ID of the Cloudfront key pair */
   keyPairId: string;
+  /** The content of the Cloudfront private key */
   privateKey: string | Buffer;
+  /** The date string for when the signed URL or cookie can no longer be accessed */
   dateLessThan?: string;
+  /** The IP address string to restrict signed URL access to */
   ipAddress?: string;
+  /** The date string for when the signed URL or cookie can start to be accessed */
   dateGreaterThan?: string;
 }
 
 export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
+  /** The date string for when the signed URL or cookie can no longer be accessed */
   dateLessThan: string;
+  /** The JSON-encoded policy string. For this type policy should not be provided. */
   policy?: never;
 };
 
 export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
+  /** The JSON-encoded policy string */
   policy: string;
+  /**
+   * The date string for when the signed URL or cookie can no longer be accessed.
+   * For this type dateLessThan should not be provided.
+   */
   dateLessThan?: never;
-  ipAddress?: never;
+  /** The IP address string to restrict signed URL access to
+   * For this type ipAddress should not be provided.
+   */
+  ipAddress?: string;
+  /** The date string for when the signed URL or cookie can start to be accessed
+   * For this type dateGreaterThan should not be provided.
+   */
   dateGreaterThan?: never;
 };
 
 export interface CloudfrontSignedCookiesOutput {
+  /** ID of the Cloudfront key pair */
   "CloudFront-Key-Pair-Id": string;
+  /** Hashed, signed, and base64-encoded version of the JSON policy */
   "CloudFront-Signature": string;
+  /** The unix date time for when the signed URL or cookie can no longer be accessed */
   "CloudFront-Expires"?: number;
+  /** Base64-encoded version of the JSON policy */
   "CloudFront-Policy"?: string;
+}
+/**
+ * Creates a signed URL string using a canned or custom policy.
+ * @param  {CloudfrontSignInput} options
+ * @param  {string} options.dateLessThan
+ * @param  {string} options.dateGreaterThan
+ * @param  {string} options.url
+ * @param  {string} options.keyPairId
+ * @param  {string|Buffer} options.privateKey
+ * @param  {string} options.ipAddress
+ * @param  {string} options.policy
+ * @returns string
+ */
+export function getSignedUrl({
+  dateLessThan,
+  dateGreaterThan,
+  url,
+  keyPairId,
+  privateKey,
+  ipAddress,
+  policy,
+}: CloudfrontSignInput): string {
+  const resource = getResource(url);
+  const parsedUrl = parseUrl(url);
+  const queryParams: string[] = [];
+  for (const key in parsedUrl.query) {
+    queryParams.push(`${key}=${parsedUrl.query[key]}`);
+  }
+  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
+  const cloudfrontQueryParams = policy
+    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
+    : shouldCreateCustomPolicy
+    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
+    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
+  for (const key in cloudfrontQueryParams) {
+    queryParams.push(`${key}=${cloudfrontQueryParams[key]}`);
+  }
+  const urlWithNewQueryParams = `${url.split("?")[0]}?${queryParams.join("&")}`;
+  if (determineScheme(url) === "rtmp") {
+    return getRtmpUrl(urlWithNewQueryParams);
+  }
+  return urlWithNewQueryParams;
+}
+
+/**
+ * Creates signed cookies using a canned or custom policy.
+ * @param  {CloudfrontSignInput} options
+ * @param  {string} options.dateLessThan
+ * @param  {string} options.dateGreaterThan
+ * @param  {string} options.url
+ * @param  {string} options.keyPairId
+ * @param  {string|Buffer} options.privateKey
+ * @param  {string} options.ipAddress
+ * @param  {string} options.policy
+ * @returns CloudfrontSignedCookiesOutput
+ */
+export function getSignedCookies({
+  ipAddress,
+  url,
+  privateKey,
+  keyPairId,
+  dateLessThan,
+  dateGreaterThan,
+  policy,
+}: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
+  const resource = getResource(url);
+  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
+  const cloudfrontCookieAttributes = policy
+    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
+    : shouldCreateCustomPolicy
+    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
+    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
+  return {
+    "CloudFront-Key-Pair-Id": cloudfrontCookieAttributes["Key-Pair-Id"],
+    "CloudFront-Signature": cloudfrontCookieAttributes.Signature,
+    "CloudFront-Expires": cloudfrontCookieAttributes.Expires,
+    "CloudFront-Policy": cloudfrontCookieAttributes.Policy,
+  };
 }
 
 interface Policy {
@@ -51,6 +148,11 @@ interface Policy {
       };
     };
   }>;
+}
+
+interface PolicyDates {
+  dateLessThan: number;
+  dateGreaterThan?: number;
 }
 
 interface BuildPolicyInput extends PolicyDates, Pick<CloudfrontSignInput, "ipAddress"> {
@@ -282,59 +384,4 @@ function signWithCustomPolicy({
     privateKey,
     policy,
   });
-}
-
-export function getSignedUrl({
-  dateLessThan,
-  dateGreaterThan,
-  url,
-  keyPairId,
-  privateKey,
-  ipAddress,
-  policy,
-}: CloudfrontSignInput): string {
-  const resource = getResource(url);
-  const parsedUrl = parseUrl(url);
-  const queryParams: string[] = [];
-  for (const key in parsedUrl.query) {
-    queryParams.push(`${key}=${parsedUrl.query[key]}`);
-  }
-  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
-  const cloudfrontQueryParams = policy
-    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
-    : shouldCreateCustomPolicy
-    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
-    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
-  for (const key in cloudfrontQueryParams) {
-    queryParams.push(`${key}=${cloudfrontQueryParams[key]}`);
-  }
-  const urlWithNewQueryParams = `${url.split("?")[0]}?${queryParams.join("&")}`;
-  if (determineScheme(url) === "rtmp") {
-    return getRtmpUrl(urlWithNewQueryParams);
-  }
-  return urlWithNewQueryParams;
-}
-
-export function getSignedCookies({
-  ipAddress,
-  url,
-  privateKey,
-  keyPairId,
-  dateLessThan,
-  dateGreaterThan,
-  policy,
-}: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
-  const resource = getResource(url);
-  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
-  const cloudfrontCookieAttributes = policy
-    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
-    : shouldCreateCustomPolicy
-    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
-    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
-  return {
-    "CloudFront-Key-Pair-Id": cloudfrontCookieAttributes["Key-Pair-Id"],
-    "CloudFront-Signature": cloudfrontCookieAttributes.Signature,
-    "CloudFront-Expires": cloudfrontCookieAttributes.Expires,
-    "CloudFront-Policy": cloudfrontCookieAttributes.Policy,
-  };
 }
