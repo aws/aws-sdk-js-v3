@@ -317,6 +317,19 @@ describe("getSignedUrl", () => {
     );
     expect(verifySignature(denormalizeBase64(signature), policyStr)).toBeTruthy();
   });
+  it("should sign a URL with a policy provided by the user", () => {
+    const policy = '{"foo":"bar"}';
+    const result = getSignedUrl({
+      url,
+      keyPairId,
+      privateKey,
+      policy,
+    });
+    const signature = createSignature(policy);
+    expect(result).toBe(`${url}?Policy=${encodeToBase64(policy)}&Key-Pair-Id=${keyPairId}&Signature=${signature}`);
+    const signatureQueryParam = denormalizeBase64(signature);
+    expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
+  });
 });
 
 describe("getSignedCookies", () => {
@@ -541,5 +554,24 @@ describe("getSignedCookies", () => {
     expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
     expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
     expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policyStr)).toBeTruthy();
+  });
+  it("should sign a URL with a policy provided by the user", () => {
+    const policy = '{"foo":"bar"}';
+    const result = getSignedCookies({
+      url,
+      keyPairId,
+      privateKey,
+      policy,
+    });
+    const signature = createSignature(policy);
+    const expected = {
+      "CloudFront-Policy": encodeToBase64(policy),
+      "CloudFront-Key-Pair-Id": keyPairId,
+      "CloudFront-Signature": signature,
+    };
+    expect(result["CloudFront-Policy"]).toBe(expected["CloudFront-Policy"]);
+    expect(result["CloudFront-Key-Pair-Id"]).toBe(expected["CloudFront-Key-Pair-Id"]);
+    expect(result["CloudFront-Signature"]).toBe(expected["CloudFront-Signature"]);
+    expect(verifySignature(denormalizeBase64(result["CloudFront-Signature"]), policy)).toBeTruthy();
   });
 });
