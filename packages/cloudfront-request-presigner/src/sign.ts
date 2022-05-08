@@ -75,24 +75,38 @@ export function getSignedUrl({
   ipAddress,
   policy,
 }: CloudfrontSignInput): string {
-  const resource = getResource(url);
   const parsedUrl = parseUrl(url);
   const queryParams: string[] = [];
   for (const key in parsedUrl.query) {
     queryParams.push(`${key}=${parsedUrl.query[key]}`);
   }
-  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
-  const cloudfrontQueryParams = policy
-    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
-    : shouldCreateCustomPolicy
-    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
-    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
-  for (const key in cloudfrontQueryParams) {
-    queryParams.push(`${key}=${cloudfrontQueryParams[key]}`);
+  const cloudfrontSignBuilder = new CloudfrontSignBuilder({
+    keyPairId,
+    privateKey,
+  });
+  if (policy) {
+    cloudfrontSignBuilder.setCustomPolicy(policy);
+  } else {
+    cloudfrontSignBuilder.setPolicyParameters({
+      url,
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress,
+    });
   }
+  const cloudfrontQueryParams = cloudfrontSignBuilder.createCloudfrontAttribute();
+  if (cloudfrontQueryParams["Expires"]) {
+    queryParams.push(`Expires=${cloudfrontQueryParams["Expires"]}`);
+  }
+  if (cloudfrontQueryParams["Policy"]) {
+    queryParams.push(`Policy=${cloudfrontQueryParams["Policy"]}`);
+  }
+  queryParams.push(`Key-Pair-Id=${keyPairId}`);
+  queryParams.push(`Signature=${cloudfrontQueryParams["Signature"]}`);
   const urlWithNewQueryParams = `${url.split("?")[0]}?${queryParams.join("&")}`;
-  if (determineScheme(url) === "rtmp") {
-    return getRtmpUrl(urlWithNewQueryParams);
+  const urlParser = new CloudfrontURLParser();
+  if (urlParser.determineScheme(url) === "rtmp") {
+    return urlParser.getRtmpUrl(urlWithNewQueryParams);
   }
   return urlWithNewQueryParams;
 }
@@ -118,19 +132,32 @@ export function getSignedCookies({
   dateGreaterThan,
   policy,
 }: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
-  const resource = getResource(url);
-  const shouldCreateCustomPolicy = Boolean(dateGreaterThan) || Boolean(ipAddress);
-  const cloudfrontCookieAttributes = policy
-    ? signWithProvidedPolicy({ keyPairId, privateKey, policy })
-    : shouldCreateCustomPolicy
-    ? signWithCustomPolicy({ keyPairId, privateKey, resource, dateLessThan, dateGreaterThan, ipAddress })
-    : signWithCannedPolicy({ keyPairId, privateKey, resource, dateLessThan });
-  return {
+  const cloudfrontSignBuilder = new CloudfrontSignBuilder({
+    keyPairId,
+    privateKey,
+  });
+  if (policy) {
+    cloudfrontSignBuilder.setCustomPolicy(policy);
+  } else {
+    cloudfrontSignBuilder.setPolicyParameters({
+      url,
+      dateLessThan,
+      dateGreaterThan,
+      ipAddress,
+    });
+  }
+  const cloudfrontCookieAttributes = cloudfrontSignBuilder.createCloudfrontAttribute();
+  const cookies: CloudfrontSignedCookiesOutput = {
     "CloudFront-Key-Pair-Id": cloudfrontCookieAttributes["Key-Pair-Id"],
-    "CloudFront-Signature": cloudfrontCookieAttributes.Signature,
-    "CloudFront-Expires": cloudfrontCookieAttributes.Expires,
-    "CloudFront-Policy": cloudfrontCookieAttributes.Policy,
+    "CloudFront-Signature": cloudfrontCookieAttributes["Signature"],
   };
+  if (cloudfrontCookieAttributes["Expires"]) {
+    cookies["CloudFront-Expires"] = cloudfrontCookieAttributes["Expires"];
+  }
+  if (cloudfrontCookieAttributes["Policy"]) {
+    cookies["CloudFront-Policy"] = cloudfrontCookieAttributes["Policy"];
+  }
+  return cookies;
 }
 
 interface Policy {
@@ -159,229 +186,216 @@ interface BuildPolicyInput extends PolicyDates, Pick<CloudfrontSignInput, "ipAdd
   resource: string;
 }
 
-interface SignedURLAttributes {
+interface CloudfrontAttributes {
   Expires?: number;
   Policy?: string;
   "Key-Pair-Id": string;
   Signature: string;
 }
 
-function epochTime(date: Date): number {
-  return Math.round(date.getTime() / 1000);
-}
-
-function encodeToBase64(str: string): string {
-  return normalizeBase64(Buffer.from(str).toString("base64"));
-}
-
-function normalizeBase64(str: string): string {
-  const replacements = {
-    "+": "-",
-    "=": "_",
-    "/": "~",
-  } as Record<string, string>;
-  return str.replace(/[+=/]/g, function (match) {
-    return replacements[match];
-  });
-}
-
-function validateIP(ipStr: string): void {
-  const octets = ipStr.split(".");
-  if (octets.length !== 4) {
-    throw new Error(`IP does not contain four octets.`);
-  }
-  const isValid = octets.every((octet: string) => {
-    const num = Number(octet);
-    return Number.isInteger(num) && num >= 0 && num <= 255;
-  });
-  if (!isValid) {
-    throw new Error("invalid IP octets");
-  }
-}
-
-function validateMask(maskStr: string): void {
-  const mask = Number(maskStr);
-  const isValid = Number.isInteger(mask) && mask >= 0 && mask <= 32;
-  if (!isValid) {
-    throw new Error("invalid mask");
-  }
-}
-
-function parseCIDR(cidrStr: string): string {
-  try {
-    const cidrParts = cidrStr.split("/");
-    if (cidrParts.some((part: string) => part.length === 0)) {
-      throw new Error("missing ip or mask part of CIDR");
+class CloudfrontURLParser {
+  public determineScheme(url: string) {
+    const parts = url.split("://");
+    if (parts.length < 2) {
+      throw new Error("Invalid URL.");
     }
-    validateIP(cidrParts[0]);
-    let mask = "32";
-    if (cidrParts.length === 2) {
-      validateMask(cidrParts[1]);
-      mask = cidrParts[1];
-    }
-    return `${cidrParts[0]}/${mask}`;
-  } catch (error) {
-    const errMessage = `IP address "${cidrStr}" is invalid`;
-    if (error instanceof Error) {
-      throw new Error(`${errMessage} due to ${error.message}.`);
-    } else {
-      throw new Error(`${errMessage}.`);
+    return parts[0].replace("*", "");
+  }
+
+  public getRtmpUrl(rtmpUrl: string) {
+    const parsed = new URL(rtmpUrl);
+    return parsed.pathname.replace(/^\//, "") + parsed.search + parsed.hash;
+  }
+
+  public getResource(url: string): string {
+    switch (this.determineScheme(url)) {
+      case "http":
+      case "https":
+        return url;
+      case "rtmp":
+        return this.getRtmpUrl(url);
+      default:
+        throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
     }
   }
 }
 
-function buildPolicy(args: BuildPolicyInput): Policy {
-  const policy: Policy = {
-    Statement: [
-      {
-        Resource: args.resource,
-        Condition: {
-          DateLessThan: {
-            "AWS:EpochTime": args.dateLessThan,
+class CloudfrontSignBuilder {
+  private keyPairId: string;
+  private privateKey: string | Buffer;
+  private policy: string;
+  private customPolicy = false;
+  private dateLessThan?: number | undefined;
+  private urlParser = new CloudfrontURLParser();
+  constructor({ privateKey, keyPairId }: { keyPairId: string; privateKey: string | Buffer }) {
+    this.keyPairId = keyPairId;
+    this.privateKey = privateKey;
+    this.policy = "";
+  }
+
+  private buildPolicy(args: BuildPolicyInput): Policy {
+    const policy: Policy = {
+      Statement: [
+        {
+          Resource: args.resource,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": args.dateLessThan,
+            },
           },
         },
-      },
-    ],
-  };
-  if (args.dateGreaterThan) {
-    policy.Statement[0].Condition["DateGreaterThan"] = {
-      "AWS:EpochTime": args.dateGreaterThan,
+      ],
+    };
+    if (args.dateGreaterThan) {
+      policy.Statement[0].Condition["DateGreaterThan"] = {
+        "AWS:EpochTime": args.dateGreaterThan,
+      };
+    }
+    if (args.ipAddress) {
+      const cidr = this.parseCIDR(args.ipAddress);
+      policy.Statement[0].Condition["IpAddress"] = {
+        "AWS:SourceIp": cidr,
+      };
+    }
+    return policy;
+  }
+
+  private normalizeBase64(str: string): string {
+    const replacements = {
+      "+": "-",
+      "=": "_",
+      "/": "~",
+    } as Record<string, string>;
+    return str.replace(/[+=/]/g, function (match) {
+      return replacements[match];
+    });
+  }
+
+  private encodeToBase64(str: string): string {
+    return this.normalizeBase64(Buffer.from(str).toString("base64"));
+  }
+
+  private validateIP(ipStr: string): void {
+    const octets = ipStr.split(".");
+    if (octets.length !== 4) {
+      throw new Error(`IP does not contain four octets.`);
+    }
+    const isValid = octets.every((octet: string) => {
+      const num = Number(octet);
+      return Number.isInteger(num) && num >= 0 && num <= 255;
+    });
+    if (!isValid) {
+      throw new Error("invalid IP octets");
+    }
+  }
+
+  private validateMask(maskStr: string): void {
+    const mask = Number(maskStr);
+    const isValid = Number.isInteger(mask) && mask >= 0 && mask <= 32;
+    if (!isValid) {
+      throw new Error("invalid mask");
+    }
+  }
+
+  private parseCIDR(cidrStr: string): string {
+    try {
+      const cidrParts = cidrStr.split("/");
+      if (cidrParts.some((part: string) => part.length === 0)) {
+        throw new Error("missing ip or mask part of CIDR");
+      }
+      this.validateIP(cidrParts[0]);
+      let mask = "32";
+      if (cidrParts.length === 2) {
+        this.validateMask(cidrParts[1]);
+        mask = cidrParts[1];
+      }
+      return `${cidrParts[0]}/${mask}`;
+    } catch (error) {
+      const errMessage = `IP address "${cidrStr}" is invalid`;
+      if (error instanceof Error) {
+        throw new Error(`${errMessage} due to ${error.message}.`);
+      } else {
+        throw new Error(`${errMessage}.`);
+      }
+    }
+  }
+
+  private epochTime(date: Date): number {
+    return Math.round(date.getTime() / 1000);
+  }
+
+  private parseDate(date?: string): number | undefined {
+    if (!date) {
+      return undefined;
+    }
+    const parsedDate = Date.parse(date);
+    return isNaN(parsedDate) ? undefined : this.epochTime(new Date(parsedDate));
+  }
+
+  private parseDateWindow(expiration: string, start?: string): PolicyDates {
+    const dateLessThan = this.parseDate(expiration);
+    if (!dateLessThan) {
+      throw new Error("dateLessThan is invalid. Ensure the date string is compatible with the Date constructor.");
+    }
+    return {
+      dateLessThan,
+      dateGreaterThan: this.parseDate(start),
     };
   }
-  if (args.ipAddress) {
-    const cidr = parseCIDR(args.ipAddress);
-    policy.Statement[0].Condition["IpAddress"] = {
-      "AWS:SourceIp": cidr,
-    };
-  }
-  return policy;
-}
 
-function signData(data: string, privateKey: string | Buffer): string {
-  const sign = createSign("RSA-SHA1");
-  sign.update(data);
-  return sign.sign(privateKey, "base64");
-}
-
-function parseDate(date?: string): number | undefined {
-  if (!date) {
-    return undefined;
+  private signData(data: string, privateKey: string | Buffer): string {
+    const sign = createSign("RSA-SHA1");
+    sign.update(data);
+    return sign.sign(privateKey, "base64");
   }
-  const parsedDate = Date.parse(date);
-  return isNaN(parsedDate) ? undefined : epochTime(new Date(parsedDate));
-}
 
-function parseDateWindow(expiration: string, start?: string): PolicyDates {
-  const dateLessThan = parseDate(expiration);
-  if (!dateLessThan) {
-    throw new Error("dateLessThan is invalid. Ensure the date string is compatible with the Date constructor.");
+  private signPolicy(policy: string, privateKey: string | Buffer): string {
+    return this.normalizeBase64(this.signData(policy, privateKey));
   }
-  return {
+
+  setCustomPolicy(policy: string) {
+    this.customPolicy = true;
+    this.policy = policy;
+  }
+
+  setPolicyParameters({
+    url,
     dateLessThan,
-    dateGreaterThan: parseDate(start),
-  };
-}
-
-function signPolicy(policy: string, privateKey: string | Buffer): string {
-  return normalizeBase64(signData(policy, privateKey));
-}
-
-function determineScheme(url: string) {
-  const parts = url.split("://");
-  if (parts.length < 2) {
-    throw new Error("Invalid URL.");
+    dateGreaterThan,
+    ipAddress,
+  }: {
+    url?: string;
+    dateLessThan?: string;
+    dateGreaterThan?: string;
+    ipAddress?: string;
+  }) {
+    if (!url || !dateLessThan) {
+      return false;
+    }
+    const resource = this.urlParser.getResource(url);
+    const parsedDates = this.parseDateWindow(dateLessThan, dateGreaterThan);
+    this.dateLessThan = parsedDates.dateLessThan;
+    this.customPolicy = Boolean(parsedDates.dateGreaterThan) || Boolean(ipAddress);
+    this.policy = JSON.stringify(
+      this.buildPolicy({
+        resource,
+        ipAddress,
+        dateLessThan: parsedDates.dateLessThan,
+        dateGreaterThan: parsedDates.dateGreaterThan,
+      })
+    );
   }
 
-  return parts[0].replace("*", "");
-}
-
-function getRtmpUrl(rtmpUrl: string) {
-  const parsed = new URL(rtmpUrl);
-  return parsed.pathname.replace(/^\//, "") + parsed.search + parsed.hash;
-}
-
-function getResource(url: string): string {
-  switch (determineScheme(url)) {
-    case "http":
-    case "https":
-      return url;
-    case "rtmp":
-      return getRtmpUrl(url);
-    default:
-      throw new Error("Invalid URI scheme. Scheme must be one of http, https, or rtmp");
+  createCloudfrontAttribute(): CloudfrontAttributes {
+    if (!Boolean(this.policy)) {
+      throw new Error("Invalid policy");
+    }
+    const signature = this.signPolicy(this.policy, this.privateKey);
+    return {
+      Expires: this.customPolicy ? undefined : this.dateLessThan,
+      Policy: this.customPolicy ? this.encodeToBase64(this.policy) : undefined,
+      "Key-Pair-Id": this.keyPairId,
+      Signature: signature,
+    };
   }
-}
-
-function signWithCannedPolicy({
-  keyPairId,
-  privateKey,
-  resource,
-  dateLessThan,
-}: {
-  keyPairId: string;
-  privateKey: string | Buffer;
-  resource: string;
-  dateLessThan: string;
-}): SignedURLAttributes {
-  const parsedDates = parseDateWindow(dateLessThan);
-  const policy = JSON.stringify(
-    buildPolicy({
-      resource,
-      dateLessThan: parsedDates.dateLessThan,
-    })
-  );
-  const signature = signPolicy(policy, privateKey);
-  return {
-    Expires: parsedDates.dateLessThan,
-    "Key-Pair-Id": keyPairId,
-    Signature: signature,
-  };
-}
-
-function signWithProvidedPolicy({
-  keyPairId,
-  privateKey,
-  policy,
-}: {
-  keyPairId: string;
-  privateKey: string | Buffer;
-  policy: string;
-}): SignedURLAttributes {
-  const signature = signPolicy(policy, privateKey);
-  return {
-    Policy: encodeToBase64(policy),
-    "Key-Pair-Id": keyPairId,
-    Signature: signature,
-  };
-}
-
-function signWithCustomPolicy({
-  resource,
-  keyPairId,
-  privateKey,
-  dateLessThan,
-  dateGreaterThan,
-  ipAddress,
-}: {
-  resource: string;
-  keyPairId: string;
-  privateKey: string | Buffer;
-  dateLessThan: string;
-  dateGreaterThan?: string;
-  ipAddress?: string;
-}): SignedURLAttributes {
-  const parsedDates = parseDateWindow(dateLessThan, dateGreaterThan);
-  const policy = JSON.stringify(
-    buildPolicy({
-      resource,
-      dateLessThan: parsedDates.dateLessThan,
-      dateGreaterThan: parsedDates.dateGreaterThan,
-      ipAddress,
-    })
-  );
-  return signWithProvidedPolicy({
-    keyPairId,
-    privateKey,
-    policy,
-  });
 }
