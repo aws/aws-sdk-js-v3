@@ -45,6 +45,18 @@ const provider = defaultProvider({
 const client = new S3Client({ credentialDefaultProvider: provider });
 ```
 
+_IMPORTANT_: We provide a wrapper of this provider in `@aws-sdk/credential-providers`
+package to save you from importing `getDefaultRoleAssumerWithWebIdentity()` or
+`getDefaultRoleAssume()` from STS package. Similarly, you can do:
+
+```js
+const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
+
+const credentials = fromNodeProviderChain();
+
+const client = new S3Client({ credentials });
+```
+
 ## Supported configuration
 
 You may customize how credentials are resolved by providing an options hash to

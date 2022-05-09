@@ -1,7 +1,7 @@
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
-import { fromIni as coreProvider } from "@aws-sdk/credential-provider-ini";
+import { defaultProvider } from "@aws-sdk/credential-provider-node";
 
-import { fromIni } from "./fromIni";
+import { fromNodeProviderChain } from "./fromNodeProviderChain";
 
 const mockRoleAssumer = jest.fn().mockResolvedValue("ROLE_ASSUMER");
 const mockRoleAssumerWithWebIdentity = jest.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
@@ -11,19 +11,19 @@ jest.mock("@aws-sdk/client-sts", () => ({
   getDefaultRoleAssumerWithWebIdentity: jest.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
 }));
 
-jest.mock("@aws-sdk/credential-provider-ini", () => ({
-  fromIni: jest.fn(),
+jest.mock("@aws-sdk/credential-provider-node", () => ({
+  defaultProvider: jest.fn(),
 }));
 
-describe("fromIni", () => {
+describe(fromNodeProviderChain.name, () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   it("should inject default role assumers", () => {
     const profile = "profile";
-    fromIni({ profile });
-    expect(coreProvider).toBeCalledWith({
+    fromNodeProviderChain({ profile });
+    expect(defaultProvider).toBeCalledWith({
       profile,
       roleAssumer: mockRoleAssumer,
       roleAssumerWithWebIdentity: mockRoleAssumerWithWebIdentity,
@@ -36,8 +36,8 @@ describe("fromIni", () => {
     const profile = "profile";
     const roleAssumer = jest.fn();
     const roleAssumerWithWebIdentity = jest.fn();
-    fromIni({ profile, roleAssumer, roleAssumerWithWebIdentity });
-    expect(coreProvider).toBeCalledWith({
+    fromNodeProviderChain({ profile, roleAssumer, roleAssumerWithWebIdentity });
+    expect(defaultProvider).toBeCalledWith({
       profile,
       roleAssumer,
       roleAssumerWithWebIdentity,
@@ -51,7 +51,7 @@ describe("fromIni", () => {
     const clientConfig = {
       region: "US_BAR_1",
     };
-    fromIni({ profile, clientConfig });
+    fromNodeProviderChain({ profile, clientConfig });
     expect(getDefaultRoleAssumer).toBeCalledWith(clientConfig);
     expect(getDefaultRoleAssumerWithWebIdentity).toBeCalledWith(clientConfig);
   });
