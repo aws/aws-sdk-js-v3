@@ -32,7 +32,32 @@ const { Signer } = require("@aws-sdk/rds-signer");
 ### Generate Authentication Token for RDS IAM Authentication
 
 ```js
-const signer = new Signer();
+const signer = new Signer({
+  /**
+   * Required. The hostname of the database to connect to.
+   */
+  hostname: "db.us-east-1.rds.amazonaws.com",
+  /**
+   * Required. The port number the database is listening on.
+   */
+  port: 8000,
+  /**
+   * Required. The username to login as.
+   */
+  username: "user1",
+  /**
+   * Optional. The AWS credentials to sign requests with. Uses the default credential provider chain in not specified.
+   */
+  credentials: fromNodeCredentialProvider(),
+  /**
+   * Optional. The region the database is located in. Uses the region inferred from the runtime if omitted.
+   */
+  region: "us-east-1",
+  /**
+   * Optional. The SHA256 hasher constructor to sign the request.
+   */
+  sha256: HashCtor,
+});
 
 const token = await signer.getAuthToken();
 // Use this token as the password for connecting to your RDS instance

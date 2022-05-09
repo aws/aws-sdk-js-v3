@@ -6,14 +6,35 @@ import { formatUrl } from "@aws-sdk/util-format-url";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export interface SignerConfig {
+  /**
+   * The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
+   */
   credentials?: Credentials | CredentialProvider;
+  /**
+   * The hostname of the database to connect to.
+   */
   hostname: string;
+  /**
+   * The port number the database is listening on.
+   */
   port: number;
+  /**
+   * The region the database is located in. Uses the region inferred from the runtime if omitted.
+   */
   region?: string;
+  /**
+   * The SHA256 hasher constructor to sign the request.
+   */
   sha256?: HashConstructor;
+  /**
+   * The username to login as.
+   */
   username: string;
 }
 
+/**
+ * The signer class that generates an auth token to a database.
+ */
 export class Signer {
   private readonly credentials: Credentials | CredentialProvider;
   private readonly hostname: string;
