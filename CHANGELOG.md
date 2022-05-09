@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
+
+
+### Features
+
+* **client-cloudcontrol:** SDK release for Cloud Control API to include paginators for Python SDK. ([49661ab](https://github.com/aws/aws-sdk-js-v3/commit/49661abc86d1a50c71bc3c9dd9f3591711030ad0))
+* **client-evidently:** Add detail message inside GetExperimentResults API response to indicate experiment result availability ([872386c](https://github.com/aws/aws-sdk-js-v3/commit/872386c39aeca35d659f8760d448a3aff9a991fc))
+* **clients:** update client endpoints as of 2022-05-09 ([aec9a19](https://github.com/aws/aws-sdk-js-v3/commit/aec9a19f5f7ab25fd4837f212b91c2326b39b79d))
+* **credential-providers:** expose node.js default credential provider chain ([#3588](https://github.com/aws/aws-sdk-js-v3/issues/3588)) ([51aaffc](https://github.com/aws/aws-sdk-js-v3/commit/51aaffc37838e403b5934132bfe2c277a28c3ea5))
+
+
+
+
+
 # [3.86.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.85.0...v3.86.0) (2022-05-06)
 
 

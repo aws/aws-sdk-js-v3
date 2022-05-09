@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
+
+
+### Features
+
+* **credential-providers:** expose node.js default credential provider chain ([#3588](https://github.com/aws/aws-sdk-js-v3/issues/3588)) ([51aaffc](https://github.com/aws/aws-sdk-js-v3/commit/51aaffc37838e403b5934132bfe2c277a28c3ea5))
+
+
+
+
+
 # [3.85.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.84.0...v3.85.0) (2022-05-05)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-node
