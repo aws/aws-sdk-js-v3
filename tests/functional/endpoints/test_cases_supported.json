@@ -2421,7 +2421,7 @@
     "region": "ap-south-1",
     "useFipsEndpoint": false,
     "useDualstackEndpoint": true,
-    "hostname": "api.ec2.ap-south-1.aws"
+    "hostname": "ec2.ap-south-1.api.aws"
   },
   {
     "endpointPrefix": "ec2",
