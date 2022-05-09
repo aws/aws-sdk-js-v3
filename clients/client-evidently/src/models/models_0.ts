@@ -2325,7 +2325,8 @@ export interface GetExperimentResultsRequest {
   startTime?: Date;
 
   /**
-   * <p>The date and time that the experiment ended, if it is completed.</p>
+   * <p>The date and time that the experiment ended, if it is completed. This must be no longer than 30 days
+   *       after the experiment start time.</p>
    */
   endTime?: Date;
 
@@ -2491,6 +2492,13 @@ export interface GetExperimentResultsResponse {
    * <p>The timestamps of each result returned.</p>
    */
   timestamps?: Date[];
+
+  /**
+   * <p>If the experiment doesn't yet have enough events to provide valid results, this
+   *       field is returned with the message <code>Not enough events to generate results</code>. If there are
+   *       enough events to provide valid results, this field is not returned.</p>
+   */
+  details?: string;
 }
 
 export namespace GetExperimentResultsResponse {
@@ -2569,7 +2577,8 @@ export interface StartExperimentRequest {
   experiment: string | undefined;
 
   /**
-   * <p>The date and time to end the experiment.</p>
+   * <p>The date and time to end the experiment. This must be no more than 30 days after
+   *       the experiment starts.</p>
    */
   analysisCompleteTime: Date | undefined;
 }

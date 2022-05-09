@@ -550,7 +550,11 @@ export class Evidently extends EvidentlyClient {
   }
 
   /**
-   * <p>Retrieves the results of a running or completed experiment.</p>
+   * <p>Retrieves the results of a running or completed experiment. No results are available until
+   *        there have been 100 events for each variation and at least 10 minutes have passed since the start of the experiment.</p>
+   *          <p>Experiment
+   *        results are available up to 63 days after the start of the experiment. They are not available after that because
+   *        of CloudWatch data retention policies.</p>
    */
   public getExperimentResults(
     args: GetExperimentResultsCommandInput,
