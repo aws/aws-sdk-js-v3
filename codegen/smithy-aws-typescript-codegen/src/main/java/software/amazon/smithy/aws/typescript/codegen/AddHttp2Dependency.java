@@ -47,9 +47,9 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of("requestHandler", writer -> {
                     writer.addDependency(TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER);
-                    writer.addImport("NodeHttp2Handler", "NodeHttp2Handler",
+                    writer.addImport("NodeHttp2Handler", "RequestHandler",
                             TypeScriptDependency.AWS_SDK_NODE_HTTP_HANDLER.packageName);
-                    writer.write("new NodeHttp2Handler()");
+                    writer.write("new RequestHandler(defaultConfigProvider)");
                 });
             default:
                 return Collections.emptyMap();
