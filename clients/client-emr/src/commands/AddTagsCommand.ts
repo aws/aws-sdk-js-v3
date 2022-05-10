@@ -20,9 +20,11 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR Studio. Tags make it easier to associate resources in
- *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
- *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
+ * <p>Adds tags to an Amazon EMR resource, such as a cluster or an Amazon EMR
+ *          Studio. Tags make it easier to associate resources in various ways, such as grouping
+ *          clusters to track your Amazon EMR resource allocation costs. For more information,
+ *          see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag
+ *             Clusters</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

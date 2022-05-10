@@ -23,8 +23,8 @@ export interface DescribeStudioCommandInput extends DescribeStudioInput {}
 export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
- * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
- *          access URL, and so on.</p>
+ * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC,
+ *          Studio access URL, and so on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

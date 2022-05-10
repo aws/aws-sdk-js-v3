@@ -25,8 +25,8 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
 /**
  * <p>Lists all available details about the instance fleets in a cluster.</p>
  *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
- *             later, excluding 5.0.x versions.</p>
+ *             <p>The instance fleet configuration is available only in Amazon EMR versions
+ *             4.8.0 and later, excluding 5.0.x versions.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -32,16 +32,17 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *          information on how to do this, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add More than 256 Steps to a
  *             Cluster</a> in the <i>Amazon EMR Management Guide</i>.</p>
  *          <p>A step specifies the location of a JAR file stored either on the master node of the
- *          cluster or in Amazon S3. Each step is performed by the main function of the main class of
- *          the JAR file. The main class can be specified either in the manifest of the JAR or by using
- *          the MainFunction parameter of the step.</p>
- *          <p>Amazon EMR executes each step in the order listed. For a step to be considered complete,
- *          the main function must exit with a zero exit code and all Hadoop jobs started while the
- *          step was running must have completed and run successfully.</p>
+ *          cluster or in Amazon S3. Each step is performed by the main function of the main
+ *          class of the JAR file. The main class can be specified either in the manifest of the JAR or
+ *          by using the MainFunction parameter of the step.</p>
+ *          <p>Amazon EMR executes each step in the order listed. For a step to be considered
+ *          complete, the main function must exit with a zero exit code and all Hadoop jobs started
+ *          while the step was running must have completed and run successfully.</p>
  *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
  *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
  *          <note>
- *             <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total of 10240 characters.</p>
+ *             <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total
+ *             of 10240 characters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

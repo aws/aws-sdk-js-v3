@@ -23,7 +23,8 @@ export interface UpdateStudioCommandInput extends UpdateStudioInput {}
 export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an Amazon EMR Studio configuration, including attributes such as name, description, and subnets.</p>
+ * <p>Updates an Amazon EMR Studio configuration, including attributes such as name,
+ *          description, and subnets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

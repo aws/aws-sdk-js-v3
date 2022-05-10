@@ -296,6 +296,7 @@ import {
   NotebookExecutionSummary,
   OnDemandCapacityReservationOptions,
   OnDemandProvisioningSpecification,
+  OSRelease,
   PlacementGroupConfig,
   PlacementType,
   PortRange,
@@ -3937,6 +3938,8 @@ const serializeAws_json1_1InstanceGroupModifyConfig = (
     ...(input.InstanceCount !== undefined && input.InstanceCount !== null && { InstanceCount: input.InstanceCount }),
     ...(input.InstanceGroupId !== undefined &&
       input.InstanceGroupId !== null && { InstanceGroupId: input.InstanceGroupId }),
+    ...(input.ReconfigurationType !== undefined &&
+      input.ReconfigurationType !== null && { ReconfigurationType: input.ReconfigurationType }),
     ...(input.ShrinkPolicy !== undefined &&
       input.ShrinkPolicy !== null && { ShrinkPolicy: serializeAws_json1_1ShrinkPolicy(input.ShrinkPolicy, context) }),
   };
@@ -4552,6 +4555,8 @@ const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __
       input.NewSupportedProducts !== null && {
         NewSupportedProducts: serializeAws_json1_1NewSupportedProductsList(input.NewSupportedProducts, context),
       }),
+    ...(input.OSReleaseLabel !== undefined &&
+      input.OSReleaseLabel !== null && { OSReleaseLabel: input.OSReleaseLabel }),
     ...(input.PlacementGroupConfigs !== undefined &&
       input.PlacementGroupConfigs !== null && {
         PlacementGroupConfigs: serializeAws_json1_1PlacementGroupConfigList(input.PlacementGroupConfigs, context),
@@ -5190,6 +5195,7 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     MasterPublicDnsName: __expectString(output.MasterPublicDnsName),
     Name: __expectString(output.Name),
     NormalizedInstanceHours: __expectInt32(output.NormalizedInstanceHours),
+    OSReleaseLabel: __expectString(output.OSReleaseLabel),
     OutpostArn: __expectString(output.OutpostArn),
     PlacementGroups:
       output.PlacementGroups !== undefined && output.PlacementGroups !== null
@@ -5407,6 +5413,10 @@ const deserializeAws_json1_1DescribeReleaseLabelOutput = (
     Applications:
       output.Applications !== undefined && output.Applications !== null
         ? deserializeAws_json1_1SimplifiedApplicationList(output.Applications, context)
+        : undefined,
+    AvailableOSReleases:
+      output.AvailableOSReleases !== undefined && output.AvailableOSReleases !== null
+        ? deserializeAws_json1_1OSReleaseList(output.AvailableOSReleases, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
     ReleaseLabel: __expectString(output.ReleaseLabel),
@@ -6398,6 +6408,24 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
         ? deserializeAws_json1_1OnDemandCapacityReservationOptions(output.CapacityReservationOptions, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1OSRelease = (output: any, context: __SerdeContext): OSRelease => {
+  return {
+    Label: __expectString(output.Label),
+  } as any;
+};
+
+const deserializeAws_json1_1OSReleaseList = (output: any, context: __SerdeContext): OSRelease[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OSRelease(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1PlacementGroupConfig = (output: any, context: __SerdeContext): PlacementGroupConfig => {
