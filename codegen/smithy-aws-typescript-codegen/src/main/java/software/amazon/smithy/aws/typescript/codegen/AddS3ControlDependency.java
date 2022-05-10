@@ -21,7 +21,6 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 import java.util.List;
 import java.util.Optional;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
@@ -67,8 +66,7 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
     }
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         if (!isS3Control(settings.getService(model))) {
             return model;
         }
