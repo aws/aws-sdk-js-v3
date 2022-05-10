@@ -3901,7 +3901,9 @@ export type ImageAttributeName =
   | "launchPermission"
   | "productCodes"
   | "ramdisk"
-  | "sriovNetSupport";
+  | "sriovNetSupport"
+  | "tpmSupport"
+  | "uefiData";
 
 /**
  * <p>Contains the parameters for DescribeImageAttribute.</p>
@@ -4021,6 +4023,20 @@ export interface ImageAttribute {
    * <p>The boot mode.</p>
    */
   BootMode?: AttributeValue;
+
+  /**
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>
+   */
+  TpmSupport?: AttributeValue;
+
+  /**
+   * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
+   *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
+   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  UefiData?: AttributeValue;
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
@@ -4369,6 +4385,10 @@ export namespace StateReason {
   });
 }
 
+export enum TpmSupportValues {
+  v2_0 = "v2.0",
+}
+
 export type VirtualizationType = "hvm" | "paravirtual";
 
 /**
@@ -4521,6 +4541,13 @@ export interface Image {
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
+
+  /**
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  TpmSupport?: TpmSupportValues | string;
 
   /**
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
@@ -6982,6 +7009,13 @@ export interface Instance {
    * <p>The IPv6 address assigned to the instance.</p>
    */
   Ipv6Address?: string;
+
+  /**
+   * <p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   */
+  TpmSupport?: string;
 
   /**
    * <p>Provides information on the recovery and maintenance options of your instance.</p>
@@ -12101,36 +12135,6 @@ export namespace DescribeRegionsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a Region.</p>
- */
-export interface Region {
-  /**
-   * <p>The Region service endpoint.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The name of the Region.</p>
-   */
-  RegionName?: string;
-
-  /**
-   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
-   *         <code>not-opted-in</code>.</p>
-   */
-  OptInStatus?: string;
-}
-
-export namespace Region {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Region): any => ({
     ...obj,
   });
 }

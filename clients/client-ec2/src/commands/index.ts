@@ -372,6 +372,7 @@ export * from "./GetFlowLogsIntegrationTemplateCommand";
 export * from "./GetGroupsForCapacityReservationCommand";
 export * from "./GetHostReservationPurchasePreviewCommand";
 export * from "./GetInstanceTypesFromInstanceRequirementsCommand";
+export * from "./GetInstanceUefiDataCommand";
 export * from "./GetIpamAddressHistoryCommand";
 export * from "./GetIpamPoolAllocationsCommand";
 export * from "./GetIpamPoolCidrsCommand";

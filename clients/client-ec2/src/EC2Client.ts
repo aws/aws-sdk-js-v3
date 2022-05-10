@@ -1293,6 +1293,10 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetInstanceUefiDataCommandInput,
+  GetInstanceUefiDataCommandOutput,
+} from "./commands/GetInstanceUefiDataCommand";
+import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "./commands/GetIpamAddressHistoryCommand";
@@ -2165,6 +2169,7 @@ export type ServiceInputTypes =
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
   | GetInstanceTypesFromInstanceRequirementsCommandInput
+  | GetInstanceUefiDataCommandInput
   | GetIpamAddressHistoryCommandInput
   | GetIpamPoolAllocationsCommandInput
   | GetIpamPoolCidrsCommandInput
@@ -2689,6 +2694,7 @@ export type ServiceOutputTypes =
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
   | GetInstanceTypesFromInstanceRequirementsCommandOutput
+  | GetInstanceUefiDataCommandOutput
   | GetIpamAddressHistoryCommandOutput
   | GetIpamPoolAllocationsCommandOutput
   | GetIpamPoolCidrsCommandOutput

@@ -1819,6 +1819,11 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetInstanceUefiDataCommand,
+  GetInstanceUefiDataCommandInput,
+  GetInstanceUefiDataCommandOutput,
+} from "./commands/GetInstanceUefiDataCommand";
+import {
   GetIpamAddressHistoryCommand,
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
@@ -16034,6 +16039,47 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetInstanceTypesFromInstanceRequirementsCommandOutput) => void
   ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> | void {
     const command = new GetInstanceTypesFromInstanceRequirementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
+   *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
+   *             encoded.</p>
+   *         <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a>
+   *             to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code>
+   *             parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
+   *             on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can
+   *             inspect and modify, and then convert back into the binary format to use with register-image.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   */
+  public getInstanceUefiData(
+    args: GetInstanceUefiDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceUefiDataCommandOutput>;
+  public getInstanceUefiData(
+    args: GetInstanceUefiDataCommandInput,
+    cb: (err: any, data?: GetInstanceUefiDataCommandOutput) => void
+  ): void;
+  public getInstanceUefiData(
+    args: GetInstanceUefiDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceUefiDataCommandOutput) => void
+  ): void;
+  public getInstanceUefiData(
+    args: GetInstanceUefiDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInstanceUefiDataCommandOutput) => void),
+    cb?: (err: any, data?: GetInstanceUefiDataCommandOutput) => void
+  ): Promise<GetInstanceUefiDataCommandOutput> | void {
+    const command = new GetInstanceUefiDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

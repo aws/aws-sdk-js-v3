@@ -2767,6 +2767,9 @@
           "target": "com.amazonaws.ec2#GetInstanceTypesFromInstanceRequirements"
         },
         {
+          "target": "com.amazonaws.ec2#GetInstanceUefiData"
+        },
+        {
           "target": "com.amazonaws.ec2#GetIpamAddressHistory"
         },
         {
@@ -37923,6 +37926,58 @@
         }
       }
     },
+    "com.amazonaws.ec2#GetInstanceUefiData": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#GetInstanceUefiDataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#GetInstanceUefiDataResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A binary representation of the UEFI variable store. Only non-volatile variables are\n            stored. This is a base64 encoded and zlib compressed binary value that must be properly\n            encoded.</p>\n        <p>When you use <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html\">register-image</a>\n            to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code>\n            parameter. You can modify the UEFI data by using the <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a>\n            on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can \n            inspect and modify, and then convert back into the binary format to use with register-image.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the\n                <i>Amazon EC2 User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.ec2#GetInstanceUefiDataRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.ec2#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the instance from which to retrieve the UEFI data.</p>",
+            "smithy.api#required": {},
+            "smithy.api#xmlName": "InstanceId"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n   and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n   Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#GetInstanceUefiDataResult": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.ec2#InstanceId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "InstanceId",
+            "smithy.api#documentation": "<p>The ID of the instance from which to retrieve the UEFI data.</p>",
+            "smithy.api#xmlName": "instanceId"
+          }
+        },
+        "UefiData": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "UefiData",
+            "smithy.api#documentation": "<p>Base64 representation of the non-volatile UEFI variable store.</p>",
+            "smithy.api#xmlName": "uefiData"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#GetIpamAddressHistory": {
       "type": "operation",
       "input": {
@@ -40845,6 +40900,14 @@
             "smithy.api#xmlName": "bootMode"
           }
         },
+        "TpmSupport": {
+          "target": "com.amazonaws.ec2#TpmSupportValues",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TpmSupport",
+            "smithy.api#documentation": "<p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. \n      For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\">NitroTPM</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#xmlName": "tpmSupport"
+          }
+        },
         "DeprecationTime": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
@@ -40933,6 +40996,22 @@
             "smithy.api#xmlName": "bootMode"
           }
         },
+        "TpmSupport": {
+          "target": "com.amazonaws.ec2#AttributeValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TpmSupport",
+            "smithy.api#documentation": "<p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.</p>",
+            "smithy.api#xmlName": "tpmSupport"
+          }
+        },
+        "UefiData": {
+          "target": "com.amazonaws.ec2#AttributeValue",
+          "traits": {
+            "aws.protocols#ec2QueryName": "UefiData",
+            "smithy.api#documentation": "<p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,\n      use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData\">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the\n      <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on\n      GitHub. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the\n      <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+            "smithy.api#xmlName": "uefiData"
+          }
+        },
         "LastLaunchedTime": {
           "target": "com.amazonaws.ec2#AttributeValue",
           "traits": {
@@ -40981,6 +41060,14 @@
           {
             "value": "bootMode",
             "name": "bootMode"
+          },
+          {
+            "value": "tpmSupport",
+            "name": "tpmSupport"
+          },
+          {
+            "value": "uefiData",
+            "name": "uefiData"
           },
           {
             "value": "lastLaunchedTime",
@@ -42861,6 +42948,14 @@
             "aws.protocols#ec2QueryName": "Ipv6Address",
             "smithy.api#documentation": "<p>The IPv6 address assigned to the instance.</p>",
             "smithy.api#xmlName": "ipv6Address"
+          }
+        },
+        "TpmSupport": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TpmSupport",
+            "smithy.api#documentation": "<p>If the instance is configured for NitroTPM support, the value is <code>v2.0</code>.\n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\">NitroTPM</a> in the\n                <i>Amazon EC2 User Guide</i>.</p>",
+            "smithy.api#xmlName": "tpmSupport"
           }
         },
         "MaintenanceOptions": {
@@ -62598,6 +62693,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The boot mode of the AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html\">Boot modes</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
           }
+        },
+        "TpmSupport": {
+          "target": "com.amazonaws.ec2#TpmSupportValues",
+          "traits": {
+            "smithy.api#documentation": "<p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more\n      information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html\">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+          }
+        },
+        "UefiData": {
+          "target": "com.amazonaws.ec2#StringType",
+          "traits": {
+            "smithy.api#documentation": "<p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,\n      use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData\">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the\n        <a href=\"https://github.com/awslabs/python-uefivars\">python-uefivars tool</a> on\n      GitHub. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html\">UEFI Secure Boot</a> in the\n        <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+          }
         }
       },
       "traits": {
@@ -72345,6 +72452,15 @@
         }
       }
     },
+    "com.amazonaws.ec2#StringType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 64000
+        }
+      }
+    },
     "com.amazonaws.ec2#Subnet": {
       "type": "structure",
       "members": {
@@ -73630,6 +73746,17 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The minimum and maximum amount of total local storage, in GB.</p>"
+      }
+    },
+    "com.amazonaws.ec2#TpmSupportValues": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "v2.0",
+            "name": "v2_0"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#TrafficDirection": {

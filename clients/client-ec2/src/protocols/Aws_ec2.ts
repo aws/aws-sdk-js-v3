@@ -1265,6 +1265,10 @@ import {
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
 } from "../commands/GetInstanceTypesFromInstanceRequirementsCommand";
 import {
+  GetInstanceUefiDataCommandInput,
+  GetInstanceUefiDataCommandOutput,
+} from "../commands/GetInstanceUefiDataCommand";
+import {
   GetIpamAddressHistoryCommandInput,
   GetIpamAddressHistoryCommandOutput,
 } from "../commands/GetIpamAddressHistoryCommand";
@@ -2741,7 +2745,6 @@ import {
   ProductCode,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
-  Region,
   Reservation,
   RootDeviceType,
   SnapshotDetail,
@@ -2972,7 +2975,6 @@ import {
   GetEbsDefaultKmsKeyIdResult,
   GetEbsEncryptionByDefaultRequest,
   GetEbsEncryptionByDefaultResult,
-  GetFlowLogsIntegrationTemplateRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -2987,6 +2989,7 @@ import {
   PricingDetail,
   PrivateDnsDetails,
   RecurringCharge,
+  Region,
   ReservedInstances,
   ReservedInstancesConfiguration,
   ReservedInstancesId,
@@ -3045,6 +3048,7 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetFlowLogsIntegrationTemplateRequest,
   GetFlowLogsIntegrationTemplateResult,
   GetGroupsForCapacityReservationRequest,
   GetGroupsForCapacityReservationResult,
@@ -3052,6 +3056,8 @@ import {
   GetHostReservationPurchasePreviewResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
+  GetInstanceUefiDataRequest,
+  GetInstanceUefiDataResult,
   GetIpamAddressHistoryRequest,
   GetIpamAddressHistoryResult,
   GetIpamPoolAllocationsRequest,
@@ -3294,9 +3300,6 @@ import {
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
   RequestSpotFleetRequest,
-  RequestSpotFleetResponse,
-  RequestSpotInstancesRequest,
-  RequestSpotLaunchSpecification,
   ReservationValue,
   ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
@@ -3335,7 +3338,10 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RequestSpotFleetResponse,
+  RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
+  RequestSpotLaunchSpecification,
   ResetAddressAttributeRequest,
   ResetAddressAttributeResult,
   ResetEbsDefaultKmsKeyIdRequest,
@@ -9375,6 +9381,22 @@ export const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand = a
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest(input, context),
     Action: "GetInstanceTypesFromInstanceRequirements",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetInstanceUefiDataCommand = async (
+  input: GetInstanceUefiDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetInstanceUefiDataRequest(input, context),
+    Action: "GetInstanceUefiData",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -26579,6 +26601,46 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError = a
   }
 };
 
+export const deserializeAws_ec2GetInstanceUefiDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceUefiDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetInstanceUefiDataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetInstanceUefiDataResult(data, context);
+  const response: GetInstanceUefiDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetInstanceUefiDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceUefiDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody.Errors.Error);
+  }
+};
+
 export const deserializeAws_ec2GetIpamAddressHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -43292,6 +43354,20 @@ const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetInstanceUefiDataRequest = (
+  input: GetInstanceUefiDataRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceId !== undefined && input.InstanceId !== null) {
+    entries["InstanceId"] = input.InstanceId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GetIpamAddressHistoryRequest = (
   input: GetIpamAddressHistoryRequest,
   context: __SerdeContext
@@ -49432,6 +49508,12 @@ const serializeAws_ec2RegisterImageRequest = (input: RegisterImageRequest, conte
   }
   if (input.BootMode !== undefined && input.BootMode !== null) {
     entries["BootMode"] = input.BootMode;
+  }
+  if (input.TpmSupport !== undefined && input.TpmSupport !== null) {
+    entries["TpmSupport"] = input.TpmSupport;
+  }
+  if (input.UefiData !== undefined && input.UefiData !== null) {
+    entries["UefiData"] = input.UefiData;
   }
   return entries;
 };
@@ -64810,6 +64892,23 @@ const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetInstanceUefiDataResult = (
+  output: any,
+  context: __SerdeContext
+): GetInstanceUefiDataResult => {
+  const contents: any = {
+    InstanceId: undefined,
+    UefiData: undefined,
+  };
+  if (output["instanceId"] !== undefined) {
+    contents.InstanceId = __expectString(output["instanceId"]);
+  }
+  if (output["uefiData"] !== undefined) {
+    contents.UefiData = __expectString(output["uefiData"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GetIpamAddressHistoryResult = (
   output: any,
   context: __SerdeContext
@@ -65954,6 +66053,7 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
     Tags: undefined,
     VirtualizationType: undefined,
     BootMode: undefined,
+    TpmSupport: undefined,
     DeprecationTime: undefined,
   };
   if (output["architecture"] !== undefined) {
@@ -66052,6 +66152,9 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
   if (output["bootMode"] !== undefined) {
     contents.BootMode = __expectString(output["bootMode"]);
   }
+  if (output["tpmSupport"] !== undefined) {
+    contents.TpmSupport = __expectString(output["tpmSupport"]);
+  }
   if (output["deprecationTime"] !== undefined) {
     contents.DeprecationTime = __expectString(output["deprecationTime"]);
   }
@@ -66069,6 +66172,8 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
     RamdiskId: undefined,
     SriovNetSupport: undefined,
     BootMode: undefined,
+    TpmSupport: undefined,
+    UefiData: undefined,
     LastLaunchedTime: undefined,
   };
   if (output.blockDeviceMapping === "") {
@@ -66115,6 +66220,12 @@ const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext):
   }
   if (output["bootMode"] !== undefined) {
     contents.BootMode = deserializeAws_ec2AttributeValue(output["bootMode"], context);
+  }
+  if (output["tpmSupport"] !== undefined) {
+    contents.TpmSupport = deserializeAws_ec2AttributeValue(output["tpmSupport"], context);
+  }
+  if (output["uefiData"] !== undefined) {
+    contents.UefiData = deserializeAws_ec2AttributeValue(output["uefiData"], context);
   }
   if (output["lastLaunchedTime"] !== undefined) {
     contents.LastLaunchedTime = deserializeAws_ec2AttributeValue(output["lastLaunchedTime"], context);
@@ -66721,6 +66832,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
     UsageOperationUpdateTime: undefined,
     PrivateDnsNameOptions: undefined,
     Ipv6Address: undefined,
+    TpmSupport: undefined,
     MaintenanceOptions: undefined,
   };
   if (output["amiLaunchIndex"] !== undefined) {
@@ -66935,6 +67047,9 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
   }
   if (output["ipv6Address"] !== undefined) {
     contents.Ipv6Address = __expectString(output["ipv6Address"]);
+  }
+  if (output["tpmSupport"] !== undefined) {
+    contents.TpmSupport = __expectString(output["tpmSupport"]);
   }
   if (output["maintenanceOptions"] !== undefined) {
     contents.MaintenanceOptions = deserializeAws_ec2InstanceMaintenanceOptions(output["maintenanceOptions"], context);

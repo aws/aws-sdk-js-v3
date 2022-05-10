@@ -91,8 +91,37 @@ import {
   FastSnapshotRestoreStateCode,
   PermissionGroup,
   ProductCode,
-  Region,
 } from "./models_3";
+
+/**
+ * <p>Describes a Region.</p>
+ */
+export interface Region {
+  /**
+   * <p>The Region service endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The name of the Region.</p>
+   */
+  RegionName?: string;
+
+  /**
+   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
+   *         <code>not-opted-in</code>.</p>
+   */
+  OptInStatus?: string;
+}
+
+export namespace Region {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Region): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeRegionsResult {
   /**
@@ -11259,39 +11288,6 @@ export namespace IntegrateServices {
    * @internal
    */
   export const filterSensitiveLog = (obj: IntegrateServices): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFlowLogsIntegrationTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the flow log.</p>
-   */
-  FlowLogId: string | undefined;
-
-  /**
-   * <p>To store the CloudFormation template in Amazon S3, specify the location in Amazon S3.</p>
-   */
-  ConfigDeliveryS3DestinationArn: string | undefined;
-
-  /**
-   * <p>Information about the service integration.</p>
-   */
-  IntegrateServices: IntegrateServices | undefined;
-}
-
-export namespace GetFlowLogsIntegrationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFlowLogsIntegrationTemplateRequest): any => ({
     ...obj,
   });
 }
