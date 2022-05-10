@@ -794,7 +794,7 @@ export class EKS extends EKSClient {
 
   /**
    * <p>Returns descriptive information about an update against your Amazon EKS
-   *             cluster or associated managed node group.</p>
+   *             cluster or associated managed node group or Amazon EKS add-on.</p>
    *         <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
    *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
    *             for the failure.</p>

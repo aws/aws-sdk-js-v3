@@ -256,7 +256,9 @@ export type AMITypes =
   | "AL2_x86_64"
   | "AL2_x86_64_GPU"
   | "BOTTLEROCKET_ARM_64"
+  | "BOTTLEROCKET_ARM_64_NVIDIA"
   | "BOTTLEROCKET_x86_64"
+  | "BOTTLEROCKET_x86_64_NVIDIA"
   | "CUSTOM";
 
 /**
@@ -1034,19 +1036,19 @@ export interface KubernetesNetworkConfigRequest {
   serviceIpv4Cidr?: string;
 
   /**
-   * <p>Specify which IP version is used to assign Kubernetes Pod and Service IP addresses. If
+   * <p>Specify which IP family is used to assign Kubernetes pod and service IP addresses. If
    *             you don't specify a value, <code>ipv4</code> is used by default. You can only specify an
    *             IP family when you create a cluster and can't change this value once the cluster is
    *             created. If you specify <code>ipv6</code>, the VPC and subnets that you specify for
-   *             cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them. </p>
+   *             cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them. You can't
+   *             specify <code>ipv6</code> for clusters in China Regions.</p>
    *         <p>You can only specify <code>ipv6</code> for 1.21 and later clusters that use version
-   *             1.10.0 or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then ensure
-   *             that your VPC meets the requirements and that you're familiar with the considerations
-   *             listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
-   *                 IPv6 addresses to Pods and Services</a> in the Amazon EKS User Guide. If
-   *             you specify <code>ipv6</code>, Kubernetes assigns Service and Pod addresses from the
-   *             unique local address range (fc00::/7). You can't specify a custom IPv6 CIDR
-   *             block.</p>
+   *             1.10.1 or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then ensure
+   *             that your VPC meets the requirements listed in the considerations listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning IPv6
+   *                 addresses to pods and services</a> in the Amazon EKS User Guide.
+   *             Kubernetes assigns services IPv6 addresses from the unique local address range
+   *             (fc00::/7). You can't specify a custom IPv6 CIDR block. Pod addresses are assigned from
+   *             the subnet's IPv6 CIDR.</p>
    */
   ipFamily?: IpFamily | string;
 }
@@ -1383,7 +1385,7 @@ export namespace Identity {
  */
 export interface KubernetesNetworkConfigResponse {
   /**
-   * <p>The CIDR block that Kubernetes Pod and Service IP addresses are assigned from.
+   * <p>The CIDR block that Kubernetes pod and service IP addresses are assigned from.
    *             Kubernetes assigns addresses from an IPv4 CIDR block assigned to a subnet that the node
    *             is in. If you didn't specify a CIDR block when you created the cluster, then Kubernetes
    *             assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. If this
@@ -1393,18 +1395,19 @@ export interface KubernetesNetworkConfigResponse {
   serviceIpv4Cidr?: string;
 
   /**
-   * <p>The CIDR block that Kubernetes Pod and Service IP addresses are assigned from if you
-   *             created a 1.21 or later cluster with version 1.10.0 or later of the Amazon VPC CNI add-on and
+   * <p>The CIDR block that Kubernetes pod and service IP addresses are assigned from if you
+   *             created a 1.21 or later cluster with version 1.10.1 or later of the Amazon VPC CNI add-on and
    *             specified <code>ipv6</code> for <b>ipFamily</b> when you
-   *             created the cluster. Kubernetes assigns addresses from the unique local address range
-   *             (fc00::/7).</p>
+   *             created the cluster. Kubernetes assigns service addresses from the unique local address
+   *             range (<code>fc00::/7</code>) because you can't specify a custom IPv6 CIDR block when
+   *             you create the cluster.</p>
    */
   serviceIpv6Cidr?: string;
 
   /**
-   * <p>The IP family used to assign Kubernetes Pod and Service IP addresses. The IP family is
+   * <p>The IP family used to assign Kubernetes pod and service IP addresses. The IP family is
    *             always <code>ipv4</code>, unless you have a <code>1.21</code> or later cluster running
-   *             version 1.10.0 or later of the Amazon VPC CNI add-on and specified <code>ipv6</code> when you
+   *             version 1.10.1 or later of the Amazon VPC CNI add-on and specified <code>ipv6</code> when you
    *             created the cluster. </p>
    */
   ipFamily?: IpFamily | string;
@@ -1898,7 +1901,7 @@ export type CapacityTypes = "ON_DEMAND" | "SPOT";
  *             update will fail. For more information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">
  *                <code>CreateLaunchTemplate</code>
  *             </a> in the Amazon EC2 API
- *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+ *             Reference. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
  *         <p>Specify either <code>name</code> or <code>id</code>, but not both.</p>
  */
 export interface LaunchTemplateSpecification {
@@ -2017,7 +2020,7 @@ export enum TaintEffect {
 }
 
 /**
- * <p>A property that allows a node to repel a set of pods.</p>
+ * <p>A property that allows a node to repel a set of pods. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
  */
 export interface Taint {
   /**
@@ -2093,7 +2096,7 @@ export interface CreateNodegroupRequest {
   /**
    * <p>The root device disk size (in GiB) for your node group instances. The default disk
    *             size is 20 GiB. If you specify <code>launchTemplate</code>, then don't specify  <code>diskSize</code>,
-   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   diskSize?: number;
 
@@ -2102,7 +2105,7 @@ export interface CreateNodegroupRequest {
    *             If you specify <code>launchTemplate</code>, then don't specify  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
    *                <code>SubnetId</code>
    *             </a> in your launch template, or the node group
-   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   subnets: string[] | undefined;
 
@@ -2128,14 +2131,14 @@ export interface CreateNodegroupRequest {
    *                 <code>AL2_ARM_64</code> AMI type. All types use the Amazon EKS optimized
    *             Amazon Linux 2 AMI. If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI,
    *                 then don't specify <code>amiType</code>, or the node group  deployment
-   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   amiType?: AMITypes | string;
 
   /**
    * <p>The remote access (SSH) configuration to use with your node group. If you specify <code>launchTemplate</code>,
    *             then don't specify  <code>remoteAccess</code>, or the node group  deployment
-   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   remoteAccess?: RemoteAccessConfig;
 
@@ -2144,14 +2147,14 @@ export interface CreateNodegroupRequest {
    *                 Amazon EKS worker node <code>kubelet</code> daemon makes calls to Amazon Web Services APIs on your behalf. Nodes receive permissions for these API calls
    *             through an IAM instance profile and associated policies. Before you can
    *             launch nodes and register them into a cluster, you must create an IAM
-   *             role for those nodes to use when they are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon EKS node IAM role</a> in the
+   *             role for those nodes to use when they are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon EKS node IAM role</a> in the
    *                 <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>. If you specify <code>launchTemplate</code>, then don't specify
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">
    *                <code>IamInstanceProfile</code>
    *             </a> in your launch template,
-   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   nodeRole: string | undefined;
 
@@ -2162,7 +2165,7 @@ export interface CreateNodegroupRequest {
   labels?: { [key: string]: string };
 
   /**
-   * <p>The Kubernetes taints to be applied to the nodes in the node group.</p>
+   * <p>The Kubernetes taints to be applied to the nodes in the node group. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
    */
   taints?: Taint[];
 
@@ -2202,7 +2205,7 @@ export interface CreateNodegroupRequest {
    * <p>The Kubernetes version to use for your managed nodes. By default, the Kubernetes
    *             version of the cluster is used, and this is the only accepted specified value.
    *             If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify  <code>version</code>,
-   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   version?: string;
 
@@ -2211,7 +2214,7 @@ export interface CreateNodegroupRequest {
    *             By default, the latest available AMI version for the node group's current Kubernetes
    *             version is used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.
    *             If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify  <code>releaseVersion</code>,
-   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             or the node group  deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   releaseVersion?: string;
 }
@@ -2311,8 +2314,8 @@ export interface Issue {
    *                     instances to be assigned a public IP address, then you need to enable the
    *                         <code>auto-assign public IP address</code> setting for the subnet. See
    *                         <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip">Modifying
-   *                         the public IPv4 addressing attribute for your subnet</a> in the Amazon
-   *                     VPC User Guide.</p>
+   *                         the public IPv4 addressing attribute for your subnet</a> in the
+   *                         <i>Amazon VPC User Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2536,7 +2539,7 @@ export interface Nodegroup {
    * <p>The Kubernetes taints to be applied to the nodes in the node group when they are
    *             created. Effect is one of <code>No_Schedule</code>, <code>Prefer_No_Schedule</code>, or
    *                 <code>No_Execute</code>. Kubernetes taints can be used together with tolerations to
-   *             control how workloads are scheduled to your nodes.</p>
+   *             control how workloads are scheduled to your nodes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
    */
   taints?: Taint[];
 
@@ -2973,7 +2976,8 @@ export namespace DescribeFargateProfileResponse {
  */
 export interface IdentityProviderConfig {
   /**
-   * <p>The type of the identity provider configuration.</p>
+   * <p>The type of the identity provider configuration. The only type available is
+   *                 <code>oidc</code>.</p>
    */
   type: string | undefined;
 
@@ -3190,14 +3194,15 @@ export interface DescribeUpdateRequest {
   updateId: string | undefined;
 
   /**
-   * <p>The name of the Amazon EKS node group associated with the update.</p>
+   * <p>The name of the Amazon EKS node group associated with the update. This
+   *             parameter is required if the update is a node group update.</p>
    */
   nodegroupName?: string;
 
   /**
    * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html">
    *                <code>ListAddons</code>
-   *             </a>.</p>
+   *             </a>. This parameter is required if the update is an add-on update.</p>
    */
   addonName?: string;
 }
@@ -3824,7 +3829,7 @@ export namespace RegisterClusterResponse {
 }
 
 /**
- * <p>Required resources (such as Service Linked Roles) were created and are still propagating. Retry later.</p>
+ * <p>Required resources (such as service-linked roles) were created and are still propagating. Retry later.</p>
  */
 export class ResourcePropagationDelayException extends __BaseException {
   readonly name: "ResourcePropagationDelayException" = "ResourcePropagationDelayException";
@@ -4105,7 +4110,7 @@ export namespace UpdateLabelsPayload {
 }
 
 /**
- * <p>An object representing the details of an update to a taints payload.</p>
+ * <p>An object representing the details of an update to a taints payload. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
  */
 export interface UpdateTaintsPayload {
   /**
@@ -4148,7 +4153,7 @@ export interface UpdateNodegroupConfigRequest {
 
   /**
    * <p>The Kubernetes taints to be applied to the nodes in the node group after the
-   *             update.</p>
+   *             update. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html">Node taints on managed node groups</a>.</p>
    */
   taints?: UpdateTaintsPayload;
 
@@ -4212,7 +4217,7 @@ export interface UpdateNodegroupVersionRequest {
    *             cluster to update the node group to the latest AMI version of the cluster's Kubernetes
    *             version. If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify
    *                 <code>version</code>, or the node group  update will fail.
-   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   version?: string;
 
@@ -4221,7 +4226,7 @@ export interface UpdateNodegroupVersionRequest {
    *             default, the latest available AMI version for the node group's Kubernetes version is
    *             used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon EKS optimized Amazon Linux 2 AMI versions </a> in the <i>Amazon EKS User Guide</i>.
    *             If you specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't specify  <code>releaseVersion</code>,
-   *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
+   *             or the node group  update will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   releaseVersion?: string;
 
