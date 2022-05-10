@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.88.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.87.0...v3.88.0) (2022-05-10)
+
+
+### Features
+
+* **client-ec2:** Added support for using NitroTPM and UEFI Secure Boot on EC2 instances. ([2ad1bbf](https://github.com/aws/aws-sdk-js-v3/commit/2ad1bbf5783e1f469cf2253609cda57b40f8325e))
+* **client-eks:** Adds BOTTLEROCKET_ARM_64_NVIDIA and BOTTLEROCKET_x86_64_NVIDIA AMI types to EKS managed nodegroups ([e914c59](https://github.com/aws/aws-sdk-js-v3/commit/e914c59c3638c4b05868e1f74ba4fa634a727f5c))
+* **client-emr:** This release updates the Amazon EMR ModifyInstanceGroups API to support "MERGE" type cluster reconfiguration. Also, added the ability to specify a particular Amazon Linux release for all nodes in a cluster launch request. ([7945cec](https://github.com/aws/aws-sdk-js-v3/commit/7945ceca18590d350d620c3cc55b7d1f13dd1e59))
+* **clients:** http2 handler accept parameters from default mode provider ([#3580](https://github.com/aws/aws-sdk-js-v3/issues/3580)) ([930c904](https://github.com/aws/aws-sdk-js-v3/commit/930c90457859935fcd3257e835263f14595ec765))
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 

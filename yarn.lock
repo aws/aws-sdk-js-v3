@@ -3025,10 +3025,10 @@ available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
-aws-crt@^1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.12.1.tgz#049b329b3d3787908b5553874c18cf2292405e43"
-  integrity sha512-ZBj6cdLeesKAVLsTCnuie5kk6R+lfvJH+Nnb/tHN4AtQwFin0u0WWqC7cjlFoCPxSZQ9dSueGH9FZste0pKbhA==
+aws-crt@^1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/aws-crt/-/aws-crt-1.12.2.tgz#8e29050bd00a026d43255ffcb00bba0e813fc0be"
+  integrity sha512-Z8uJggZOnIZlsoTcJY3WCrG2lIEfy3aCtsGIVEEtgLGiMbeg4YWJEjZywkx+DtWW5+/GDxyTPrKfHEH6fEwiyw==
   dependencies:
     "@httptoolkit/websocket-stream" "^6.0.0"
     axios "^0.24.0"
