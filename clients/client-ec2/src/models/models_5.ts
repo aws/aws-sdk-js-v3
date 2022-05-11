@@ -80,9 +80,11 @@ import {
   VpnEcmpSupportValue,
 } from "./models_1";
 import {
+  DnsOptionsSpecification,
   Filter,
   IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
+  IpAddressType,
   IpamPoolCidr,
   PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
@@ -92,7 +94,6 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
   TransitGatewayPrefixListReference,
-  TransitGatewayRoute,
   VpnConnection,
 } from "./models_2";
 import {
@@ -117,7 +118,6 @@ import {
   Monitoring,
   PaymentOption,
   PermissionGroup,
-  PublicIpv4PoolRange,
   SnapshotDetail,
   SnapshotTaskDetail,
   TpmSupportValues,
@@ -127,16 +127,109 @@ import {
   CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   InstanceFamilyCreditSpecification,
-  IntegrateServices,
   LaunchTemplateConfig,
+  PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   ScheduledInstance,
   SnapshotAttributeName,
-  SpotFleetRequestConfigData,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_4";
+
+export interface GetEbsEncryptionByDefaultRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetEbsEncryptionByDefaultRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEbsEncryptionByDefaultResult {
+  /**
+   * <p>Indicates whether encryption by default is enabled.</p>
+   */
+  EbsEncryptionByDefault?: boolean;
+}
+
+export namespace GetEbsEncryptionByDefaultResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
+    ...obj,
+  });
+}
+
+export enum PartitionLoadFrequency {
+  DAILY = "daily",
+  MONTHLY = "monthly",
+  NONE = "none",
+  WEEKLY = "weekly",
+}
+
+/**
+ * <p>Describes integration options for Amazon Athena.</p>
+ */
+export interface AthenaIntegration {
+  /**
+   * <p>The location in Amazon S3 to store the generated CloudFormation template.</p>
+   */
+  IntegrationResultS3DestinationArn: string | undefined;
+
+  /**
+   * <p>The schedule for adding new partitions to the table.</p>
+   */
+  PartitionLoadFrequency: PartitionLoadFrequency | string | undefined;
+
+  /**
+   * <p>The start date for the partition.</p>
+   */
+  PartitionStartDate?: Date;
+
+  /**
+   * <p>The end date for the partition.</p>
+   */
+  PartitionEndDate?: Date;
+}
+
+export namespace AthenaIntegration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AthenaIntegration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes service integrations with VPC Flow logs.</p>
+ */
+export interface IntegrateServices {
+  /**
+   * <p>Information about the integration with Amazon Athena.</p>
+   */
+  AthenaIntegrations?: AthenaIntegration[];
+}
+
+export namespace IntegrateServices {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IntegrateServices): any => ({
+    ...obj,
+  });
+}
 
 export interface GetFlowLogsIntegrationTemplateRequest {
   /**
@@ -7061,6 +7154,16 @@ export interface ModifyVpcEndpointRequest {
   RemoveSecurityGroupIds?: string[];
 
   /**
+   * <p>The IP address type for the endpoint.</p>
+   */
+  IpAddressType?: IpAddressType | string;
+
+  /**
+   * <p>The DNS options for the endpoint.</p>
+   */
+  DnsOptions?: DnsOptionsSpecification;
+
+  /**
    * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the
    *             VPC.</p>
    */
@@ -7193,6 +7296,16 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
    *             configuration.</p>
    */
   RemoveGatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The IP address types to add to your service configuration.</p>
+   */
+  AddSupportedIpAddressTypes?: string[];
+
+  /**
+   * <p>The IP address types to remove from your service configuration.</p>
+   */
+  RemoveSupportedIpAddressTypes?: string[];
 }
 
 export namespace ModifyVpcEndpointServiceConfigurationRequest {
@@ -9598,154 +9711,6 @@ export namespace ReplaceTransitGatewayRouteRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ReplaceTransitGatewayRouteResult {
-  /**
-   * <p>Information about the modified route.</p>
-   */
-  Route?: TransitGatewayRoute;
-}
-
-export namespace ReplaceTransitGatewayRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
-    ...obj,
-  });
-}
-
-export type ReportInstanceReasonCodes =
-  | "instance-stuck-in-state"
-  | "not-accepting-credentials"
-  | "other"
-  | "password-not-available"
-  | "performance-ebs-volume"
-  | "performance-instance-store"
-  | "performance-network"
-  | "performance-other"
-  | "unresponsive";
-
-export type ReportStatusType = "impaired" | "ok";
-
-export interface ReportInstanceStatusRequest {
-  /**
-   * <p>Descriptive text about the health state of your instance.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The time at which the reported instance health state ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The instances.</p>
-   */
-  Instances: string[] | undefined;
-
-  /**
-   * <p>The reason codes that describe the health state of your instance.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>unresponsive</code>: My instance is unresponsive.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>not-accepting-credentials</code>: My instance is not accepting my
-   *                     credentials.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>password-not-available</code>: A password is not available for my
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>performance-network</code>: My instance is experiencing performance
-   *                     problems that I believe are network related.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>performance-instance-store</code>: My instance is experiencing performance
-   *                     problems that I believe are related to the instance stores.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>performance-ebs-volume</code>: My instance is experiencing performance
-   *                     problems that I believe are related to an EBS volume.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>performance-other</code>: My instance is experiencing performance
-   *                     problems.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>other</code>: [explain using the description parameter]</p>
-   *             </li>
-   *          </ul>
-   */
-  ReasonCodes: (ReportInstanceReasonCodes | string)[] | undefined;
-
-  /**
-   * <p>The time at which the reported instance health state began.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The status of all instances listed.</p>
-   */
-  Status: ReportStatusType | string | undefined;
-}
-
-export namespace ReportInstanceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for RequestSpotFleet.</p>
- */
-export interface RequestSpotFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The configuration for the Spot Fleet request.</p>
-   */
-  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
-}
-
-export namespace RequestSpotFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
     ...obj,
   });
 }

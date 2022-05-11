@@ -9336,11 +9336,6 @@ export enum SubnetCidrReservationType {
 
 export interface CreateSubnetCidrReservationRequest {
   /**
-   * <p>The tags to assign to the subnet CIDR reservation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
    * <p>The ID of the subnet.</p>
    */
   SubnetId: string | undefined;
@@ -9387,6 +9382,11 @@ export interface CreateSubnetCidrReservationRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace CreateSubnetCidrReservationRequest {

@@ -9,9 +9,11 @@ import {
   AnalysisComponent,
   AnalysisRouteTableRoute,
   AnalysisSecurityGroupRule,
+  AssociationStatus,
   AttachmentStatus,
   AttributeValue,
   AutoPlacement,
+  ClientVpnRouteStatus,
   CurrencyCodeValues,
   CustomerGateway,
   DhcpOptions,
@@ -72,6 +74,199 @@ import {
   TrafficType,
 } from "./models_1";
 import { Filter, FleetStateCode, IdFormat, InstanceTagNotificationAttribute } from "./models_2";
+
+/**
+ * <p>Information about a Client VPN endpoint route.</p>
+ */
+export interface ClientVpnRoute {
+  /**
+   * <p>The ID of the Client VPN endpoint with which the route is associated.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
+   * <p>The ID of the subnet through which traffic is routed.</p>
+   */
+  TargetSubnet?: string;
+
+  /**
+   * <p>The route type.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>Indicates how the route was associated with the Client VPN endpoint.
+   * 			<code>associate</code> indicates that the route was automatically added when the target network
+   * 			was associated with the Client VPN endpoint. <code>add-route</code> indicates that the route
+   * 			was manually added using the <b>CreateClientVpnRoute</b> action.</p>
+   */
+  Origin?: string;
+
+  /**
+   * <p>The current state of the route.</p>
+   */
+  Status?: ClientVpnRouteStatus;
+
+  /**
+   * <p>A brief description of the route.</p>
+   */
+  Description?: string;
+}
+
+export namespace ClientVpnRoute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientVpnRoute): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnRoutesResult {
+  /**
+   * <p>Information about the Client VPN endpoint routes.</p>
+   */
+  Routes?: ClientVpnRoute[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeClientVpnRoutesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnRoutesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnTargetNetworksRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The IDs of the target network associations.</p>
+   */
+  AssociationIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <code>association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-network-id</code> - The ID of the subnet specified as the target network.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the target network is located.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeClientVpnTargetNetworksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a target network associated with a Client VPN endpoint.</p>
+ */
+export interface TargetNetwork {
+  /**
+   * <p>The ID of the association.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the subnet specified as the target network.</p>
+   */
+  TargetNetworkId?: string;
+
+  /**
+   * <p>The ID of the Client VPN endpoint with which the target network is associated.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The current state of the target network association.</p>
+   */
+  Status?: AssociationStatus;
+
+  /**
+   * <p>The IDs of the security groups applied to the target network association.</p>
+   */
+  SecurityGroups?: string[];
+}
+
+export namespace TargetNetwork {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetNetwork): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeClientVpnTargetNetworksResult {
+  /**
+   * <p>Information about the associated target networks.</p>
+   */
+  ClientVpnTargetNetworks?: TargetNetwork[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeClientVpnTargetNetworksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeClientVpnTargetNetworksResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeCoipPoolsRequest {
   /**
@@ -11938,203 +12133,6 @@ export namespace DescribePrincipalIdFormatResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribePrincipalIdFormatResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePublicIpv4PoolsRequest {
-  /**
-   * <p>The IDs of the address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribePublicIpv4PoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an address range of an IPv4 address pool.</p>
- */
-export interface PublicIpv4PoolRange {
-  /**
-   * <p>The first IP address in the range.</p>
-   */
-  FirstAddress?: string;
-
-  /**
-   * <p>The last IP address in the range.</p>
-   */
-  LastAddress?: string;
-
-  /**
-   * <p>The number of addresses in the range.</p>
-   */
-  AddressCount?: number;
-
-  /**
-   * <p>The number of available addresses in the range.</p>
-   */
-  AvailableAddressCount?: number;
-}
-
-export namespace PublicIpv4PoolRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicIpv4PoolRange): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an IPv4 address pool.</p>
- */
-export interface PublicIpv4Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>A description of the address pool.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The address ranges.</p>
-   */
-  PoolAddressRanges?: PublicIpv4PoolRange[];
-
-  /**
-   * <p>The total number of addresses.</p>
-   */
-  TotalAddressCount?: number;
-
-  /**
-   * <p>The total number of available addresses.</p>
-   */
-  TotalAvailableAddressCount?: number;
-
-  /**
-   * <p>The name of the location from which the address pool is advertised.
-   *             A network border group is a unique set of Availability Zones or Local Zones
-   *             from where Amazon Web Services advertises public IP addresses.</p>
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace PublicIpv4Pool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicIpv4Pool): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePublicIpv4PoolsResult {
-  /**
-   * <p>Information about the address pools.</p>
-   */
-  PublicIpv4Pools?: PublicIpv4Pool[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePublicIpv4PoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePublicIpv4PoolsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeRegionsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> |
-   *                  <code>not-opted-in</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
-   */
-  RegionNames?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
-   */
-  AllRegions?: boolean;
-}
-
-export namespace DescribeRegionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
     ...obj,
   });
 }
