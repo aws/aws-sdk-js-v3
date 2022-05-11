@@ -1,28 +1,28 @@
 import { parseUrl } from "@aws-sdk/url-parser";
 import { createSign } from "crypto";
 
-/** Input type to getSignedUrl and getSignedCookies */
+/** Input type to getSignedUrl and getSignedCookies. */
 export type CloudfrontSignInput = CloudfrontSignInputWithParameters | CloudfrontSignInputWithPolicy;
 
 export interface CloudfrontSignInputBase {
-  /** The URL string to sign */
+  /** The URL string to sign. */
   url: string;
-  /** The ID of the Cloudfront key pair */
+  /** The ID of the Cloudfront key pair. */
   keyPairId: string;
-  /** The content of the Cloudfront private key */
+  /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
-  /** The date string for when the signed URL or cookie can no longer be accessed */
+  /** The date string for when the signed URL or cookie can no longer be accessed. */
   dateLessThan?: string;
-  /** The IP address string to restrict signed URL access to */
+  /** The IP address string to restrict signed URL access to. */
   ipAddress?: string;
-  /** The date string for when the signed URL or cookie can start to be accessed */
+  /** The date string for when the signed URL or cookie can start to be accessed. */
   dateGreaterThan?: string;
 }
 
 export type CloudfrontSignInputWithParameters = CloudfrontSignInputBase & {
   /** The date string for when the signed URL or cookie can no longer be accessed */
   dateLessThan: string;
-  /** The JSON-encoded policy string. For this type policy should not be provided. */
+  /** For this type policy should not be provided. */
   policy?: never;
 };
 
@@ -30,41 +30,33 @@ export type CloudfrontSignInputWithPolicy = CloudfrontSignInputBase & {
   /** The JSON-encoded policy string */
   policy: string;
   /**
-   * The date string for when the signed URL or cookie can no longer be accessed.
    * For this type dateLessThan should not be provided.
    */
   dateLessThan?: never;
-  /** The IP address string to restrict signed URL access to
+  /**
    * For this type ipAddress should not be provided.
    */
   ipAddress?: string;
-  /** The date string for when the signed URL or cookie can start to be accessed
+  /**
    * For this type dateGreaterThan should not be provided.
    */
   dateGreaterThan?: never;
 };
 
 export interface CloudfrontSignedCookiesOutput {
-  /** ID of the Cloudfront key pair */
+  /** ID of the Cloudfront key pair. */
   "CloudFront-Key-Pair-Id": string;
-  /** Hashed, signed, and base64-encoded version of the JSON policy */
+  /** Hashed, signed, and base64-encoded version of the JSON policy. */
   "CloudFront-Signature": string;
-  /** The unix date time for when the signed URL or cookie can no longer be accessed */
+  /** The unix date time for when the signed URL or cookie can no longer be accessed. */
   "CloudFront-Expires"?: number;
-  /** Base64-encoded version of the JSON policy */
+  /** Base64-encoded version of the JSON policy. */
   "CloudFront-Policy"?: string;
 }
+
 /**
  * Creates a signed URL string using a canned or custom policy.
- * @param  {CloudfrontSignInput} options
- * @param  {string} options.dateLessThan
- * @param  {string} options.dateGreaterThan
- * @param  {string} options.url
- * @param  {string} options.keyPairId
- * @param  {string|Buffer} options.privateKey
- * @param  {string} options.ipAddress
- * @param  {string} options.policy
- * @returns string
+ * @returns the input URL with signature attached as query parameters.
  */
 export function getSignedUrl({
   dateLessThan,
@@ -113,15 +105,7 @@ export function getSignedUrl({
 
 /**
  * Creates signed cookies using a canned or custom policy.
- * @param  {CloudfrontSignInput} options
- * @param  {string} options.dateLessThan
- * @param  {string} options.dateGreaterThan
- * @param  {string} options.url
- * @param  {string} options.keyPairId
- * @param  {string|Buffer} options.privateKey
- * @param  {string} options.ipAddress
- * @param  {string} options.policy
- * @returns CloudfrontSignedCookiesOutput
+ * @returns an object with keys/values that can be added to cookies.
  */
 export function getSignedCookies({
   ipAddress,
