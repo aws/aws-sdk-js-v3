@@ -23,10 +23,10 @@ export interface ListSecretVersionIdsCommandInput extends ListSecretVersionIdsRe
 export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the versions for a secret. </p>
+ * <p>Lists the versions of a secret. Secrets Manager uses staging labels to indicate the different versions
+ *     of a secret. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">
+ *     Secrets Manager concepts: Versions</a>.</p>
  *          <p>To list the secrets in the account, use <a>ListSecrets</a>.</p>
- *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
- *       call <a>GetSecretValue</a>.</p>
  *          <p>
  *             <b>Required permissions: </b>
  *             <code>secretsmanager:ListSecretVersionIds</code>.
