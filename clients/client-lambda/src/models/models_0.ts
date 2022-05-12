@@ -988,7 +988,7 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1226,7 +1226,7 @@ export interface EventSourceMappingConfiguration {
   TumblingWindowInSeconds?: number;
 
   /**
-   * <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
+   * <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
@@ -1492,6 +1492,7 @@ export enum Runtime {
   nodejs10x = "nodejs10.x",
   nodejs12x = "nodejs12.x",
   nodejs14x = "nodejs14.x",
+  nodejs16x = "nodejs16.x",
   nodejs43 = "nodejs4.3",
   nodejs43edge = "nodejs4.3-edge",
   nodejs610 = "nodejs6.10",
@@ -5960,7 +5961,7 @@ export interface UpdateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
    *             </li>
    *             <li>
    *                <p>
