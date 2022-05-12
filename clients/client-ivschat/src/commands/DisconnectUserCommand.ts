@@ -23,8 +23,9 @@ export interface DisconnectUserCommandInput extends DisconnectUserRequest {}
 export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects all connections using a specified user ID from a room. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html"> DisconnectUser</a> WebSocket operation
- *          in the Amazon IVS Chat Messaging API.</p>
+ * <p>Disconnects all connections using a specified user ID from a room. This replicates the
+ *             <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
+ *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

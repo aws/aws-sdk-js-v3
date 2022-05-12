@@ -633,6 +633,9 @@ const deserializeAws_restJson1DeleteRoomCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -1095,6 +1098,9 @@ const deserializeAws_restJson1UpdateRoomCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "PendingVerification":
+    case "com.amazonaws.ivschat#PendingVerification":
+      throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ivschat#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
