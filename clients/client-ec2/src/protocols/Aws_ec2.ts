@@ -36154,6 +36154,9 @@ const serializeAws_ec2CreateTrafficMirrorTargetRequest = (
   if (input.ClientToken !== undefined && input.ClientToken !== null) {
     entries["ClientToken"] = input.ClientToken;
   }
+  if (input.GatewayLoadBalancerEndpointId !== undefined && input.GatewayLoadBalancerEndpointId !== null) {
+    entries["GatewayLoadBalancerEndpointId"] = input.GatewayLoadBalancerEndpointId;
+  }
   return entries;
 };
 
@@ -78826,6 +78829,7 @@ const deserializeAws_ec2TrafficMirrorTarget = (output: any, context: __SerdeCont
     Description: undefined,
     OwnerId: undefined,
     Tags: undefined,
+    GatewayLoadBalancerEndpointId: undefined,
   };
   if (output["trafficMirrorTargetId"] !== undefined) {
     contents.TrafficMirrorTargetId = __expectString(output["trafficMirrorTargetId"]);
@@ -78850,6 +78854,9 @@ const deserializeAws_ec2TrafficMirrorTarget = (output: any, context: __SerdeCont
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["gatewayLoadBalancerEndpointId"] !== undefined) {
+    contents.GatewayLoadBalancerEndpointId = __expectString(output["gatewayLoadBalancerEndpointId"]);
   }
   return contents;
 };
