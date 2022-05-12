@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.90.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.89.0...v3.90.0) (2022-05-12)
+
+
+### Features
+
+* **client-ssm-incidents:** Adding support for dynamic SSM Runbook parameter values. Updating validation pattern for engagements. Adding ConflictException to UpdateReplicationSet API contract. ([67fcba1](https://github.com/aws/aws-sdk-js-v3/commit/67fcba1df63f50c80a3bc11015a8d2d73cf85084))
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-incidents

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.90.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.89.0...v3.90.0) (2022-05-12)
+
+
+### Features
+
+* **client-ec2:** This release introduces a target type Gateway Load Balancer Endpoint for mirrored traffic. Customers can now specify GatewayLoadBalancerEndpoint option during the creation of a traffic mirror target. ([ed7b520](https://github.com/aws/aws-sdk-js-v3/commit/ed7b5208c5072a12a20e7080e84ac9e3091b6f99))
+* **client-kendra:** Amazon Kendra now provides a data source connector for Jira. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html ([37c9777](https://github.com/aws/aws-sdk-js-v3/commit/37c9777fa7b6cd71a024f399fe99016d3960a719))
+* **client-lambda:** Lambda releases NodeJs 16 managed runtime to be available in all commercial regions. ([22a47c1](https://github.com/aws/aws-sdk-js-v3/commit/22a47c18cda82d7703f0c1fb473214dc4de83322))
+* **client-lightsail:** This release adds support to include inactive database bundles in the response of the GetRelationalDatabaseBundles request. ([2ed03c4](https://github.com/aws/aws-sdk-js-v3/commit/2ed03c4609739967b0bb191639cae41ff01a168c))
+* **client-ssm-incidents:** Adding support for dynamic SSM Runbook parameter values. Updating validation pattern for engagements. Adding ConflictException to UpdateReplicationSet API contract. ([67fcba1](https://github.com/aws/aws-sdk-js-v3/commit/67fcba1df63f50c80a3bc11015a8d2d73cf85084))
+* **client-workspaces:** Increased the character limit of the login message from 600 to 850 characters. ([796d6f4](https://github.com/aws/aws-sdk-js-v3/commit/796d6f4f239ebe5c9ccbabf081917725d58d1444))
+* Add Cloudfront package to sign URLs and cookies ([#3461](https://github.com/aws/aws-sdk-js-v3/issues/3461)) ([f109ed5](https://github.com/aws/aws-sdk-js-v3/commit/f109ed5e985563256aff83a45f19a148465e978e))
+
+
+
+
+
 # [3.89.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.88.0...v3.89.0) (2022-05-11)
 
 

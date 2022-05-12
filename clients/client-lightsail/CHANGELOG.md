@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.90.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.89.0...v3.90.0) (2022-05-12)
+
+
+### Features
+
+* **client-lightsail:** This release adds support to include inactive database bundles in the response of the GetRelationalDatabaseBundles request. ([2ed03c4](https://github.com/aws/aws-sdk-js-v3/commit/2ed03c4609739967b0bb191639cae41ff01a168c))
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lightsail

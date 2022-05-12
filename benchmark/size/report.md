@@ -17,7 +17,7 @@
 |@aws-sdk/client-cognito-identity-provider|3.85.0|2.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cognito-sync|3.85.0|639.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-dynamodb|3.85.0|2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-ec2|3.88.0|14.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-ec2|3.89.0|14.6 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-efs|3.85.0|1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-eventbridge|3.87.0|1.5 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-firehose|3.85.0|783.5 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
@@ -25,7 +25,7 @@
 |@aws-sdk/client-iam|3.85.0|3.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-kinesis|3.87.0|942.4 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-kms|3.85.0|1.7 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-lambda|3.85.0|2.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-lambda|3.87.0|2.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-opsworks|3.85.0|1.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-pinpoint|3.85.0|3.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-resource-groups-tagging-api|3.85.0|412 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
