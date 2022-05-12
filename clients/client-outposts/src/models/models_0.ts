@@ -676,6 +676,12 @@ export interface CreateOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 
@@ -1107,6 +1113,12 @@ export interface DeleteOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   OutpostId: string | undefined;
 }
@@ -1136,6 +1148,12 @@ export interface DeleteSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 }
@@ -1229,6 +1247,12 @@ export interface GetOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   OutpostId: string | undefined;
 }
@@ -1263,6 +1287,12 @@ export interface GetOutpostInstanceTypesInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   OutpostId: string | undefined;
 
@@ -1320,6 +1350,12 @@ export interface GetOutpostInstanceTypesOutput {
    * <p>
    *       The ID of the Outpost.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   OutpostId?: string;
 
@@ -1343,6 +1379,12 @@ export interface GetSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 }
@@ -1377,6 +1419,12 @@ export interface GetSiteAddressInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 
@@ -1946,6 +1994,12 @@ export interface UpdateOutpostInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the Outpost.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   OutpostId: string | undefined;
 
@@ -1997,6 +2051,12 @@ export interface UpdateSiteInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 
@@ -2048,6 +2108,12 @@ export interface UpdateSiteAddressInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 
@@ -2105,6 +2171,12 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    * <p>
    *       The ID or the Amazon Resource Name (ARN) of the site.
    *     </p>
+   *          <note>
+   *             <p>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or an ID for Outposts and
+   *       sites throughout the Outposts Query API. To address backwards compatibility, the parameter names
+   *       <code>OutpostID</code> or <code>SiteID</code> remain in use. Despite the parameter name,
+   *       you can make the request with an ARN.</p>
+   *          </note>
    */
   SiteId: string | undefined;
 
