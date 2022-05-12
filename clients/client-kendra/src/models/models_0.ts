@@ -2491,6 +2491,162 @@ export namespace GoogleDriveConfiguration {
   });
 }
 
+export enum IssueSubEntity {
+  ATTACHMENTS = "ATTACHMENTS",
+  COMMENTS = "COMMENTS",
+  WORKLOGS = "WORKLOGS",
+}
+
+export interface JiraConfiguration {
+  /**
+   * <p>The URL of the Jira account. For example, company.attlassian.net or
+   *             https://jira.company.com. You can find your Jira account URL in the URL of
+   *             your profile page for Jira desktop.</p>
+   */
+  JiraAccountUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that
+   *             contains the key-value pairs required to connect to your Jira
+   *             data source. The secret must
+   *             contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>jira-id—The Active Directory user name, along with the
+   *                     Domain Name System (DNS) domain name. For example,
+   *                     <i>user@corp.example.com</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>jiraCredentials—The password of the Jira account user.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>Specify to use the change log option to update your index.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>Specify which projects to crawl in your Jira data source. You can specify
+   *             one or more Jira project IDs.</p>
+   */
+  Project?: string[];
+
+  /**
+   * <p>Specify which issue types to crawl in your Jira data source.
+   *             You can specify one or more of these options to crawl.</p>
+   */
+  IssueType?: string[];
+
+  /**
+   * <p>Specify which statuses to crawl in your Jira data source.
+   *             You can specify one or more of these options to crawl.</p>
+   */
+  Status?: string[];
+
+  /**
+   * <p>Specify whether to crawl comments,
+   *             attachments,
+   *             and work logs. You can specify one or more of these options.</p>
+   */
+  IssueSubEntityFilter?: (IssueSubEntity | string)[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira attachments to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  AttachmentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira comments to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  CommentFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira issues to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  IssueFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira projects to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  ProjectFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of DataSourceToIndexFieldMapping objects that map attributes
+   *             or field names of Jira work logs to Amazon Kendra index field names.
+   *             To create custom fields, use the UpdateIndex API before you map to Jira
+   *             fields. For
+   *             more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">
+   *                 Mapping data source fields</a>. The Jira data source field names
+   *             must exist in your Jira custom metadata.</p>
+   */
+  WorkLogFieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of regular expression patterns to include certain file paths,
+   *             file
+   *             names, and
+   *             file types in your Jira data source. Files that match the patterns are included in the
+   *             index. Files that don't match the patterns are excluded from the index. If a file
+   *             matches both an inclusion pattern and an exclusion pattern, the exclusion pattern takes
+   *             precedence and the file isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain file paths,
+   *             file names, and file types
+   *             in your Jira data source. Files that match the patterns
+   *             are excluded from the index. Files that don’t match the patterns are
+   *             included in the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence
+   *             and the file isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Configuration information for an
+   *             Amazon Virtual Private Cloud to connect to your Jira. Your Jira
+   *             account must reside inside your VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+}
+
+export namespace JiraConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JiraConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>User accounts whose documents should be indexed.</p>
  */
@@ -4099,6 +4255,12 @@ export interface DataSourceConfiguration {
    *             data source.</p>
    */
   QuipConfiguration?: QuipConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Jira as your
+   *             data source.</p>
+   */
+  JiraConfiguration?: JiraConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -4145,6 +4307,7 @@ export enum DataSourceType {
   DATABASE = "DATABASE",
   FSX = "FSX",
   GOOGLEDRIVE = "GOOGLEDRIVE",
+  JIRA = "JIRA",
   ONEDRIVE = "ONEDRIVE",
   QUIP = "QUIP",
   S3 = "S3",
