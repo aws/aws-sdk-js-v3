@@ -774,7 +774,10 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Adds a resource policy to the specified response plan.</p>
+   * <p>Adds a resource policy to the specified response plan. The resource policy is used to
+   *             share the response plan using Resource Access Manager (RAM). For more
+   *             information about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting up
+   *                 cross-account functionality</a>.</p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
