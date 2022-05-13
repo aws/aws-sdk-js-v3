@@ -21,7 +21,15 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateLicenseCommandInput, AssociateLicenseCommandOutput } from "../commands/AssociateLicenseCommand";
+import {
+  CreateWorkspaceApiKeyCommandInput,
+  CreateWorkspaceApiKeyCommandOutput,
+} from "../commands/CreateWorkspaceApiKeyCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
+import {
+  DeleteWorkspaceApiKeyCommandInput,
+  DeleteWorkspaceApiKeyCommandOutput,
+} from "../commands/DeleteWorkspaceApiKeyCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
 import {
   DescribeWorkspaceAuthenticationCommandInput,
@@ -173,6 +181,42 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateWorkspaceApiKeyCommand = async (
+  input: CreateWorkspaceApiKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/apikeys";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.keyName !== undefined && input.keyName !== null && { keyName: input.keyName }),
+    ...(input.keyRole !== undefined && input.keyRole !== null && { keyRole: input.keyRole }),
+    ...(input.secondsToLive !== undefined && input.secondsToLive !== null && { secondsToLive: input.secondsToLive }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteWorkspaceCommand = async (
   input: DeleteWorkspaceCommandInput,
   context: __SerdeContext
@@ -181,6 +225,45 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
   const headers: any = {};
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteWorkspaceApiKeyCommand = async (
+  input: DeleteWorkspaceApiKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/apikeys/{keyName}";
+  if (input.keyName !== undefined) {
+    const labelValue: string = input.keyName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: keyName.");
+    }
+    resolvedPath = resolvedPath.replace("{keyName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: keyName.");
+  }
   if (input.workspaceId !== undefined) {
     const labelValue: string = input.workspaceId;
     if (labelValue.length <= 0) {
@@ -709,6 +792,76 @@ const deserializeAws_restJson1CreateWorkspaceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateWorkspaceApiKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceApiKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateWorkspaceApiKeyCommandError(output, context);
+  }
+  const contents: CreateWorkspaceApiKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    key: undefined,
+    keyName: undefined,
+    workspaceId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.key !== undefined && data.key !== null) {
+    contents.key = __expectString(data.key);
+  }
+  if (data.keyName !== undefined && data.keyName !== null) {
+    contents.keyName = __expectString(data.keyName);
+  }
+  if (data.workspaceId !== undefined && data.workspaceId !== null) {
+    contents.workspaceId = __expectString(data.workspaceId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateWorkspaceApiKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceApiKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.grafana#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.grafana#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.grafana#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.grafana#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.grafana#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.grafana#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.grafana#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1DeleteWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -731,6 +884,69 @@ const deserializeAws_restJson1DeleteWorkspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkspaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.grafana#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.grafana#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.grafana#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.grafana#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.grafana#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.grafana#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteWorkspaceApiKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkspaceApiKeyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteWorkspaceApiKeyCommandError(output, context);
+  }
+  const contents: DeleteWorkspaceApiKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    keyName: undefined,
+    workspaceId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.keyName !== undefined && data.keyName !== null) {
+    contents.keyName = __expectString(data.keyName);
+  }
+  if (data.workspaceId !== undefined && data.workspaceId !== null) {
+    contents.workspaceId = __expectString(data.workspaceId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteWorkspaceApiKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkspaceApiKeyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
