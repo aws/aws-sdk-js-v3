@@ -26,7 +26,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
@@ -76,8 +75,7 @@ public final class AddS3Config implements TypeScriptIntegration {
             + "For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>";
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         ServiceShape serviceShape = settings.getService(model);
         if (!testServiceId(serviceShape)) {
             return model;

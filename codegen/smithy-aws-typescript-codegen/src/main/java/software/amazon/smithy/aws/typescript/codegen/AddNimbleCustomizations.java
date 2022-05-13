@@ -17,7 +17,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
@@ -35,12 +34,11 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public class AddNimbleCustomizations implements TypeScriptIntegration {
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         ServiceShape service = settings.getService(model);
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         if (!serviceId.equals("nimble")) {
-            return context.getModel();
+            return model;
         }
         Map<ShapeId, ShapeType> overWriteTypeMap = MapUtils.of(
                 ShapeId.from("com.amazonaws.nimble#StudioComponentConfiguration"), ShapeType.STRUCTURE);

@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
-import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.LongShape;
 import software.amazon.smithy.model.shapes.ShapeId;
@@ -49,8 +48,7 @@ public final class AddS3ObjectSizeMemberShapeType implements TypeScriptIntegrati
     }
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
-        Model model = context.getModel();
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
         ShapeId serviceId = settings.getService();
         if (!SERVICE_TO_SHAPE_MAP.containsKey(serviceId)) {
             return model;
