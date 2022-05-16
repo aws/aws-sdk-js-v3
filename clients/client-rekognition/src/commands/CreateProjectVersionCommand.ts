@@ -35,7 +35,7 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *
  *
  *          <note>
- *             <p>You can train a modelin a project that doesn't have associated datasets by specifying manifest files in the
+ *             <p>You can train a model in a project that doesn't have associated datasets by specifying manifest files in the
  *          <code>TrainingData</code> and <code>TestingData</code> fields.
  *          </p>
  *             <p>If you open the console after training a model with manifest files, Amazon Rekognition Custom Labels creates
