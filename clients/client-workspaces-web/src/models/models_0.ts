@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
@@ -398,6 +398,8 @@ export namespace Tag {
    */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
+    ...(obj.Key && { Key: SENSITIVE_STRING }),
+    ...(obj.Value && { Value: SENSITIVE_STRING }),
   });
 }
 
@@ -439,6 +441,8 @@ export namespace CreateBrowserSettingsRequest {
    */
   export const filterSensitiveLog = (obj: CreateBrowserSettingsRequest): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
+    ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
   });
 }
 
@@ -673,8 +677,8 @@ export interface CreateIdentityProviderRequest {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>IDPSignout</code>
-   *                         <i>optional</i>
+   *                         <code>IDPSignout</code> (boolean)
+   *                <i>optional</i>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -700,6 +704,8 @@ export namespace CreateIdentityProviderRequest {
    */
   export const filterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
     ...obj,
+    ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+    ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
   });
 }
 
@@ -757,6 +763,7 @@ export namespace CreateNetworkSettingsRequest {
    */
   export const filterSensitiveLog = (obj: CreateNetworkSettingsRequest): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -814,6 +821,8 @@ export namespace CreatePortalRequest {
    */
   export const filterSensitiveLog = (obj: CreatePortalRequest): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -866,6 +875,7 @@ export namespace CreateTrustStoreRequest {
    */
   export const filterSensitiveLog = (obj: CreateTrustStoreRequest): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -926,6 +936,16 @@ export interface CreateUserSettingsRequest {
   tags?: Tag[];
 
   /**
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. Idempotency ensures that an API request completes only once. With an idempotent
    *          request, if the original request completes successfully, subsequent retries with the same
@@ -942,6 +962,7 @@ export namespace CreateUserSettingsRequest {
    */
   export const filterSensitiveLog = (obj: CreateUserSettingsRequest): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -1276,6 +1297,7 @@ export namespace BrowserSettings {
    */
   export const filterSensitiveLog = (obj: BrowserSettings): any => ({
     ...obj,
+    ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
   });
 }
 
@@ -1292,6 +1314,7 @@ export namespace GetBrowserSettingsResponse {
    */
   export const filterSensitiveLog = (obj: GetBrowserSettingsResponse): any => ({
     ...obj,
+    ...(obj.browserSettings && { browserSettings: BrowserSettings.filterSensitiveLog(obj.browserSettings) }),
   });
 }
 
@@ -1494,6 +1517,8 @@ export namespace IdentityProvider {
    */
   export const filterSensitiveLog = (obj: IdentityProvider): any => ({
     ...obj,
+    ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+    ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
   });
 }
 
@@ -1510,6 +1535,7 @@ export namespace GetIdentityProviderResponse {
    */
   export const filterSensitiveLog = (obj: GetIdentityProviderResponse): any => ({
     ...obj,
+    ...(obj.identityProvider && { identityProvider: IdentityProvider.filterSensitiveLog(obj.identityProvider) }),
   });
 }
 
@@ -1688,6 +1714,7 @@ export namespace Portal {
    */
   export const filterSensitiveLog = (obj: Portal): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
 }
 
@@ -1704,6 +1731,7 @@ export namespace GetPortalResponse {
    */
   export const filterSensitiveLog = (obj: GetPortalResponse): any => ({
     ...obj,
+    ...(obj.portal && { portal: Portal.filterSensitiveLog(obj.portal) }),
   });
 }
 
@@ -1950,6 +1978,16 @@ export interface UserSettings {
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
+
+  /**
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
 }
 
 export namespace UserSettings {
@@ -2090,6 +2128,7 @@ export namespace IdentityProviderSummary {
    */
   export const filterSensitiveLog = (obj: IdentityProviderSummary): any => ({
     ...obj,
+    ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
   });
 }
 
@@ -2111,6 +2150,9 @@ export namespace ListIdentityProvidersResponse {
    */
   export const filterSensitiveLog = (obj: ListIdentityProvidersResponse): any => ({
     ...obj,
+    ...(obj.identityProviders && {
+      identityProviders: obj.identityProviders.map((item) => IdentityProviderSummary.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -2268,6 +2310,7 @@ export namespace PortalSummary {
    */
   export const filterSensitiveLog = (obj: PortalSummary): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
 }
 
@@ -2289,6 +2332,7 @@ export namespace ListPortalsResponse {
    */
   export const filterSensitiveLog = (obj: ListPortalsResponse): any => ({
     ...obj,
+    ...(obj.portals && { portals: obj.portals.map((item) => PortalSummary.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2321,6 +2365,7 @@ export namespace ListTagsForResourceResponse {
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -2534,6 +2579,16 @@ export interface UserSettingsSummary {
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
+
+  /**
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
 }
 
 export namespace UserSettingsSummary {
@@ -2594,6 +2649,7 @@ export namespace TagResourceRequest {
    */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
+    ...(obj.tags && { tags: SENSITIVE_STRING }),
   });
 }
 
@@ -2651,6 +2707,7 @@ export namespace UntagResourceRequest {
    */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
+    ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
   });
 }
 
@@ -2694,6 +2751,7 @@ export namespace UpdateBrowserSettingsRequest {
    */
   export const filterSensitiveLog = (obj: UpdateBrowserSettingsRequest): any => ({
     ...obj,
+    ...(obj.browserPolicy && { browserPolicy: SENSITIVE_STRING }),
   });
 }
 
@@ -2710,6 +2768,7 @@ export namespace UpdateBrowserSettingsResponse {
    */
   export const filterSensitiveLog = (obj: UpdateBrowserSettingsResponse): any => ({
     ...obj,
+    ...(obj.browserSettings && { browserSettings: BrowserSettings.filterSensitiveLog(obj.browserSettings) }),
   });
 }
 
@@ -2730,7 +2789,159 @@ export interface UpdateIdentityProviderRequest {
   identityProviderType?: IdentityProviderType | string;
 
   /**
-   * <p>The details of the identity provider.</p>
+   * <p>The details of the identity provider. The following list describes the provider detail keys for
+   *          each identity provider type. </p>
+   *          <ul>
+   *             <li>
+   *                <p>For Google and Login with Amazon:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For Facebook:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>api_version</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For Sign in with Apple:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>team_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>key_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>private_key</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For OIDC providers:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_id</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>client_secret</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>attributes_request_method</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>oidc_issuer</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_scopes</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>authorize_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>token_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>attributes_url</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>jwks_uri</code>
+   *                         <i>if not available from discovery URL specified by
+   *                   <code>oidc_issuer</code> key</i>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For SAML providers:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>MetadataFile</code> OR <code>MetadataURL</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>IDPSignout</code> (boolean)
+   *                <i>optional</i>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   identityProviderDetails?: { [key: string]: string };
 
@@ -2751,6 +2962,8 @@ export namespace UpdateIdentityProviderRequest {
    */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
     ...obj,
+    ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
+    ...(obj.identityProviderDetails && { identityProviderDetails: SENSITIVE_STRING }),
   });
 }
 
@@ -2767,6 +2980,7 @@ export namespace UpdateIdentityProviderResponse {
    */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
     ...obj,
+    ...(obj.identityProvider && { identityProvider: IdentityProvider.filterSensitiveLog(obj.identityProvider) }),
   });
 }
 
@@ -2845,6 +3059,7 @@ export namespace UpdatePortalRequest {
    */
   export const filterSensitiveLog = (obj: UpdatePortalRequest): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
 }
 
@@ -2861,6 +3076,7 @@ export namespace UpdatePortalResponse {
    */
   export const filterSensitiveLog = (obj: UpdatePortalResponse): any => ({
     ...obj,
+    ...(obj.portal && { portal: Portal.filterSensitiveLog(obj.portal) }),
   });
 }
 
@@ -2950,6 +3166,16 @@ export interface UpdateUserSettingsRequest {
    * <p>Specifies whether the user can print to the local device.</p>
    */
   printAllowed?: EnabledType | string;
+
+  /**
+   * <p>The amount of time that a streaming session remains active after users disconnect.</p>
+   */
+  disconnectTimeoutInMinutes?: number;
+
+  /**
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.</p>
+   */
+  idleDisconnectTimeoutInMinutes?: number;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the

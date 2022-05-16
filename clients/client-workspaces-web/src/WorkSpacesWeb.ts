@@ -1455,7 +1455,7 @@ export class WorkSpacesWeb extends WorkSpacesWebClient {
   }
 
   /**
-   * <p>Updates the identity provider.</p>
+   * <p>Updates the identity provider. </p>
    */
   public updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
