@@ -30,6 +30,7 @@ export enum ResourceMappingType {
   CFN_STACK = "CfnStack",
   RESOURCE = "Resource",
   RESOURCE_GROUP = "ResourceGroup",
+  TERRAFORM = "Terraform",
 }
 
 export enum PhysicalIdentifierType {
@@ -136,6 +137,13 @@ export interface ResourceMapping {
    * <p>The identifier of this resource.</p>
    */
   physicalResourceId: PhysicalResourceId | undefined;
+
+  /**
+   * <p>
+   *       The short name of the Terraform source.
+   *     </p>
+   */
+  terraformSourceName?: string;
 }
 
 export namespace ResourceMapping {
@@ -150,7 +158,7 @@ export namespace ResourceMapping {
 export interface AddDraftAppVersionResourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -179,7 +187,7 @@ export namespace AddDraftAppVersionResourceMappingsRequest {
 export interface AddDraftAppVersionResourceMappingsResponse {
   /**
    * <p> The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -435,6 +443,11 @@ export namespace AlarmRecommendation {
   });
 }
 
+export enum AppAssessmentScheduleType {
+  DAILY = "Daily",
+  DISABLED = "Disabled",
+}
+
 export enum AppComplianceStatusType {
   CHANGES_DETECTED = "ChangesDetected",
   NOT_ASSESSED = "NotAssessed",
@@ -453,7 +466,7 @@ export enum AppStatusType {
 export interface App {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -472,7 +485,7 @@ export interface App {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -514,6 +527,13 @@ export interface App {
    * Each tag consists of a key/value pair.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>
+   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
+   *     </p>
+   */
+  assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
 export namespace App {
@@ -701,7 +721,7 @@ export enum ResiliencyPolicyTier {
 export interface ResiliencyPolicy {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -788,12 +808,79 @@ export namespace ResiliencyScore {
 }
 
 /**
+ * <p>
+ *       Defines application resource errors.
+ *     </p>
+ */
+export interface ResourceError {
+  /**
+   * <p>
+   *       This is the identifier of the resource.
+   *     </p>
+   */
+  logicalResourceId?: string;
+
+  /**
+   * <p>
+   *       This is the identifier of the physical resource.
+   *     </p>
+   */
+  physicalResourceId?: string;
+
+  /**
+   * <p>
+   *       This is the error message.
+   *     </p>
+   */
+  reason?: string;
+}
+
+export namespace ResourceError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       A list of errors retrieving an application's resources.
+ *     </p>
+ */
+export interface ResourceErrorsDetails {
+  /**
+   * <p>
+   *       A list of errors retrieving an application's resources.
+   *     </p>
+   */
+  resourceErrors?: ResourceError[];
+
+  /**
+   * <p>
+   *       This indicates if there are more errors not listed in the resourceErrors list.
+   *     </p>
+   */
+  hasMoreErrors?: boolean;
+}
+
+export namespace ResourceErrorsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceErrorsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Defines an application assessment.</p>
  */
 export interface AppAssessment {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -857,7 +944,7 @@ export interface AppAssessment {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -874,6 +961,13 @@ export interface AppAssessment {
    * Each tag consists of a key/value pair.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>
+   *       A resource error object containing a list of errors retrieving an application's resources.
+   *     </p>
+   */
+  resourceErrorsDetails?: ResourceErrorsDetails;
 }
 
 export namespace AppAssessment {
@@ -893,7 +987,7 @@ export namespace AppAssessment {
 export interface AppAssessmentSummary {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -937,7 +1031,7 @@ export interface AppAssessmentSummary {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1043,7 +1137,7 @@ export namespace AppComponentCompliance {
 export interface AppSummary {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1074,6 +1168,13 @@ export interface AppSummary {
    * <p>The current resiliency score for the application.</p>
    */
   resiliencyScore?: number;
+
+  /**
+   * <p>
+   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
+   *     </p>
+   */
+  assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
 export namespace AppSummary {
@@ -1117,7 +1218,7 @@ export interface CreateAppRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1135,6 +1236,13 @@ export interface CreateAppRequest {
    * You should not reuse the same client token for other API requests.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>
+   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
+   *     </p>
+   */
+  assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
 export namespace CreateAppRequest {
@@ -1238,7 +1346,7 @@ export interface CreateRecommendationTemplateRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1320,7 +1428,7 @@ export interface RecommendationTemplate {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1329,7 +1437,7 @@ export interface RecommendationTemplate {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1520,7 +1628,7 @@ export namespace CreateResiliencyPolicyResponse {
 export interface DeleteAppRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1551,7 +1659,7 @@ export namespace DeleteAppRequest {
 export interface DeleteAppResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1571,7 +1679,7 @@ export namespace DeleteAppResponse {
 export interface DeleteAppAssessmentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1597,7 +1705,7 @@ export namespace DeleteAppAssessmentRequest {
 export interface DeleteAppAssessmentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1665,7 +1773,7 @@ export namespace DeleteRecommendationTemplateResponse {
 export interface DeleteResiliencyPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1691,7 +1799,7 @@ export namespace DeleteResiliencyPolicyRequest {
 export interface DeleteResiliencyPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1711,7 +1819,7 @@ export namespace DeleteResiliencyPolicyResponse {
 export interface DescribeAppRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1749,7 +1857,7 @@ export namespace DescribeAppResponse {
 export interface DescribeAppAssessmentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1788,7 +1896,7 @@ export namespace DescribeAppAssessmentResponse {
 export interface DescribeAppVersionResourcesResolutionStatusRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1825,7 +1933,7 @@ export enum ResourceResolutionStatusType {
 export interface DescribeAppVersionResourcesResolutionStatusResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1865,7 +1973,7 @@ export namespace DescribeAppVersionResourcesResolutionStatusResponse {
 export interface DescribeAppVersionTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1890,7 +1998,7 @@ export namespace DescribeAppVersionTemplateRequest {
 export interface DescribeAppVersionTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1920,7 +2028,7 @@ export namespace DescribeAppVersionTemplateResponse {
 export interface DescribeDraftAppVersionResourcesImportStatusRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1947,7 +2055,7 @@ export enum ResourceImportStatusType {
 export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -1987,7 +2095,7 @@ export namespace DescribeDraftAppVersionResourcesImportStatusResponse {
 export interface DescribeResiliencyPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2023,10 +2131,33 @@ export namespace DescribeResiliencyPolicyResponse {
   });
 }
 
+/**
+ * <p>
+ *       The Terraform s3 state file you need to import.
+ *     </p>
+ */
+export interface TerraformSource {
+  /**
+   * <p>
+   *       The Terraform s3 state file you need to import.
+   *     </p>
+   */
+  s3StateFileUrl: string | undefined;
+}
+
+export namespace TerraformSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TerraformSource): any => ({
+    ...obj,
+  });
+}
+
 export interface ImportResourcesToDraftAppVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2036,7 +2167,14 @@ export interface ImportResourcesToDraftAppVersionRequest {
   /**
    * <p>The Amazon Resource Names (ARNs) for the resources that you want to import.</p>
    */
-  sourceArns: string[] | undefined;
+  sourceArns?: string[];
+
+  /**
+   * <p>
+   *       A list of terraform file s3 URLs you need to import.
+   *     </p>
+   */
+  terraformSources?: TerraformSource[];
 }
 
 export namespace ImportResourcesToDraftAppVersionRequest {
@@ -2051,7 +2189,7 @@ export namespace ImportResourcesToDraftAppVersionRequest {
 export interface ImportResourcesToDraftAppVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2066,12 +2204,19 @@ export interface ImportResourcesToDraftAppVersionResponse {
   /**
    * <p>The Amazon Resource Names (ARNs) for the resources that you imported.</p>
    */
-  sourceArns: string[] | undefined;
+  sourceArns?: string[];
 
   /**
    * <p>The status of the action.</p>
    */
   status: ResourceImportStatusType | string | undefined;
+
+  /**
+   * <p>
+   *       A list of terraform file s3 URLs you need to import.
+   *     </p>
+   */
+  terraformSources?: TerraformSource[];
 }
 
 export namespace ImportResourcesToDraftAppVersionResponse {
@@ -2086,7 +2231,7 @@ export namespace ImportResourcesToDraftAppVersionResponse {
 export interface ListAlarmRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2140,7 +2285,7 @@ export namespace ListAlarmRecommendationsResponse {
 export interface ListAppAssessmentsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2232,7 +2377,7 @@ export interface ListAppComponentCompliancesRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2275,7 +2420,7 @@ export namespace ListAppComponentCompliancesResponse {
 export interface ListAppComponentRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2505,7 +2650,7 @@ export interface ListAppsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2546,7 +2691,7 @@ export namespace ListAppsResponse {
 export interface ListAppVersionResourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2607,7 +2752,7 @@ export namespace ListAppVersionResourceMappingsResponse {
 export interface ListAppVersionResourcesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2663,6 +2808,13 @@ export interface LogicalResourceId {
    * <p>The name of the resource group that this resource belongs to.</p>
    */
   resourceGroupName?: string;
+
+  /**
+   * <p>
+   *       The name of the Terraform S3 state file this resource belongs to.
+   *     </p>
+   */
+  terraformSourceName?: string;
 }
 
 export namespace LogicalResourceId {
@@ -2744,7 +2896,7 @@ export namespace ListAppVersionResourcesResponse {
 export interface ListAppVersionsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2796,7 +2948,7 @@ export namespace ListAppVersionsResponse {
 export interface ListRecommendationTemplatesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -2936,7 +3088,7 @@ export interface ListSopRecommendationsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3128,7 +3280,7 @@ export interface ListTestRecommendationsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3211,6 +3363,13 @@ export interface TestRecommendation {
    * <p>The prerequisite of the test recommendation.</p>
    */
   prerequisite?: string;
+
+  /**
+   * <p>
+   *       A list of recommended alarms that are used in the test and must be exported before or with the test.
+   *     </p>
+   */
+  dependsOnAlarms?: string[];
 }
 
 export namespace TestRecommendation {
@@ -3246,7 +3405,7 @@ export namespace ListTestRecommendationsResponse {
 export interface ListUnsupportedAppVersionResourcesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3342,7 +3501,7 @@ export namespace ListUnsupportedAppVersionResourcesResponse {
 export interface PublishAppVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3362,7 +3521,7 @@ export namespace PublishAppVersionRequest {
 export interface PublishAppVersionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3387,7 +3546,7 @@ export namespace PublishAppVersionResponse {
 export interface PutDraftAppVersionTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3412,7 +3571,7 @@ export namespace PutDraftAppVersionTemplateRequest {
 export interface PutDraftAppVersionTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3437,7 +3596,7 @@ export namespace PutDraftAppVersionTemplateResponse {
 export interface RemoveDraftAppVersionResourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3463,6 +3622,13 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
    * <p>The names of the resource groups to remove from the resource mappings.</p>
    */
   resourceGroupNames?: string[];
+
+  /**
+   * <p>
+   *
+   *     </p>
+   */
+  terraformSourceNames?: string[];
 }
 
 export namespace RemoveDraftAppVersionResourceMappingsRequest {
@@ -3477,7 +3643,7 @@ export namespace RemoveDraftAppVersionResourceMappingsRequest {
 export interface RemoveDraftAppVersionResourceMappingsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3502,7 +3668,7 @@ export namespace RemoveDraftAppVersionResourceMappingsResponse {
 export interface ResolveAppVersionResourcesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3527,7 +3693,7 @@ export namespace ResolveAppVersionResourcesRequest {
 export interface ResolveAppVersionResourcesResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3562,7 +3728,7 @@ export namespace ResolveAppVersionResourcesResponse {
 export interface StartAppAssessmentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3688,7 +3854,7 @@ export namespace UntagResourceResponse {
 export interface UpdateAppRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3702,7 +3868,7 @@ export interface UpdateAppRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
@@ -3713,6 +3879,13 @@ export interface UpdateAppRequest {
    * <p>Specifies if the resiliency policy ARN should be cleared.</p>
    */
   clearResiliencyPolicyArn?: boolean;
+
+  /**
+   * <p>
+   *       Assessment execution schedule with 'Daily' or 'Disabled' values.
+   *     </p>
+   */
+  assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
 export namespace UpdateAppRequest {
@@ -3745,7 +3918,7 @@ export namespace UpdateAppResponse {
 export interface UpdateResiliencyPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
-   * arn:<code>partition</code>:dcps:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
+   * arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i>.</p>
