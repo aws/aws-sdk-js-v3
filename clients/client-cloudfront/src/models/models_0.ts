@@ -8056,6 +8056,30 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
 }
 
 /**
+ * <p>The length of the <code>Content-Security-Policy</code> header value in the response headers
+ * 			policy exceeds the maximum.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
+  readonly name: "TooLongCSPInResponseHeadersPolicy" = "TooLongCSPInResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooLongCSPInResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "TooLongCSPInResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooLongCSPInResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The number of custom headers in the response headers policy exceeds the maximum.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -8933,27 +8957,6 @@ export class NoSuchResource extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NoSuchResource.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Cannot delete this resource because it is in use.</p>
- */
-export class ResourceInUse extends __BaseException {
-  readonly name: "ResourceInUse" = "ResourceInUse";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
-    super({
-      name: "ResourceInUse",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceInUse.prototype);
     this.Message = opts.Message;
   }
 }

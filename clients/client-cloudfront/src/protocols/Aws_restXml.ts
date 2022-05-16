@@ -435,7 +435,6 @@ import {
   RealtimeLogConfigAlreadyExists,
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
-  ResourceInUse,
   ResponseHeadersPolicy,
   ResponseHeadersPolicyAccessControlAllowHeaders,
   ResponseHeadersPolicyAccessControlAllowMethods,
@@ -468,6 +467,7 @@ import {
   StreamingLoggingConfig,
   Tag,
   Tags,
+  TooLongCSPInResponseHeadersPolicy,
   TooManyCacheBehaviors,
   TooManyCachePolicies,
   TooManyCertificates,
@@ -549,6 +549,7 @@ import {
   PublicKeySummary,
   RealtimeLogConfigInUse,
   RealtimeLogConfigs,
+  ResourceInUse,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicySummary,
@@ -4884,6 +4885,9 @@ const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
     case "ResponseHeadersPolicyAlreadyExists":
     case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
       throw await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context);
+    case "TooLongCSPInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooLongCSPInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse(parsedOutput, context);
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
@@ -9023,6 +9027,9 @@ const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
     case "ResponseHeadersPolicyAlreadyExists":
     case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
       throw await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context);
+    case "TooLongCSPInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooLongCSPInResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse(parsedOutput, context);
     case "TooManyCustomHeadersInResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
       throw await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context);
@@ -10345,6 +10352,22 @@ const deserializeAws_restXmlTestFunctionFailedResponse = async (
     contents.Message = __expectString(data["Message"]);
   }
   const exception = new TestFunctionFailed({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+const deserializeAws_restXmlTooLongCSPInResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooLongCSPInResponseHeadersPolicy> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new TooLongCSPInResponseHeadersPolicy({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

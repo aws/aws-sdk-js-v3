@@ -52,6 +52,27 @@ import {
   ViewerCertificate,
 } from "./models_0";
 
+/**
+ * <p>Cannot delete this resource because it is in use.</p>
+ */
+export class ResourceInUse extends __BaseException {
+  readonly name: "ResourceInUse" = "ResourceInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
+    super({
+      name: "ResourceInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeleteMonitoringSubscriptionRequest {
   /**
    * <p>The ID of the distribution that you are disabling metrics for.</p>
