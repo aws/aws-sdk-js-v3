@@ -108,6 +108,7 @@ import {
   CreateTagsResponse,
   CustomerAgentInfo,
   CustomerConnectorInfo,
+  CustomerMeCollectorInfo,
   DeleteApplicationsRequest,
   DeleteApplicationsResponse,
   DeleteTagsRequest,
@@ -2782,6 +2783,21 @@ const deserializeAws_json1_1CustomerConnectorInfo = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1CustomerMeCollectorInfo = (
+  output: any,
+  context: __SerdeContext
+): CustomerMeCollectorInfo => {
+  return {
+    activeMeCollectors: __expectInt32(output.activeMeCollectors),
+    denyListedMeCollectors: __expectInt32(output.denyListedMeCollectors),
+    healthyMeCollectors: __expectInt32(output.healthyMeCollectors),
+    shutdownMeCollectors: __expectInt32(output.shutdownMeCollectors),
+    totalMeCollectors: __expectInt32(output.totalMeCollectors),
+    unhealthyMeCollectors: __expectInt32(output.unhealthyMeCollectors),
+    unknownMeCollectors: __expectInt32(output.unknownMeCollectors),
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteApplicationsResponse = (
   output: any,
   context: __SerdeContext
@@ -2970,6 +2986,10 @@ const deserializeAws_json1_1GetDiscoverySummaryResponse = (
     connectorSummary:
       output.connectorSummary !== undefined && output.connectorSummary !== null
         ? deserializeAws_json1_1CustomerConnectorInfo(output.connectorSummary, context)
+        : undefined,
+    meCollectorSummary:
+      output.meCollectorSummary !== undefined && output.meCollectorSummary !== null
+        ? deserializeAws_json1_1CustomerMeCollectorInfo(output.meCollectorSummary, context)
         : undefined,
     servers: __expectLong(output.servers),
     serversMappedToApplications: __expectLong(output.serversMappedToApplications),

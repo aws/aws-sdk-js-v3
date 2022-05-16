@@ -50,7 +50,7 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *             <p>Output fields are specific to the asset type specified. For example, the output for a
  *           <i>server</i> configuration item includes a list of attributes about the
  *         server, such as host name, operating system, number of network cards, etc.</p>
- *             <p>For a complete list of outputs for each asset type, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a> in the <i>AWS Application
+ *             <p>For a complete list of outputs for each asset type, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a> in the <i>Amazon Web Services Application
  *           Discovery Service User Guide</i>.</p>
  *          </note>
  * @example

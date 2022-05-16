@@ -32,7 +32,7 @@ export interface DescribeExportConfigurationsCommandOutput
  * @deprecated
  *
  * <p>
- *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>, instead.</p>
+ *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a>, instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
