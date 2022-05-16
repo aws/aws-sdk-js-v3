@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
+
+
+### Features
+
+* **client-application-discovery-service:** Add Migration Evaluator Collector details to the GetDiscoverySummary API response ([8271508](https://github.com/aws/aws-sdk-js-v3/commit/8271508e00dde7402a8f7ac21fa03aa4e33818ef))
+* **client-cloudfront:** Introduced a new error (TooLongCSPInResponseHeadersPolicy) that is returned when the value of the Content-Security-Policy header in a response headers policy exceeds the maximum allowed length. ([f2875d3](https://github.com/aws/aws-sdk-js-v3/commit/f2875d385ab39fa91ebbe5813286168fdcb66076))
+* **client-resiliencehub:** In this release, we are introducing support for Amazon Elastic Container Service, Amazon Route 53, AWS Elastic Disaster Recovery, AWS Backup in addition to the existing supported Services.  This release also supports Terraform file input from S3 and scheduling daily assessments ([01ff495](https://github.com/aws/aws-sdk-js-v3/commit/01ff495befc39b9d9c5c6b4d8a40ad28c7d982ed))
+* **client-workspaces-web:** Amazon WorkSpaces Web now supports Administrator timeout control ([f946a33](https://github.com/aws/aws-sdk-js-v3/commit/f946a334267b2393b4dcfc370ae3eeeebf8bdce7))
+
+
+
+
+
 # [3.91.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.90.0...v3.91.0) (2022-05-13)
 
 
