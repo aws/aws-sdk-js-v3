@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateBlueprintRequest, UpdateBlueprintResponse } from "../models/models_1";
+import { UpdateBlueprintRequest, UpdateBlueprintResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateBlueprintCommand,
   serializeAws_json1_1UpdateBlueprintCommand,

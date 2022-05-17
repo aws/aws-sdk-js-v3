@@ -13,7 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/models_0";
+import { DeleteClassifierRequest } from "../models/models_0";
+import { DeleteClassifierResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteClassifierCommand,
   serializeAws_json1_1DeleteClassifierCommand,

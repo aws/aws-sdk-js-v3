@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteJobRequest, DeleteJobResponse } from "../models/models_0";
+import { DeleteJobRequest, DeleteJobResponse } from "../models/models_1";
 import { deserializeAws_json1_1DeleteJobCommand, serializeAws_json1_1DeleteJobCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteJobCommandInput extends DeleteJobRequest {}

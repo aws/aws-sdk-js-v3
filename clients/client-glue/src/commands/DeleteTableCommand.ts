@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteTableRequest, DeleteTableResponse } from "../models/models_0";
+import { DeleteTableRequest, DeleteTableResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteTableCommand,
   serializeAws_json1_1DeleteTableCommand,

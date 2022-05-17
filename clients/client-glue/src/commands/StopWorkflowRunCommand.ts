@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopWorkflowRunRequest, StopWorkflowRunResponse } from "../models/models_1";
+import { StopWorkflowRunRequest, StopWorkflowRunResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1StopWorkflowRunCommand,
   serializeAws_json1_1StopWorkflowRunCommand,
