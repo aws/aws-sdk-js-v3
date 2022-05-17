@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.93.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.92.0...v3.93.0) (2022-05-17)
+
+
+### Features
+
+* **client-glue:** This release adds a new optional parameter called codeGenNodeConfiguration to CRUD job APIs that allows users to manage visual jobs via APIs. The updated CreateJob and UpdateJob will create jobs that can be viewed in Glue Studio as a visual graph. GetJob can be used to get codeGenNodeConfiguration. ([61ab9ac](https://github.com/aws/aws-sdk-js-v3/commit/61ab9ac9889a127c57302155b0f881fef19b02e4))
+
+
+
+
+
 # [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
 
 
