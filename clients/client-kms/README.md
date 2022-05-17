@@ -30,7 +30,8 @@ Services</a>.</p>
 <p>If you need to use FIPS 140-2 validated cryptographic modules when communicating with
 Amazon Web Services, use the FIPS endpoint in your preferred Amazon Web Services Region. For more information about the
 available FIPS endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">Service endpoints</a> in the Key Management Service topic of the <i>Amazon Web Services General Reference</i>.</p>
-<p>Clients must support TLS (Transport Layer Security) 1.0. We recommend TLS 1.2. Clients
+<p>All KMS API calls must be signed and be transmitted using Transport Layer Security (TLS).
+KMS recommends you always use the latest supported TLS version. Clients
 must also support cipher suites with Perfect Forward Secrecy (PFS) such as Ephemeral
 Diffie-Hellman (DHE) or Elliptic Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems
 such as Java 7 and later support these modes.</p>

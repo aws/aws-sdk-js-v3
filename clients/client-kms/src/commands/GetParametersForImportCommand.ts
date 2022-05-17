@@ -24,8 +24,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
 
 /**
  * <p>Returns the items you need to import key material into a symmetric encryption KMS key. For
- *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *       more information about importing key material into KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing key material</a>
+ *       in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation returns a public key and an import token. Use the public key to encrypt the
  *       symmetric key material. Store the import token to send with a subsequent <a>ImportKeyMaterial</a> request.</p>
  *          <p>You must specify the key ID of the symmetric encryption KMS key into which you will import
