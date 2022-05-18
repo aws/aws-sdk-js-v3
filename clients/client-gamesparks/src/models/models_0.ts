@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { DocumentType as __DocumentType, MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { GameSparksServiceException as __BaseException } from "./GameSparksServiceException";
 

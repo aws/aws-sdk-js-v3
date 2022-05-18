@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { SageMakerA2IRuntimeServiceException as __BaseException } from "./SageMakerA2IRuntimeServiceException";
 
