@@ -239,21 +239,22 @@ describe(NodeHttp2Handler.name, () => {
         expectSessionCreatedAndUnreffed(createdSessions[3]);
       });
 
-      it("handles connections destroyed by servers", async () => {
-        const port3 = port + 2;
-        const mockH2Server3 = createMockHttp2Server().listen(port3);
+      it.each([
+        ["destroy", port + 2],
+        ["close", port + 3],
+      ])("handles servers calling connections %s", async (func, port) => {
+        const mockH2Server4 = createMockHttp2Server().listen(port);
         let establishedConnections = 0;
         let numRequests = 0;
 
-        mockH2Server3.on("stream", (request: Http2Stream) => {
-          // transmit goaway frame and then shut down the connection.
+        mockH2Server4.on("stream", (request: Http2Stream) => {
           numRequests += 1;
-          request.session.destroy();
+          request.session[func]();
         });
-        mockH2Server3.on("connection", () => {
+        mockH2Server4.on("connection", () => {
           establishedConnections += 1;
         });
-        const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
+        const req = new HttpRequest({ ...getMockReqOptions(), port });
         expect(establishedConnections).toBe(0);
         expect(numRequests).toBe(0);
         await rejects(
@@ -277,7 +278,7 @@ describe(NodeHttp2Handler.name, () => {
         );
         expect(establishedConnections).toBe(3);
         expect(numRequests).toBe(3);
-        mockH2Server3.close();
+        mockH2Server4.close();
 
         // Not keeping node alive
         expect(createdSessions).toHaveLength(3);
