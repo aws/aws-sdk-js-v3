@@ -508,6 +508,11 @@ import {
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
 import {
+  UpdatePublicSharingSettingsCommand,
+  UpdatePublicSharingSettingsCommandInput,
+  UpdatePublicSharingSettingsCommandOutput,
+} from "./commands/UpdatePublicSharingSettingsCommand";
+import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -2579,7 +2584,7 @@ export class QuickSight extends QuickSightClient {
    *         that can be customized using the <code>
    *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html#QS-GenerateEmbedUrlForAnonymousUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
    *                   </code> parameter.</p>
-   *                 <p>The resulting user session is valid for 15 minutes (default) to 10 hours (maximum).</p>
+   *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours. </p>
    *             </li>
    *             <li>
    *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
@@ -2630,7 +2635,7 @@ export class QuickSight extends QuickSightClient {
    *         that can be customized using the <code>
    *                      <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes">SessionLifetimeInMinutes</a>
    *                   </code> parameter.</p>
-   *                 <p>The resulting user session is valid for 15 minutes (default) to 10 hours (maximum).</p>
+   *                 <p>The resulting user session is valid for 15 minutes (minimum) to 10 hours (maximum). The default session duration is 10 hours.</p>
    *             </li>
    *             <li>
    *                 <p>You are charged only when the URL is used or there is interaction with Amazon QuickSight.</p>
@@ -4238,6 +4243,40 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
   ): Promise<UpdateIpRestrictionCommandOutput> | void {
     const command = new UpdateIpRestrictionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the UpdatePublicSharingSettings operation to enable or disable the public sharing settings of an Amazon QuickSight dashboard.</p>
+   *          <p>To use this operation, enable session capacity pricing on your Amazon QuickSight account.</p>
+   *          <p>Before you can enable public sharing on your account, you need to allow public sharing permissions to an administrative user in the IAM console. For more information on using IAM with Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/security_iam_service-with-iam.html">Using Amazon QuickSight with IAM</a>.</p>
+   */
+  public updatePublicSharingSettings(
+    args: UpdatePublicSharingSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePublicSharingSettingsCommandOutput>;
+  public updatePublicSharingSettings(
+    args: UpdatePublicSharingSettingsCommandInput,
+    cb: (err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void
+  ): void;
+  public updatePublicSharingSettings(
+    args: UpdatePublicSharingSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void
+  ): void;
+  public updatePublicSharingSettings(
+    args: UpdatePublicSharingSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void
+  ): Promise<UpdatePublicSharingSettingsCommandOutput> | void {
+    const command = new UpdatePublicSharingSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
