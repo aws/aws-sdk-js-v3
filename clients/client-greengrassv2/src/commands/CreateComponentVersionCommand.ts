@@ -61,7 +61,15 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                      </p>
  *                   </li>
  *                   <li>
+ *                      <p>Python 3.9 – <code>python3.9</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
  *                      <p>Java 8 – <code>java8</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Java 11 – <code>java11</code>
  *                      </p>
  *                   </li>
  *                   <li>
@@ -70,6 +78,10 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *                   </li>
  *                   <li>
  *                      <p>Node.js 12 – <code>nodejs12.x</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Node.js 14 – <code>nodejs14.x</code>
  *                      </p>
  *                   </li>
  *                </ul>

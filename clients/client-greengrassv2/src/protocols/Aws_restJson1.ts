@@ -42,6 +42,7 @@ import {
 import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "../commands/CreateDeploymentCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import { DeleteCoreDeviceCommandInput, DeleteCoreDeviceCommandOutput } from "../commands/DeleteCoreDeviceCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "../commands/DeleteDeploymentCommand";
 import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "../commands/DescribeComponentCommand";
 import {
   DisassociateServiceRoleFromAccountCommandInput,
@@ -397,6 +398,35 @@ export const serializeAws_restJson1DeleteCoreDeviceCommand = async (
     resolvedPath = resolvedPath.replace("{coreDeviceThingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: coreDeviceThingName.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteDeploymentCommand = async (
+  input: DeleteDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/greengrass/v2/deployments/{deploymentId}";
+  if (input.deploymentId !== undefined) {
+    const labelValue: string = input.deploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: deploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{deploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: deploymentId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -1375,6 +1405,9 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.greengrassv2#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.greengrassv2#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.greengrassv2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1474,6 +1507,61 @@ const deserializeAws_restJson1DeleteCoreDeviceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCoreDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.greengrassv2#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.greengrassv2#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.greengrassv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.greengrassv2#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1DeleteDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteDeploymentCommandError(output, context);
+  }
+  const contents: DeleteDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2154,6 +2242,9 @@ const deserializeAws_restJson1ListComponentsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.greengrassv2#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.greengrassv2#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.greengrassv2#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -3520,6 +3611,8 @@ const deserializeAws_restJson1CloudComponentStatus = (output: any, context: __Se
         ? deserializeAws_restJson1StringMap(output.errors, context)
         : undefined,
     message: __expectString(output.message),
+    vendorGuidance: __expectString(output.vendorGuidance),
+    vendorGuidanceMessage: __expectString(output.vendorGuidanceMessage),
   } as any;
 };
 
@@ -3992,7 +4085,9 @@ const deserializeAws_restJson1ResolvedComponentVersion = (
     arn: __expectString(output.arn),
     componentName: __expectString(output.componentName),
     componentVersion: __expectString(output.componentVersion),
+    message: __expectString(output.message),
     recipe: output.recipe !== undefined && output.recipe !== null ? context.base64Decoder(output.recipe) : undefined,
+    vendorGuidance: __expectString(output.vendorGuidance),
   } as any;
 };
 
