@@ -190,6 +190,8 @@ export class NodeHttp2Handler implements HttpHandler {
     newSession.on("error", destroySessionCb);
     newSession.on("frameError", destroySessionCb);
 
+    newSession.on("close", () => this.deleteSessionFromCache(authority, newSession));
+
     if (this.config?.sessionTimeout) {
       newSession.setTimeout(this.config.sessionTimeout, destroySessionCb);
     }

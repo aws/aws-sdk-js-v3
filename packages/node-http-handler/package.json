@@ -36,12 +36,6 @@
     "typedoc": "0.19.2",
     "typescript": "~4.6.2"
   },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/*.mock.ts"
-    ]
-  },
   "engines": {
     "node": ">= 12.0.0"
   },
