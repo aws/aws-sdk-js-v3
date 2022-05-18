@@ -3,7 +3,6 @@ import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { BraketServiceException as __BaseException } from "./BraketServiceException";
 

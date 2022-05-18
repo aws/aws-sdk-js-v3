@@ -3,7 +3,6 @@ import {
   ExceptionOptionType as __ExceptionOptionType,
   LazyJsonString as __LazyJsonString,
 } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { EvidentlyServiceException as __BaseException } from "./EvidentlyServiceException";
 
