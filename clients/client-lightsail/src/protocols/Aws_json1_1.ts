@@ -13559,6 +13559,8 @@ const serializeAws_json1_1GetRelationalDatabaseBundlesRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.includeInactive !== undefined &&
+      input.includeInactive !== null && { includeInactive: input.includeInactive }),
     ...(input.pageToken !== undefined && input.pageToken !== null && { pageToken: input.pageToken }),
   };
 };

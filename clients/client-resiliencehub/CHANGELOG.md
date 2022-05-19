@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
+
+**Note:** Version bump only for package @aws-sdk/client-resiliencehub
+
+
+
+
+
+# [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
+
+
+### Features
+
+* **client-resiliencehub:** In this release, we are introducing support for Amazon Elastic Container Service, Amazon Route 53, AWS Elastic Disaster Recovery, AWS Backup in addition to the existing supported Services.  This release also supports Terraform file input from S3 and scheduling daily assessments ([01ff495](https://github.com/aws/aws-sdk-js-v3/commit/01ff495befc39b9d9c5c6b4d8a40ad28c7d982ed))
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub

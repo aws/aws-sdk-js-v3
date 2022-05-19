@@ -38,7 +38,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *       with the data. When you are ready to decrypt data or sign a message, you can use the <a>Decrypt</a> operation to decrypt the encrypted private key.</p>
  *          <p>To generate a data key pair, you must specify a symmetric encryption KMS key to encrypt
  *       the private key in a data key pair. You cannot use an asymmetric KMS key or a KMS key in a
- *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
+ *       custom key store. To get the type and origin of your KMS key, use the <a>DescribeKey</a>
+ *       operation. </p>
  *          <p>Use the <code>KeyPairSpec</code> parameter to choose an RSA or Elliptic Curve (ECC) data
  *       key pair. KMS recommends that your use ECC key pairs for signing, and use RSA key pairs for
  *       either encryption or signing, but not both. However, KMS cannot enforce any restrictions on

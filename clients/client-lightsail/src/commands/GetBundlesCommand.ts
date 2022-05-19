@@ -23,8 +23,17 @@ export interface GetBundlesCommandInput extends GetBundlesRequest {}
 export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBearer {}
 
 /**
- * <p>Returns the list of bundles that are available for purchase. A bundle describes the specs
- *       for your virtual private server (or <i>instance</i>).</p>
+ * <p>Returns the bundles that you can apply to an Amazon Lightsail instance when you create
+ *       it.</p>
+ *
+ *          <p>A bundle describes the specifications of an instance, such as the monthly cost, amount of
+ *       memory, the number of vCPUs, amount of storage space, and monthly network data transfer
+ *       quota.</p>
+ *
+ *          <note>
+ *             <p>Bundles are referred to as <i>instance plans</i> in the Lightsail
+ *         console.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

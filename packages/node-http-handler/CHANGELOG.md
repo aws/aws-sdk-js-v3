@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
+
+
+### Bug Fixes
+
+* **node-http-handler:** handle close event in H2 from server side ([#3619](https://github.com/aws/aws-sdk-js-v3/issues/3619)) ([c528661](https://github.com/aws/aws-sdk-js-v3/commit/c5286610dc0e5b51873d68243defbacb5ea5631c))
+
+
+
+
+
 # [3.82.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.81.0...v3.82.0) (2022-05-02)
 
 **Note:** Version bump only for package @aws-sdk/node-http-handler

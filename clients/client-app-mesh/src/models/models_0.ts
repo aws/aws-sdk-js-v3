@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { AppMeshServiceException as __BaseException } from "./AppMeshServiceException";
 
@@ -14,6 +13,7 @@ export interface FileAccessLog {
    *             <code>awslogs</code>, to export the access logs to a log storage service such as Amazon
    *          CloudWatch Logs. You can also specify a path in the Envoy container's file system to write
    *          the files to disk.</p>
+   *
    *          <note>
    *             <p>The Envoy process must have write permissions to the path that you specify here.
    *             Otherwise, Envoy fails to bootstrap properly.</p>
@@ -263,8 +263,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for your
- *          account. For best results, use an increasing or variable sleep interval between
+ * <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
+ *          your account. For best results, use an increasing or variable sleep interval between
  *          requests.</p>
  */
 export class TooManyRequestsException extends __BaseException {
@@ -318,9 +318,9 @@ export interface EgressFilter {
   /**
    * <p>The egress filter type. By default, the type is <code>DROP_ALL</code>, which allows
    *          egress only from virtual nodes to other defined resources in the service mesh (and any
-   *          traffic to <code>*.amazonaws.com</code> for Amazon Web Services API calls). You can set the egress filter
-   *          type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or outside of the
-   *          service mesh.</p>
+   *          traffic to <code>*.amazonaws.com</code> for Amazon Web Services API calls). You can set the
+   *          egress filter type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or
+   *          outside of the service mesh.</p>
    */
   type: EgressFilterType | string | undefined;
 }
@@ -334,6 +334,32 @@ export namespace EgressFilter {
   });
 }
 
+export enum IpPreference {
+  IPv4_ONLY = "IPv4_ONLY",
+  IPv4_PREFERRED = "IPv4_PREFERRED",
+  IPv6_ONLY = "IPv6_ONLY",
+  IPv6_PREFERRED = "IPv6_PREFERRED",
+}
+
+/**
+ * <p>An object that represents the service discovery information for a service mesh.</p>
+ */
+export interface MeshServiceDiscovery {
+  /**
+   * <p>The IP version to use to control traffic within the mesh.</p>
+   */
+  ipPreference?: IpPreference | string;
+}
+
+export namespace MeshServiceDiscovery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MeshServiceDiscovery): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>An object that represents the specification of a service mesh.</p>
  */
@@ -342,6 +368,11 @@ export interface MeshSpec {
    * <p>The egress filter rules for the service mesh.</p>
    */
   egressFilter?: EgressFilter;
+
+  /**
+   * <p>An object that represents the service discovery information for a service mesh.</p>
+   */
+  serviceDiscovery?: MeshServiceDiscovery;
 }
 
 export namespace MeshSpec {
@@ -421,13 +452,13 @@ export interface ResourceMetadata {
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -522,7 +553,7 @@ export namespace CreateMeshOutput {
 
 /**
  * <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
- *             Limits</a> in the <i>AWS App Mesh User Guide</i>.</p>
+ *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -608,7 +639,7 @@ export interface DescribeMeshInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -690,13 +721,13 @@ export interface MeshRef {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -999,7 +1030,9 @@ export namespace VirtualGatewayTlsValidationContextFileTrust {
 /**
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service
  *          validation context trust. The proxy must be configured with a local SDS provider via a Unix
- *          Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS documentation</a> for more info.</p>
+ *          Domain Socket. See App Mesh
+ *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info.</p>
  */
 export interface VirtualGatewayTlsValidationContextSdsTrust {
   /**
@@ -1029,8 +1062,7 @@ export type VirtualGatewayTlsValidationContextTrust =
 
 export namespace VirtualGatewayTlsValidationContextTrust {
   /**
-   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
-   *          Certificate Manager certificate.</p>
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: VirtualGatewayTlsValidationContextAcmTrust;
@@ -1845,7 +1877,7 @@ export interface CreateVirtualGatewayInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -1956,7 +1988,7 @@ export interface DeleteVirtualGatewayInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -2000,7 +2032,7 @@ export interface DescribeVirtualGatewayInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -2307,7 +2339,8 @@ export interface GrpcGatewayRouteMetadata {
   name: string | undefined;
 
   /**
-   * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
+   * <p>Specify <code>True</code> to match anything except the match criteria. The default value
+   *          is <code>False</code>.</p>
    */
   invert?: boolean;
 
@@ -2600,7 +2633,8 @@ export interface HttpGatewayRouteHeader {
   name: string | undefined;
 
   /**
-   * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
+   * <p>Specify <code>True</code> to match anything except the match criteria. The default value
+   *          is <code>False</code>.</p>
    */
   invert?: boolean;
 
@@ -2847,7 +2881,7 @@ export interface CreateGatewayRouteInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -2965,7 +2999,7 @@ export interface DeleteGatewayRouteInput {
   virtualGatewayName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3013,7 +3047,7 @@ export interface DescribeGatewayRouteInput {
   virtualGatewayName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3076,7 +3110,7 @@ export interface ListGatewayRoutesInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3111,13 +3145,13 @@ export interface GatewayRouteRef {
   virtualGatewayName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -3205,7 +3239,7 @@ export interface UpdateGatewayRouteInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3263,7 +3297,7 @@ export interface ListVirtualGatewaysInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3293,13 +3327,13 @@ export interface VirtualGatewayRef {
   virtualGatewayName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -3382,7 +3416,7 @@ export interface UpdateVirtualGatewayInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -3443,8 +3477,9 @@ export namespace ListenerTlsFileCertificate {
 
 /**
  * <p>An object that represents the listener's Secret Discovery Service certificate. The proxy
- *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS documentation</a>
- *          for more info.</p>
+ *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
+ *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *             documentation</a> for more info.</p>
  */
 export interface ListenerTlsSdsCertificate {
   /**
@@ -3565,7 +3600,7 @@ export namespace TlsValidationContextFileTrust {
 /**
  * <p>An object that represents a Transport Layer Security (TLS) Secret Discovery Service validation context trust. The
  *          proxy must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh
- *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *          <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
  *             documentation</a> for more info.</p>
  */
 export interface TlsValidationContextSdsTrust {
@@ -3596,8 +3631,7 @@ export type TlsValidationContextTrust =
 
 export namespace TlsValidationContextTrust {
   /**
-   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
-   *          Certificate Manager certificate.</p>
+   * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: TlsValidationContextAcmTrust;
@@ -4323,7 +4357,7 @@ export namespace ListenerTimeout {
 }
 
 /**
- * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
+ * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface ListenerTlsAcmCertificate {
   /**
@@ -4352,7 +4386,7 @@ export type ListenerTlsCertificate =
 
 export namespace ListenerTlsCertificate {
   /**
-   * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
+   * <p>A reference to an object that represents an Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: ListenerTlsAcmCertificate;
@@ -4619,22 +4653,22 @@ export namespace Logging {
 }
 
 /**
- * <p>An object that represents the Cloud Map attribute information for your virtual
- *          node.</p>
+ * <p>An object that represents the Cloud Map attribute information for your
+ *          virtual node.</p>
  *          <note>
- *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
+ *             <p>Cloud Map is not available in the eu-south-1 Region.</p>
  *          </note>
  */
 export interface AwsCloudMapInstanceAttribute {
   /**
-   * <p>The name of an Cloud Map service instance attribute key. Any Cloud Map service
-   *          instance that contains the specified key and value is returned.</p>
+   * <p>The name of an Cloud Map service instance attribute key. Any Cloud Map service instance that contains the specified key and value is
+   *          returned.</p>
    */
   key: string | undefined;
 
   /**
-   * <p>The value of an Cloud Map service instance attribute key. Any Cloud Map service
-   *          instance that contains the specified key and value is returned.</p>
+   * <p>The value of an Cloud Map service instance attribute key. Any Cloud Map service instance that contains the specified key and value is
+   *          returned.</p>
    */
   value: string | undefined;
 }
@@ -4649,8 +4683,8 @@ export namespace AwsCloudMapInstanceAttribute {
 }
 
 /**
- * <p>An object that represents the Cloud Map service discovery information for your virtual
- *          node.</p>
+ * <p>An object that represents the Cloud Map service discovery information for
+ *          your virtual node.</p>
  *          <note>
  *             <p>Cloud Map is not available in the eu-south-1 Region.</p>
  *          </note>
@@ -4672,6 +4706,11 @@ export interface AwsCloudMapServiceDiscovery {
    *          that match all of the specified key/value pairs will be returned.</p>
    */
   attributes?: AwsCloudMapInstanceAttribute[];
+
+  /**
+   * <p>The IP version to use to control traffic within the mesh.</p>
+   */
+  ipPreference?: IpPreference | string;
 }
 
 export namespace AwsCloudMapServiceDiscovery {
@@ -4702,6 +4741,11 @@ export interface DnsServiceDiscovery {
    * <p>Specifies the DNS response type for the virtual node.</p>
    */
   responseType?: DnsResponseType | string;
+
+  /**
+   * <p>The IP version to use to control traffic within the mesh.</p>
+   */
+  ipPreference?: IpPreference | string;
 }
 
 export namespace DnsServiceDiscovery {
@@ -4850,7 +4894,7 @@ export interface CreateVirtualNodeInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -4967,7 +5011,7 @@ export interface DeleteVirtualNodeInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5017,7 +5061,7 @@ export interface DescribeVirtualNodeInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5082,7 +5126,7 @@ export interface ListVirtualNodesInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5112,13 +5156,13 @@ export interface VirtualNodeRef {
   virtualNodeName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -5206,7 +5250,7 @@ export interface UpdateVirtualNodeInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5315,7 +5359,7 @@ export interface CreateVirtualRouterInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -5429,7 +5473,7 @@ export interface DeleteVirtualRouterInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5478,7 +5522,7 @@ export interface DescribeVirtualRouterInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5542,7 +5586,7 @@ export interface ListVirtualRoutersInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -5572,13 +5616,13 @@ export interface VirtualRouterRef {
   virtualRouterName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -6287,7 +6331,7 @@ export interface CreateRouteInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -6411,7 +6455,7 @@ export interface DeleteRouteInput {
   virtualRouterName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -6460,7 +6504,7 @@ export interface DescribeRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -6534,7 +6578,7 @@ export interface ListRoutesInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -6569,13 +6613,13 @@ export interface RouteRef {
   routeName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -6668,7 +6712,7 @@ export interface UpdateRouteInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -6728,7 +6772,7 @@ export interface UpdateVirtualRouterInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -6862,8 +6906,8 @@ export namespace VirtualServiceProvider {
  */
 export interface VirtualServiceSpec {
   /**
-   * <p>The App Mesh object that is acting as the provider for a virtual service. You can specify
-   *          a single virtual node or virtual router.</p>
+   * <p>The App Mesh object that is acting as the provider for a virtual service. You
+   *          can specify a single virtual node or virtual router.</p>
    */
   provider?: VirtualServiceProvider;
 }
@@ -6912,7 +6956,7 @@ export interface CreateVirtualServiceInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
    *                the account that you specify must share the mesh with your account before you can create
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
@@ -7029,7 +7073,7 @@ export interface DeleteVirtualServiceInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -7079,7 +7123,7 @@ export interface DescribeVirtualServiceInput {
   meshName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -7144,7 +7188,7 @@ export interface ListVirtualServicesInput {
   limit?: number;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
@@ -7174,13 +7218,13 @@ export interface VirtualServiceRef {
   virtualServiceName: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner: string | undefined;
 
   /**
-   * <p>The AWS IAM account ID of the resource owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the resource owner. If the account ID is not your own, then it's
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
@@ -7269,7 +7313,7 @@ export interface UpdateVirtualServiceInput {
   clientToken?: string;
 
   /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;

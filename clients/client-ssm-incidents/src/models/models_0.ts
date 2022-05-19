@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { SSMIncidentsServiceException as __BaseException } from "./SSMIncidentsServiceException";
 
@@ -23,6 +22,51 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum VariableType {
+  INCIDENT_RECORD_ARN = "INCIDENT_RECORD_ARN",
+  INVOLVED_RESOURCES = "INVOLVED_RESOURCES",
+}
+
+/**
+ * <p>The dynamic SSM parameter value.</p>
+ */
+export type DynamicSsmParameterValue =
+  | DynamicSsmParameterValue.VariableMember
+  | DynamicSsmParameterValue.$UnknownMember;
+
+export namespace DynamicSsmParameterValue {
+  /**
+   * <p>Variable dynamic parameters. A parameter value is determined when an incident is created.</p>
+   */
+  export interface VariableMember {
+    variable: VariableType | string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    variable?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    variable: (value: VariableType | string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DynamicSsmParameterValue, visitor: Visitor<T>): T => {
+    if (value.variable !== undefined) return visitor.variable(value.variable);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DynamicSsmParameterValue): any => {
+    if (obj.variable !== undefined) return { variable: obj.variable };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
 export enum SsmTargetAccount {
   IMPACTED_ACCOUNT = "IMPACTED_ACCOUNT",
   RESPONSE_PLAN_OWNER_ACCOUNT = "RESPONSE_PLAN_OWNER_ACCOUNT",
@@ -34,7 +78,8 @@ export enum SsmTargetAccount {
  */
 export interface SsmAutomation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that the automation document will assume when running commands.</p>
+   * <p>The Amazon Resource Name (ARN) of the role that the automation document will assume when
+   *          running commands.</p>
    */
   roleArn: string | undefined;
 
@@ -49,7 +94,8 @@ export interface SsmAutomation {
   documentVersion?: string;
 
   /**
-   * <p>The account that the automation document will be run in. This can be in either the management account or an application account.</p>
+   * <p>The account that the automation document will be run in. This can be in either the
+   *          management account or an application account.</p>
    */
   targetAccount?: SsmTargetAccount | string;
 
@@ -57,6 +103,11 @@ export interface SsmAutomation {
    * <p>The key-value pair parameters to use when running the automation document.</p>
    */
   parameters?: { [key: string]: string[] };
+
+  /**
+   * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.</p>
+   */
+  dynamicParameters?: { [key: string]: DynamicSsmParameterValue };
 }
 
 export namespace SsmAutomation {
@@ -65,6 +116,15 @@ export namespace SsmAutomation {
    */
   export const filterSensitiveLog = (obj: SsmAutomation): any => ({
     ...obj,
+    ...(obj.dynamicParameters && {
+      dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
+        (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => ({
+          ...acc,
+          [key]: DynamicSsmParameterValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -260,9 +320,7 @@ export namespace ChatChannel {
   /**
    * <p>The Amazon SNS targets that Chatbot uses to notify the chat channel
    *          of updates to an incident. You can also make updates to the incident through the chat
-   *          channel
-   *          by
-   *          using the Amazon SNS topics. </p>
+   *          channel by using the Amazon SNS topics. </p>
    */
   export interface ChatbotSnsMember {
     empty?: never;
@@ -634,7 +692,8 @@ export namespace NotificationTargetItem {
 }
 
 /**
- * <p>Basic details used in creating a response plan. The response plan is then used to create an incident record.</p>
+ * <p>Basic details used in creating a response plan. The response plan is then used to create
+ *          an incident record.</p>
  */
 export interface IncidentTemplate {
   /**
@@ -654,7 +713,8 @@ export interface IncidentTemplate {
   summary?: string;
 
   /**
-   * <p>Used to stop Incident Manager from creating multiple incident records for the same incident. </p>
+   * <p>Used to stop Incident Manager from creating multiple incident records for the same incident.
+   *       </p>
    */
   dedupeString?: string;
 
@@ -806,8 +866,7 @@ export interface CreateTimelineEventInput {
   eventType: string | undefined;
 
   /**
-   * <p>A short description of the event as a valid JSON string. There is no other schema
-   *             imposed.</p>
+   * <p>A short description of the event.</p>
    */
   eventData: string | undefined;
 }
@@ -1059,7 +1118,8 @@ export interface Filter {
   key: string | undefined;
 
   /**
-   * <p>The condition accepts before or after a specified time, equal to a string, or equal to an integer.</p>
+   * <p>The condition accepts before or after a specified time, equal to a string, or equal to
+   *          an integer.</p>
    */
   condition: Condition | undefined;
 }
@@ -1100,7 +1160,8 @@ export interface IncidentRecordSource {
   createdBy: string | undefined;
 
   /**
-   * <p>The principal the assumed the role specified of the <code>createdBy</code>.</p>
+   * <p>The service principal that assumed the role specified in <code>createdBy</code>. If no
+   *          service principal assumed the role this will be left blank.</p>
    */
   invokedBy?: string;
 
@@ -1192,7 +1253,8 @@ export interface IncidentRecord {
   incidentRecordSource: IncidentRecordSource | undefined;
 
   /**
-   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same incident in the same account.</p>
+   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the
+   *          same incident in the same account.</p>
    */
   dedupeString: string | undefined;
 
@@ -1434,7 +1496,8 @@ export namespace GetResourcePoliciesInput {
 }
 
 /**
- * <p>The resource policy that allows Incident Manager to perform actions on resources on your behalf.</p>
+ * <p>The resource policy that allows Incident Manager to perform actions on resources on your
+ *          behalf.</p>
  */
 export interface ResourcePolicy {
   /**
@@ -1689,6 +1752,7 @@ export enum ItemType {
   ATTACHMENT = "ATTACHMENT",
   AUTOMATION = "AUTOMATION",
   INCIDENT = "INCIDENT",
+  INVOLVED_RESOURCE = "INVOLVED_RESOURCE",
   METRIC = "METRIC",
   OTHER = "OTHER",
   PARENT = "PARENT",
@@ -1777,39 +1841,7 @@ export interface ItemIdentifier {
   value: ItemValue | undefined;
 
   /**
-   * <p>The type of related item. Incident Manager supports the following types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ANALYSIS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INCIDENT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>METRIC</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARENT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ATTACHMENT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OTHER</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * <p>The type of related item. </p>
    */
   type: ItemType | string | undefined;
 }

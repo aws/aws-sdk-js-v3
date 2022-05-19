@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   _Parameters,
@@ -409,7 +408,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   SessionTags?: SessionTag[];
 
   /**
-   * <p>The Amazon Resource Names for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view.</p>
+   * <p>The Amazon Resource Names for the Amazon QuickSight resources that the user is authorized to access during the lifetime of the session. If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the account that you want the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each API call.</p>
    */
   AuthorizedResourceArns: string[] | undefined;
 
@@ -4455,6 +4454,48 @@ export namespace UpdateIpRestrictionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateIpRestrictionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePublicSharingSettingsRequest {
+  /**
+   * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A boolean that indicates whether or not public sharing is enabled on a Amazon QuickSight account.</p>
+   */
+  PublicSharingEnabled?: boolean;
+}
+
+export namespace UpdatePublicSharingSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePublicSharingSettingsResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdatePublicSharingSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsResponse): any => ({
     ...obj,
   });
 }

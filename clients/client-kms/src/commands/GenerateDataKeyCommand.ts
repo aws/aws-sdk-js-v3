@@ -26,15 +26,14 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
  *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
  *       key that you specify. The bytes in the plaintext key are random; they are not related to the caller or the KMS
- *       key. You can use the plaintext key to encrypt your data outside of KMS and store the
- *       encrypted data key with the encrypted data.</p>
+ *       key. You can use the plaintext key to encrypt your data outside of KMS and store the encrypted
+ *       data key with the encrypted data.</p>
  *
  *          <p>To generate a data key, specify the symmetric encryption KMS key that will be used to
  *       encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the
- *       type of your KMS key, use the <a>DescribeKey</a> operation. You must also specify
- *       the length of the data key. Use either the <code>KeySpec</code> or <code>NumberOfBytes</code>
- *       parameters (but not both). For 128-bit and 256-bit data keys, use the <code>KeySpec</code>
- *       parameter. </p>
+ *       type of your KMS key, use the <a>DescribeKey</a> operation. You must also specify the length of
+ *       the data key. Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters
+ *       (but not both). For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
  *
  *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
  *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure

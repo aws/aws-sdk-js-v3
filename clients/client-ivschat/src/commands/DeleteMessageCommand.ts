@@ -25,8 +25,8 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
 /**
  * <p>Sends an event to a specific room which directs clients to delete a specific message;
  *          that is, unrender it from view and delete it from the client’s chat history. This event’s
- *          <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html"> DeleteMessage</a> WebSocket operation
- *          in the Amazon IVS Chat Messaging API.</p>
+ *             <code>EventName</code> is <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
+ *             DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

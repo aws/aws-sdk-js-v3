@@ -371,8 +371,12 @@ import { GlueServiceException as __BaseException } from "../models/GlueServiceEx
 import {
   AccessDeniedException,
   Action,
+  Aggregate,
+  AggregateOperation,
   AlreadyExistsException,
+  AthenaConnectorSource,
   AuditContext,
+  BasicCatalogTarget,
   BatchCreatePartitionRequest,
   BatchCreatePartitionResponse,
   BatchDeleteConnectionRequest,
@@ -392,7 +396,6 @@ import {
   BatchGetDevEndpointsRequest,
   BatchGetDevEndpointsResponse,
   BatchGetJobsRequest,
-  BatchGetJobsResponse,
   BatchGetPartitionRequest,
   BatchGetPartitionResponse,
   BatchGetTriggersRequest,
@@ -407,20 +410,19 @@ import {
   BatchUpdatePartitionRequest,
   BatchUpdatePartitionRequestEntry,
   BatchUpdatePartitionResponse,
-  BinaryColumnStatisticsData,
   Blueprint,
   BlueprintDetails,
-  BlueprintRun,
-  BooleanColumnStatisticsData,
   CancelMLTaskRunRequest,
   CancelMLTaskRunResponse,
   CancelStatementRequest,
   CancelStatementResponse,
-  CatalogImportStatus,
+  CatalogKafkaSource,
+  CatalogKinesisSource,
+  CatalogSchemaChangePolicy,
+  CatalogSource,
   CatalogTarget,
   CheckSchemaVersionValidityInput,
   CheckSchemaVersionValidityResponse,
-  Classifier,
   CloudWatchEncryption,
   CodeGenEdge,
   CodeGenNode,
@@ -428,15 +430,12 @@ import {
   Column,
   ConcurrentModificationException,
   Condition,
-  ConditionCheckFailureException,
-  ConflictException,
   ConnectionInput,
   ConnectionPropertyKey,
   ConnectionsList,
   Crawl,
   Crawler,
   CrawlerNodeDetails,
-  CrawlerRunningException,
   CrawlerTargets,
   CreateBlueprintRequest,
   CreateBlueprintResponse,
@@ -454,7 +453,6 @@ import {
   CreateDevEndpointRequest,
   CreateDevEndpointResponse,
   CreateGrokClassifierRequest,
-  CreateJobRequest,
   CreateJobResponse,
   CreateJsonClassifierRequest,
   CreateMLTransformRequest,
@@ -482,17 +480,176 @@ import {
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   CreateXMLClassifierRequest,
-  CsvClassifier,
+  CustomCode,
   CustomEntityType,
   DatabaseIdentifier,
   DatabaseInput,
   DataLakePrincipal,
-  DateColumnStatisticsData,
-  DecimalColumnStatisticsData,
-  DecimalNumber,
+  Datatype,
   DeleteBlueprintRequest,
   DeleteBlueprintResponse,
   DeleteClassifierRequest,
+  DeltaTarget,
+  DevEndpoint,
+  DirectKafkaSource,
+  DirectKinesisSource,
+  DirectSchemaChangePolicy,
+  DropDuplicates,
+  DropFields,
+  DropNullFields,
+  DynamoDBCatalogSource,
+  DynamoDBTarget,
+  Edge,
+  EncryptionConfiguration,
+  EntityNotFoundException,
+  ErrorDetail,
+  EventBatchingCondition,
+  ExecutionProperty,
+  FillMissingValues,
+  Filter,
+  FilterExpression,
+  FilterValue,
+  FindMatchesParameters,
+  GlueEncryptionException,
+  GlueRecordType,
+  GlueSchema,
+  GlueStudioSchemaColumn,
+  GlueTable,
+  GovernedCatalogSource,
+  GovernedCatalogTarget,
+  IdempotentParameterMismatchException,
+  IllegalSessionStateException,
+  InternalServiceException,
+  InvalidInputException,
+  InvalidStateException,
+  JDBCConnectorOptions,
+  JDBCConnectorSource,
+  JDBCConnectorTarget,
+  JDBCDataType,
+  JdbcTarget,
+  JobBookmarksEncryption,
+  JobCommand,
+  JobNodeDetails,
+  JobRun,
+  Join,
+  JoinColumn,
+  KafkaStreamingSourceOptions,
+  KinesisStreamingSourceOptions,
+  LakeFormationConfiguration,
+  LastActiveDefinition,
+  LastCrawlInfo,
+  LineageConfiguration,
+  Merge,
+  MicrosoftSQLServerCatalogSource,
+  MicrosoftSQLServerCatalogTarget,
+  MLUserDataEncryption,
+  MongoDBTarget,
+  MySQLCatalogSource,
+  MySQLCatalogTarget,
+  Node,
+  NotificationProperty,
+  NullCheckBoxList,
+  NullValueField,
+  OperationTimeoutException,
+  OracleSQLCatalogSource,
+  OracleSQLCatalogTarget,
+  Order,
+  Partition,
+  PartitionError,
+  PartitionIndex,
+  PartitionInput,
+  PartitionValueList,
+  Permission,
+  PhysicalConnectionRequirements,
+  PIIDetection,
+  PostgreSQLCatalogSource,
+  PostgreSQLCatalogTarget,
+  Predecessor,
+  Predicate,
+  PrincipalPermissions,
+  RecrawlPolicy,
+  RedshiftSource,
+  RedshiftTarget,
+  RegistryId,
+  RelationalCatalogSource,
+  RenameField,
+  ResourceNotReadyException,
+  ResourceNumberLimitExceededException,
+  ResourceUri,
+  S3CatalogSource,
+  S3CatalogTarget,
+  S3CsvSource,
+  S3DirectSourceAdditionalOptions,
+  S3DirectTarget,
+  S3Encryption,
+  S3GlueParquetTarget,
+  S3JsonSource,
+  S3ParquetSource,
+  S3SourceAdditionalOptions,
+  S3Target,
+  Schedule,
+  SchemaChangePolicy,
+  SchemaId,
+  SchemaReference,
+  SelectFields,
+  SelectFromCollection,
+  SerDeInfo,
+  Session,
+  SessionCommand,
+  SkewedInfo,
+  SparkConnectorSource,
+  SparkConnectorTarget,
+  SparkSQL,
+  Spigot,
+  SplitFields,
+  SqlAlias,
+  StartingEventBatchCondition,
+  StorageDescriptor,
+  StreamingDataPreviewOptions,
+  TableError,
+  TableIdentifier,
+  TableInput,
+  TableVersionError,
+  TransformEncryption,
+  TransformParameters,
+  Trigger,
+  TriggerNodeDetails,
+  Union,
+  UpsertRedshiftTargetOptions,
+  UserDefinedFunctionInput,
+  ValidationException,
+  Workflow,
+  WorkflowGraph,
+  WorkflowRun,
+  WorkflowRunStatistics,
+} from "../models/models_0";
+import {
+  BackfillError,
+  BinaryColumnStatisticsData,
+  BlueprintRun,
+  BooleanColumnStatisticsData,
+  CatalogEntry,
+  CatalogImportStatus,
+  Classifier,
+  ColumnError,
+  ColumnImportance,
+  ColumnRowFilter,
+  ColumnStatistics,
+  ColumnStatisticsData,
+  ConcurrentRunsExceededException,
+  ConditionCheckFailureException,
+  ConflictException,
+  ConfusionMatrix,
+  Connection,
+  ConnectionPasswordEncryption,
+  CrawlerMetrics,
+  CrawlerRunningException,
+  CsvClassifier,
+  Database,
+  DataCatalogEncryptionSettings,
+  DateColumnStatisticsData,
+  DecimalColumnStatisticsData,
+  DecimalNumber,
   DeleteClassifierResponse,
   DeleteColumnStatisticsForPartitionRequest,
   DeleteColumnStatisticsForPartitionResponse,
@@ -538,18 +695,13 @@ import {
   DeleteUserDefinedFunctionResponse,
   DeleteWorkflowRequest,
   DeleteWorkflowResponse,
-  DeltaTarget,
-  DevEndpoint,
   DoubleColumnStatisticsData,
-  DynamoDBTarget,
-  Edge,
-  EncryptionConfiguration,
-  EntityNotFoundException,
-  ErrorDetail,
+  EncryptionAtRest,
   ErrorDetails,
-  EventBatchingCondition,
-  ExecutionProperty,
-  FindMatchesParameters,
+  EvaluationMetrics,
+  ExportLabelsTaskRunProperties,
+  FindMatchesMetrics,
+  FindMatchesTaskRunProperties,
   GetBlueprintRequest,
   GetBlueprintResponse,
   GetBlueprintRunRequest,
@@ -563,102 +715,6 @@ import {
   GetClassifiersRequest,
   GetClassifiersResponse,
   GetColumnStatisticsForPartitionRequest,
-  GlueEncryptionException,
-  GlueTable,
-  GrokClassifier,
-  IdempotentParameterMismatchException,
-  IllegalSessionStateException,
-  InternalServiceException,
-  InvalidInputException,
-  InvalidStateException,
-  JdbcTarget,
-  Job,
-  JobBookmarksEncryption,
-  JobCommand,
-  JobNodeDetails,
-  JobRun,
-  JsonClassifier,
-  LakeFormationConfiguration,
-  LastActiveDefinition,
-  LastCrawlInfo,
-  LineageConfiguration,
-  LongColumnStatisticsData,
-  MLUserDataEncryption,
-  MongoDBTarget,
-  Node,
-  NotificationProperty,
-  OperationTimeoutException,
-  Order,
-  Partition,
-  PartitionError,
-  PartitionIndex,
-  PartitionInput,
-  PartitionValueList,
-  Permission,
-  PhysicalConnectionRequirements,
-  Predecessor,
-  Predicate,
-  PrincipalPermissions,
-  RecrawlPolicy,
-  RegistryId,
-  ResourceNotReadyException,
-  ResourceNumberLimitExceededException,
-  ResourceUri,
-  S3Encryption,
-  S3Target,
-  Schedule,
-  SchedulerTransitioningException,
-  SchemaChangePolicy,
-  SchemaId,
-  SchemaReference,
-  SchemaVersionErrorItem,
-  SerDeInfo,
-  Session,
-  SessionCommand,
-  SkewedInfo,
-  StartingEventBatchCondition,
-  StorageDescriptor,
-  StringColumnStatisticsData,
-  TableError,
-  TableIdentifier,
-  TableInput,
-  TableVersionError,
-  TransformEncryption,
-  TransformParameters,
-  Trigger,
-  TriggerNodeDetails,
-  UserDefinedFunctionInput,
-  ValidationException,
-  Workflow,
-  WorkflowGraph,
-  WorkflowRun,
-  WorkflowRunStatistics,
-  XMLClassifier,
-} from "../models/models_0";
-import {
-  BackfillError,
-  CatalogEntry,
-  ColumnError,
-  ColumnImportance,
-  ColumnRowFilter,
-  ColumnStatistics,
-  ColumnStatisticsData,
-  ColumnStatisticsError,
-  ConcurrentRunsExceededException,
-  ConfusionMatrix,
-  Connection,
-  ConnectionPasswordEncryption,
-  CrawlerMetrics,
-  CrawlerNotRunningException,
-  CrawlerStoppingException,
-  Database,
-  DataCatalogEncryptionSettings,
-  DevEndpointCustomLibraries,
-  EncryptionAtRest,
-  EvaluationMetrics,
-  ExportLabelsTaskRunProperties,
-  FindMatchesMetrics,
-  FindMatchesTaskRunProperties,
   GetColumnStatisticsForPartitionResponse,
   GetColumnStatisticsForTableRequest,
   GetColumnStatisticsForTableResponse,
@@ -690,13 +746,11 @@ import {
   GetJobBookmarkRequest,
   GetJobBookmarkResponse,
   GetJobRequest,
-  GetJobResponse,
   GetJobRunRequest,
   GetJobRunResponse,
   GetJobRunsRequest,
   GetJobRunsResponse,
   GetJobsRequest,
-  GetJobsResponse,
   GetMappingRequest,
   GetMappingResponse,
   GetMLTaskRunRequest,
@@ -770,13 +824,12 @@ import {
   GetWorkflowRunsRequest,
   GetWorkflowRunsResponse,
   GluePolicy,
-  IllegalBlueprintStateException,
-  IllegalWorkflowStateException,
+  GrokClassifier,
   ImportCatalogToGlueRequest,
   ImportCatalogToGlueResponse,
   ImportLabelsTaskRunProperties,
   JobBookmarkEntry,
-  JobUpdate,
+  JsonClassifier,
   KeySchemaElement,
   LabelingSetGenerationTaskRunProperties,
   ListBlueprintsRequest,
@@ -806,17 +859,15 @@ import {
   ListWorkflowsRequest,
   ListWorkflowsResponse,
   Location,
+  LongColumnStatisticsData,
   MappingEntry,
   MetadataInfo,
   MetadataKeyValuePair,
   MLTransform,
-  MLTransformNotReadyException,
-  NoScheduleException,
   OtherMetadataValueListItem,
   PartitionIndexDescriptor,
   PermissionType,
   PermissionTypeMismatchException,
-  PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse,
   PutResourcePolicyRequest,
@@ -834,20 +885,57 @@ import {
   RemoveSchemaVersionMetadataResponse,
   ResetJobBookmarkRequest,
   ResetJobBookmarkResponse,
+  SchedulerTransitioningException,
+  SchemaColumn,
+  SchemaListItem,
+  SchemaVersionErrorItem,
+  SchemaVersionListItem,
+  SchemaVersionNumber,
+  SecurityConfiguration,
+  Segment,
+  Statement,
+  StatementOutput,
+  StatementOutputData,
+  StringColumnStatisticsData,
+  Table,
+  TableVersion,
+  TaskRun,
+  TaskRunFilterCriteria,
+  TaskRunProperties,
+  TaskRunSortCriteria,
+  TransformFilterCriteria,
+  TransformSortCriteria,
+  UnfilteredPartition,
+  UserDefinedFunction,
+  XMLClassifier,
+} from "../models/models_1";
+import {
+  ApplyMapping,
+  BatchGetJobsResponse,
+  CodeGenConfigurationNode,
+  ColumnStatisticsError,
+  CrawlerNotRunningException,
+  CrawlerStoppingException,
+  CreateJobRequest,
+  DevEndpointCustomLibraries,
+  GetJobResponse,
+  GetJobsResponse,
+  IllegalBlueprintStateException,
+  IllegalWorkflowStateException,
+  Job,
+  JobUpdate,
+  Mapping,
+  MLTransformNotReadyException,
+  NoScheduleException,
+  PropertyPredicate,
   ResumeWorkflowRunRequest,
   ResumeWorkflowRunResponse,
   RunStatementRequest,
   RunStatementResponse,
   SchedulerNotRunningException,
   SchedulerRunningException,
-  SchemaColumn,
-  SchemaListItem,
-  SchemaVersionListItem,
-  SchemaVersionNumber,
   SearchTablesRequest,
   SearchTablesResponse,
-  SecurityConfiguration,
-  Segment,
   SortCriterion,
   StartBlueprintRunRequest,
   StartBlueprintRunResponse,
@@ -869,9 +957,6 @@ import {
   StartTriggerResponse,
   StartWorkflowRunRequest,
   StartWorkflowRunResponse,
-  Statement,
-  StatementOutput,
-  StatementOutputData,
   StopCrawlerRequest,
   StopCrawlerResponse,
   StopCrawlerScheduleRequest,
@@ -882,17 +967,9 @@ import {
   StopTriggerResponse,
   StopWorkflowRunRequest,
   StopWorkflowRunResponse,
-  Table,
-  TableVersion,
   TagResourceRequest,
   TagResourceResponse,
-  TaskRun,
-  TaskRunFilterCriteria,
-  TaskRunProperties,
-  TaskRunSortCriteria,
-  TransformFilterCriteria,
-  TransformSortCriteria,
-  UnfilteredPartition,
+  TriggerUpdate,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateBlueprintRequest,
@@ -916,14 +993,8 @@ import {
   UpdateDevEndpointResponse,
   UpdateGrokClassifierRequest,
   UpdateJobRequest,
-  UpdateJsonClassifierRequest,
-  UpdateXMLClassifierRequest,
-  UserDefinedFunction,
-  VersionMismatchException,
-} from "../models/models_1";
-import {
-  TriggerUpdate,
   UpdateJobResponse,
+  UpdateJsonClassifierRequest,
   UpdateMLTransformRequest,
   UpdateMLTransformResponse,
   UpdatePartitionRequest,
@@ -940,6 +1011,8 @@ import {
   UpdateUserDefinedFunctionResponse,
   UpdateWorkflowRequest,
   UpdateWorkflowResponse,
+  UpdateXMLClassifierRequest,
+  VersionMismatchException,
 } from "../models/models_2";
 
 export const serializeAws_json1_1BatchCreatePartitionCommand = async (
@@ -13529,6 +13602,18 @@ const serializeAws_json1_1ActionList = (input: Action[], context: __SerdeContext
     });
 };
 
+const serializeAws_json1_1AdditionalOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_json1_1AdditionalPlanOptionsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
@@ -13542,6 +13627,63 @@ const serializeAws_json1_1AdditionalPlanOptionsMap = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1Aggregate = (input: Aggregate, context: __SerdeContext): any => {
+  return {
+    ...(input.Aggs !== undefined &&
+      input.Aggs !== null && { Aggs: serializeAws_json1_1AggregateOperations(input.Aggs, context) }),
+    ...(input.Groups !== undefined &&
+      input.Groups !== null && { Groups: serializeAws_json1_1GlueStudioPathList(input.Groups, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1AggregateOperation = (input: AggregateOperation, context: __SerdeContext): any => {
+  return {
+    ...(input.AggFunc !== undefined && input.AggFunc !== null && { AggFunc: input.AggFunc }),
+    ...(input.Column !== undefined &&
+      input.Column !== null && { Column: serializeAws_json1_1EnclosedInStringProperties(input.Column, context) }),
+  };
+};
+
+const serializeAws_json1_1AggregateOperations = (input: AggregateOperation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AggregateOperation(entry, context);
+    });
+};
+
+const serializeAws_json1_1ApplyMapping = (input: ApplyMapping, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Mapping !== undefined &&
+      input.Mapping !== null && { Mapping: serializeAws_json1_1Mappings(input.Mapping, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1AthenaConnectorSource = (input: AthenaConnectorSource, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionTable !== undefined &&
+      input.ConnectionTable !== null && { ConnectionTable: input.ConnectionTable }),
+    ...(input.ConnectionType !== undefined &&
+      input.ConnectionType !== null && { ConnectionType: input.ConnectionType }),
+    ...(input.ConnectorName !== undefined && input.ConnectorName !== null && { ConnectorName: input.ConnectorName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.SchemaName !== undefined && input.SchemaName !== null && { SchemaName: input.SchemaName }),
+  };
 };
 
 const serializeAws_json1_1AuditColumnNamesList = (input: string[], context: __SerdeContext): any => {
@@ -13565,6 +13707,16 @@ const serializeAws_json1_1AuditContext = (input: AuditContext, context: __SerdeC
       input.RequestedColumns !== null && {
         RequestedColumns: serializeAws_json1_1AuditColumnNamesList(input.RequestedColumns, context),
       }),
+  };
+};
+
+const serializeAws_json1_1BasicCatalogTarget = (input: BasicCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
   };
 };
 
@@ -13917,6 +14069,62 @@ const serializeAws_json1_1CatalogEntry = (input: CatalogEntry, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1CatalogKafkaSource = (input: CatalogKafkaSource, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPreviewOptions !== undefined &&
+      input.DataPreviewOptions !== null && {
+        DataPreviewOptions: serializeAws_json1_1StreamingDataPreviewOptions(input.DataPreviewOptions, context),
+      }),
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.DetectSchema !== undefined && input.DetectSchema !== null && { DetectSchema: input.DetectSchema }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StreamingOptions !== undefined &&
+      input.StreamingOptions !== null && {
+        StreamingOptions: serializeAws_json1_1KafkaStreamingSourceOptions(input.StreamingOptions, context),
+      }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.WindowSize !== undefined && input.WindowSize !== null && { WindowSize: input.WindowSize }),
+  };
+};
+
+const serializeAws_json1_1CatalogKinesisSource = (input: CatalogKinesisSource, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPreviewOptions !== undefined &&
+      input.DataPreviewOptions !== null && {
+        DataPreviewOptions: serializeAws_json1_1StreamingDataPreviewOptions(input.DataPreviewOptions, context),
+      }),
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.DetectSchema !== undefined && input.DetectSchema !== null && { DetectSchema: input.DetectSchema }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StreamingOptions !== undefined &&
+      input.StreamingOptions !== null && {
+        StreamingOptions: serializeAws_json1_1KinesisStreamingSourceOptions(input.StreamingOptions, context),
+      }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.WindowSize !== undefined && input.WindowSize !== null && { WindowSize: input.WindowSize }),
+  };
+};
+
+const serializeAws_json1_1CatalogSchemaChangePolicy = (
+  input: CatalogSchemaChangePolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EnableUpdateCatalog !== undefined &&
+      input.EnableUpdateCatalog !== null && { EnableUpdateCatalog: input.EnableUpdateCatalog }),
+    ...(input.UpdateBehavior !== undefined &&
+      input.UpdateBehavior !== null && { UpdateBehavior: input.UpdateBehavior }),
+  };
+};
+
+const serializeAws_json1_1CatalogSource = (input: CatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1CatalogTablesList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -13977,6 +14185,202 @@ const serializeAws_json1_1CloudWatchEncryption = (input: CloudWatchEncryption, c
       input.CloudWatchEncryptionMode !== null && { CloudWatchEncryptionMode: input.CloudWatchEncryptionMode }),
     ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
   };
+};
+
+const serializeAws_json1_1CodeGenConfigurationNode = (
+  input: CodeGenConfigurationNode,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aggregate !== undefined &&
+      input.Aggregate !== null && { Aggregate: serializeAws_json1_1Aggregate(input.Aggregate, context) }),
+    ...(input.ApplyMapping !== undefined &&
+      input.ApplyMapping !== null && { ApplyMapping: serializeAws_json1_1ApplyMapping(input.ApplyMapping, context) }),
+    ...(input.AthenaConnectorSource !== undefined &&
+      input.AthenaConnectorSource !== null && {
+        AthenaConnectorSource: serializeAws_json1_1AthenaConnectorSource(input.AthenaConnectorSource, context),
+      }),
+    ...(input.CatalogKafkaSource !== undefined &&
+      input.CatalogKafkaSource !== null && {
+        CatalogKafkaSource: serializeAws_json1_1CatalogKafkaSource(input.CatalogKafkaSource, context),
+      }),
+    ...(input.CatalogKinesisSource !== undefined &&
+      input.CatalogKinesisSource !== null && {
+        CatalogKinesisSource: serializeAws_json1_1CatalogKinesisSource(input.CatalogKinesisSource, context),
+      }),
+    ...(input.CatalogSource !== undefined &&
+      input.CatalogSource !== null && {
+        CatalogSource: serializeAws_json1_1CatalogSource(input.CatalogSource, context),
+      }),
+    ...(input.CatalogTarget !== undefined &&
+      input.CatalogTarget !== null && {
+        CatalogTarget: serializeAws_json1_1BasicCatalogTarget(input.CatalogTarget, context),
+      }),
+    ...(input.CustomCode !== undefined &&
+      input.CustomCode !== null && { CustomCode: serializeAws_json1_1CustomCode(input.CustomCode, context) }),
+    ...(input.DirectKafkaSource !== undefined &&
+      input.DirectKafkaSource !== null && {
+        DirectKafkaSource: serializeAws_json1_1DirectKafkaSource(input.DirectKafkaSource, context),
+      }),
+    ...(input.DirectKinesisSource !== undefined &&
+      input.DirectKinesisSource !== null && {
+        DirectKinesisSource: serializeAws_json1_1DirectKinesisSource(input.DirectKinesisSource, context),
+      }),
+    ...(input.DropDuplicates !== undefined &&
+      input.DropDuplicates !== null && {
+        DropDuplicates: serializeAws_json1_1DropDuplicates(input.DropDuplicates, context),
+      }),
+    ...(input.DropFields !== undefined &&
+      input.DropFields !== null && { DropFields: serializeAws_json1_1DropFields(input.DropFields, context) }),
+    ...(input.DropNullFields !== undefined &&
+      input.DropNullFields !== null && {
+        DropNullFields: serializeAws_json1_1DropNullFields(input.DropNullFields, context),
+      }),
+    ...(input.DynamoDBCatalogSource !== undefined &&
+      input.DynamoDBCatalogSource !== null && {
+        DynamoDBCatalogSource: serializeAws_json1_1DynamoDBCatalogSource(input.DynamoDBCatalogSource, context),
+      }),
+    ...(input.FillMissingValues !== undefined &&
+      input.FillMissingValues !== null && {
+        FillMissingValues: serializeAws_json1_1FillMissingValues(input.FillMissingValues, context),
+      }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1Filter(input.Filter, context) }),
+    ...(input.GovernedCatalogSource !== undefined &&
+      input.GovernedCatalogSource !== null && {
+        GovernedCatalogSource: serializeAws_json1_1GovernedCatalogSource(input.GovernedCatalogSource, context),
+      }),
+    ...(input.GovernedCatalogTarget !== undefined &&
+      input.GovernedCatalogTarget !== null && {
+        GovernedCatalogTarget: serializeAws_json1_1GovernedCatalogTarget(input.GovernedCatalogTarget, context),
+      }),
+    ...(input.JDBCConnectorSource !== undefined &&
+      input.JDBCConnectorSource !== null && {
+        JDBCConnectorSource: serializeAws_json1_1JDBCConnectorSource(input.JDBCConnectorSource, context),
+      }),
+    ...(input.JDBCConnectorTarget !== undefined &&
+      input.JDBCConnectorTarget !== null && {
+        JDBCConnectorTarget: serializeAws_json1_1JDBCConnectorTarget(input.JDBCConnectorTarget, context),
+      }),
+    ...(input.Join !== undefined && input.Join !== null && { Join: serializeAws_json1_1Join(input.Join, context) }),
+    ...(input.Merge !== undefined &&
+      input.Merge !== null && { Merge: serializeAws_json1_1Merge(input.Merge, context) }),
+    ...(input.MicrosoftSQLServerCatalogSource !== undefined &&
+      input.MicrosoftSQLServerCatalogSource !== null && {
+        MicrosoftSQLServerCatalogSource: serializeAws_json1_1MicrosoftSQLServerCatalogSource(
+          input.MicrosoftSQLServerCatalogSource,
+          context
+        ),
+      }),
+    ...(input.MicrosoftSQLServerCatalogTarget !== undefined &&
+      input.MicrosoftSQLServerCatalogTarget !== null && {
+        MicrosoftSQLServerCatalogTarget: serializeAws_json1_1MicrosoftSQLServerCatalogTarget(
+          input.MicrosoftSQLServerCatalogTarget,
+          context
+        ),
+      }),
+    ...(input.MySQLCatalogSource !== undefined &&
+      input.MySQLCatalogSource !== null && {
+        MySQLCatalogSource: serializeAws_json1_1MySQLCatalogSource(input.MySQLCatalogSource, context),
+      }),
+    ...(input.MySQLCatalogTarget !== undefined &&
+      input.MySQLCatalogTarget !== null && {
+        MySQLCatalogTarget: serializeAws_json1_1MySQLCatalogTarget(input.MySQLCatalogTarget, context),
+      }),
+    ...(input.OracleSQLCatalogSource !== undefined &&
+      input.OracleSQLCatalogSource !== null && {
+        OracleSQLCatalogSource: serializeAws_json1_1OracleSQLCatalogSource(input.OracleSQLCatalogSource, context),
+      }),
+    ...(input.OracleSQLCatalogTarget !== undefined &&
+      input.OracleSQLCatalogTarget !== null && {
+        OracleSQLCatalogTarget: serializeAws_json1_1OracleSQLCatalogTarget(input.OracleSQLCatalogTarget, context),
+      }),
+    ...(input.PIIDetection !== undefined &&
+      input.PIIDetection !== null && { PIIDetection: serializeAws_json1_1PIIDetection(input.PIIDetection, context) }),
+    ...(input.PostgreSQLCatalogSource !== undefined &&
+      input.PostgreSQLCatalogSource !== null && {
+        PostgreSQLCatalogSource: serializeAws_json1_1PostgreSQLCatalogSource(input.PostgreSQLCatalogSource, context),
+      }),
+    ...(input.PostgreSQLCatalogTarget !== undefined &&
+      input.PostgreSQLCatalogTarget !== null && {
+        PostgreSQLCatalogTarget: serializeAws_json1_1PostgreSQLCatalogTarget(input.PostgreSQLCatalogTarget, context),
+      }),
+    ...(input.RedshiftSource !== undefined &&
+      input.RedshiftSource !== null && {
+        RedshiftSource: serializeAws_json1_1RedshiftSource(input.RedshiftSource, context),
+      }),
+    ...(input.RedshiftTarget !== undefined &&
+      input.RedshiftTarget !== null && {
+        RedshiftTarget: serializeAws_json1_1RedshiftTarget(input.RedshiftTarget, context),
+      }),
+    ...(input.RelationalCatalogSource !== undefined &&
+      input.RelationalCatalogSource !== null && {
+        RelationalCatalogSource: serializeAws_json1_1RelationalCatalogSource(input.RelationalCatalogSource, context),
+      }),
+    ...(input.RenameField !== undefined &&
+      input.RenameField !== null && { RenameField: serializeAws_json1_1RenameField(input.RenameField, context) }),
+    ...(input.S3CatalogSource !== undefined &&
+      input.S3CatalogSource !== null && {
+        S3CatalogSource: serializeAws_json1_1S3CatalogSource(input.S3CatalogSource, context),
+      }),
+    ...(input.S3CatalogTarget !== undefined &&
+      input.S3CatalogTarget !== null && {
+        S3CatalogTarget: serializeAws_json1_1S3CatalogTarget(input.S3CatalogTarget, context),
+      }),
+    ...(input.S3CsvSource !== undefined &&
+      input.S3CsvSource !== null && { S3CsvSource: serializeAws_json1_1S3CsvSource(input.S3CsvSource, context) }),
+    ...(input.S3DirectTarget !== undefined &&
+      input.S3DirectTarget !== null && {
+        S3DirectTarget: serializeAws_json1_1S3DirectTarget(input.S3DirectTarget, context),
+      }),
+    ...(input.S3GlueParquetTarget !== undefined &&
+      input.S3GlueParquetTarget !== null && {
+        S3GlueParquetTarget: serializeAws_json1_1S3GlueParquetTarget(input.S3GlueParquetTarget, context),
+      }),
+    ...(input.S3JsonSource !== undefined &&
+      input.S3JsonSource !== null && { S3JsonSource: serializeAws_json1_1S3JsonSource(input.S3JsonSource, context) }),
+    ...(input.S3ParquetSource !== undefined &&
+      input.S3ParquetSource !== null && {
+        S3ParquetSource: serializeAws_json1_1S3ParquetSource(input.S3ParquetSource, context),
+      }),
+    ...(input.SelectFields !== undefined &&
+      input.SelectFields !== null && { SelectFields: serializeAws_json1_1SelectFields(input.SelectFields, context) }),
+    ...(input.SelectFromCollection !== undefined &&
+      input.SelectFromCollection !== null && {
+        SelectFromCollection: serializeAws_json1_1SelectFromCollection(input.SelectFromCollection, context),
+      }),
+    ...(input.SparkConnectorSource !== undefined &&
+      input.SparkConnectorSource !== null && {
+        SparkConnectorSource: serializeAws_json1_1SparkConnectorSource(input.SparkConnectorSource, context),
+      }),
+    ...(input.SparkConnectorTarget !== undefined &&
+      input.SparkConnectorTarget !== null && {
+        SparkConnectorTarget: serializeAws_json1_1SparkConnectorTarget(input.SparkConnectorTarget, context),
+      }),
+    ...(input.SparkSQL !== undefined &&
+      input.SparkSQL !== null && { SparkSQL: serializeAws_json1_1SparkSQL(input.SparkSQL, context) }),
+    ...(input.Spigot !== undefined &&
+      input.Spigot !== null && { Spigot: serializeAws_json1_1Spigot(input.Spigot, context) }),
+    ...(input.SplitFields !== undefined &&
+      input.SplitFields !== null && { SplitFields: serializeAws_json1_1SplitFields(input.SplitFields, context) }),
+    ...(input.Union !== undefined &&
+      input.Union !== null && { Union: serializeAws_json1_1Union(input.Union, context) }),
+  };
+};
+
+const serializeAws_json1_1CodeGenConfigurationNodes = (
+  input: { [key: string]: CodeGenConfigurationNode },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1CodeGenConfigurationNode(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_json1_1CodeGenEdge = (input: CodeGenEdge, context: __SerdeContext): any => {
@@ -14416,6 +14820,13 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
   return {
     ...(input.AllocatedCapacity !== undefined &&
       input.AllocatedCapacity !== null && { AllocatedCapacity: input.AllocatedCapacity }),
+    ...(input.CodeGenConfigurationNodes !== undefined &&
+      input.CodeGenConfigurationNodes !== null && {
+        CodeGenConfigurationNodes: serializeAws_json1_1CodeGenConfigurationNodes(
+          input.CodeGenConfigurationNodes,
+          context
+        ),
+      }),
     ...(input.Command !== undefined &&
       input.Command !== null && { Command: serializeAws_json1_1JobCommand(input.Command, context) }),
     ...(input.Connections !== undefined &&
@@ -14680,6 +15091,18 @@ const serializeAws_json1_1CsvHeader = (input: string[], context: __SerdeContext)
     });
 };
 
+const serializeAws_json1_1CustomCode = (input: CustomCode, context: __SerdeContext): any => {
+  return {
+    ...(input.ClassName !== undefined && input.ClassName !== null && { ClassName: input.ClassName }),
+    ...(input.Code !== undefined && input.Code !== null && { Code: input.Code }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1ManyInputs(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+  };
+};
+
 const serializeAws_json1_1CustomEntityTypeNames = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14764,6 +15187,13 @@ const serializeAws_json1_1DataLakePrincipal = (input: DataLakePrincipal, context
   return {
     ...(input.DataLakePrincipalIdentifier !== undefined &&
       input.DataLakePrincipalIdentifier !== null && { DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier }),
+  };
+};
+
+const serializeAws_json1_1Datatype = (input: Datatype, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Label !== undefined && input.Label !== null && { Label: input.Label }),
   };
 };
 
@@ -15074,6 +15504,52 @@ const serializeAws_json1_1DevEndpointNames = (input: string[], context: __SerdeC
     });
 };
 
+const serializeAws_json1_1DirectKafkaSource = (input: DirectKafkaSource, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPreviewOptions !== undefined &&
+      input.DataPreviewOptions !== null && {
+        DataPreviewOptions: serializeAws_json1_1StreamingDataPreviewOptions(input.DataPreviewOptions, context),
+      }),
+    ...(input.DetectSchema !== undefined && input.DetectSchema !== null && { DetectSchema: input.DetectSchema }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StreamingOptions !== undefined &&
+      input.StreamingOptions !== null && {
+        StreamingOptions: serializeAws_json1_1KafkaStreamingSourceOptions(input.StreamingOptions, context),
+      }),
+    ...(input.WindowSize !== undefined && input.WindowSize !== null && { WindowSize: input.WindowSize }),
+  };
+};
+
+const serializeAws_json1_1DirectKinesisSource = (input: DirectKinesisSource, context: __SerdeContext): any => {
+  return {
+    ...(input.DataPreviewOptions !== undefined &&
+      input.DataPreviewOptions !== null && {
+        DataPreviewOptions: serializeAws_json1_1StreamingDataPreviewOptions(input.DataPreviewOptions, context),
+      }),
+    ...(input.DetectSchema !== undefined && input.DetectSchema !== null && { DetectSchema: input.DetectSchema }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.StreamingOptions !== undefined &&
+      input.StreamingOptions !== null && {
+        StreamingOptions: serializeAws_json1_1KinesisStreamingSourceOptions(input.StreamingOptions, context),
+      }),
+    ...(input.WindowSize !== undefined && input.WindowSize !== null && { WindowSize: input.WindowSize }),
+  };
+};
+
+const serializeAws_json1_1DirectSchemaChangePolicy = (
+  input: DirectSchemaChangePolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.EnableUpdateCatalog !== undefined &&
+      input.EnableUpdateCatalog !== null && { EnableUpdateCatalog: input.EnableUpdateCatalog }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.UpdateBehavior !== undefined &&
+      input.UpdateBehavior !== null && { UpdateBehavior: input.UpdateBehavior }),
+  };
+};
+
 const serializeAws_json1_1DoubleColumnStatisticsData = (
   input: DoubleColumnStatisticsData,
   context: __SerdeContext
@@ -15086,6 +15562,50 @@ const serializeAws_json1_1DoubleColumnStatisticsData = (
     ...(input.NumberOfDistinctValues !== undefined &&
       input.NumberOfDistinctValues !== null && { NumberOfDistinctValues: input.NumberOfDistinctValues }),
     ...(input.NumberOfNulls !== undefined && input.NumberOfNulls !== null && { NumberOfNulls: input.NumberOfNulls }),
+  };
+};
+
+const serializeAws_json1_1DropDuplicates = (input: DropDuplicates, context: __SerdeContext): any => {
+  return {
+    ...(input.Columns !== undefined &&
+      input.Columns !== null && { Columns: serializeAws_json1_1LimitedPathList(input.Columns, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1DropFields = (input: DropFields, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1GlueStudioPathList(input.Paths, context) }),
+  };
+};
+
+const serializeAws_json1_1DropNullFields = (input: DropNullFields, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NullCheckBoxList !== undefined &&
+      input.NullCheckBoxList !== null && {
+        NullCheckBoxList: serializeAws_json1_1NullCheckBoxList(input.NullCheckBoxList, context),
+      }),
+    ...(input.NullTextList !== undefined &&
+      input.NullTextList !== null && {
+        NullTextList: serializeAws_json1_1NullValueFields(input.NullTextList, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1DynamoDBCatalogSource = (input: DynamoDBCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
   };
 };
 
@@ -15105,6 +15625,28 @@ const serializeAws_json1_1DynamoDBTargetList = (input: DynamoDBTarget[], context
         return null as any;
       }
       return serializeAws_json1_1DynamoDBTarget(entry, context);
+    });
+};
+
+const serializeAws_json1_1EnclosedInStringProperties = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1EnclosedInStringPropertiesMinOne = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -15146,6 +15688,67 @@ const serializeAws_json1_1ExecutionProperty = (input: ExecutionProperty, context
     ...(input.MaxConcurrentRuns !== undefined &&
       input.MaxConcurrentRuns !== null && { MaxConcurrentRuns: input.MaxConcurrentRuns }),
   };
+};
+
+const serializeAws_json1_1FillMissingValues = (input: FillMissingValues, context: __SerdeContext): any => {
+  return {
+    ...(input.FilledPath !== undefined && input.FilledPath !== null && { FilledPath: input.FilledPath }),
+    ...(input.ImputedPath !== undefined && input.ImputedPath !== null && { ImputedPath: input.ImputedPath }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterExpressions(input.Filters, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.LogicalOperator !== undefined &&
+      input.LogicalOperator !== null && { LogicalOperator: input.LogicalOperator }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1FilterExpression = (input: FilterExpression, context: __SerdeContext): any => {
+  return {
+    ...(input.Negated !== undefined && input.Negated !== null && { Negated: input.Negated }),
+    ...(input.Operation !== undefined && input.Operation !== null && { Operation: input.Operation }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1FilterExpressions = (input: FilterExpression[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FilterExpression(entry, context);
+    });
+};
+
+const serializeAws_json1_1FilterValue = (input: FilterValue, context: __SerdeContext): any => {
+  return {
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Value !== undefined &&
+      input.Value !== null && { Value: serializeAws_json1_1EnclosedInStringProperties(input.Value, context) }),
+  };
+};
+
+const serializeAws_json1_1FilterValues = (input: FilterValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FilterValue(entry, context);
+    });
 };
 
 const serializeAws_json1_1FindMatchesParameters = (input: FindMatchesParameters, context: __SerdeContext): any => {
@@ -15816,6 +16419,56 @@ const serializeAws_json1_1GetWorkflowRunsRequest = (input: GetWorkflowRunsReques
   };
 };
 
+const serializeAws_json1_1GlueSchema = (input: GlueSchema, context: __SerdeContext): any => {
+  return {
+    ...(input.Columns !== undefined &&
+      input.Columns !== null && { Columns: serializeAws_json1_1GlueStudioSchemaColumnList(input.Columns, context) }),
+  };
+};
+
+const serializeAws_json1_1GlueSchemas = (input: GlueSchema[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1GlueSchema(entry, context);
+    });
+};
+
+const serializeAws_json1_1GlueStudioPathList = (input: string[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EnclosedInStringProperties(entry, context);
+    });
+};
+
+const serializeAws_json1_1GlueStudioSchemaColumn = (input: GlueStudioSchemaColumn, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1GlueStudioSchemaColumnList = (
+  input: GlueStudioSchemaColumn[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1GlueStudioSchemaColumn(entry, context);
+    });
+};
+
 const serializeAws_json1_1GlueTable = (input: GlueTable, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
@@ -15837,6 +16490,38 @@ const serializeAws_json1_1GlueTables = (input: GlueTable[], context: __SerdeCont
     });
 };
 
+const serializeAws_json1_1GovernedCatalogSource = (input: GovernedCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1S3SourceAdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionPredicate !== undefined &&
+      input.PartitionPredicate !== null && { PartitionPredicate: input.PartitionPredicate }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1GovernedCatalogTarget = (input: GovernedCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionKeys !== undefined &&
+      input.PartitionKeys !== null && {
+        PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+      }),
+    ...(input.SchemaChangePolicy !== undefined &&
+      input.SchemaChangePolicy !== null && {
+        SchemaChangePolicy: serializeAws_json1_1CatalogSchemaChangePolicy(input.SchemaChangePolicy, context),
+      }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1ImportCatalogToGlueRequest = (
   input: ImportCatalogToGlueRequest,
   context: __SerdeContext
@@ -15844,6 +16529,84 @@ const serializeAws_json1_1ImportCatalogToGlueRequest = (
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
   };
+};
+
+const serializeAws_json1_1JDBCConnectorOptions = (input: JDBCConnectorOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.DataTypeMapping !== undefined &&
+      input.DataTypeMapping !== null && {
+        DataTypeMapping: serializeAws_json1_1JDBCDataTypeMapping(input.DataTypeMapping, context),
+      }),
+    ...(input.FilterPredicate !== undefined &&
+      input.FilterPredicate !== null && { FilterPredicate: input.FilterPredicate }),
+    ...(input.JobBookmarkKeys !== undefined &&
+      input.JobBookmarkKeys !== null && {
+        JobBookmarkKeys: serializeAws_json1_1EnclosedInStringProperties(input.JobBookmarkKeys, context),
+      }),
+    ...(input.JobBookmarkKeysSortOrder !== undefined &&
+      input.JobBookmarkKeysSortOrder !== null && { JobBookmarkKeysSortOrder: input.JobBookmarkKeysSortOrder }),
+    ...(input.LowerBound !== undefined && input.LowerBound !== null && { LowerBound: input.LowerBound }),
+    ...(input.NumPartitions !== undefined && input.NumPartitions !== null && { NumPartitions: input.NumPartitions }),
+    ...(input.PartitionColumn !== undefined &&
+      input.PartitionColumn !== null && { PartitionColumn: input.PartitionColumn }),
+    ...(input.UpperBound !== undefined && input.UpperBound !== null && { UpperBound: input.UpperBound }),
+  };
+};
+
+const serializeAws_json1_1JDBCConnectorSource = (input: JDBCConnectorSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1JDBCConnectorOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionTable !== undefined &&
+      input.ConnectionTable !== null && { ConnectionTable: input.ConnectionTable }),
+    ...(input.ConnectionType !== undefined &&
+      input.ConnectionType !== null && { ConnectionType: input.ConnectionType }),
+    ...(input.ConnectorName !== undefined && input.ConnectorName !== null && { ConnectorName: input.ConnectorName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.Query !== undefined && input.Query !== null && { Query: input.Query }),
+  };
+};
+
+const serializeAws_json1_1JDBCConnectorTarget = (input: JDBCConnectorTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionTable !== undefined &&
+      input.ConnectionTable !== null && { ConnectionTable: input.ConnectionTable }),
+    ...(input.ConnectionType !== undefined &&
+      input.ConnectionType !== null && { ConnectionType: input.ConnectionType }),
+    ...(input.ConnectorName !== undefined && input.ConnectorName !== null && { ConnectorName: input.ConnectorName }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+  };
+};
+
+const serializeAws_json1_1JDBCDataTypeMapping = (
+  input: { [key: string]: GlueRecordType | string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [JDBCDataType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_json1_1JdbcTarget = (input: JdbcTarget, context: __SerdeContext): any => {
@@ -15899,6 +16662,13 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
   return {
     ...(input.AllocatedCapacity !== undefined &&
       input.AllocatedCapacity !== null && { AllocatedCapacity: input.AllocatedCapacity }),
+    ...(input.CodeGenConfigurationNodes !== undefined &&
+      input.CodeGenConfigurationNodes !== null && {
+        CodeGenConfigurationNodes: serializeAws_json1_1CodeGenConfigurationNodes(
+          input.CodeGenConfigurationNodes,
+          context
+        ),
+      }),
     ...(input.Command !== undefined &&
       input.Command !== null && { Command: serializeAws_json1_1JobCommand(input.Command, context) }),
     ...(input.Connections !== undefined &&
@@ -15935,6 +16705,67 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
   };
 };
 
+const serializeAws_json1_1Join = (input: Join, context: __SerdeContext): any => {
+  return {
+    ...(input.Columns !== undefined &&
+      input.Columns !== null && { Columns: serializeAws_json1_1JoinColumns(input.Columns, context) }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1TwoInputs(input.Inputs, context) }),
+    ...(input.JoinType !== undefined && input.JoinType !== null && { JoinType: input.JoinType }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1JoinColumn = (input: JoinColumn, context: __SerdeContext): any => {
+  return {
+    ...(input.From !== undefined && input.From !== null && { From: input.From }),
+    ...(input.Keys !== undefined &&
+      input.Keys !== null && { Keys: serializeAws_json1_1GlueStudioPathList(input.Keys, context) }),
+  };
+};
+
+const serializeAws_json1_1JoinColumns = (input: JoinColumn[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1JoinColumn(entry, context);
+    });
+};
+
+const serializeAws_json1_1KafkaStreamingSourceOptions = (
+  input: KafkaStreamingSourceOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Assign !== undefined && input.Assign !== null && { Assign: input.Assign }),
+    ...(input.BootstrapServers !== undefined &&
+      input.BootstrapServers !== null && { BootstrapServers: input.BootstrapServers }),
+    ...(input.Classification !== undefined &&
+      input.Classification !== null && { Classification: input.Classification }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.Delimiter !== undefined && input.Delimiter !== null && { Delimiter: input.Delimiter }),
+    ...(input.EndingOffsets !== undefined && input.EndingOffsets !== null && { EndingOffsets: input.EndingOffsets }),
+    ...(input.MaxOffsetsPerTrigger !== undefined &&
+      input.MaxOffsetsPerTrigger !== null && { MaxOffsetsPerTrigger: input.MaxOffsetsPerTrigger }),
+    ...(input.MinPartitions !== undefined && input.MinPartitions !== null && { MinPartitions: input.MinPartitions }),
+    ...(input.NumRetries !== undefined && input.NumRetries !== null && { NumRetries: input.NumRetries }),
+    ...(input.PollTimeoutMs !== undefined && input.PollTimeoutMs !== null && { PollTimeoutMs: input.PollTimeoutMs }),
+    ...(input.RetryIntervalMs !== undefined &&
+      input.RetryIntervalMs !== null && { RetryIntervalMs: input.RetryIntervalMs }),
+    ...(input.SecurityProtocol !== undefined &&
+      input.SecurityProtocol !== null && { SecurityProtocol: input.SecurityProtocol }),
+    ...(input.StartingOffsets !== undefined &&
+      input.StartingOffsets !== null && { StartingOffsets: input.StartingOffsets }),
+    ...(input.SubscribePattern !== undefined &&
+      input.SubscribePattern !== null && { SubscribePattern: input.SubscribePattern }),
+    ...(input.TopicName !== undefined && input.TopicName !== null && { TopicName: input.TopicName }),
+  };
+};
+
 const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -15946,6 +16777,44 @@ const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_json1_1KinesisStreamingSourceOptions = (
+  input: KinesisStreamingSourceOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddIdleTimeBetweenReads !== undefined &&
+      input.AddIdleTimeBetweenReads !== null && { AddIdleTimeBetweenReads: input.AddIdleTimeBetweenReads }),
+    ...(input.AvoidEmptyBatches !== undefined &&
+      input.AvoidEmptyBatches !== null && { AvoidEmptyBatches: input.AvoidEmptyBatches }),
+    ...(input.Classification !== undefined &&
+      input.Classification !== null && { Classification: input.Classification }),
+    ...(input.Delimiter !== undefined && input.Delimiter !== null && { Delimiter: input.Delimiter }),
+    ...(input.DescribeShardInterval !== undefined &&
+      input.DescribeShardInterval !== null && { DescribeShardInterval: input.DescribeShardInterval }),
+    ...(input.EndpointUrl !== undefined && input.EndpointUrl !== null && { EndpointUrl: input.EndpointUrl }),
+    ...(input.IdleTimeBetweenReadsInMs !== undefined &&
+      input.IdleTimeBetweenReadsInMs !== null && { IdleTimeBetweenReadsInMs: input.IdleTimeBetweenReadsInMs }),
+    ...(input.MaxFetchRecordsPerShard !== undefined &&
+      input.MaxFetchRecordsPerShard !== null && { MaxFetchRecordsPerShard: input.MaxFetchRecordsPerShard }),
+    ...(input.MaxFetchTimeInMs !== undefined &&
+      input.MaxFetchTimeInMs !== null && { MaxFetchTimeInMs: input.MaxFetchTimeInMs }),
+    ...(input.MaxRecordPerRead !== undefined &&
+      input.MaxRecordPerRead !== null && { MaxRecordPerRead: input.MaxRecordPerRead }),
+    ...(input.MaxRetryIntervalMs !== undefined &&
+      input.MaxRetryIntervalMs !== null && { MaxRetryIntervalMs: input.MaxRetryIntervalMs }),
+    ...(input.NumRetries !== undefined && input.NumRetries !== null && { NumRetries: input.NumRetries }),
+    ...(input.RetryIntervalMs !== undefined &&
+      input.RetryIntervalMs !== null && { RetryIntervalMs: input.RetryIntervalMs }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.RoleSessionName !== undefined &&
+      input.RoleSessionName !== null && { RoleSessionName: input.RoleSessionName }),
+    ...(input.StartingPosition !== undefined &&
+      input.StartingPosition !== null && { StartingPosition: input.StartingPosition }),
+    ...(input.StreamArn !== undefined && input.StreamArn !== null && { StreamArn: input.StreamArn }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+  };
+};
+
 const serializeAws_json1_1LakeFormationConfiguration = (
   input: LakeFormationConfiguration,
   context: __SerdeContext
@@ -15955,6 +16824,28 @@ const serializeAws_json1_1LakeFormationConfiguration = (
     ...(input.UseLakeFormationCredentials !== undefined &&
       input.UseLakeFormationCredentials !== null && { UseLakeFormationCredentials: input.UseLakeFormationCredentials }),
   };
+};
+
+const serializeAws_json1_1LimitedPathList = (input: string[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LimitedStringList(entry, context);
+    });
+};
+
+const serializeAws_json1_1LimitedStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1LineageConfiguration = (input: LineageConfiguration, context: __SerdeContext): any => {
@@ -16123,6 +17014,30 @@ const serializeAws_json1_1LongColumnStatisticsData = (
   };
 };
 
+const serializeAws_json1_1ManyInputs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1Mapping = (input: Mapping, context: __SerdeContext): any => {
+  return {
+    ...(input.Children !== undefined &&
+      input.Children !== null && { Children: serializeAws_json1_1Mappings(input.Children, context) }),
+    ...(input.Dropped !== undefined && input.Dropped !== null && { Dropped: input.Dropped }),
+    ...(input.FromPath !== undefined &&
+      input.FromPath !== null && { FromPath: serializeAws_json1_1EnclosedInStringProperties(input.FromPath, context) }),
+    ...(input.FromType !== undefined && input.FromType !== null && { FromType: input.FromType }),
+    ...(input.ToKey !== undefined && input.ToKey !== null && { ToKey: input.ToKey }),
+    ...(input.ToType !== undefined && input.ToType !== null && { ToType: input.ToType }),
+  };
+};
+
 const serializeAws_json1_1MappingEntry = (input: MappingEntry, context: __SerdeContext): any => {
   return {
     ...(input.SourcePath !== undefined && input.SourcePath !== null && { SourcePath: input.SourcePath }),
@@ -16142,6 +17057,17 @@ const serializeAws_json1_1MappingList = (input: MappingEntry[], context: __Serde
         return null as any;
       }
       return serializeAws_json1_1MappingEntry(entry, context);
+    });
+};
+
+const serializeAws_json1_1Mappings = (input: Mapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Mapping(entry, context);
     });
 };
 
@@ -16168,6 +17094,19 @@ const serializeAws_json1_1MatchCriteria = (input: string[], context: __SerdeCont
     });
 };
 
+const serializeAws_json1_1Merge = (input: Merge, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1TwoInputs(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PrimaryKeys !== undefined &&
+      input.PrimaryKeys !== null && {
+        PrimaryKeys: serializeAws_json1_1GlueStudioPathList(input.PrimaryKeys, context),
+      }),
+    ...(input.Source !== undefined && input.Source !== null && { Source: input.Source }),
+  };
+};
+
 const serializeAws_json1_1MetadataKeyValuePair = (input: MetadataKeyValuePair, context: __SerdeContext): any => {
   return {
     ...(input.MetadataKey !== undefined && input.MetadataKey !== null && { MetadataKey: input.MetadataKey }),
@@ -16184,6 +17123,30 @@ const serializeAws_json1_1MetadataList = (input: MetadataKeyValuePair[], context
       }
       return serializeAws_json1_1MetadataKeyValuePair(entry, context);
     });
+};
+
+const serializeAws_json1_1MicrosoftSQLServerCatalogSource = (
+  input: MicrosoftSQLServerCatalogSource,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1MicrosoftSQLServerCatalogTarget = (
+  input: MicrosoftSQLServerCatalogTarget,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
 };
 
 const serializeAws_json1_1MLUserDataEncryption = (input: MLUserDataEncryption, context: __SerdeContext): any => {
@@ -16214,6 +17177,24 @@ const serializeAws_json1_1MongoDBTargetList = (input: MongoDBTarget[], context: 
     });
 };
 
+const serializeAws_json1_1MySQLCatalogSource = (input: MySQLCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1MySQLCatalogTarget = (input: MySQLCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1NameStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -16240,6 +17221,62 @@ const serializeAws_json1_1NotificationProperty = (input: NotificationProperty, c
   return {
     ...(input.NotifyDelayAfter !== undefined &&
       input.NotifyDelayAfter !== null && { NotifyDelayAfter: input.NotifyDelayAfter }),
+  };
+};
+
+const serializeAws_json1_1NullCheckBoxList = (input: NullCheckBoxList, context: __SerdeContext): any => {
+  return {
+    ...(input.IsEmpty !== undefined && input.IsEmpty !== null && { IsEmpty: input.IsEmpty }),
+    ...(input.IsNegOne !== undefined && input.IsNegOne !== null && { IsNegOne: input.IsNegOne }),
+    ...(input.IsNullString !== undefined && input.IsNullString !== null && { IsNullString: input.IsNullString }),
+  };
+};
+
+const serializeAws_json1_1NullValueField = (input: NullValueField, context: __SerdeContext): any => {
+  return {
+    ...(input.Datatype !== undefined &&
+      input.Datatype !== null && { Datatype: serializeAws_json1_1Datatype(input.Datatype, context) }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1NullValueFields = (input: NullValueField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1NullValueField(entry, context);
+    });
+};
+
+const serializeAws_json1_1OneInput = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1OracleSQLCatalogSource = (input: OracleSQLCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1OracleSQLCatalogTarget = (input: OracleSQLCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
   };
 };
 
@@ -16400,6 +17437,44 @@ const serializeAws_json1_1PhysicalConnectionRequirements = (
   };
 };
 
+const serializeAws_json1_1PIIDetection = (input: PIIDetection, context: __SerdeContext): any => {
+  return {
+    ...(input.EntityTypesToDetect !== undefined &&
+      input.EntityTypesToDetect !== null && {
+        EntityTypesToDetect: serializeAws_json1_1EnclosedInStringProperties(input.EntityTypesToDetect, context),
+      }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.MaskValue !== undefined && input.MaskValue !== null && { MaskValue: input.MaskValue }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputColumnName !== undefined &&
+      input.OutputColumnName !== null && { OutputColumnName: input.OutputColumnName }),
+    ...(input.PiiType !== undefined && input.PiiType !== null && { PiiType: input.PiiType }),
+    ...(input.SampleFraction !== undefined &&
+      input.SampleFraction !== null && { SampleFraction: __serializeFloat(input.SampleFraction) }),
+    ...(input.ThresholdFraction !== undefined &&
+      input.ThresholdFraction !== null && { ThresholdFraction: __serializeFloat(input.ThresholdFraction) }),
+  };
+};
+
+const serializeAws_json1_1PostgreSQLCatalogSource = (input: PostgreSQLCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1PostgreSQLCatalogTarget = (input: PostgreSQLCatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1Predicate = (input: Predicate, context: __SerdeContext): any => {
   return {
     ...(input.Conditions !== undefined &&
@@ -16539,6 +17614,34 @@ const serializeAws_json1_1RecrawlPolicy = (input: RecrawlPolicy, context: __Serd
   };
 };
 
+const serializeAws_json1_1RedshiftSource = (input: RedshiftSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RedshiftTmpDir !== undefined &&
+      input.RedshiftTmpDir !== null && { RedshiftTmpDir: input.RedshiftTmpDir }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.TmpDirIAMRole !== undefined && input.TmpDirIAMRole !== null && { TmpDirIAMRole: input.TmpDirIAMRole }),
+  };
+};
+
+const serializeAws_json1_1RedshiftTarget = (input: RedshiftTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RedshiftTmpDir !== undefined &&
+      input.RedshiftTmpDir !== null && { RedshiftTmpDir: input.RedshiftTmpDir }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+    ...(input.TmpDirIAMRole !== undefined && input.TmpDirIAMRole !== null && { TmpDirIAMRole: input.TmpDirIAMRole }),
+    ...(input.UpsertRedshiftOptions !== undefined &&
+      input.UpsertRedshiftOptions !== null && {
+        UpsertRedshiftOptions: serializeAws_json1_1UpsertRedshiftTargetOptions(input.UpsertRedshiftOptions, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1RegisterSchemaVersionInput = (
   input: RegisterSchemaVersionInput,
   context: __SerdeContext
@@ -16558,6 +17661,14 @@ const serializeAws_json1_1RegistryId = (input: RegistryId, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1RelationalCatalogSource = (input: RelationalCatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
 const serializeAws_json1_1RemoveSchemaVersionMetadataInput = (
   input: RemoveSchemaVersionMetadataInput,
   context: __SerdeContext
@@ -16574,6 +17685,22 @@ const serializeAws_json1_1RemoveSchemaVersionMetadataInput = (
     ...(input.SchemaVersionNumber !== undefined &&
       input.SchemaVersionNumber !== null && {
         SchemaVersionNumber: serializeAws_json1_1SchemaVersionNumber(input.SchemaVersionNumber, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1RenameField = (input: RenameField, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourcePath !== undefined &&
+      input.SourcePath !== null && {
+        SourcePath: serializeAws_json1_1EnclosedInStringProperties(input.SourcePath, context),
+      }),
+    ...(input.TargetPath !== undefined &&
+      input.TargetPath !== null && {
+        TargetPath: serializeAws_json1_1EnclosedInStringProperties(input.TargetPath, context),
       }),
   };
 };
@@ -16623,6 +17750,105 @@ const serializeAws_json1_1RunStatementRequest = (input: RunStatementRequest, con
   };
 };
 
+const serializeAws_json1_1S3CatalogSource = (input: S3CatalogSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1S3SourceAdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionPredicate !== undefined &&
+      input.PartitionPredicate !== null && { PartitionPredicate: input.PartitionPredicate }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1S3CatalogTarget = (input: S3CatalogTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionKeys !== undefined &&
+      input.PartitionKeys !== null && {
+        PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+      }),
+    ...(input.SchemaChangePolicy !== undefined &&
+      input.SchemaChangePolicy !== null && {
+        SchemaChangePolicy: serializeAws_json1_1CatalogSchemaChangePolicy(input.SchemaChangePolicy, context),
+      }),
+    ...(input.Table !== undefined && input.Table !== null && { Table: input.Table }),
+  };
+};
+
+const serializeAws_json1_1S3CsvSource = (input: S3CsvSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1S3DirectSourceAdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.CompressionType !== undefined &&
+      input.CompressionType !== null && { CompressionType: input.CompressionType }),
+    ...(input.Escaper !== undefined && input.Escaper !== null && { Escaper: input.Escaper }),
+    ...(input.Exclusions !== undefined &&
+      input.Exclusions !== null && {
+        Exclusions: serializeAws_json1_1EnclosedInStringProperties(input.Exclusions, context),
+      }),
+    ...(input.GroupFiles !== undefined && input.GroupFiles !== null && { GroupFiles: input.GroupFiles }),
+    ...(input.GroupSize !== undefined && input.GroupSize !== null && { GroupSize: input.GroupSize }),
+    ...(input.MaxBand !== undefined && input.MaxBand !== null && { MaxBand: input.MaxBand }),
+    ...(input.MaxFilesInBand !== undefined &&
+      input.MaxFilesInBand !== null && { MaxFilesInBand: input.MaxFilesInBand }),
+    ...(input.Multiline !== undefined && input.Multiline !== null && { Multiline: input.Multiline }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OptimizePerformance !== undefined &&
+      input.OptimizePerformance !== null && { OptimizePerformance: input.OptimizePerformance }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1EnclosedInStringProperties(input.Paths, context) }),
+    ...(input.QuoteChar !== undefined && input.QuoteChar !== null && { QuoteChar: input.QuoteChar }),
+    ...(input.Recurse !== undefined && input.Recurse !== null && { Recurse: input.Recurse }),
+    ...(input.Separator !== undefined && input.Separator !== null && { Separator: input.Separator }),
+    ...(input.SkipFirst !== undefined && input.SkipFirst !== null && { SkipFirst: input.SkipFirst }),
+    ...(input.WithHeader !== undefined && input.WithHeader !== null && { WithHeader: input.WithHeader }),
+    ...(input.WriteHeader !== undefined && input.WriteHeader !== null && { WriteHeader: input.WriteHeader }),
+  };
+};
+
+const serializeAws_json1_1S3DirectSourceAdditionalOptions = (
+  input: S3DirectSourceAdditionalOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BoundedFiles !== undefined && input.BoundedFiles !== null && { BoundedFiles: input.BoundedFiles }),
+    ...(input.BoundedSize !== undefined && input.BoundedSize !== null && { BoundedSize: input.BoundedSize }),
+    ...(input.EnableSamplePath !== undefined &&
+      input.EnableSamplePath !== null && { EnableSamplePath: input.EnableSamplePath }),
+    ...(input.SamplePath !== undefined && input.SamplePath !== null && { SamplePath: input.SamplePath }),
+  };
+};
+
+const serializeAws_json1_1S3DirectTarget = (input: S3DirectTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionKeys !== undefined &&
+      input.PartitionKeys !== null && {
+        PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+      }),
+    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.SchemaChangePolicy !== undefined &&
+      input.SchemaChangePolicy !== null && {
+        SchemaChangePolicy: serializeAws_json1_1DirectSchemaChangePolicy(input.SchemaChangePolicy, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1S3Encryption = (input: S3Encryption, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
@@ -16640,6 +17866,88 @@ const serializeAws_json1_1S3EncryptionList = (input: S3Encryption[], context: __
       }
       return serializeAws_json1_1S3Encryption(entry, context);
     });
+};
+
+const serializeAws_json1_1S3GlueParquetTarget = (input: S3GlueParquetTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.Compression !== undefined && input.Compression !== null && { Compression: input.Compression }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PartitionKeys !== undefined &&
+      input.PartitionKeys !== null && {
+        PartitionKeys: serializeAws_json1_1GlueStudioPathList(input.PartitionKeys, context),
+      }),
+    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.SchemaChangePolicy !== undefined &&
+      input.SchemaChangePolicy !== null && {
+        SchemaChangePolicy: serializeAws_json1_1DirectSchemaChangePolicy(input.SchemaChangePolicy, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1S3JsonSource = (input: S3JsonSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1S3DirectSourceAdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.CompressionType !== undefined &&
+      input.CompressionType !== null && { CompressionType: input.CompressionType }),
+    ...(input.Exclusions !== undefined &&
+      input.Exclusions !== null && {
+        Exclusions: serializeAws_json1_1EnclosedInStringProperties(input.Exclusions, context),
+      }),
+    ...(input.GroupFiles !== undefined && input.GroupFiles !== null && { GroupFiles: input.GroupFiles }),
+    ...(input.GroupSize !== undefined && input.GroupSize !== null && { GroupSize: input.GroupSize }),
+    ...(input.JsonPath !== undefined && input.JsonPath !== null && { JsonPath: input.JsonPath }),
+    ...(input.MaxBand !== undefined && input.MaxBand !== null && { MaxBand: input.MaxBand }),
+    ...(input.MaxFilesInBand !== undefined &&
+      input.MaxFilesInBand !== null && { MaxFilesInBand: input.MaxFilesInBand }),
+    ...(input.Multiline !== undefined && input.Multiline !== null && { Multiline: input.Multiline }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1EnclosedInStringProperties(input.Paths, context) }),
+    ...(input.Recurse !== undefined && input.Recurse !== null && { Recurse: input.Recurse }),
+  };
+};
+
+const serializeAws_json1_1S3ParquetSource = (input: S3ParquetSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1S3DirectSourceAdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.CompressionType !== undefined &&
+      input.CompressionType !== null && { CompressionType: input.CompressionType }),
+    ...(input.Exclusions !== undefined &&
+      input.Exclusions !== null && {
+        Exclusions: serializeAws_json1_1EnclosedInStringProperties(input.Exclusions, context),
+      }),
+    ...(input.GroupFiles !== undefined && input.GroupFiles !== null && { GroupFiles: input.GroupFiles }),
+    ...(input.GroupSize !== undefined && input.GroupSize !== null && { GroupSize: input.GroupSize }),
+    ...(input.MaxBand !== undefined && input.MaxBand !== null && { MaxBand: input.MaxBand }),
+    ...(input.MaxFilesInBand !== undefined &&
+      input.MaxFilesInBand !== null && { MaxFilesInBand: input.MaxFilesInBand }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1EnclosedInStringProperties(input.Paths, context) }),
+    ...(input.Recurse !== undefined && input.Recurse !== null && { Recurse: input.Recurse }),
+  };
+};
+
+const serializeAws_json1_1S3SourceAdditionalOptions = (
+  input: S3SourceAdditionalOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BoundedFiles !== undefined && input.BoundedFiles !== null && { BoundedFiles: input.BoundedFiles }),
+    ...(input.BoundedSize !== undefined && input.BoundedSize !== null && { BoundedSize: input.BoundedSize }),
+  };
 };
 
 const serializeAws_json1_1S3Target = (input: S3Target, context: __SerdeContext): any => {
@@ -16753,6 +18061,25 @@ const serializeAws_json1_1Segment = (input: Segment, context: __SerdeContext): a
   };
 };
 
+const serializeAws_json1_1SelectFields = (input: SelectFields, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1GlueStudioPathList(input.Paths, context) }),
+  };
+};
+
+const serializeAws_json1_1SelectFromCollection = (input: SelectFromCollection, context: __SerdeContext): any => {
+  return {
+    ...(input.Index !== undefined && input.Index !== null && { Index: input.Index }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_json1_1SerDeInfo = (input: SerDeInfo, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -16803,6 +18130,94 @@ const serializeAws_json1_1SortCriterion = (input: SortCriterion, context: __Serd
     ...(input.FieldName !== undefined && input.FieldName !== null && { FieldName: input.FieldName }),
     ...(input.Sort !== undefined && input.Sort !== null && { Sort: input.Sort }),
   };
+};
+
+const serializeAws_json1_1SparkConnectorSource = (input: SparkConnectorSource, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionType !== undefined &&
+      input.ConnectionType !== null && { ConnectionType: input.ConnectionType }),
+    ...(input.ConnectorName !== undefined && input.ConnectorName !== null && { ConnectorName: input.ConnectorName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+  };
+};
+
+const serializeAws_json1_1SparkConnectorTarget = (input: SparkConnectorTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalOptions !== undefined &&
+      input.AdditionalOptions !== null && {
+        AdditionalOptions: serializeAws_json1_1AdditionalOptions(input.AdditionalOptions, context),
+      }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.ConnectionType !== undefined &&
+      input.ConnectionType !== null && { ConnectionType: input.ConnectionType }),
+    ...(input.ConnectorName !== undefined && input.ConnectorName !== null && { ConnectorName: input.ConnectorName }),
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+  };
+};
+
+const serializeAws_json1_1SparkSQL = (input: SparkSQL, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1ManyInputs(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.OutputSchemas !== undefined &&
+      input.OutputSchemas !== null && { OutputSchemas: serializeAws_json1_1GlueSchemas(input.OutputSchemas, context) }),
+    ...(input.SqlAliases !== undefined &&
+      input.SqlAliases !== null && { SqlAliases: serializeAws_json1_1SqlAliases(input.SqlAliases, context) }),
+    ...(input.SqlQuery !== undefined && input.SqlQuery !== null && { SqlQuery: input.SqlQuery }),
+  };
+};
+
+const serializeAws_json1_1Spigot = (input: Spigot, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.Prob !== undefined && input.Prob !== null && { Prob: __serializeFloat(input.Prob) }),
+    ...(input.Topk !== undefined && input.Topk !== null && { Topk: input.Topk }),
+  };
+};
+
+const serializeAws_json1_1SplitFields = (input: SplitFields, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Paths !== undefined &&
+      input.Paths !== null && { Paths: serializeAws_json1_1GlueStudioPathList(input.Paths, context) }),
+  };
+};
+
+const serializeAws_json1_1SqlAlias = (input: SqlAlias, context: __SerdeContext): any => {
+  return {
+    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
+    ...(input.From !== undefined && input.From !== null && { From: input.From }),
+  };
+};
+
+const serializeAws_json1_1SqlAliases = (input: SqlAlias[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SqlAlias(entry, context);
+    });
 };
 
 const serializeAws_json1_1StartBlueprintRunRequest = (
@@ -16978,6 +18393,17 @@ const serializeAws_json1_1StorageDescriptor = (input: StorageDescriptor, context
       input.SortColumns !== null && { SortColumns: serializeAws_json1_1OrderList(input.SortColumns, context) }),
     ...(input.StoredAsSubDirectories !== undefined &&
       input.StoredAsSubDirectories !== null && { StoredAsSubDirectories: input.StoredAsSubDirectories }),
+  };
+};
+
+const serializeAws_json1_1StreamingDataPreviewOptions = (
+  input: StreamingDataPreviewOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PollingTime !== undefined && input.PollingTime !== null && { PollingTime: input.PollingTime }),
+    ...(input.RecordPollingLimit !== undefined &&
+      input.RecordPollingLimit !== null && { RecordPollingLimit: input.RecordPollingLimit }),
   };
 };
 
@@ -17177,6 +18603,26 @@ const serializeAws_json1_1TriggerUpdate = (input: TriggerUpdate, context: __Serd
     ...(input.Predicate !== undefined &&
       input.Predicate !== null && { Predicate: serializeAws_json1_1Predicate(input.Predicate, context) }),
     ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
+  };
+};
+
+const serializeAws_json1_1TwoInputs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1Union = (input: Union, context: __SerdeContext): any => {
+  return {
+    ...(input.Inputs !== undefined &&
+      input.Inputs !== null && { Inputs: serializeAws_json1_1TwoInputs(input.Inputs, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.UnionType !== undefined && input.UnionType !== null && { UnionType: input.UnionType }),
   };
 };
 
@@ -17538,6 +18984,21 @@ const serializeAws_json1_1UpdateXMLClassifierRequest = (
   };
 };
 
+const serializeAws_json1_1UpsertRedshiftTargetOptions = (
+  input: UpsertRedshiftTargetOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.TableLocation !== undefined && input.TableLocation !== null && { TableLocation: input.TableLocation }),
+    ...(input.UpsertKeys !== undefined &&
+      input.UpsertKeys !== null && {
+        UpsertKeys: serializeAws_json1_1EnclosedInStringPropertiesMinOne(input.UpsertKeys, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1UserDefinedFunctionInput = (
   input: UserDefinedFunctionInput,
   context: __SerdeContext
@@ -17623,9 +19084,90 @@ const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+const deserializeAws_json1_1AdditionalOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_json1_1Aggregate = (output: any, context: __SerdeContext): Aggregate => {
+  return {
+    Aggs:
+      output.Aggs !== undefined && output.Aggs !== null
+        ? deserializeAws_json1_1AggregateOperations(output.Aggs, context)
+        : undefined,
+    Groups:
+      output.Groups !== undefined && output.Groups !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.Groups, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1AggregateOperation = (output: any, context: __SerdeContext): AggregateOperation => {
+  return {
+    AggFunc: __expectString(output.AggFunc),
+    Column:
+      output.Column !== undefined && output.Column !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Column, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AggregateOperations = (output: any, context: __SerdeContext): AggregateOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AggregateOperation(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ApplyMapping = (output: any, context: __SerdeContext): ApplyMapping => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Mapping:
+      output.Mapping !== undefined && output.Mapping !== null
+        ? deserializeAws_json1_1Mappings(output.Mapping, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1AthenaConnectorSource = (output: any, context: __SerdeContext): AthenaConnectorSource => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionTable: __expectString(output.ConnectionTable),
+    ConnectionType: __expectString(output.ConnectionType),
+    ConnectorName: __expectString(output.ConnectorName),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    SchemaName: __expectString(output.SchemaName),
   } as any;
 };
 
@@ -17664,6 +19206,18 @@ const deserializeAws_json1_1BackfillErrors = (output: any, context: __SerdeConte
       return deserializeAws_json1_1BackfillError(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1BasicCatalogTarget = (output: any, context: __SerdeContext): BasicCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
 };
 
 const deserializeAws_json1_1BatchCreatePartitionResponse = (
@@ -18131,6 +19685,60 @@ const deserializeAws_json1_1CatalogImportStatus = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CatalogKafkaSource = (output: any, context: __SerdeContext): CatalogKafkaSource => {
+  return {
+    DataPreviewOptions:
+      output.DataPreviewOptions !== undefined && output.DataPreviewOptions !== null
+        ? deserializeAws_json1_1StreamingDataPreviewOptions(output.DataPreviewOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    DetectSchema: __expectBoolean(output.DetectSchema),
+    Name: __expectString(output.Name),
+    StreamingOptions:
+      output.StreamingOptions !== undefined && output.StreamingOptions !== null
+        ? deserializeAws_json1_1KafkaStreamingSourceOptions(output.StreamingOptions, context)
+        : undefined,
+    Table: __expectString(output.Table),
+    WindowSize: __expectInt32(output.WindowSize),
+  } as any;
+};
+
+const deserializeAws_json1_1CatalogKinesisSource = (output: any, context: __SerdeContext): CatalogKinesisSource => {
+  return {
+    DataPreviewOptions:
+      output.DataPreviewOptions !== undefined && output.DataPreviewOptions !== null
+        ? deserializeAws_json1_1StreamingDataPreviewOptions(output.DataPreviewOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    DetectSchema: __expectBoolean(output.DetectSchema),
+    Name: __expectString(output.Name),
+    StreamingOptions:
+      output.StreamingOptions !== undefined && output.StreamingOptions !== null
+        ? deserializeAws_json1_1KinesisStreamingSourceOptions(output.StreamingOptions, context)
+        : undefined,
+    Table: __expectString(output.Table),
+    WindowSize: __expectInt32(output.WindowSize),
+  } as any;
+};
+
+const deserializeAws_json1_1CatalogSchemaChangePolicy = (
+  output: any,
+  context: __SerdeContext
+): CatalogSchemaChangePolicy => {
+  return {
+    EnableUpdateCatalog: __expectBoolean(output.EnableUpdateCatalog),
+    UpdateBehavior: __expectString(output.UpdateBehavior),
+  } as any;
+};
+
+const deserializeAws_json1_1CatalogSource = (output: any, context: __SerdeContext): CatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1CatalogTablesList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -18226,6 +19834,230 @@ const deserializeAws_json1_1CloudWatchEncryption = (output: any, context: __Serd
     CloudWatchEncryptionMode: __expectString(output.CloudWatchEncryptionMode),
     KmsKeyArn: __expectString(output.KmsKeyArn),
   } as any;
+};
+
+const deserializeAws_json1_1CodeGenConfigurationNode = (
+  output: any,
+  context: __SerdeContext
+): CodeGenConfigurationNode => {
+  return {
+    Aggregate:
+      output.Aggregate !== undefined && output.Aggregate !== null
+        ? deserializeAws_json1_1Aggregate(output.Aggregate, context)
+        : undefined,
+    ApplyMapping:
+      output.ApplyMapping !== undefined && output.ApplyMapping !== null
+        ? deserializeAws_json1_1ApplyMapping(output.ApplyMapping, context)
+        : undefined,
+    AthenaConnectorSource:
+      output.AthenaConnectorSource !== undefined && output.AthenaConnectorSource !== null
+        ? deserializeAws_json1_1AthenaConnectorSource(output.AthenaConnectorSource, context)
+        : undefined,
+    CatalogKafkaSource:
+      output.CatalogKafkaSource !== undefined && output.CatalogKafkaSource !== null
+        ? deserializeAws_json1_1CatalogKafkaSource(output.CatalogKafkaSource, context)
+        : undefined,
+    CatalogKinesisSource:
+      output.CatalogKinesisSource !== undefined && output.CatalogKinesisSource !== null
+        ? deserializeAws_json1_1CatalogKinesisSource(output.CatalogKinesisSource, context)
+        : undefined,
+    CatalogSource:
+      output.CatalogSource !== undefined && output.CatalogSource !== null
+        ? deserializeAws_json1_1CatalogSource(output.CatalogSource, context)
+        : undefined,
+    CatalogTarget:
+      output.CatalogTarget !== undefined && output.CatalogTarget !== null
+        ? deserializeAws_json1_1BasicCatalogTarget(output.CatalogTarget, context)
+        : undefined,
+    CustomCode:
+      output.CustomCode !== undefined && output.CustomCode !== null
+        ? deserializeAws_json1_1CustomCode(output.CustomCode, context)
+        : undefined,
+    DirectKafkaSource:
+      output.DirectKafkaSource !== undefined && output.DirectKafkaSource !== null
+        ? deserializeAws_json1_1DirectKafkaSource(output.DirectKafkaSource, context)
+        : undefined,
+    DirectKinesisSource:
+      output.DirectKinesisSource !== undefined && output.DirectKinesisSource !== null
+        ? deserializeAws_json1_1DirectKinesisSource(output.DirectKinesisSource, context)
+        : undefined,
+    DropDuplicates:
+      output.DropDuplicates !== undefined && output.DropDuplicates !== null
+        ? deserializeAws_json1_1DropDuplicates(output.DropDuplicates, context)
+        : undefined,
+    DropFields:
+      output.DropFields !== undefined && output.DropFields !== null
+        ? deserializeAws_json1_1DropFields(output.DropFields, context)
+        : undefined,
+    DropNullFields:
+      output.DropNullFields !== undefined && output.DropNullFields !== null
+        ? deserializeAws_json1_1DropNullFields(output.DropNullFields, context)
+        : undefined,
+    DynamoDBCatalogSource:
+      output.DynamoDBCatalogSource !== undefined && output.DynamoDBCatalogSource !== null
+        ? deserializeAws_json1_1DynamoDBCatalogSource(output.DynamoDBCatalogSource, context)
+        : undefined,
+    FillMissingValues:
+      output.FillMissingValues !== undefined && output.FillMissingValues !== null
+        ? deserializeAws_json1_1FillMissingValues(output.FillMissingValues, context)
+        : undefined,
+    Filter:
+      output.Filter !== undefined && output.Filter !== null
+        ? deserializeAws_json1_1Filter(output.Filter, context)
+        : undefined,
+    GovernedCatalogSource:
+      output.GovernedCatalogSource !== undefined && output.GovernedCatalogSource !== null
+        ? deserializeAws_json1_1GovernedCatalogSource(output.GovernedCatalogSource, context)
+        : undefined,
+    GovernedCatalogTarget:
+      output.GovernedCatalogTarget !== undefined && output.GovernedCatalogTarget !== null
+        ? deserializeAws_json1_1GovernedCatalogTarget(output.GovernedCatalogTarget, context)
+        : undefined,
+    JDBCConnectorSource:
+      output.JDBCConnectorSource !== undefined && output.JDBCConnectorSource !== null
+        ? deserializeAws_json1_1JDBCConnectorSource(output.JDBCConnectorSource, context)
+        : undefined,
+    JDBCConnectorTarget:
+      output.JDBCConnectorTarget !== undefined && output.JDBCConnectorTarget !== null
+        ? deserializeAws_json1_1JDBCConnectorTarget(output.JDBCConnectorTarget, context)
+        : undefined,
+    Join:
+      output.Join !== undefined && output.Join !== null ? deserializeAws_json1_1Join(output.Join, context) : undefined,
+    Merge:
+      output.Merge !== undefined && output.Merge !== null
+        ? deserializeAws_json1_1Merge(output.Merge, context)
+        : undefined,
+    MicrosoftSQLServerCatalogSource:
+      output.MicrosoftSQLServerCatalogSource !== undefined && output.MicrosoftSQLServerCatalogSource !== null
+        ? deserializeAws_json1_1MicrosoftSQLServerCatalogSource(output.MicrosoftSQLServerCatalogSource, context)
+        : undefined,
+    MicrosoftSQLServerCatalogTarget:
+      output.MicrosoftSQLServerCatalogTarget !== undefined && output.MicrosoftSQLServerCatalogTarget !== null
+        ? deserializeAws_json1_1MicrosoftSQLServerCatalogTarget(output.MicrosoftSQLServerCatalogTarget, context)
+        : undefined,
+    MySQLCatalogSource:
+      output.MySQLCatalogSource !== undefined && output.MySQLCatalogSource !== null
+        ? deserializeAws_json1_1MySQLCatalogSource(output.MySQLCatalogSource, context)
+        : undefined,
+    MySQLCatalogTarget:
+      output.MySQLCatalogTarget !== undefined && output.MySQLCatalogTarget !== null
+        ? deserializeAws_json1_1MySQLCatalogTarget(output.MySQLCatalogTarget, context)
+        : undefined,
+    OracleSQLCatalogSource:
+      output.OracleSQLCatalogSource !== undefined && output.OracleSQLCatalogSource !== null
+        ? deserializeAws_json1_1OracleSQLCatalogSource(output.OracleSQLCatalogSource, context)
+        : undefined,
+    OracleSQLCatalogTarget:
+      output.OracleSQLCatalogTarget !== undefined && output.OracleSQLCatalogTarget !== null
+        ? deserializeAws_json1_1OracleSQLCatalogTarget(output.OracleSQLCatalogTarget, context)
+        : undefined,
+    PIIDetection:
+      output.PIIDetection !== undefined && output.PIIDetection !== null
+        ? deserializeAws_json1_1PIIDetection(output.PIIDetection, context)
+        : undefined,
+    PostgreSQLCatalogSource:
+      output.PostgreSQLCatalogSource !== undefined && output.PostgreSQLCatalogSource !== null
+        ? deserializeAws_json1_1PostgreSQLCatalogSource(output.PostgreSQLCatalogSource, context)
+        : undefined,
+    PostgreSQLCatalogTarget:
+      output.PostgreSQLCatalogTarget !== undefined && output.PostgreSQLCatalogTarget !== null
+        ? deserializeAws_json1_1PostgreSQLCatalogTarget(output.PostgreSQLCatalogTarget, context)
+        : undefined,
+    RedshiftSource:
+      output.RedshiftSource !== undefined && output.RedshiftSource !== null
+        ? deserializeAws_json1_1RedshiftSource(output.RedshiftSource, context)
+        : undefined,
+    RedshiftTarget:
+      output.RedshiftTarget !== undefined && output.RedshiftTarget !== null
+        ? deserializeAws_json1_1RedshiftTarget(output.RedshiftTarget, context)
+        : undefined,
+    RelationalCatalogSource:
+      output.RelationalCatalogSource !== undefined && output.RelationalCatalogSource !== null
+        ? deserializeAws_json1_1RelationalCatalogSource(output.RelationalCatalogSource, context)
+        : undefined,
+    RenameField:
+      output.RenameField !== undefined && output.RenameField !== null
+        ? deserializeAws_json1_1RenameField(output.RenameField, context)
+        : undefined,
+    S3CatalogSource:
+      output.S3CatalogSource !== undefined && output.S3CatalogSource !== null
+        ? deserializeAws_json1_1S3CatalogSource(output.S3CatalogSource, context)
+        : undefined,
+    S3CatalogTarget:
+      output.S3CatalogTarget !== undefined && output.S3CatalogTarget !== null
+        ? deserializeAws_json1_1S3CatalogTarget(output.S3CatalogTarget, context)
+        : undefined,
+    S3CsvSource:
+      output.S3CsvSource !== undefined && output.S3CsvSource !== null
+        ? deserializeAws_json1_1S3CsvSource(output.S3CsvSource, context)
+        : undefined,
+    S3DirectTarget:
+      output.S3DirectTarget !== undefined && output.S3DirectTarget !== null
+        ? deserializeAws_json1_1S3DirectTarget(output.S3DirectTarget, context)
+        : undefined,
+    S3GlueParquetTarget:
+      output.S3GlueParquetTarget !== undefined && output.S3GlueParquetTarget !== null
+        ? deserializeAws_json1_1S3GlueParquetTarget(output.S3GlueParquetTarget, context)
+        : undefined,
+    S3JsonSource:
+      output.S3JsonSource !== undefined && output.S3JsonSource !== null
+        ? deserializeAws_json1_1S3JsonSource(output.S3JsonSource, context)
+        : undefined,
+    S3ParquetSource:
+      output.S3ParquetSource !== undefined && output.S3ParquetSource !== null
+        ? deserializeAws_json1_1S3ParquetSource(output.S3ParquetSource, context)
+        : undefined,
+    SelectFields:
+      output.SelectFields !== undefined && output.SelectFields !== null
+        ? deserializeAws_json1_1SelectFields(output.SelectFields, context)
+        : undefined,
+    SelectFromCollection:
+      output.SelectFromCollection !== undefined && output.SelectFromCollection !== null
+        ? deserializeAws_json1_1SelectFromCollection(output.SelectFromCollection, context)
+        : undefined,
+    SparkConnectorSource:
+      output.SparkConnectorSource !== undefined && output.SparkConnectorSource !== null
+        ? deserializeAws_json1_1SparkConnectorSource(output.SparkConnectorSource, context)
+        : undefined,
+    SparkConnectorTarget:
+      output.SparkConnectorTarget !== undefined && output.SparkConnectorTarget !== null
+        ? deserializeAws_json1_1SparkConnectorTarget(output.SparkConnectorTarget, context)
+        : undefined,
+    SparkSQL:
+      output.SparkSQL !== undefined && output.SparkSQL !== null
+        ? deserializeAws_json1_1SparkSQL(output.SparkSQL, context)
+        : undefined,
+    Spigot:
+      output.Spigot !== undefined && output.Spigot !== null
+        ? deserializeAws_json1_1Spigot(output.Spigot, context)
+        : undefined,
+    SplitFields:
+      output.SplitFields !== undefined && output.SplitFields !== null
+        ? deserializeAws_json1_1SplitFields(output.SplitFields, context)
+        : undefined,
+    Union:
+      output.Union !== undefined && output.Union !== null
+        ? deserializeAws_json1_1Union(output.Union, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CodeGenConfigurationNodes = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: CodeGenConfigurationNode } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: CodeGenConfigurationNode }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1CodeGenConfigurationNode(value, context),
+      };
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1CodeGenEdge = (output: any, context: __SerdeContext): CodeGenEdge => {
@@ -19032,6 +20864,22 @@ const deserializeAws_json1_1CsvHeader = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_json1_1CustomCode = (output: any, context: __SerdeContext): CustomCode => {
+  return {
+    ClassName: __expectString(output.ClassName),
+    Code: __expectString(output.Code),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1ManyInputs(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CustomEntityType = (output: any, context: __SerdeContext): CustomEntityType => {
   return {
     ContextWords:
@@ -19154,6 +21002,13 @@ const deserializeAws_json1_1DataCatalogEncryptionSettings = (
 const deserializeAws_json1_1DataLakePrincipal = (output: any, context: __SerdeContext): DataLakePrincipal => {
   return {
     DataLakePrincipalIdentifier: __expectString(output.DataLakePrincipalIdentifier),
+  } as any;
+};
+
+const deserializeAws_json1_1Datatype = (output: any, context: __SerdeContext): Datatype => {
+  return {
+    Id: __expectString(output.Id),
+    Label: __expectString(output.Label),
   } as any;
 };
 
@@ -19475,6 +21330,50 @@ const deserializeAws_json1_1DevEndpointNames = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1DirectKafkaSource = (output: any, context: __SerdeContext): DirectKafkaSource => {
+  return {
+    DataPreviewOptions:
+      output.DataPreviewOptions !== undefined && output.DataPreviewOptions !== null
+        ? deserializeAws_json1_1StreamingDataPreviewOptions(output.DataPreviewOptions, context)
+        : undefined,
+    DetectSchema: __expectBoolean(output.DetectSchema),
+    Name: __expectString(output.Name),
+    StreamingOptions:
+      output.StreamingOptions !== undefined && output.StreamingOptions !== null
+        ? deserializeAws_json1_1KafkaStreamingSourceOptions(output.StreamingOptions, context)
+        : undefined,
+    WindowSize: __expectInt32(output.WindowSize),
+  } as any;
+};
+
+const deserializeAws_json1_1DirectKinesisSource = (output: any, context: __SerdeContext): DirectKinesisSource => {
+  return {
+    DataPreviewOptions:
+      output.DataPreviewOptions !== undefined && output.DataPreviewOptions !== null
+        ? deserializeAws_json1_1StreamingDataPreviewOptions(output.DataPreviewOptions, context)
+        : undefined,
+    DetectSchema: __expectBoolean(output.DetectSchema),
+    Name: __expectString(output.Name),
+    StreamingOptions:
+      output.StreamingOptions !== undefined && output.StreamingOptions !== null
+        ? deserializeAws_json1_1KinesisStreamingSourceOptions(output.StreamingOptions, context)
+        : undefined,
+    WindowSize: __expectInt32(output.WindowSize),
+  } as any;
+};
+
+const deserializeAws_json1_1DirectSchemaChangePolicy = (
+  output: any,
+  context: __SerdeContext
+): DirectSchemaChangePolicy => {
+  return {
+    Database: __expectString(output.Database),
+    EnableUpdateCatalog: __expectBoolean(output.EnableUpdateCatalog),
+    Table: __expectString(output.Table),
+    UpdateBehavior: __expectString(output.UpdateBehavior),
+  } as any;
+};
+
 const deserializeAws_json1_1DoubleColumnStatisticsData = (
   output: any,
   context: __SerdeContext
@@ -19484,6 +21383,60 @@ const deserializeAws_json1_1DoubleColumnStatisticsData = (
     MinimumValue: __limitedParseDouble(output.MinimumValue),
     NumberOfDistinctValues: __expectLong(output.NumberOfDistinctValues),
     NumberOfNulls: __expectLong(output.NumberOfNulls),
+  } as any;
+};
+
+const deserializeAws_json1_1DropDuplicates = (output: any, context: __SerdeContext): DropDuplicates => {
+  return {
+    Columns:
+      output.Columns !== undefined && output.Columns !== null
+        ? deserializeAws_json1_1LimitedPathList(output.Columns, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1DropFields = (output: any, context: __SerdeContext): DropFields => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.Paths, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DropNullFields = (output: any, context: __SerdeContext): DropNullFields => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    NullCheckBoxList:
+      output.NullCheckBoxList !== undefined && output.NullCheckBoxList !== null
+        ? deserializeAws_json1_1NullCheckBoxList(output.NullCheckBoxList, context)
+        : undefined,
+    NullTextList:
+      output.NullTextList !== undefined && output.NullTextList !== null
+        ? deserializeAws_json1_1NullValueFields(output.NullTextList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DynamoDBCatalogSource = (output: any, context: __SerdeContext): DynamoDBCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
   } as any;
 };
 
@@ -19522,6 +21475,30 @@ const deserializeAws_json1_1EdgeList = (output: any, context: __SerdeContext): E
         return null as any;
       }
       return deserializeAws_json1_1Edge(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1EnclosedInStringProperties = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1EnclosedInStringPropertiesMinOne = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -19618,6 +21595,78 @@ const deserializeAws_json1_1ExportLabelsTaskRunProperties = (
   return {
     OutputS3Path: __expectString(output.OutputS3Path),
   } as any;
+};
+
+const deserializeAws_json1_1FillMissingValues = (output: any, context: __SerdeContext): FillMissingValues => {
+  return {
+    FilledPath: __expectString(output.FilledPath),
+    ImputedPath: __expectString(output.ImputedPath),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Filter => {
+  return {
+    Filters:
+      output.Filters !== undefined && output.Filters !== null
+        ? deserializeAws_json1_1FilterExpressions(output.Filters, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    LogicalOperator: __expectString(output.LogicalOperator),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1FilterExpression = (output: any, context: __SerdeContext): FilterExpression => {
+  return {
+    Negated: __expectBoolean(output.Negated),
+    Operation: __expectString(output.Operation),
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1FilterValues(output.Values, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FilterExpressions = (output: any, context: __SerdeContext): FilterExpression[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FilterExpression(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1FilterValue = (output: any, context: __SerdeContext): FilterValue => {
+  return {
+    Type: __expectString(output.Type),
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1FilterValues = (output: any, context: __SerdeContext): FilterValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FilterValue(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1FindMatchesMetrics = (output: any, context: __SerdeContext): FindMatchesMetrics => {
@@ -20466,6 +22515,61 @@ const deserializeAws_json1_1GluePolicy = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1GlueSchema = (output: any, context: __SerdeContext): GlueSchema => {
+  return {
+    Columns:
+      output.Columns !== undefined && output.Columns !== null
+        ? deserializeAws_json1_1GlueStudioSchemaColumnList(output.Columns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GlueSchemas = (output: any, context: __SerdeContext): GlueSchema[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GlueSchema(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1GlueStudioPathList = (output: any, context: __SerdeContext): string[][] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EnclosedInStringProperties(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1GlueStudioSchemaColumn = (output: any, context: __SerdeContext): GlueStudioSchemaColumn => {
+  return {
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1GlueStudioSchemaColumnList = (
+  output: any,
+  context: __SerdeContext
+): GlueStudioSchemaColumn[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GlueStudioSchemaColumn(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1GlueTable = (output: any, context: __SerdeContext): GlueTable => {
   return {
     CatalogId: __expectString(output.CatalogId),
@@ -20485,6 +22589,39 @@ const deserializeAws_json1_1GlueTables = (output: any, context: __SerdeContext):
       return deserializeAws_json1_1GlueTable(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1GovernedCatalogSource = (output: any, context: __SerdeContext): GovernedCatalogSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1S3SourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    PartitionPredicate: __expectString(output.PartitionPredicate),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1GovernedCatalogTarget = (output: any, context: __SerdeContext): GovernedCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys !== undefined && output.PartitionKeys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    SchemaChangePolicy:
+      output.SchemaChangePolicy !== undefined && output.SchemaChangePolicy !== null
+        ? deserializeAws_json1_1CatalogSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+    Table: __expectString(output.Table),
+  } as any;
 };
 
 const deserializeAws_json1_1GrokClassifier = (output: any, context: __SerdeContext): GrokClassifier => {
@@ -20579,6 +22716,84 @@ const deserializeAws_json1_1InvalidStateException = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1JDBCConnectorOptions = (output: any, context: __SerdeContext): JDBCConnectorOptions => {
+  return {
+    DataTypeMapping:
+      output.DataTypeMapping !== undefined && output.DataTypeMapping !== null
+        ? deserializeAws_json1_1JDBCDataTypeMapping(output.DataTypeMapping, context)
+        : undefined,
+    FilterPredicate: __expectString(output.FilterPredicate),
+    JobBookmarkKeys:
+      output.JobBookmarkKeys !== undefined && output.JobBookmarkKeys !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.JobBookmarkKeys, context)
+        : undefined,
+    JobBookmarkKeysSortOrder: __expectString(output.JobBookmarkKeysSortOrder),
+    LowerBound: __expectLong(output.LowerBound),
+    NumPartitions: __expectLong(output.NumPartitions),
+    PartitionColumn: __expectString(output.PartitionColumn),
+    UpperBound: __expectLong(output.UpperBound),
+  } as any;
+};
+
+const deserializeAws_json1_1JDBCConnectorSource = (output: any, context: __SerdeContext): JDBCConnectorSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1JDBCConnectorOptions(output.AdditionalOptions, context)
+        : undefined,
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionTable: __expectString(output.ConnectionTable),
+    ConnectionType: __expectString(output.ConnectionType),
+    ConnectorName: __expectString(output.ConnectorName),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    Query: __expectString(output.Query),
+  } as any;
+};
+
+const deserializeAws_json1_1JDBCConnectorTarget = (output: any, context: __SerdeContext): JDBCConnectorTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionTable: __expectString(output.ConnectionTable),
+    ConnectionType: __expectString(output.ConnectionType),
+    ConnectorName: __expectString(output.ConnectorName),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1JDBCDataTypeMapping = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: GlueRecordType | string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: GlueRecordType | string }, [key, value]: [JDBCDataType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: __expectString(value) as any,
+      };
+    },
+    {}
+  );
+};
+
 const deserializeAws_json1_1JdbcTarget = (output: any, context: __SerdeContext): JdbcTarget => {
   return {
     ConnectionName: __expectString(output.ConnectionName),
@@ -20605,6 +22820,10 @@ const deserializeAws_json1_1JdbcTargetList = (output: any, context: __SerdeConte
 const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     AllocatedCapacity: __expectInt32(output.AllocatedCapacity),
+    CodeGenConfigurationNodes:
+      output.CodeGenConfigurationNodes !== undefined && output.CodeGenConfigurationNodes !== null
+        ? deserializeAws_json1_1CodeGenConfigurationNodes(output.CodeGenConfigurationNodes, context)
+        : undefined,
     Command:
       output.Command !== undefined && output.Command !== null
         ? deserializeAws_json1_1JobCommand(output.Command, context)
@@ -20769,6 +22988,43 @@ const deserializeAws_json1_1JobRunList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+const deserializeAws_json1_1Join = (output: any, context: __SerdeContext): Join => {
+  return {
+    Columns:
+      output.Columns !== undefined && output.Columns !== null
+        ? deserializeAws_json1_1JoinColumns(output.Columns, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1TwoInputs(output.Inputs, context)
+        : undefined,
+    JoinType: __expectString(output.JoinType),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1JoinColumn = (output: any, context: __SerdeContext): JoinColumn => {
+  return {
+    From: __expectString(output.From),
+    Keys:
+      output.Keys !== undefined && output.Keys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.Keys, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1JoinColumns = (output: any, context: __SerdeContext): JoinColumn[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1JoinColumn(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1JsonClassifier = (output: any, context: __SerdeContext): JsonClassifier => {
   return {
     CreationTime:
@@ -20782,6 +23038,29 @@ const deserializeAws_json1_1JsonClassifier = (output: any, context: __SerdeConte
         : undefined,
     Name: __expectString(output.Name),
     Version: __expectLong(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1KafkaStreamingSourceOptions = (
+  output: any,
+  context: __SerdeContext
+): KafkaStreamingSourceOptions => {
+  return {
+    Assign: __expectString(output.Assign),
+    BootstrapServers: __expectString(output.BootstrapServers),
+    Classification: __expectString(output.Classification),
+    ConnectionName: __expectString(output.ConnectionName),
+    Delimiter: __expectString(output.Delimiter),
+    EndingOffsets: __expectString(output.EndingOffsets),
+    MaxOffsetsPerTrigger: __expectLong(output.MaxOffsetsPerTrigger),
+    MinPartitions: __expectInt32(output.MinPartitions),
+    NumRetries: __expectInt32(output.NumRetries),
+    PollTimeoutMs: __expectLong(output.PollTimeoutMs),
+    RetryIntervalMs: __expectLong(output.RetryIntervalMs),
+    SecurityProtocol: __expectString(output.SecurityProtocol),
+    StartingOffsets: __expectString(output.StartingOffsets),
+    SubscribePattern: __expectString(output.SubscribePattern),
+    TopicName: __expectString(output.TopicName),
   } as any;
 };
 
@@ -20802,6 +23081,32 @@ const deserializeAws_json1_1KeySchemaElementList = (output: any, context: __Serd
       return deserializeAws_json1_1KeySchemaElement(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1KinesisStreamingSourceOptions = (
+  output: any,
+  context: __SerdeContext
+): KinesisStreamingSourceOptions => {
+  return {
+    AddIdleTimeBetweenReads: __expectBoolean(output.AddIdleTimeBetweenReads),
+    AvoidEmptyBatches: __expectBoolean(output.AvoidEmptyBatches),
+    Classification: __expectString(output.Classification),
+    Delimiter: __expectString(output.Delimiter),
+    DescribeShardInterval: __expectLong(output.DescribeShardInterval),
+    EndpointUrl: __expectString(output.EndpointUrl),
+    IdleTimeBetweenReadsInMs: __expectLong(output.IdleTimeBetweenReadsInMs),
+    MaxFetchRecordsPerShard: __expectLong(output.MaxFetchRecordsPerShard),
+    MaxFetchTimeInMs: __expectLong(output.MaxFetchTimeInMs),
+    MaxRecordPerRead: __expectLong(output.MaxRecordPerRead),
+    MaxRetryIntervalMs: __expectLong(output.MaxRetryIntervalMs),
+    NumRetries: __expectInt32(output.NumRetries),
+    RetryIntervalMs: __expectLong(output.RetryIntervalMs),
+    RoleArn: __expectString(output.RoleArn),
+    RoleSessionName: __expectString(output.RoleSessionName),
+    StartingPosition: __expectString(output.StartingPosition),
+    StreamArn: __expectString(output.StreamArn),
+    StreamName: __expectString(output.StreamName),
+  } as any;
 };
 
 const deserializeAws_json1_1LabelingSetGenerationTaskRunProperties = (
@@ -20848,6 +23153,30 @@ const deserializeAws_json1_1LastCrawlInfo = (output: any, context: __SerdeContex
         : undefined,
     Status: __expectString(output.Status),
   } as any;
+};
+
+const deserializeAws_json1_1LimitedPathList = (output: any, context: __SerdeContext): string[][] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LimitedStringList(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LimitedStringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1LineageConfiguration = (output: any, context: __SerdeContext): LineageConfiguration => {
@@ -21038,6 +23367,35 @@ const deserializeAws_json1_1LongColumnStatisticsData = (
   } as any;
 };
 
+const deserializeAws_json1_1ManyInputs = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Mapping = (output: any, context: __SerdeContext): Mapping => {
+  return {
+    Children:
+      output.Children !== undefined && output.Children !== null
+        ? deserializeAws_json1_1Mappings(output.Children, context)
+        : undefined,
+    Dropped: __expectBoolean(output.Dropped),
+    FromPath:
+      output.FromPath !== undefined && output.FromPath !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.FromPath, context)
+        : undefined,
+    FromType: __expectString(output.FromType),
+    ToKey: __expectString(output.ToKey),
+    ToType: __expectString(output.ToType),
+  } as any;
+};
+
 const deserializeAws_json1_1MappingEntry = (output: any, context: __SerdeContext): MappingEntry => {
   return {
     SourcePath: __expectString(output.SourcePath),
@@ -21057,6 +23415,18 @@ const deserializeAws_json1_1MappingList = (output: any, context: __SerdeContext)
         return null as any;
       }
       return deserializeAws_json1_1MappingEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1Mappings = (output: any, context: __SerdeContext): Mapping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Mapping(entry, context);
     });
   return retVal;
 };
@@ -21085,6 +23455,21 @@ const deserializeAws_json1_1MatchCriteria = (output: any, context: __SerdeContex
   return retVal;
 };
 
+const deserializeAws_json1_1Merge = (output: any, context: __SerdeContext): Merge => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1TwoInputs(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PrimaryKeys:
+      output.PrimaryKeys !== undefined && output.PrimaryKeys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PrimaryKeys, context)
+        : undefined,
+    Source: __expectString(output.Source),
+  } as any;
+};
+
 const deserializeAws_json1_1MetadataInfo = (output: any, context: __SerdeContext): MetadataInfo => {
   return {
     CreatedTime: __expectString(output.CreatedTime),
@@ -21109,6 +23494,32 @@ const deserializeAws_json1_1MetadataInfoMap = (
       [key]: deserializeAws_json1_1MetadataInfo(value, context),
     };
   }, {});
+};
+
+const deserializeAws_json1_1MicrosoftSQLServerCatalogSource = (
+  output: any,
+  context: __SerdeContext
+): MicrosoftSQLServerCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1MicrosoftSQLServerCatalogTarget = (
+  output: any,
+  context: __SerdeContext
+): MicrosoftSQLServerCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
 };
 
 const deserializeAws_json1_1MLTransform = (output: any, context: __SerdeContext): MLTransform => {
@@ -21192,6 +23603,26 @@ const deserializeAws_json1_1MongoDBTargetList = (output: any, context: __SerdeCo
   return retVal;
 };
 
+const deserializeAws_json1_1MySQLCatalogSource = (output: any, context: __SerdeContext): MySQLCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1MySQLCatalogTarget = (output: any, context: __SerdeContext): MySQLCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1NameStringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -21260,12 +23691,74 @@ const deserializeAws_json1_1NotificationProperty = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1NullCheckBoxList = (output: any, context: __SerdeContext): NullCheckBoxList => {
+  return {
+    IsEmpty: __expectBoolean(output.IsEmpty),
+    IsNegOne: __expectBoolean(output.IsNegOne),
+    IsNullString: __expectBoolean(output.IsNullString),
+  } as any;
+};
+
+const deserializeAws_json1_1NullValueField = (output: any, context: __SerdeContext): NullValueField => {
+  return {
+    Datatype:
+      output.Datatype !== undefined && output.Datatype !== null
+        ? deserializeAws_json1_1Datatype(output.Datatype, context)
+        : undefined,
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1NullValueFields = (output: any, context: __SerdeContext): NullValueField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NullValueField(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1OneInput = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1OperationTimeoutException = (
   output: any,
   context: __SerdeContext
 ): OperationTimeoutException => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1OracleSQLCatalogSource = (output: any, context: __SerdeContext): OracleSQLCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1OracleSQLCatalogTarget = (output: any, context: __SerdeContext): OracleSQLCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
   } as any;
 };
 
@@ -21510,6 +24003,51 @@ const deserializeAws_json1_1PhysicalConnectionRequirements = (
   } as any;
 };
 
+const deserializeAws_json1_1PIIDetection = (output: any, context: __SerdeContext): PIIDetection => {
+  return {
+    EntityTypesToDetect:
+      output.EntityTypesToDetect !== undefined && output.EntityTypesToDetect !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.EntityTypesToDetect, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    MaskValue: __expectString(output.MaskValue),
+    Name: __expectString(output.Name),
+    OutputColumnName: __expectString(output.OutputColumnName),
+    PiiType: __expectString(output.PiiType),
+    SampleFraction: __limitedParseDouble(output.SampleFraction),
+    ThresholdFraction: __limitedParseDouble(output.ThresholdFraction),
+  } as any;
+};
+
+const deserializeAws_json1_1PostgreSQLCatalogSource = (
+  output: any,
+  context: __SerdeContext
+): PostgreSQLCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1PostgreSQLCatalogTarget = (
+  output: any,
+  context: __SerdeContext
+): PostgreSQLCatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1Predecessor = (output: any, context: __SerdeContext): Predecessor => {
   return {
     JobName: __expectString(output.JobName),
@@ -21638,6 +24176,34 @@ const deserializeAws_json1_1RecrawlPolicy = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1RedshiftSource = (output: any, context: __SerdeContext): RedshiftSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    RedshiftTmpDir: __expectString(output.RedshiftTmpDir),
+    Table: __expectString(output.Table),
+    TmpDirIAMRole: __expectString(output.TmpDirIAMRole),
+  } as any;
+};
+
+const deserializeAws_json1_1RedshiftTarget = (output: any, context: __SerdeContext): RedshiftTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    RedshiftTmpDir: __expectString(output.RedshiftTmpDir),
+    Table: __expectString(output.Table),
+    TmpDirIAMRole: __expectString(output.TmpDirIAMRole),
+    UpsertRedshiftOptions:
+      output.UpsertRedshiftOptions !== undefined && output.UpsertRedshiftOptions !== null
+        ? deserializeAws_json1_1UpsertRedshiftTargetOptions(output.UpsertRedshiftOptions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RegisterSchemaVersionResponse = (
   output: any,
   context: __SerdeContext
@@ -21672,6 +24238,17 @@ const deserializeAws_json1_1RegistryListItem = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1RelationalCatalogSource = (
+  output: any,
+  context: __SerdeContext
+): RelationalCatalogSource => {
+  return {
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
 const deserializeAws_json1_1RemoveSchemaVersionMetadataResponse = (
   output: any,
   context: __SerdeContext
@@ -21685,6 +24262,24 @@ const deserializeAws_json1_1RemoveSchemaVersionMetadataResponse = (
     SchemaName: __expectString(output.SchemaName),
     SchemaVersionId: __expectString(output.SchemaVersionId),
     VersionNumber: __expectLong(output.VersionNumber),
+  } as any;
+};
+
+const deserializeAws_json1_1RenameField = (output: any, context: __SerdeContext): RenameField => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    SourcePath:
+      output.SourcePath !== undefined && output.SourcePath !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.SourcePath, context)
+        : undefined,
+    TargetPath:
+      output.TargetPath !== undefined && output.TargetPath !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.TargetPath, context)
+        : undefined,
   } as any;
 };
 
@@ -21756,6 +24351,108 @@ const deserializeAws_json1_1RunStatementResponse = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1S3CatalogSource = (output: any, context: __SerdeContext): S3CatalogSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1S3SourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    Database: __expectString(output.Database),
+    Name: __expectString(output.Name),
+    PartitionPredicate: __expectString(output.PartitionPredicate),
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1S3CatalogTarget = (output: any, context: __SerdeContext): S3CatalogTarget => {
+  return {
+    Database: __expectString(output.Database),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys !== undefined && output.PartitionKeys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    SchemaChangePolicy:
+      output.SchemaChangePolicy !== undefined && output.SchemaChangePolicy !== null
+        ? deserializeAws_json1_1CatalogSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+    Table: __expectString(output.Table),
+  } as any;
+};
+
+const deserializeAws_json1_1S3CsvSource = (output: any, context: __SerdeContext): S3CsvSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1S3DirectSourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    CompressionType: __expectString(output.CompressionType),
+    Escaper: __expectString(output.Escaper),
+    Exclusions:
+      output.Exclusions !== undefined && output.Exclusions !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Exclusions, context)
+        : undefined,
+    GroupFiles: __expectString(output.GroupFiles),
+    GroupSize: __expectString(output.GroupSize),
+    MaxBand: __expectInt32(output.MaxBand),
+    MaxFilesInBand: __expectInt32(output.MaxFilesInBand),
+    Multiline: __expectBoolean(output.Multiline),
+    Name: __expectString(output.Name),
+    OptimizePerformance: __expectBoolean(output.OptimizePerformance),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Paths, context)
+        : undefined,
+    QuoteChar: __expectString(output.QuoteChar),
+    Recurse: __expectBoolean(output.Recurse),
+    Separator: __expectString(output.Separator),
+    SkipFirst: __expectBoolean(output.SkipFirst),
+    WithHeader: __expectBoolean(output.WithHeader),
+    WriteHeader: __expectBoolean(output.WriteHeader),
+  } as any;
+};
+
+const deserializeAws_json1_1S3DirectSourceAdditionalOptions = (
+  output: any,
+  context: __SerdeContext
+): S3DirectSourceAdditionalOptions => {
+  return {
+    BoundedFiles: __expectLong(output.BoundedFiles),
+    BoundedSize: __expectLong(output.BoundedSize),
+    EnableSamplePath: __expectBoolean(output.EnableSamplePath),
+    SamplePath: __expectString(output.SamplePath),
+  } as any;
+};
+
+const deserializeAws_json1_1S3DirectTarget = (output: any, context: __SerdeContext): S3DirectTarget => {
+  return {
+    Compression: __expectString(output.Compression),
+    Format: __expectString(output.Format),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys !== undefined && output.PartitionKeys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    Path: __expectString(output.Path),
+    SchemaChangePolicy:
+      output.SchemaChangePolicy !== undefined && output.SchemaChangePolicy !== null
+        ? deserializeAws_json1_1DirectSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1S3Encryption = (output: any, context: __SerdeContext): S3Encryption => {
   return {
     KmsKeyArn: __expectString(output.KmsKeyArn),
@@ -21773,6 +24470,94 @@ const deserializeAws_json1_1S3EncryptionList = (output: any, context: __SerdeCon
       return deserializeAws_json1_1S3Encryption(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1S3GlueParquetTarget = (output: any, context: __SerdeContext): S3GlueParquetTarget => {
+  return {
+    Compression: __expectString(output.Compression),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PartitionKeys:
+      output.PartitionKeys !== undefined && output.PartitionKeys !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.PartitionKeys, context)
+        : undefined,
+    Path: __expectString(output.Path),
+    SchemaChangePolicy:
+      output.SchemaChangePolicy !== undefined && output.SchemaChangePolicy !== null
+        ? deserializeAws_json1_1DirectSchemaChangePolicy(output.SchemaChangePolicy, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3JsonSource = (output: any, context: __SerdeContext): S3JsonSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1S3DirectSourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    CompressionType: __expectString(output.CompressionType),
+    Exclusions:
+      output.Exclusions !== undefined && output.Exclusions !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Exclusions, context)
+        : undefined,
+    GroupFiles: __expectString(output.GroupFiles),
+    GroupSize: __expectString(output.GroupSize),
+    JsonPath: __expectString(output.JsonPath),
+    MaxBand: __expectInt32(output.MaxBand),
+    MaxFilesInBand: __expectInt32(output.MaxFilesInBand),
+    Multiline: __expectBoolean(output.Multiline),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Paths, context)
+        : undefined,
+    Recurse: __expectBoolean(output.Recurse),
+  } as any;
+};
+
+const deserializeAws_json1_1S3ParquetSource = (output: any, context: __SerdeContext): S3ParquetSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1S3DirectSourceAdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    CompressionType: __expectString(output.CompressionType),
+    Exclusions:
+      output.Exclusions !== undefined && output.Exclusions !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Exclusions, context)
+        : undefined,
+    GroupFiles: __expectString(output.GroupFiles),
+    GroupSize: __expectString(output.GroupSize),
+    MaxBand: __expectInt32(output.MaxBand),
+    MaxFilesInBand: __expectInt32(output.MaxFilesInBand),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1EnclosedInStringProperties(output.Paths, context)
+        : undefined,
+    Recurse: __expectBoolean(output.Recurse),
+  } as any;
+};
+
+const deserializeAws_json1_1S3SourceAdditionalOptions = (
+  output: any,
+  context: __SerdeContext
+): S3SourceAdditionalOptions => {
+  return {
+    BoundedFiles: __expectLong(output.BoundedFiles),
+    BoundedSize: __expectLong(output.BoundedSize),
+  } as any;
 };
 
 const deserializeAws_json1_1S3Target = (output: any, context: __SerdeContext): S3Target => {
@@ -21990,6 +24775,31 @@ const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_json1_1SelectFields = (output: any, context: __SerdeContext): SelectFields => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.Paths, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SelectFromCollection = (output: any, context: __SerdeContext): SelectFromCollection => {
+  return {
+    Index: __expectInt32(output.Index),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_json1_1SerDeInfo = (output: any, context: __SerdeContext): SerDeInfo => {
   return {
     Name: __expectString(output.Name),
@@ -22077,6 +24887,109 @@ const deserializeAws_json1_1SkewedInfo = (output: any, context: __SerdeContext):
         ? deserializeAws_json1_1ColumnValueStringList(output.SkewedColumnValues, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1SparkConnectorSource = (output: any, context: __SerdeContext): SparkConnectorSource => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionType: __expectString(output.ConnectionType),
+    ConnectorName: __expectString(output.ConnectorName),
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SparkConnectorTarget = (output: any, context: __SerdeContext): SparkConnectorTarget => {
+  return {
+    AdditionalOptions:
+      output.AdditionalOptions !== undefined && output.AdditionalOptions !== null
+        ? deserializeAws_json1_1AdditionalOptions(output.AdditionalOptions, context)
+        : undefined,
+    ConnectionName: __expectString(output.ConnectionName),
+    ConnectionType: __expectString(output.ConnectionType),
+    ConnectorName: __expectString(output.ConnectorName),
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SparkSQL = (output: any, context: __SerdeContext): SparkSQL => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1ManyInputs(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OutputSchemas:
+      output.OutputSchemas !== undefined && output.OutputSchemas !== null
+        ? deserializeAws_json1_1GlueSchemas(output.OutputSchemas, context)
+        : undefined,
+    SqlAliases:
+      output.SqlAliases !== undefined && output.SqlAliases !== null
+        ? deserializeAws_json1_1SqlAliases(output.SqlAliases, context)
+        : undefined,
+    SqlQuery: __expectString(output.SqlQuery),
+  } as any;
+};
+
+const deserializeAws_json1_1Spigot = (output: any, context: __SerdeContext): Spigot => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Path: __expectString(output.Path),
+    Prob: __limitedParseDouble(output.Prob),
+    Topk: __expectInt32(output.Topk),
+  } as any;
+};
+
+const deserializeAws_json1_1SplitFields = (output: any, context: __SerdeContext): SplitFields => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1OneInput(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    Paths:
+      output.Paths !== undefined && output.Paths !== null
+        ? deserializeAws_json1_1GlueStudioPathList(output.Paths, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SqlAlias = (output: any, context: __SerdeContext): SqlAlias => {
+  return {
+    Alias: __expectString(output.Alias),
+    From: __expectString(output.From),
+  } as any;
+};
+
+const deserializeAws_json1_1SqlAliases = (output: any, context: __SerdeContext): SqlAlias[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SqlAlias(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartBlueprintRunResponse = (
@@ -22286,6 +25199,16 @@ const deserializeAws_json1_1StorageDescriptor = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1OrderList(output.SortColumns, context)
         : undefined,
     StoredAsSubDirectories: __expectBoolean(output.StoredAsSubDirectories),
+  } as any;
+};
+
+const deserializeAws_json1_1StreamingDataPreviewOptions = (
+  output: any,
+  context: __SerdeContext
+): StreamingDataPreviewOptions => {
+  return {
+    PollingTime: __expectLong(output.PollingTime),
+    RecordPollingLimit: __expectLong(output.RecordPollingLimit),
   } as any;
 };
 
@@ -22631,6 +25554,18 @@ const deserializeAws_json1_1TriggerNodeDetails = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1TwoInputs = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1UnfilteredPartition = (output: any, context: __SerdeContext): UnfilteredPartition => {
   return {
     AuthorizedColumns:
@@ -22655,6 +25590,17 @@ const deserializeAws_json1_1UnfilteredPartitionList = (output: any, context: __S
       return deserializeAws_json1_1UnfilteredPartition(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1Union = (output: any, context: __SerdeContext): Union => {
+  return {
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_json1_1TwoInputs(output.Inputs, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    UnionType: __expectString(output.UnionType),
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -22790,6 +25736,20 @@ const deserializeAws_json1_1UpdateUserDefinedFunctionResponse = (
 const deserializeAws_json1_1UpdateWorkflowResponse = (output: any, context: __SerdeContext): UpdateWorkflowResponse => {
   return {
     Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1UpsertRedshiftTargetOptions = (
+  output: any,
+  context: __SerdeContext
+): UpsertRedshiftTargetOptions => {
+  return {
+    ConnectionName: __expectString(output.ConnectionName),
+    TableLocation: __expectString(output.TableLocation),
+    UpsertKeys:
+      output.UpsertKeys !== undefined && output.UpsertKeys !== null
+        ? deserializeAws_json1_1EnclosedInStringPropertiesMinOne(output.UpsertKeys, context)
+        : undefined,
   } as any;
 };
 

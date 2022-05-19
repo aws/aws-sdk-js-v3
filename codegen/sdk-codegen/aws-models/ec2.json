@@ -14089,7 +14089,7 @@
         "target": "com.amazonaws.ec2#CreateTrafficMirrorTargetResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a target for your Traffic Mirror session.</p>\n         <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and\n         the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in\n         different VPCs connected via VPC peering or a transit gateway.</p>\n         <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p>\n         <p>To use the target in a Traffic Mirror session, use  <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\">CreateTrafficMirrorSession</a>.</p>"
+        "smithy.api#documentation": "<p>Creates a target for your Traffic Mirror session.</p>\n         <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and\n         the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in\n         different VPCs connected via VPC peering or a transit gateway.</p>\n         <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p>\n         <p>To use the target in a Traffic Mirror session, use  <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm\">CreateTrafficMirrorSession</a>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateTrafficMirrorTargetRequest": {
@@ -14131,6 +14131,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">How to ensure idempotency</a>.</p>",
             "smithy.api#idempotencyToken": {}
+          }
+        },
+        "GatewayLoadBalancerEndpointId": {
+          "target": "com.amazonaws.ec2#VpcEndpointId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Gateway Load Balancer endpoint.</p>"
           }
         }
       }
@@ -74422,6 +74428,14 @@
             "smithy.api#documentation": "<p>The tags assigned to the Traffic Mirror target.</p>",
             "smithy.api#xmlName": "tagSet"
           }
+        },
+        "GatewayLoadBalancerEndpointId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "GatewayLoadBalancerEndpointId",
+            "smithy.api#documentation": "<p>The ID of the Gateway Load Balancer endpoint.</p>",
+            "smithy.api#xmlName": "gatewayLoadBalancerEndpointId"
+          }
         }
       },
       "traits": {
@@ -74460,6 +74474,10 @@
           {
             "value": "network-load-balancer",
             "name": "network_load_balancer"
+          },
+          {
+            "value": "gateway-load-balancer-endpoint",
+            "name": "gateway_load_balancer_endpoint"
           }
         ]
       }

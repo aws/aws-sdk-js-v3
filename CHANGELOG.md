@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
+
+
+### Bug Fixes
+
+* **node-http-handler:** handle close event in H2 from server side ([#3619](https://github.com/aws/aws-sdk-js-v3/issues/3619)) ([c528661](https://github.com/aws/aws-sdk-js-v3/commit/c5286610dc0e5b51873d68243defbacb5ea5631c))
+
+
+### Features
+
+* **client-app-mesh:** This release updates the existing Create and Update APIs for meshes and virtual nodes by adding a new IP preference field. This new IP preference field can be used to control the IP versions being used with the mesh and allows for IPv6 support within App Mesh. ([0f427f3](https://github.com/aws/aws-sdk-js-v3/commit/0f427f3a187d49c10e82272a8905056a3857f646))
+* **client-greengrassv2:** This release adds the new DeleteDeployment API operation that you can use to delete deployment resources. This release also adds support for discontinued AWS-provided components, so AWS can communicate when a component has any issues that you should consider before you deploy it. ([fe02b18](https://github.com/aws/aws-sdk-js-v3/commit/fe02b188ba05be51d8edf649c9df4edfdc3da288))
+* **client-iot-events-data:** Introducing new API for deleting detectors: BatchDeleteDetector. ([4320da0](https://github.com/aws/aws-sdk-js-v3/commit/4320da0e68b45d338064c1a4457e50dff48665df))
+* **client-quicksight:** API UpdatePublicSharingSettings enables IAM admins to enable/disable account level setting for public access of dashboards. When enabled, owners/co-owners for dashboards can enable public access on their dashboards. These dashboards can only be accessed through share link or embedding. ([389837a](https://github.com/aws/aws-sdk-js-v3/commit/389837a2e6670d39c719d23ac4c9dc1877903f6f))
+* **client-transfer:** AWS Transfer Family now supports SetStat server configuration option, which provides the ability to ignore SetStat command issued by file transfer clients, enabling customers to upload files without any errors. ([59da2d5](https://github.com/aws/aws-sdk-js-v3/commit/59da2d5599801b2f38b2deded19d526c20218680))
+* **clients:** update client endpoints as of 2022-05-18 ([b70babd](https://github.com/aws/aws-sdk-js-v3/commit/b70babd918d15267ae21b0bd7d888fe2f1ed8a79))
+
+
+
+
+
+# [3.93.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.92.0...v3.93.0) (2022-05-17)
+
+
+### Features
+
+* **client-glue:** This release adds a new optional parameter called codeGenNodeConfiguration to CRUD job APIs that allows users to manage visual jobs via APIs. The updated CreateJob and UpdateJob will create jobs that can be viewed in Glue Studio as a visual graph. GetJob can be used to get codeGenNodeConfiguration. ([61ab9ac](https://github.com/aws/aws-sdk-js-v3/commit/61ab9ac9889a127c57302155b0f881fef19b02e4))
+
+
+
+
+
+# [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
+
+
+### Features
+
+* **client-application-discovery-service:** Add Migration Evaluator Collector details to the GetDiscoverySummary API response ([8271508](https://github.com/aws/aws-sdk-js-v3/commit/8271508e00dde7402a8f7ac21fa03aa4e33818ef))
+* **client-cloudfront:** Introduced a new error (TooLongCSPInResponseHeadersPolicy) that is returned when the value of the Content-Security-Policy header in a response headers policy exceeds the maximum allowed length. ([f2875d3](https://github.com/aws/aws-sdk-js-v3/commit/f2875d385ab39fa91ebbe5813286168fdcb66076))
+* **client-resiliencehub:** In this release, we are introducing support for Amazon Elastic Container Service, Amazon Route 53, AWS Elastic Disaster Recovery, AWS Backup in addition to the existing supported Services.  This release also supports Terraform file input from S3 and scheduling daily assessments ([01ff495](https://github.com/aws/aws-sdk-js-v3/commit/01ff495befc39b9d9c5c6b4d8a40ad28c7d982ed))
+* **client-workspaces-web:** Amazon WorkSpaces Web now supports Administrator timeout control ([f946a33](https://github.com/aws/aws-sdk-js-v3/commit/f946a334267b2393b4dcfc370ae3eeeebf8bdce7))
+
+
+
+
+
+# [3.91.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.90.0...v3.91.0) (2022-05-13)
+
+
+### Features
+
+* **client-grafana:** This release adds APIs for creating and deleting API keys in an Amazon Managed Grafana workspace. ([091f6df](https://github.com/aws/aws-sdk-js-v3/commit/091f6df529630a1203d53954b5ae79803df84e2b))
+
+
+
+
+
+# [3.90.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.89.0...v3.90.0) (2022-05-12)
+
+
+### Features
+
+* **client-ec2:** This release introduces a target type Gateway Load Balancer Endpoint for mirrored traffic. Customers can now specify GatewayLoadBalancerEndpoint option during the creation of a traffic mirror target. ([ed7b520](https://github.com/aws/aws-sdk-js-v3/commit/ed7b5208c5072a12a20e7080e84ac9e3091b6f99))
+* **client-kendra:** Amazon Kendra now provides a data source connector for Jira. For more information, see https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html ([37c9777](https://github.com/aws/aws-sdk-js-v3/commit/37c9777fa7b6cd71a024f399fe99016d3960a719))
+* **client-lambda:** Lambda releases NodeJs 16 managed runtime to be available in all commercial regions. ([22a47c1](https://github.com/aws/aws-sdk-js-v3/commit/22a47c18cda82d7703f0c1fb473214dc4de83322))
+* **client-lightsail:** This release adds support to include inactive database bundles in the response of the GetRelationalDatabaseBundles request. ([2ed03c4](https://github.com/aws/aws-sdk-js-v3/commit/2ed03c4609739967b0bb191639cae41ff01a168c))
+* **client-ssm-incidents:** Adding support for dynamic SSM Runbook parameter values. Updating validation pattern for engagements. Adding ConflictException to UpdateReplicationSet API contract. ([67fcba1](https://github.com/aws/aws-sdk-js-v3/commit/67fcba1df63f50c80a3bc11015a8d2d73cf85084))
+* **client-workspaces:** Increased the character limit of the login message from 600 to 850 characters. ([796d6f4](https://github.com/aws/aws-sdk-js-v3/commit/796d6f4f239ebe5c9ccbabf081917725d58d1444))
+* Add Cloudfront package to sign URLs and cookies ([#3461](https://github.com/aws/aws-sdk-js-v3/issues/3461)) ([f109ed5](https://github.com/aws/aws-sdk-js-v3/commit/f109ed5e985563256aff83a45f19a148465e978e))
+
+
+
+
+
 # [3.89.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.88.0...v3.89.0) (2022-05-11)
 
 

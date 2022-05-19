@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
+
+
+### Features
+
+* **client-greengrassv2:** This release adds the new DeleteDeployment API operation that you can use to delete deployment resources. This release also adds support for discontinued AWS-provided components, so AWS can communicate when a component has any issues that you should consider before you deploy it. ([fe02b18](https://github.com/aws/aws-sdk-js-v3/commit/fe02b188ba05be51d8edf649c9df4edfdc3da288))
+
+
+
+
+
+# [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-greengrassv2
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrassv2

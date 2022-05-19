@@ -7,6 +7,7 @@ export * from "./CreateComponentVersionCommand";
 export * from "./CreateDeploymentCommand";
 export * from "./DeleteComponentCommand";
 export * from "./DeleteCoreDeviceCommand";
+export * from "./DeleteDeploymentCommand";
 export * from "./DescribeComponentCommand";
 export * from "./DisassociateServiceRoleFromAccountCommand";
 export * from "./GetComponentCommand";

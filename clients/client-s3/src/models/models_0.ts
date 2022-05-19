@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";

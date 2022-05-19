@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { IvschatServiceException as __BaseException } from "./IvschatServiceException";
 
@@ -285,8 +284,8 @@ export interface CreateRoomRequest {
   name?: string;
 
   /**
-   * <p>Maximum number of messages per second that a client can send to the room. Default:
-   *          10.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
+   *          Default: 10. </p>
    */
   maximumMessageRatePerSecond?: number;
 
@@ -348,8 +347,8 @@ export interface CreateRoomResponse {
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that a client can send to the room, from the
-   *          request.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
+   *          from the request.</p>
    */
   maximumMessageRatePerSecond?: number;
 
@@ -598,7 +597,7 @@ export interface GetRoomResponse {
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that a client can send to the room. Default:
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients). Default:
    *          10.</p>
    */
   maximumMessageRatePerSecond?: number;
@@ -910,7 +909,7 @@ export interface UpdateRoomRequest {
   name?: string;
 
   /**
-   * <p>The maximum number of messages per second that a client can send to the room. Default:
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients).  Default:
    *          10.</p>
    */
   maximumMessageRatePerSecond?: number;
@@ -923,7 +922,9 @@ export interface UpdateRoomRequest {
   maximumMessageLength?: number;
 
   /**
-   * <p>Configuration information for optional review of messages. Specify an empty <code>uri</code> string to disassociate a message review handler from the specified room.</p>
+   * <p>Configuration information for optional review of messages. Specify an empty
+   *             <code>uri</code> string to disassociate a message review handler from the specified
+   *          room.</p>
    */
   messageReviewHandler?: MessageReviewHandler;
 }
@@ -961,14 +962,13 @@ export interface UpdateRoomResponse {
   createTime?: Date;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note
-   *                that this is returned as a string</i>.</p>
+   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
+   *             is returned as a string</i>.</p>
    */
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that a client can send to the room, from the
-   *          request.</p>
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients), from the request.</p>
    */
   maximumMessageRatePerSecond?: number;
 

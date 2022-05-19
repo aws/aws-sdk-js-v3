@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
+
+
+### Features
+
+* **client-app-mesh:** This release updates the existing Create and Update APIs for meshes and virtual nodes by adding a new IP preference field. This new IP preference field can be used to control the IP versions being used with the mesh and allows for IPv6 support within App Mesh. ([0f427f3](https://github.com/aws/aws-sdk-js-v3/commit/0f427f3a187d49c10e82272a8905056a3857f646))
+
+
+
+
+
+# [3.92.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.91.0...v3.92.0) (2022-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-app-mesh
+
+
+
+
+
 # [3.87.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.86.0...v3.87.0) (2022-05-09)
 
 **Note:** Version bump only for package @aws-sdk/client-app-mesh

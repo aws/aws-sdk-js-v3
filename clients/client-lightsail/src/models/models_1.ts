@@ -3368,6 +3368,12 @@ export interface GetRelationalDatabaseBundlesRequest {
    *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
+
+  /**
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
+   *       response of your request.</p>
+   */
+  includeInactive?: boolean;
 }
 
 export namespace GetRelationalDatabaseBundlesRequest {

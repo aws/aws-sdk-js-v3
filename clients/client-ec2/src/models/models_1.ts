@@ -10003,6 +10003,11 @@ export interface CreateTrafficMirrorTargetRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
 }
 
 export namespace CreateTrafficMirrorTargetRequest {
@@ -10014,7 +10019,7 @@ export namespace CreateTrafficMirrorTargetRequest {
   });
 }
 
-export type TrafficMirrorTargetType = "network-interface" | "network-load-balancer";
+export type TrafficMirrorTargetType = "gateway-load-balancer-endpoint" | "network-interface" | "network-load-balancer";
 
 /**
  * <p>Describes a Traffic Mirror target.</p>
@@ -10054,6 +10059,11 @@ export interface TrafficMirrorTarget {
    * <p>The tags assigned to the Traffic Mirror target.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the Gateway Load Balancer endpoint.</p>
+   */
+  GatewayLoadBalancerEndpointId?: string;
 }
 
 export namespace TrafficMirrorTarget {

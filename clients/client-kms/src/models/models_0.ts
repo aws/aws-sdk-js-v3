@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { KMSServiceException as __BaseException } from "./KMSServiceException";
 
@@ -772,10 +771,10 @@ export interface CreateGrantRequest {
   /**
    * <p>A list of operations that the grant permits. </p>
    *          <p>This list must include only operations that are permitted in a grant. Also, the operation
-   *       must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <a>Sign</a> operation, or a grant for an asymmetric KMS key
-   *       that allows the <a>GenerateDataKey</a> operation. If you try, KMS returns a
-   *         <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant operations</a> in the
-   *       <i>Key Management Service Developer Guide</i>.</p>
+   *       must be supported on the KMS key. For example, you cannot create a grant for a symmetric encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
+   *       asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
+   *       KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
+   *         operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
    */
   Operations: (GrantOperation | string)[] | undefined;
 
@@ -970,11 +969,13 @@ export namespace Tag {
 
 export interface CreateKeyRequest {
   /**
-   * <p>The key policy to attach to the KMS key.</p>
+   * <p>The key policy to attach to the KMS key. If you do not specify a key policy, KMS attaches a default key policy to the KMS key.
+   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a> in the
+   *       <i>Key Management Service Developer Guide</i>.</p>
    *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
+   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code>, the key policy
    *           must allow the principal that is making the <code>CreateKey</code> request to make a
    *           subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk
    *           that the KMS key becomes unmanageable. For more information, refer to the scenario in the
@@ -991,10 +992,23 @@ export interface CreateKeyRequest {
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *          <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-   *       For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
-   *       <i>Key Management Service Developer Guide</i>. </p>
-   *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
+   *             </li>
+   *          </ul>
    *          <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
    *                <i>Identity and Access Management User Guide</i>
    *             </i>.</p>
@@ -1011,7 +1025,7 @@ export interface CreateKeyRequest {
 
   /**
    * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
-   *       <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
+   *         <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
    *       encryption KMS key; otherwise, it is required. You
    *       can't change the <code>KeyUsage</code> value after the KMS key is created.</p>
    *          <p>Select only one valid value.</p>
@@ -1048,15 +1062,14 @@ export interface CreateKeyRequest {
   /**
    * <p>Specifies the type of KMS key to create. The default value,
    *       <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit symmetric key for encryption
-   *       and decryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in
-   *       the <i>
+   *       and decryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
    *          <p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an
-   *       asymmetric key pair. It also determines the algorithms that the KMS key supports. You can't
-   *       change the <code>KeySpec</code> after the KMS key is created. To further restrict the
-   *       algorithms that can be used with the KMS key, use a condition key in its key policy or IAM
-   *       policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i>
+   *       asymmetric key pair. It also determines the cryptographic algorithms that the KMS key supports. You can't
+   *       change the <code>KeySpec</code> after the KMS key is created.
+   *       To further restrict the algorithms that can be used with the KMS key, use a condition key in
+   *       its key policy or IAM policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i>
    *                <i>Key Management Service Developer Guide</i>
    *             </i>.</p>
    *          <important>
@@ -1227,8 +1240,8 @@ export interface CreateKeyRequest {
    *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
    *          <p>This value creates a <i>primary key</i>, not a replica. To create a
    *         <i>replica key</i>, use the <a>ReplicateKey</a> operation. </p>
-   *          <p>You can create a symmetric or asymmetric multi-Region key, and you can create a
-   *       multi-Region key with imported key material. However, you cannot create a multi-Region key in
+   *          <p>You can create a multi-Region version of a symmetric encryption KMS key, an HMAC KMS key, an asymmetric KMS key, or a
+   *       KMS key with imported key material. However, you cannot create a multi-Region key in
    *       a custom key store.</p>
    */
   MultiRegion?: boolean;
@@ -1821,10 +1834,8 @@ export interface DecryptRequest {
 
   /**
    * <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
-   *
    *          <p>Enter a key ID of the KMS
    *       key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>Decrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
-   *
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
    *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to
    *       the symmetric ciphertext blob. However, it is always recommended as a best practice. This
@@ -1903,8 +1914,8 @@ export namespace DecryptResponse {
 
 /**
  * <p>The request was rejected because the specified KMS key cannot decrypt the data. The
- *       <code>KeyId</code> in a <code>Decrypt</code> request and the <code>SourceKeyId</code>
- *       in a <code>ReEncrypt</code> request must identify the same KMS key that was used to
+ *       <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
+ *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
  *       encrypt the ciphertext.</p>
  */
 export class IncorrectKeyException extends __BaseException {
@@ -1963,8 +1974,8 @@ export class InvalidCiphertextException extends __BaseException {
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of
+ *       a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  */
@@ -2355,7 +2366,9 @@ export namespace EnableKeyRequest {
 
 export interface EnableKeyRotationRequest {
   /**
-   * <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
+   * <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The key rotation status of these KMS keys is always <code>false</code>.
+   * To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
+   *
    *          <p>Specify the key ID or key ARN of the KMS key.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -2719,7 +2732,8 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   /**
    * <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
    *       pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
-   *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
+   *       type and origin of your KMS key, use the <a>DescribeKey</a> operation.
+   *     </p>
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
    *          <ul>
@@ -3357,8 +3371,7 @@ export namespace GrantListEntry {
 export interface ImportKeyMaterialRequest {
   /**
    * <p>The identifier of the symmetric encryption KMS key that receives the imported key
-   *       material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the
-   *       corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the
+   *       material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the
    *       KMS key must be <code>EXTERNAL</code>. You cannot perform this operation on an asymmetric KMS
    *       key, an HMAC KMS key, a KMS key in a custom key store, or on a KMS key in a different
    *       Amazon Web Services account</p>
@@ -4020,8 +4033,23 @@ export interface PutKeyPolicyRequest {
    *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
-   *          <p>The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource Quotas</a> in the
-   *       <i>Key Management Service Developer Guide</i>.</p>
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
+   *             </li>
+   *          </ul>
    */
   Policy: string | undefined;
 
@@ -4070,9 +4098,9 @@ export interface ReEncryptRequest {
    *       re-encrypted.</p>
    *          <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a different KMS key, the <code>ReEncrypt</code> operation throws an <code>IncorrectKeyException</code>.</p>
    *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-   *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
-   *       it adds to the symmetric ciphertext blob. However, it is always recommended as a best
-   *       practice. This practice ensures that you use the KMS key that you intend.</p>
+   *       key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that it adds to
+   *       the symmetric ciphertext blob. However, it is always recommended as a best practice. This
+   *       practice ensures that you use the KMS key that you intend.</p>
    *
    *          <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
    *          <p>For example:</p>
@@ -4283,8 +4311,23 @@ export interface ReplicateKeyRequest {
    *                      <i>Identity and Access Management User Guide</i>
    *                   </i>.</p>
    *             </li>
+   *          </ul>
+   *
+   *
+   *          <p>A key policy document must conform to the following rules.</p>
+   *          <ul>
    *             <li>
-   *                <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+   *                <p>Up to 32 kilobytes (32768 bytes)</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be UTF-8 encoded</p>
+   *             </li>
+   *             <li>
+   *                <p>The only Unicode characters that are permitted in a key policy document are the horizontal tab (U+0009), linefeed (U+000A), carriage return (U+000D), and characters in the range U+0020 to U+00FF.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Sid</code> element in a key policy statement can include spaces. (Spaces are
+   *             prohibited in the <code>Sid</code> element of an IAM policy document.)</p>
    *             </li>
    *          </ul>
    */
@@ -4472,7 +4515,7 @@ export interface ScheduleKeyDeletionRequest {
   /**
    * <p>The waiting period, specified in number of days. After the waiting period ends, KMS
    *       deletes the KMS key.</p>
-   *          <p>If the KMS key is a multi-Region primary key with replicas, the waiting period begins when
+   *          <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins when
    *       the last of its replica keys is deleted. Otherwise, the waiting period begins
    *       immediately.</p>
    *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If

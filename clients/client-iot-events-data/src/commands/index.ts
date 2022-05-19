@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./BatchAcknowledgeAlarmCommand";
+export * from "./BatchDeleteDetectorCommand";
 export * from "./BatchDisableAlarmCommand";
 export * from "./BatchEnableAlarmCommand";
 export * from "./BatchPutMessageCommand";

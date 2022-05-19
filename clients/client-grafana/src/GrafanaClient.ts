@@ -53,7 +53,15 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateLicenseCommandInput, AssociateLicenseCommandOutput } from "./commands/AssociateLicenseCommand";
+import {
+  CreateWorkspaceApiKeyCommandInput,
+  CreateWorkspaceApiKeyCommandOutput,
+} from "./commands/CreateWorkspaceApiKeyCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
+import {
+  DeleteWorkspaceApiKeyCommandInput,
+  DeleteWorkspaceApiKeyCommandOutput,
+} from "./commands/DeleteWorkspaceApiKeyCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
 import {
   DescribeWorkspaceAuthenticationCommandInput,
@@ -82,7 +90,9 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateLicenseCommandInput
+  | CreateWorkspaceApiKeyCommandInput
   | CreateWorkspaceCommandInput
+  | DeleteWorkspaceApiKeyCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeWorkspaceAuthenticationCommandInput
   | DescribeWorkspaceCommandInput
@@ -98,7 +108,9 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateLicenseCommandOutput
+  | CreateWorkspaceApiKeyCommandOutput
   | CreateWorkspaceCommandOutput
+  | DeleteWorkspaceApiKeyCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeWorkspaceAuthenticationCommandOutput
   | DescribeWorkspaceCommandOutput

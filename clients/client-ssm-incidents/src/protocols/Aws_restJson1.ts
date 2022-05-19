@@ -100,6 +100,7 @@ import {
   Condition,
   ConflictException,
   DeleteRegionAction,
+  DynamicSsmParameterValue,
   EmptyChatChannel,
   EventSummary,
   Filter,
@@ -2461,6 +2462,9 @@ const deserializeAws_restJson1UpdateReplicationSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ssmincidents#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmincidents#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmincidents#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -2806,6 +2810,31 @@ const serializeAws_restJson1DeleteRegionAction = (input: DeleteRegionAction, con
   };
 };
 
+const serializeAws_restJson1DynamicSsmParameters = (
+  input: { [key: string]: DynamicSsmParameterValue },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1DynamicSsmParameterValue(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1DynamicSsmParameterValue = (
+  input: DynamicSsmParameterValue,
+  context: __SerdeContext
+): any => {
+  return DynamicSsmParameterValue.visit(input, {
+    variable: (value) => ({ variable: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 const serializeAws_restJson1EmptyChatChannel = (input: EmptyChatChannel, context: __SerdeContext): any => {
   return {};
 };
@@ -2952,6 +2981,10 @@ const serializeAws_restJson1SsmAutomation = (input: SsmAutomation, context: __Se
     ...(input.documentName !== undefined && input.documentName !== null && { documentName: input.documentName }),
     ...(input.documentVersion !== undefined &&
       input.documentVersion !== null && { documentVersion: input.documentVersion }),
+    ...(input.dynamicParameters !== undefined &&
+      input.dynamicParameters !== null && {
+        dynamicParameters: serializeAws_restJson1DynamicSsmParameters(input.dynamicParameters, context),
+      }),
     ...(input.parameters !== undefined &&
       input.parameters !== null && { parameters: serializeAws_restJson1SsmParameters(input.parameters, context) }),
     ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
@@ -3102,6 +3135,34 @@ const deserializeAws_restJson1ChatChannel = (output: any, context: __SerdeContex
     return {
       empty: deserializeAws_restJson1EmptyChatChannel(output.empty, context),
     };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1DynamicSsmParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: DynamicSsmParameterValue } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: DynamicSsmParameterValue }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1DynamicSsmParameterValue = (
+  output: any,
+  context: __SerdeContext
+): DynamicSsmParameterValue => {
+  if (__expectString(output.variable) !== undefined) {
+    return { variable: __expectString(output.variable) as any };
   }
   return { $unknown: Object.entries(output)[0] };
 };
@@ -3423,6 +3484,10 @@ const deserializeAws_restJson1SsmAutomation = (output: any, context: __SerdeCont
   return {
     documentName: __expectString(output.documentName),
     documentVersion: __expectString(output.documentVersion),
+    dynamicParameters:
+      output.dynamicParameters !== undefined && output.dynamicParameters !== null
+        ? deserializeAws_restJson1DynamicSsmParameters(output.dynamicParameters, context)
+        : undefined,
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1SsmParameters(output.parameters, context)

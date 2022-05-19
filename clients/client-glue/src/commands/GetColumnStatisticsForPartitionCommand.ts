@@ -13,8 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetColumnStatisticsForPartitionRequest } from "../models/models_0";
-import { GetColumnStatisticsForPartitionResponse } from "../models/models_1";
+import { GetColumnStatisticsForPartitionRequest, GetColumnStatisticsForPartitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetColumnStatisticsForPartitionCommand,
   serializeAws_json1_1GetColumnStatisticsForPartitionCommand,

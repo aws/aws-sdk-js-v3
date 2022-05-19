@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { GreengrassV2ServiceException as __BaseException } from "./GreengrassV2ServiceException";
 
@@ -489,26 +488,62 @@ export enum CloudComponentState {
   REQUESTED = "REQUESTED",
 }
 
+export enum VendorGuidance {
+  ACTIVE = "ACTIVE",
+  DELETED = "DELETED",
+  DISCONTINUED = "DISCONTINUED",
+}
+
 /**
- * <p>Contains the status of a component in the IoT Greengrass service.</p>
+ * <p>Contains the status of a component version in the IoT Greengrass service.</p>
  */
 export interface CloudComponentStatus {
   /**
-   * <p>The state of the component.</p>
+   * <p>The state of the component version.</p>
    */
   componentState?: CloudComponentState | string;
 
   /**
-   * <p>A message that communicates details, such as errors, about the status of the component.</p>
+   * <p>A message that communicates details, such as errors, about the status of the component
+   *       version.</p>
    */
   message?: string;
 
   /**
-   * <p>A dictionary of errors that communicate why the component is in an error state. For
-   *       example, if IoT Greengrass can't access an artifact for the component, then <code>errors</code> contains
-   *       the artifact's URI as a key, and the error message as the value for that key.</p>
+   * <p>A dictionary of errors that communicate why the component version is in an error state.
+   *       For example, if IoT Greengrass can't access an artifact for the component version, then
+   *         <code>errors</code> contains the artifact's URI as a key, and the error message as the value
+   *       for that key.</p>
    */
   errors?: { [key: string]: string };
+
+  /**
+   * <p>The vendor guidance state for the component version. This state indicates whether
+   *       the component version has any issues that you should consider before you deploy it. The vendor guidance state can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> – This component version is available and recommended for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCONTINUED</code> – This component version has been discontinued by its publisher.
+   *           You can deploy this component version, but we recommend that you use a different version of this component.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> – This component version has been deleted by its publisher, so you can't
+   *           deploy it. If you have any existing deployments that specify this component version, those deployments will fail.</p>
+   *             </li>
+   *          </ul>
+   */
+  vendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>A message that communicates details about the vendor guidance state
+   *     of the component version. This message communicates why a component version is discontinued or deleted.</p>
+   */
+  vendorGuidanceMessage?: string;
 }
 
 export namespace CloudComponentStatus {
@@ -1907,6 +1942,22 @@ export namespace DeleteCoreDeviceRequest {
   });
 }
 
+export interface DeleteDeploymentRequest {
+  /**
+   * <p>The ID of the deployment.</p>
+   */
+  deploymentId: string | undefined;
+}
+
+export namespace DeleteDeploymentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum DeploymentStatus {
   ACTIVE = "ACTIVE",
   CANCELED = "CANCELED",
@@ -2203,7 +2254,7 @@ export namespace GetComponentResponse {
 
 export interface GetComponentVersionArtifactRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version. Specify the ARN of a public component version.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version. Specify the ARN of a public or a Lambda component version.</p>
    */
   arn: string | undefined;
 
@@ -2588,7 +2639,7 @@ export namespace ListComponentsResponse {
 
 export interface ListComponentVersionsRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component.</p>
    */
   arn: string | undefined;
 
@@ -2635,8 +2686,10 @@ export namespace ListComponentVersionsResponse {
 
 export interface ListCoreDevicesRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT thing group by which to filter. If you specify this parameter, the
-   *       list includes only core devices that are members of this thing group.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT thing group by which to filter. If you specify this parameter,
+   *       the list includes only core devices that have successfully deployed a deployment that targets
+   *       the thing group. When you remove a core device from a thing group, the list continues to
+   *       include that core device.</p>
    */
   thingGroupArn?: string;
 
@@ -2945,12 +2998,12 @@ export interface ResolveComponentCandidatesRequest {
   /**
    * <p>The platform to use to resolve compatible components.</p>
    */
-  platform: ComponentPlatform | undefined;
+  platform?: ComponentPlatform;
 
   /**
    * <p>The list of components to resolve.</p>
    */
-  componentCandidates: ComponentCandidate[] | undefined;
+  componentCandidates?: ComponentCandidate[];
 }
 
 export namespace ResolveComponentCandidatesRequest {
@@ -2986,6 +3039,34 @@ export interface ResolvedComponentVersion {
    * <p>The recipe of the component version.</p>
    */
   recipe?: Uint8Array;
+
+  /**
+   * <p>The vendor guidance state for the component version. This state indicates whether
+   *       the component version has any issues that you should consider before you deploy it. The vendor guidance state can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> – This component version is available and recommended for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISCONTINUED</code> – This component version has been discontinued by its publisher.
+   *           You can deploy this component version, but we recommend that you use a different version of this component.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> – This component version has been deleted by its publisher, so you can't
+   *           deploy it. If you have any existing deployments that specify this component version, those deployments will fail.</p>
+   *             </li>
+   *          </ul>
+   */
+  vendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>A message that communicates details about the vendor guidance state
+   *     of the component version. This message communicates why a component version is discontinued or deleted.</p>
+   */
+  message?: string;
 }
 
 export namespace ResolvedComponentVersion {

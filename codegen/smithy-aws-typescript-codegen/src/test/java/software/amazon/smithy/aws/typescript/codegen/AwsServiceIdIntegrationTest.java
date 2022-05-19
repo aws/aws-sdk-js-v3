@@ -29,7 +29,7 @@ public class AwsServiceIdIntegrationTest {
         TypeScriptSettings settings = new TypeScriptSettings();
         settings.setService(ShapeId.from("smithy.example#OriginalName"));
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
-        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
+        SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("NotSameClient"));
@@ -48,7 +48,7 @@ public class AwsServiceIdIntegrationTest {
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
-        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
+        SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
@@ -68,7 +68,7 @@ public class AwsServiceIdIntegrationTest {
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
-        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
+        SymbolProvider decorated = integration.decorateSymbolProvider(model, settings, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));

@@ -7,10 +7,20 @@ import {
   AssociateLicenseCommandOutput,
 } from "./commands/AssociateLicenseCommand";
 import {
+  CreateWorkspaceApiKeyCommand,
+  CreateWorkspaceApiKeyCommandInput,
+  CreateWorkspaceApiKeyCommandOutput,
+} from "./commands/CreateWorkspaceApiKeyCommand";
+import {
   CreateWorkspaceCommand,
   CreateWorkspaceCommandInput,
   CreateWorkspaceCommandOutput,
 } from "./commands/CreateWorkspaceCommand";
+import {
+  DeleteWorkspaceApiKeyCommand,
+  DeleteWorkspaceApiKeyCommandInput,
+  DeleteWorkspaceApiKeyCommandOutput,
+} from "./commands/DeleteWorkspaceApiKeyCommand";
 import {
   DeleteWorkspaceCommand,
   DeleteWorkspaceCommandInput,
@@ -150,6 +160,41 @@ export class Grafana extends GrafanaClient {
   }
 
   /**
+   * <p>Creates an API key for the workspace.  This key can be used to authenticate
+   *          requests sent to the workspace's HTTP API.  See
+   *          <a href=" https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html"> https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+   *          for available APIs and example requests.</p>
+   */
+  public createWorkspaceApiKey(
+    args: CreateWorkspaceApiKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceApiKeyCommandOutput>;
+  public createWorkspaceApiKey(
+    args: CreateWorkspaceApiKeyCommandInput,
+    cb: (err: any, data?: CreateWorkspaceApiKeyCommandOutput) => void
+  ): void;
+  public createWorkspaceApiKey(
+    args: CreateWorkspaceApiKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceApiKeyCommandOutput) => void
+  ): void;
+  public createWorkspaceApiKey(
+    args: CreateWorkspaceApiKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspaceApiKeyCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorkspaceApiKeyCommandOutput) => void
+  ): Promise<CreateWorkspaceApiKeyCommandOutput> | void {
+    const command = new CreateWorkspaceApiKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an Amazon Managed Grafana workspace.</p>
    */
   public deleteWorkspace(
@@ -171,6 +216,38 @@ export class Grafana extends GrafanaClient {
     cb?: (err: any, data?: DeleteWorkspaceCommandOutput) => void
   ): Promise<DeleteWorkspaceCommandOutput> | void {
     const command = new DeleteWorkspaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an API key for a workspace.</p>
+   */
+  public deleteWorkspaceApiKey(
+    args: DeleteWorkspaceApiKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceApiKeyCommandOutput>;
+  public deleteWorkspaceApiKey(
+    args: DeleteWorkspaceApiKeyCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void
+  ): void;
+  public deleteWorkspaceApiKey(
+    args: DeleteWorkspaceApiKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void
+  ): void;
+  public deleteWorkspaceApiKey(
+    args: DeleteWorkspaceApiKeyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWorkspaceApiKeyCommandOutput) => void
+  ): Promise<DeleteWorkspaceApiKeyCommandOutput> | void {
+    const command = new DeleteWorkspaceApiKeyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

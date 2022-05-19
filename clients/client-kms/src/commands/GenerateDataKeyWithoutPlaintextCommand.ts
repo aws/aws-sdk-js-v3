@@ -33,19 +33,21 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       data key. </p>
  *          <p>This operation is useful for systems that need to encrypt data at some point, but not
  *       immediately. When you need to encrypt the data, you call the <a>Decrypt</a>
- *       operation on the encrypted copy of the key. It's also useful in distributed systems with
- *       different levels of trust. For example, you might store encrypted data in containers. One
- *       component of your system creates new containers and stores an encrypted data key with each
- *       container. Then, a different component puts the data into the containers. That component first
- *       decrypts the data key, uses the plaintext data key to encrypt data, puts the encrypted data
- *       into the container, and then destroys the plaintext data key. In this system, the component
- *       that creates the containers never sees the plaintext data key.</p>
+ *       operation on the encrypted copy of the key.</p>
+ *          <p>It's also useful in distributed systems with different levels of trust. For example, you
+ *       might store encrypted data in containers. One component of your system creates new containers
+ *       and stores an encrypted data key with each container. Then, a different component puts the
+ *       data into the containers. That component first decrypts the data key, uses the plaintext data
+ *       key to encrypt data, puts the encrypted data into the container, and then destroys the
+ *       plaintext data key. In this system, the component that creates the containers never sees the
+ *       plaintext data key.</p>
  *          <p>To request an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or
  *         <a>GenerateDataKeyPairWithoutPlaintext</a> operations.</p>
  *
  *          <p>To generate a data key, you must specify the symmetric encryption KMS key that is used to
  *       encrypt the data key. You cannot use an asymmetric KMS key or a key in a custom key store to generate a data key. To get the
  *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
+ *
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
  *

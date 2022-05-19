@@ -34,7 +34,7 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  *         <code>startTime</code> and <code>endTime</code>. Export of detailed agent data is limited to
  *       five concurrently running exports. </p>
  *          <p> If you do not include an <code>agentIds</code> filter, summary data is exported that
- *       includes both AWS Agentless Discovery Connector data and summary data from AWS Discovery
+ *       includes both Amazon Web Services Agentless Discovery Connector data and summary data from Amazon Web Services Discovery
  *       Agents. Export of summary data is limited to two exports per day. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

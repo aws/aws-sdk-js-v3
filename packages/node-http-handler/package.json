@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-http-handler",
-  "version": "3.82.0",
+  "version": "3.94.0",
   "description": "Provides a way to make requests",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
@@ -35,12 +35,6 @@
     "rimraf": "3.0.2",
     "typedoc": "0.19.2",
     "typescript": "~4.6.2"
-  },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/*.mock.ts"
-    ]
   },
   "engines": {
     "node": ">= 12.0.0"

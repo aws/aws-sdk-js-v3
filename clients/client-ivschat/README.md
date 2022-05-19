@@ -31,7 +31,6 @@ HTTPS service endpoints, see the Amazon IVS Chat information on the <a href="htt
 Amazon IVS Chat Messaging API. We refer to these as <i>clients</i>. </p>
 </li>
 </ul>
-
 <p>
 <b>Resources</b>
 </p>
@@ -44,7 +43,6 @@ which clients connect to and exchange chat messages. See the Room endpoints for 
 information.</p>
 </li>
 </ul>
-
 <p>
 <b>API Access Security</b>
 </p>
@@ -74,7 +72,6 @@ user.</p>
 credentials. The AWS Command Line Interface (CLI) and the AWS SDKs take care of signing the
 underlying API calls for you. However, if your application calls the Amazon IVS Chat HTTP API
 directly, it’s your responsibility to sign the requests.</p>
-
 <p>You generate a signature using valid AWS credentials for an IAM role that has permission
 to perform the requested action. For example, DeleteMessage requests must be made using an IAM
 role that has the <code>ivschat:DeleteMessage</code> permission.</p>
@@ -90,7 +87,6 @@ General Reference</i>.</p>
 the Security page of the <i>Amazon IVS User Guide</i>.</p>
 </li>
 </ul>
-
 <p>
 <b>Messaging Endpoints</b>
 </p>
@@ -100,14 +96,14 @@ the Security page of the <i>Amazon IVS User Guide</i>.</p>
 <a>DeleteMessage</a> — Sends an event to a specific room which
 directs clients to delete a specific message; that is, unrender it from view and delete it
 from the client’s chat history. This event’s <code>EventName</code> is
-<code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html"> DeleteMessage</a> WebSocket operation
-in the Amazon IVS Chat Messaging API.</p>
+<code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
+DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
 </li>
 <li>
 <p>
 <a>DisconnectUser</a> — Disconnects all connections using a specified
-user ID from a room. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html"> DisconnectUser</a> WebSocket operation
-in the Amazon IVS Chat Messaging API.</p>
+user ID from a room. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
+DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
 </li>
 <li>
 <p>
@@ -128,7 +124,6 @@ and a connection (session) established with the token is valid for the specified
 duration.</p>
 </li>
 </ul>
-
 <p>
 <b>Room Endpoints</b>
 </p>
@@ -156,7 +151,6 @@ the AWS region where the API request is processed. </p>
 <a>UpdateRoom</a> — Updates a room’s configuration.</p>
 </li>
 </ul>
-
 <p>
 <b>Tags Endpoints</b>
 </p>
@@ -177,7 +171,6 @@ the specified ARN.</p>
 specified ARN.</p>
 </li>
 </ul>
-
 <p>All the above are HTTP operations. There is a separate <i>messaging</i> API
 for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
 Reference</a>.</p>

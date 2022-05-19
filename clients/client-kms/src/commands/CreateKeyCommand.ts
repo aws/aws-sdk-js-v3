@@ -21,12 +21,11 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
 
 /**
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and
- *       Region. </p>
+ *       Region.</p>
  *          <p>In addition to the required parameters, you can use the optional parameters to specify a key policy, description, tags, and other useful elements for any key type.</p>
  *          <note>
  *             <p>KMS is replacing the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
  *          </note>
- *
  *
  *          <p>To create different types of KMS keys, use the following guidance:</p>
  *
@@ -47,8 +46,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             to determine whether the KMS key will be used to encrypt and decrypt or sign and verify.
  *             You can't change these properties after the KMS key is created.</p>
  *                <p>Asymmetric KMS keys contain an RSA key pair or an Elliptic Curve (ECC) key pair. The private key in an asymmetric
- *             KMS key never leaves AWS KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key
- *             so it can be used outside of AWS KMS. KMS keys with RSA key pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
+ *             KMS key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key
+ *             so it can be used outside of KMS. KMS keys with RSA key pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
  *             KMS keys with ECC key pairs can be used only to sign and verify messages.
  *             For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>

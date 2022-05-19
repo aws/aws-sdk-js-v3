@@ -7,6 +7,11 @@ import {
   BatchAcknowledgeAlarmCommandOutput,
 } from "./commands/BatchAcknowledgeAlarmCommand";
 import {
+  BatchDeleteDetectorCommand,
+  BatchDeleteDetectorCommandInput,
+  BatchDeleteDetectorCommandOutput,
+} from "./commands/BatchDeleteDetectorCommand";
+import {
   BatchDisableAlarmCommand,
   BatchDisableAlarmCommandInput,
   BatchDisableAlarmCommandOutput,
@@ -85,6 +90,38 @@ export class IoTEventsData extends IoTEventsDataClient {
     cb?: (err: any, data?: BatchAcknowledgeAlarmCommandOutput) => void
   ): Promise<BatchAcknowledgeAlarmCommandOutput> | void {
     const command = new BatchAcknowledgeAlarmCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes one or more detectors that were created. When a detector is deleted, its state will be cleared and the detector will be removed from the list of detectors. The deleted detector will no longer appear if referenced in the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_ListDetectors.html">ListDetectors</a> API call.</p>
+   */
+  public batchDeleteDetector(
+    args: BatchDeleteDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteDetectorCommandOutput>;
+  public batchDeleteDetector(
+    args: BatchDeleteDetectorCommandInput,
+    cb: (err: any, data?: BatchDeleteDetectorCommandOutput) => void
+  ): void;
+  public batchDeleteDetector(
+    args: BatchDeleteDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteDetectorCommandOutput) => void
+  ): void;
+  public batchDeleteDetector(
+    args: BatchDeleteDetectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteDetectorCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteDetectorCommandOutput) => void
+  ): Promise<BatchDeleteDetectorCommandOutput> | void {
+    const command = new BatchDeleteDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

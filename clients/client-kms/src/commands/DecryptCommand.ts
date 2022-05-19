@@ -53,7 +53,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *       asymmetric encryption KMS key. When the KMS key is asymmetric, you must specify the KMS key and the
  *       encryption algorithm that was used to encrypt the ciphertext. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The <code>Decrypt</code> operation also decrypts ciphertext that was encrypted outside of KMS by the
- *       public key in an KMS asymmetric KMS key. However, it cannot decrypt symmetric ciphertext produced by
+ *       public key in an KMS asymmetric KMS key. However, it cannot decrypt ciphertext produced by
  *       other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services
  *         Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
  *       These libraries return a ciphertext format that is incompatible with KMS.</p>

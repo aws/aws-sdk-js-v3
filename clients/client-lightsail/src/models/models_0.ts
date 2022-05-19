@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
@@ -8145,7 +8144,8 @@ export namespace GetAutoSnapshotsResult {
 
 export interface GetBlueprintsRequest {
   /**
-   * <p>A Boolean value indicating whether to include inactive results in your request.</p>
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) blueprints in the
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 
@@ -8228,7 +8228,7 @@ export namespace GetBucketAccessKeysResult {
 export interface GetBucketBundlesRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
-   *       response.</p>
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 }
@@ -8516,8 +8516,8 @@ export namespace GetBucketsResult {
 
 export interface GetBundlesRequest {
   /**
-   * <p>A Boolean value that indicates whether to include inactive bundle results in your
-   *       request.</p>
+   * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
+   *       response of your request.</p>
    */
   includeInactive?: boolean;
 

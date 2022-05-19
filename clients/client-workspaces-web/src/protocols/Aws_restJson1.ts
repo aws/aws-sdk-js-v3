@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -501,8 +502,14 @@ export const serializeAws_restJson1CreateUserSettingsCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.copyAllowed !== undefined && input.copyAllowed !== null && { copyAllowed: input.copyAllowed }),
+    ...(input.disconnectTimeoutInMinutes !== undefined &&
+      input.disconnectTimeoutInMinutes !== null && { disconnectTimeoutInMinutes: input.disconnectTimeoutInMinutes }),
     ...(input.downloadAllowed !== undefined &&
       input.downloadAllowed !== null && { downloadAllowed: input.downloadAllowed }),
+    ...(input.idleDisconnectTimeoutInMinutes !== undefined &&
+      input.idleDisconnectTimeoutInMinutes !== null && {
+        idleDisconnectTimeoutInMinutes: input.idleDisconnectTimeoutInMinutes,
+      }),
     ...(input.pasteAllowed !== undefined && input.pasteAllowed !== null && { pasteAllowed: input.pasteAllowed }),
     ...(input.printAllowed !== undefined && input.printAllowed !== null && { printAllowed: input.printAllowed }),
     ...(input.tags !== undefined &&
@@ -1717,8 +1724,14 @@ export const serializeAws_restJson1UpdateUserSettingsCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.copyAllowed !== undefined && input.copyAllowed !== null && { copyAllowed: input.copyAllowed }),
+    ...(input.disconnectTimeoutInMinutes !== undefined &&
+      input.disconnectTimeoutInMinutes !== null && { disconnectTimeoutInMinutes: input.disconnectTimeoutInMinutes }),
     ...(input.downloadAllowed !== undefined &&
       input.downloadAllowed !== null && { downloadAllowed: input.downloadAllowed }),
+    ...(input.idleDisconnectTimeoutInMinutes !== undefined &&
+      input.idleDisconnectTimeoutInMinutes !== null && {
+        idleDisconnectTimeoutInMinutes: input.idleDisconnectTimeoutInMinutes,
+      }),
     ...(input.pasteAllowed !== undefined && input.pasteAllowed !== null && { pasteAllowed: input.pasteAllowed }),
     ...(input.printAllowed !== undefined && input.printAllowed !== null && { printAllowed: input.printAllowed }),
     ...(input.uploadAllowed !== undefined && input.uploadAllowed !== null && { uploadAllowed: input.uploadAllowed }),
@@ -2087,6 +2100,9 @@ const deserializeAws_restJson1CreateIdentityProviderCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.workspacesweb#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.workspacesweb#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.workspacesweb#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4811,7 +4827,9 @@ const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1ArnList(output.associatedPortalArns, context)
         : undefined,
     copyAllowed: __expectString(output.copyAllowed),
+    disconnectTimeoutInMinutes: __expectInt32(output.disconnectTimeoutInMinutes),
     downloadAllowed: __expectString(output.downloadAllowed),
+    idleDisconnectTimeoutInMinutes: __expectInt32(output.idleDisconnectTimeoutInMinutes),
     pasteAllowed: __expectString(output.pasteAllowed),
     printAllowed: __expectString(output.printAllowed),
     uploadAllowed: __expectString(output.uploadAllowed),
@@ -4834,7 +4852,9 @@ const deserializeAws_restJson1UserSettingsList = (output: any, context: __SerdeC
 const deserializeAws_restJson1UserSettingsSummary = (output: any, context: __SerdeContext): UserSettingsSummary => {
   return {
     copyAllowed: __expectString(output.copyAllowed),
+    disconnectTimeoutInMinutes: __expectInt32(output.disconnectTimeoutInMinutes),
     downloadAllowed: __expectString(output.downloadAllowed),
+    idleDisconnectTimeoutInMinutes: __expectInt32(output.idleDisconnectTimeoutInMinutes),
     pasteAllowed: __expectString(output.pasteAllowed),
     printAllowed: __expectString(output.printAllowed),
     uploadAllowed: __expectString(output.uploadAllowed),
