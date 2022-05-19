@@ -3109,6 +3109,7 @@ const serializeAws_restJson1SecurityGroupIdList = (input: string[], context: __S
 const serializeAws_restJson1SNSConfiguration = (input: SNSConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SnsFormat !== undefined && input.SnsFormat !== null && { SnsFormat: input.SnsFormat }),
     ...(input.SnsTopicArn !== undefined && input.SnsTopicArn !== null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
@@ -3949,6 +3950,7 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
 const deserializeAws_restJson1SNSConfiguration = (output: any, context: __SerdeContext): SNSConfiguration => {
   return {
     RoleArn: __expectString(output.RoleArn),
+    SnsFormat: __expectString(output.SnsFormat),
     SnsTopicArn: __expectString(output.SnsTopicArn),
   } as any;
 };

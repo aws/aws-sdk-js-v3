@@ -48,6 +48,12 @@ export namespace LambdaConfiguration {
   });
 }
 
+export enum SnsFormat {
+  JSON = "JSON",
+  LONG_TEXT = "LONG_TEXT",
+  SHORT_TEXT = "SHORT_TEXT",
+}
+
 /**
  * <p>Contains information about the SNS topic to which you want to send your alerts and the IAM role that has
  *       access to that topic.</p>
@@ -62,6 +68,11 @@ export interface SNSConfiguration {
    * <p>The ARN of the target SNS topic.</p>
    */
   SnsTopicArn: string | undefined;
+
+  /**
+   * <p>The text format for alerts.</p>
+   */
+  SnsFormat?: SnsFormat | string;
 }
 
 export namespace SNSConfiguration {
