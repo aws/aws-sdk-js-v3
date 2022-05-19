@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
+
+
+### Features
+
+* **clients:** update client endpoints as of 2022-05-19 ([3cccb5d](https://github.com/aws/aws-sdk-js-v3/commit/3cccb5df60434c7356284c54673859892e6bffda))
+
+
+
+
+
 # [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
 
 **Note:** Version bump only for package @aws-sdk/client-health

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
+
+
+### Features
+
+* **client-lookoutmetrics:** In this release we added SnsFormat to SNSConfiguration to support human readable alert. ([c28ed70](https://github.com/aws/aws-sdk-js-v3/commit/c28ed70682b3fe69db89d2b5e4f48bb58b7fd7f0))
+
+
+
+
+
 # [3.94.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.93.0...v3.94.0) (2022-05-18)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutmetrics
