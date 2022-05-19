@@ -588,6 +588,36 @@ export enum DeploymentAction {
   UNDEPLOY = "UNDEPLOY",
 }
 
+export enum ResultCode {
+  INVALID_ROLE_FAILURE = "INVALID_ROLE_FAILURE",
+  SUCCESS = "SUCCESS",
+  UNSPECIFIED_FAILURE = "UNSPECIFIED_FAILURE",
+}
+
+/**
+ * <p>The result of the deployment.</p>
+ */
+export interface DeploymentResult {
+  /**
+   * <p>The type of deployment result.</p>
+   */
+  ResultCode?: ResultCode | string;
+
+  /**
+   * <p>Details about the deployment result.</p>
+   */
+  Message?: string;
+}
+
+export namespace DeploymentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeploymentResult): any => ({
+    ...obj,
+  });
+}
+
 export enum DeploymentState {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -1202,6 +1232,11 @@ export interface StageDeploymentDetails {
    * <p>The timestamp of when the deployment was last updated.</p>
    */
   LastUpdated?: Date;
+
+  /**
+   * <p>The result of the deployment.</p>
+   */
+  DeploymentResult?: DeploymentResult;
 }
 
 export namespace StageDeploymentDetails {
@@ -1707,6 +1742,11 @@ export interface StageDeploymentSummary {
    * <p>The timestamp of when the deployment was last updated.</p>
    */
   LastUpdated?: Date;
+
+  /**
+   * <p>The result of the deployment.</p>
+   */
+  DeploymentResult?: DeploymentResult;
 }
 
 export namespace StageDeploymentSummary {
