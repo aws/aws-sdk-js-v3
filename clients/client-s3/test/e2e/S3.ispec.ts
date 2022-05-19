@@ -248,4 +248,10 @@ describe("@aws-sdk/client-s3", () => {
       expect((listUploadsResult.Uploads || []).map((upload) => upload.UploadId)).not.to.contain(toAbort);
     });
   });
+
+  describe("selectObjectContent", () => {
+    it("should succeed", () => {
+      console.log("ABC");
+    });
+  });
 });
