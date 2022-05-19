@@ -50,6 +50,7 @@ const partitionHash: PartitionHash = {
         tags: ["dualstack"],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],

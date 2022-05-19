@@ -6746,6 +6746,10 @@
           "isRegionalized": true
         },
         "health": {
+          "defaults": {
+            "protocols": ["https"],
+            "sslCommonName": "health.us-east-1.amazonaws.com"
+          },
           "endpoints": {
             "fips-us-east-2": {
               "credentialScope": {
@@ -6766,7 +6770,9 @@
                 }
               ]
             }
-          }
+          },
+          "isRegionalized": false,
+          "partitionEndpoint": "aws-global"
         },
         "healthlake": {
           "defaults": {
@@ -19835,6 +19841,11 @@
         "apigateway": {
           "endpoints": {
             "us-iso-east-1": {}
+          }
+        },
+        "appconfigdata": {
+          "endpoints": {
+            "us-iso-west-1": {}
           }
         },
         "application-autoscaling": {
