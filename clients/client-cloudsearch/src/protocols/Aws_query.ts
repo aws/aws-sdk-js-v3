@@ -3040,8 +3040,7 @@ const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __Ser
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
-  }
-  if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
+  } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
     contents.FieldNames = deserializeAws_queryFieldNameList(
       __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
@@ -3233,8 +3232,7 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   };
   if (output.AnalysisSchemes === "") {
     contents.AnalysisSchemes = [];
-  }
-  if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
+  } else if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
     contents.AnalysisSchemes = deserializeAws_queryAnalysisSchemeStatusList(
       __getArrayIfSingleItem(output["AnalysisSchemes"]["member"]),
       context
@@ -3281,8 +3279,7 @@ const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __Ser
   };
   if (output.DomainStatusList === "") {
     contents.DomainStatusList = [];
-  }
-  if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
+  } else if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
     contents.DomainStatusList = deserializeAws_queryDomainStatusList(
       __getArrayIfSingleItem(output["DomainStatusList"]["member"]),
       context
@@ -3300,8 +3297,7 @@ const deserializeAws_queryDescribeExpressionsResponse = (
   };
   if (output.Expressions === "") {
     contents.Expressions = [];
-  }
-  if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
+  } else if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
     contents.Expressions = deserializeAws_queryExpressionStatusList(
       __getArrayIfSingleItem(output["Expressions"]["member"]),
       context
@@ -3319,8 +3315,7 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
   };
   if (output.IndexFields === "") {
     contents.IndexFields = [];
-  }
-  if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
+  } else if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
     contents.IndexFields = deserializeAws_queryIndexFieldStatusList(
       __getArrayIfSingleItem(output["IndexFields"]["member"]),
       context
@@ -3364,8 +3359,7 @@ const deserializeAws_queryDescribeSuggestersResponse = (
   };
   if (output.Suggesters === "") {
     contents.Suggesters = [];
-  }
-  if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
+  } else if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
     contents.Suggesters = deserializeAws_querySuggesterStatusList(
       __getArrayIfSingleItem(output["Suggesters"]["member"]),
       context
@@ -3636,8 +3630,7 @@ const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __Serd
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
-  }
-  if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
+  } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
     contents.FieldNames = deserializeAws_queryFieldNameList(
       __getArrayIfSingleItem(output["FieldNames"]["member"]),
       context
@@ -3877,8 +3870,7 @@ const deserializeAws_queryListDomainNamesResponse = (output: any, context: __Ser
   };
   if (output.DomainNames === "") {
     contents.DomainNames = {};
-  }
-  if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
+  } else if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
     contents.DomainNames = deserializeAws_queryDomainNameMap(
       __getArrayIfSingleItem(output["DomainNames"]["entry"]),
       context

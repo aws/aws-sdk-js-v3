@@ -13743,8 +13743,7 @@ const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __Se
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
     contents.Items = deserializeAws_restXmlKGKeyPairIdsList(
       __getArrayIfSingleItem(output["Items"]["KeyGroup"]),
       context
@@ -13767,8 +13766,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __Serd
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Signer"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Signer"] !== undefined) {
     contents.Items = deserializeAws_restXmlSignerList(__getArrayIfSingleItem(output["Items"]["Signer"]), context);
   }
   return contents;
@@ -13784,8 +13782,7 @@ const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Al
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["CNAME"] !== undefined) {
     contents.Items = deserializeAws_restXmlAliasList(__getArrayIfSingleItem(output["Items"]["CNAME"]), context);
   }
   return contents;
@@ -13838,8 +13835,7 @@ const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeConte
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
     contents.Items = deserializeAws_restXmlMethodsList(__getArrayIfSingleItem(output["Items"]["Method"]), context);
   }
   if (output["CachedMethods"] !== undefined) {
@@ -13965,8 +13961,7 @@ const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeConte
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CacheBehavior"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["CacheBehavior"] !== undefined) {
     contents.Items = deserializeAws_restXmlCacheBehaviorList(
       __getArrayIfSingleItem(output["Items"]["CacheBehavior"]),
       context
@@ -13985,8 +13980,7 @@ const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContex
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
     contents.Items = deserializeAws_restXmlMethodsList(__getArrayIfSingleItem(output["Items"]["Method"]), context);
   }
   return contents;
@@ -14095,8 +14089,7 @@ const deserializeAws_restXmlCachePolicyList = (output: any, context: __SerdeCont
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CachePolicySummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["CachePolicySummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlCachePolicySummaryList(
       __getArrayIfSingleItem(output["Items"]["CachePolicySummary"]),
       context
@@ -14217,8 +14210,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CloudFrontOriginAccessIdentitySummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["CloudFrontOriginAccessIdentitySummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList(
       __getArrayIfSingleItem(output["Items"]["CloudFrontOriginAccessIdentitySummary"]),
       context
@@ -14309,8 +14301,7 @@ const deserializeAws_restXmlConflictingAliasesList = (output: any, context: __Se
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["ConflictingAlias"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["ConflictingAlias"] !== undefined) {
     contents.Items = deserializeAws_restXmlConflictingAliases(
       __getArrayIfSingleItem(output["Items"]["ConflictingAlias"]),
       context
@@ -14375,8 +14366,7 @@ const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __Serde
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["ContentTypeProfile"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["ContentTypeProfile"] !== undefined) {
     contents.Items = deserializeAws_restXmlContentTypeProfileList(
       __getArrayIfSingleItem(output["Items"]["ContentTypeProfile"]),
       context
@@ -14406,8 +14396,7 @@ const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext)
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     contents.Items = deserializeAws_restXmlCookieNameList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
   }
   return contents;
@@ -14470,8 +14459,7 @@ const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __Serd
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["CustomErrorResponse"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["CustomErrorResponse"] !== undefined) {
     contents.Items = deserializeAws_restXmlCustomErrorResponseList(
       __getArrayIfSingleItem(output["Items"]["CustomErrorResponse"]),
       context
@@ -14490,8 +14478,7 @@ const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContex
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["OriginCustomHeader"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["OriginCustomHeader"] !== undefined) {
     contents.Items = deserializeAws_restXmlOriginCustomHeadersList(
       __getArrayIfSingleItem(output["Items"]["OriginCustomHeader"]),
       context
@@ -14656,8 +14643,10 @@ const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext
   }
   if (output.AliasICPRecordals === "") {
     contents.AliasICPRecordals = [];
-  }
-  if (output["AliasICPRecordals"] !== undefined && output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined) {
+  } else if (
+    output["AliasICPRecordals"] !== undefined &&
+    output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
+  ) {
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
       __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
@@ -14766,8 +14755,7 @@ const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeC
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["DistributionId"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["DistributionId"] !== undefined) {
     contents.Items = deserializeAws_restXmlDistributionIdListSummary(
       __getArrayIfSingleItem(output["Items"]["DistributionId"]),
       context
@@ -14813,8 +14801,7 @@ const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeCon
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["DistributionSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["DistributionSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlDistributionSummaryList(
       __getArrayIfSingleItem(output["Items"]["DistributionSummary"]),
       context
@@ -14905,8 +14892,10 @@ const deserializeAws_restXmlDistributionSummary = (output: any, context: __Serde
   }
   if (output.AliasICPRecordals === "") {
     contents.AliasICPRecordals = [];
-  }
-  if (output["AliasICPRecordals"] !== undefined && output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined) {
+  } else if (
+    output["AliasICPRecordals"] !== undefined &&
+    output["AliasICPRecordals"]["AliasICPRecordal"] !== undefined
+  ) {
     contents.AliasICPRecordals = deserializeAws_restXmlAliasICPRecordals(
       __getArrayIfSingleItem(output["AliasICPRecordals"]["AliasICPRecordal"]),
       context
@@ -14936,8 +14925,7 @@ const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeC
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["EncryptionEntity"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["EncryptionEntity"] !== undefined) {
     contents.Items = deserializeAws_restXmlEncryptionEntityList(
       __getArrayIfSingleItem(output["Items"]["EncryptionEntity"]),
       context
@@ -15073,8 +15061,7 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionSummaryList(
       __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionSummary"]),
       context
@@ -15153,8 +15140,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["FieldLevelEncryptionProfileSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList(
       __getArrayIfSingleItem(output["Items"]["FieldLevelEncryptionProfileSummary"]),
       context
@@ -15287,8 +15273,7 @@ const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContex
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["FieldPattern"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["FieldPattern"] !== undefined) {
     contents.Items = deserializeAws_restXmlFieldPatternList(
       __getArrayIfSingleItem(output["Items"]["FieldPattern"]),
       context
@@ -15354,8 +15339,7 @@ const deserializeAws_restXmlFunctionAssociations = (output: any, context: __Serd
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["FunctionAssociation"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["FunctionAssociation"] !== undefined) {
     contents.Items = deserializeAws_restXmlFunctionAssociationList(
       __getArrayIfSingleItem(output["Items"]["FunctionAssociation"]),
       context
@@ -15407,8 +15391,7 @@ const deserializeAws_restXmlFunctionList = (output: any, context: __SerdeContext
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["FunctionSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["FunctionSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlFunctionSummaryList(
       __getArrayIfSingleItem(output["Items"]["FunctionSummary"]),
       context
@@ -15486,8 +15469,7 @@ const deserializeAws_restXmlGeoRestriction = (output: any, context: __SerdeConte
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Location"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Location"] !== undefined) {
     contents.Items = deserializeAws_restXmlLocationList(__getArrayIfSingleItem(output["Items"]["Location"]), context);
   }
   return contents;
@@ -15514,8 +15496,7 @@ const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): He
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     contents.Items = deserializeAws_restXmlHeaderList(__getArrayIfSingleItem(output["Items"]["Name"]), context);
   }
   return contents;
@@ -15583,8 +15564,7 @@ const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeCon
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["InvalidationSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["InvalidationSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlInvalidationSummaryList(
       __getArrayIfSingleItem(output["Items"]["InvalidationSummary"]),
       context
@@ -15651,8 +15631,7 @@ const deserializeAws_restXmlKeyGroupConfig = (output: any, context: __SerdeConte
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["PublicKey"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["PublicKey"] !== undefined) {
     contents.Items = deserializeAws_restXmlPublicKeyIdList(
       __getArrayIfSingleItem(output["Items"]["PublicKey"]),
       context
@@ -15682,8 +15661,7 @@ const deserializeAws_restXmlKeyGroupList = (output: any, context: __SerdeContext
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["KeyGroupSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["KeyGroupSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlKeyGroupSummaryList(
       __getArrayIfSingleItem(output["Items"]["KeyGroupSummary"]),
       context
@@ -15734,8 +15712,7 @@ const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext):
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["KeyPairId"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["KeyPairId"] !== undefined) {
     contents.Items = deserializeAws_restXmlKeyPairIdList(__getArrayIfSingleItem(output["Items"]["KeyPairId"]), context);
   }
   return contents;
@@ -15828,8 +15805,7 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["LambdaFunctionAssociation"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["LambdaFunctionAssociation"] !== undefined) {
     contents.Items = deserializeAws_restXmlLambdaFunctionAssociationList(
       __getArrayIfSingleItem(output["Items"]["LambdaFunctionAssociation"]),
       context
@@ -16035,8 +16011,7 @@ const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeC
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["OriginGroupMember"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["OriginGroupMember"] !== undefined) {
     contents.Items = deserializeAws_restXmlOriginGroupMemberList(
       __getArrayIfSingleItem(output["Items"]["OriginGroupMember"]),
       context
@@ -16055,8 +16030,7 @@ const deserializeAws_restXmlOriginGroups = (output: any, context: __SerdeContext
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["OriginGroup"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["OriginGroup"] !== undefined) {
     contents.Items = deserializeAws_restXmlOriginGroupList(
       __getArrayIfSingleItem(output["Items"]["OriginGroup"]),
       context
@@ -16184,8 +16158,7 @@ const deserializeAws_restXmlOriginRequestPolicyList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["OriginRequestPolicySummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["OriginRequestPolicySummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlOriginRequestPolicySummaryList(
       __getArrayIfSingleItem(output["Items"]["OriginRequestPolicySummary"]),
       context
@@ -16252,8 +16225,7 @@ const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Or
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
     contents.Items = deserializeAws_restXmlOriginList(__getArrayIfSingleItem(output["Items"]["Origin"]), context);
   }
   return contents;
@@ -16283,8 +16255,7 @@ const deserializeAws_restXmlOriginSslProtocols = (output: any, context: __SerdeC
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["SslProtocol"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["SslProtocol"] !== undefined) {
     contents.Items = deserializeAws_restXmlSslProtocolsList(
       __getArrayIfSingleItem(output["Items"]["SslProtocol"]),
       context
@@ -16346,8 +16317,7 @@ const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Path
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Path"] !== undefined) {
     contents.Items = deserializeAws_restXmlPathList(__getArrayIfSingleItem(output["Items"]["Path"]), context);
   }
   return contents;
@@ -16422,8 +16392,7 @@ const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContex
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["PublicKeySummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["PublicKeySummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlPublicKeySummaryList(
       __getArrayIfSingleItem(output["Items"]["PublicKeySummary"]),
       context
@@ -16518,8 +16487,7 @@ const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeCon
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["QueryArgProfile"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["QueryArgProfile"] !== undefined) {
     contents.Items = deserializeAws_restXmlQueryArgProfileList(
       __getArrayIfSingleItem(output["Items"]["QueryArgProfile"]),
       context
@@ -16538,8 +16506,7 @@ const deserializeAws_restXmlQueryStringCacheKeys = (output: any, context: __Serd
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     contents.Items = deserializeAws_restXmlQueryStringCacheKeysList(
       __getArrayIfSingleItem(output["Items"]["Name"]),
       context
@@ -16569,8 +16536,7 @@ const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeCon
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Name"] !== undefined) {
     contents.Items = deserializeAws_restXmlQueryStringNamesList(
       __getArrayIfSingleItem(output["Items"]["Name"]),
       context
@@ -16609,8 +16575,7 @@ const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeCo
   }
   if (output.EndPoints === "") {
     contents.EndPoints = [];
-  }
-  if (output["EndPoints"] !== undefined && output["EndPoints"]["member"] !== undefined) {
+  } else if (output["EndPoints"] !== undefined && output["EndPoints"]["member"] !== undefined) {
     contents.EndPoints = deserializeAws_restXmlEndPointList(
       __getArrayIfSingleItem(output["EndPoints"]["member"]),
       context
@@ -16618,8 +16583,7 @@ const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeCo
   }
   if (output.Fields === "") {
     contents.Fields = [];
-  }
-  if (output["Fields"] !== undefined && output["Fields"]["Field"] !== undefined) {
+  } else if (output["Fields"] !== undefined && output["Fields"]["Field"] !== undefined) {
     contents.Fields = deserializeAws_restXmlFieldList(__getArrayIfSingleItem(output["Fields"]["Field"]), context);
   }
   return contents;
@@ -16649,8 +16613,7 @@ const deserializeAws_restXmlRealtimeLogConfigs = (output: any, context: __SerdeC
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["member"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["member"] !== undefined) {
     contents.Items = deserializeAws_restXmlRealtimeLogConfigList(
       __getArrayIfSingleItem(output["Items"]["member"]),
       context
@@ -16715,8 +16678,7 @@ const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
     contents.Items = deserializeAws_restXmlAccessControlAllowHeadersList(
       __getArrayIfSingleItem(output["Items"]["Header"]),
       context
@@ -16738,8 +16700,7 @@ const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
     contents.Items = deserializeAws_restXmlAccessControlAllowMethodsList(
       __getArrayIfSingleItem(output["Items"]["Method"]),
       context
@@ -16761,8 +16722,7 @@ const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
     contents.Items = deserializeAws_restXmlAccessControlAllowOriginsList(
       __getArrayIfSingleItem(output["Items"]["Origin"]),
       context
@@ -16784,8 +16744,7 @@ const deserializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
     contents.Items = deserializeAws_restXmlAccessControlExposeHeadersList(
       __getArrayIfSingleItem(output["Items"]["Header"]),
       context
@@ -16963,8 +16922,7 @@ const deserializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyCustomHeader"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyCustomHeader"] !== undefined) {
     contents.Items = deserializeAws_restXmlResponseHeadersPolicyCustomHeaderList(
       __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicyCustomHeader"]),
       context
@@ -17011,8 +16969,7 @@ const deserializeAws_restXmlResponseHeadersPolicyList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicySummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicySummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlResponseHeadersPolicySummaryList(
       __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicySummary"]),
       context
@@ -17275,8 +17232,7 @@ const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext)
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["StatusCode"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["StatusCode"] !== undefined) {
     contents.Items = deserializeAws_restXmlStatusCodeList(
       __getArrayIfSingleItem(output["Items"]["StatusCode"]),
       context
@@ -17392,8 +17348,7 @@ const deserializeAws_restXmlStreamingDistributionList = (
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["StreamingDistributionSummary"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["StreamingDistributionSummary"] !== undefined) {
     contents.Items = deserializeAws_restXmlStreamingDistributionSummaryList(
       __getArrayIfSingleItem(output["Items"]["StreamingDistributionSummary"]),
       context
@@ -17518,8 +17473,7 @@ const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags 
   };
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["Tag"] !== undefined) {
     contents.Items = deserializeAws_restXmlTagList(__getArrayIfSingleItem(output["Items"]["Tag"]), context);
   }
   return contents;
@@ -17541,8 +17495,7 @@ const deserializeAws_restXmlTestResult = (output: any, context: __SerdeContext):
   }
   if (output.FunctionExecutionLogs === "") {
     contents.FunctionExecutionLogs = [];
-  }
-  if (output["FunctionExecutionLogs"] !== undefined && output["FunctionExecutionLogs"]["member"] !== undefined) {
+  } else if (output["FunctionExecutionLogs"] !== undefined && output["FunctionExecutionLogs"]["member"] !== undefined) {
     contents.FunctionExecutionLogs = deserializeAws_restXmlFunctionExecutionLogList(
       __getArrayIfSingleItem(output["FunctionExecutionLogs"]["member"]),
       context
@@ -17582,8 +17535,7 @@ const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeCon
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["KeyGroup"] !== undefined) {
     contents.Items = deserializeAws_restXmlTrustedKeyGroupIdList(
       __getArrayIfSingleItem(output["Items"]["KeyGroup"]),
       context
@@ -17606,8 +17558,7 @@ const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeConte
   }
   if (output.Items === "") {
     contents.Items = [];
-  }
-  if (output["Items"] !== undefined && output["Items"]["AwsAccountNumber"] !== undefined) {
+  } else if (output["Items"] !== undefined && output["Items"]["AwsAccountNumber"] !== undefined) {
     contents.Items = deserializeAws_restXmlAwsAccountNumberList(
       __getArrayIfSingleItem(output["Items"]["AwsAccountNumber"]),
       context

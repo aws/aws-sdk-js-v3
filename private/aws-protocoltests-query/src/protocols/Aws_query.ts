@@ -2146,8 +2146,7 @@ const deserializeAws_queryFlattenedXmlMapOutput = (output: any, context: __Serde
   };
   if (output.myMap === "") {
     contents.myMap = {};
-  }
-  if (output["myMap"] !== undefined) {
+  } else if (output["myMap"] !== undefined) {
     contents.myMap = deserializeAws_queryFooEnumMap(__getArrayIfSingleItem(output["myMap"]), context);
   }
   return contents;
@@ -2162,8 +2161,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
   };
   if (output.KVP === "") {
     contents.myMap = {};
-  }
-  if (output["KVP"] !== undefined) {
+  } else if (output["KVP"] !== undefined) {
     contents.myMap = deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap(
       __getArrayIfSingleItem(output["KVP"]),
       context
@@ -2196,8 +2194,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput = (
   };
   if (output.KVP === "") {
     contents.myMap = {};
-  }
-  if (output["KVP"] !== undefined) {
+  } else if (output["KVP"] !== undefined) {
     contents.myMap = deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap(
       __getArrayIfSingleItem(output["KVP"]),
       context
@@ -2446,8 +2443,7 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
   }
   if (output.fooEnumList === "") {
     contents.fooEnumList = [];
-  }
-  if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
+  } else if (output["fooEnumList"] !== undefined && output["fooEnumList"]["member"] !== undefined) {
     contents.fooEnumList = deserializeAws_queryFooEnumList(
       __getArrayIfSingleItem(output["fooEnumList"]["member"]),
       context
@@ -2455,8 +2451,7 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
   }
   if (output.fooEnumSet === "") {
     contents.fooEnumSet = [];
-  }
-  if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
+  } else if (output["fooEnumSet"] !== undefined && output["fooEnumSet"]["member"] !== undefined) {
     contents.fooEnumSet = deserializeAws_queryFooEnumSet(
       __getArrayIfSingleItem(output["fooEnumSet"]["member"]),
       context
@@ -2464,8 +2459,7 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
   }
   if (output.fooEnumMap === "") {
     contents.fooEnumMap = {};
-  }
-  if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
+  } else if (output["fooEnumMap"] !== undefined && output["fooEnumMap"]["entry"] !== undefined) {
     contents.fooEnumMap = deserializeAws_queryFooEnumMap(
       __getArrayIfSingleItem(output["fooEnumMap"]["entry"]),
       context
@@ -2492,8 +2486,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   };
   if (output.stringList === "") {
     contents.stringList = [];
-  }
-  if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
+  } else if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
     contents.stringList = deserializeAws_queryStringList(
       __getArrayIfSingleItem(output["stringList"]["member"]),
       context
@@ -2501,14 +2494,12 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.stringSet === "") {
     contents.stringSet = [];
-  }
-  if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
+  } else if (output["stringSet"] !== undefined && output["stringSet"]["member"] !== undefined) {
     contents.stringSet = deserializeAws_queryStringSet(__getArrayIfSingleItem(output["stringSet"]["member"]), context);
   }
   if (output.integerList === "") {
     contents.integerList = [];
-  }
-  if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
+  } else if (output["integerList"] !== undefined && output["integerList"]["member"] !== undefined) {
     contents.integerList = deserializeAws_queryIntegerList(
       __getArrayIfSingleItem(output["integerList"]["member"]),
       context
@@ -2516,8 +2507,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.booleanList === "") {
     contents.booleanList = [];
-  }
-  if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
+  } else if (output["booleanList"] !== undefined && output["booleanList"]["member"] !== undefined) {
     contents.booleanList = deserializeAws_queryBooleanList(
       __getArrayIfSingleItem(output["booleanList"]["member"]),
       context
@@ -2525,8 +2515,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.timestampList === "") {
     contents.timestampList = [];
-  }
-  if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
+  } else if (output["timestampList"] !== undefined && output["timestampList"]["member"] !== undefined) {
     contents.timestampList = deserializeAws_queryTimestampList(
       __getArrayIfSingleItem(output["timestampList"]["member"]),
       context
@@ -2534,14 +2523,12 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.enumList === "") {
     contents.enumList = [];
-  }
-  if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
+  } else if (output["enumList"] !== undefined && output["enumList"]["member"] !== undefined) {
     contents.enumList = deserializeAws_queryFooEnumList(__getArrayIfSingleItem(output["enumList"]["member"]), context);
   }
   if (output.nestedStringList === "") {
     contents.nestedStringList = [];
-  }
-  if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
+  } else if (output["nestedStringList"] !== undefined && output["nestedStringList"]["member"] !== undefined) {
     contents.nestedStringList = deserializeAws_queryNestedStringList(
       __getArrayIfSingleItem(output["nestedStringList"]["member"]),
       context
@@ -2549,8 +2536,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.renamed === "") {
     contents.renamedListMembers = [];
-  }
-  if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
+  } else if (output["renamed"] !== undefined && output["renamed"]["item"] !== undefined) {
     contents.renamedListMembers = deserializeAws_queryRenamedListMembers(
       __getArrayIfSingleItem(output["renamed"]["item"]),
       context
@@ -2558,8 +2544,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.flattenedList === "") {
     contents.flattenedList = [];
-  }
-  if (output["flattenedList"] !== undefined) {
+  } else if (output["flattenedList"] !== undefined) {
     contents.flattenedList = deserializeAws_queryRenamedListMembers(
       __getArrayIfSingleItem(output["flattenedList"]),
       context
@@ -2567,8 +2552,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.customName === "") {
     contents.flattenedList2 = [];
-  }
-  if (output["customName"] !== undefined) {
+  } else if (output["customName"] !== undefined) {
     contents.flattenedList2 = deserializeAws_queryRenamedListMembers(
       __getArrayIfSingleItem(output["customName"]),
       context
@@ -2576,8 +2560,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.flattenedListWithMemberNamespace === "") {
     contents.flattenedListWithMemberNamespace = [];
-  }
-  if (output["flattenedListWithMemberNamespace"] !== undefined) {
+  } else if (output["flattenedListWithMemberNamespace"] !== undefined) {
     contents.flattenedListWithMemberNamespace = deserializeAws_queryListWithMemberNamespace(
       __getArrayIfSingleItem(output["flattenedListWithMemberNamespace"]),
       context
@@ -2585,8 +2568,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.flattenedListWithNamespace === "") {
     contents.flattenedListWithNamespace = [];
-  }
-  if (output["flattenedListWithNamespace"] !== undefined) {
+  } else if (output["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_queryListWithNamespace(
       __getArrayIfSingleItem(output["flattenedListWithNamespace"]),
       context
@@ -2594,8 +2576,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
   }
   if (output.myStructureList === "") {
     contents.structureList = [];
-  }
-  if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
+  } else if (output["myStructureList"] !== undefined && output["myStructureList"]["item"] !== undefined) {
     contents.structureList = deserializeAws_queryStructureList(
       __getArrayIfSingleItem(output["myStructureList"]["item"]),
       context
@@ -2610,8 +2591,7 @@ const deserializeAws_queryXmlMapsOutput = (output: any, context: __SerdeContext)
   };
   if (output.myMap === "") {
     contents.myMap = {};
-  }
-  if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
+  } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
     contents.myMap = deserializeAws_queryXmlMapsOutputMap(__getArrayIfSingleItem(output["myMap"]["entry"]), context);
   }
   return contents;
@@ -2635,8 +2615,7 @@ const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeC
   };
   if (output.myMap === "") {
     contents.myMap = {};
-  }
-  if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
+  } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
     contents.myMap = deserializeAws_queryXmlMapsXmlNameOutputMap(
       __getArrayIfSingleItem(output["myMap"]["entry"]),
       context
@@ -2681,8 +2660,7 @@ const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeCon
   }
   if (output.values === "") {
     contents.values = [];
-  }
-  if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
+  } else if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
     contents.values = deserializeAws_queryXmlNamespacedList(
       __getArrayIfSingleItem(output["values"]["member"]),
       context

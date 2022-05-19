@@ -4579,8 +4579,7 @@ export const deserializeAws_restXmlGetCheckerIpRangesCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.CheckerIpRanges === "") {
     contents.CheckerIpRanges = [];
-  }
-  if (data["CheckerIpRanges"] !== undefined && data["CheckerIpRanges"]["member"] !== undefined) {
+  } else if (data["CheckerIpRanges"] !== undefined && data["CheckerIpRanges"]["member"] !== undefined) {
     contents.CheckerIpRanges = deserializeAws_restXmlCheckerIpRanges(
       __getArrayIfSingleItem(data["CheckerIpRanges"]["member"]),
       context
@@ -4627,8 +4626,7 @@ export const deserializeAws_restXmlGetDNSSECCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KeySigningKeys === "") {
     contents.KeySigningKeys = [];
-  }
-  if (data["KeySigningKeys"] !== undefined && data["KeySigningKeys"]["member"] !== undefined) {
+  } else if (data["KeySigningKeys"] !== undefined && data["KeySigningKeys"]["member"] !== undefined) {
     contents.KeySigningKeys = deserializeAws_restXmlKeySigningKeys(
       __getArrayIfSingleItem(data["KeySigningKeys"]["member"]),
       context
@@ -4824,8 +4822,7 @@ export const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand = asyn
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
-  }
-  if (
+  } else if (
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
   ) {
@@ -4880,8 +4877,7 @@ export const deserializeAws_restXmlGetHealthCheckStatusCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
-  }
-  if (
+  } else if (
     data["HealthCheckObservations"] !== undefined &&
     data["HealthCheckObservations"]["HealthCheckObservation"] !== undefined
   ) {
@@ -4944,8 +4940,7 @@ export const deserializeAws_restXmlGetHostedZoneCommand = async (
   }
   if (data.VPCs === "") {
     contents.VPCs = [];
-  }
-  if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
+  } else if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
     contents.VPCs = deserializeAws_restXmlVPCs(__getArrayIfSingleItem(data["VPCs"]["VPC"]), context);
   }
   return Promise.resolve(contents);
@@ -5554,8 +5549,7 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.GeoLocationDetailsList === "") {
     contents.GeoLocationDetailsList = [];
-  }
-  if (
+  } else if (
     data["GeoLocationDetailsList"] !== undefined &&
     data["GeoLocationDetailsList"]["GeoLocationDetails"] !== undefined
   ) {
@@ -5626,8 +5620,7 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HealthChecks === "") {
     contents.HealthChecks = [];
-  }
-  if (data["HealthChecks"] !== undefined && data["HealthChecks"]["HealthCheck"] !== undefined) {
+  } else if (data["HealthChecks"] !== undefined && data["HealthChecks"]["HealthCheck"] !== undefined) {
     contents.HealthChecks = deserializeAws_restXmlHealthChecks(
       __getArrayIfSingleItem(data["HealthChecks"]["HealthCheck"]),
       context
@@ -5695,8 +5688,7 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HostedZones === "") {
     contents.HostedZones = [];
-  }
-  if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
+  } else if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
     contents.HostedZones = deserializeAws_restXmlHostedZones(
       __getArrayIfSingleItem(data["HostedZones"]["HostedZone"]),
       context
@@ -5775,8 +5767,7 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
   }
   if (data.HostedZones === "") {
     contents.HostedZones = [];
-  }
-  if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
+  } else if (data["HostedZones"] !== undefined && data["HostedZones"]["HostedZone"] !== undefined) {
     contents.HostedZones = deserializeAws_restXmlHostedZones(
       __getArrayIfSingleItem(data["HostedZones"]["HostedZone"]),
       context
@@ -5842,8 +5833,10 @@ export const deserializeAws_restXmlListHostedZonesByVPCCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.HostedZoneSummaries === "") {
     contents.HostedZoneSummaries = [];
-  }
-  if (data["HostedZoneSummaries"] !== undefined && data["HostedZoneSummaries"]["HostedZoneSummary"] !== undefined) {
+  } else if (
+    data["HostedZoneSummaries"] !== undefined &&
+    data["HostedZoneSummaries"]["HostedZoneSummary"] !== undefined
+  ) {
     contents.HostedZoneSummaries = deserializeAws_restXmlHostedZoneSummaries(
       __getArrayIfSingleItem(data["HostedZoneSummaries"]["HostedZoneSummary"]),
       context
@@ -5905,8 +5898,10 @@ export const deserializeAws_restXmlListQueryLoggingConfigsCommand = async (
   }
   if (data.QueryLoggingConfigs === "") {
     contents.QueryLoggingConfigs = [];
-  }
-  if (data["QueryLoggingConfigs"] !== undefined && data["QueryLoggingConfigs"]["QueryLoggingConfig"] !== undefined) {
+  } else if (
+    data["QueryLoggingConfigs"] !== undefined &&
+    data["QueryLoggingConfigs"]["QueryLoggingConfig"] !== undefined
+  ) {
     contents.QueryLoggingConfigs = deserializeAws_restXmlQueryLoggingConfigs(
       __getArrayIfSingleItem(data["QueryLoggingConfigs"]["QueryLoggingConfig"]),
       context
@@ -5981,8 +5976,10 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
   }
   if (data.ResourceRecordSets === "") {
     contents.ResourceRecordSets = [];
-  }
-  if (data["ResourceRecordSets"] !== undefined && data["ResourceRecordSets"]["ResourceRecordSet"] !== undefined) {
+  } else if (
+    data["ResourceRecordSets"] !== undefined &&
+    data["ResourceRecordSets"]["ResourceRecordSet"] !== undefined
+  ) {
     contents.ResourceRecordSets = deserializeAws_restXmlResourceRecordSets(
       __getArrayIfSingleItem(data["ResourceRecordSets"]["ResourceRecordSet"]),
       context
@@ -6038,8 +6035,7 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.DelegationSets === "") {
     contents.DelegationSets = [];
-  }
-  if (data["DelegationSets"] !== undefined && data["DelegationSets"]["DelegationSet"] !== undefined) {
+  } else if (data["DelegationSets"] !== undefined && data["DelegationSets"]["DelegationSet"] !== undefined) {
     contents.DelegationSets = deserializeAws_restXmlDelegationSets(
       __getArrayIfSingleItem(data["DelegationSets"]["DelegationSet"]),
       context
@@ -6156,8 +6152,7 @@ export const deserializeAws_restXmlListTagsForResourcesCommand = async (
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ResourceTagSets === "") {
     contents.ResourceTagSets = [];
-  }
-  if (data["ResourceTagSets"] !== undefined && data["ResourceTagSets"]["ResourceTagSet"] !== undefined) {
+  } else if (data["ResourceTagSets"] !== undefined && data["ResourceTagSets"]["ResourceTagSet"] !== undefined) {
     contents.ResourceTagSets = deserializeAws_restXmlResourceTagSetList(
       __getArrayIfSingleItem(data["ResourceTagSets"]["ResourceTagSet"]),
       context
@@ -6230,8 +6225,7 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
   }
   if (data.TrafficPolicySummaries === "") {
     contents.TrafficPolicySummaries = [];
-  }
-  if (
+  } else if (
     data["TrafficPolicySummaries"] !== undefined &&
     data["TrafficPolicySummaries"]["TrafficPolicySummary"] !== undefined
   ) {
@@ -6303,8 +6297,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-  }
-  if (
+  } else if (
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
@@ -6375,8 +6368,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-  }
-  if (
+  } else if (
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
@@ -6454,8 +6446,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-  }
-  if (
+  } else if (
     data["TrafficPolicyInstances"] !== undefined &&
     data["TrafficPolicyInstances"]["TrafficPolicyInstance"] !== undefined
   ) {
@@ -6522,8 +6513,7 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   }
   if (data.TrafficPolicies === "") {
     contents.TrafficPolicies = [];
-  }
-  if (data["TrafficPolicies"] !== undefined && data["TrafficPolicies"]["TrafficPolicy"] !== undefined) {
+  } else if (data["TrafficPolicies"] !== undefined && data["TrafficPolicies"]["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicies = deserializeAws_restXmlTrafficPolicies(
       __getArrayIfSingleItem(data["TrafficPolicies"]["TrafficPolicy"]),
       context
@@ -6586,8 +6576,7 @@ export const deserializeAws_restXmlListVPCAssociationAuthorizationsCommand = asy
   }
   if (data.VPCs === "") {
     contents.VPCs = [];
-  }
-  if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
+  } else if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
     contents.VPCs = deserializeAws_restXmlVPCs(__getArrayIfSingleItem(data["VPCs"]["VPC"]), context);
   }
   return Promise.resolve(contents);
@@ -6650,8 +6639,7 @@ export const deserializeAws_restXmlTestDNSAnswerCommand = async (
   }
   if (data.RecordData === "") {
     contents.RecordData = [];
-  }
-  if (data["RecordData"] !== undefined && data["RecordData"]["RecordDataEntry"] !== undefined) {
+  } else if (data["RecordData"] !== undefined && data["RecordData"]["RecordDataEntry"] !== undefined) {
     contents.RecordData = deserializeAws_restXmlRecordData(
       __getArrayIfSingleItem(data["RecordData"]["RecordDataEntry"]),
       context
@@ -7302,8 +7290,7 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
   }
   if (data.messages === "") {
     contents.messages = [];
-  }
-  if (data["messages"] !== undefined && data["messages"]["Message"] !== undefined) {
+  } else if (data["messages"] !== undefined && data["messages"]["Message"] !== undefined) {
     contents.messages = deserializeAws_restXmlErrorMessages(
       __getArrayIfSingleItem(data["messages"]["Message"]),
       context
@@ -8685,8 +8672,7 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-  }
-  if (output["Dimensions"] !== undefined && output["Dimensions"]["Dimension"] !== undefined) {
+  } else if (output["Dimensions"] !== undefined && output["Dimensions"]["Dimension"] !== undefined) {
     contents.Dimensions = deserializeAws_restXmlDimensionList(
       __getArrayIfSingleItem(output["Dimensions"]["Dimension"]),
       context
@@ -8742,8 +8728,7 @@ const deserializeAws_restXmlDelegationSet = (output: any, context: __SerdeContex
   }
   if (output.NameServers === "") {
     contents.NameServers = [];
-  }
-  if (output["NameServers"] !== undefined && output["NameServers"]["NameServer"] !== undefined) {
+  } else if (output["NameServers"] !== undefined && output["NameServers"]["NameServer"] !== undefined) {
     contents.NameServers = deserializeAws_restXmlDelegationSetNameServers(
       __getArrayIfSingleItem(output["NameServers"]["NameServer"]),
       context
@@ -8975,8 +8960,10 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
   }
   if (output.ChildHealthChecks === "") {
     contents.ChildHealthChecks = [];
-  }
-  if (output["ChildHealthChecks"] !== undefined && output["ChildHealthChecks"]["ChildHealthCheck"] !== undefined) {
+  } else if (
+    output["ChildHealthChecks"] !== undefined &&
+    output["ChildHealthChecks"]["ChildHealthCheck"] !== undefined
+  ) {
     contents.ChildHealthChecks = deserializeAws_restXmlChildHealthCheckList(
       __getArrayIfSingleItem(output["ChildHealthChecks"]["ChildHealthCheck"]),
       context
@@ -8987,8 +8974,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
   }
   if (output.Regions === "") {
     contents.Regions = [];
-  }
-  if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
+  } else if (output["Regions"] !== undefined && output["Regions"]["Region"] !== undefined) {
     contents.Regions = deserializeAws_restXmlHealthCheckRegionList(
       __getArrayIfSingleItem(output["Regions"]["Region"]),
       context
@@ -9398,8 +9384,7 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
   }
   if (output.ResourceRecords === "") {
     contents.ResourceRecords = [];
-  }
-  if (output["ResourceRecords"] !== undefined && output["ResourceRecords"]["ResourceRecord"] !== undefined) {
+  } else if (output["ResourceRecords"] !== undefined && output["ResourceRecords"]["ResourceRecord"] !== undefined) {
     contents.ResourceRecords = deserializeAws_restXmlResourceRecords(
       __getArrayIfSingleItem(output["ResourceRecords"]["ResourceRecord"]),
       context
@@ -9445,8 +9430,7 @@ const deserializeAws_restXmlResourceTagSet = (output: any, context: __SerdeConte
   }
   if (output.Tags === "") {
     contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
+  } else if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     contents.Tags = deserializeAws_restXmlTagList(__getArrayIfSingleItem(output["Tags"]["Tag"]), context);
   }
   return contents;
