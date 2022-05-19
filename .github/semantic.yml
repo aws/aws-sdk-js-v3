@@ -1,0 +1,9 @@
+enabled: true
+titleOnly: true
+types:
+  - feat
+  - fix
+  - docs
+  - test
+  - chore
+allowRevertCommits: true
