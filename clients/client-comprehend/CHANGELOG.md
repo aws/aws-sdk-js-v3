@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.96.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.95.0...v3.96.0) (2022-05-20)
+
+
+### Features
+
+* **client-comprehend:** Comprehend releases 14 new entity types for DetectPiiEntities and ContainsPiiEntities APIs. ([598f334](https://github.com/aws/aws-sdk-js-v3/commit/598f334cf84fd67910d5f558c983ca989d20afcc))
+
+
+
+
+
 # [3.95.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.94.0...v3.95.0) (2022-05-19)
 
 **Note:** Version bump only for package @aws-sdk/client-comprehend

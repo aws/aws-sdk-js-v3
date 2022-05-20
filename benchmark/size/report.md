@@ -8,7 +8,7 @@
 |@aws-sdk/client-cloudformation|3.94.0|2.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cloudhsm-v2|3.94.0|520.6 KB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-cloudwatch|3.94.0|1.2 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
-|@aws-sdk/client-cloudwatch-logs|3.94.0|1.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
+|@aws-sdk/client-cloudwatch-logs|3.95.0|1.1 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-codebuild|3.94.0|1.4 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-codecommit|3.94.0|2.9 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
 |@aws-sdk/client-codedeploy|3.94.0|1.8 MB|✅(5.62.1)|✅(2.59.0)|✅(0.13.12)|
