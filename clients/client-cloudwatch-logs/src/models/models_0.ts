@@ -45,7 +45,7 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Multiple requests to update the same resource were in conflict.</p>
+ * <p>Multiple concurrent requests to update the same resource were in conflict.</p>
  */
 export class OperationAbortedException extends __BaseException {
   readonly name: "OperationAbortedException" = "OperationAbortedException";
@@ -161,7 +161,7 @@ export interface CreateExportTaskRequest {
   from: number | undefined;
 
   /**
-   * <p>The end time of the range for the request, expreswatchlogsdocused as the number of milliseconds
+   * <p>The end time of the range for the request, expressed as the number of milliseconds
    *       after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not
    *       exported.</p>
    */
@@ -786,7 +786,7 @@ export interface LogGroup {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>
@@ -826,7 +826,7 @@ export namespace LogGroup {
 export interface DescribeLogGroupsResponse {
   /**
    * <p>The log groups.</p>
-   *          <p>If the <code>retentionInDays</code> value if not included for a log group, then that log group
+   *          <p>If the <code>retentionInDays</code> value is not included for a log group, then that log group
    *     is set to have its events never expire.</p>
    */
   logGroups?: LogGroup[];
@@ -2514,7 +2514,7 @@ export interface PutRetentionPolicyRequest {
 
   /**
    * <p>The number of days to retain the log events in the specified log group.
-   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.</p>
+   *       Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.</p>
    *          <p>To set a log group to never have log events expire, use
    *     <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html">DeleteRetentionPolicy</a>.
    *   </p>
