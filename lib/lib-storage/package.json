@@ -23,6 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/smithy-client": "*",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
